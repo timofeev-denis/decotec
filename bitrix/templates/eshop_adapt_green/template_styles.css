@@ -698,3 +698,11 @@ a.bxd-block:hover {}
 		background: none ;
 	}
 }
+
+.sidebar_links {
+	padding-left: 10px;
+	margin-bottom: 20px;
+}
+.sidebar_links li {
+	list-style: none;
+}
