@@ -149,9 +149,8 @@ if (0 < $arResult["SECTIONS_COUNT"])
 				<a
 					href="<? echo $arSection['SECTION_PAGE_URL']; ?>"
 					class="bx_catalog_tile_img"
-					style="background-image:url('<? echo $arSection['PICTURE']['SRC']; ?>');"
 					title="<? echo $arSection['PICTURE']['TITLE']; ?>"
-				> </a><?
+				><img src="<? echo $arSection['PICTURE']['SRC']; ?>" /></a><?
 				if ('Y' != $arParams['HIDE_SECTION_NAME'])
 				{
 					?><h2 class="bx_catalog_tile_title"><a href="<? echo $arSection['SECTION_PAGE_URL']; ?>"><? echo $arSection['NAME']; ?></a><?
