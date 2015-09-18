@@ -1,3 +1,4 @@
+<h1>sidebar</h1>
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
 <div class="bx-sidebar-block">
