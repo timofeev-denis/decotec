@@ -1,4 +1,58 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+						<div>
+							<?$APPLICATION->IncludeComponent(
+								"bitrix:catalog.viewed.products",
+								".default",
+								Array(
+									"COMPONENT_TEMPLATE" => ".default",
+									"IBLOCK_TYPE" => "catalog",
+									"IBLOCK_ID" => "2",
+									"SHOW_FROM_SECTION" => "Y",
+									"SECTION_ID" => "",
+									"SECTION_CODE" => "",
+									"SECTION_ELEMENT_ID" => "",
+									"SECTION_ELEMENT_CODE" => "",
+									"DEPTH" => "",
+									"HIDE_NOT_AVAILABLE" => "N",
+									"SHOW_DISCOUNT_PERCENT" => "Y",
+									"PRODUCT_SUBSCRIPTION" => "N",
+									"SHOW_NAME" => "Y",
+									"SHOW_IMAGE" => "Y",
+									"MESS_BTN_BUY" => "Купить",
+									"MESS_BTN_DETAIL" => "Подробнее",
+									"MESS_BTN_SUBSCRIBE" => "Подписаться",
+									"PAGE_ELEMENT_COUNT" => "3",
+									"LINE_ELEMENT_COUNT" => "3",
+									"TEMPLATE_THEME" => "blue",
+									"DETAIL_URL" => "",
+									"CACHE_TYPE" => "N",
+									"CACHE_TIME" => "36000000",
+									"CACHE_GROUPS" => "Y",
+									"SHOW_OLD_PRICE" => "N",
+									"PRICE_CODE" => array(0=>"BASE",),
+									"SHOW_PRICE_COUNT" => "1",
+									"PRICE_VAT_INCLUDE" => "Y",
+									"CONVERT_CURRENCY" => "N",
+									"BASKET_URL" => "/personal/basket.php",
+									"ACTION_VARIABLE" => "action",
+									"PRODUCT_ID_VARIABLE" => "id",
+									"PRODUCT_QUANTITY_VARIABLE" => "",
+									"ADD_PROPERTIES_TO_BASKET" => "Y",
+									"PRODUCT_PROPS_VARIABLE" => "prop",
+									"PARTIAL_PRODUCT_PROPERTIES" => "N",
+									"USE_PRODUCT_QUANTITY" => "N",
+									"SHOW_PRODUCTS_2" => "Y",
+									"PROPERTY_CODE_2" => array(0=>"",1=>"",),
+									"CART_PROPERTIES_2" => array(0=>"",1=>"",),
+									"ADDITIONAL_PICT_PROP_2" => "",
+									"LABEL_PROP_2" => "-",
+									"PROPERTY_CODE_3" => array(0=>"",1=>"",),
+									"CART_PROPERTIES_3" => array(0=>"",1=>"",),
+									"ADDITIONAL_PICT_PROP_3" => "",
+									"OFFER_TREE_PROPS_3" => array(0=>"-",)
+								)
+							);?>
+						</div>
 					</div>
 					<?if (/*!$isCatalogPage*/true):?>
 					<div class="sidebar col-md-3 col-sm-4">
