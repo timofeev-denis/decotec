@@ -1,5 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<div class="bx-socialsidebar">
+<div class="bx-subscribe">
 	<div class="bx-block-title">Производители</div>
 </div>
 

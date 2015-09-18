@@ -1,4 +1,3 @@
-<h1>sidebar</h1>
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
 <div class="bx-sidebar-block">
@@ -43,48 +42,3 @@
 	),
 	false
 );?>
-
-<div class="bx-sidebar-block hidden-xs">
-	<?$APPLICATION->IncludeComponent(
-		"bitrix:main.include",
-		"",
-		Array(
-			"AREA_FILE_SHOW" => "file",
-			"PATH" => SITE_DIR."include/sender.php",
-			"AREA_FILE_RECURSIVE" => "N",
-			"EDIT_MODE" => "html",
-		),
-		false,
-		Array('HIDE_ICONS' => 'Y')
-	);?>
-</div>
-
-<div class="bx-sidebar-block">
-	<?$APPLICATION->IncludeComponent(
-		"bitrix:main.include",
-		"",
-		Array(
-			"AREA_FILE_SHOW" => "file",
-			"PATH" => SITE_DIR."include/about.php",
-			"AREA_FILE_RECURSIVE" => "N",
-			"EDIT_MODE" => "html",
-		),
-		false,
-		Array('HIDE_ICONS' => 'N')
-	);?>
-</div>
-
-<div class="bx-sidebar-block">
-	<?$APPLICATION->IncludeComponent(
-		"bitrix:main.include",
-		"",
-		Array(
-			"AREA_FILE_SHOW" => "file",
-			"PATH" => SITE_DIR."include/twitter.php",
-			"AREA_FILE_RECURSIVE" => "N",
-			"EDIT_MODE" => "html",
-		),
-		false,
-		Array('HIDE_ICONS' => 'N')
-	);?>
-</div>

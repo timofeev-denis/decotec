@@ -31,23 +31,4 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
 	),
 	false
 );?> <br>
-<br>
-<?
-/*
-if(CModule::IncludeModule("iblock")) {
-	$IBLOCK_ID = 2; // инфоблок с элементами 
-	$arOrder = Array("SORT"=>"ASC"); 
-	//$arSelect = Array("ID", "NAME", "IBLOCK_ID", "DETAIL_PAGE_URL"); 
-	//$arSelect = Array("ID", "NAME");
-	$arFilter = Array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE"=>"Y"); 
-	$res = CIBlockSection::GetList($arOrder, $arFilter);
-	//$res = CIBlockSection::GetList($arOrder,$arFilter);
-
-	while($ob = $res->GetNext()) { // наполнение массива меню пунктами меню
-		//$arFields = $ob->GetFields(); 
-		print_r( $ob );
-	}
-}
-*/
-?>
-<h2></h2><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

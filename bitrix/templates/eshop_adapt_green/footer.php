@@ -1,7 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 					</div>
 					<?if (/*!$isCatalogPage*/true):?>
-					isCatalogPage
 					<div class="sidebar col-md-3 col-sm-4">
 						<?$APPLICATION->IncludeComponent(
 							"bitrix:main.include",
@@ -16,8 +15,6 @@
 							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div><!--// sidebar -->
-					<?else:?>
-					!isCatalogPage
 					<?endif?>
 				</div><!--//row-->
 			</div><!--//container bx-content-seection-->
