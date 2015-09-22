@@ -196,7 +196,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 			2 => "",
 		),
 		"SIDEBAR_SECTION_SHOW" => "N",
-		"SIDEBAR_DETAIL_SHOW" => "Y",
+		"SIDEBAR_DETAIL_SHOW" => "N",
 		"SIDEBAR_PATH" => "/sect_sidebar.php",
 		"COMPONENT_TEMPLATE" => "decotec",
 		"COMMON_SHOW_CLOSE_POPUP" => "N",

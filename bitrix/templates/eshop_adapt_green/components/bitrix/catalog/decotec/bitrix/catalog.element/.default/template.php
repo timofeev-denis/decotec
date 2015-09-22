@@ -753,6 +753,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 
 
 					<?
+					print_r( $arOneOffer );
 					}
 				} else {
 				?>
