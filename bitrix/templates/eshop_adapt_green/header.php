@@ -68,6 +68,9 @@ $curPage = $APPLICATION->GetCurPage(true);
 				</div>
 			</div>
 			<div class="row">
+				SLIDER
+			</div>
+			<div class="row">
 				<div class="col-md-12 hidden-xs">
 					<?if ($wizTemplateId == "eshop_adapt_horizontal"):?>
 					<?$APPLICATION->IncludeComponent(
