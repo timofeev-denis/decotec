@@ -727,33 +727,35 @@ if ('Y' == $arParams['USE_COMMENTS'])
 					foreach ($arResult['OFFERS'] as $key => $arOneOffer) {
 						//print_r( $arOneOffer );
 					?>
-					
-					
-						<div class="bx_catalog_item double">
-							<div class="bx_catalog_item_container" id="bx_328740560_20">
-								<a id="bx_328740560_20_pict" href="/catalog/gostinaya/charme/" class="bx_catalog_item_images" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>
-								<a id="bx_328740560_20_secondpict" href="/catalog/gostinaya/charme/" class="bx_catalog_item_images_double" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>');" title="<?=$arOneOffer["NAME"]?>">		</a>
-								<div class="bx_catalog_item_title">
-									<a href="/catalog/gostinaya/charme/" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["NAME"]?></a>
+						<div class="bx_catalog_item">
+							<form method="GET">
+								<div class="bx_catalog_item_container" id="bx_328740560_20">
+									<a id="bx_328740560_20_pict" href="/catalog/gostinaya/charme/" class="bx_catalog_item_images" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>
+									<a id="bx_328740560_20_secondpict" href="/catalog/gostinaya/charme/" class="bx_catalog_item_images_double" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>');" title="<?=$arOneOffer["NAME"]?>">		</a>
+									<div class="bx_catalog_item_title">
+										<a href="/catalog/gostinaya/charme/" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["NAME"]?></a>
+									</div>
+									<div class="bx_catalog_item_title">
+										<a href="/catalog/gostinaya/charme/" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["PROPERTIES"]["ATT_TYPE"]["VALUE"]?></a>
+									</div>
+									<div class="bx_catalog_item_price">
+										<div id="bx_328740560_20_price" class="bx_price"><?=$arOneOffer["PRICES"]["BASE"]["PRINT_VALUE"]?> за <?=$arOneOffer["CATALOG_MEASURE_NAME"]?></div>
+									</div>
+										<input type="hidden" name="id" value="<?=$arOneOffer["ID"]?>" />
+										<input type="hidden" name="action" value="BUY" />
+									
+										<div class="bx_catalog_item_controls no_touch">
+											<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" id="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" style="width: 40px; text-align: center;">
+											<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
+										</div>
+										<div class="bx_catalog_item_controls touch">
+											<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
+										</div>
 								</div>
-								<div class="bx_catalog_item_title">
-									<a href="/catalog/gostinaya/charme/" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["PROPERTIES"]["ATT_TYPE"]["VALUE"]?></a>
-								</div>
-								<div class="bx_catalog_item_price">
-									<div id="bx_328740560_20_price" class="bx_price"><?=$arOneOffer["PRICES"]["BASE"]["PRINT_VALUE"]?> за <?=$arOneOffer["CATALOG_MEASURE_NAME"]?></div>
-								</div>
-								<div class="bx_catalog_item_controls no_touch">
-									<a class="bx_bt_button_type_2 bx_medium" href="/catalog/gostinaya/charme/">Подробнее</a>
-								</div>
-								<div class="bx_catalog_item_controls touch">
-									<a class="bx_bt_button_type_2 bx_medium" href="/catalog/gostinaya/charme/">Подробнее</a>
-								</div>
-							</div>
+							</form>
 						</div>
 
-
 					<?
-					print_r( $arOneOffer );
 					}
 				} else {
 				?>
