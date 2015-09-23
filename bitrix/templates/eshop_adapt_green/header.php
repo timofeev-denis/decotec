@@ -68,7 +68,20 @@ $curPage = $APPLICATION->GetCurPage(true);
 				</div>
 			</div>
 			<div class="row">
-				SLIDER
+				<div class="col-md-12">
+			<?$APPLICATION->IncludeComponent(
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"COMPONENT_TEMPLATE" => ".default",
+		"AREA_FILE_SHOW" => "page",
+		"PATH" => SITE_DIR."include/manufacturers.php",
+		"EDIT_TEMPLATE" => "",
+		"AREA_FILE_SUFFIX" => "inc"
+	),
+	false
+);?>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-12 hidden-xs">

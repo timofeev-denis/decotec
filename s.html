@@ -1,22 +1,13 @@
 <head>
 	<!-- Place either at the bottom in the <head> of your page or inside your CSS -->
-	<style type="text/css">
-	.flex-caption {
-	  width: 96%;
-	  padding: 2%;
-	  left: 0;
-	  bottom: 0;
-	  background: rgba(0,0,0,.5);
-	  color: #fff;
-	  text-shadow: 0 -1px 0 rgba(0,0,0,.3);
-	  font-size: 14px;
-	  line-height: 18px;
-	}
-	</style>
+
+	<link rel="stylesheet" href="flexslider/flexslider.css" type="text/css" media="screen" />
+	
+	<script src="bitrix/js/main/jquery/jquery-1.8.3.min.js"></script>
 	<!--
-	<script src="bitrix/js/main/jquery/jquery-2.1.3.map.js"></script>
-	-->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	-->
+	<script defer src="flexslider/jquery.flexslider.js"></script>
 </head>
 
 <html>
@@ -24,28 +15,25 @@
 // Can also be used with $(document).ready()
 $(window).load(function() {
   $('.flexslider').flexslider({
-    animation: "slide"
+    animation: "slide",
+	controlNav: false
   });
 });
 </script>
 <!-- Place somewhere in the <body> of your page -->
-<div class="flexslider">
-          <ul class="slides">
-            <li>
-  	    	    <img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
-              <p class="flex-caption">Adventurer Cheesecake Brownie</p>
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_lemon.jpg" />
-              <p class="flex-caption">Adventurer Lemon</p>
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_donut.jpg" />
-              <p class="flex-caption">Adventurer Donut</p>
-  	    		</li>
-  	    		<li>
-  	    	    <img src="images/kitchen_adventurer_caramel.jpg" />
-              <p class="flex-caption">Adventurer Caramel</p>
-  	    		</li>
-          </ul>
+<div class="flexslider" style="width: 50%;">
+	<ul class="slides">
+		<li>
+			<img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
+		</li>
+		<li>
+			<img src="images/kitchen_adventurer_lemon.jpg" />
+		</li>
+		<li>
+			<img src="images/kitchen_adventurer_donut.jpg" />
+		</li>
+		<li>
+			<img src="images/kitchen_adventurer_caramel.jpg" />
+		</li>
+	</ul>
 </div>
