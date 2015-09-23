@@ -15,20 +15,23 @@ $(window).load(function() {
   });
 });
 </script>
-<!-- Place somewhere in the <body> of your page -->
 <div class="flexslider" style="width: 100%;">
 	<ul class="slides">
-		<li>
-			<img src="images/kitchen_adventurer_cheesecake_brownie.jpg" />
-		</li>
-		<li>
-			<img src="images/kitchen_adventurer_lemon.jpg" />
-		</li>
-		<li>
-			<img src="images/kitchen_adventurer_donut.jpg" />
-		</li>
-		<li>
-			<img src="images/kitchen_adventurer_caramel.jpg" />
-		</li>
+		<?
+		$arSelect = Array( "ID", "NAME", "DATE_ACTIVE_FROM" );
+		$arFilter = Array( "IBLOCK_ID"=>5, "ACTIVE"=>"Y" );
+		$res = CIBlockElement::GetList( Array( "SORT"=>"ASC" ), $arFilter, false, false /*, $arSelect */ );
+		while( $ob = $res->GetNextElement() ) {
+			$arFields = $ob->GetFields();
+			//print_r( $arFields );
+			$img = CFile::ResizeImageGet($arFields["DETAIL_PICTURE"]);
+			//print_r( $img);
+			?>
+			<li>
+				<img src="<?=$img["src"]?>" title="<?=$arFields["NAME"]?>" />
+			</li>			
+			<?
+		}
+		?>
 	</ul>
 </div>
