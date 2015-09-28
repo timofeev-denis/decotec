@@ -217,7 +217,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		"DETAIL_ADD_TO_BASKET_ACTION" => array(
 			0 => "BUY",
 		),
-		"DETAIL_SHOW_BASIS_PRICE" => "Y",
+		"DETAIL_SHOW_BASIS_PRICE" => "N",
 		"SECTIONS_HIDE_SECTION_NAME" => "N",
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
