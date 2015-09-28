@@ -1367,6 +1367,7 @@ window.JCCatalogElement.prototype.ProductSelectSliderImg = function()
 
 window.JCCatalogElement.prototype.SetProductMainPict = function(intPict)
 {
+	console.log( "SetProductMainPict" );
 	var indexPict = -1,
 		i = 0,
 		j = 0,
@@ -1494,6 +1495,7 @@ window.JCCatalogElement.prototype.SelectSliderImg = function()
 
 window.JCCatalogElement.prototype.SetMainPict = function(intSlider, intPict)
 {
+	console.log( "SetMainPict" );
 	var index = -1,
 		indexPict = -1,
 		i,
@@ -1838,6 +1840,7 @@ window.JCCatalogElement.prototype.QuantitySet = function(index)
 
 window.JCCatalogElement.prototype.SelectOfferProp = function()
 {
+	console.log( "SelectOfferProp" );
 	var i = 0,
 		strTreeValue = '',
 		arTreeItem = [],
@@ -2006,6 +2009,7 @@ window.JCCatalogElement.prototype.RowRight = function()
 
 window.JCCatalogElement.prototype.UpdateRow = function(intNumber, activeID, showID, canBuyID)
 {
+	console.log( "UpdateRow" );
 	var i = 0,
 		showI = 0,
 		value = '',
@@ -2798,13 +2802,16 @@ window.JCCatalogElement.prototype.incViewedCounter = function()
 		{
 			case 1:
 			case 2:
+			case 3:
 				this.viewedCounter.params.PRODUCT_ID = this.product.id;
 				this.viewedCounter.params.PARENT_ID = this.product.id;
 				break;
+			/*
 			case 3:
 				this.viewedCounter.params.PARENT_ID = this.product.id;
 				this.viewedCounter.params.PRODUCT_ID = this.offers[this.offerNum].ID;
 				break;
+			*/
 			default:
 				return;
 		}
@@ -2825,4 +2832,12 @@ window.JCCatalogElement.prototype.allowViewedCount = function(update)
 	if (update)
 		this.incViewedCounter();
 };
+
+console.log( "check" );
+
+$( ".img_preview" ).click(function() {
+	console.log( this.data("value") );
+	//console.log( "demo" );
+});
+
 })(window);

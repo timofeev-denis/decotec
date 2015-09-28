@@ -10,9 +10,13 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
+
+CJSCore::Init(array("jquery"));
+
 $this->setFrameMode(true);
 $templateLibrary = array('popup');
 $currencyList = '';
+
 if (!empty($arResult['CURRENCIES']))
 {
 	$templateLibrary[] = 'currency';
@@ -99,7 +103,8 @@ $arFirstPhoto = current($arResult['MORE_PHOTO']);
 	<div class="bx_bigimages_imgcontainer">
 	<span class="bx_bigimages_aligner"><img id="<? echo $arItemIDs['PICT']; ?>" src="<? echo $arFirstPhoto['SRC']; ?>" alt="<? echo $strAlt; ?>" title="<? echo $strTitle; ?>"></span>
 <?
-if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
+//if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
+if (false)
 {
 	if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS']))
 	{
@@ -129,7 +134,8 @@ if ($arResult['LABEL'])
 <?
 if ($arResult['SHOW_SLIDER'])
 {
-	if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS']))
+	//if (!isset($arResult['OFFERS']) || empty($arResult['OFFERS']))
+	if (true)
 	{
 		if (5 < $arResult['MORE_PHOTO_COUNT'])
 		{
@@ -151,11 +157,12 @@ if ($arResult['SHOW_SLIDER'])
 	<div class="bx_slide">
 	<ul style="width: <? echo $strWidth; ?>;" id="<? echo $arItemIDs['SLIDER_LIST']; ?>">
 <?
+		$i = 0;
 		foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto)
 		{
 ?>
-	<li data-value="<? echo $arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>;"><span class="cnt"><span class="cnt_item" style="background-image:url('<? echo $arOnePhoto['SRC']; ?>');"></span></span></li>
-<?
+	<li class="img_preview<? echo ( $i==0 ? " bx_active" : "") ?>" data-value="<? echo $arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>;"><span class="cnt"><span class="cnt_item" style="background-image:url('<? echo $arOnePhoto['SRC']; ?>');"></span></span></li>
+<?			$i++;
 		}
 		unset($arOnePhoto);
 ?>
@@ -723,7 +730,8 @@ if ('Y' == $arParams['USE_COMMENTS'])
 			<div class="item_offers">
 				<div class="bx_catalog_list_home col3 bx_green">
 				<?php
-				if( isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+				//if( isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+				if( false ) {
 					foreach ($arResult['OFFERS'] as $key => $arOneOffer) {
 						//print_r( $arOneOffer );
 					?>
@@ -754,19 +762,20 @@ if ('Y' == $arParams['USE_COMMENTS'])
 								</div>
 							</form>
 						</div>
-
+						
 					<?
 					}
 				} else {
 				?>
-					NO OFFERS!!
+					
 				<?}?>
 				</div>
 			</div>
 	</div>
 	<div class="clb"></div>
 </div><?
-if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
+//if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']))
+if (false)
 {
 	foreach ($arResult['JS_OFFERS'] as &$arOneJS)
 	{
@@ -959,6 +968,10 @@ else
 	unset($emptyProductProperties);
 }
 ?>
+<?
+$arJSParams[ "PRODUCT_TYPE" ] = 1;
+?>
+
 <script type="text/javascript">
 var <? echo $strObName; ?> = new JCCatalogElement(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 BX.message({
