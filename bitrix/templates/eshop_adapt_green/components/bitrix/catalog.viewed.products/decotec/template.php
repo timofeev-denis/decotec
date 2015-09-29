@@ -182,7 +182,7 @@ if (!empty($arResult['ITEMS']))
 	<div class="bx_catalog_item_container <? echo $showImgClass; ?>">
 	<a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images"<? if ($arParams['SHOW_IMAGE'] == "Y")
 		{
-			?> style="background-image: url('<? echo($arParams['SHOW_IMAGE'] == "Y" ? $arItem['PREVIEW_PICTURE']['SRC'] : ""); ?>')"<?
+			?> style="background-image: url('<?=CFile::GetPath( $arItem['PROPERTIES']['MORE_PHOTO']['VALUE'][0] )?>')"<?
 		} ?> title="<? echo $strTitle; ?>"><?
 		if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 		{
@@ -202,11 +202,7 @@ if (!empty($arResult['ITEMS']))
 	{
 		?><a id="<? echo $arItemIDs['SECOND_PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images_double"<? if ($arParams['SHOW_IMAGE'] == "Y")
 	{
-		?> style="background-image: url('<? echo(
-			!empty($arItem['PREVIEW_PICTURE_SECOND'])
-			? $arItem['PREVIEW_PICTURE_SECOND']['SRC']
-			: $arItem['PREVIEW_PICTURE']['SRC']
-		); ?>')"<?
+		?> style="background-image: url('<?=CFile::GetPath( $arItem['PROPERTIES']['MORE_PHOTO']['VALUE'][0] )?>')"<?
 	} ?> title="<? echo $strTitle; ?>"><?
 		if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 		{
