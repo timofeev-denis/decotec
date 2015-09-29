@@ -420,7 +420,7 @@
 	text-align: center;
 	height: 0;
 	width: 100%;
-	padding-top: 130%;
+	padding-top: 99%;
 }
 .bx_item_detail .bx_item_slider .bx_bigimages .bx_bigimages_imgcontainer{
 	position: absolute;
@@ -435,7 +435,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	/*height: 100%;*/
 	text-align: center;
 }
 
