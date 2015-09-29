@@ -11,9 +11,9 @@ $arrFilter = array(
 ?><br>
   <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.top", 
-	".default", 
+	"decotec", 
 	array(
-		"COMPONENT_TEMPLATE" => ".default",
+		"COMPONENT_TEMPLATE" => "decotec",
 		"IBLOCK_TYPE" => "catalog",
 		"IBLOCK_ID" => "2",
 		"ELEMENT_SORT_FIELD" => "sort",
