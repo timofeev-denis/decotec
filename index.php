@@ -24,15 +24,4 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
 		"HIDE_SECTION_NAME" => "N"
 	)
 );?><br>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	"",
-	Array(
-		"COMPONENT_TEMPLATE" => ".default",
-		"AREA_FILE_SHOW" => "page",
-		"AREA_FILE_SUFFIX" => "",
-		"EDIT_TEMPLATE" => "",
-		"AREA_FILE_RECURSIVE" => "Y",
-		"PATH" => ""
-	)
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
