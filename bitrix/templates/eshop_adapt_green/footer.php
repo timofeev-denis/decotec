@@ -45,8 +45,9 @@
 		"USE_PRODUCT_QUANTITY" => "N",
 		"SHOW_PRODUCTS_2" => "Y",
 		"PROPERTY_CODE_2" => array(
-			0 => "",
-			1 => "",
+			0 => "ATT_MANUFACTURER",
+			1 => "ATT_COUNTRY",
+			2 => "",
 		),
 		"CART_PROPERTIES_2" => array(
 			0 => "",

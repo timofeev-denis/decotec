@@ -11,9 +11,15 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+if( strpos( $_SERVER[ "REQUEST_URI" ], "/manufacturers/" ) !== false ) {
+	$APPLICATION->SetTitle($arResult["ITEMS"][0]["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["LINK_ELEMENT_VALUE"][ $_REQUEST[ "element_code" ] ][ "NAME" ]);
+} elseif( strpos( $_SERVER[ "REQUEST_URI" ], "/countries/" ) !== false ) {
+	$APPLICATION->SetTitle($arResult["ITEMS"][0]["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["LINK_SECTION_VALUE"][ $_REQUEST[ "element_code" ] ][ "NAME" ]);
+} elseif( strpos( $_SERVER[ "REQUEST_URI" ], "/themes/" ) !== false ) {
+	$APPLICATION->SetTitle($_REQUEST[ "theme" ]);
+}
 if (!empty($arResult['ITEMS']))
 {
-	print( $arResult["ITEMS"][0]["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["LINK_ELEMENT_VALUE"][ $_REQUEST[ "element_code" ] ][ "NAME" ] );
 	$arSkuTemplate = array();
 	if (!empty($arResult['SKU_PROPS']))
 	{

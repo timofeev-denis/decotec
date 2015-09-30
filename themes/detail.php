@@ -27,9 +27,8 @@ $arrFilter = array(
 		"PROPERTY_CODE" => array(
 			0 => "ATT_MANUFACTURER",
 			1 => "ATT_COUNTRY",
-			2 => "ATT_THEME",
-			3 => "ATT_TEST",
-			4 => "",
+			2 => "ATT_TEST",
+			3 => "",
 		),
 		"OFFERS_LIMIT" => "5",
 		"VIEW_MODE" => "SECTION",

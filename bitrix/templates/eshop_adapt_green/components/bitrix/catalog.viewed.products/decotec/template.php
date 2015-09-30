@@ -284,12 +284,12 @@ if (!empty($arResult['ITEMS']))
 			<?
 			foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
 			{
-				?><br><? echo $arOneProp['NAME']; ?> <strong><?
+				?><br><? echo $arOneProp['NAME']; ?> <?
 				echo(
 				is_array($arOneProp['DISPLAY_VALUE'])
 					? implode('/', $arOneProp['DISPLAY_VALUE'])
 					: $arOneProp['DISPLAY_VALUE']
-				); ?></strong><?
+				); 
 			}
 			?>
 		</div>
@@ -446,12 +446,12 @@ if (!empty($arResult['ITEMS']))
 			{
 				foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
 				{
-					?><br><? echo $arOneProp['NAME']; ?><strong> <?
+					?><br><? echo $arOneProp['NAME']; ?> <?
 					echo(
 					is_array($arOneProp['DISPLAY_VALUE'])
 						? implode(' / ', $arOneProp['DISPLAY_VALUE'])
 						: $arOneProp['DISPLAY_VALUE']
-					); ?></strong><?
+					); 
 				}
 			}
 
