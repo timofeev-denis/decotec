@@ -71,6 +71,7 @@
 	false
 );?>
 						</div>
+						<? if ($APPLICATION->GetCurPage(false) === '/'): ?>
 						<div class="bx_item_list_new_items">
 							<div class="bx_item_list_title">Новые поступления:</div>
 							<?$APPLICATION->IncludeComponent(
@@ -138,6 +139,7 @@
 								)
 							);?>
 						</div>
+						<? endif; ?>
 					</div>
 					<?if (/*!$isCatalogPage*/true):?>
 					<div class="sidebar col-md-3 col-sm-4">
