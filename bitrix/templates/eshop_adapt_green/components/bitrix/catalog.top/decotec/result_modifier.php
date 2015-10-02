@@ -116,6 +116,10 @@ $arParams['MESS_NOT_AVAILABLE'] = trim($arParams['MESS_NOT_AVAILABLE']);
 
 $arResult['VIEW_MODE_LIST'] = $arViewModeList;
 
+/* Modify DISPLAY_VALUE for ATT_THEME */
+$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"] = "<a href=\"/manufacturers/detail.php?element_code=14\">Kerama Marazzi</a>";
+
+
 if (!empty($arResult['ITEMS']))
 {
 	$arEmptyPreview = false;

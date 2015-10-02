@@ -47,7 +47,8 @@
 		"PROPERTY_CODE_2" => array(
 			0 => "ATT_MANUFACTURER",
 			1 => "ATT_COUNTRY",
-			2 => "",
+			2 => "ATT_THEME",
+			3 => "",
 		),
 		"CART_PROPERTIES_2" => array(
 			0 => "",

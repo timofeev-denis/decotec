@@ -12,7 +12,6 @@
 /** @var CBitrixComponent $component */
 
 CJSCore::Init(array("jquery"));
-
 $this->setFrameMode(true);
 $templateLibrary = array('popup');
 $currencyList = '';
@@ -276,9 +275,38 @@ if ($useBrands || $useVoteRating)
 }
 unset($useVoteRating, $useBrands);
 ?>
+<div class="item_info_section">
+	<div class="bx_item_description">
+		<div class="bx_item_section_name_gray" style="border-bottom: 1px solid #f2f2f2;">Страна</div>
+		<?=$arResult["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["DISPLAY_VALUE"]?>
+	</div>
+</div>
+
+<div class="item_info_section">
+	<div class="bx_item_description">
+		<div class="bx_item_section_name_gray" style="border-bottom: 1px solid #f2f2f2;">Производитель</div>
+		<?=$arResult["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["DISPLAY_VALUE"]?>
+	</div>
+</div>
+
+<div class="item_info_section">
+	<div class="bx_item_description">
+		<div class="bx_item_section_name_gray" style="border-bottom: 1px solid #f2f2f2;">Вид</div>
+		<a href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?echo $arResult["SECTION"]["PATH"][0]["NAME"]?></a>
+	</div>
+</div>
+
+<div class="item_info_section">
+	<div class="bx_item_description">
+		<div class="bx_item_section_name_gray" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
+		<a href="/themes/detail.php?theme=<?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?>"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></a>
+		
+	</div>
+</div>
 
 <div class="item_info_section">
 <?
+	//var_dump( $arResult );
 if ('' != $arResult['DETAIL_TEXT'])
 {
 ?>

@@ -1,5 +1,5 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Задайте вопрос");
+$APPLICATION->SetTitle("Контакты");
 ?><div class="row">
 	<div class="col-xs-12">
 		<p>

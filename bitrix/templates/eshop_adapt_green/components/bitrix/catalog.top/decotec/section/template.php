@@ -9,6 +9,9 @@
 /** @var array $arSkuTemplate */
 /** @var array $templateData */
 global $APPLICATION;
+
+//echo $arResult["PROPERTIES"]["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"];
+
 ?>
 <div class="bx_catalog_top_home col<? echo $arParams['LINE_ELEMENT_COUNT']; ?> <? echo $templateData['TEMPLATE_CLASS']; ?>">
 <?
