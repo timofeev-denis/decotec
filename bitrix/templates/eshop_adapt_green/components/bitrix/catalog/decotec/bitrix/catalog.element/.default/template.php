@@ -299,8 +299,7 @@ unset($useVoteRating, $useBrands);
 <div class="item_info_section">
 	<div class="bx_item_description">
 		<div class="bx_item_section_name_gray" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
-		<a href="/themes/detail.php?theme=<?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?>"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></a>
-		
+		<?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?>
 	</div>
 </div>
 

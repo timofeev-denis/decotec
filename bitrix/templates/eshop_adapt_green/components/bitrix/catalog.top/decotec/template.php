@@ -16,7 +16,7 @@ if( strpos( $_SERVER[ "REQUEST_URI" ], "/manufacturers/" ) !== false ) {
 } elseif( strpos( $_SERVER[ "REQUEST_URI" ], "/countries/" ) !== false ) {
 	$APPLICATION->SetTitle($arResult["ITEMS"][0]["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["LINK_SECTION_VALUE"][ $_REQUEST[ "element_code" ] ][ "NAME" ]);
 } elseif( strpos( $_SERVER[ "REQUEST_URI" ], "/themes/" ) !== false ) {
-	$APPLICATION->SetTitle($_REQUEST[ "theme" ]);
+	$APPLICATION->SetTitle($arResult["ITEMS"][0]["DISPLAY_PROPERTIES"]["ATT_THEME"]["LINK_ELEMENT_VALUE"][ $_REQUEST[ "element_code" ] ][ "NAME" ]);
 }
 if (!empty($arResult['ITEMS']))
 {

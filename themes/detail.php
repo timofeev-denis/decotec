@@ -1,15 +1,16 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-//$APPLICATION->SetTitle("Тематика");
-
+//$APPLICATION->SetTitle("detail");
+?><br>
+ <?
+//print_r( $arResult );
 GLOBAL $arrFilter; 
 $arrFilter = array( 
-//'PROPERTY_ATT_THEME' => $_REQUEST[ 'theme' ], 
-'PROPERTY_ATT_THEME_VALUE' => $_REQUEST[ 'theme' ], 
+//'PROPERTY_ATT_MANUFACTURER_VALUE' => $_REQUEST[ 'element_code' ], 
+//'!PROPERTY_ATT_MANUFACTURER' => 'Cersanit',
+'PROPERTY_ATT_THEME' => $_REQUEST[ 'element_code' ], 
 ); 
-
-?><br>
-  <?$APPLICATION->IncludeComponent(
+?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.top", 
 	"decotec", 
 	array(
@@ -27,8 +28,9 @@ $arrFilter = array(
 		"PROPERTY_CODE" => array(
 			0 => "ATT_MANUFACTURER",
 			1 => "ATT_COUNTRY",
-			2 => "ATT_TEST",
-			3 => "",
+			2 => "ATT_THEME",
+			3 => "ATT_TEST",
+			4 => "",
 		),
 		"OFFERS_LIMIT" => "5",
 		"VIEW_MODE" => "SECTION",
@@ -51,6 +53,7 @@ $arrFilter = array(
 		"ACTION_VARIABLE" => "action",
 		"PRODUCT_ID_VARIABLE" => "id",
 		"PRICE_CODE" => array(
+			0 => "BASE",
 		),
 		"USE_PRICE_COUNT" => "N",
 		"SHOW_PRICE_COUNT" => "1",
@@ -62,6 +65,7 @@ $arrFilter = array(
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRODUCT_PROPERTIES" => array(
+			0 => "ATT_MANUFACTURER",
 		),
 		"ADD_TO_BASKET_ACTION" => "ADD",
 		"DISPLAY_COMPARE" => "N",
@@ -83,7 +87,9 @@ $arrFilter = array(
 		"LABEL_PROP" => "-",
 		"MESS_BTN_COMPARE" => "Сравнить",
 		"OFFERS_CART_PROPERTIES" => array(
+			0 => "ATT_TYPE",
 		)
 	),
 	false
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?
+?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
