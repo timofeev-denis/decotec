@@ -163,6 +163,7 @@
 		</div><!--//workarea-->
 
 		<footer class="bx-footer">
+			<!--
 			<div class="bx-footer-line">
 				<div class="bx-footer-section container">
 					<?$APPLICATION->IncludeComponent(
@@ -179,6 +180,7 @@
 					);?>
 				</div>
 			</div>
+			-->
 			<div class="bx-footer-section container bx-center-section">
 				<div class="col-sm-5 col-md-3 col-md-push-6">
 					<h4 class="bx-block-title"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/about_title.php"), false);?></h4>
