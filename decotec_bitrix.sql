@@ -2,10 +2,10 @@
 -- version 
 -- http://www.phpmyadmin.net
 --
--- Хост: decotec.mysql
--- Время создания: Окт 21 2015 г., 22:06
--- Версия сервера: 5.1.73-log
--- Версия PHP: 5.6.6
+-- Host: decotec.mysql
+-- Generation Time: Oct 27, 2015 at 03:27 PM
+-- Server version: 5.1.73-log
+-- PHP Version: 5.6.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,15 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `decotec_bitrix`
+-- Database: `decotec_bitrix`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `bx_test_tmp`
+-- Table structure for table `bx_test_tmp`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `bx_test_tmp`;
@@ -39,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `bx_test_tmp` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_admin_notify`
+-- Table structure for table `b_admin_notify`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_admin_notify`;
@@ -57,9 +57,9 @@ CREATE TABLE IF NOT EXISTS `b_admin_notify` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_admin_notify_lang`
+-- Table structure for table `b_admin_notify_lang`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_admin_notify_lang`;
@@ -73,9 +73,9 @@ CREATE TABLE IF NOT EXISTS `b_admin_notify_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_agent`
+-- Table structure for table `b_agent`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_agent`;
@@ -92,21 +92,21 @@ CREATE TABLE IF NOT EXISTS `b_agent` (
   `IS_PERIOD` char(1) COLLATE utf8_unicode_ci DEFAULT 'Y',
   `USER_ID` int(18) DEFAULT NULL,
   `RUNNING` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_agent`
+-- Dumping data for table `b_agent`
 --
 
 INSERT INTO `b_agent` (`ID`, `MODULE_ID`, `SORT`, `NAME`, `ACTIVE`, `LAST_EXEC`, `NEXT_EXEC`, `DATE_CHECK`, `AGENT_INTERVAL`, `IS_PERIOD`, `USER_ID`, `RUNNING`) VALUES
-(1, 'main', 100, 'CEvent::CleanUpAgent();', 'Y', '2015-10-21 00:00:20', '2015-10-22 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
-(2, 'main', 100, 'CUser::CleanUpHitAuthAgent();', 'Y', '2015-10-21 00:00:20', '2015-10-22 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(1, 'main', 100, 'CEvent::CleanUpAgent();', 'Y', '2015-10-27 00:00:06', '2015-10-28 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(2, 'main', 100, 'CUser::CleanUpHitAuthAgent();', 'Y', '2015-10-27 00:00:06', '2015-10-28 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
 (3, 'main', 100, 'CCaptchaAgent::DeleteOldCaptcha(3600);', 'Y', '2015-09-23 11:35:36', '2015-09-23 12:35:36', NULL, 3600, 'N', NULL, 'N'),
-(4, 'main', 100, 'CUndo::CleanUpOld();', 'Y', '2015-10-21 00:00:20', '2015-10-22 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(4, 'main', 100, 'CUndo::CleanUpOld();', 'Y', '2015-10-27 00:00:06', '2015-10-28 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
 (5, 'main', 100, 'CSiteCheckerTest::CommonTest();', 'Y', '2015-09-23 11:35:36', '2015-09-24 11:35:36', NULL, 86400, 'N', NULL, 'N'),
 (6, 'main', 100, '\\Bitrix\\Main\\Analytics\\CounterDataTable::submitData();', 'Y', '2015-09-23 12:33:30', '2015-09-23 12:34:30', NULL, 60, 'N', NULL, 'N'),
 (7, 'catalog', 100, '\\Bitrix\\Catalog\\CatalogViewedProductTable::clearAgent();', 'Y', '2015-09-22 09:46:33', '2015-09-27 09:46:33', NULL, 432000, 'N', NULL, 'N'),
-(8, 'currency', 100, '\\Bitrix\\Currency\\CurrencyTable::currencyBaseRateAgent();', 'Y', '2015-10-21 00:01:21', '2015-10-22 00:01:00', NULL, 86400, 'Y', NULL, 'N'),
+(8, 'currency', 100, '\\Bitrix\\Currency\\CurrencyTable::currencyBaseRateAgent();', 'Y', '2015-10-27 00:07:39', '2015-10-28 00:01:00', NULL, 86400, 'Y', NULL, 'N'),
 (9, 'forum', 100, 'CForumStat::CleanUp();', 'Y', '2015-09-23 11:35:37', '2015-09-24 11:35:37', NULL, 86400, 'N', NULL, 'N'),
 (10, 'forum', 100, 'CForumFiles::CleanUp();', 'Y', '2015-09-23 11:35:37', '2015-09-24 11:35:37', NULL, 86400, 'N', NULL, 'N'),
 (14, 'sale', 100, 'CSaleRecurring::AgentCheckRecurring();', 'Y', '2015-09-23 11:35:37', '2015-09-23 13:35:37', NULL, 7200, 'N', NULL, 'N'),
@@ -121,7 +121,7 @@ INSERT INTO `b_agent` (`ID`, `MODULE_ID`, `SORT`, `NAME`, `ACTIVE`, `LAST_EXEC`,
 (28, 'seo', 100, 'Bitrix\\Seo\\Engine\\YandexDirect::updateAgent();', 'Y', '2015-09-23 11:35:39', '2015-09-23 12:35:39', NULL, 3600, 'N', NULL, 'N'),
 (29, 'seo', 100, 'Bitrix\\Seo\\Adv\\LogTable::clean();', 'Y', '2015-09-23 11:35:39', '2015-09-24 11:35:39', NULL, 86400, 'N', NULL, 'N'),
 (32, 'storeassist', 100, 'CStoreAssist::AgentCountDayOrders();', 'Y', '2015-09-23 11:35:40', '2015-09-24 11:35:40', NULL, 86400, 'N', NULL, 'N'),
-(34, 'subscribe', 100, 'CSubscription::CleanUp();', 'Y', '2015-10-21 03:02:23', '2015-10-22 03:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(34, 'subscribe', 100, 'CSubscription::CleanUp();', 'Y', '2015-10-27 03:01:51', '2015-10-28 03:00:00', NULL, 86400, 'Y', NULL, 'N'),
 (37, 'sale', 100, 'CSaleProduct::RefreshProductList();', 'Y', '2015-09-22 09:46:36', '2015-09-26 09:46:36', NULL, 345600, 'N', NULL, 'N'),
 (38, 'subscribe', 100, 'CPostingTemplate::Execute();', 'Y', '2015-09-23 12:33:30', '2015-09-23 12:34:30', NULL, 60, 'N', NULL, 'N'),
 (41, 'pull', 100, 'CPullChannel::CheckExpireAgent();', 'Y', '2015-09-23 11:35:41', '2015-09-23 23:35:41', NULL, 43200, 'N', NULL, 'N'),
@@ -133,9 +133,9 @@ INSERT INTO `b_agent` (`ID`, `MODULE_ID`, `SORT`, `NAME`, `ACTIVE`, `LAST_EXEC`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_app_password`
+-- Table structure for table `b_app_password`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_app_password`;
@@ -156,9 +156,9 @@ CREATE TABLE IF NOT EXISTS `b_app_password` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_bitrixcloud_option`
+-- Table structure for table `b_bitrixcloud_option`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_bitrixcloud_option`;
@@ -171,21 +171,21 @@ CREATE TABLE IF NOT EXISTS `b_bitrixcloud_option` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_bitrixcloud_option`
+-- Dumping data for table `b_bitrixcloud_option`
 --
 
 INSERT INTO `b_bitrixcloud_option` (`ID`, `NAME`, `SORT`, `PARAM_KEY`, `PARAM_VALUE`) VALUES
 (1, 'backup_quota', 0, '0', '0'),
 (2, 'backup_total_size', 0, '0', '0'),
 (3, 'backup_last_backup_time', 0, '0', '1440657983'),
-(4, 'monitoring_expire_time', 0, '0', '1445439177');
+(4, 'monitoring_expire_time', 0, '0', '1445970046');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog`
+-- Table structure for table `b_blog`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog`;
@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `b_blog` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog`
+-- Dumping data for table `b_blog`
 --
 
 INSERT INTO `b_blog` (`ID`, `NAME`, `DESCRIPTION`, `DATE_CREATE`, `DATE_UPDATE`, `ACTIVE`, `OWNER_ID`, `SOCNET_GROUP_ID`, `URL`, `REAL_URL`, `GROUP_ID`, `ENABLE_COMMENTS`, `ENABLE_IMG_VERIF`, `ENABLE_RSS`, `LAST_POST_ID`, `LAST_POST_DATE`, `AUTO_GROUPS`, `EMAIL_NOTIFY`, `ALLOW_HTML`, `SEARCH_INDEX`, `USE_SOCNET`) VALUES
@@ -223,9 +223,9 @@ INSERT INTO `b_blog` (`ID`, `NAME`, `DESCRIPTION`, `DATE_CREATE`, `DATE_UPDATE`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_category`
+-- Table structure for table `b_blog_category`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_category`;
@@ -238,9 +238,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_category` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_comment`
+-- Table structure for table `b_blog_comment`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_comment`;
@@ -267,9 +267,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_comment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_group`
+-- Table structure for table `b_blog_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_group`;
@@ -280,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_group`
+-- Dumping data for table `b_blog_group`
 --
 
 INSERT INTO `b_blog_group` (`ID`, `NAME`, `SITE_ID`) VALUES
@@ -289,9 +289,9 @@ INSERT INTO `b_blog_group` (`ID`, `NAME`, `SITE_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_image`
+-- Table structure for table `b_blog_image`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_image`;
@@ -311,9 +311,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_image` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_post`
+-- Table structure for table `b_blog_post`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_post`;
@@ -353,7 +353,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_post` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_post`
+-- Dumping data for table `b_blog_post`
 --
 
 INSERT INTO `b_blog_post` (`ID`, `TITLE`, `BLOG_ID`, `AUTHOR_ID`, `PREVIEW_TEXT`, `PREVIEW_TEXT_TYPE`, `DETAIL_TEXT`, `DETAIL_TEXT_TYPE`, `DATE_CREATE`, `DATE_PUBLISH`, `KEYWORDS`, `PUBLISH_STATUS`, `CATEGORY_ID`, `ATRIBUTE`, `ENABLE_TRACKBACK`, `ENABLE_COMMENTS`, `ATTACH_IMG`, `NUM_COMMENTS`, `NUM_TRACKBACKS`, `VIEWS`, `FAVORITE_SORT`, `PATH`, `CODE`, `MICRO`, `HAS_IMAGES`, `HAS_PROPS`, `HAS_TAGS`, `HAS_COMMENT_IMAGES`, `HAS_SOCNET_ALL`, `SEO_TITLE`, `SEO_TAGS`, `SEO_DESCRIPTION`) VALUES
@@ -368,9 +368,9 @@ INSERT INTO `b_blog_post` (`ID`, `TITLE`, `BLOG_ID`, `AUTHOR_ID`, `PREVIEW_TEXT`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_post_category`
+-- Table structure for table `b_blog_post_category`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_post_category`;
@@ -384,9 +384,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_post_category` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_post_param`
+-- Table structure for table `b_blog_post_param`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_post_param`;
@@ -401,9 +401,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_post_param` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_site_path`
+-- Table structure for table `b_blog_site_path`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_site_path`;
@@ -417,9 +417,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_site_path` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_smile`
+-- Table structure for table `b_blog_smile`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_smile`;
@@ -436,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_smile` (
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_smile`
+-- Dumping data for table `b_blog_smile`
 --
 
 INSERT INTO `b_blog_smile` (`ID`, `SMILE_TYPE`, `TYPING`, `IMAGE`, `DESCRIPTION`, `CLICKABLE`, `SORT`, `IMAGE_WIDTH`, `IMAGE_HEIGHT`) VALUES
@@ -458,9 +458,9 @@ INSERT INTO `b_blog_smile` (`ID`, `SMILE_TYPE`, `TYPING`, `IMAGE`, `DESCRIPTION`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_smile_lang`
+-- Table structure for table `b_blog_smile_lang`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_smile_lang`;
@@ -472,7 +472,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_smile_lang` (
 ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_smile_lang`
+-- Dumping data for table `b_blog_smile_lang`
 --
 
 INSERT INTO `b_blog_smile_lang` (`ID`, `SMILE_ID`, `LID`, `NAME`) VALUES
@@ -508,9 +508,9 @@ INSERT INTO `b_blog_smile_lang` (`ID`, `SMILE_ID`, `LID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_socnet`
+-- Table structure for table `b_blog_socnet`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_socnet`;
@@ -522,9 +522,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_socnet` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_socnet_rights`
+-- Table structure for table `b_blog_socnet_rights`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_socnet_rights`;
@@ -539,9 +539,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_socnet_rights` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_trackback`
+-- Table structure for table `b_blog_trackback`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_trackback`;
@@ -559,9 +559,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_trackback` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_user`
+-- Table structure for table `b_blog_user`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_user`;
@@ -578,7 +578,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_user`
+-- Dumping data for table `b_blog_user`
 --
 
 INSERT INTO `b_blog_user` (`ID`, `USER_ID`, `ALIAS`, `DESCRIPTION`, `AVATAR`, `INTERESTS`, `LAST_VISIT`, `DATE_REG`, `ALLOW_POST`) VALUES
@@ -588,9 +588,9 @@ INSERT INTO `b_blog_user` (`ID`, `USER_ID`, `ALIAS`, `DESCRIPTION`, `AVATAR`, `I
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_user2blog`
+-- Table structure for table `b_blog_user2blog`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_user2blog`;
@@ -603,9 +603,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_user2blog` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_user2user_group`
+-- Table structure for table `b_blog_user2user_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_user2user_group`;
@@ -619,9 +619,9 @@ CREATE TABLE IF NOT EXISTS `b_blog_user2user_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_user_group`
+-- Table structure for table `b_blog_user_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_user_group`;
@@ -632,7 +632,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_user_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_user_group`
+-- Dumping data for table `b_blog_user_group`
 --
 
 INSERT INTO `b_blog_user_group` (`ID`, `BLOG_ID`, `NAME`) VALUES
@@ -642,9 +642,9 @@ INSERT INTO `b_blog_user_group` (`ID`, `BLOG_ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_blog_user_group_perms`
+-- Table structure for table `b_blog_user_group_perms`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_blog_user_group_perms`;
@@ -659,7 +659,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_user_group_perms` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_blog_user_group_perms`
+-- Dumping data for table `b_blog_user_group_perms`
 --
 
 INSERT INTO `b_blog_user_group_perms` (`ID`, `BLOG_ID`, `USER_GROUP_ID`, `PERMS_TYPE`, `POST_ID`, `PERMS`, `AUTOSET`) VALUES
@@ -699,9 +699,9 @@ INSERT INTO `b_blog_user_group_perms` (`ID`, `BLOG_ID`, `USER_GROUP_ID`, `PERMS_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_cache_tag`
+-- Table structure for table `b_cache_tag`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_cache_tag`;
@@ -713,18 +713,18 @@ CREATE TABLE IF NOT EXISTS `b_cache_tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_cache_tag`
+-- Dumping data for table `b_cache_tag`
 --
 
 INSERT INTO `b_cache_tag` (`SITE_ID`, `CACHE_SALT`, `RELATIVE_PATH`, `TAG`) VALUES
-(NULL, NULL, '0:1444338060', '**');
+(NULL, NULL, '0:1445893659', '**');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_captcha`
+-- Table structure for table `b_captcha`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_captcha`;
@@ -736,10 +736,11 @@ CREATE TABLE IF NOT EXISTS `b_captcha` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_captcha`
+-- Dumping data for table `b_captcha`
 --
 
 INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
+('007d3a9c692e97bdcb09684787763459', 'BBXBF', '188.165.15.13', '2015-10-26 13:21:32'),
 ('008bde643faa56bd428bf8c1d3439eed', 'XXB55', '5.9.98.178', '2015-09-27 14:19:28'),
 ('00a00fd2264ca650a9ea5af722314c4b', '63WMA', '66.249.78.10', '2015-10-19 13:57:05'),
 ('00fb72aa5fa2345634606c886e5a0ba2', '2W8L5', '46.9.164.175', '2015-10-18 14:47:42'),
@@ -747,9 +748,11 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('013b02dfed04ce2c39d6e1df596b401d', 'CE9TL', '5.9.98.178', '2015-09-27 14:17:39'),
 ('017c4cff837293f773c72e038772de72', 'TZQ7B', '5.9.98.178', '2015-10-15 12:08:45'),
 ('01b4e602daaffdb042c182881ba50f50', 'M2A6L', '188.165.196.25', '2015-10-16 08:20:13'),
+('01e630198953028855600d4b4b3b3102', 'XA5G4', '104.236.54.82', '2015-10-24 14:34:44'),
 ('01eaa825a6f2052c15914823e973e877', 'M3GD8', '104.131.115.133', '2015-10-18 00:00:07'),
 ('0206c4aa26b5c6ba96f3ecd31e9652cd', '94XFQ', '151.80.31.126', '2015-10-12 14:55:15'),
 ('024e0d020be122a6ade490d1813c5918', 'FHQFT', '62.210.152.89', '2015-10-07 11:47:05'),
+('026d7d3dc389ac79c28a1453362d3d57', 'XTGJW', '104.236.54.82', '2015-10-24 14:34:45'),
 ('0291d94bfb5c3234d204d2cfd437f5d6', 'RCYXG', '5.9.98.178', '2015-10-15 12:07:41'),
 ('02934347ace8ae0cdef87848b0bc3eeb', 'DAP44', '85.143.127.30', '2015-09-24 13:35:46'),
 ('02a15d1e40038a1b8844def8eebc7eed', 'PJYWS', '151.80.31.141', '2015-10-18 14:07:56'),
@@ -774,6 +777,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('04632a93bd047c59149133f5804aa2b4', 'QW5NG', '151.80.31.141', '2015-10-21 19:46:49'),
 ('04a9a7340ccfd88a1087de548bf40d75', 'D4DFD', '149.202.54.71', '2015-10-12 08:03:52'),
 ('04b791d554ccb8098509348e36586631', '7ACJA', '5.9.98.178', '2015-09-27 14:19:18'),
+('0524f0216ecd9a17636be07d4f94e2ea', '9434W', '91.77.21.173', '2015-10-24 15:13:07'),
 ('0550942a918fd8821f261f46290bad53', 'QDRXC', '37.59.60.67', '2015-10-06 23:43:08'),
 ('056dd7f87f0d46145ab65b3f639b8369', '6RNK8', '5.9.98.178', '2015-10-15 12:09:23'),
 ('05af384c75cce472528a4184ca6fc207', 'N4YSM', '173.208.177.130', '2015-09-30 11:23:57'),
@@ -782,8 +786,11 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('06bf4ff9e4d98df36b04b2476bc106d5', 'E9TSF', '198.27.82.152', '2015-10-15 08:27:29'),
 ('071029590f5b027e84c9c630aff65612', '99CPJ', '46.59.160.181', '2015-10-08 03:08:02'),
 ('07179b1ab2d7c2419a4c9b90ec6e342d', 'H6H6X', '38.100.21.66', '2015-10-10 03:59:30'),
+('073284121cf8bc96bd5c20d877274bf9', 'MZ6HB', '176.111.61.12', '2015-10-24 15:01:55'),
 ('073b23b90fc641179d9c018b4d66f815', 'LSLZ2', '85.25.185.173', '2015-10-02 08:44:43'),
 ('0751ed4f9df1638c969253924c660f77', 'C3LAB', '148.251.223.21', '2015-10-09 09:24:13'),
+('07c8365455cdbb691c55fbaa5b8fbfab', '9K8Q5', '176.111.61.12', '2015-10-24 15:03:49'),
+('080c273f633b7531c589f24ef027af91', 'GPKJX', '62.210.78.209', '2015-10-23 18:43:31'),
 ('081db157630d846410f5aa80658fc13a', 'CLA6C', '198.27.64.33', '2015-10-13 04:28:00'),
 ('0886e78884540774dd2730e039e2c6b4', '7F4K6', '45.55.229.93', '2015-10-11 11:11:44'),
 ('0888a16ac12d7c333bbc67ef5740d78a', 'WYLT9', '85.143.127.30', '2015-10-05 19:49:40'),
@@ -832,6 +839,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('0e4bd2d13312c45ffc1380d1af7b7384', 'XCWNE', '188.165.15.14', '2015-10-04 15:29:07'),
 ('0e5080ce9dd5d53eefc17f6c54b32988', '94RMW', '5.9.98.178', '2015-10-15 12:09:27'),
 ('0e7401b4538d7b335e23dfcc0b2bb9b2', 'RAMJ8', '46.172.225.170', '2015-10-16 14:15:42'),
+('0e7cf212e0c56540d1bd27324f684cf0', 'RJD8F', '217.147.20.2', '2015-10-23 14:20:07'),
 ('0eb185f5c00b2c85bd4a628b1bea8723', '9FW7R', '66.249.78.249', '2015-10-19 17:47:52'),
 ('0eb868812863b37f095590db01608ce1', 'X4FGN', '66.249.78.249', '2015-10-02 05:23:15'),
 ('0ed4107d0d05cbafda46803e694d5cc3', 'WSYX7', '198.27.82.152', '2015-10-17 03:39:59'),
@@ -839,6 +847,8 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('0ee4fffa5da0307a2d3e0f13a6458e5f', 'WRYG8', '95.211.81.86', '2015-10-18 13:12:43'),
 ('0eefcc64afd0b52b29d61615c3eb8a9f', 'HYL48', '46.172.225.170', '2015-10-16 14:15:41'),
 ('0effaa238138fff73eed3fd08df6551a', 'WZJW9', '46.4.116.197', '2015-10-12 10:52:21'),
+('0f0fab291cdc18ab882c7273478f4a87', 'EH9K6', '144.76.29.66', '2015-10-26 04:22:49'),
+('0f1d22438b1e9022c783d49da08d3c7d', '2HFSF', '176.111.61.12', '2015-10-24 15:03:06'),
 ('0f3f3a8aa48777bad612a57dbca06b9c', '98P22', '198.245.62.10', '2015-10-18 12:51:20'),
 ('0f480bc4e8a2104ad8353fbf77e5731e', 'JFMLK', '46.4.123.172', '2015-10-19 00:10:19'),
 ('0fbe56713196c08f7de990e9ddeec7f6', 'SRN63', '94.29.51.208', '2015-10-08 10:31:51'),
@@ -848,9 +858,9 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_contractor`
+-- Table structure for table `b_catalog_contractor`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_contractor`;
@@ -878,9 +888,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_contractor` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_currency`
+-- Table structure for table `b_catalog_currency`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_currency`;
@@ -899,12 +909,12 @@ CREATE TABLE IF NOT EXISTS `b_catalog_currency` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_currency`
+-- Dumping data for table `b_catalog_currency`
 --
 
 INSERT INTO `b_catalog_currency` (`CURRENCY`, `AMOUNT_CNT`, `AMOUNT`, `SORT`, `DATE_UPDATE`, `NUMCODE`, `BASE`, `CREATED_BY`, `DATE_CREATE`, `MODIFIED_BY`, `CURRENT_BASE_RATE`) VALUES
 ('BYR', 10000, '39.4400', 500, '2015-08-27 09:42:48', '974', 'N', NULL, '2015-08-27 09:42:48', NULL, '0.003944000000'),
-('EUR', 1, '71.2000', 300, '2015-10-21 12:49:32', '978', 'N', NULL, '2015-08-27 09:42:48', 2, '68.900000000000'),
+('EUR', 1, '71.2000', 300, '2015-10-21 12:49:32', '978', 'N', NULL, '2015-08-27 09:42:48', 2, '71.200000000000'),
 ('RUB', 1, '1.0000', 100, '2015-08-27 09:42:48', '643', 'Y', NULL, '2015-08-27 09:42:48', NULL, '1.000000000000'),
 ('UAH', 10, '24.5300', 400, '2015-08-27 09:42:48', '980', 'N', NULL, '2015-08-27 09:42:48', NULL, '2.453000000000'),
 ('USD', 1, '57.3900', 200, '2015-10-21 12:52:08', '840', 'N', NULL, '2015-08-27 09:42:48', 2, '62.162000000000');
@@ -912,9 +922,9 @@ INSERT INTO `b_catalog_currency` (`CURRENCY`, `AMOUNT_CNT`, `AMOUNT`, `SORT`, `D
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_currency_lang`
+-- Table structure for table `b_catalog_currency_lang`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_currency_lang`;
@@ -935,7 +945,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_currency_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_currency_lang`
+-- Dumping data for table `b_catalog_currency_lang`
 --
 
 INSERT INTO `b_catalog_currency_lang` (`CURRENCY`, `LID`, `FORMAT_STRING`, `FULL_NAME`, `DEC_POINT`, `THOUSANDS_SEP`, `DECIMALS`, `THOUSANDS_VARIANT`, `HIDE_ZERO`, `CREATED_BY`, `DATE_CREATE`, `MODIFIED_BY`, `TIMESTAMP_X`) VALUES
@@ -953,9 +963,9 @@ INSERT INTO `b_catalog_currency_lang` (`CURRENCY`, `LID`, `FORMAT_STRING`, `FULL
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_currency_rate`
+-- Table structure for table `b_catalog_currency_rate`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_currency_rate`;
@@ -972,7 +982,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_currency_rate` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_currency_rate`
+-- Dumping data for table `b_catalog_currency_rate`
 --
 
 INSERT INTO `b_catalog_currency_rate` (`ID`, `CURRENCY`, `DATE_RATE`, `RATE_CNT`, `RATE`, `CREATED_BY`, `DATE_CREATE`, `MODIFIED_BY`, `TIMESTAMP_X`) VALUES
@@ -981,9 +991,9 @@ INSERT INTO `b_catalog_currency_rate` (`ID`, `CURRENCY`, `DATE_RATE`, `RATE_CNT`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount`
+-- Table structure for table `b_catalog_discount`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount`;
@@ -1026,7 +1036,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_discount`
+-- Dumping data for table `b_catalog_discount`
 --
 
 INSERT INTO `b_catalog_discount` (`ID`, `XML_ID`, `SITE_ID`, `TYPE`, `ACTIVE`, `ACTIVE_FROM`, `ACTIVE_TO`, `RENEWAL`, `NAME`, `MAX_USES`, `COUNT_USES`, `COUPON`, `SORT`, `MAX_DISCOUNT`, `VALUE_TYPE`, `VALUE`, `CURRENCY`, `MIN_ORDER_SUM`, `TIMESTAMP_X`, `COUNT_PERIOD`, `COUNT_SIZE`, `COUNT_TYPE`, `COUNT_FROM`, `COUNT_TO`, `ACTION_SIZE`, `ACTION_TYPE`, `MODIFIED_BY`, `DATE_CREATE`, `CREATED_BY`, `PRIORITY`, `LAST_DISCOUNT`, `VERSION`, `NOTES`, `CONDITIONS`, `UNPACK`) VALUES
@@ -1035,9 +1045,9 @@ INSERT INTO `b_catalog_discount` (`ID`, `XML_ID`, `SITE_ID`, `TYPE`, `ACTIVE`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount2cat`
+-- Table structure for table `b_catalog_discount2cat`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2cat`;
@@ -1050,9 +1060,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2cat` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount2group`
+-- Table structure for table `b_catalog_discount2group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2group`;
@@ -1065,9 +1075,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount2iblock`
+-- Table structure for table `b_catalog_discount2iblock`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2iblock`;
@@ -1080,9 +1090,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2iblock` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount2product`
+-- Table structure for table `b_catalog_discount2product`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2product`;
@@ -1095,9 +1105,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2product` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount2section`
+-- Table structure for table `b_catalog_discount2section`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2section`;
@@ -1108,7 +1118,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2section` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_discount2section`
+-- Dumping data for table `b_catalog_discount2section`
 --
 
 INSERT INTO `b_catalog_discount2section` (`ID`, `DISCOUNT_ID`, `SECTION_ID`) VALUES
@@ -1117,9 +1127,9 @@ INSERT INTO `b_catalog_discount2section` (`ID`, `DISCOUNT_ID`, `SECTION_ID`) VAL
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount_cond`
+-- Table structure for table `b_catalog_discount_cond`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount_cond`;
@@ -1132,7 +1142,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount_cond` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_discount_cond`
+-- Dumping data for table `b_catalog_discount_cond`
 --
 
 INSERT INTO `b_catalog_discount_cond` (`ID`, `DISCOUNT_ID`, `ACTIVE`, `USER_GROUP_ID`, `PRICE_TYPE_ID`) VALUES
@@ -1141,9 +1151,9 @@ INSERT INTO `b_catalog_discount_cond` (`ID`, `DISCOUNT_ID`, `ACTIVE`, `USER_GROU
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount_coupon`
+-- Table structure for table `b_catalog_discount_coupon`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount_coupon`;
@@ -1164,9 +1174,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount_coupon` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_discount_module`
+-- Table structure for table `b_catalog_discount_module`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount_module`;
@@ -1179,9 +1189,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount_module` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_disc_save_group`
+-- Table structure for table `b_catalog_disc_save_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_disc_save_group`;
@@ -1194,9 +1204,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_disc_save_range`
+-- Table structure for table `b_catalog_disc_save_range`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_disc_save_range`;
@@ -1211,9 +1221,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_range` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_disc_save_user`
+-- Table structure for table `b_catalog_disc_save_user`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_disc_save_user`;
@@ -1229,9 +1239,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_user` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_docs_barcode`
+-- Table structure for table `b_catalog_docs_barcode`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_docs_barcode`;
@@ -1244,9 +1254,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_docs_barcode` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_docs_element`
+-- Table structure for table `b_catalog_docs_element`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_docs_element`;
@@ -1263,9 +1273,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_docs_element` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_export`
+-- Table structure for table `b_catalog_export`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_export`;
@@ -1288,7 +1298,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_export` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_export`
+-- Dumping data for table `b_catalog_export`
 --
 
 INSERT INTO `b_catalog_export` (`ID`, `FILE_NAME`, `NAME`, `DEFAULT_PROFILE`, `IN_MENU`, `IN_AGENT`, `IN_CRON`, `SETUP_VARS`, `LAST_USE`, `IS_EXPORT`, `NEED_EDIT`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE`, `CREATED_BY`) VALUES
@@ -1297,9 +1307,9 @@ INSERT INTO `b_catalog_export` (`ID`, `FILE_NAME`, `NAME`, `DEFAULT_PROFILE`, `I
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_extra`
+-- Table structure for table `b_catalog_extra`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_extra`;
@@ -1312,9 +1322,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_extra` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_group`
+-- Table structure for table `b_catalog_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_group`;
@@ -1331,7 +1341,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_group`
+-- Dumping data for table `b_catalog_group`
 --
 
 INSERT INTO `b_catalog_group` (`ID`, `NAME`, `BASE`, `SORT`, `XML_ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE`, `CREATED_BY`) VALUES
@@ -1340,9 +1350,9 @@ INSERT INTO `b_catalog_group` (`ID`, `NAME`, `BASE`, `SORT`, `XML_ID`, `TIMESTAM
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_group2group`
+-- Table structure for table `b_catalog_group2group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_group2group`;
@@ -1354,7 +1364,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_group2group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_group2group`
+-- Dumping data for table `b_catalog_group2group`
 --
 
 INSERT INTO `b_catalog_group2group` (`ID`, `CATALOG_GROUP_ID`, `GROUP_ID`, `BUY`) VALUES
@@ -1366,9 +1376,9 @@ INSERT INTO `b_catalog_group2group` (`ID`, `CATALOG_GROUP_ID`, `GROUP_ID`, `BUY`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_group_lang`
+-- Table structure for table `b_catalog_group_lang`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_group_lang`;
@@ -1380,7 +1390,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_group_lang` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_group_lang`
+-- Dumping data for table `b_catalog_group_lang`
 --
 
 INSERT INTO `b_catalog_group_lang` (`ID`, `CATALOG_GROUP_ID`, `LANG`, `NAME`) VALUES
@@ -1390,9 +1400,9 @@ INSERT INTO `b_catalog_group_lang` (`ID`, `CATALOG_GROUP_ID`, `LANG`, `NAME`) VA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_iblock`
+-- Table structure for table `b_catalog_iblock`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_iblock`;
@@ -1406,7 +1416,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_iblock` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_iblock`
+-- Dumping data for table `b_catalog_iblock`
 --
 
 INSERT INTO `b_catalog_iblock` (`IBLOCK_ID`, `YANDEX_EXPORT`, `SUBSCRIPTION`, `VAT_ID`, `PRODUCT_IBLOCK_ID`, `SKU_PROPERTY_ID`) VALUES
@@ -1416,9 +1426,9 @@ INSERT INTO `b_catalog_iblock` (`IBLOCK_ID`, `YANDEX_EXPORT`, `SUBSCRIPTION`, `V
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_load`
+-- Table structure for table `b_catalog_load`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_load`;
@@ -1432,9 +1442,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_load` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_measure`
+-- Table structure for table `b_catalog_measure`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_measure`;
@@ -1449,7 +1459,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_measure` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_measure`
+-- Dumping data for table `b_catalog_measure`
 --
 
 INSERT INTO `b_catalog_measure` (`ID`, `CODE`, `MEASURE_TITLE`, `SYMBOL_RUS`, `SYMBOL_INTL`, `SYMBOL_LETTER_INTL`, `IS_DEFAULT`) VALUES
@@ -1463,9 +1473,9 @@ INSERT INTO `b_catalog_measure` (`ID`, `CODE`, `MEASURE_TITLE`, `SYMBOL_RUS`, `S
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_measure_ratio`
+-- Table structure for table `b_catalog_measure_ratio`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_measure_ratio`;
@@ -1473,10 +1483,10 @@ CREATE TABLE IF NOT EXISTS `b_catalog_measure_ratio` (
   `ID` int(11) NOT NULL,
   `PRODUCT_ID` int(11) NOT NULL,
   `RATIO` double NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_measure_ratio`
+-- Dumping data for table `b_catalog_measure_ratio`
 --
 
 INSERT INTO `b_catalog_measure_ratio` (`ID`, `PRODUCT_ID`, `RATIO`) VALUES
@@ -1492,7 +1502,6 @@ INSERT INTO `b_catalog_measure_ratio` (`ID`, `PRODUCT_ID`, `RATIO`) VALUES
 (10, 19, 1),
 (11, 24, 1),
 (12, 26, 1),
-(13, 27, 1),
 (14, 28, 1),
 (15, 29, 2),
 (16, 30, 1),
@@ -1518,14 +1527,23 @@ INSERT INTO `b_catalog_measure_ratio` (`ID`, `PRODUCT_ID`, `RATIO`) VALUES
 (36, 69, 1),
 (37, 70, 1),
 (38, 71, 1),
-(39, 72, 1);
+(39, 72, 1),
+(41, 107, 1),
+(45, 112, 1),
+(47, 114, 1),
+(48, 115, 1),
+(49, 118, 1),
+(50, 120, 1),
+(51, 121, 1),
+(52, 122, 1),
+(53, 123, 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_price`
+-- Table structure for table `b_catalog_price`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_price`;
@@ -1540,10 +1558,10 @@ CREATE TABLE IF NOT EXISTS `b_catalog_price` (
   `QUANTITY_FROM` int(11) DEFAULT NULL,
   `QUANTITY_TO` int(11) DEFAULT NULL,
   `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_price`
+-- Dumping data for table `b_catalog_price`
 --
 
 INSERT INTO `b_catalog_price` (`ID`, `PRODUCT_ID`, `EXTRA_ID`, `CATALOG_GROUP_ID`, `PRICE`, `CURRENCY`, `TIMESTAMP_X`, `QUANTITY_FROM`, `QUANTITY_TO`, `TMP_ID`) VALUES
@@ -1559,7 +1577,6 @@ INSERT INTO `b_catalog_price` (`ID`, `PRODUCT_ID`, `EXTRA_ID`, `CATALOG_GROUP_ID
 (10, 19, NULL, 1, '4380.00', 'RUB', '2015-09-01 11:52:25', NULL, NULL, NULL),
 (11, 24, NULL, 1, '642.00', 'RUB', '2015-09-16 09:06:00', NULL, NULL, NULL),
 (12, 26, NULL, 1, '629.00', 'RUB', '2015-09-16 09:06:50', NULL, NULL, NULL),
-(13, 27, NULL, 1, '263.00', 'RUB', '2015-09-16 09:09:01', NULL, NULL, NULL),
 (14, 28, NULL, 1, '225.00', 'RUB', '2015-09-16 09:14:39', NULL, NULL, NULL),
 (15, 29, NULL, 1, '624.00', 'RUB', '2015-09-16 09:15:17', NULL, NULL, NULL),
 (16, 30, NULL, 1, '674.00', 'RUB', '2015-09-16 09:17:44', NULL, NULL, NULL),
@@ -1585,14 +1602,23 @@ INSERT INTO `b_catalog_price` (`ID`, `PRODUCT_ID`, `EXTRA_ID`, `CATALOG_GROUP_ID
 (36, 69, NULL, 1, '30.00', 'EUR', '2015-10-06 08:37:24', NULL, NULL, NULL),
 (37, 70, NULL, 1, '36.00', 'EUR', '2015-10-06 08:38:41', NULL, NULL, NULL),
 (38, 71, NULL, 1, '12.00', 'EUR', '2015-10-06 08:40:05', NULL, NULL, NULL),
-(39, 72, NULL, 1, '36.00', 'EUR', '2015-10-06 08:41:29', NULL, NULL, NULL);
+(39, 72, NULL, 1, '36.00', 'EUR', '2015-10-06 08:41:29', NULL, NULL, NULL),
+(41, 107, NULL, 1, '50.00', 'RUB', '2015-10-26 11:26:17', NULL, NULL, NULL),
+(45, 112, NULL, 1, '15.00', 'RUB', '2015-10-26 12:39:54', NULL, NULL, NULL),
+(47, 114, NULL, 1, '20.00', 'RUB', '2015-10-26 12:44:27', NULL, NULL, NULL),
+(48, 115, NULL, 1, '8.00', 'RUB', '2015-10-26 12:45:13', NULL, NULL, NULL),
+(49, 118, NULL, 1, '8.00', 'EUR', '2015-10-27 10:29:54', NULL, NULL, NULL),
+(50, 120, NULL, 1, '15.00', 'EUR', '2015-10-27 11:38:39', NULL, NULL, NULL),
+(51, 121, NULL, 1, '60.00', 'RUB', '2015-10-26 13:28:13', NULL, NULL, NULL),
+(52, 122, NULL, 1, '30.00', 'RUB', '2015-10-26 13:30:09', NULL, NULL, NULL),
+(53, 123, NULL, 1, '3.00', 'EUR', '2015-10-27 10:32:17', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_product`
+-- Table structure for table `b_catalog_product`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_product`;
@@ -1626,7 +1652,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_product`
+-- Dumping data for table `b_catalog_product`
 --
 
 INSERT INTO `b_catalog_product` (`ID`, `QUANTITY`, `QUANTITY_TRACE`, `WEIGHT`, `TIMESTAMP_X`, `PRICE_TYPE`, `RECUR_SCHEME_LENGTH`, `RECUR_SCHEME_TYPE`, `TRIAL_PRICE_ID`, `WITHOUT_ORDER`, `SELECT_BEST_PRICE`, `VAT_ID`, `VAT_INCLUDED`, `CAN_BUY_ZERO`, `NEGATIVE_AMOUNT_TRACE`, `TMP_ID`, `PURCHASING_PRICE`, `PURCHASING_CURRENCY`, `BARCODE_MULTI`, `QUANTITY_RESERVED`, `SUBSCRIBE`, `WIDTH`, `LENGTH`, `HEIGHT`, `MEASURE`, `TYPE`) VALUES
@@ -1647,7 +1673,6 @@ INSERT INTO `b_catalog_product` (`ID`, `QUANTITY`, `QUANTITY_TRACE`, `WEIGHT`, `
 (24, 0, 'D', 0, '2015-09-16 09:06:00', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 333, 333, 0, 1, 1),
 (25, 0, 'N', 0, '2015-09-16 09:06:05', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'N', 'N', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, NULL, 1),
 (26, 0, 'D', 0, '2015-09-16 09:06:50', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 201, 405, 0, 1, 1),
-(27, 0, 'D', 0, '2015-09-16 09:09:01', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 201, 405, 0, 5, 1),
 (28, 0, 'D', 0, '2015-09-16 09:14:39', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 300, 200, 0, 5, 1),
 (29, 0, 'D', 0, '2015-09-22 07:05:15', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 300, 200, 0, 6, 1),
 (30, 0, 'D', 0, '2015-09-16 09:17:44', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 333, 333, 0, 1, 1),
@@ -1681,14 +1706,24 @@ INSERT INTO `b_catalog_product` (`ID`, `QUANTITY`, `QUANTITY_TRACE`, `WEIGHT`, `
 (69, 0, 'D', 0, '2015-10-06 08:37:24', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 250, 750, 0, 5, 1),
 (70, 0, 'D', 0, '2015-10-06 08:38:41', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 330, 330, 0, 6, 1),
 (71, 0, 'D', 0, '2015-10-06 08:40:05', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 75, 750, 0, 5, 1),
-(72, 0, 'D', 0, '2015-10-06 08:41:29', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 750, 0, 5, 1);
+(72, 0, 'D', 0, '2015-10-06 08:41:29', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 750, 0, 5, 1),
+(107, 0, 'D', 0, '2015-10-26 11:26:17', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, 5, 1),
+(112, 0, 'D', 0, '2015-10-26 12:42:54', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 1, 1),
+(114, 0, 'D', 0, '2015-10-26 12:44:27', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 250, 120, 0, 5, 1),
+(115, 0, 'D', 0, '2015-10-26 12:45:13', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 450, 450, 0, 1, 1),
+(118, 0, 'D', 0, '2015-10-26 13:10:26', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 1, 1),
+(119, 0, 'N', 0, '2015-10-26 13:10:55', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'N', 'N', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, NULL, 1),
+(120, 0, 'D', 0, '2015-10-26 13:25:48', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 1, 1),
+(121, 0, 'D', 0, '2015-10-26 13:28:13', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 250, 120, 0, 5, 1),
+(122, 0, 'D', 0, '2015-10-26 13:30:08', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 450, 450, 0, 1, 1),
+(123, 0, 'D', 0, '2015-10-27 10:32:17', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 120, 250, 0, 5, 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_product2group`
+-- Table structure for table `b_catalog_product2group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_product2group`;
@@ -1703,9 +1738,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_product2group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_product_sets`
+-- Table structure for table `b_catalog_product_sets`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_product_sets`;
@@ -1730,9 +1765,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_product_sets` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_store`
+-- Table structure for table `b_catalog_store`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store`;
@@ -1763,9 +1798,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_store_barcode`
+-- Table structure for table `b_catalog_store_barcode`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store_barcode`;
@@ -1784,9 +1819,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store_barcode` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_store_docs`
+-- Table structure for table `b_catalog_store_docs`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store_docs`;
@@ -1811,9 +1846,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store_docs` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_store_product`
+-- Table structure for table `b_catalog_store_product`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store_product`;
@@ -1827,9 +1862,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store_product` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_vat`
+-- Table structure for table `b_catalog_vat`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_vat`;
@@ -1843,7 +1878,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_vat` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_vat`
+-- Dumping data for table `b_catalog_vat`
 --
 
 INSERT INTO `b_catalog_vat` (`ID`, `TIMESTAMP_X`, `ACTIVE`, `C_SORT`, `NAME`, `RATE`) VALUES
@@ -1853,9 +1888,9 @@ INSERT INTO `b_catalog_vat` (`ID`, `TIMESTAMP_X`, `ACTIVE`, `C_SORT`, `NAME`, `R
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_catalog_viewed_product`
+-- Table structure for table `b_catalog_viewed_product`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_catalog_viewed_product`;
@@ -1868,10 +1903,10 @@ CREATE TABLE IF NOT EXISTS `b_catalog_viewed_product` (
   `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
   `VIEW_COUNT` int(11) NOT NULL DEFAULT '1',
   `RECOMMENDATION` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_catalog_viewed_product`
+-- Dumping data for table `b_catalog_viewed_product`
 --
 
 INSERT INTO `b_catalog_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT_ID`, `ELEMENT_ID`, `SITE_ID`, `VIEW_COUNT`, `RECOMMENDATION`) VALUES
@@ -1910,7 +1945,7 @@ INSERT INTO `b_catalog_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT
 (37, 1, '2015-10-06 11:18:31', 66, 66, 's1', 1, ''),
 (38, 2571, '2015-10-06 13:39:49', 31, 31, 's1', 2, ''),
 (39, 2571, '2015-10-06 13:40:53', 63, 63, 's1', 2, ''),
-(40, 4499, '2015-10-06 20:27:08', 63, 63, 's1', 1, ''),
+(40, 4499, '2015-10-26 14:58:28', 63, 63, 's1', 4, ''),
 (41, 3642, '2015-10-06 21:55:02', 58, 58, 's1', 1, ''),
 (42, 924, '2015-10-07 06:39:47', 13, 13, 's1', 1, ''),
 (43, 5743, '2015-10-09 12:48:13', 20, 20, 's1', 1, ''),
@@ -1925,14 +1960,48 @@ INSERT INTO `b_catalog_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT
 (52, 10448, '2015-10-21 10:43:11', 63, 63, 's1', 1, ''),
 (53, 10448, '2015-10-21 10:43:41', 20, 20, 's1', 5, ''),
 (54, 10458, '2015-10-21 11:33:27', 58, 58, 's1', 1, ''),
-(55, 713, '2015-10-21 20:37:42', 43, 43, 's1', 1, '');
+(55, 713, '2015-10-21 20:37:42', 43, 43, 's1', 1, ''),
+(56, 11704, '2015-10-22 19:57:14', 43, 43, 's1', 1, ''),
+(57, 10521, '2015-10-23 13:06:10', 31, 31, 's1', 4, ''),
+(58, 10521, '2015-10-26 13:32:00', 20, 20, 's1', 14, ''),
+(59, 10521, '2015-10-23 13:06:39', 13, 13, 's1', 1, ''),
+(60, 10521, '2015-10-26 13:30:54', 63, 63, 's1', 5, ''),
+(61, 10521, '2015-10-26 13:32:10', 66, 66, 's1', 2, ''),
+(62, 11773, '2015-10-23 13:59:39', 20, 20, 's1', 1, ''),
+(63, 11775, '2015-10-23 14:18:50', 37, 37, 's1', 2, ''),
+(64, 11775, '2015-10-23 14:18:41', 20, 20, 's1', 1, ''),
+(65, 11775, '2015-10-23 14:19:07', 7, 7, 's1', 1, ''),
+(66, 11775, '2015-10-23 14:19:15', 63, 63, 's1', 1, ''),
+(67, 4499, '2015-10-27 15:23:59', 20, 20, 's1', 35, ''),
+(68, 12246, '2015-10-27 11:56:49', 20, 20, 's1', 6, ''),
+(69, 12246, '2015-10-26 15:06:05', 110, 110, 's1', 2, ''),
+(70, 4499, '2015-10-26 15:52:34', 116, 116, 's1', 1, ''),
+(71, 4499, '2015-10-26 16:04:40', 58, 58, 's1', 1, ''),
+(72, 4499, '2015-10-27 15:24:07', 119, 119, 's1', 40, ''),
+(73, 12246, '2015-10-27 13:56:03', 119, 119, 's1', 14, ''),
+(74, 12246, '2015-10-27 11:52:34', 31, 31, 's1', 1, ''),
+(75, 3642, '2015-10-27 14:19:37', 119, 119, 's1', 4, ''),
+(76, 11704, '2015-10-27 12:18:02', 59, 59, 's1', 1, ''),
+(77, 11704, '2015-10-27 12:18:11', 66, 66, 's1', 1, ''),
+(78, 11704, '2015-10-27 12:18:15', 47, 47, 's1', 1, ''),
+(79, 11704, '2015-10-27 12:18:24', 46, 46, 's1', 1, ''),
+(80, 11704, '2015-10-27 12:18:45', 20, 20, 's1', 1, ''),
+(81, 11704, '2015-10-27 12:43:20', 7, 7, 's1', 1, ''),
+(82, 12625, '2015-10-27 14:54:03', 7, 7, 's1', 2, ''),
+(83, 12625, '2015-10-27 14:53:54', 31, 31, 's1', 1, ''),
+(84, 12625, '2015-10-27 14:54:11', 58, 58, 's1', 1, ''),
+(85, 12625, '2015-10-27 14:59:34', 11, 11, 's1', 2, ''),
+(86, 12625, '2015-10-27 14:54:24', 20, 20, 's1', 1, ''),
+(87, 12625, '2015-10-27 14:54:26', 37, 37, 's1', 1, ''),
+(88, 12625, '2015-10-27 14:54:34', 43, 43, 's1', 1, ''),
+(89, 11704, '2015-10-27 15:17:14', 119, 119, 's1', 1, '');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_checklist`
+-- Table structure for table `b_checklist`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_checklist`;
@@ -1959,9 +2028,9 @@ CREATE TABLE IF NOT EXISTS `b_checklist` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_clouds_file_bucket`
+-- Table structure for table `b_clouds_file_bucket`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_clouds_file_bucket`;
@@ -1985,9 +2054,9 @@ CREATE TABLE IF NOT EXISTS `b_clouds_file_bucket` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_clouds_file_resize`
+-- Table structure for table `b_clouds_file_resize`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_clouds_file_resize`;
@@ -2004,9 +2073,9 @@ CREATE TABLE IF NOT EXISTS `b_clouds_file_resize` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_clouds_file_upload`
+-- Table structure for table `b_clouds_file_upload`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_clouds_file_upload`;
@@ -2025,9 +2094,9 @@ CREATE TABLE IF NOT EXISTS `b_clouds_file_upload` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_component_params`
+-- Table structure for table `b_component_params`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_component_params`;
@@ -2045,7 +2114,7 @@ CREATE TABLE IF NOT EXISTS `b_component_params` (
 ) ENGINE=InnoDB AUTO_INCREMENT=631 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_component_params`
+-- Dumping data for table `b_component_params`
 --
 
 INSERT INTO `b_component_params` (`ID`, `SITE_ID`, `COMPONENT_NAME`, `TEMPLATE_NAME`, `REAL_PATH`, `SEF_MODE`, `SEF_FOLDER`, `START_CHAR`, `END_CHAR`, `PARAMETERS`) VALUES
@@ -2101,9 +2170,9 @@ INSERT INTO `b_component_params` (`ID`, `SITE_ID`, `COMPONENT_NAME`, `TEMPLATE_N
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_counter_data`
+-- Table structure for table `b_counter_data`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_counter_data`;
@@ -2114,7 +2183,7 @@ CREATE TABLE IF NOT EXISTS `b_counter_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_counter_data`
+-- Dumping data for table `b_counter_data`
 --
 
 INSERT INTO `b_counter_data` (`ID`, `TYPE`, `DATA`) VALUES
@@ -2125,9 +2194,9 @@ INSERT INTO `b_counter_data` (`ID`, `TYPE`, `DATA`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_culture`
+-- Table structure for table `b_culture`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_culture`;
@@ -2144,7 +2213,7 @@ CREATE TABLE IF NOT EXISTS `b_culture` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_culture`
+-- Dumping data for table `b_culture`
 --
 
 INSERT INTO `b_culture` (`ID`, `CODE`, `NAME`, `FORMAT_DATE`, `FORMAT_DATETIME`, `FORMAT_NAME`, `WEEK_START`, `CHARSET`, `DIRECTION`) VALUES
@@ -2154,9 +2223,9 @@ INSERT INTO `b_culture` (`ID`, `CODE`, `NAME`, `FORMAT_DATE`, `FORMAT_DATETIME`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event`
+-- Table structure for table `b_event`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event`;
@@ -2170,23 +2239,24 @@ CREATE TABLE IF NOT EXISTS `b_event` (
   `DATE_EXEC` datetime DEFAULT NULL,
   `SUCCESS_EXEC` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   `DUPLICATE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_event`
+-- Dumping data for table `b_event`
 --
 
 INSERT INTO `b_event` (`ID`, `EVENT_NAME`, `MESSAGE_ID`, `LID`, `C_FIELDS`, `DATE_INSERT`, `DATE_EXEC`, `SUCCESS_EXEC`, `DUPLICATE`) VALUES
 (2, 'SENDER_SUBSCRIBE_CONFIRM', NULL, 's1', 'a:4:{s:5:"EMAIL";s:12:"dt@hotbox.ru";s:4:"DATE";s:19:"04.10.2015 21:47:43";s:11:"CONFIRM_URL";s:217:"/bitrix/tools/sender_sub_confirm.php?sender_subscription=confirm&tag=sender.eyJFTUFJTCI6ImR0QGhvdGJveC5ydSIsIlNJVEVfSUQiOiJzMSIsIk1BSUxJTkdfTElTVCI6W119.f36c979dfa64f8a75011626e4bfb1e9cefaf6850dbeccf158d50ecd11ada7583";s:12:"MAILING_LIST";s:0:"";}', '2015-10-04 21:47:43', NULL, 'N', 'Y'),
 (3, 'SENDER_SUBSCRIBE_CONFIRM', NULL, 's1', 'a:4:{s:5:"EMAIL";s:21:"den.silents@yandex.ru";s:4:"DATE";s:19:"04.10.2015 21:48:45";s:11:"CONFIRM_URL";s:229:"/bitrix/tools/sender_sub_confirm.php?sender_subscription=confirm&tag=sender.eyJFTUFJTCI6ImRlbi5zaWxlbnRzQHlhbmRleC5ydSIsIlNJVEVfSUQiOiJzMSIsIk1BSUxJTkdfTElTVCI6W119.328cd6c08fd3eb5e87133f577161410829f79e637d48276b2d5d43f6541d6d83";s:12:"MAILING_LIST";s:0:"";}', '2015-10-04 21:48:45', NULL, 'N', 'Y'),
-(4, 'FEEDBACK_FORM', NULL, 's1', 'a:4:{s:6:"AUTHOR";s:10:"jvsgcvmkas";s:12:"AUTHOR_EMAIL";s:24:"karlyn_szoc71@rambler.ru";s:8:"EMAIL_TO";s:13:"sale@nyuta.bx";s:4:"TEXT";s:4421:"Здравствуйте! \r\nЗаконно по договору оформим на частных лиц и сотрудников учереждений пропуска в метrо в сеть торговых центров "Метро Кэш энд Керри":карточка metro  обязательно с вашей фотографией(делается при вас в самом магазине МЕТРО),с номером,кодом,со специальной магнитной полосой, названием организации, от которой вы будете нами зарегистрированы и оформлены. Вы можете проводить с собой 2-х человек. Карты клиента метро  оформляются: на граждан России и иностранцев.Оформление делается без предварительной оплаты, то есть вначале мы регистрируем и оформляем вас,вы получаете карты клиента метро , потом оплачиваете. Оплата производится в течение одного рабочего дня после оформления через Сбербанк ,немецкие тц «METRO» работают круглосуточно.Срок действия карточки metro три года, по истечении этого срока договор перезаключается по взаимному согласию сторон.Для оказания этой услуги мы находим юридические лица, у которых есть свободные места в этих супермаркетах,и заключаем с ними соответствующие юридические договора, по которым юридические лица обязуются предоставить вам право пользоваться их местами в этих немецких гипермаркетах сроком на три года. Регистрация производятся в разных магазинах Metro CASH&CARRY, по выбору юридических лиц в соответствии с их территориальным месторасположением. Получив пропуска в метро в одном из немецких магазинов  МETRO Cash & Cаrry вы можете ей пользоваться в любых других магазинах этой сети магазинов "Метро Кэш энд Кэрри" в России и за границей. \r\nС уважением:И.П.Коновалов Илья Николаевич \r\nhttp://www.metro-kk.ru \r\nP.S. \r\nПОЖАЛУЙСТА, НЕ ОТВЕЧАЙТЕ НА ЭТО ПИСЬМО, ДЛЯ ЗАКАЗА КАРТ-КЛИЕНТА ИСПОЛЬЗУЙТЕ КОНТАКТ-ФОРМУ НАШЕГО САЙТА: http://www.metro-kk.ru/3.php \r\nВАШ ЗАКАЗ БУДЕТ ПРИНЯТ И ОБРАБОТАН В ТЕЧЕНИЕ РАБОЧЕГО ДНЯ. \r\nИСПОЛНЕНИЕ ЗАКАЗА 5-7 РАБОЧИХ ДНЕЙ. \r\nПОЛУЧЕНИЕ В  ГОРОДАХ: Адыгея,Астрахань,Барнаул,Брянск,Владимир,Волгоград,Волжский,Вологда, Воронеж,Екатеринбург,Иваново,Ижевск,Иркутск,Казань,Калининград, Калуга,Кемерово,Киров,Копейск,Краснодар,Красноярск,Курск,Липецк, Магнитогорск,Москва,Московская область,Набережные Челны, Нижний Новгород,Новокузнецк,Новороссийск,Новосибирск,Омск,Оренбург, Пенза,Пермь,Пятигорск,Ростов-на-Дону,Рязань,Самара,Санкт-Петербург, Саратов,Серпухов,Смоленск,Ставрополь,Тверь,Тольятти,Томск,Тула, Тюмень,Ульяновск,Уфа,Чебоксары,Челябинск,Ярославль,Севастополь. \r\nУслуга оказывается с 2006 года, более 100000 наших клиентов пользуются картами, смотрите отзывы в интернете!";}', '2015-10-08 10:31:54', NULL, 'N', 'Y');
+(4, 'FEEDBACK_FORM', NULL, 's1', 'a:4:{s:6:"AUTHOR";s:10:"jvsgcvmkas";s:12:"AUTHOR_EMAIL";s:24:"karlyn_szoc71@rambler.ru";s:8:"EMAIL_TO";s:13:"sale@nyuta.bx";s:4:"TEXT";s:4421:"Здравствуйте! \r\nЗаконно по договору оформим на частных лиц и сотрудников учереждений пропуска в метrо в сеть торговых центров "Метро Кэш энд Керри":карточка metro  обязательно с вашей фотографией(делается при вас в самом магазине МЕТРО),с номером,кодом,со специальной магнитной полосой, названием организации, от которой вы будете нами зарегистрированы и оформлены. Вы можете проводить с собой 2-х человек. Карты клиента метро  оформляются: на граждан России и иностранцев.Оформление делается без предварительной оплаты, то есть вначале мы регистрируем и оформляем вас,вы получаете карты клиента метро , потом оплачиваете. Оплата производится в течение одного рабочего дня после оформления через Сбербанк ,немецкие тц «METRO» работают круглосуточно.Срок действия карточки metro три года, по истечении этого срока договор перезаключается по взаимному согласию сторон.Для оказания этой услуги мы находим юридические лица, у которых есть свободные места в этих супермаркетах,и заключаем с ними соответствующие юридические договора, по которым юридические лица обязуются предоставить вам право пользоваться их местами в этих немецких гипермаркетах сроком на три года. Регистрация производятся в разных магазинах Metro CASH&CARRY, по выбору юридических лиц в соответствии с их территориальным месторасположением. Получив пропуска в метро в одном из немецких магазинов  МETRO Cash & Cаrry вы можете ей пользоваться в любых других магазинах этой сети магазинов "Метро Кэш энд Кэрри" в России и за границей. \r\nС уважением:И.П.Коновалов Илья Николаевич \r\nhttp://www.metro-kk.ru \r\nP.S. \r\nПОЖАЛУЙСТА, НЕ ОТВЕЧАЙТЕ НА ЭТО ПИСЬМО, ДЛЯ ЗАКАЗА КАРТ-КЛИЕНТА ИСПОЛЬЗУЙТЕ КОНТАКТ-ФОРМУ НАШЕГО САЙТА: http://www.metro-kk.ru/3.php \r\nВАШ ЗАКАЗ БУДЕТ ПРИНЯТ И ОБРАБОТАН В ТЕЧЕНИЕ РАБОЧЕГО ДНЯ. \r\nИСПОЛНЕНИЕ ЗАКАЗА 5-7 РАБОЧИХ ДНЕЙ. \r\nПОЛУЧЕНИЕ В  ГОРОДАХ: Адыгея,Астрахань,Барнаул,Брянск,Владимир,Волгоград,Волжский,Вологда, Воронеж,Екатеринбург,Иваново,Ижевск,Иркутск,Казань,Калининград, Калуга,Кемерово,Киров,Копейск,Краснодар,Красноярск,Курск,Липецк, Магнитогорск,Москва,Московская область,Набережные Челны, Нижний Новгород,Новокузнецк,Новороссийск,Новосибирск,Омск,Оренбург, Пенза,Пермь,Пятигорск,Ростов-на-Дону,Рязань,Самара,Санкт-Петербург, Саратов,Серпухов,Смоленск,Ставрополь,Тверь,Тольятти,Томск,Тула, Тюмень,Ульяновск,Уфа,Чебоксары,Челябинск,Ярославль,Севастополь. \r\nУслуга оказывается с 2006 года, более 100000 наших клиентов пользуются картами, смотрите отзывы в интернете!";}', '2015-10-08 10:31:54', NULL, 'N', 'Y'),
+(5, 'FEEDBACK_FORM', NULL, 's1', 'a:4:{s:6:"AUTHOR";s:10:"qsppmdlkzw";s:12:"AUTHOR_EMAIL";s:27:"youlanda_lands04@rambler.ru";s:8:"EMAIL_TO";s:13:"sale@nyuta.bx";s:4:"TEXT";s:4454:"Здравствуйте! \r\nОфициально по договору оформим на физических лиц и сотрудников предприятий карты metro в сеть гипермаркетов МЕТРО Кэш энд Керри:карта метро только с вашим фото(делается при вас в самом магазине МЕТРО),с индификационным номером,кодом,со специальной магнитной полосой, названием фирмы, от которой вы будете нами зарегистрированы и оформлены. Вы можете проводить с собой 2-х человек. Пропуска в метро оформляются: на граждан Российской Федерации и иностранцев.Оформление производится без предоплаты, то есть вначале мы регистрируем и оформляем вас,вы получаете карточки metro, потом оплачиваете. Оплата производится в течение одного рабочего дня после оформления через Сбербанк России ,немецкие гипермаркеты МETRO CASH&CARRY работают 24 часа.Срок действия карты metro 3 года, по истечении этого срока договор перезаключается по взаимному согласию сторон.Для оказания этой услуги мы находим организации, у которых есть свободные места в этих тц,и заключаем с ними соответствующие юридические договора, по которым юридические лица обязуются предоставить вам право пользоваться их местами в этих тц сроком на три года. Оформление и регистрация производятся в разных супермаркетах Метро Кэш энд Керри, по выбору юридических лиц в соответствии с их территориальным месторасположением. Получив карты metro в одном из тц МETRO CASH and CARRY вы можете ей пользоваться в любых других магазинах этой сети немецких гипермаркетов МETRO Cash & Cаrry в РФ и за границей. \r\nС уважением:Индивидуальный предприниматель Коновалов Илья Николаевич \r\nhttp://www.metro-ccc.ru \r\nP.S. \r\nПОЖАЛУЙСТА, НЕ ОТВЕЧАЙТЕ НА ЭТО ПИСЬМО, ДЛЯ ЗАКАЗА КАРТ-КЛИЕНТА ИСПОЛЬЗУЙТЕ КОНТАКТ-ФОРМУ НАШЕГО САЙТА: http://www.metro-ccc.ru/3.php \r\nВАШ ЗАКАЗ БУДЕТ ПРИНЯТ И ОБРАБОТАН В ТЕЧЕНИЕ РАБОЧЕГО ДНЯ. \r\nИСПОЛНЕНИЕ ЗАКАЗА 5-7 РАБОЧИХ ДНЕЙ. \r\nПОЛУЧЕНИЕ В  ГОРОДАХ: Адыгея,Астрахань,Барнаул,Брянск,Владимир,Волгоград,Волжский,Вологда,Воронеж,Екатеринбург,Иваново,Ижевск,Иркутск,Казань,Калининград, Калуга,Кемерово,Киров,Копейск,Краснодар,Красноярск,Курск,Липецк, Магнитогорск,Москва,Московская область,Набережные Челны, Нижний Новгород,Новокузнецк,Новороссийск,Новосибирск,Омск,Оренбург,Орёл,Пенза,Пермь,Пятигорск,Ростов-на-Дону,Рязань,Самара,Санкт-Петербург,Саратов,Серпухов,Смоленск,Ставрополь,Стерлитамак,Тверь,Тольятти,Томск,Тула,Тюмень,Ульяновск,Уфа,Чебоксары,Челябинск,Ярославль,Севастополь,Симферополь. \r\nУслуга оказывается с 2006 года, более 100000 наших клиентов пользуются картами, смотрите отзывы в интернете!";}', '2015-10-24 15:13:06', NULL, 'N', 'Y');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event_attachment`
+-- Table structure for table `b_event_attachment`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event_attachment`;
@@ -2198,9 +2268,9 @@ CREATE TABLE IF NOT EXISTS `b_event_attachment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event_log`
+-- Table structure for table `b_event_log`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event_log`;
@@ -2221,7 +2291,7 @@ CREATE TABLE IF NOT EXISTS `b_event_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_event_log`
+-- Dumping data for table `b_event_log`
 --
 
 INSERT INTO `b_event_log` (`ID`, `TIMESTAMP_X`, `SEVERITY`, `AUDIT_TYPE_ID`, `MODULE_ID`, `ITEM_ID`, `REMOTE_ADDR`, `USER_AGENT`, `REQUEST_URI`, `SITE_ID`, `USER_ID`, `GUEST_ID`, `DESCRIPTION`) VALUES
@@ -2261,9 +2331,9 @@ INSERT INTO `b_event_log` (`ID`, `TIMESTAMP_X`, `SEVERITY`, `AUDIT_TYPE_ID`, `MO
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event_message`
+-- Table structure for table `b_event_message`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event_message`;
@@ -2293,7 +2363,7 @@ CREATE TABLE IF NOT EXISTS `b_event_message` (
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_event_message`
+-- Dumping data for table `b_event_message`
 --
 
 INSERT INTO `b_event_message` (`ID`, `TIMESTAMP_X`, `EVENT_NAME`, `LID`, `ACTIVE`, `EMAIL_FROM`, `EMAIL_TO`, `SUBJECT`, `MESSAGE`, `MESSAGE_PHP`, `BODY_TYPE`, `BCC`, `REPLY_TO`, `CC`, `IN_REPLY_TO`, `PRIORITY`, `FIELD1_NAME`, `FIELD1_VALUE`, `FIELD2_NAME`, `FIELD2_VALUE`, `SITE_TEMPLATE_ID`, `ADDITIONAL_FIELD`) VALUES
@@ -2339,9 +2409,9 @@ INSERT INTO `b_event_message` (`ID`, `TIMESTAMP_X`, `EVENT_NAME`, `LID`, `ACTIVE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event_message_attachment`
+-- Table structure for table `b_event_message_attachment`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event_message_attachment`;
@@ -2353,9 +2423,9 @@ CREATE TABLE IF NOT EXISTS `b_event_message_attachment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event_message_site`
+-- Table structure for table `b_event_message_site`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event_message_site`;
@@ -2365,7 +2435,7 @@ CREATE TABLE IF NOT EXISTS `b_event_message_site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_event_message_site`
+-- Dumping data for table `b_event_message_site`
 --
 
 INSERT INTO `b_event_message_site` (`EVENT_MESSAGE_ID`, `SITE_ID`) VALUES
@@ -2410,9 +2480,9 @@ INSERT INTO `b_event_message_site` (`EVENT_MESSAGE_ID`, `SITE_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_event_type`
+-- Table structure for table `b_event_type`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_event_type`;
@@ -2426,7 +2496,7 @@ CREATE TABLE IF NOT EXISTS `b_event_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_event_type`
+-- Dumping data for table `b_event_type`
 --
 
 INSERT INTO `b_event_type` (`ID`, `LID`, `EVENT_NAME`, `NAME`, `DESCRIPTION`, `SORT`) VALUES
@@ -2507,9 +2577,9 @@ INSERT INTO `b_event_type` (`ID`, `LID`, `EVENT_NAME`, `NAME`, `DESCRIPTION`, `S
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_favorite`
+-- Table structure for table `b_favorite`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_favorite`;
@@ -2529,14 +2599,14 @@ CREATE TABLE IF NOT EXISTS `b_favorite` (
   `CODE_ID` int(18) DEFAULT NULL,
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
   `MENU_ID` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_file`
+-- Table structure for table `b_file`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_file`;
@@ -2554,10 +2624,10 @@ CREATE TABLE IF NOT EXISTS `b_file` (
   `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `HANDLER_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `EXTERNAL_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1153 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1216 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_file`
+-- Dumping data for table `b_file`
 --
 
 INSERT INTO `b_file` (`ID`, `TIMESTAMP_X`, `MODULE_ID`, `HEIGHT`, `WIDTH`, `FILE_SIZE`, `CONTENT_TYPE`, `SUBDIR`, `FILE_NAME`, `ORIGINAL_NAME`, `DESCRIPTION`, `HANDLER_ID`, `EXTERNAL_ID`) VALUES
@@ -2597,10 +2667,6 @@ INSERT INTO `b_file` (`ID`, `TIMESTAMP_X`, `MODULE_ID`, `HEIGHT`, `WIDTH`, `FILE
 (960, '2015-08-28 16:22:11', 'iblock', 300, 405, 17091, 'image/jpeg', 'iblock/133', '1334d2e46e8b9cfc26349623467ded32.jpg', 'naturallife-wood-honey.jpg', '', NULL, 'bb325526947b80536a83a79a30836c5d'),
 (961, '2015-08-28 16:22:13', 'iblock', 147, 200, 5916, 'image/jpeg', 'iblock/ad8', 'ad8287a1aaef283f6534d1dc968e1e69.jpg', 'naturallife-wood-honey.jpg', '', NULL, 'dc4015761168f8dfe83f81d2a38509a2'),
 (962, '2015-08-28 16:22:13', 'iblock', 300, 405, 17091, 'image/jpeg', 'iblock/20c', '20c81eaea65fd8eb95f06ce3b2f5b102.jpg', 'naturallife-wood-honey.jpg', '', NULL, '25873520683bb381ff4b5ea5938bfb09'),
-(963, '2015-09-01 11:26:32', 'iblock', 34, 200, 4824, 'image/jpeg', 'iblock/ea6', 'ea646640b0285a55275450465cfcbb36.jpg', 'kerama-marazzi_big.jpg', '', NULL, '81a83913e31fe9c4b289683ea8c8a7d4'),
-(964, '2015-09-01 11:26:32', 'iblock', 69, 396, 8516, 'image/jpeg', 'iblock/f50', 'f50401a0f9036fb788f20f2724e9c9a6.jpg', 'kerama-marazzi_big.jpg', '', NULL, '0831a3288875f79a7b4916e826cbe68b'),
-(965, '2015-09-01 11:27:09', 'iblock', 131, 200, 5253, 'image/jpeg', 'iblock/cbf', 'cbf454feda431bdd259e15f14ce2493f.jpg', 'cersanit_big.jpg', '', NULL, '4a0422c68980328affea32adea40798f'),
-(966, '2015-09-01 11:27:09', 'iblock', 131, 200, 5253, 'image/jpeg', 'iblock/3da', '3da79fdf1c3b00dd6394923a249c9353.jpg', 'cersanit_big.jpg', '', NULL, '4c2f43e58b3a89ba1a7d19ee8006d9d1'),
 (967, '2015-09-01 11:28:26', 'iblock', 165, 211, 5970, 'image/jpeg', 'iblock/b60', 'b608785d66d085d0054e0aed97c55e7e.jpg', 'plitka-dlya-vannoy.jpg', '', NULL, '58f0e56c83451abcf938289956ef0bd1'),
 (971, '2015-09-01 11:51:07', 'iblock', 147, 200, 6225, 'image/jpeg', 'iblock/306', '3063ce2f50f5ba78562fc0e8aa7a3a2a.jpg', 'Charme-29x49.jpg', '', NULL, '8f67008223271ea8e263f303d79e2b9c'),
 (972, '2015-09-01 11:51:07', 'iblock', 300, 405, 18686, 'image/jpeg', 'iblock/03e', '03e9d9e43c6626dcfc70b7f1258f428d.jpg', 'Charme-29x49.jpg', '', NULL, '67813a21ce7ff6e84eb1d86e48d7e1b4'),
@@ -2608,18 +2674,12 @@ INSERT INTO `b_file` (`ID`, `TIMESTAMP_X`, `MODULE_ID`, `HEIGHT`, `WIDTH`, `FILE
 (974, '2015-09-01 11:51:38', 'iblock', 300, 405, 20651, 'image/jpeg', 'iblock/4bd', '4bd0ab2bdeefdf703169efd57511a993.jpg', 'Charme -smoke-29x29.jpg', '', NULL, '539478377cc75add7593c804c6a0eaa3'),
 (975, '2015-09-01 11:52:25', 'iblock', 147, 200, 11043, 'image/jpeg', 'iblock/789', '789d58697279d5d872589866a4085b09.jpg', 'Charme-modula-onda-biancosmokebordeaux-29x29.jpg', '', NULL, 'c4bd7ad493b7741c95c53387b3628f74'),
 (976, '2015-09-01 11:52:25', 'iblock', 300, 405, 32519, 'image/jpeg', 'iblock/1dd', '1dd1508438a05f1a9d808851e7f72c4d.jpg', 'Charme-modula-onda-biancosmokebordeaux-29x29.jpg', '', NULL, '22b4e7ee861ccf1b31600ba6d739799f'),
-(983, '2015-09-14 14:27:54', 'iblock', 109, 200, 8479, 'image/jpeg', 'iblock/75c', '75ceadebd71b47d6341f8164219b776d.jpg', 'italon_big.jpg', '', NULL, 'bb38b34ea2df0256947c65e06824c871'),
-(984, '2015-09-14 14:27:54', 'iblock', 120, 220, 8234, 'image/jpeg', 'iblock/c2e', 'c2ecba1462940ae6788a74e214ccbf77.jpg', 'italon_big.jpg', '', NULL, '2d77d42670aa55ef829f42ce3c4b8039'),
-(985, '2015-09-16 09:00:50', 'iblock', 46, 200, 6321, 'image/jpeg', 'iblock/06b', '06bbf5fb6803e33218368bd946b41cd3.jpg', 'azori_big.jpg', '', NULL, '44477f5739b814470d169daeb7c86d96'),
-(986, '2015-09-16 09:00:50', 'iblock', 55, 235, 6756, 'image/jpeg', 'iblock/37a', '37a98e340030734ab21f2cd8d3e1657a.jpg', 'azori_big.jpg', '', NULL, 'f40854fc2e6de08db85dd14dcb40bcb5'),
 (987, '2015-09-16 09:06:00', 'iblock', 200, 200, 12726, 'image/jpeg', 'iblock/faa', 'faa01ae4e1bbe475ab7b6af7bd59c2ac.jpg', 'asti-grej-plitka-napolnaya-33-333x333.jpg', '', NULL, 'fb8dbb1f0c875d2116c570636f5b5c7c'),
 (988, '2015-09-16 09:06:00', 'iblock', 300, 300, 26051, 'image/jpeg', 'iblock/ed2', 'ed2fdaec1515d150ad9745139a120370.jpg', 'asti-grej-plitka-napolnaya-33-333x333.jpg', '', NULL, '8c291a6beda119012cea71276dd8d443'),
 (989, '2015-09-16 09:06:05', 'iblock', 200, 200, 17868, 'image/jpeg', 'iblock/945', '945195b64b554178fcc22b0d7b602709.jpg', 'azori-gallery-2.jpg', '', NULL, '2404a8c1ae90c582ee6bc2f9270cdb76'),
 (990, '2015-09-16 09:06:05', 'iblock', 300, 300, 39009, 'image/jpeg', 'iblock/679', '679c224f325d0934c947f21e17635e7d.jpg', 'azori-gallery-2.jpg', '', NULL, '80f7c8f07be91f226c84140e9627fe67'),
 (991, '2015-09-16 09:06:50', 'iblock', 100, 200, 7014, 'image/jpeg', 'iblock/2e4', '2e44986020ef8a44a98bd9ce1b3ab2a6.jpg', 'asti-grej-plitka-nastennaya-20-405x201.jpg', '', NULL, 'f7d8aa8b693dfb9dc049cb4f29dd5ecf'),
 (992, '2015-09-16 09:06:50', 'iblock', 236, 472, 18513, 'image/jpeg', 'iblock/a1f', 'a1f79aeb408bd722d0d43ee3f68a4bbf.jpg', 'asti-grej-plitka-nastennaya-20-405x201.jpg', '', NULL, '1b83db419ee920c2260271aba0d8f3d3'),
-(993, '2015-09-16 09:09:01', 'iblock', 100, 200, 6982, 'image/jpeg', 'iblock/868', '8689ce61bb026e52bac98de0734aea94.jpg', 'asti-byanka-dekor-geometriya-20-405x201.jpg', '', NULL, '82b998034606e61c2682acee4b77490f'),
-(994, '2015-09-16 09:09:01', 'iblock', 236, 472, 14556, 'image/jpeg', 'iblock/339', '33902e2462ce074d7fead35bcb8cbc75.jpg', 'asti-byanka-dekor-geometriya-20-405x201.jpg', '', NULL, 'dee2c60fcb3b1b43dad7d16494efb35b'),
 (995, '2015-09-16 09:14:39', 'iblock', 147, 200, 18256, 'image/jpeg', 'iblock/cc2', 'cc29467d9739d376fe871192eae7d271.jpg', 'Atlantic Mosaic.jpg', '', NULL, 'e82418acf865aee5ee7a4a4fd5d97036'),
 (996, '2015-09-16 09:14:39', 'iblock', 300, 405, 48488, 'image/jpeg', 'iblock/9f9', '9f9bc3e891664d40ed34bb47dafd196d.jpg', 'Atlantic Mosaic.jpg', '', NULL, '641e7a51a2d02219131d2a1655107b0b'),
 (997, '2015-09-16 09:15:17', 'iblock', 147, 200, 5688, 'image/jpeg', 'iblock/651', '651755779fe19baae254fef91b5f2dd4.jpg', 'Atlantic.jpg', '', NULL, '983c49ee0ea95197f592e9a831e846b7'),
@@ -2769,14 +2829,49 @@ INSERT INTO `b_file` (`ID`, `TIMESTAMP_X`, `MODULE_ID`, `HEIGHT`, `WIDTH`, `FILE
 (1149, '2015-10-21 14:44:18', 'iblock', 109, 200, 10571, 'image/jpeg', 'iblock/0b3', '0b30936bf279dfff21dab49a17d82ca4.jpg', 'Imex-mosaica.jpg', '', NULL, '9e3b366caed69407d0442d0c27e0c499'),
 (1150, '2015-10-21 14:44:18', 'iblock', 227, 413, 45287, 'image/jpeg', 'iblock/a9e', 'a9e0bb09d20891edc376b1a2b0840fcb.jpg', 'Imex-mosaica.jpg', '', NULL, 'bb14c23e293efb90fbcf44543f91e645'),
 (1151, '2015-10-21 14:46:38', 'iblock', 77, 150, 6379, 'image/jpeg', 'iblock/954', '9545dd4781d4df6b891fce15f008705a.jpg', 'p_logo_caccia_1349860764.jpg', '', NULL, 'f65c0fa69c34b546292faef78dbf2f64'),
-(1152, '2015-10-21 14:46:38', 'iblock', 77, 150, 6379, 'image/jpeg', 'iblock/28d', '28d992959fffc5d771ae6f97c051f703.jpg', 'p_logo_caccia_1349860764.jpg', '', NULL, '129958c8ca7ba846e4c1c5a9aaf34118');
+(1152, '2015-10-21 14:46:38', 'iblock', 77, 150, 6379, 'image/jpeg', 'iblock/28d', '28d992959fffc5d771ae6f97c051f703.jpg', 'p_logo_caccia_1349860764.jpg', '', NULL, '129958c8ca7ba846e4c1c5a9aaf34118'),
+(1155, '2015-10-22 10:12:23', 'iblock', 60, 200, 8339, 'image/jpeg', 'iblock/cdc', 'cdc82ced8bf3f7664777ec2b68f4da4d.jpg', 'coliseumgres.jpg', '', NULL, '59240417c7e891a27ed4e91710808d8b'),
+(1156, '2015-10-22 10:12:23', 'iblock', 150, 500, 20209, 'image/jpeg', 'iblock/88b', '88bf20f0be3a3b6f7d56c5488e79d929.jpg', 'coliseumgres.jpg', '', NULL, '58e2935afe1df1d72726f9f5ffac2325'),
+(1157, '2015-10-22 10:14:32', 'iblock', 83, 200, 12739, 'image/png', 'iblock/688', '68890588aad6026474e6caf8e2648516.png', 'aleluia_ceramicas-3f8a3.png', '', NULL, '23ba150a9d382a32f59012cf5c1b4b8a'),
+(1158, '2015-10-22 10:14:32', 'iblock', 150, 358, 10513, 'image/png', 'iblock/4a5', '4a522068dbbb4358164d2081c2059753.png', 'aleluia_ceramicas-3f8a3.png', '', NULL, '2d98928d56aa788abf101e0bc8638135'),
+(1159, '2015-10-22 10:25:53', 'iblock', 512, 1024, 20446, 'image/png', 'iblock/88f', '88fb23cb9e6fe5499dab2ff8b62a2ff5.png', '7f2c4b486a412eaa8573d3c0c549eb67.png', '', NULL, '3b1f18599c205e28802ad69486665341'),
+(1160, '2015-10-22 10:25:53', 'iblock', 512, 1024, 20446, 'image/png', 'iblock/e28', 'e284bf20732936fce55e59235dcfd243.png', '7f2c4b486a412eaa8573d3c0c549eb67.png', '', NULL, '6d1419d0c1bd325077a92f5167453adb'),
+(1161, '2015-10-22 10:31:04', 'iblock', 75, 200, 7643, 'image/jpeg', 'iblock/171', '1719a62a1051e1c9347bce204e1d526d.jpg', '2_1.jpg', '', NULL, 'e106d2077a47a6edbbe46e6b97451ee0'),
+(1162, '2015-10-22 10:31:04', 'iblock', 226, 600, 74100, 'image/jpeg', 'iblock/870', '870e630dc362ac74385d193fddc7dbcb.jpg', '2_1.jpg', '', NULL, '529fec4bd16d5193a7bffddac753b45a'),
+(1163, '2015-10-22 10:32:56', 'iblock', 200, 200, 14726, 'image/png', 'iblock/1c2', '1c2cda363e6c7854093fa5df641c3ee5.png', 'belani_320x320.png', '', NULL, 'bd040114c148a8e0b4415f0775212ce1'),
+(1164, '2015-10-22 10:32:56', 'iblock', 300, 300, 31416, 'image/png', 'iblock/7fb', '7fb5f1853526467af7f721c6c28d2a27.png', 'belani_320x320.png', '', NULL, '5a7a5935685fb8dd30c0e5b61c8c596e'),
+(1165, '2015-10-22 10:58:00', 'iblock', 141, 200, 6692, 'image/jpeg', 'iblock/4d5', '4d5009e06cdea55d0eff283571e55f04.jpg', 'full_1360149990.jpg', '', NULL, '25ad791d08a1ec008f67ab5207e8bf1d'),
+(1166, '2015-10-22 10:58:00', 'iblock', 208, 293, 7748, 'image/jpeg', 'iblock/625', '62568d7914a3fdbb7aa57baa38cfae74.jpg', 'full_1360149990.jpg', '', NULL, '3cc0f527a58b9532f0a8a39cbe6f0fd8'),
+(1167, '2015-10-22 10:59:42', 'iblock', 60, 200, 5634, 'image/jpeg', 'iblock/05c', '05cf46ef3c1a4af97ea5f5f305338454.jpg', 'POLCOLORIT.jpg', '', NULL, 'f826b8c38e7d0cb3253e20aecdccc8b3'),
+(1168, '2015-10-22 10:59:42', 'iblock', 150, 500, 12412, 'image/jpeg', 'iblock/285', '285a168f6117c2b6a4c6132fc9cd3a4a.jpg', 'POLCOLORIT.jpg', '', NULL, 'fe49f134e30fa6ee155b4fc4f6e2a9a6'),
+(1169, '2015-10-26 11:26:16', 'iblock', 200, 200, 5239, 'image/jpeg', 'iblock/764', '764e7a794dc016b6a0598f975bdebe62.jpg', 'legend crema 25x75.jpg', '', NULL, '571f8879e358da5017b50056012cf08a'),
+(1170, '2015-10-26 11:26:16', 'iblock', 300, 300, 10366, 'image/jpeg', 'iblock/35d', '35de35c6875b2780bcf8e2ff91666a20.jpg', 'legend crema 25x75.jpg', '', NULL, '424b7a18d6cb79d984f7445c09447c78'),
+(1173, '2015-10-26 12:39:54', 'iblock', 200, 200, 5239, 'image/jpeg', 'iblock/fed', 'fed6ca9b060583117a18afc5fea45e7f.jpg', 'legend crema 25x75.jpg', '', NULL, 'd6e54865677012faa22419f72c16ce2b'),
+(1174, '2015-10-26 12:39:54', 'iblock', 300, 300, 10366, 'image/jpeg', 'iblock/eff', 'effed032d567d85f9c521ebb384f6abd.jpg', 'legend crema 25x75.jpg', '', NULL, '3d88b44d573bbcae021ffbfa34e130d1'),
+(1177, '2015-10-26 12:44:27', 'iblock', 200, 200, 13465, 'image/jpeg', 'iblock/09d', '09d2b8a62fe4735b63962b1349bd420a.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, '72fc41280991f8086ff4c83dc86ab453'),
+(1178, '2015-10-26 12:44:27', 'iblock', 300, 300, 28081, 'image/jpeg', 'iblock/ce3', 'ce3622b6593f67c752839c258cf74c4f.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, '7d43174d3b500d2d60d8df5e0dd50da2'),
+(1179, '2015-10-26 12:45:13', 'iblock', 200, 200, 12148, 'image/jpeg', 'iblock/b8e', 'b8e2a1d7f1c16ed68dc86a62b64e1ba9.jpg', 'legend crema 45x45.jpg', '', NULL, '66d108fda5aadd8b5e04497bbb41bba7'),
+(1180, '2015-10-26 12:45:13', 'iblock', 300, 300, 28706, 'image/jpeg', 'iblock/3fb', '3fbf74101a8d006080bab3445134c5fa.jpg', 'legend crema 45x45.jpg', '', NULL, '55a9f3fdfab7a19b3b76ea5059f39ac9'),
+(1192, '2015-10-26 13:28:13', 'iblock', 200, 200, 13465, 'image/jpeg', 'iblock/11f', '11f012490ac878e716ad0540e5461601.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, 'e68c2eb2f3cd2068220c0852f3dbebbb'),
+(1193, '2015-10-26 13:28:13', 'iblock', 300, 300, 28081, 'image/jpeg', 'iblock/867', '867d1c991224ead5752e09a0a33b266a.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, 'eff9d5f4ee26798bc6fb0240f777efa5'),
+(1194, '2015-10-26 13:30:08', 'iblock', 200, 200, 12148, 'image/jpeg', 'iblock/b65', 'b65e3b4bfff15309f75e16940325f057.jpg', 'legend crema 45x45.jpg', '', NULL, '7964cf8be878d10e034a82360a8c2e9e'),
+(1195, '2015-10-26 13:30:08', 'iblock', 300, 300, 28706, 'image/jpeg', 'iblock/6d5', '6d5ac22a3e645962054e8c480c3b96b1.jpg', 'legend crema 45x45.jpg', '', NULL, '5cf213dc1a73aa723ce533fe63a023d2'),
+(1197, '2015-10-26 14:08:31', 'iblock', 200, 200, 16089, 'image/jpeg', 'iblock/862', '8629305b532f5c8d149158271ae8330c.jpg', 'amb  legend.jpg', '', NULL, 'f2841b5ddfec64e39530240f6bbfc84c'),
+(1198, '2015-10-26 14:08:31', 'iblock', 300, 300, 33207, 'image/jpeg', 'iblock/e94', 'e94374cdb77c622dd00096569986c523.jpg', 'amb  legend.jpg', '', NULL, '21b6036d53c5a26538c25c34205d8637'),
+(1199, '2015-10-26 14:08:31', 'iblock', 601, 601, 83282, 'image/jpeg', 'iblock/141', '141d0674a5ad370966e41bbc7c0254ad.jpg', 'amb  legend.jpg', '', NULL, '09926533049b60903daff960d6304be4'),
+(1200, '2015-10-27 09:42:29', 'iblock', 200, 66, 4042, 'image/jpeg', 'iblock/621', '621e530504ea9d1a11a931474930dfce.jpg', 'legend crema 25x75.jpg', '', NULL, '3a0b77f655c40edd7b1fc981be1bae27'),
+(1201, '2015-10-27 09:42:29', 'iblock', 300, 100, 3328, 'image/jpeg', 'iblock/6d7', '6d72723ce5a2aa84d794699817d1e808.jpg', 'legend crema 25x75.jpg', '', NULL, '45b65656d7102dab59cba41fd36009e9'),
+(1211, '2015-10-27 10:25:16', 'iblock', 300, 99, 16752, 'image/jpeg', 'iblock/448', '4486c43f18c1f92b9e5ae00221feafa1.jpg', '88.jpg', '', NULL, '58da0a1c699f0dd3fe9eca730a992176'),
+(1212, '2015-10-27 10:32:17', 'iblock', 96, 200, 5817, 'image/jpeg', 'iblock/729', '7294c6e268ceb23cc6b0ca544b4cc8a2.jpg', '89.jpg', '', NULL, 'e6519d2d6c2cb7c68cd18db47c76a9f5'),
+(1213, '2015-10-27 10:32:17', 'iblock', 96, 200, 5817, 'image/jpeg', 'iblock/fde', 'fdecd77d3fd98b5f3da47043203f8ebd.jpg', '89.jpg', '', NULL, '3488988e580cfa93496803e8154a463a'),
+(1215, '2015-10-27 11:59:12', 'iblock', 200, 66, 7964, 'image/jpeg', 'iblock/af1', 'af16dc7f8a7976f03c5a63035d6804e7.jpg', 'legend boiserie crema 25x75.jpg', '', NULL, 'a9ff5b95bc0e252c482ddbde170aac45');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_file_search`
+-- Table structure for table `b_file_search`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_file_search`;
@@ -2793,9 +2888,9 @@ CREATE TABLE IF NOT EXISTS `b_file_search` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_filters`
+-- Table structure for table `b_filters`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_filters`;
@@ -2814,7 +2909,7 @@ CREATE TABLE IF NOT EXISTS `b_filters` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_filters`
+-- Dumping data for table `b_filters`
 --
 
 INSERT INTO `b_filters` (`ID`, `USER_ID`, `FILTER_ID`, `NAME`, `FIELDS`, `COMMON`, `PRESET`, `LANGUAGE_ID`, `PRESET_ID`, `SORT`, `SORT_FIELD`) VALUES
@@ -2823,11 +2918,11 @@ INSERT INTO `b_filters` (`ID`, `USER_ID`, `FILTER_ID`, `NAME`, `FIELDS`, `COMMON
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_finder_dest`
+-- Table structure for table `b_finder_dest`
 --
--- Создание: Сен 25 2015 г., 08:20
--- Последнее обновление: Сен 25 2015 г., 08:20
--- Последняя проверка: Сен 25 2015 г., 09:34
+-- Creation: Sep 25, 2015 at 08:20 AM
+-- Last update: Sep 25, 2015 at 08:20 AM
+-- Last check: Sep 25, 2015 at 09:34 AM
 --
 
 DROP TABLE IF EXISTS `b_finder_dest`;
@@ -2843,9 +2938,9 @@ CREATE TABLE IF NOT EXISTS `b_finder_dest` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form`
+-- Table structure for table `b_form`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form`;
@@ -2882,9 +2977,9 @@ CREATE TABLE IF NOT EXISTS `b_form` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_2_group`
+-- Table structure for table `b_form_2_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_2_group`;
@@ -2898,9 +2993,9 @@ CREATE TABLE IF NOT EXISTS `b_form_2_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_2_mail_template`
+-- Table structure for table `b_form_2_mail_template`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_2_mail_template`;
@@ -2912,9 +3007,9 @@ CREATE TABLE IF NOT EXISTS `b_form_2_mail_template` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_2_site`
+-- Table structure for table `b_form_2_site`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_2_site`;
@@ -2926,9 +3021,9 @@ CREATE TABLE IF NOT EXISTS `b_form_2_site` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_answer`
+-- Table structure for table `b_form_answer`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_answer`;
@@ -2949,9 +3044,9 @@ CREATE TABLE IF NOT EXISTS `b_form_answer` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_crm`
+-- Table structure for table `b_form_crm`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_crm`;
@@ -2966,9 +3061,9 @@ CREATE TABLE IF NOT EXISTS `b_form_crm` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_crm_field`
+-- Table structure for table `b_form_crm_field`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_crm_field`;
@@ -2983,9 +3078,9 @@ CREATE TABLE IF NOT EXISTS `b_form_crm_field` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_crm_link`
+-- Table structure for table `b_form_crm_link`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_crm_link`;
@@ -2999,9 +3094,9 @@ CREATE TABLE IF NOT EXISTS `b_form_crm_link` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_field`
+-- Table structure for table `b_form_field`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_field`;
@@ -3029,9 +3124,9 @@ CREATE TABLE IF NOT EXISTS `b_form_field` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_field_filter`
+-- Table structure for table `b_form_field_filter`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_field_filter`;
@@ -3045,9 +3140,9 @@ CREATE TABLE IF NOT EXISTS `b_form_field_filter` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_field_validator`
+-- Table structure for table `b_form_field_validator`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_field_validator`;
@@ -3065,9 +3160,9 @@ CREATE TABLE IF NOT EXISTS `b_form_field_validator` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_menu`
+-- Table structure for table `b_form_menu`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_menu`;
@@ -3081,9 +3176,9 @@ CREATE TABLE IF NOT EXISTS `b_form_menu` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_result`
+-- Table structure for table `b_form_result`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_result`;
@@ -3103,9 +3198,9 @@ CREATE TABLE IF NOT EXISTS `b_form_result` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_result_answer`
+-- Table structure for table `b_form_result_answer`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_result_answer`;
@@ -3133,9 +3228,9 @@ CREATE TABLE IF NOT EXISTS `b_form_result_answer` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_status`
+-- Table structure for table `b_form_status`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_status`;
@@ -3157,9 +3252,9 @@ CREATE TABLE IF NOT EXISTS `b_form_status` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_status_2_group`
+-- Table structure for table `b_form_status_2_group`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_status_2_group`;
@@ -3173,9 +3268,9 @@ CREATE TABLE IF NOT EXISTS `b_form_status_2_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_form_status_2_mail_template`
+-- Table structure for table `b_form_status_2_mail_template`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_form_status_2_mail_template`;
@@ -3187,9 +3282,9 @@ CREATE TABLE IF NOT EXISTS `b_form_status_2_mail_template` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum`
+-- Table structure for table `b_forum`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_forum`;
@@ -3246,7 +3341,7 @@ CREATE TABLE IF NOT EXISTS `b_forum` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum`
+-- Dumping data for table `b_forum`
 --
 
 INSERT INTO `b_forum` (`ID`, `FORUM_GROUP_ID`, `NAME`, `DESCRIPTION`, `SORT`, `ACTIVE`, `ALLOW_HTML`, `ALLOW_ANCHOR`, `ALLOW_BIU`, `ALLOW_IMG`, `ALLOW_VIDEO`, `ALLOW_LIST`, `ALLOW_QUOTE`, `ALLOW_CODE`, `ALLOW_FONT`, `ALLOW_SMILES`, `ALLOW_UPLOAD`, `ALLOW_TABLE`, `ALLOW_ALIGN`, `ALLOW_UPLOAD_EXT`, `ALLOW_MOVE_TOPIC`, `ALLOW_TOPIC_TITLED`, `ALLOW_NL2BR`, `ALLOW_SIGNATURE`, `PATH2FORUM_MESSAGE`, `ASK_GUEST_EMAIL`, `USE_CAPTCHA`, `INDEXATION`, `DEDUPLICATION`, `MODERATION`, `ORDER_BY`, `ORDER_DIRECTION`, `LID`, `TOPICS`, `POSTS`, `LAST_POSTER_ID`, `LAST_POSTER_NAME`, `LAST_POST_DATE`, `LAST_MESSAGE_ID`, `POSTS_UNAPPROVED`, `ABS_LAST_POSTER_ID`, `ABS_LAST_POSTER_NAME`, `ABS_LAST_POST_DATE`, `ABS_LAST_MESSAGE_ID`, `EVENT1`, `EVENT2`, `EVENT3`, `HTML`, `XML_ID`) VALUES
@@ -3255,9 +3350,9 @@ INSERT INTO `b_forum` (`ID`, `FORUM_GROUP_ID`, `NAME`, `DESCRIPTION`, `SORT`, `A
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum2site`
+-- Table structure for table `b_forum2site`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_forum2site`;
@@ -3268,7 +3363,7 @@ CREATE TABLE IF NOT EXISTS `b_forum2site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum2site`
+-- Dumping data for table `b_forum2site`
 --
 
 INSERT INTO `b_forum2site` (`FORUM_ID`, `SITE_ID`, `PATH2FORUM_MESSAGE`) VALUES
@@ -3277,9 +3372,9 @@ INSERT INTO `b_forum2site` (`FORUM_ID`, `SITE_ID`, `PATH2FORUM_MESSAGE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_dictionary`
+-- Table structure for table `b_forum_dictionary`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_dictionary`;
@@ -3290,7 +3385,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_dictionary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_dictionary`
+-- Dumping data for table `b_forum_dictionary`
 --
 
 INSERT INTO `b_forum_dictionary` (`ID`, `TITLE`, `TYPE`) VALUES
@@ -3302,9 +3397,9 @@ INSERT INTO `b_forum_dictionary` (`ID`, `TITLE`, `TYPE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_email`
+-- Table structure for table `b_forum_email`
 --
--- Создание: Сен 25 2015 г., 08:20
+-- Creation: Sep 25, 2015 at 08:20 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_email`;
@@ -3326,9 +3421,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_email` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_file`
+-- Table structure for table `b_forum_file`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_file`;
@@ -3346,9 +3441,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_file` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_filter`
+-- Table structure for table `b_forum_filter`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_filter`;
@@ -3364,7 +3459,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_filter` (
 ) ENGINE=InnoDB AUTO_INCREMENT=152 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_filter`
+-- Dumping data for table `b_forum_filter`
 --
 
 INSERT INTO `b_forum_filter` (`ID`, `DICTIONARY_ID`, `WORDS`, `PATTERN`, `REPLACEMENT`, `DESCRIPTION`, `USE_IT`, `PATTERN_CREATE`) VALUES
@@ -3523,9 +3618,9 @@ INSERT INTO `b_forum_filter` (`ID`, `DICTIONARY_ID`, `WORDS`, `PATTERN`, `REPLAC
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_group`
+-- Table structure for table `b_forum_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_group`;
@@ -3540,7 +3635,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_group`
+-- Dumping data for table `b_forum_group`
 --
 
 INSERT INTO `b_forum_group` (`ID`, `SORT`, `PARENT_ID`, `LEFT_MARGIN`, `RIGHT_MARGIN`, `DEPTH_LEVEL`, `XML_ID`) VALUES
@@ -3549,9 +3644,9 @@ INSERT INTO `b_forum_group` (`ID`, `SORT`, `PARENT_ID`, `LEFT_MARGIN`, `RIGHT_MA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_group_lang`
+-- Table structure for table `b_forum_group_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_group_lang`;
@@ -3564,7 +3659,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_group_lang` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_group_lang`
+-- Dumping data for table `b_forum_group_lang`
 --
 
 INSERT INTO `b_forum_group_lang` (`ID`, `FORUM_GROUP_ID`, `LID`, `NAME`, `DESCRIPTION`) VALUES
@@ -3574,9 +3669,9 @@ INSERT INTO `b_forum_group_lang` (`ID`, `FORUM_GROUP_ID`, `LID`, `NAME`, `DESCRI
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_letter`
+-- Table structure for table `b_forum_letter`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_letter`;
@@ -3588,7 +3683,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_letter` (
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_letter`
+-- Dumping data for table `b_forum_letter`
 --
 
 INSERT INTO `b_forum_letter` (`ID`, `DICTIONARY_ID`, `LETTER`, `REPLACEMENT`) VALUES
@@ -3633,9 +3728,9 @@ INSERT INTO `b_forum_letter` (`ID`, `DICTIONARY_ID`, `LETTER`, `REPLACEMENT`) VA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_message`
+-- Table structure for table `b_forum_message`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_message`;
@@ -3674,9 +3769,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_message` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_perms`
+-- Table structure for table `b_forum_perms`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_perms`;
@@ -3688,7 +3783,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_perms` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_perms`
+-- Dumping data for table `b_forum_perms`
 --
 
 INSERT INTO `b_forum_perms` (`ID`, `FORUM_ID`, `GROUP_ID`, `PERMISSION`) VALUES
@@ -3697,9 +3792,9 @@ INSERT INTO `b_forum_perms` (`ID`, `FORUM_ID`, `GROUP_ID`, `PERMISSION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_pm_folder`
+-- Table structure for table `b_forum_pm_folder`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_pm_folder`;
@@ -3711,7 +3806,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_pm_folder` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_pm_folder`
+-- Dumping data for table `b_forum_pm_folder`
 --
 
 INSERT INTO `b_forum_pm_folder` (`ID`, `TITLE`, `USER_ID`, `SORT`) VALUES
@@ -3723,9 +3818,9 @@ INSERT INTO `b_forum_pm_folder` (`ID`, `TITLE`, `USER_ID`, `SORT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_points`
+-- Table structure for table `b_forum_points`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_points`;
@@ -3739,9 +3834,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_points` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_points2post`
+-- Table structure for table `b_forum_points2post`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_points2post`;
@@ -3754,9 +3849,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_points2post` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_points_lang`
+-- Table structure for table `b_forum_points_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_points_lang`;
@@ -3769,9 +3864,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_points_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_private_message`
+-- Table structure for table `b_forum_private_message`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_private_message`;
@@ -3792,9 +3887,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_private_message` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_rank`
+-- Table structure for table `b_forum_rank`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_rank`;
@@ -3807,9 +3902,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_rank` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_rank_lang`
+-- Table structure for table `b_forum_rank_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_rank_lang`;
@@ -3823,9 +3918,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_rank_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_smile`
+-- Table structure for table `b_forum_smile`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_smile`;
@@ -3842,7 +3937,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_smile` (
 ) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_smile`
+-- Dumping data for table `b_forum_smile`
 --
 
 INSERT INTO `b_forum_smile` (`ID`, `TYPE`, `TYPING`, `IMAGE`, `DESCRIPTION`, `CLICKABLE`, `SORT`, `IMAGE_WIDTH`, `IMAGE_HEIGHT`) VALUES
@@ -3872,9 +3967,9 @@ INSERT INTO `b_forum_smile` (`ID`, `TYPE`, `TYPING`, `IMAGE`, `DESCRIPTION`, `CL
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_smile_lang`
+-- Table structure for table `b_forum_smile_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_smile_lang`;
@@ -3886,7 +3981,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_smile_lang` (
 ) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_smile_lang`
+-- Dumping data for table `b_forum_smile_lang`
 --
 
 INSERT INTO `b_forum_smile_lang` (`ID`, `SMILE_ID`, `LID`, `NAME`) VALUES
@@ -3938,9 +4033,9 @@ INSERT INTO `b_forum_smile_lang` (`ID`, `SMILE_ID`, `LID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_stat`
+-- Table structure for table `b_forum_stat`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_stat`;
@@ -3959,9 +4054,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_stat` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_subscribe`
+-- Table structure for table `b_forum_subscribe`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_subscribe`;
@@ -3980,9 +4075,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_subscribe` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_topic`
+-- Table structure for table `b_forum_topic`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_topic`;
@@ -4021,9 +4116,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_topic` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_user`
+-- Table structure for table `b_forum_user`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_user`;
@@ -4051,7 +4146,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_forum_user`
+-- Dumping data for table `b_forum_user`
 --
 
 INSERT INTO `b_forum_user` (`ID`, `USER_ID`, `ALIAS`, `DESCRIPTION`, `IP_ADDRESS`, `AVATAR`, `NUM_POSTS`, `INTERESTS`, `LAST_POST`, `ALLOW_POST`, `LAST_VISIT`, `DATE_REG`, `REAL_IP_ADDRESS`, `SIGNATURE`, `SHOW_NAME`, `RANK_ID`, `POINTS`, `HIDE_FROM_ONLINE`, `SUBSC_GROUP_MESSAGE`, `SUBSC_GET_MY_MESSAGE`) VALUES
@@ -4061,9 +4156,9 @@ INSERT INTO `b_forum_user` (`ID`, `USER_ID`, `ALIAS`, `DESCRIPTION`, `IP_ADDRESS
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_user_forum`
+-- Table structure for table `b_forum_user_forum`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_user_forum`;
@@ -4078,9 +4173,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_user_forum` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_user_points`
+-- Table structure for table `b_forum_user_points`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_user_points`;
@@ -4094,9 +4189,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_user_points` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_forum_user_topic`
+-- Table structure for table `b_forum_user_topic`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_forum_user_topic`;
@@ -4111,9 +4206,9 @@ CREATE TABLE IF NOT EXISTS `b_forum_user_topic` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_group`
+-- Table structure for table `b_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_group`;
@@ -4130,7 +4225,7 @@ CREATE TABLE IF NOT EXISTS `b_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_group`
+-- Dumping data for table `b_group`
 --
 
 INSERT INTO `b_group` (`ID`, `TIMESTAMP_X`, `ACTIVE`, `C_SORT`, `ANONYMOUS`, `NAME`, `DESCRIPTION`, `SECURITY_POLICY`, `STRING_ID`) VALUES
@@ -4145,9 +4240,9 @@ INSERT INTO `b_group` (`ID`, `TIMESTAMP_X`, `ACTIVE`, `C_SORT`, `ANONYMOUS`, `NA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_group_collection_task`
+-- Table structure for table `b_group_collection_task`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_group_collection_task`;
@@ -4160,9 +4255,9 @@ CREATE TABLE IF NOT EXISTS `b_group_collection_task` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_group_subordinate`
+-- Table structure for table `b_group_subordinate`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_group_subordinate`;
@@ -4174,9 +4269,9 @@ CREATE TABLE IF NOT EXISTS `b_group_subordinate` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_group_task`
+-- Table structure for table `b_group_task`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_group_task`;
@@ -4187,7 +4282,7 @@ CREATE TABLE IF NOT EXISTS `b_group_task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_group_task`
+-- Dumping data for table `b_group_task`
 --
 
 INSERT INTO `b_group_task` (`GROUP_ID`, `TASK_ID`, `EXTERNAL_ID`) VALUES
@@ -4199,9 +4294,9 @@ INSERT INTO `b_group_task` (`GROUP_ID`, `TASK_ID`, `EXTERNAL_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_hlblock_entity`
+-- Table structure for table `b_hlblock_entity`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_hlblock_entity`;
@@ -4214,9 +4309,9 @@ CREATE TABLE IF NOT EXISTS `b_hlblock_entity` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_hot_keys`
+-- Table structure for table `b_hot_keys`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_hot_keys`;
@@ -4228,7 +4323,7 @@ CREATE TABLE IF NOT EXISTS `b_hot_keys` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_hot_keys`
+-- Dumping data for table `b_hot_keys`
 --
 
 INSERT INTO `b_hot_keys` (`ID`, `KEYS_STRING`, `CODE_ID`, `USER_ID`) VALUES
@@ -4248,9 +4343,9 @@ INSERT INTO `b_hot_keys` (`ID`, `KEYS_STRING`, `CODE_ID`, `USER_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_hot_keys_code`
+-- Table structure for table `b_hot_keys_code`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_hot_keys_code`;
@@ -4263,10 +4358,10 @@ CREATE TABLE IF NOT EXISTS `b_hot_keys_code` (
   `TITLE_OBJ` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `URL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `IS_CUSTOM` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_hot_keys_code`
+-- Dumping data for table `b_hot_keys_code`
 --
 
 INSERT INTO `b_hot_keys_code` (`ID`, `CLASS_NAME`, `CODE`, `NAME`, `COMMENTS`, `TITLE_OBJ`, `URL`, `IS_CUSTOM`) VALUES
@@ -4353,9 +4448,9 @@ INSERT INTO `b_hot_keys_code` (`ID`, `CLASS_NAME`, `CODE`, `NAME`, `COMMENTS`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock`
+-- Table structure for table `b_iblock`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock`;
@@ -4404,23 +4499,23 @@ CREATE TABLE IF NOT EXISTS `b_iblock` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock`
+-- Dumping data for table `b_iblock`
 --
 
 INSERT INTO `b_iblock` (`ID`, `TIMESTAMP_X`, `IBLOCK_TYPE_ID`, `LID`, `CODE`, `NAME`, `ACTIVE`, `SORT`, `LIST_PAGE_URL`, `DETAIL_PAGE_URL`, `SECTION_PAGE_URL`, `CANONICAL_PAGE_URL`, `PICTURE`, `DESCRIPTION`, `DESCRIPTION_TYPE`, `RSS_TTL`, `RSS_ACTIVE`, `RSS_FILE_ACTIVE`, `RSS_FILE_LIMIT`, `RSS_FILE_DAYS`, `RSS_YANDEX_ACTIVE`, `XML_ID`, `TMP_ID`, `INDEX_ELEMENT`, `INDEX_SECTION`, `WORKFLOW`, `BIZPROC`, `SECTION_CHOOSER`, `LIST_MODE`, `RIGHTS_MODE`, `SECTION_PROPERTY`, `PROPERTY_INDEX`, `VERSION`, `LAST_CONV_ELEMENT`, `SOCNET_GROUP_ID`, `EDIT_FILE_BEFORE`, `EDIT_FILE_AFTER`, `SECTIONS_NAME`, `SECTION_NAME`, `ELEMENTS_NAME`, `ELEMENT_NAME`) VALUES
 (1, '2015-08-28 15:32:05', 'news', 's1', 'news', 'Новости', 'Y', 500, '#SITE_DIR#/news/', '#SITE_DIR#/news/#ELEMENT_CODE#/', NULL, '', NULL, '', 'text', 24, 'Y', 'N', 0, 0, 'N', 'clothes_news_s1', 'aabbe7fc9fbd3d72dcbe82824c21d9e6', 'Y', 'N', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Разделы', 'Раздел', 'Новости', 'Новость'),
 (2, '2015-09-24 10:56:46', 'catalog', 's1', 'collections', 'Коллекции', 'Y', 500, '#SITE_DIR#/catalog/index.php?ID=#IBLOCK_ID#', '#SITE_DIR#/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#/', '#SITE_DIR#/catalog/#SECTION_CODE_PATH#/', '', NULL, '', 'text', 24, 'Y', 'N', NULL, NULL, 'N', NULL, 'bd0434fb4f9ff645ee606fb0462a3a04', 'Y', 'Y', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Разделы', 'Раздел', 'Элементы', 'Элемент'),
 (3, '2015-08-28 15:38:54', 'offers', 's1', 'tiles', 'Плитка', 'Y', 500, '#SITE_DIR#/offers/index.php?ID=#IBLOCK_ID#', '#SITE_DIR#/offers/detail.php?ID=#ELEMENT_ID#', '#SITE_DIR#/offers/list.php?SECTION_ID=#SECTION_ID#', '', NULL, '', 'text', 24, 'Y', 'N', NULL, NULL, 'N', NULL, NULL, 'Y', 'Y', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Разделы', 'Раздел', 'Плитка', 'Плитка'),
-(4, '2015-10-21 09:03:01', 'directories', 's1', 'manufacturers', 'Производители', 'Y', 500, '#SITE_DIR#/directories/index.php?ID=#IBLOCK_ID#', '#SITE_DIR#/manufacturers/detail.php?element_code=#ELEMENT_ID#', '#SITE_DIR#/countries/detail.php?element_code=#SECTION_ID#', '', NULL, '', 'text', 24, 'Y', 'N', NULL, NULL, 'N', NULL, 'cedcdde43aa2e2dc92f29275a37e1981', 'Y', 'Y', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Страны', 'Страна', 'Производители', 'Производитель'),
+(4, '2015-10-22 10:25:53', 'directories', 's1', 'manufacturers', 'Производители', 'Y', 500, '#SITE_DIR#/directories/index.php?ID=#IBLOCK_ID#', '#SITE_DIR#/manufacturers/detail.php?element_code=#ELEMENT_ID#', '#SITE_DIR#/countries/detail.php?element_code=#SECTION_ID#', '', NULL, '', 'text', 24, 'Y', 'N', NULL, NULL, 'N', NULL, 'aadf073fce97dafad5a1ee368ab1b556', 'Y', 'Y', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Страны', 'Страна', 'Производители', 'Производитель'),
 (5, '2015-09-23 09:18:31', 'slider', 's1', '', 'Слайды', 'Y', 500, '', '', '', '', NULL, '', 'text', 24, 'Y', 'N', NULL, NULL, 'N', NULL, NULL, 'Y', 'Y', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Разделы', 'Раздел', 'Слайды', 'Слайд'),
 (6, '2015-10-04 18:33:18', 'directories', 's1', '', 'Тематики', 'Y', 500, '#SITE_DIR#/directories/index.php?ID=#IBLOCK_ID#', '#SITE_DIR#/themes/detail.php?element_code=#ELEMENT_ID#', '#SITE_DIR#/directories/list.php?SECTION_ID=#SECTION_ID#', '', NULL, '', 'text', 24, 'Y', 'N', NULL, NULL, 'N', NULL, NULL, 'Y', 'Y', 'N', 'N', 'L', '', 'S', 'N', 'N', 1, 0, NULL, '', '', 'Разделы', 'Раздел', 'Тематики', 'Тематика');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_cache`
+-- Table structure for table `b_iblock_cache`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_cache`;
@@ -4431,7 +4526,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_cache` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_cache`
+-- Dumping data for table `b_iblock_cache`
 --
 
 INSERT INTO `b_iblock_cache` (`CACHE_KEY`, `CACHE`, `CACHE_DATE`) VALUES
@@ -4440,9 +4535,9 @@ INSERT INTO `b_iblock_cache` (`CACHE_KEY`, `CACHE`, `CACHE_DATE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_element`
+-- Table structure for table `b_iblock_element`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element`;
@@ -4480,16 +4575,16 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element` (
   `WF_LAST_HISTORY_ID` int(11) DEFAULT NULL,
   `SHOW_COUNTER` int(18) DEFAULT NULL,
   `SHOW_COUNTER_START` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_element`
+-- Dumping data for table `b_iblock_element`
 --
 
 INSERT INTO `b_iblock_element` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE`, `CREATED_BY`, `IBLOCK_ID`, `IBLOCK_SECTION_ID`, `ACTIVE`, `ACTIVE_FROM`, `ACTIVE_TO`, `SORT`, `NAME`, `PREVIEW_PICTURE`, `PREVIEW_TEXT`, `PREVIEW_TEXT_TYPE`, `DETAIL_PICTURE`, `DETAIL_TEXT`, `DETAIL_TEXT_TYPE`, `SEARCHABLE_CONTENT`, `WF_STATUS_ID`, `WF_PARENT_ELEMENT_ID`, `WF_NEW`, `WF_LOCKED_BY`, `WF_DATE_LOCK`, `WF_COMMENTS`, `IN_SECTIONS`, `XML_ID`, `CODE`, `TAGS`, `TMP_ID`, `WF_LAST_HISTORY_ID`, `SHOW_COUNTER`, `SHOW_COUNTER_START`) VALUES
-(1, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Форум производителей одежды в России', 1, 'С 20 по 23 февраля состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в этом году.', 'html', 2, '<p>С 20 по 23 февраля этого года состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в текущем году. В экспозиции принимают участие свыше 160 компаний из <em>Беларуси, Австрии, Латвии, Литвы, России, Польши </em>и<em> Украины</em>. В составе форума состоится пять выставок:&quot;Московский Фэшн Салон&quot;, &quot;Технологии в Одежде&quot;, &quot;Офис Комфорт&quot;, &quot;Повседневная одежда&quot; и &quot;Детская одежда&quot;. Экспозиция будет строиться по принципу двух тематических секторов:<em> одежда</em> и <em>материалы для ее производства</em>.\r\n					<br />\r\n					</p>\r\n\r\n					<p>В секторе готовой одежды будут представлены:</p>\r\n\r\n					<ul>\r\n					<li>одежда для дома;</li>\r\n\r\n					<li>одежда для детей и молодежи;</li>\r\n\r\n					<li>аксессуары в одежде;</li>\r\n\r\n					<li>одежда для спорта и отдыха;</li>\r\n\r\n					<li>одежда для офиса.</li>\r\n					</ul>\r\n\r\n					<p>В секторе материалов для производства одежды будут демонстрироваться новинки рынка одежной фурнитуры, материалов, тканей, элементов и аксессуаров для производства одежды.\r\n					<br />\r\n					</p>\r\n\r\n					<p>Помимо расширенной экспозиции пяти тематических выставок &quot;Экспофорум&quot; подготовил разнообразную деловую программу форума производителей Одежды. В рамках выставки состоятся семинары и мастер-классы. И поистине масштабным в этом году обещает стать республиканский конкурс форума &quot;<strong>Народное признание</strong>&quot;. В этом году он выходит за рамки выставки и становится республиканским смотром образцов одежды.   </p>\r\n\r\n					<p><strong>Форум производителей Одежды</strong> предоставляет специалистам возможность познакомиться с тенденциями моды, провести переговоры, получить практические предложения рынка, увидеть перспективы развития и новые конкурентные преимущества. Впервые для участников конкурса будет подготовлен маркетинговый отчет по результатам опроса посетителей выставок <strong>Форума производителей Одежды</strong>.\r\n					<br />\r\n					</p>\r\n\r\n					<p><em>Прием заявок на участие в конкурсе осуществляется до 12 января этого года.</em></p>\r\n\r\n					<ul> </ul>\r\n ', 'html', 'ФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ\r\nС 20 ПО 23 ФЕВРАЛЯ СОСТОИТСЯ ФОРУМ ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ МЕРОПРИЯТИИ \r\nОТРАСЛИ В ЭТОМ ГОДУ.\r\nС 20 ПО 23 ФЕВРАЛЯ ЭТОГО ГОДА СОСТОИТСЯ ФОРУМ \r\nПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ \r\nМЕРОПРИЯТИИ ОТРАСЛИ В ТЕКУЩЕМ ГОДУ. В ЭКСПОЗИЦИИ \r\nПРИНИМАЮТ УЧАСТИЕ СВЫШЕ 160 КОМПАНИЙ ИЗ БЕЛАРУСИ, \r\nАВСТРИИ, ЛАТВИИ, ЛИТВЫ, РОССИИ, ПОЛЬШИ И \r\nУКРАИНЫ. В СОСТАВЕ ФОРУМА СОСТОИТСЯ ПЯТЬ \r\nВЫСТАВОК:"МОСКОВСКИЙ ФЭШН САЛОН", "ТЕХНОЛОГИИ \r\nВ ОДЕЖДЕ", "ОФИС КОМФОРТ", "ПОВСЕДНЕВНАЯ ОДЕЖДА" \r\nИ "ДЕТСКАЯ ОДЕЖДА". ЭКСПОЗИЦИЯ БУДЕТ СТРОИТЬСЯ \r\nПО ПРИНЦИПУ ДВУХ ТЕМАТИЧЕСКИХ СЕКТОРОВ: ОДЕЖДА \r\nИ МАТЕРИАЛЫ ДЛЯ ЕЕ ПРОИЗВОДСТВА. \r\n \r\n\r\nВ СЕКТОРЕ ГОТОВОЙ ОДЕЖДЫ БУДУТ ПРЕДСТАВЛЕНЫ: \r\n\r\n- ОДЕЖДА ДЛЯ ДОМА; \r\n- ОДЕЖДА ДЛЯ ДЕТЕЙ И МОЛОДЕЖИ; \r\n- АКСЕССУАРЫ В ОДЕЖДЕ; \r\n- ОДЕЖДА ДЛЯ СПОРТА И ОТДЫХА; \r\n- ОДЕЖДА ДЛЯ ОФИСА. \r\n\r\nВ СЕКТОРЕ МАТЕРИАЛОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ БУДУТ ДЕМОНСТРИРОВАТЬСЯ НОВИНКИ \r\nРЫНКА ОДЕЖНОЙ ФУРНИТУРЫ, МАТЕРИАЛОВ, ТКАНЕЙ, \r\nЭЛЕМЕНТОВ И АКСЕССУАРОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ. \r\n \r\n\r\nПОМИМО РАСШИРЕННОЙ ЭКСПОЗИЦИИ ПЯТИ ТЕМАТИЧЕСКИХ \r\nВЫСТАВОК "ЭКСПОФОРУМ" ПОДГОТОВИЛ РАЗНООБРАЗНУЮ \r\nДЕЛОВУЮ ПРОГРАММУ ФОРУМА ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ. В РАМКАХ ВЫСТАВКИ СОСТОЯТСЯ СЕМИНАРЫ \r\nИ МАСТЕР-КЛАССЫ. И ПОИСТИНЕ МАСШТАБНЫМ В \r\nЭТОМ ГОДУ ОБЕЩАЕТ СТАТЬ РЕСПУБЛИКАНСКИЙ \r\nКОНКУРС ФОРУМА "НАРОДНОЕ ПРИЗНАНИЕ". В ЭТОМ \r\nГОДУ ОН ВЫХОДИТ ЗА РАМКИ ВЫСТАВКИ И СТАНОВИТСЯ \r\nРЕСПУБЛИКАНСКИМ СМОТРОМ ОБРАЗЦОВ ОДЕЖДЫ. \r\n   \r\n\r\nФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ ПРЕДОСТАВЛЯЕТ \r\nСПЕЦИАЛИСТАМ ВОЗМОЖНОСТЬ ПОЗНАКОМИТЬСЯ \r\nС ТЕНДЕНЦИЯМИ МОДЫ, ПРОВЕСТИ ПЕРЕГОВОРЫ, \r\nПОЛУЧИТЬ ПРАКТИЧЕСКИЕ ПРЕДЛОЖЕНИЯ РЫНКА, \r\nУВИДЕТЬ ПЕРСПЕКТИВЫ РАЗВИТИЯ И НОВЫЕ КОНКУРЕНТНЫЕ \r\nПРЕИМУЩЕСТВА. ВПЕРВЫЕ ДЛЯ УЧАСТНИКОВ КОНКУРСА \r\nБУДЕТ ПОДГОТОВЛЕН МАРКЕТИНГОВЫЙ ОТЧЕТ \r\nПО РЕЗУЛЬТАТАМ ОПРОСА ПОСЕТИТЕЛЕЙ ВЫСТАВОК \r\nФОРУМА ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ. \r\n \r\n\r\nПРИЕМ ЗАЯВОК НА УЧАСТИЕ В КОНКУРСЕ ОСУЩЕСТВЛЯЕТСЯ \r\nДО 12 ЯНВАРЯ ЭТОГО ГОДА.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '1', 'forum_of_producers_of_clothes_in_russia', '', '-600328566', NULL, 12, '2015-09-25 10:03:40'),
-(2, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Международная выставка одежды Salon De Fashion', 3, 'В следующем году состоится выставка одежды - Salon De Fashion, которая обещает быть еще более расширенной и интересной.', 'html', NULL, 'В следующем  году выставка Salon De Fashion обещает быть еще более расширенной и интересной. На выставке Salon De Fashion будут представлены все типы одежды для офиса и дома от платьев и шорт до VIP-аксессуаров, включая оборудование для производства и детской одежды. \r\n					<div>\r\n					<br />\r\n					</div>\r\n\r\n					<div>Заявки на участие подали более чем 1 500 компаний со всего мира. Предполагается, что за время проведения выставки ее посетят более 300 000 тысяч человек. Экспозиция выставки разместится на общей площади 149 871 кв.м. В следующем году эта поистине грандиозная выставка будет проводиться уже в 14-й раз.</div>\r\n				', 'html', 'МЕЖДУНАРОДНАЯ ВЫСТАВКА ОДЕЖДЫ SALON DE FASHION\r\nВ СЛЕДУЮЩЕМ ГОДУ СОСТОИТСЯ ВЫСТАВКА ОДЕЖДЫ \r\n- SALON DE FASHION, КОТОРАЯ ОБЕЩАЕТ БЫТЬ ЕЩЕ БОЛЕЕ \r\nРАСШИРЕННОЙ И ИНТЕРЕСНОЙ.\r\nВ СЛЕДУЮЩЕМ  ГОДУ ВЫСТАВКА SALON DE FASHION ОБЕЩАЕТ \r\nБЫТЬ ЕЩЕ БОЛЕЕ РАСШИРЕННОЙ И ИНТЕРЕСНОЙ. \r\nНА ВЫСТАВКЕ SALON DE FASHION БУДУТ ПРЕДСТАВЛЕНЫ \r\nВСЕ ТИПЫ ОДЕЖДЫ ДЛЯ ОФИСА И ДОМА ОТ ПЛАТЬЕВ \r\nИ ШОРТ ДО VIP-АКСЕССУАРОВ, ВКЛЮЧАЯ ОБОРУДОВАНИЕ \r\nДЛЯ ПРОИЗВОДСТВА И ДЕТСКОЙ ОДЕЖДЫ.  \r\nЗАЯВКИ НА УЧАСТИЕ ПОДАЛИ БОЛЕЕ ЧЕМ 1 500 КОМПАНИЙ \r\nСО ВСЕГО МИРА. ПРЕДПОЛАГАЕТСЯ, ЧТО ЗА ВРЕМЯ \r\nПРОВЕДЕНИЯ ВЫСТАВКИ ЕЕ ПОСЕТЯТ БОЛЕЕ 300 \r\n000 ТЫСЯЧ ЧЕЛОВЕК. ЭКСПОЗИЦИЯ ВЫСТАВКИ РАЗМЕСТИТСЯ \r\nНА ОБЩЕЙ ПЛОЩАДИ 149 871 КВ.М. В СЛЕДУЮЩЕМ ГОДУ \r\nЭТА ПОИСТИНЕ ГРАНДИОЗНАЯ ВЫСТАВКА БУДЕТ \r\nПРОВОДИТЬСЯ УЖЕ В 14-Й РАЗ.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '8', 'exhibition_salon_de_fashion', '', '1890358504', NULL, 10, '2015-09-27 14:19:10'),
-(3, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Новое веяние в одежде - получено прочное водостойкое соединение', 7, 'Получено новое прочное водостойкое клеевое соединение.Изобретение относится к области получения и применения клеящих составов, используемых в обработке тканей, кожи и других материалов. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный очень гибкий отвердитель. Который даст возможность делать новые виды аппликаций и соединения тканей и различных типов материалов.', 'html', 8, '<b>Авторы изобретения</b>: Разиньков Егор Михайлович и Зайцева Анна Анатольевна\r\n					<br />\r\n					Патент Российской Федерации RU2277566\r\n					<br />\r\n\r\n					<h3>Описание изобретения</h3>\r\n\r\n					<p>Изобретение относится к области получения и применения клеящих составов, используемых в производстве одежды и аксессуаров. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный гибкий отвердитель. Прототипом клеевой композиции является клей, состоящий из карбамидоформальдегидной смолы, сополимера акрилонитрила с N-винилкапролактамом и отвердитель. В качестве отвердителя применяют хлористый аммоний либо акриловую кислоту. </p>\r\n\r\n					<p>Изобретение решает задачу по получению прочного и водостойкого клеевого соединения. Это достигается тем, что клеевая композиция, включающая синтетическую смолу и отвердитель, согласно изобретению, дополнительно содержит модификатор, причем в качестве синтетической смолы клеевая композиция включает карбамидомеламиноформальдегидную смолу с отвердителем 2542, в качестве модификатора - карбамидоформальдегидную смолу, а в качестве отвердителя - 10%-ный раствор щавелевой кислоты при следующем соотношении компонентов, мас.ч.: </p>\r\n\r\n					<table cellspacing="0">\r\n					<tbody>\r\n					<tr> <td>Карбамидомеламиноформальдегидная смола</td><td>64,5-79,2</td> </tr>\r\n\r\n					<tr> <td>10%-ный Раствор щавелевой кислоты</td><td>4,4-20,5</td> </tr>\r\n\r\n					<tr> <td> Отвердитель для карбамидомеламиноформальдегидной </td><td>0,6-2,0</td> </tr>\r\n\r\n					<tr> <td> смолы 2542</td><td>13,0-15,8</td> </tr>\r\n					</tbody>\r\n					</table>\r\n', 'html', 'НОВОЕ ВЕЯНИЕ В ОДЕЖДЕ - ПОЛУЧЕНО ПРОЧНОЕ ВОДОСТОЙКОЕ СОЕДИНЕНИЕ\r\nПОЛУЧЕНО НОВОЕ ПРОЧНОЕ ВОДОСТОЙКОЕ КЛЕЕВОЕ \r\nСОЕДИНЕНИЕ.ИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ \r\nПОЛУЧЕНИЯ И ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, \r\nИСПОЛЬЗУЕМЫХ В ОБРАБОТКЕ ТКАНЕЙ, КОЖИ И \r\nДРУГИХ МАТЕРИАЛОВ. ДАННАЯ КЛЕЕВАЯ КОМПОЗИЦИЯ \r\nПРЕДНАЗНАЧЕНА ТОЛЬКО ДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ \r\nИ ИМЕЕТ В СВОЕМ СОСТАВЕ МНОГОКОМПОНЕНТНЫЙ \r\nОЧЕНЬ ГИБКИЙ ОТВЕРДИТЕЛЬ. КОТОРЫЙ ДАСТ \r\nВОЗМОЖНОСТЬ ДЕЛАТЬ НОВЫЕ ВИДЫ АППЛИКАЦИЙ \r\nИ СОЕДИНЕНИЯ ТКАНЕЙ И РАЗЛИЧНЫХ ТИПОВ МАТЕРИАЛОВ.\r\nАВТОРЫ ИЗОБРЕТЕНИЯ: РАЗИНЬКОВ ЕГОР МИХАЙЛОВИЧ \r\nИ ЗАЙЦЕВА АННА АНАТОЛЬЕВНА \r\nПАТЕНТ РОССИЙСКОЙ ФЕДЕРАЦИИ RU2277566 \r\nОПИСАНИЕ ИЗОБРЕТЕНИЯ \r\n\r\nИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ ПОЛУЧЕНИЯ \r\nИ ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, ИСПОЛЬЗУЕМЫХ \r\nВ ПРОИЗВОДСТВЕ ОДЕЖДЫ И АКСЕССУАРОВ. ДАННАЯ \r\nКЛЕЕВАЯ КОМПОЗИЦИЯ ПРЕДНАЗНАЧЕНА ТОЛЬКО \r\nДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ И ИМЕЕТ В СВОЕМ \r\nСОСТАВЕ МНОГОКОМПОНЕНТНЫЙ ГИБКИЙ ОТВЕРДИТЕЛЬ. \r\nПРОТОТИПОМ КЛЕЕВОЙ КОМПОЗИЦИИ ЯВЛЯЕТСЯ \r\nКЛЕЙ, СОСТОЯЩИЙ ИЗ КАРБАМИДОФОРМАЛЬДЕГИДНОЙ \r\nСМОЛЫ, СОПОЛИМЕРА АКРИЛОНИТРИЛА С N-ВИНИЛКАПРОЛАКТАМОМ \r\nИ ОТВЕРДИТЕЛЬ. В КАЧЕСТВЕ ОТВЕРДИТЕЛЯ ПРИМЕНЯЮТ \r\nХЛОРИСТЫЙ АММОНИЙ ЛИБО АКРИЛОВУЮ КИСЛОТУ. \r\n\r\nИЗОБРЕТЕНИЕ РЕШАЕТ ЗАДАЧУ ПО ПОЛУЧЕНИЮ \r\nПРОЧНОГО И ВОДОСТОЙКОГО КЛЕЕВОГО СОЕДИНЕНИЯ. \r\nЭТО ДОСТИГАЕТСЯ ТЕМ, ЧТО КЛЕЕВАЯ КОМПОЗИЦИЯ, \r\nВКЛЮЧАЮЩАЯ СИНТЕТИЧЕСКУЮ СМОЛУ И ОТВЕРДИТЕЛЬ, \r\nСОГЛАСНО ИЗОБРЕТЕНИЮ, ДОПОЛНИТЕЛЬНО СОДЕРЖИТ \r\nМОДИФИКАТОР, ПРИЧЕМ В КАЧЕСТВЕ СИНТЕТИЧЕСКОЙ \r\nСМОЛЫ КЛЕЕВАЯ КОМПОЗИЦИЯ ВКЛЮЧАЕТ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНУЮ \r\nСМОЛУ С ОТВЕРДИТЕЛЕМ 2542, В КАЧЕСТВЕ МОДИФИКАТОРА \r\n- КАРБАМИДОФОРМАЛЬДЕГИДНУЮ СМОЛУ, А В КАЧЕСТВЕ \r\nОТВЕРДИТЕЛЯ - 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ \r\nПРИ СЛЕДУЮЩЕМ СООТНОШЕНИИ КОМПОНЕНТОВ, \r\nМАС.Ч.: \r\n КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНАЯ СМОЛА \r\n   64,5-79,2     \r\n 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ    4,4-20,5 \r\n    \r\n ОТВЕРДИТЕЛЬ ДЛЯ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНОЙ \r\n    0,6-2,0     \r\n СМОЛЫ 2542    13,0-15,8', 1, NULL, NULL, NULL, NULL, NULL, 'N', '9', 'waterproof_connection', '', '-2110133196', NULL, 10, '2015-09-27 14:19:08'),
+(1, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Форум производителей одежды в России', 1, 'С 20 по 23 февраля состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в этом году.', 'html', 2, '<p>С 20 по 23 февраля этого года состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в текущем году. В экспозиции принимают участие свыше 160 компаний из <em>Беларуси, Австрии, Латвии, Литвы, России, Польши </em>и<em> Украины</em>. В составе форума состоится пять выставок:&quot;Московский Фэшн Салон&quot;, &quot;Технологии в Одежде&quot;, &quot;Офис Комфорт&quot;, &quot;Повседневная одежда&quot; и &quot;Детская одежда&quot;. Экспозиция будет строиться по принципу двух тематических секторов:<em> одежда</em> и <em>материалы для ее производства</em>.\r\n					<br />\r\n					</p>\r\n\r\n					<p>В секторе готовой одежды будут представлены:</p>\r\n\r\n					<ul>\r\n					<li>одежда для дома;</li>\r\n\r\n					<li>одежда для детей и молодежи;</li>\r\n\r\n					<li>аксессуары в одежде;</li>\r\n\r\n					<li>одежда для спорта и отдыха;</li>\r\n\r\n					<li>одежда для офиса.</li>\r\n					</ul>\r\n\r\n					<p>В секторе материалов для производства одежды будут демонстрироваться новинки рынка одежной фурнитуры, материалов, тканей, элементов и аксессуаров для производства одежды.\r\n					<br />\r\n					</p>\r\n\r\n					<p>Помимо расширенной экспозиции пяти тематических выставок &quot;Экспофорум&quot; подготовил разнообразную деловую программу форума производителей Одежды. В рамках выставки состоятся семинары и мастер-классы. И поистине масштабным в этом году обещает стать республиканский конкурс форума &quot;<strong>Народное признание</strong>&quot;. В этом году он выходит за рамки выставки и становится республиканским смотром образцов одежды.   </p>\r\n\r\n					<p><strong>Форум производителей Одежды</strong> предоставляет специалистам возможность познакомиться с тенденциями моды, провести переговоры, получить практические предложения рынка, увидеть перспективы развития и новые конкурентные преимущества. Впервые для участников конкурса будет подготовлен маркетинговый отчет по результатам опроса посетителей выставок <strong>Форума производителей Одежды</strong>.\r\n					<br />\r\n					</p>\r\n\r\n					<p><em>Прием заявок на участие в конкурсе осуществляется до 12 января этого года.</em></p>\r\n\r\n					<ul> </ul>\r\n ', 'html', 'ФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ\r\nС 20 ПО 23 ФЕВРАЛЯ СОСТОИТСЯ ФОРУМ ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ МЕРОПРИЯТИИ \r\nОТРАСЛИ В ЭТОМ ГОДУ.\r\nС 20 ПО 23 ФЕВРАЛЯ ЭТОГО ГОДА СОСТОИТСЯ ФОРУМ \r\nПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ \r\nМЕРОПРИЯТИИ ОТРАСЛИ В ТЕКУЩЕМ ГОДУ. В ЭКСПОЗИЦИИ \r\nПРИНИМАЮТ УЧАСТИЕ СВЫШЕ 160 КОМПАНИЙ ИЗ БЕЛАРУСИ, \r\nАВСТРИИ, ЛАТВИИ, ЛИТВЫ, РОССИИ, ПОЛЬШИ И \r\nУКРАИНЫ. В СОСТАВЕ ФОРУМА СОСТОИТСЯ ПЯТЬ \r\nВЫСТАВОК:"МОСКОВСКИЙ ФЭШН САЛОН", "ТЕХНОЛОГИИ \r\nВ ОДЕЖДЕ", "ОФИС КОМФОРТ", "ПОВСЕДНЕВНАЯ ОДЕЖДА" \r\nИ "ДЕТСКАЯ ОДЕЖДА". ЭКСПОЗИЦИЯ БУДЕТ СТРОИТЬСЯ \r\nПО ПРИНЦИПУ ДВУХ ТЕМАТИЧЕСКИХ СЕКТОРОВ: ОДЕЖДА \r\nИ МАТЕРИАЛЫ ДЛЯ ЕЕ ПРОИЗВОДСТВА. \r\n \r\n\r\nВ СЕКТОРЕ ГОТОВОЙ ОДЕЖДЫ БУДУТ ПРЕДСТАВЛЕНЫ: \r\n\r\n- ОДЕЖДА ДЛЯ ДОМА; \r\n- ОДЕЖДА ДЛЯ ДЕТЕЙ И МОЛОДЕЖИ; \r\n- АКСЕССУАРЫ В ОДЕЖДЕ; \r\n- ОДЕЖДА ДЛЯ СПОРТА И ОТДЫХА; \r\n- ОДЕЖДА ДЛЯ ОФИСА. \r\n\r\nВ СЕКТОРЕ МАТЕРИАЛОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ БУДУТ ДЕМОНСТРИРОВАТЬСЯ НОВИНКИ \r\nРЫНКА ОДЕЖНОЙ ФУРНИТУРЫ, МАТЕРИАЛОВ, ТКАНЕЙ, \r\nЭЛЕМЕНТОВ И АКСЕССУАРОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ. \r\n \r\n\r\nПОМИМО РАСШИРЕННОЙ ЭКСПОЗИЦИИ ПЯТИ ТЕМАТИЧЕСКИХ \r\nВЫСТАВОК "ЭКСПОФОРУМ" ПОДГОТОВИЛ РАЗНООБРАЗНУЮ \r\nДЕЛОВУЮ ПРОГРАММУ ФОРУМА ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ. В РАМКАХ ВЫСТАВКИ СОСТОЯТСЯ СЕМИНАРЫ \r\nИ МАСТЕР-КЛАССЫ. И ПОИСТИНЕ МАСШТАБНЫМ В \r\nЭТОМ ГОДУ ОБЕЩАЕТ СТАТЬ РЕСПУБЛИКАНСКИЙ \r\nКОНКУРС ФОРУМА "НАРОДНОЕ ПРИЗНАНИЕ". В ЭТОМ \r\nГОДУ ОН ВЫХОДИТ ЗА РАМКИ ВЫСТАВКИ И СТАНОВИТСЯ \r\nРЕСПУБЛИКАНСКИМ СМОТРОМ ОБРАЗЦОВ ОДЕЖДЫ. \r\n   \r\n\r\nФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ ПРЕДОСТАВЛЯЕТ \r\nСПЕЦИАЛИСТАМ ВОЗМОЖНОСТЬ ПОЗНАКОМИТЬСЯ \r\nС ТЕНДЕНЦИЯМИ МОДЫ, ПРОВЕСТИ ПЕРЕГОВОРЫ, \r\nПОЛУЧИТЬ ПРАКТИЧЕСКИЕ ПРЕДЛОЖЕНИЯ РЫНКА, \r\nУВИДЕТЬ ПЕРСПЕКТИВЫ РАЗВИТИЯ И НОВЫЕ КОНКУРЕНТНЫЕ \r\nПРЕИМУЩЕСТВА. ВПЕРВЫЕ ДЛЯ УЧАСТНИКОВ КОНКУРСА \r\nБУДЕТ ПОДГОТОВЛЕН МАРКЕТИНГОВЫЙ ОТЧЕТ \r\nПО РЕЗУЛЬТАТАМ ОПРОСА ПОСЕТИТЕЛЕЙ ВЫСТАВОК \r\nФОРУМА ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ. \r\n \r\n\r\nПРИЕМ ЗАЯВОК НА УЧАСТИЕ В КОНКУРСЕ ОСУЩЕСТВЛЯЕТСЯ \r\nДО 12 ЯНВАРЯ ЭТОГО ГОДА.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '1', 'forum_of_producers_of_clothes_in_russia', '', '-600328566', NULL, 16, '2015-09-25 10:03:40'),
+(2, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Международная выставка одежды Salon De Fashion', 3, 'В следующем году состоится выставка одежды - Salon De Fashion, которая обещает быть еще более расширенной и интересной.', 'html', NULL, 'В следующем  году выставка Salon De Fashion обещает быть еще более расширенной и интересной. На выставке Salon De Fashion будут представлены все типы одежды для офиса и дома от платьев и шорт до VIP-аксессуаров, включая оборудование для производства и детской одежды. \r\n					<div>\r\n					<br />\r\n					</div>\r\n\r\n					<div>Заявки на участие подали более чем 1 500 компаний со всего мира. Предполагается, что за время проведения выставки ее посетят более 300 000 тысяч человек. Экспозиция выставки разместится на общей площади 149 871 кв.м. В следующем году эта поистине грандиозная выставка будет проводиться уже в 14-й раз.</div>\r\n				', 'html', 'МЕЖДУНАРОДНАЯ ВЫСТАВКА ОДЕЖДЫ SALON DE FASHION\r\nВ СЛЕДУЮЩЕМ ГОДУ СОСТОИТСЯ ВЫСТАВКА ОДЕЖДЫ \r\n- SALON DE FASHION, КОТОРАЯ ОБЕЩАЕТ БЫТЬ ЕЩЕ БОЛЕЕ \r\nРАСШИРЕННОЙ И ИНТЕРЕСНОЙ.\r\nВ СЛЕДУЮЩЕМ  ГОДУ ВЫСТАВКА SALON DE FASHION ОБЕЩАЕТ \r\nБЫТЬ ЕЩЕ БОЛЕЕ РАСШИРЕННОЙ И ИНТЕРЕСНОЙ. \r\nНА ВЫСТАВКЕ SALON DE FASHION БУДУТ ПРЕДСТАВЛЕНЫ \r\nВСЕ ТИПЫ ОДЕЖДЫ ДЛЯ ОФИСА И ДОМА ОТ ПЛАТЬЕВ \r\nИ ШОРТ ДО VIP-АКСЕССУАРОВ, ВКЛЮЧАЯ ОБОРУДОВАНИЕ \r\nДЛЯ ПРОИЗВОДСТВА И ДЕТСКОЙ ОДЕЖДЫ.  \r\nЗАЯВКИ НА УЧАСТИЕ ПОДАЛИ БОЛЕЕ ЧЕМ 1 500 КОМПАНИЙ \r\nСО ВСЕГО МИРА. ПРЕДПОЛАГАЕТСЯ, ЧТО ЗА ВРЕМЯ \r\nПРОВЕДЕНИЯ ВЫСТАВКИ ЕЕ ПОСЕТЯТ БОЛЕЕ 300 \r\n000 ТЫСЯЧ ЧЕЛОВЕК. ЭКСПОЗИЦИЯ ВЫСТАВКИ РАЗМЕСТИТСЯ \r\nНА ОБЩЕЙ ПЛОЩАДИ 149 871 КВ.М. В СЛЕДУЮЩЕМ ГОДУ \r\nЭТА ПОИСТИНЕ ГРАНДИОЗНАЯ ВЫСТАВКА БУДЕТ \r\nПРОВОДИТЬСЯ УЖЕ В 14-Й РАЗ.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '8', 'exhibition_salon_de_fashion', '', '1890358504', NULL, 16, '2015-09-27 14:19:10'),
+(3, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Новое веяние в одежде - получено прочное водостойкое соединение', 7, 'Получено новое прочное водостойкое клеевое соединение.Изобретение относится к области получения и применения клеящих составов, используемых в обработке тканей, кожи и других материалов. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный очень гибкий отвердитель. Который даст возможность делать новые виды аппликаций и соединения тканей и различных типов материалов.', 'html', 8, '<b>Авторы изобретения</b>: Разиньков Егор Михайлович и Зайцева Анна Анатольевна\r\n					<br />\r\n					Патент Российской Федерации RU2277566\r\n					<br />\r\n\r\n					<h3>Описание изобретения</h3>\r\n\r\n					<p>Изобретение относится к области получения и применения клеящих составов, используемых в производстве одежды и аксессуаров. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный гибкий отвердитель. Прототипом клеевой композиции является клей, состоящий из карбамидоформальдегидной смолы, сополимера акрилонитрила с N-винилкапролактамом и отвердитель. В качестве отвердителя применяют хлористый аммоний либо акриловую кислоту. </p>\r\n\r\n					<p>Изобретение решает задачу по получению прочного и водостойкого клеевого соединения. Это достигается тем, что клеевая композиция, включающая синтетическую смолу и отвердитель, согласно изобретению, дополнительно содержит модификатор, причем в качестве синтетической смолы клеевая композиция включает карбамидомеламиноформальдегидную смолу с отвердителем 2542, в качестве модификатора - карбамидоформальдегидную смолу, а в качестве отвердителя - 10%-ный раствор щавелевой кислоты при следующем соотношении компонентов, мас.ч.: </p>\r\n\r\n					<table cellspacing="0">\r\n					<tbody>\r\n					<tr> <td>Карбамидомеламиноформальдегидная смола</td><td>64,5-79,2</td> </tr>\r\n\r\n					<tr> <td>10%-ный Раствор щавелевой кислоты</td><td>4,4-20,5</td> </tr>\r\n\r\n					<tr> <td> Отвердитель для карбамидомеламиноформальдегидной </td><td>0,6-2,0</td> </tr>\r\n\r\n					<tr> <td> смолы 2542</td><td>13,0-15,8</td> </tr>\r\n					</tbody>\r\n					</table>\r\n', 'html', 'НОВОЕ ВЕЯНИЕ В ОДЕЖДЕ - ПОЛУЧЕНО ПРОЧНОЕ ВОДОСТОЙКОЕ СОЕДИНЕНИЕ\r\nПОЛУЧЕНО НОВОЕ ПРОЧНОЕ ВОДОСТОЙКОЕ КЛЕЕВОЕ \r\nСОЕДИНЕНИЕ.ИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ \r\nПОЛУЧЕНИЯ И ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, \r\nИСПОЛЬЗУЕМЫХ В ОБРАБОТКЕ ТКАНЕЙ, КОЖИ И \r\nДРУГИХ МАТЕРИАЛОВ. ДАННАЯ КЛЕЕВАЯ КОМПОЗИЦИЯ \r\nПРЕДНАЗНАЧЕНА ТОЛЬКО ДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ \r\nИ ИМЕЕТ В СВОЕМ СОСТАВЕ МНОГОКОМПОНЕНТНЫЙ \r\nОЧЕНЬ ГИБКИЙ ОТВЕРДИТЕЛЬ. КОТОРЫЙ ДАСТ \r\nВОЗМОЖНОСТЬ ДЕЛАТЬ НОВЫЕ ВИДЫ АППЛИКАЦИЙ \r\nИ СОЕДИНЕНИЯ ТКАНЕЙ И РАЗЛИЧНЫХ ТИПОВ МАТЕРИАЛОВ.\r\nАВТОРЫ ИЗОБРЕТЕНИЯ: РАЗИНЬКОВ ЕГОР МИХАЙЛОВИЧ \r\nИ ЗАЙЦЕВА АННА АНАТОЛЬЕВНА \r\nПАТЕНТ РОССИЙСКОЙ ФЕДЕРАЦИИ RU2277566 \r\nОПИСАНИЕ ИЗОБРЕТЕНИЯ \r\n\r\nИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ ПОЛУЧЕНИЯ \r\nИ ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, ИСПОЛЬЗУЕМЫХ \r\nВ ПРОИЗВОДСТВЕ ОДЕЖДЫ И АКСЕССУАРОВ. ДАННАЯ \r\nКЛЕЕВАЯ КОМПОЗИЦИЯ ПРЕДНАЗНАЧЕНА ТОЛЬКО \r\nДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ И ИМЕЕТ В СВОЕМ \r\nСОСТАВЕ МНОГОКОМПОНЕНТНЫЙ ГИБКИЙ ОТВЕРДИТЕЛЬ. \r\nПРОТОТИПОМ КЛЕЕВОЙ КОМПОЗИЦИИ ЯВЛЯЕТСЯ \r\nКЛЕЙ, СОСТОЯЩИЙ ИЗ КАРБАМИДОФОРМАЛЬДЕГИДНОЙ \r\nСМОЛЫ, СОПОЛИМЕРА АКРИЛОНИТРИЛА С N-ВИНИЛКАПРОЛАКТАМОМ \r\nИ ОТВЕРДИТЕЛЬ. В КАЧЕСТВЕ ОТВЕРДИТЕЛЯ ПРИМЕНЯЮТ \r\nХЛОРИСТЫЙ АММОНИЙ ЛИБО АКРИЛОВУЮ КИСЛОТУ. \r\n\r\nИЗОБРЕТЕНИЕ РЕШАЕТ ЗАДАЧУ ПО ПОЛУЧЕНИЮ \r\nПРОЧНОГО И ВОДОСТОЙКОГО КЛЕЕВОГО СОЕДИНЕНИЯ. \r\nЭТО ДОСТИГАЕТСЯ ТЕМ, ЧТО КЛЕЕВАЯ КОМПОЗИЦИЯ, \r\nВКЛЮЧАЮЩАЯ СИНТЕТИЧЕСКУЮ СМОЛУ И ОТВЕРДИТЕЛЬ, \r\nСОГЛАСНО ИЗОБРЕТЕНИЮ, ДОПОЛНИТЕЛЬНО СОДЕРЖИТ \r\nМОДИФИКАТОР, ПРИЧЕМ В КАЧЕСТВЕ СИНТЕТИЧЕСКОЙ \r\nСМОЛЫ КЛЕЕВАЯ КОМПОЗИЦИЯ ВКЛЮЧАЕТ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНУЮ \r\nСМОЛУ С ОТВЕРДИТЕЛЕМ 2542, В КАЧЕСТВЕ МОДИФИКАТОРА \r\n- КАРБАМИДОФОРМАЛЬДЕГИДНУЮ СМОЛУ, А В КАЧЕСТВЕ \r\nОТВЕРДИТЕЛЯ - 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ \r\nПРИ СЛЕДУЮЩЕМ СООТНОШЕНИИ КОМПОНЕНТОВ, \r\nМАС.Ч.: \r\n КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНАЯ СМОЛА \r\n   64,5-79,2     \r\n 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ    4,4-20,5 \r\n    \r\n ОТВЕРДИТЕЛЬ ДЛЯ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНОЙ \r\n    0,6-2,0     \r\n СМОЛЫ 2542    13,0-15,8', 1, NULL, NULL, NULL, NULL, NULL, 'N', '9', 'waterproof_connection', '', '-2110133196', NULL, 15, '2015-09-27 14:19:08'),
 (4, '2015-09-03 19:50:31', 1, '2015-08-28 19:11:41', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Wood', 943, '', 'text', 944, '', 'text', 'NATURA WOOD\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '4', 'natura-wood-1', '', '0', NULL, NULL, NULL),
 (5, '2015-09-03 19:50:21', 1, '2015-08-28 19:12:27', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Wood 2', 945, '', 'text', 946, '', 'text', 'NATURA WOOD 2\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '5', 'natura-wood-2', '', '0', NULL, NULL, NULL),
 (6, '2015-09-03 19:50:12', 1, '2015-08-28 19:13:33', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Wood 3', 947, '', 'text', 948, '', 'text', 'NATURA WOOD 3\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '6', 'natura-wood-3', '', '0', NULL, NULL, NULL),
@@ -4500,19 +4595,15 @@ INSERT INTO `b_iblock_element` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE
 (11, '2015-10-04 21:36:39', 1, '2015-08-28 19:21:08', 1, 2, 9, 'Y', NULL, NULL, 500, 'Гостиная-Italon-Россия-Камень-Natura Stone', NULL, '', 'text', NULL, '', 'text', 'ГОСТИНАЯ-ITALON-РОССИЯ-КАМЕНЬ-NATURA STONE\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '11', 'natura-stone', '', '0', NULL, 8, '2015-08-31 12:02:29'),
 (12, '2015-09-04 13:07:43', 1, '2015-08-28 19:22:11', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Life', 959, '', 'text', 960, '', 'text', 'NATURA LIFE\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '12', 'natura-life', '', '0', NULL, NULL, NULL),
 (13, '2015-10-04 21:34:43', 1, '2015-08-28 19:22:13', 1, 2, 8, 'Y', NULL, NULL, 500, 'Ванная-Natura Life-Россия-Дерево', 961, 'Небольшой анонс', 'text', 962, 'Подробное описание коллекции', 'text', 'ВАННАЯ-NATURA LIFE-РОССИЯ-ДЕРЕВО\r\nНЕБОЛЬШОЙ АНОНС\r\nПОДРОБНОЕ ОПИСАНИЕ КОЛЛЕКЦИИ', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '13', 'natura-life', '', '0', NULL, 8, '2015-09-01 17:34:10'),
-(14, '2015-09-01 14:26:32', 1, '2015-09-01 14:26:32', 1, 4, 6, 'Y', NULL, NULL, 500, 'Kerama Marazzi', 963, '', 'text', 964, '', 'text', 'KERAMA MARAZZI\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '14', 'kerama-marazzi', '', '0', NULL, NULL, NULL),
-(15, '2015-09-01 14:27:09', 1, '2015-09-01 14:27:09', 1, 4, 6, 'Y', NULL, NULL, 500, 'Cersanit', 965, '', 'text', 966, '', 'text', 'CERSANIT\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '15', 'cersanit', '', '0', NULL, NULL, NULL),
 (16, '2015-10-21 13:19:11', 2, '2015-09-01 14:42:33', 1, 4, 7, 'Y', NULL, NULL, 500, 'Hispania', 1115, '', 'text', 1116, '', 'text', 'HISPANIA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '16', 'hispania', '', '0', NULL, NULL, NULL),
 (17, '2015-09-03 19:51:26', 1, '2015-09-01 14:51:07', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Charme wall', 971, '', 'text', 972, '', 'text', 'CHARME WALL\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '17', 'charme-wall', '', '0', NULL, NULL, NULL),
 (18, '2015-09-04 13:06:19', 1, '2015-09-01 14:51:38', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Charme floor', 973, '', 'text', 974, '', 'text', 'CHARME FLOOR\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '18', 'charme-floor', '', '0', NULL, NULL, NULL),
 (19, '2015-09-03 19:48:27', 1, '2015-09-01 14:52:25', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Charme decor', 975, '', 'text', 976, '', 'text', 'CHARME DECOR\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '19', 'charme-decor', '', '0', NULL, NULL, NULL),
 (20, '2015-10-04 21:36:32', 1, '2015-09-01 14:52:30', 1, 2, 9, 'Y', NULL, NULL, 500, 'Гостиная-Novabelle-Италия-Узоры', NULL, '', 'text', NULL, '', 'text', 'ГОСТИНАЯ-NOVABELLE-ИТАЛИЯ-УЗОРЫ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '20', 'charme', '', '0', NULL, 12, '2015-09-01 17:33:59'),
-(22, '2015-09-14 17:27:54', 1, '2015-09-14 17:27:54', 1, 4, 6, 'Y', NULL, NULL, 500, 'Italon', 983, '', 'text', 984, 'Италон - итальянская плитка, производимая в России.', 'text', 'ITALON\r\n\r\nИТАЛОН - ИТАЛЬЯНСКАЯ ПЛИТКА, ПРОИЗВОДИМАЯ В РОССИИ.', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '22', 'italon', '', '0', NULL, NULL, NULL),
-(23, '2015-09-16 12:00:50', 1, '2015-09-16 12:00:50', 1, 4, 6, 'Y', NULL, NULL, 500, 'Azori', 985, '', 'text', 986, '', 'text', 'AZORI\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '23', 'azori', '', '0', NULL, NULL, NULL),
-(24, '2015-09-16 12:06:00', 1, '2015-09-16 12:06:00', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Ванная-Асти-Россия-Узоры-Напольная', 987, '', 'text', 988, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-НАПОЛЬНАЯ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '24', 'vannaya-asti-rossiya-uzory-napolnaya', '', '8', NULL, NULL, NULL),
+(22, '2015-10-22 13:12:23', 2, '2015-09-14 17:27:54', 1, 4, 6, 'Y', NULL, NULL, 500, 'Coliseumgres', 1155, '', 'text', 1156, 'Италон - итальянская плитка, производимая в России.', 'text', 'COLISEUMGRES\r\n\r\nИТАЛОН - ИТАЛЬЯНСКАЯ ПЛИТКА, ПРОИЗВОДИМАЯ В РОССИИ.', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '22', 'italon', '', '0', NULL, NULL, NULL),
+(24, '2015-10-26 14:50:24', 2, '2015-09-16 12:06:00', 1, 3, NULL, 'Y', NULL, NULL, 499, 'Ванная-Асти-Россия-Узоры-Напольная', 987, '', 'text', 988, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-НАПОЛЬНАЯ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '24', 'vannaya-asti-rossiya-uzory-napolnaya', '', '0', NULL, NULL, NULL),
 (25, '2015-10-04 21:35:44', 1, '2015-09-16 12:06:05', 1, 2, 8, 'Y', NULL, NULL, 500, 'Ванная-Azori-Россия-Узоры (Асти)', 989, '', 'text', 990, '', 'text', 'ВАННАЯ-AZORI-РОССИЯ-УЗОРЫ (АСТИ)\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '25', 'vannaya-azori-rossiya-uzory-asti', '', '0', NULL, 4, '2015-09-18 13:36:29'),
 (26, '2015-09-16 12:06:50', 1, '2015-09-16 12:06:50', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Ванная-Асти-Россия-Узоры-Yfcntyyfz', 991, '', 'text', 992, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-YFCNTYYFZ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '26', 'vannaya-asti-rossiya-uzory-yfcntyyfz', '', '0', NULL, NULL, NULL),
-(27, '2015-09-16 12:09:01', 1, '2015-09-16 12:09:01', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Ванная-Асти-Россия-Узоры-Декор', 993, '', 'text', 994, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-ДЕКОР\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '27', 'vannaya-asti-rossiya-uzory-dekor', '', '0', NULL, NULL, NULL),
 (28, '2015-09-16 12:19:28', 1, '2015-09-16 12:14:39', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Atlantic Mosaic', 995, '', 'text', 996, '', 'text', 'ATLANTIC MOSAIC\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '28', 'atlantic-mosaic', '', '0', NULL, NULL, NULL),
 (29, '2015-09-22 10:05:15', 1, '2015-09-16 12:15:17', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Atlantic', 997, '', 'text', 998, '', 'text', 'ATLANTIC\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '29', 'atlantic', '', '0', NULL, NULL, NULL),
 (30, '2015-09-16 12:17:44', 1, '2015-09-16 12:17:44', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Atlantic-2', 999, '', 'text', 1000, '', 'text', 'ATLANTIC-2\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '30', 'atlantic-2', '', '11', NULL, NULL, NULL),
@@ -4583,14 +4674,29 @@ INSERT INTO `b_iblock_element` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE
 (96, '2015-10-21 17:30:20', 2, '2015-10-21 17:30:20', 2, 4, 19, 'Y', NULL, NULL, 500, 'Tang', 1145, '', 'text', 1146, '', 'text', 'TANG\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '96', 'tang', '', '0', NULL, NULL, NULL),
 (97, '2015-10-21 17:38:22', 2, '2015-10-21 17:38:22', 2, 4, 19, 'Y', NULL, NULL, 500, 'Vider', 1147, '', 'text', 1148, '', 'text', 'VIDER\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '97', 'vider', '', '0', NULL, NULL, NULL),
 (98, '2015-10-21 17:44:18', 2, '2015-10-21 17:44:18', 2, 4, 19, 'Y', NULL, NULL, 500, 'Imex', 1149, '', 'text', 1150, '', 'text', 'IMEX\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '98', 'imex', '', '0', NULL, NULL, NULL),
-(99, '2015-10-21 17:46:38', 2, '2015-10-21 17:46:38', 2, 4, 19, 'Y', NULL, NULL, 500, 'Caccia', 1151, '', 'text', 1152, '', 'text', 'CACCIA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '99', 'caccia', '', '0', NULL, NULL, NULL);
+(99, '2015-10-21 17:46:38', 2, '2015-10-21 17:46:38', 2, 4, 19, 'Y', NULL, NULL, 500, 'Caccia', 1151, '', 'text', 1152, '', 'text', 'CACCIA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '99', 'caccia', '', '0', NULL, NULL, NULL),
+(101, '2015-10-22 13:14:32', 2, '2015-10-22 13:14:32', 2, 4, 17, 'Y', NULL, NULL, 500, 'Aleluia', 1157, '', 'text', 1158, '', 'text', 'ALELUIA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '101', 'aleluia', '', '0', NULL, NULL, NULL),
+(102, '2015-10-22 13:31:04', 2, '2015-10-22 13:31:04', 2, 4, 20, 'Y', NULL, NULL, 500, 'Березакерамика', 1161, '', 'text', 1162, '', 'text', 'БЕРЕЗАКЕРАМИКА\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '102', 'berezakeramika', '', '0', NULL, NULL, NULL),
+(103, '2015-10-22 13:32:56', 2, '2015-10-22 13:32:56', 2, 4, 20, 'Y', NULL, NULL, 500, 'Белани', 1163, '', 'text', 1164, '', 'text', 'БЕЛАНИ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '103', 'belani', '', '0', NULL, NULL, NULL),
+(104, '2015-10-22 13:58:00', 2, '2015-10-22 13:58:00', 2, 4, 11, 'Y', NULL, NULL, 500, 'Paradyz', 1165, '', 'text', 1166, '', 'text', 'PARADYZ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '104', 'paradyz', '', '0', NULL, NULL, NULL),
+(105, '2015-10-22 13:59:42', 2, '2015-10-22 13:59:42', 2, 4, 11, 'Y', NULL, NULL, 500, 'Polcolorit', 1167, '', 'text', 1168, '', 'text', 'POLCOLORIT\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '105', 'polcolorit', '', '0', NULL, NULL, NULL),
+(107, '2015-10-26 14:26:16', 2, '2015-10-26 14:26:16', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema', 1169, '', 'text', 1170, '', 'text', 'LEGEND CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '107', 'legend-crema', '', '0', NULL, NULL, NULL),
+(112, '2015-10-26 15:42:54', 2, '2015-10-26 15:39:54', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema2', 1173, '', 'text', 1174, '', 'text', 'LEGEND CREMA2\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '112', 'legend-crema2', '', '39', NULL, NULL, NULL),
+(114, '2015-10-26 15:44:27', 2, '2015-10-26 15:44:27', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend listelo decoro crema', 1177, '', 'text', 1178, '', 'text', 'LEGEND LISTELO DECORO CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '114', 'legend-listelo-decoro-crema', '', '39', NULL, NULL, NULL),
+(115, '2015-10-26 15:45:13', 2, '2015-10-26 15:45:13', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema3', 1179, '', 'text', 1180, '', 'text', 'LEGEND CREMA3\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '115', 'legend-crema3', '', '39', NULL, NULL, NULL),
+(118, '2015-10-27 13:29:54', 2, '2015-10-26 16:10:26', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema34', 1200, '', 'text', 1201, '', 'text', 'LEGEND CREMA34\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '118', 'legend-crema34', '', '0', NULL, NULL, NULL),
+(119, '2015-10-27 14:31:36', 2, '2015-10-26 16:10:55', 2, 2, 8, 'Y', NULL, NULL, 500, 'Legend', 1197, '', 'text', 1198, '', 'text', 'LEGEND\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '119', 'legend', '', '0', NULL, NULL, NULL),
+(120, '2015-10-27 14:59:12', 2, '2015-10-26 16:25:48', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend boiserie crema', 1215, '', 'text', 1211, '', 'text', 'LEGEND BOISERIE CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '120', 'legend', '', '0', NULL, NULL, NULL),
+(121, '2015-10-27 14:24:21', 2, '2015-10-26 16:28:13', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend listelo decoro crema1', 1192, '', 'text', 1193, '', 'text', 'LEGEND LISTELO DECORO CREMA1\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '121', 'legend-listelo-decoro-crema1', '', '0', NULL, NULL, NULL),
+(122, '2015-10-27 14:31:05', 2, '2015-10-26 16:30:08', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema12', 1194, '', 'text', 1195, '', 'text', 'LEGEND CREMA12\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '122', 'legend-crema12', '', '0', NULL, NULL, NULL),
+(123, '2015-10-27 14:24:21', 2, '2015-10-27 13:32:17', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend bord', 1212, '', 'text', 1213, '', 'text', 'LEGEND BORD\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '123', 'legend-bord', '', '0', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_element_iprop`
+-- Table structure for table `b_iblock_element_iprop`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_iprop`;
@@ -4605,9 +4711,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_iprop` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_element_lock`
+-- Table structure for table `b_iblock_element_lock`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_lock`;
@@ -4620,9 +4726,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_lock` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_element_property`
+-- Table structure for table `b_iblock_element_property`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_property`;
@@ -4635,10 +4741,10 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_property` (
   `VALUE_ENUM` int(11) DEFAULT NULL,
   `VALUE_NUM` decimal(18,4) DEFAULT NULL,
   `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=300 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_element_property`
+-- Dumping data for table `b_iblock_element_property`
 --
 
 INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELEMENT_ID`, `VALUE`, `VALUE_TYPE`, `VALUE_ENUM`, `VALUE_NUM`, `DESCRIPTION`) VALUES
@@ -4653,7 +4759,6 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (25, 5, 12, '13', 'text', NULL, '13.0000', NULL),
 (26, 5, 9, '13', 'text', NULL, '13.0000', ''),
 (30, 7, 7, '4', 'text', NULL, '4.0000', ''),
-(31, 9, 7, '14', 'text', NULL, '14.0000', ''),
 (32, 9, 13, '22', 'text', NULL, '22.0000', ''),
 (33, 9, 11, '22', 'text', NULL, '22.0000', ''),
 (42, 9, 20, '16', 'text', NULL, '16.0000', ''),
@@ -4672,17 +4777,12 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (66, 11, 18, '2', 'text', 2, NULL, NULL),
 (67, 11, 8, '1', 'text', 1, NULL, NULL),
 (68, 11, 12, '1', 'text', 1, NULL, NULL),
-(84, 11, 24, '2', 'text', 2, NULL, NULL),
-(85, 9, 25, '23', 'text', NULL, '23.0000', ''),
 (88, 5, 24, '25', 'text', NULL, '25.0000', NULL),
 (89, 5, 26, '25', 'text', NULL, '25.0000', ''),
 (90, 11, 26, '1', 'text', 1, NULL, NULL),
-(93, 5, 27, '25', 'text', NULL, '25.0000', ''),
-(94, 11, 27, '1', 'text', 1, NULL, NULL),
 (97, 5, 28, '31', 'text', NULL, '31.0000', ''),
 (99, 5, 29, '31', 'text', NULL, '31.0000', ''),
 (102, 11, 30, '2', 'text', 2, NULL, NULL),
-(103, 9, 31, '23', 'text', NULL, '23.0000', ''),
 (106, 5, 30, '31', 'text', NULL, '31.0000', NULL),
 (110, 11, 28, '3', 'text', 3, NULL, NULL),
 (111, 5, 32, '31', 'text', NULL, '31.0000', ''),
@@ -4690,7 +4790,6 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (113, 5, 33, '31', 'text', NULL, '31.0000', ''),
 (117, 5, 34, '31', 'text', NULL, '31.0000', ''),
 (124, 11, 36, '2', 'text', 2, NULL, NULL),
-(125, 9, 37, '23', 'text', NULL, '23.0000', ''),
 (128, 5, 35, '37', 'text', NULL, '37.0000', NULL),
 (129, 5, 36, '37', 'text', NULL, '37.0000', NULL),
 (131, 11, 34, '1', 'text', 1, NULL, NULL),
@@ -4698,7 +4797,6 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (133, 11, 29, '1', 'text', 1, NULL, NULL),
 (135, 11, 41, '1', 'text', 1, NULL, NULL),
 (137, 11, 42, '2', 'text', 2, NULL, NULL),
-(138, 9, 43, '14', 'text', NULL, '14.0000', ''),
 (141, 5, 41, '43', 'text', NULL, '43.0000', NULL),
 (142, 5, 42, '43', 'text', NULL, '43.0000', NULL),
 (145, 13, 25, '1033', 'text', NULL, '1033.0000', NULL),
@@ -4723,7 +4821,6 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (175, 12, 43, '53', 'text', 5, '53.0000', ''),
 (176, 13, 43, '1049', 'text', NULL, '1049.0000', NULL),
 (177, 13, 43, '1050', 'text', NULL, '1050.0000', NULL),
-(178, 9, 47, '15', 'text', NULL, '15.0000', ''),
 (184, 13, 47, '1055', 'text', NULL, '1055.0000', NULL),
 (185, 13, 47, '1053', 'text', NULL, '1053.0000', NULL),
 (194, 13, 46, '1056', 'text', NULL, '1056.0000', NULL),
@@ -4765,12 +4862,10 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (250, 5, 62, '-13', 'text', NULL, '-13.0000', ''),
 (251, 11, 62, '3', 'text', 3, NULL, NULL),
 (252, 10, 59, '7', 'text', NULL, '7.0000', NULL),
-(253, 9, 63, '14', 'text', NULL, '14.0000', ''),
 (255, 12, 63, '52', 'text', NULL, '52.0000', ''),
 (256, 13, 63, '1096', 'text', NULL, '1096.0000', ''),
 (257, 5, 64, '63', 'text', NULL, '63.0000', ''),
 (259, 5, 65, '63', 'text', NULL, '63.0000', ''),
-(269, 9, 66, '15', 'text', NULL, '15.0000', ''),
 (271, 12, 66, '53', 'text', NULL, '53.0000', ''),
 (272, 13, 66, '1083', 'text', NULL, '1083.0000', NULL),
 (274, 5, 67, '66', 'text', NULL, '66.0000', ''),
@@ -4790,14 +4885,36 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (294, 11, 72, '3', 'text', 3, NULL, NULL),
 (295, 10, 63, '7', 'text', NULL, '7.0000', NULL),
 (298, 11, 35, '2', 'text', 2, NULL, NULL),
-(299, 10, 37, '6', 'text', NULL, '6.0000', NULL);
+(299, 10, 37, '6', 'text', NULL, '6.0000', NULL),
+(304, 11, 107, '1', 'text', 1, NULL, NULL),
+(315, 11, 24, '2', 'text', 2, NULL, NULL),
+(325, 5, 112, '-39', 'text', NULL, '-39.0000', ''),
+(329, 11, 112, '1', 'text', 1, NULL, NULL),
+(331, 5, 114, '-39', 'text', NULL, '-39.0000', ''),
+(332, 11, 114, '9', 'text', 9, NULL, NULL),
+(333, 5, 115, '-39', 'text', NULL, '-39.0000', ''),
+(334, 11, 115, '2', 'text', 2, NULL, NULL),
+(343, 9, 119, '76', 'text', NULL, '76.0000', ''),
+(345, 12, 119, '53', 'text', NULL, '53.0000', ''),
+(346, 5, 118, '119', 'text', NULL, '119.0000', NULL),
+(350, 5, 120, '119', 'text', NULL, '119.0000', ''),
+(353, 5, 121, '119', 'text', NULL, '119.0000', ''),
+(355, 5, 122, '119', 'text', NULL, '119.0000', ''),
+(360, 13, 119, '1199', 'text', NULL, '1199.0000', NULL),
+(361, 11, 118, '1', 'text', 1, NULL, NULL),
+(378, 5, 123, '119', 'text', NULL, '119.0000', ''),
+(390, 11, 121, '9', 'text', 9, NULL, NULL),
+(391, 11, 123, '9', 'text', 9, NULL, NULL),
+(394, 11, 122, '2', 'text', 2, NULL, NULL),
+(397, 10, 119, '7', 'text', NULL, '7.0000', NULL),
+(401, 11, 120, '1', 'text', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_element_right`
+-- Table structure for table `b_iblock_element_right`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_right`;
@@ -4812,9 +4929,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_right` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_fields`
+-- Table structure for table `b_iblock_fields`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_fields`;
@@ -4826,7 +4943,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_fields` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_fields`
+-- Dumping data for table `b_iblock_fields`
 --
 
 INSERT INTO `b_iblock_fields` (`IBLOCK_ID`, `FIELD_ID`, `IS_REQUIRED`, `DEFAULT_VALUE`) VALUES
@@ -5026,9 +5143,9 @@ INSERT INTO `b_iblock_fields` (`IBLOCK_ID`, `FIELD_ID`, `IS_REQUIRED`, `DEFAULT_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_group`
+-- Table structure for table `b_iblock_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_group`;
@@ -5039,7 +5156,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_group`
+-- Dumping data for table `b_iblock_group`
 --
 
 INSERT INTO `b_iblock_group` (`IBLOCK_ID`, `GROUP_ID`, `PERMISSION`) VALUES
@@ -5064,9 +5181,9 @@ INSERT INTO `b_iblock_group` (`IBLOCK_ID`, `GROUP_ID`, `PERMISSION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_iblock_iprop`
+-- Table structure for table `b_iblock_iblock_iprop`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_iblock_iprop`;
@@ -5079,9 +5196,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_iblock_iprop` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_iproperty`
+-- Table structure for table `b_iblock_iproperty`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_iproperty`;
@@ -5097,9 +5214,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_iproperty` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_messages`
+-- Table structure for table `b_iblock_messages`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_messages`;
@@ -5110,7 +5227,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_messages`
+-- Dumping data for table `b_iblock_messages`
 --
 
 INSERT INTO `b_iblock_messages` (`IBLOCK_ID`, `MESSAGE_ID`, `MESSAGE_TEXT`) VALUES
@@ -5178,9 +5295,9 @@ INSERT INTO `b_iblock_messages` (`IBLOCK_ID`, `MESSAGE_ID`, `MESSAGE_TEXT`) VALU
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_offers_tmp`
+-- Table structure for table `b_iblock_offers_tmp`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_offers_tmp`;
@@ -5189,27 +5306,39 @@ CREATE TABLE IF NOT EXISTS `b_iblock_offers_tmp` (
   `PRODUCT_IBLOCK_ID` int(11) unsigned NOT NULL,
   `OFFERS_IBLOCK_ID` int(11) unsigned NOT NULL,
   `TIMESTAMP_X` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_offers_tmp`
+-- Dumping data for table `b_iblock_offers_tmp`
 --
 
 INSERT INTO `b_iblock_offers_tmp` (`ID`, `PRODUCT_IBLOCK_ID`, `OFFERS_IBLOCK_ID`, `TIMESTAMP_X`) VALUES
-(7, 2, 3, '2015-10-06 07:08:16'),
-(8, 2, 3, '2015-10-06 07:12:40'),
-(9, 2, 3, '2015-10-06 07:12:49'),
-(13, 2, 3, '2015-10-06 07:36:22'),
-(15, 2, 3, '2015-10-06 08:13:29'),
-(17, 2, 3, '2015-10-06 08:17:38'),
-(18, 2, 3, '2015-10-06 08:18:08');
+(19, 2, 3, '2015-10-26 10:35:52'),
+(20, 2, 3, '2015-10-26 10:53:56'),
+(21, 2, 3, '2015-10-26 10:58:12'),
+(22, 2, 3, '2015-10-26 10:58:49'),
+(23, 2, 3, '2015-10-26 11:19:07'),
+(24, 2, 3, '2015-10-26 11:21:21'),
+(25, 2, 3, '2015-10-26 11:31:18'),
+(27, 2, 3, '2015-10-26 11:38:30'),
+(28, 2, 3, '2015-10-26 11:40:59'),
+(29, 2, 3, '2015-10-26 11:43:53'),
+(30, 2, 3, '2015-10-26 11:44:43'),
+(32, 2, 3, '2015-10-26 12:01:55'),
+(33, 2, 3, '2015-10-26 12:04:41'),
+(34, 2, 3, '2015-10-26 12:07:27'),
+(35, 2, 3, '2015-10-26 12:20:44'),
+(37, 2, 3, '2015-10-26 12:24:53'),
+(39, 2, 3, '2015-10-26 12:32:22'),
+(40, 2, 3, '2015-10-26 12:52:47'),
+(41, 2, 3, '2015-10-26 12:53:22');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_property`
+-- Table structure for table `b_iblock_property`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_property`;
@@ -5243,7 +5372,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_property` (
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_property`
+-- Dumping data for table `b_iblock_property`
 --
 
 INSERT INTO `b_iblock_property` (`ID`, `TIMESTAMP_X`, `IBLOCK_ID`, `NAME`, `ACTIVE`, `SORT`, `CODE`, `DEFAULT_VALUE`, `PROPERTY_TYPE`, `ROW_COUNT`, `COL_COUNT`, `LIST_TYPE`, `MULTIPLE`, `XML_ID`, `FILE_TYPE`, `MULTIPLE_CNT`, `TMP_ID`, `LINK_IBLOCK_ID`, `WITH_DESCRIPTION`, `SEARCHABLE`, `FILTRABLE`, `IS_REQUIRED`, `VERSION`, `USER_TYPE`, `USER_TYPE_SETTINGS`, `HINT`) VALUES
@@ -5260,9 +5389,9 @@ INSERT INTO `b_iblock_property` (`ID`, `TIMESTAMP_X`, `IBLOCK_ID`, `NAME`, `ACTI
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_property_enum`
+-- Table structure for table `b_iblock_property_enum`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_property_enum`;
@@ -5277,7 +5406,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_property_enum` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_property_enum`
+-- Dumping data for table `b_iblock_property_enum`
 --
 
 INSERT INTO `b_iblock_property_enum` (`ID`, `PROPERTY_ID`, `VALUE`, `DEF`, `SORT`, `XML_ID`, `TMP_ID`) VALUES
@@ -5289,9 +5418,9 @@ INSERT INTO `b_iblock_property_enum` (`ID`, `PROPERTY_ID`, `VALUE`, `DEF`, `SORT
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_right`
+-- Table structure for table `b_iblock_right`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_right`;
@@ -5311,9 +5440,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_right` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_rss`
+-- Table structure for table `b_iblock_rss`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_rss`;
@@ -5327,9 +5456,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_rss` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_section`
+-- Table structure for table `b_iblock_section`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section`;
@@ -5357,33 +5486,34 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section` (
   `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DETAIL_PICTURE` int(18) DEFAULT NULL,
   `SOCNET_GROUP_ID` int(18) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_section`
+-- Dumping data for table `b_iblock_section`
 --
 
 INSERT INTO `b_iblock_section` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE`, `CREATED_BY`, `IBLOCK_ID`, `IBLOCK_SECTION_ID`, `ACTIVE`, `GLOBAL_ACTIVE`, `SORT`, `NAME`, `PICTURE`, `LEFT_MARGIN`, `RIGHT_MARGIN`, `DEPTH_LEVEL`, `DESCRIPTION`, `DESCRIPTION_TYPE`, `SEARCHABLE_CONTENT`, `CODE`, `XML_ID`, `TMP_ID`, `DETAIL_PICTURE`, `SOCNET_GROUP_ID`) VALUES
-(6, '2015-09-14 14:48:53', 1, '2015-09-01 14:23:05', 1, 4, NULL, 'Y', 'Y', 500, 'Россия', NULL, 11, 12, 1, '', 'text', 'РОССИЯ\r\n', 'russia', NULL, NULL, NULL, NULL),
-(7, '2015-10-21 09:00:15', 2, '2015-09-01 14:23:12', 1, 4, NULL, 'Y', 'Y', 500, 'Испания', NULL, 3, 4, 1, '', 'text', 'ИСПАНИЯ\r\n', 'ispaniya', NULL, NULL, NULL, NULL),
+(6, '2015-09-14 14:48:53', 1, '2015-09-01 14:23:05', 1, 4, NULL, 'Y', 'Y', 500, 'Россия', NULL, 13, 14, 1, '', 'text', 'РОССИЯ\r\n', 'russia', NULL, NULL, NULL, NULL),
+(7, '2015-10-21 09:00:15', 2, '2015-09-01 14:23:12', 1, 4, NULL, 'Y', 'Y', 500, 'Испания', NULL, 5, 6, 1, '', 'text', 'ИСПАНИЯ\r\n', 'ispaniya', NULL, NULL, NULL, NULL),
 (8, '2015-09-16 10:18:17', 1, '2015-09-01 14:27:55', 1, 2, NULL, 'Y', 'Y', 500, 'Ванная', 1010, 1, 2, 1, '', 'text', 'ВАННАЯ\r\n', 'vannaya', NULL, NULL, 967, NULL),
 (9, '2015-09-24 10:56:46', 1, '2015-09-01 14:29:06', 1, 2, NULL, 'Y', 'Y', 520, 'Гостиная', 1025, 5, 6, 1, '', 'text', 'Гостиная\r\n', 'gostinaya', NULL, NULL, 1026, NULL),
-(11, '2015-10-05 16:58:22', 2, '2015-09-03 15:34:57', 1, 4, NULL, 'Y', 'Y', 500, 'Польша', NULL, 7, 8, 1, '', 'text', 'ПОЛЬША\r\n', 'poland', NULL, NULL, NULL, NULL),
+(11, '2015-10-05 16:58:22', 2, '2015-09-03 15:34:57', 1, 4, NULL, 'Y', 'Y', 500, 'Польша', NULL, 9, 10, 1, '', 'text', 'ПОЛЬША\r\n', 'poland', NULL, NULL, NULL, NULL),
 (12, '2015-09-16 12:36:27', 1, '2015-09-16 13:17:20', 1, 2, NULL, 'Y', 'Y', 510, 'Кухня', 1009, 3, 4, 1, '', 'text', 'КУХНЯ\r\n', 'kitchen', NULL, NULL, NULL, NULL),
 (13, '2015-09-16 12:38:22', 1, '2015-09-16 15:38:22', 1, 2, NULL, 'Y', 'Y', 530, 'Фасад', 1012, 7, 8, 1, '', 'text', 'ФАСАД\r\n', 'facade', NULL, NULL, NULL, NULL),
 (14, '2015-09-16 12:39:06', 1, '2015-09-16 15:39:06', 1, 2, NULL, 'Y', 'Y', 540, 'Керамогранит', 1013, 9, 10, 1, '', 'text', 'КЕРАМОГРАНИТ\r\n', 'gres', NULL, NULL, NULL, NULL),
 (15, '2015-09-16 12:40:29', 1, '2015-09-16 15:40:29', 1, 2, NULL, 'Y', 'Y', 550, 'Клинкер, ступени', 1014, 11, 12, 1, '', 'text', 'КЛИНКЕР, СТУПЕНИ\r\n', 'steps', NULL, NULL, NULL, NULL),
 (16, '2015-09-16 12:41:11', 1, '2015-09-16 15:41:11', 1, 2, NULL, 'Y', 'Y', 560, 'Мозаика', 1015, 13, 14, 1, '', 'text', 'МОЗАИКА\r\n', 'mosaic', NULL, NULL, NULL, NULL),
-(17, '2015-10-21 09:02:02', 2, '2015-10-21 12:02:02', 2, 4, NULL, 'Y', 'Y', 500, 'Португалия', NULL, 9, 10, 1, '', 'text', 'ПОРТУГАЛИЯ\r\n', 'portugaliya', NULL, NULL, NULL, NULL),
-(18, '2015-10-21 09:02:40', 2, '2015-10-21 12:02:40', 2, 4, NULL, 'Y', 'Y', 500, 'Германия', NULL, 1, 2, 1, '', 'text', 'ГЕРМАНИЯ\r\n', 'germaniya', NULL, NULL, NULL, NULL),
-(19, '2015-10-21 09:03:01', 2, '2015-10-21 12:03:01', 2, 4, NULL, 'Y', 'Y', 500, 'Китай', NULL, 5, 6, 1, '', 'text', 'КИТАЙ\r\n', 'kitay', NULL, NULL, NULL, NULL);
+(17, '2015-10-21 09:02:02', 2, '2015-10-21 12:02:02', 2, 4, NULL, 'Y', 'Y', 500, 'Португалия', NULL, 11, 12, 1, '', 'text', 'ПОРТУГАЛИЯ\r\n', 'portugaliya', NULL, NULL, NULL, NULL),
+(18, '2015-10-21 09:02:40', 2, '2015-10-21 12:02:40', 2, 4, NULL, 'Y', 'Y', 500, 'Германия', NULL, 3, 4, 1, '', 'text', 'ГЕРМАНИЯ\r\n', 'germaniya', NULL, NULL, NULL, NULL),
+(19, '2015-10-21 09:03:01', 2, '2015-10-21 12:03:01', 2, 4, NULL, 'Y', 'Y', 500, 'Китай', NULL, 7, 8, 1, '', 'text', 'КИТАЙ\r\n', 'kitay', NULL, NULL, NULL, NULL),
+(20, '2015-10-22 10:25:53', 2, '2015-10-22 13:24:53', 2, 4, NULL, 'Y', 'Y', 500, 'Белоруссия', 1159, 1, 2, 1, '', 'text', 'БЕЛОРУССИЯ\r\n', 'belorussiya', NULL, NULL, 1160, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_section_element`
+-- Table structure for table `b_iblock_section_element`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_element`;
@@ -5394,17 +5524,14 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_element` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_section_element`
+-- Dumping data for table `b_iblock_section_element`
 --
 
 INSERT INTO `b_iblock_section_element` (`IBLOCK_SECTION_ID`, `IBLOCK_ELEMENT_ID`, `ADDITIONAL_PROPERTY_ID`) VALUES
 (6, 7, 10),
 (6, 11, 10),
 (6, 13, 10),
-(6, 14, NULL),
-(6, 15, NULL),
 (6, 22, NULL),
-(6, 23, NULL),
 (6, 25, 10),
 (6, 31, 10),
 (6, 37, 10),
@@ -5435,35 +5562,42 @@ INSERT INTO `b_iblock_section_element` (`IBLOCK_SECTION_ID`, `IBLOCK_ELEMENT_ID`
 (7, 90, NULL),
 (7, 91, NULL),
 (7, 92, NULL),
+(7, 119, 10),
 (8, 7, NULL),
 (8, 13, NULL),
 (8, 25, NULL),
 (8, 31, NULL),
 (8, 58, NULL),
 (8, 63, NULL),
+(8, 119, NULL),
 (9, 11, NULL),
 (9, 20, NULL),
 (9, 37, NULL),
 (11, 55, NULL),
 (11, 66, 10),
+(11, 104, NULL),
+(11, 105, NULL),
 (12, 43, NULL),
 (12, 46, NULL),
 (12, 47, NULL),
 (12, 59, NULL),
 (12, 66, NULL),
+(17, 101, NULL),
 (19, 94, NULL),
 (19, 95, NULL),
 (19, 96, NULL),
 (19, 97, NULL),
 (19, 98, NULL),
-(19, 99, NULL);
+(19, 99, NULL),
+(20, 102, NULL),
+(20, 103, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_section_iprop`
+-- Table structure for table `b_iblock_section_iprop`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_iprop`;
@@ -5477,9 +5611,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_iprop` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_section_property`
+-- Table structure for table `b_iblock_section_property`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_property`;
@@ -5496,9 +5630,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_property` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_section_right`
+-- Table structure for table `b_iblock_section_right`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_right`;
@@ -5512,9 +5646,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_right` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_sequence`
+-- Table structure for table `b_iblock_sequence`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_sequence`;
@@ -5527,9 +5661,9 @@ CREATE TABLE IF NOT EXISTS `b_iblock_sequence` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_site`
+-- Table structure for table `b_iblock_site`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_site`;
@@ -5539,7 +5673,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_site`
+-- Dumping data for table `b_iblock_site`
 --
 
 INSERT INTO `b_iblock_site` (`IBLOCK_ID`, `SITE_ID`) VALUES
@@ -5553,9 +5687,9 @@ INSERT INTO `b_iblock_site` (`IBLOCK_ID`, `SITE_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_type`
+-- Table structure for table `b_iblock_type`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_type`;
@@ -5569,7 +5703,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_type`
+-- Dumping data for table `b_iblock_type`
 --
 
 INSERT INTO `b_iblock_type` (`ID`, `SECTIONS`, `EDIT_FILE_BEFORE`, `EDIT_FILE_AFTER`, `IN_RSS`, `SORT`) VALUES
@@ -5583,9 +5717,9 @@ INSERT INTO `b_iblock_type` (`ID`, `SECTIONS`, `EDIT_FILE_BEFORE`, `EDIT_FILE_AF
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_iblock_type_lang`
+-- Table structure for table `b_iblock_type_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_iblock_type_lang`;
@@ -5598,7 +5732,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_type_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_iblock_type_lang`
+-- Dumping data for table `b_iblock_type_lang`
 --
 
 INSERT INTO `b_iblock_type_lang` (`IBLOCK_TYPE_ID`, `LID`, `NAME`, `SECTION_NAME`, `ELEMENT_NAME`) VALUES
@@ -5618,9 +5752,9 @@ INSERT INTO `b_iblock_type_lang` (`IBLOCK_TYPE_ID`, `LID`, `NAME`, `SECTION_NAME
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_lang`
+-- Table structure for table `b_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_lang`;
@@ -5646,7 +5780,7 @@ CREATE TABLE IF NOT EXISTS `b_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_lang`
+-- Dumping data for table `b_lang`
 --
 
 INSERT INTO `b_lang` (`LID`, `SORT`, `DEF`, `ACTIVE`, `NAME`, `DIR`, `FORMAT_DATE`, `FORMAT_DATETIME`, `FORMAT_NAME`, `WEEK_START`, `CHARSET`, `LANGUAGE_ID`, `DOC_ROOT`, `DOMAIN_LIMITED`, `SERVER_NAME`, `SITE_NAME`, `EMAIL`, `CULTURE_ID`) VALUES
@@ -5655,9 +5789,9 @@ INSERT INTO `b_lang` (`LID`, `SORT`, `DEF`, `ACTIVE`, `NAME`, `DIR`, `FORMAT_DAT
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_language`
+-- Table structure for table `b_language`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_language`;
@@ -5677,7 +5811,7 @@ CREATE TABLE IF NOT EXISTS `b_language` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_language`
+-- Dumping data for table `b_language`
 --
 
 INSERT INTO `b_language` (`LID`, `SORT`, `DEF`, `ACTIVE`, `NAME`, `FORMAT_DATE`, `FORMAT_DATETIME`, `FORMAT_NAME`, `WEEK_START`, `CHARSET`, `DIRECTION`, `CULTURE_ID`) VALUES
@@ -5687,9 +5821,9 @@ INSERT INTO `b_language` (`LID`, `SORT`, `DEF`, `ACTIVE`, `NAME`, `FORMAT_DATE`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_lang_domain`
+-- Table structure for table `b_lang_domain`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_lang_domain`;
@@ -5701,9 +5835,9 @@ CREATE TABLE IF NOT EXISTS `b_lang_domain` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_list_rubric`
+-- Table structure for table `b_list_rubric`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_list_rubric`;
@@ -5726,7 +5860,7 @@ CREATE TABLE IF NOT EXISTS `b_list_rubric` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_list_rubric`
+-- Dumping data for table `b_list_rubric`
 --
 
 INSERT INTO `b_list_rubric` (`ID`, `LID`, `CODE`, `NAME`, `DESCRIPTION`, `SORT`, `ACTIVE`, `AUTO`, `DAYS_OF_MONTH`, `DAYS_OF_WEEK`, `TIMES_OF_DAY`, `TEMPLATE`, `LAST_EXECUTED`, `VISIBLE`, `FROM_FIELD`) VALUES
@@ -5735,9 +5869,9 @@ INSERT INTO `b_list_rubric` (`ID`, `LID`, `CODE`, `NAME`, `DESCRIPTION`, `SORT`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_medialib_collection`
+-- Table structure for table `b_medialib_collection`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_medialib_collection`;
@@ -5758,9 +5892,9 @@ CREATE TABLE IF NOT EXISTS `b_medialib_collection` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_medialib_collection_item`
+-- Table structure for table `b_medialib_collection_item`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_medialib_collection_item`;
@@ -5772,9 +5906,9 @@ CREATE TABLE IF NOT EXISTS `b_medialib_collection_item` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_medialib_item`
+-- Table structure for table `b_medialib_item`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_medialib_item`;
@@ -5793,9 +5927,9 @@ CREATE TABLE IF NOT EXISTS `b_medialib_item` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_medialib_type`
+-- Table structure for table `b_medialib_type`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_medialib_type`;
@@ -5809,7 +5943,7 @@ CREATE TABLE IF NOT EXISTS `b_medialib_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_medialib_type`
+-- Dumping data for table `b_medialib_type`
 --
 
 INSERT INTO `b_medialib_type` (`ID`, `NAME`, `CODE`, `EXT`, `SYSTEM`, `DESCRIPTION`) VALUES
@@ -5820,9 +5954,9 @@ INSERT INTO `b_medialib_type` (`ID`, `NAME`, `CODE`, `EXT`, `SYSTEM`, `DESCRIPTI
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_mobileapp_app`
+-- Table structure for table `b_mobileapp_app`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_mobileapp_app`;
@@ -5841,9 +5975,9 @@ CREATE TABLE IF NOT EXISTS `b_mobileapp_app` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_mobileapp_config`
+-- Table structure for table `b_mobileapp_config`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_mobileapp_config`;
@@ -5857,9 +5991,9 @@ CREATE TABLE IF NOT EXISTS `b_mobileapp_config` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_module`
+-- Table structure for table `b_module`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_module`;
@@ -5869,7 +6003,7 @@ CREATE TABLE IF NOT EXISTS `b_module` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_module`
+-- Dumping data for table `b_module`
 --
 
 INSERT INTO `b_module` (`ID`, `DATE_ACTIVE`) VALUES
@@ -5905,9 +6039,9 @@ INSERT INTO `b_module` (`ID`, `DATE_ACTIVE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_module_group`
+-- Table structure for table `b_module_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_module_group`;
@@ -5920,7 +6054,7 @@ CREATE TABLE IF NOT EXISTS `b_module_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_module_group`
+-- Dumping data for table `b_module_group`
 --
 
 INSERT INTO `b_module_group` (`ID`, `MODULE_ID`, `GROUP_ID`, `G_ACCESS`, `SITE_ID`) VALUES
@@ -5934,9 +6068,9 @@ INSERT INTO `b_module_group` (`ID`, `MODULE_ID`, `GROUP_ID`, `G_ACCESS`, `SITE_I
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_module_to_module`
+-- Table structure for table `b_module_to_module`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_module_to_module`;
@@ -5955,7 +6089,7 @@ CREATE TABLE IF NOT EXISTS `b_module_to_module` (
 ) ENGINE=InnoDB AUTO_INCREMENT=337 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_module_to_module`
+-- Dumping data for table `b_module_to_module`
 --
 
 INSERT INTO `b_module_to_module` (`ID`, `TIMESTAMP_X`, `SORT`, `FROM_MODULE_ID`, `MESSAGE_ID`, `TO_MODULE_ID`, `TO_PATH`, `TO_CLASS`, `TO_METHOD`, `TO_METHOD_ARG`, `VERSION`) VALUES
@@ -6299,9 +6433,9 @@ INSERT INTO `b_module_to_module` (`ID`, `TIMESTAMP_X`, `SORT`, `FROM_MODULE_ID`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_operation`
+-- Table structure for table `b_operation`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_operation`;
@@ -6314,7 +6448,7 @@ CREATE TABLE IF NOT EXISTS `b_operation` (
 ) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_operation`
+-- Dumping data for table `b_operation`
 --
 
 INSERT INTO `b_operation` (`ID`, `NAME`, `MODULE_ID`, `DESCRIPTION`, `BINDING`) VALUES
@@ -6445,9 +6579,9 @@ INSERT INTO `b_operation` (`ID`, `NAME`, `MODULE_ID`, `DESCRIPTION`, `BINDING`) 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_option`
+-- Table structure for table `b_option`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_option`;
@@ -6460,7 +6594,7 @@ CREATE TABLE IF NOT EXISTS `b_option` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_option`
+-- Dumping data for table `b_option`
 --
 
 INSERT INTO `b_option` (`MODULE_ID`, `NAME`, `VALUE`, `DESCRIPTION`, `SITE_ID`) VALUES
@@ -6813,9 +6947,9 @@ INSERT INTO `b_option` (`MODULE_ID`, `NAME`, `VALUE`, `DESCRIPTION`, `SITE_ID`) 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_cache`
+-- Table structure for table `b_perf_cache`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_cache`;
@@ -6837,9 +6971,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_cache` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_cluster`
+-- Table structure for table `b_perf_cluster`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_cluster`;
@@ -6857,9 +6991,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_cluster` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_component`
+-- Table structure for table `b_perf_component`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_component`;
@@ -6881,9 +7015,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_component` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_error`
+-- Table structure for table `b_perf_error`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_error`;
@@ -6899,9 +7033,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_error` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_history`
+-- Table structure for table `b_perf_history`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_history`;
@@ -6913,7 +7047,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_history` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_perf_history`
+-- Dumping data for table `b_perf_history`
 --
 
 INSERT INTO `b_perf_history` (`ID`, `TIMESTAMP_X`, `TOTAL_MARK`, `ACCELERATOR_ENABLED`) VALUES
@@ -6922,9 +7056,9 @@ INSERT INTO `b_perf_history` (`ID`, `TIMESTAMP_X`, `TOTAL_MARK`, `ACCELERATOR_EN
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_hit`
+-- Table structure for table `b_perf_hit`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_hit`;
@@ -6963,7 +7097,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_hit` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_perf_hit`
+-- Dumping data for table `b_perf_hit`
 --
 
 INSERT INTO `b_perf_hit` (`ID`, `DATE_HIT`, `IS_ADMIN`, `REQUEST_METHOD`, `SERVER_NAME`, `SERVER_PORT`, `SCRIPT_NAME`, `REQUEST_URI`, `INCLUDED_FILES`, `MEMORY_PEAK_USAGE`, `CACHE_TYPE`, `CACHE_SIZE`, `CACHE_COUNT_R`, `CACHE_COUNT_W`, `CACHE_COUNT_C`, `QUERIES`, `QUERIES_TIME`, `COMPONENTS`, `COMPONENTS_TIME`, `SQL_LOG`, `PAGE_TIME`, `PROLOG_TIME`, `PROLOG_BEFORE_TIME`, `AGENTS_TIME`, `PROLOG_AFTER_TIME`, `WORK_AREA_TIME`, `EPILOG_TIME`, `EPILOG_BEFORE_TIME`, `EVENTS_TIME`, `EPILOG_AFTER_TIME`, `MENU_RECALC`) VALUES
@@ -6974,9 +7108,9 @@ INSERT INTO `b_perf_hit` (`ID`, `DATE_HIT`, `IS_ADMIN`, `REQUEST_METHOD`, `SERVE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_index_ban`
+-- Table structure for table `b_perf_index_ban`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_ban`;
@@ -6990,9 +7124,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_ban` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_index_complete`
+-- Table structure for table `b_perf_index_complete`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_complete`;
@@ -7007,9 +7141,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_complete` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_index_suggest`
+-- Table structure for table `b_perf_index_suggest`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_suggest`;
@@ -7028,9 +7162,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_suggest` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_index_suggest_sql`
+-- Table structure for table `b_perf_index_suggest_sql`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_suggest_sql`;
@@ -7042,9 +7176,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_suggest_sql` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_sql`
+-- Table structure for table `b_perf_sql`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_sql`;
@@ -7061,7 +7195,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_sql` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_perf_sql`
+-- Dumping data for table `b_perf_sql`
 --
 
 INSERT INTO `b_perf_sql` (`ID`, `HIT_ID`, `COMPONENT_ID`, `NN`, `QUERY_TIME`, `NODE_ID`, `MODULE_NAME`, `COMPONENT_NAME`, `SQL_TEXT`) VALUES
@@ -7075,9 +7209,9 @@ INSERT INTO `b_perf_sql` (`ID`, `HIT_ID`, `COMPONENT_ID`, `NN`, `QUERY_TIME`, `N
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_sql_backtrace`
+-- Table structure for table `b_perf_sql_backtrace`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_sql_backtrace`;
@@ -7093,9 +7227,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_sql_backtrace` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_tab_column_stat`
+-- Table structure for table `b_perf_tab_column_stat`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_tab_column_stat`;
@@ -7111,9 +7245,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_tab_column_stat` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_tab_stat`
+-- Table structure for table `b_perf_tab_stat`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_tab_stat`;
@@ -7126,9 +7260,9 @@ CREATE TABLE IF NOT EXISTS `b_perf_tab_stat` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_perf_test`
+-- Table structure for table `b_perf_test`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_perf_test`;
@@ -7139,7 +7273,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_test` (
 ) ENGINE=InnoDB AUTO_INCREMENT=401 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_perf_test`
+-- Dumping data for table `b_perf_test`
 --
 
 INSERT INTO `b_perf_test` (`ID`, `REFERENCE_ID`, `NAME`) VALUES
@@ -7548,9 +7682,9 @@ INSERT INTO `b_perf_test` (`ID`, `REFERENCE_ID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_posting`
+-- Table structure for table `b_posting`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_posting`;
@@ -7580,9 +7714,9 @@ CREATE TABLE IF NOT EXISTS `b_posting` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_posting_email`
+-- Table structure for table `b_posting_email`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_posting_email`;
@@ -7598,9 +7732,9 @@ CREATE TABLE IF NOT EXISTS `b_posting_email` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_posting_file`
+-- Table structure for table `b_posting_file`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_posting_file`;
@@ -7612,9 +7746,9 @@ CREATE TABLE IF NOT EXISTS `b_posting_file` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_posting_group`
+-- Table structure for table `b_posting_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_posting_group`;
@@ -7626,9 +7760,9 @@ CREATE TABLE IF NOT EXISTS `b_posting_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_posting_rubric`
+-- Table structure for table `b_posting_rubric`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_posting_rubric`;
@@ -7640,9 +7774,9 @@ CREATE TABLE IF NOT EXISTS `b_posting_rubric` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_pull_channel`
+-- Table structure for table `b_pull_channel`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_pull_channel`;
@@ -7653,23 +7787,23 @@ CREATE TABLE IF NOT EXISTS `b_pull_channel` (
   `CHANNEL_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `LAST_ID` int(18) DEFAULT NULL,
   `DATE_CREATE` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_pull_channel`
+-- Dumping data for table `b_pull_channel`
 --
 
 INSERT INTO `b_pull_channel` (`ID`, `USER_ID`, `CHANNEL_TYPE`, `CHANNEL_ID`, `LAST_ID`, `DATE_CREATE`) VALUES
 (31, 3, 'private', 'e7c04e27755c4799faeec6a8c8e99aa7', 0, '2015-10-13 22:43:58'),
-(34, 2, 'private', '1a39c79b9c4b436e3eeeae74f4d1aeec', 0, '2015-10-21 11:48:54'),
-(35, 1, 'private', 'cc0e779f242d5c3df7d8c8e966384b2a', 0, '2015-10-21 13:25:14');
+(40, 1, 'private', 'd2eba145fe2dc8848bfe73db1b447d97', 0, '2015-10-27 12:17:34'),
+(41, 2, 'private', '5076e504b778211dfc7dc849d210b05f', 0, '2015-10-27 12:40:16');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_pull_push`
+-- Table structure for table `b_pull_push`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_pull_push`;
@@ -7689,9 +7823,9 @@ CREATE TABLE IF NOT EXISTS `b_pull_push` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_pull_push_queue`
+-- Table structure for table `b_pull_push_queue`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_pull_push_queue`;
@@ -7710,9 +7844,9 @@ CREATE TABLE IF NOT EXISTS `b_pull_push_queue` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_pull_stack`
+-- Table structure for table `b_pull_stack`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_pull_stack`;
@@ -7721,10 +7855,10 @@ CREATE TABLE IF NOT EXISTS `b_pull_stack` (
   `CHANNEL_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `MESSAGE` text COLLATE utf8_unicode_ci NOT NULL,
   `DATE_CREATE` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_pull_stack`
+-- Dumping data for table `b_pull_stack`
 --
 
 INSERT INTO `b_pull_stack` (`ID`, `CHANNEL_ID`, `MESSAGE`, `DATE_CREATE`) VALUES
@@ -7751,14 +7885,20 @@ INSERT INTO `b_pull_stack` (`ID`, `CHANNEL_ID`, `MESSAGE`, `DATE_CREATE`) VALUES
 (37, 'a2a9d99304e71946b1294bbec6661ade', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-19 11:06:40'),
 (38, 'a221b32fd824ed083503a95e2ae69fbf', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-20 23:06:48'),
 (39, '4091c6fb72e685d62c68d9c4cdc3cf8a', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-21 11:48:54'),
-(40, '16d2b193a917c91066c5eec226fd237d', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-21 13:25:14');
+(40, '16d2b193a917c91066c5eec226fd237d', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-21 13:25:14'),
+(41, '1a39c79b9c4b436e3eeeae74f4d1aeec', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-22 12:49:48'),
+(42, 'cc0e779f242d5c3df7d8c8e966384b2a', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-22 19:57:13'),
+(43, '0e0b97d9595de7f69ee416d0d7db120d', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-26 13:35:12'),
+(44, 'c45a80a92d0a1384542ff26bd64a2ff9', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-26 15:30:17'),
+(45, '27472a48e0167cc8772963991d715188', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-27 12:17:34'),
+(46, '8def70e8ea8996b721823ff5598590a0', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-27 12:40:16');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_pull_watch`
+-- Table structure for table `b_pull_watch`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_pull_watch`;
@@ -7773,9 +7913,9 @@ CREATE TABLE IF NOT EXISTS `b_pull_watch` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating`
+-- Table structure for table `b_rating`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating`;
@@ -7795,7 +7935,7 @@ CREATE TABLE IF NOT EXISTS `b_rating` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_rating`
+-- Dumping data for table `b_rating`
 --
 
 INSERT INTO `b_rating` (`ID`, `ACTIVE`, `NAME`, `ENTITY_ID`, `CALCULATION_METHOD`, `CREATED`, `LAST_MODIFIED`, `LAST_CALCULATED`, `POSITION`, `AUTHORITY`, `CALCULATED`, `CONFIGS`) VALUES
@@ -7805,9 +7945,9 @@ INSERT INTO `b_rating` (`ID`, `ACTIVE`, `NAME`, `ENTITY_ID`, `CALCULATION_METHOD
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_component`
+-- Table structure for table `b_rating_component`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_component`;
@@ -7833,9 +7973,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_component` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_component_results`
+-- Table structure for table `b_rating_component_results`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_component_results`;
@@ -7854,9 +7994,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_component_results` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_prepare`
+-- Table structure for table `b_rating_prepare`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_prepare`;
@@ -7867,9 +8007,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_prepare` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_results`
+-- Table structure for table `b_rating_results`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_results`;
@@ -7887,9 +8027,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_results` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_rule`
+-- Table structure for table `b_rating_rule`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_rule`;
@@ -7917,7 +8057,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_rule` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_rating_rule`
+-- Dumping data for table `b_rating_rule`
 --
 
 INSERT INTO `b_rating_rule` (`ID`, `ACTIVE`, `NAME`, `ENTITY_TYPE_ID`, `CONDITION_NAME`, `CONDITION_MODULE`, `CONDITION_CLASS`, `CONDITION_METHOD`, `CONDITION_CONFIG`, `ACTION_NAME`, `ACTION_CONFIG`, `ACTIVATE`, `ACTIVATE_CLASS`, `ACTIVATE_METHOD`, `DEACTIVATE`, `DEACTIVATE_CLASS`, `DEACTIVATE_METHOD`, `CREATED`, `LAST_MODIFIED`, `LAST_APPLIED`) VALUES
@@ -7930,9 +8070,9 @@ INSERT INTO `b_rating_rule` (`ID`, `ACTIVE`, `NAME`, `ENTITY_TYPE_ID`, `CONDITIO
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_rule_vetting`
+-- Table structure for table `b_rating_rule_vetting`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_rule_vetting`;
@@ -7948,9 +8088,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_rule_vetting` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_user`
+-- Table structure for table `b_rating_user`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_user`;
@@ -7964,7 +8104,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_rating_user`
+-- Dumping data for table `b_rating_user`
 --
 
 INSERT INTO `b_rating_user` (`ID`, `RATING_ID`, `ENTITY_ID`, `BONUS`, `VOTE_WEIGHT`, `VOTE_COUNT`) VALUES
@@ -7975,9 +8115,9 @@ INSERT INTO `b_rating_user` (`ID`, `RATING_ID`, `ENTITY_ID`, `BONUS`, `VOTE_WEIG
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_vote`
+-- Table structure for table `b_rating_vote`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_vote`;
@@ -7997,9 +8137,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_vote` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_vote_group`
+-- Table structure for table `b_rating_vote_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_vote_group`;
@@ -8010,7 +8150,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_vote_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_rating_vote_group`
+-- Dumping data for table `b_rating_vote_group`
 --
 
 INSERT INTO `b_rating_vote_group` (`ID`, `GROUP_ID`, `TYPE`) VALUES
@@ -8024,9 +8164,9 @@ INSERT INTO `b_rating_vote_group` (`ID`, `GROUP_ID`, `TYPE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_voting`
+-- Table structure for table `b_rating_voting`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_voting`;
@@ -8047,9 +8187,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_voting` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_voting_prepare`
+-- Table structure for table `b_rating_voting_prepare`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_voting_prepare`;
@@ -8065,9 +8205,9 @@ CREATE TABLE IF NOT EXISTS `b_rating_voting_prepare` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_rating_weight`
+-- Table structure for table `b_rating_weight`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_rating_weight`;
@@ -8080,7 +8220,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_weight` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_rating_weight`
+-- Dumping data for table `b_rating_weight`
 --
 
 INSERT INTO `b_rating_weight` (`ID`, `RATING_FROM`, `RATING_TO`, `WEIGHT`, `COUNT`) VALUES
@@ -8089,9 +8229,9 @@ INSERT INTO `b_rating_weight` (`ID`, `RATING_FROM`, `RATING_TO`, `WEIGHT`, `COUN
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_affiliate`
+-- Table structure for table `b_sale_affiliate`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate`;
@@ -8118,9 +8258,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_affiliate_plan`
+-- Table structure for table `b_sale_affiliate_plan`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_plan`;
@@ -8142,9 +8282,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_plan` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_affiliate_plan_section`
+-- Table structure for table `b_sale_affiliate_plan_section`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_plan_section`;
@@ -8161,9 +8301,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_plan_section` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_affiliate_tier`
+-- Table structure for table `b_sale_affiliate_tier`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_tier`;
@@ -8180,9 +8320,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_tier` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_affiliate_transact`
+-- Table structure for table `b_sale_affiliate_transact`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_transact`;
@@ -8201,9 +8341,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_transact` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_auxiliary`
+-- Table structure for table `b_sale_auxiliary`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_auxiliary`;
@@ -8219,9 +8359,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_auxiliary` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_basket`
+-- Table structure for table `b_sale_basket`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_basket`;
@@ -8271,7 +8411,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_basket` (
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_basket`
+-- Dumping data for table `b_sale_basket`
 --
 
 INSERT INTO `b_sale_basket` (`ID`, `FUSER_ID`, `ORDER_ID`, `PRODUCT_ID`, `PRODUCT_PRICE_ID`, `PRICE`, `CURRENCY`, `DATE_INSERT`, `DATE_UPDATE`, `WEIGHT`, `QUANTITY`, `LID`, `DELAY`, `NAME`, `CAN_BUY`, `MODULE`, `CALLBACK_FUNC`, `NOTES`, `ORDER_CALLBACK_FUNC`, `DETAIL_PAGE_URL`, `DISCOUNT_PRICE`, `CANCEL_CALLBACK_FUNC`, `PAY_CALLBACK_FUNC`, `PRODUCT_PROVIDER_CLASS`, `CATALOG_XML_ID`, `PRODUCT_XML_ID`, `DISCOUNT_NAME`, `DISCOUNT_VALUE`, `DISCOUNT_COUPON`, `VAT_RATE`, `SUBSCRIBE`, `DEDUCTED`, `RESERVED`, `BARCODE_MULTI`, `RESERVE_QUANTITY`, `CUSTOM_PRICE`, `DIMENSIONS`, `TYPE`, `SET_PARENT_ID`, `MEASURE_CODE`, `MEASURE_NAME`, `RECOMMENDATION`) VALUES
@@ -8292,9 +8432,9 @@ INSERT INTO `b_sale_basket` (`ID`, `FUSER_ID`, `ORDER_ID`, `PRODUCT_ID`, `PRODUC
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_basket_props`
+-- Table structure for table `b_sale_basket_props`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_basket_props`;
@@ -8308,7 +8448,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_basket_props` (
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_basket_props`
+-- Dumping data for table `b_sale_basket_props`
 --
 
 INSERT INTO `b_sale_basket_props` (`ID`, `BASKET_ID`, `NAME`, `VALUE`, `CODE`, `SORT`) VALUES
@@ -8322,9 +8462,9 @@ INSERT INTO `b_sale_basket_props` (`ID`, `BASKET_ID`, `NAME`, `VALUE`, `CODE`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_delivery`
+-- Table structure for table `b_sale_delivery`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery`;
@@ -8350,7 +8490,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_delivery` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_delivery`
+-- Dumping data for table `b_sale_delivery`
 --
 
 INSERT INTO `b_sale_delivery` (`ID`, `NAME`, `LID`, `PERIOD_FROM`, `PERIOD_TO`, `PERIOD_TYPE`, `WEIGHT_FROM`, `WEIGHT_TO`, `ORDER_PRICE_FROM`, `ORDER_PRICE_TO`, `ORDER_CURRENCY`, `ACTIVE`, `PRICE`, `CURRENCY`, `SORT`, `DESCRIPTION`, `LOGOTIP`, `STORE`) VALUES
@@ -8360,9 +8500,9 @@ INSERT INTO `b_sale_delivery` (`ID`, `NAME`, `LID`, `PERIOD_FROM`, `PERIOD_TO`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_delivery2location`
+-- Table structure for table `b_sale_delivery2location`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery2location`;
@@ -8373,7 +8513,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_delivery2location` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_delivery2location`
+-- Dumping data for table `b_sale_delivery2location`
 --
 
 INSERT INTO `b_sale_delivery2location` (`DELIVERY_ID`, `LOCATION_CODE`, `LOCATION_TYPE`) VALUES
@@ -8383,9 +8523,9 @@ INSERT INTO `b_sale_delivery2location` (`DELIVERY_ID`, `LOCATION_CODE`, `LOCATIO
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_delivery2paysystem`
+-- Table structure for table `b_sale_delivery2paysystem`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery2paysystem`;
@@ -8398,9 +8538,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_delivery2paysystem` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_delivery_handler`
+-- Table structure for table `b_sale_delivery_handler`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery_handler`;
@@ -8421,7 +8561,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_delivery_handler` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_delivery_handler`
+-- Dumping data for table `b_sale_delivery_handler`
 --
 
 INSERT INTO `b_sale_delivery_handler` (`ID`, `LID`, `ACTIVE`, `HID`, `NAME`, `SORT`, `DESCRIPTION`, `HANDLER`, `SETTINGS`, `PROFILES`, `TAX_RATE`, `LOGOTIP`, `BASE_CURRENCY`) VALUES
@@ -8435,9 +8575,9 @@ INSERT INTO `b_sale_delivery_handler` (`ID`, `LID`, `ACTIVE`, `HID`, `NAME`, `SO
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_discount`
+-- Table structure for table `b_sale_discount`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount`;
@@ -8473,9 +8613,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_discount_coupon`
+-- Table structure for table `b_sale_discount_coupon`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_coupon`;
@@ -8501,9 +8641,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_coupon` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_discount_entities`
+-- Table structure for table `b_sale_discount_entities`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_entities`;
@@ -8519,9 +8659,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_entities` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_discount_group`
+-- Table structure for table `b_sale_discount_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_group`;
@@ -8535,9 +8675,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_discount_module`
+-- Table structure for table `b_sale_discount_module`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_module`;
@@ -8550,9 +8690,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_module` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_export`
+-- Table structure for table `b_sale_export`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_export`;
@@ -8563,7 +8703,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_export` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_export`
+-- Dumping data for table `b_sale_export`
 --
 
 INSERT INTO `b_sale_export` (`ID`, `PERSON_TYPE_ID`, `VARS`) VALUES
@@ -8573,9 +8713,9 @@ INSERT INTO `b_sale_export` (`ID`, `PERSON_TYPE_ID`, `VARS`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_fuser`
+-- Table structure for table `b_sale_fuser`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_fuser`;
@@ -8585,10 +8725,10 @@ CREATE TABLE IF NOT EXISTS `b_sale_fuser` (
   `DATE_UPDATE` datetime NOT NULL,
   `USER_ID` int(11) DEFAULT NULL,
   `CODE` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10595 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12632 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_fuser`
+-- Dumping data for table `b_sale_fuser`
 --
 
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
@@ -9300,7 +9440,6 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (710, '2015-09-25 21:01:58', '2015-09-25 21:01:58', NULL, 'e81765479a833c5d670293a83d718069'),
 (711, '2015-09-25 21:12:37', '2015-09-25 21:12:37', NULL, '22783c2cec86d4c6f043b7a86ef4bfe3'),
 (712, '2015-09-25 21:14:30', '2015-09-25 21:14:30', NULL, '09dac63f4a3a8e6af537bfe5474cf9b7'),
-(713, '2015-09-25 21:15:49', '2015-10-21 20:37:40', 1, '26591d9d8b68b42e4ab350dae118d65f'),
 (714, '2015-09-25 21:15:52', '2015-09-25 21:15:52', NULL, 'c8bbfe50827f6f507a69cd712b6b8c7e'),
 (715, '2015-09-25 21:31:12', '2015-09-25 21:31:12', NULL, 'd8e54924b65e34723b465d1575090f78'),
 (716, '2015-09-25 21:35:51', '2015-09-25 21:35:51', NULL, '54efbc29c6ec7e5b75967e3b554e859c'),
@@ -9664,9 +9803,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (1074, '2015-09-26 22:08:09', '2015-09-26 22:08:09', NULL, 'd12e8405066e1c700aea72de91b5e499'),
 (1075, '2015-09-26 22:08:11', '2015-09-26 22:08:11', NULL, 'd6ce282a67df6061b894fe656768274f'),
 (1076, '2015-09-26 22:08:13', '2015-09-26 22:08:13', NULL, '0d2819c2214a66e5a1c0295066981351'),
-(1077, '2015-09-26 22:08:15', '2015-09-26 22:08:15', NULL, '9ad64dcaf90208d1f198a35efd063cf4');
+(1077, '2015-09-26 22:08:15', '2015-09-26 22:08:15', NULL, '9ad64dcaf90208d1f198a35efd063cf4'),
+(1078, '2015-09-26 22:08:17', '2015-09-26 22:08:17', NULL, '15bd1006a180f9f98c2161d0ea5a73d5');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(1078, '2015-09-26 22:08:17', '2015-09-26 22:08:17', NULL, '15bd1006a180f9f98c2161d0ea5a73d5'),
 (1079, '2015-09-26 22:08:19', '2015-09-26 22:08:19', NULL, '2732a4d5a48dd4762bedd7b476988349'),
 (1080, '2015-09-26 22:08:21', '2015-09-26 22:08:21', NULL, '93546f2c2ba9baf51c062dc0232a1f65'),
 (1081, '2015-09-26 22:08:22', '2015-09-26 22:08:22', NULL, 'a4dcf06bf1c0d888344a79558c0e0325'),
@@ -10195,9 +10334,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (1604, '2015-09-28 09:10:17', '2015-09-28 09:10:17', NULL, '2e9fdaeef737ffd504978861d48ceb9e'),
 (1605, '2015-09-28 09:10:19', '2015-09-28 09:10:19', NULL, '0f18348e6e033d5426e364a42359353e'),
 (1606, '2015-09-28 09:10:22', '2015-09-28 09:10:22', NULL, '3711095b27d72185c0fa8a7171e7c2fc'),
-(1607, '2015-09-28 09:10:24', '2015-09-28 09:10:24', NULL, 'a3d49f0d1ea3bbd084aea7278368d5e6');
+(1607, '2015-09-28 09:10:24', '2015-09-28 09:10:24', NULL, 'a3d49f0d1ea3bbd084aea7278368d5e6'),
+(1608, '2015-09-28 09:10:27', '2015-09-28 09:10:27', NULL, '607464efbf7fcf7202102cc99125c57c');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(1608, '2015-09-28 09:10:27', '2015-09-28 09:10:27', NULL, '607464efbf7fcf7202102cc99125c57c'),
 (1609, '2015-09-28 09:10:29', '2015-09-28 09:10:29', NULL, 'bbd55cd0f5f109a9fb0b1290f0a7a613'),
 (1610, '2015-09-28 09:10:33', '2015-09-28 09:10:33', NULL, 'e46e3d94e9bd1c5d614643fc8a9174f0'),
 (1611, '2015-09-28 09:10:37', '2015-09-28 09:10:37', NULL, '7a2f73aa1de5891b3bad889b226d0a9e'),
@@ -10726,9 +10865,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (2134, '2015-09-29 10:27:24', '2015-09-29 10:27:24', NULL, '1faac54a3f87be78d5f3be21015ea1c7'),
 (2135, '2015-09-29 10:30:26', '2015-09-29 10:30:26', NULL, 'e72de08638c2494bd3e673903d870627'),
 (2136, '2015-09-29 10:30:26', '2015-09-29 10:30:26', NULL, '2115b3725b2f00a81ab14c162ec1a4cf'),
-(2137, '2015-09-29 10:30:27', '2015-09-29 10:30:27', NULL, '40bdb647e96f37d3c7725d49cde24253');
+(2137, '2015-09-29 10:30:27', '2015-09-29 10:30:27', NULL, '40bdb647e96f37d3c7725d49cde24253'),
+(2138, '2015-09-29 10:30:30', '2015-09-29 10:30:30', NULL, '88125acef156a37e2fa83cf861246b7b');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(2138, '2015-09-29 10:30:30', '2015-09-29 10:30:30', NULL, '88125acef156a37e2fa83cf861246b7b'),
 (2139, '2015-09-29 10:30:30', '2015-09-29 10:30:30', NULL, '0949f4d345cb72cd57d3965cb112b833'),
 (2140, '2015-09-29 10:30:31', '2015-09-29 10:30:31', NULL, '539338c0514010975ca2a9dfdb0a6ef3'),
 (2141, '2015-09-29 10:30:32', '2015-09-29 10:30:32', NULL, 'ab218b62f9dae1d1eb807766f122da24'),
@@ -11257,9 +11396,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (2664, '2015-09-30 18:37:40', '2015-09-30 18:37:40', NULL, 'f0edf83f5c5b5ec0deef330dc8599635'),
 (2665, '2015-09-30 18:43:48', '2015-09-30 18:43:48', NULL, '52af9a7d8700a41b6fc92db1f1fa9942'),
 (2666, '2015-09-30 18:45:12', '2015-09-30 18:45:12', NULL, '94dbd0d0eff725fd1a36d0a0e8ef35c7'),
-(2667, '2015-09-30 18:45:24', '2015-09-30 18:45:24', NULL, 'ab3e179de6fb1219042fd3df44b32060');
+(2667, '2015-09-30 18:45:24', '2015-09-30 18:45:24', NULL, 'ab3e179de6fb1219042fd3df44b32060'),
+(2668, '2015-09-30 18:46:01', '2015-09-30 18:46:01', NULL, '228d61036d6383c5dbf2c0b1c0654274');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(2668, '2015-09-30 18:46:01', '2015-09-30 18:46:01', NULL, '228d61036d6383c5dbf2c0b1c0654274'),
 (2669, '2015-09-30 18:48:30', '2015-09-30 18:48:30', NULL, 'fbc0ba4d49c6ba7c6bad748aa0668bc2'),
 (2670, '2015-09-30 18:53:51', '2015-09-30 18:53:51', NULL, 'dfc310dc7e46690ac57c0d37ac748eb8'),
 (2671, '2015-09-30 18:59:10', '2015-09-30 18:59:10', NULL, 'bdafb2af514f5258ed6e86ca7f4d83b1'),
@@ -11788,9 +11927,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (3194, '2015-10-01 23:29:30', '2015-10-01 23:29:30', NULL, '3fc11cc90e16ca97de7b761d9c82e69a'),
 (3195, '2015-10-01 23:31:49', '2015-10-01 23:31:49', NULL, 'dde0c84bdb887343c2e638fea0ccb7cc'),
 (3196, '2015-10-01 23:32:42', '2015-10-01 23:32:42', NULL, '6e41df1273c03fb40ddf8d2777621796'),
-(3197, '2015-10-01 23:41:26', '2015-10-01 23:41:26', NULL, 'd50d86ecd4149717f0a3c1c0f31f50c0');
+(3197, '2015-10-01 23:41:26', '2015-10-01 23:41:26', NULL, 'd50d86ecd4149717f0a3c1c0f31f50c0'),
+(3198, '2015-10-02 00:08:48', '2015-10-02 00:08:48', NULL, 'a192ced10aa1ad1f3865d08819edd067');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(3198, '2015-10-02 00:08:48', '2015-10-02 00:08:48', NULL, 'a192ced10aa1ad1f3865d08819edd067'),
 (3199, '2015-10-02 00:14:00', '2015-10-02 00:14:00', NULL, '929a0056c76ed9cee2dbf493a54e9ec6'),
 (3200, '2015-10-02 00:17:35', '2015-10-02 00:17:35', NULL, 'f1b0655e1062750bb02505a84edbbd44'),
 (3201, '2015-10-02 00:25:56', '2015-10-02 00:25:56', NULL, '442ec42ab4bb58e09f22dfcd824a5733'),
@@ -12234,7 +12373,7 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (3639, '2015-10-02 13:24:20', '2015-10-02 13:24:20', NULL, '2d522c6071a842b2158da557b0680316'),
 (3640, '2015-10-02 13:25:50', '2015-10-02 13:25:50', NULL, '29b0068eb8c77010dbda6078313efa3f'),
 (3641, '2015-10-02 13:27:50', '2015-10-02 13:27:50', NULL, 'bdbb0dc4ac0b9a871f949e53bbbb5d3b'),
-(3642, '2015-10-02 13:32:23', '2015-10-06 21:54:27', NULL, '213a7db29712d4db6945309cdb7683a3'),
+(3642, '2015-10-02 13:32:23', '2015-10-27 14:15:49', NULL, '213a7db29712d4db6945309cdb7683a3'),
 (3643, '2015-10-02 13:42:49', '2015-10-02 13:42:49', NULL, '24f968e8ffcfd2f946224a1ce4dac32d'),
 (3644, '2015-10-02 13:43:46', '2015-10-02 13:43:46', NULL, '5b05d0b96038d279b094774bbee6a5ae'),
 (3645, '2015-10-02 13:46:14', '2015-10-02 13:46:14', NULL, 'e59b7f85ab9fde94e2f7b35ba693f796'),
@@ -12319,9 +12458,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (3724, '2015-10-02 19:09:58', '2015-10-02 19:09:58', NULL, '21cfaf5b2ccc6fa49adda7510ac31f4d'),
 (3725, '2015-10-02 19:16:37', '2015-10-02 19:16:37', NULL, '15338de648ea58841cb45a3c5ca0f330'),
 (3726, '2015-10-02 19:30:09', '2015-10-02 19:30:09', NULL, '8847292522a0393141c605bf42b1374e'),
-(3727, '2015-10-02 19:36:03', '2015-10-02 19:36:03', NULL, '0e116773baa0fe0e1fe62102b788a2c9');
+(3727, '2015-10-02 19:36:03', '2015-10-02 19:36:03', NULL, '0e116773baa0fe0e1fe62102b788a2c9'),
+(3728, '2015-10-02 19:44:07', '2015-10-02 19:44:07', NULL, 'd3079940b16fcc3b5296339c95a5d083');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(3728, '2015-10-02 19:44:07', '2015-10-02 19:44:07', NULL, 'd3079940b16fcc3b5296339c95a5d083'),
 (3729, '2015-10-02 19:44:08', '2015-10-02 19:44:08', NULL, '560fcab31228a2a2d876b6b5eb185291'),
 (3730, '2015-10-02 19:46:31', '2015-10-02 19:46:31', NULL, '14862d3084cafc786c80088c0e94dd17'),
 (3731, '2015-10-02 19:48:01', '2015-10-02 19:48:01', NULL, 'f6530a4b38ca2953c814a0a7f6571222'),
@@ -12850,9 +12989,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (4254, '2015-10-04 09:38:18', '2015-10-04 09:38:18', NULL, '2b999d7115cf1292f5030f9428f040af'),
 (4255, '2015-10-04 09:38:59', '2015-10-04 09:38:59', NULL, 'bc987b59832d6043867089f5f89efb2a'),
 (4256, '2015-10-04 09:43:24', '2015-10-04 09:43:24', NULL, '7e9ffff7f407ce9dd70b13595805b37a'),
-(4257, '2015-10-04 09:47:34', '2015-10-04 09:47:34', NULL, '2121f3e1e831a7eedb4c6a6303959f92');
+(4257, '2015-10-04 09:47:34', '2015-10-04 09:47:34', NULL, '2121f3e1e831a7eedb4c6a6303959f92'),
+(4258, '2015-10-04 09:50:27', '2015-10-04 09:50:27', NULL, '31da214e0eb46b3692d27283c761a7fb');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(4258, '2015-10-04 09:50:27', '2015-10-04 09:50:27', NULL, '31da214e0eb46b3692d27283c761a7fb'),
 (4259, '2015-10-04 09:51:37', '2015-10-04 09:51:37', NULL, '5f1d7be3f7496f2f7ec1cbf515ade70d'),
 (4260, '2015-10-04 09:51:55', '2015-10-04 09:51:55', NULL, '8d3145aef558acfb5ede685c90eb0982'),
 (4261, '2015-10-04 09:53:14', '2015-10-04 09:53:14', NULL, '3b2b912968565e818a58fbba877708bc'),
@@ -13092,7 +13231,7 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (4495, '2015-10-05 17:51:37', '2015-10-05 17:51:37', NULL, 'bb4f75f162b0994465965ca4e5b3a670'),
 (4496, '2015-10-05 17:51:38', '2015-10-05 17:51:38', NULL, '7745ddb1b4655870f14cd141d16058c5'),
 (4497, '2015-10-05 19:27:19', '2015-10-05 19:27:19', NULL, '30504a2473676b8f73b09c3f60779817'),
-(4499, '2015-10-05 19:51:35', '2015-10-21 14:23:07', 2, '3a6b2180f914517f85e9069070209348'),
+(4499, '2015-10-05 19:51:35', '2015-10-27 14:08:40', 2, '3a6b2180f914517f85e9069070209348'),
 (4504, '2015-10-05 20:27:15', '2015-10-05 20:27:15', NULL, 'a43536d188252dffb6ee31a1d8407245'),
 (4505, '2015-10-05 20:27:16', '2015-10-06 10:51:28', NULL, '6501d21fbe1e051c2090bec1b1f1ac28'),
 (4506, '2015-10-05 20:46:54', '2015-10-05 20:46:54', NULL, '997f0e5d844b9010d8b3f9a7434a53af'),
@@ -13381,9 +13520,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (4793, '2015-10-07 09:40:46', '2015-10-07 09:40:46', NULL, 'c031cff8e5f5bf974edc8acec69d01b5'),
 (4794, '2015-10-07 09:40:47', '2015-10-07 09:40:47', NULL, 'd41501ef5675389ce364fafd6a31d089'),
 (4795, '2015-10-07 09:40:47', '2015-10-07 09:40:47', NULL, '5a2417558a1510e0da295dc9c2698604'),
-(4796, '2015-10-07 11:03:41', '2015-10-07 11:03:41', NULL, '5334006f3f6929b6181ce1cb8f495aea');
+(4796, '2015-10-07 11:03:41', '2015-10-07 11:03:41', NULL, '5334006f3f6929b6181ce1cb8f495aea'),
+(4797, '2015-10-07 11:03:42', '2015-10-07 11:03:42', NULL, 'bb165e6d966846d53d055399f3decb22');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(4797, '2015-10-07 11:03:42', '2015-10-07 11:03:42', NULL, 'bb165e6d966846d53d055399f3decb22'),
 (4798, '2015-10-07 11:47:00', '2015-10-07 11:47:00', NULL, '1ffe49a7b81183f4e0b65ef3e394db03'),
 (4799, '2015-10-07 11:47:03', '2015-10-07 11:47:03', NULL, '69a8d8a62b203007abe982df076ba4bd'),
 (4800, '2015-10-07 11:47:05', '2015-10-07 11:47:05', NULL, 'eda689c876e6ef40c0116c40b916397d'),
@@ -13912,9 +14051,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (5323, '2015-10-08 03:16:09', '2015-10-08 03:16:09', NULL, '105ca2c671d9fc4226fbf7d962b5adfb'),
 (5324, '2015-10-08 03:16:11', '2015-10-08 03:16:11', NULL, '6eab3163519e7cb0f0c1632bfd723b36'),
 (5325, '2015-10-08 03:16:12', '2015-10-08 03:16:12', NULL, 'eef1a63ce347bba1bfb6296057239acb'),
-(5326, '2015-10-08 03:16:14', '2015-10-08 03:16:14', NULL, '0f650a02ed96d5de46b7754a5275b9b1');
+(5326, '2015-10-08 03:16:14', '2015-10-08 03:16:14', NULL, '0f650a02ed96d5de46b7754a5275b9b1'),
+(5327, '2015-10-08 03:16:16', '2015-10-08 03:16:16', NULL, 'a0ff90fda5be4300ecc52e28b5a1fcb5');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(5327, '2015-10-08 03:16:16', '2015-10-08 03:16:16', NULL, 'a0ff90fda5be4300ecc52e28b5a1fcb5'),
 (5328, '2015-10-08 03:16:17', '2015-10-08 03:16:17', NULL, '132580949874706e22d419c280982f48'),
 (5329, '2015-10-08 03:16:19', '2015-10-08 03:16:19', NULL, '5d2104098624fea16be7a76d56776b1f'),
 (5330, '2015-10-08 03:16:20', '2015-10-08 03:16:20', NULL, '6b35ce5e361c9070ae5f8da70e693672'),
@@ -14443,9 +14582,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (5853, '2015-10-09 15:05:11', '2015-10-09 15:05:11', NULL, '4b547a376686104535884521c62777cd'),
 (5854, '2015-10-09 15:05:15', '2015-10-09 15:05:15', NULL, 'd66fb2b09c35de927ae341e41f9c2328'),
 (5855, '2015-10-09 15:05:21', '2015-10-09 15:05:21', NULL, 'd91f6ab5204a9f5d7cbc3aa32b793531'),
-(5856, '2015-10-09 15:05:23', '2015-10-09 15:05:23', NULL, '9edbe68c1aae25dc39b9b4b4d5b7b48d');
+(5856, '2015-10-09 15:05:23', '2015-10-09 15:05:23', NULL, '9edbe68c1aae25dc39b9b4b4d5b7b48d'),
+(5857, '2015-10-09 15:05:27', '2015-10-09 15:05:27', NULL, '30d60ed6313cc998e12aaeaa72bc6908');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(5857, '2015-10-09 15:05:27', '2015-10-09 15:05:27', NULL, '30d60ed6313cc998e12aaeaa72bc6908'),
 (5858, '2015-10-09 15:05:32', '2015-10-09 15:05:32', NULL, '40bf9f58f229bd3759b0ada17ebf1e88'),
 (5859, '2015-10-09 15:05:37', '2015-10-09 15:05:37', NULL, '614a7dee0c1fec538d2d303a37b914bc'),
 (5860, '2015-10-09 15:05:43', '2015-10-09 15:05:43', NULL, 'de1f15b27e6aff4aaa893702efe89965'),
@@ -14974,9 +15113,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (6383, '2015-10-10 15:05:14', '2015-10-10 15:05:14', NULL, 'ceb65c7917fb146b02585c29dccdb58e'),
 (6384, '2015-10-10 15:12:43', '2015-10-10 15:12:43', NULL, 'f6f1a8f9c6c651d672571250a2e43f08'),
 (6385, '2015-10-10 15:18:32', '2015-10-10 15:18:32', NULL, '52ab34049341f9699e159822599148a0'),
-(6386, '2015-10-10 15:26:34', '2015-10-10 15:26:34', NULL, 'b2758cd9de34f097c0bc15c723c183fe');
+(6386, '2015-10-10 15:26:34', '2015-10-10 15:26:34', NULL, 'b2758cd9de34f097c0bc15c723c183fe'),
+(6387, '2015-10-10 15:30:59', '2015-10-10 15:30:59', NULL, '640c01cf33d54f7a715c9f3a5d2000a7');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(6387, '2015-10-10 15:30:59', '2015-10-10 15:30:59', NULL, '640c01cf33d54f7a715c9f3a5d2000a7'),
 (6388, '2015-10-10 15:33:37', '2015-10-10 15:33:37', NULL, '5305b7abd0e838bf89169997efe2abef'),
 (6389, '2015-10-10 15:47:00', '2015-10-10 15:47:00', NULL, '5bc48690adf402e09f895d7fcd16311d'),
 (6390, '2015-10-10 15:52:02', '2015-10-10 15:52:02', NULL, '03675f8e460b3fe9379f05c4f9402a68'),
@@ -15505,9 +15644,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (6913, '2015-10-11 23:44:28', '2015-10-11 23:44:28', NULL, 'd6002da13f4b50954c3347752c44f23d'),
 (6914, '2015-10-11 23:57:08', '2015-10-11 23:57:08', NULL, '48b77aa2ac6e094ab3fba8c39abf8f20'),
 (6915, '2015-10-12 00:03:33', '2015-10-12 00:03:33', NULL, '8ea5066bfeeb69d87d38e9a004b44ad7'),
-(6916, '2015-10-12 00:05:57', '2015-10-12 00:05:57', NULL, '768c15d76b04cfa5e80f2f0134d4059d');
+(6916, '2015-10-12 00:05:57', '2015-10-12 00:05:57', NULL, '768c15d76b04cfa5e80f2f0134d4059d'),
+(6917, '2015-10-12 00:09:03', '2015-10-12 00:09:03', NULL, 'ddc4828a07bc775dc34b1d34e4f9789d');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(6917, '2015-10-12 00:09:03', '2015-10-12 00:09:03', NULL, 'ddc4828a07bc775dc34b1d34e4f9789d'),
 (6918, '2015-10-12 00:11:33', '2015-10-12 00:11:33', NULL, '55474d05f5ec3be01b0c2680c66b859a'),
 (6919, '2015-10-12 00:11:36', '2015-10-12 00:11:36', NULL, '220f9acd595a42aece0f7f0036ab92ff'),
 (6920, '2015-10-12 00:11:57', '2015-10-12 00:11:57', NULL, 'b362a47b92c4396b4cc44eb47211282f'),
@@ -16036,9 +16175,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (7443, '2015-10-13 17:58:30', '2015-10-13 17:58:30', NULL, '05f328150f56418bc781d683007a0ab0'),
 (7444, '2015-10-13 17:58:33', '2015-10-13 17:58:33', NULL, 'ffb9126737ac8422b31b6d6c76c8c8c8'),
 (7445, '2015-10-13 17:58:35', '2015-10-13 17:58:35', NULL, '2b4207cf300d9b0d8f0bedc84c18d31c'),
-(7446, '2015-10-13 17:58:37', '2015-10-13 17:58:37', NULL, '1eb0dddedd659ddfb95b1114571fcd97');
+(7446, '2015-10-13 17:58:37', '2015-10-13 17:58:37', NULL, '1eb0dddedd659ddfb95b1114571fcd97'),
+(7447, '2015-10-13 17:58:40', '2015-10-13 17:58:40', NULL, 'ba500c071e4319eeca4f79f35dd12159');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(7447, '2015-10-13 17:58:40', '2015-10-13 17:58:40', NULL, 'ba500c071e4319eeca4f79f35dd12159'),
 (7448, '2015-10-13 17:58:42', '2015-10-13 17:58:42', NULL, '1c578bf8fe126cb2b39312d55dd36d7d'),
 (7449, '2015-10-13 17:58:44', '2015-10-13 17:58:44', NULL, 'c578ea2b2f1a26658312f6cbbb9dec0b'),
 (7450, '2015-10-13 17:58:46', '2015-10-13 17:58:46', NULL, 'f7d5fec9a08cb6eda9d2b11385bc16d8'),
@@ -16567,9 +16706,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (7973, '2015-10-16 17:18:35', '2015-10-16 17:18:35', NULL, 'c338c667c4d4ef6a2c1fb9d36d52ba70'),
 (7974, '2015-10-16 17:18:36', '2015-10-16 17:18:36', NULL, '97cf7efb46d869b34727d4e1d2bc596b'),
 (7975, '2015-10-16 17:18:36', '2015-10-16 17:18:36', NULL, '8972b43a84638c8757471054ac17fe6f'),
-(7976, '2015-10-16 17:18:36', '2015-10-16 17:18:36', NULL, 'ce0103213e7c0111b1a957e0cbac00d0');
+(7976, '2015-10-16 17:18:36', '2015-10-16 17:18:36', NULL, 'ce0103213e7c0111b1a957e0cbac00d0'),
+(7977, '2015-10-16 17:18:38', '2015-10-16 17:18:38', NULL, '8974d7331f786675608c461405d1d00c');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(7977, '2015-10-16 17:18:38', '2015-10-16 17:18:38', NULL, '8974d7331f786675608c461405d1d00c'),
 (7978, '2015-10-16 17:18:38', '2015-10-16 17:18:38', NULL, 'abce63c33bb2a8ee27ef03f012f60cf3'),
 (7979, '2015-10-16 17:18:39', '2015-10-16 17:18:39', NULL, 'ac813d5b58bbe1653ae0f229e16fc9a9'),
 (7980, '2015-10-16 17:18:39', '2015-10-16 17:18:39', NULL, 'b7a737c01c6de6269fbad17f82739ff7'),
@@ -17098,9 +17237,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (8503, '2015-10-17 03:19:07', '2015-10-17 03:19:07', NULL, '470c5704a1d115c46b36cbc2b91063cc'),
 (8504, '2015-10-17 03:19:10', '2015-10-17 03:19:10', NULL, 'b829c5cfdaffde26a8df39fd8afec2e1'),
 (8505, '2015-10-17 03:19:13', '2015-10-17 03:19:13', NULL, 'eba07fd9ecd189c444871feb2763e4b3'),
-(8506, '2015-10-17 03:19:16', '2015-10-17 03:19:16', NULL, '8c7090f0eac69cf67fa133d9cf3c46f8');
+(8506, '2015-10-17 03:19:16', '2015-10-17 03:19:16', NULL, '8c7090f0eac69cf67fa133d9cf3c46f8'),
+(8507, '2015-10-17 03:19:18', '2015-10-17 03:19:18', NULL, '459a3d79d7888045de339fc40d5e18f1');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(8507, '2015-10-17 03:19:18', '2015-10-17 03:19:18', NULL, '459a3d79d7888045de339fc40d5e18f1'),
 (8508, '2015-10-17 03:19:20', '2015-10-17 03:19:20', NULL, 'd2703172a0f4feb47264ffbbbce780cf'),
 (8509, '2015-10-17 03:19:25', '2015-10-17 03:19:25', NULL, '90bf2713ebdc42f55b046b6ff4b0e191'),
 (8510, '2015-10-17 03:19:28', '2015-10-17 03:19:28', NULL, '197939eeb6eef43fb91f778f6eb156d6'),
@@ -17629,9 +17768,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (9033, '2015-10-17 11:24:35', '2015-10-17 11:24:35', NULL, 'bc41e35d43d9fd2e190ad9ee9a0e8ad9'),
 (9034, '2015-10-17 12:20:42', '2015-10-17 12:20:42', NULL, '06fdc2808b7e7635df3ff34871dd74e3'),
 (9035, '2015-10-17 12:20:43', '2015-10-17 12:20:43', NULL, '7c4eec7f15bd4a6f94d6752aba1a20a3'),
-(9036, '2015-10-17 12:25:35', '2015-10-17 12:25:35', NULL, '577e3dba42335a6358a5e2a0cf400086');
+(9036, '2015-10-17 12:25:35', '2015-10-17 12:25:35', NULL, '577e3dba42335a6358a5e2a0cf400086'),
+(9037, '2015-10-17 12:25:50', '2015-10-17 12:25:50', NULL, '83a49969561f3a19d0b9e3834ce805d5');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(9037, '2015-10-17 12:25:50', '2015-10-17 12:25:50', NULL, '83a49969561f3a19d0b9e3834ce805d5'),
 (9038, '2015-10-17 13:44:15', '2015-10-17 13:44:15', NULL, '1b2a061749258ee8dea99a92fb3d18a7'),
 (9039, '2015-10-17 13:59:40', '2015-10-17 13:59:40', NULL, '7139123b27f2d6a901993a52d357902f'),
 (9040, '2015-10-17 14:00:02', '2015-10-17 14:00:02', NULL, '8f42a55befb96bc04ad359a74fde4b68'),
@@ -18160,9 +18299,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (9563, '2015-10-18 21:17:18', '2015-10-18 21:17:18', NULL, '71278d52817bb2d9f812738b02e1f181'),
 (9564, '2015-10-18 21:17:53', '2015-10-18 21:17:53', NULL, '968bfaaa2f52028600812168d692b7a6'),
 (9565, '2015-10-18 21:19:34', '2015-10-18 21:19:34', NULL, '320caf1b71f67fbc68750429d0b4acca'),
-(9566, '2015-10-18 21:23:20', '2015-10-18 21:23:20', NULL, '1cd545288ae9e905a0af68cfdacf1eb7');
+(9566, '2015-10-18 21:23:20', '2015-10-18 21:23:20', NULL, '1cd545288ae9e905a0af68cfdacf1eb7'),
+(9567, '2015-10-18 21:23:33', '2015-10-18 21:23:33', NULL, 'd7f68a741f2d23ab1f805b1559827a7d');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(9567, '2015-10-18 21:23:33', '2015-10-18 21:23:33', NULL, 'd7f68a741f2d23ab1f805b1559827a7d'),
 (9568, '2015-10-18 21:30:10', '2015-10-18 21:30:10', NULL, '82c1e6f908603a13a6c7fbc09af37245'),
 (9569, '2015-10-18 21:30:29', '2015-10-18 21:30:29', NULL, 'dd65008658d88fb0877c46e6dbe1c2de'),
 (9570, '2015-10-18 21:35:03', '2015-10-18 21:35:03', NULL, 'ecb74b39b80d9cf32196032a65786959'),
@@ -18690,9 +18829,9 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (10093, '2015-10-20 07:32:24', '2015-10-20 07:32:24', NULL, '3a258cdaf4ed354bae1431c6de393881'),
 (10094, '2015-10-20 07:33:29', '2015-10-20 07:33:29', NULL, 'ce611bdf05c1808fb9072214de7564db'),
 (10095, '2015-10-20 07:36:34', '2015-10-20 07:36:34', NULL, '15ecc6d972b821ca31ee366aec7ebc3e'),
-(10096, '2015-10-20 07:41:18', '2015-10-20 07:41:18', NULL, '76b0bfc4d35ac2a1a4f25c293228e6f1');
+(10096, '2015-10-20 07:41:18', '2015-10-20 07:41:18', NULL, '76b0bfc4d35ac2a1a4f25c293228e6f1'),
+(10097, '2015-10-20 07:44:14', '2015-10-20 07:44:14', NULL, '81ba5f93c29e02f67af4498c20c718a6');
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
-(10097, '2015-10-20 07:44:14', '2015-10-20 07:44:14', NULL, '81ba5f93c29e02f67af4498c20c718a6'),
 (10098, '2015-10-20 07:56:56', '2015-10-20 07:56:56', NULL, '583297d0c713730c53611c3dbd61fad4'),
 (10099, '2015-10-20 07:58:07', '2015-10-20 07:58:07', NULL, '8d390a0714358c92498b4f2196443ca5'),
 (10100, '2015-10-20 07:59:07', '2015-10-20 07:59:07', NULL, '6fefc9a2d1e95ddf2b4cffad2732e2e6'),
@@ -19115,7 +19254,6 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (10518, '2015-10-21 16:12:27', '2015-10-21 16:12:27', NULL, '900339aecb3ab7654309ac41a19593bd'),
 (10519, '2015-10-21 16:22:05', '2015-10-21 16:22:05', NULL, '4fcdc77cb78c3182149ac55a47f396e3'),
 (10520, '2015-10-21 16:37:43', '2015-10-21 16:37:43', NULL, '56aa4b9a4b7561e9a50de9048beb4fb4'),
-(10521, '2015-10-21 16:45:54', '2015-10-21 16:45:54', NULL, 'd856643548a08a4f4ed50358124b11e0'),
 (10522, '2015-10-21 16:50:29', '2015-10-21 16:50:29', NULL, 'a78c1ed474e47c2fdc236b2c2ea74db1'),
 (10523, '2015-10-21 16:53:31', '2015-10-21 16:53:31', NULL, '92871044a74c4a68935fd5aace5c50fe'),
 (10524, '2015-10-21 16:56:03', '2015-10-21 16:56:03', NULL, '3f52f015545e8f06be1ef8c8d6c36fce'),
@@ -19188,14 +19326,2054 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (10591, '2015-10-21 21:29:20', '2015-10-21 21:29:20', NULL, 'ece8a6d6804b3ee23763de102869f64b'),
 (10592, '2015-10-21 21:39:23', '2015-10-21 21:39:23', NULL, '7b940fca1a244cefe54dee80df61903b'),
 (10593, '2015-10-21 21:45:22', '2015-10-21 21:45:22', NULL, '6e49a762844d84ba654122a4b122949d'),
-(10594, '2015-10-21 21:47:46', '2015-10-21 21:47:46', NULL, 'e1e0edb8195237998eb8753cbdab358c');
+(10594, '2015-10-21 21:47:46', '2015-10-21 21:47:46', NULL, 'e1e0edb8195237998eb8753cbdab358c'),
+(10595, '2015-10-21 22:16:43', '2015-10-21 22:16:43', NULL, '5893cf3ef5b53ffbf5cb31020c341fc8'),
+(10596, '2015-10-21 22:18:11', '2015-10-21 22:18:11', NULL, 'fd52a8babad7b4aaac501ace808caca1'),
+(10597, '2015-10-21 22:19:47', '2015-10-21 22:19:47', NULL, '41c803c6e01db5e309ded5ad255c7eb5'),
+(10598, '2015-10-21 22:19:49', '2015-10-21 22:19:49', NULL, '922831f8330b0175c1deaabe51abdb54'),
+(10599, '2015-10-21 22:19:51', '2015-10-21 22:19:51', NULL, 'a87da0cc496f06b965f2eb6197f6c440'),
+(10600, '2015-10-21 22:19:53', '2015-10-21 22:19:53', NULL, '1ad5f2156ff8bc63a5a8ed1c5ffdf730'),
+(10601, '2015-10-21 22:19:55', '2015-10-21 22:19:55', NULL, '05f0fa244ace3ac153299ca9f38de89a'),
+(10602, '2015-10-21 22:19:57', '2015-10-21 22:19:57', NULL, 'ef2d4a96778908c9527ece1575a478f7'),
+(10603, '2015-10-21 22:19:59', '2015-10-21 22:19:59', NULL, '40aa3498c3ba51abe3ffd4a667bd6429'),
+(10604, '2015-10-21 22:25:30', '2015-10-21 22:25:30', NULL, '226b9b98848c3bd0002955af25b0c348'),
+(10605, '2015-10-21 22:26:46', '2015-10-21 22:26:46', NULL, 'afd975e5bb58988b0290a329820ed7ba'),
+(10606, '2015-10-21 22:26:51', '2015-10-21 22:26:51', NULL, 'b677b7b58632d2493ae92b3f0b973e12'),
+(10607, '2015-10-21 22:27:32', '2015-10-21 22:27:32', NULL, '4ac11fffa632ba33e1718f6765b8e73e'),
+(10608, '2015-10-21 22:30:20', '2015-10-21 22:30:20', NULL, 'd1066efe1b9103de4efdc6f917947ca6'),
+(10609, '2015-10-21 22:32:40', '2015-10-21 22:32:40', NULL, '4d449c4e11a3d50fa5c14c4e311cf95c'),
+(10610, '2015-10-21 22:34:05', '2015-10-21 22:34:05', NULL, '002386427679fe53dd5cc73d3a482352'),
+(10611, '2015-10-21 22:36:27', '2015-10-21 22:36:27', NULL, '414641ee2e7c94a920f3a99d3c30ab79'),
+(10612, '2015-10-21 22:36:27', '2015-10-21 22:36:27', NULL, 'd9261e0e6d0e52e17e1ba37a725fd05b'),
+(10613, '2015-10-21 22:38:46', '2015-10-21 22:38:46', NULL, '2bf240479f606ac60341c23e41f91b35'),
+(10614, '2015-10-21 22:44:37', '2015-10-21 22:44:37', NULL, '9e26edd6f44ab9753c9354c58536fe03'),
+(10615, '2015-10-21 22:49:47', '2015-10-21 22:49:47', NULL, '665eb2a3079da52a9128c681d1f72645'),
+(10616, '2015-10-21 22:50:17', '2015-10-21 22:50:17', NULL, '13520f5589094f142931a15c2a0ed428'),
+(10617, '2015-10-21 22:50:32', '2015-10-21 22:50:32', NULL, '380343e518be1cfc238772838bc31849'),
+(10618, '2015-10-21 22:53:40', '2015-10-21 22:53:40', NULL, 'fdcf42fb30f9867b6705fb71533004d7'),
+(10619, '2015-10-21 23:03:36', '2015-10-21 23:03:36', NULL, 'f7f8d4140b2e705088e77b1e0f2b43dc'),
+(10620, '2015-10-21 23:04:31', '2015-10-21 23:04:31', NULL, 'ab853b304789f8ce69610f6e3fae4eba'),
+(10621, '2015-10-21 23:07:09', '2015-10-21 23:07:09', NULL, 'a044134ae44d89cb42ea97c5b1e48721'),
+(10622, '2015-10-21 23:17:54', '2015-10-21 23:17:54', NULL, '482929caaf98af7fb74459d677ad5d5c'),
+(10623, '2015-10-21 23:20:43', '2015-10-21 23:20:43', NULL, '1288afb586f2d99068cd010d25c64e12'),
+(10624, '2015-10-21 23:26:02', '2015-10-21 23:26:02', NULL, 'aa33f193533850a5e4db1a462bfd72b1');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(10625, '2015-10-21 23:28:21', '2015-10-21 23:28:21', NULL, 'c4ed690cc18e59c04de6acd30b7ff47f'),
+(10626, '2015-10-21 23:28:39', '2015-10-21 23:28:39', NULL, '37c20317e4e3f6914a3c9d4d205f4f95'),
+(10627, '2015-10-21 23:31:35', '2015-10-21 23:31:35', NULL, '8b4399aac74b74a2e99fff5856a40cb0'),
+(10628, '2015-10-21 23:31:39', '2015-10-21 23:31:39', NULL, 'a07c71f0313368699661dac1534451bc'),
+(10629, '2015-10-21 23:31:45', '2015-10-21 23:31:45', NULL, 'cb87fc07c355d76ccfbf4273d8445144'),
+(10630, '2015-10-21 23:31:49', '2015-10-21 23:31:49', NULL, '03e65264794ef23048865ac98ad7708b'),
+(10631, '2015-10-21 23:31:57', '2015-10-21 23:31:57', NULL, '2adbf56d1f5de06f99fefb2ce4d4dd52'),
+(10632, '2015-10-21 23:31:59', '2015-10-21 23:31:59', NULL, '152106c43003a3288c42d55a5b220242'),
+(10633, '2015-10-21 23:35:12', '2015-10-21 23:35:12', NULL, 'e3572647306eb7cd1c86189d99c0f39d'),
+(10634, '2015-10-21 23:36:31', '2015-10-21 23:36:31', NULL, 'd17b2ba1dee5fe00d1979f2b882d738d'),
+(10635, '2015-10-21 23:37:46', '2015-10-21 23:37:46', NULL, 'a42fa046ca597569a22d04588e50bc76'),
+(10636, '2015-10-21 23:49:14', '2015-10-21 23:49:14', NULL, 'e2ec0f66117f78ca414fcd41fb17d2d1'),
+(10637, '2015-10-22 00:17:30', '2015-10-22 00:17:30', NULL, '7cab88280e12eba94a76793475cbf483'),
+(10638, '2015-10-22 00:20:52', '2015-10-22 00:20:52', NULL, '904cd846c50ad0485ca79f16864cd4a4'),
+(10639, '2015-10-22 00:23:35', '2015-10-22 00:23:35', NULL, '32b26352667d02bbe6a5a7c627554eb4'),
+(10640, '2015-10-22 00:25:30', '2015-10-22 00:25:30', NULL, 'a150b9143a735a99af031964ded2cd3b'),
+(10641, '2015-10-22 00:25:40', '2015-10-22 00:25:40', NULL, '77b6127885e9eeba496427506de756fa'),
+(10642, '2015-10-22 00:28:15', '2015-10-22 00:28:15', NULL, 'd613a68d6f4bb19b2a14acc506c3dc89'),
+(10643, '2015-10-22 00:35:16', '2015-10-22 00:35:16', NULL, '9e1ac47d4e0f81bbaf41b9a77479a5bc'),
+(10644, '2015-10-22 00:54:58', '2015-10-22 00:54:58', NULL, '4c420559ec5e03b57168e4c93760cac5'),
+(10645, '2015-10-22 01:05:52', '2015-10-22 01:05:52', NULL, '16b62a99b18b881ce99b0feba5be4d0c'),
+(10646, '2015-10-22 01:06:04', '2015-10-22 01:06:04', NULL, '7970a7919d2c45e58a41bccce6dbf6b0'),
+(10647, '2015-10-22 01:06:17', '2015-10-22 01:06:17', NULL, '3f918b2fa35f937310397f40ea2692a8'),
+(10648, '2015-10-22 01:08:25', '2015-10-22 01:08:25', NULL, '9a2ec614fc56b033e17e1ebfeb15f611'),
+(10649, '2015-10-22 01:10:52', '2015-10-22 01:10:52', NULL, 'c28a7337e24a24781f28929e161d303d'),
+(10650, '2015-10-22 01:11:34', '2015-10-22 01:11:34', NULL, 'a410b1ec2934aa835441a7e6c3ba5907'),
+(10651, '2015-10-22 01:15:23', '2015-10-22 01:15:23', NULL, '4d095096a087b5cbb7bbb7a8442cffc0'),
+(10652, '2015-10-22 01:22:24', '2015-10-22 01:22:24', NULL, 'd2329f7259458997e02b35274f222e1b'),
+(10653, '2015-10-22 01:33:01', '2015-10-22 01:33:01', NULL, '76b23bb5d2e9f3c9abc0469cefe60929'),
+(10654, '2015-10-22 01:35:09', '2015-10-22 01:35:09', NULL, '343819f32c2f91eb836e49013b9c5683'),
+(10655, '2015-10-22 01:35:23', '2015-10-22 01:35:23', NULL, 'e829f84946b9a71c490324b41c5a7c8c'),
+(10656, '2015-10-22 01:36:04', '2015-10-22 01:36:04', NULL, '671c1f52934737dea9782cab69d6ff31'),
+(10657, '2015-10-22 01:36:15', '2015-10-22 01:36:15', NULL, '0b4d36d9bfdd64a82637eae922c70e6e'),
+(10658, '2015-10-22 01:37:25', '2015-10-22 01:37:25', NULL, 'e312174439bf697c42277b22b79e611f'),
+(10659, '2015-10-22 01:38:05', '2015-10-22 01:38:05', NULL, 'f53da3d53aae219370e3a7b34ec246e4'),
+(10660, '2015-10-22 01:38:57', '2015-10-22 01:38:57', NULL, '3f6d5c151f6e19d33e2bc9643fae6ce4'),
+(10661, '2015-10-22 01:42:53', '2015-10-22 01:42:53', NULL, '6780c3c4f63a04b379be9edfaed9ed80'),
+(10662, '2015-10-22 01:45:03', '2015-10-22 01:45:03', NULL, 'b3c7ee203bfb049741a179138137ad6c'),
+(10663, '2015-10-22 01:50:27', '2015-10-22 01:50:27', NULL, '5a23ca5d31faf07f5fc73da491f4e853'),
+(10664, '2015-10-22 02:04:51', '2015-10-22 02:04:51', NULL, 'b1c2a39a9eefd5b18e689c0d196c9aae'),
+(10665, '2015-10-22 02:06:16', '2015-10-22 02:06:16', NULL, 'f3a4b0a56618c5aae2cff7828e8c82c4'),
+(10666, '2015-10-22 02:06:57', '2015-10-22 02:06:57', NULL, 'c4265baec06cd46d9d02695b67eb456c'),
+(10667, '2015-10-22 02:07:13', '2015-10-22 02:07:13', NULL, 'fab01fb377c166efd98b3a57c64661b0'),
+(10668, '2015-10-22 02:16:27', '2015-10-22 02:16:27', NULL, '0de587bb31c500ab78a363d3a17839b5'),
+(10669, '2015-10-22 02:18:48', '2015-10-22 02:18:48', NULL, '404a66418603835be6062520716172fb'),
+(10670, '2015-10-22 02:20:37', '2015-10-22 02:20:37', NULL, '9ea8647ceb1238f24d72a38918b9fd0a'),
+(10671, '2015-10-22 02:21:07', '2015-10-22 02:21:07', NULL, '8abe80dc30f3017b04dc66cfef3b39f9'),
+(10672, '2015-10-22 02:21:36', '2015-10-22 02:21:36', NULL, '2e5c2cf3f9723093a0c354ffd038917d'),
+(10673, '2015-10-22 02:26:42', '2015-10-22 02:26:42', NULL, '3d40da2cb544b90d7c334a6b19b7790f'),
+(10674, '2015-10-22 02:28:44', '2015-10-22 02:28:44', NULL, '429d58d57cb6e53dadd8c21958b3c75c'),
+(10675, '2015-10-22 02:34:21', '2015-10-22 02:34:21', NULL, 'bfc4574ebb62cf939cb5b54524cc0a87'),
+(10676, '2015-10-22 02:42:25', '2015-10-22 02:42:25', NULL, 'a6ea96bd30d71792d94cbbb7c8c6b0c4'),
+(10677, '2015-10-22 03:14:48', '2015-10-22 03:14:48', NULL, '5d3aaeae68be945ea2effe78b4df3a92'),
+(10678, '2015-10-22 03:19:15', '2015-10-22 03:19:15', NULL, 'f7a2fb3801a127fd552f74bad25f35ef'),
+(10679, '2015-10-22 03:26:35', '2015-10-22 03:26:35', NULL, '6db690466f3e86b76afd632c673e5d44'),
+(10680, '2015-10-22 03:46:52', '2015-10-22 03:46:52', NULL, 'e5da9483a2aaee48e5fb3f4a812ed295'),
+(10681, '2015-10-22 03:49:35', '2015-10-22 03:49:35', NULL, '69f0d3657db4a88213e8d0bba88d14c0'),
+(10682, '2015-10-22 03:52:53', '2015-10-22 03:52:53', NULL, '17bfe996c45db8aa330c8edc251517f5'),
+(10683, '2015-10-22 04:03:23', '2015-10-22 04:03:23', NULL, '6612f9ecda99123b8fd24bcb3394eafd'),
+(10684, '2015-10-22 04:05:09', '2015-10-22 04:05:09', NULL, '0247785b03ee01a32c5237ec02dc5c2e'),
+(10685, '2015-10-22 04:21:24', '2015-10-22 04:21:24', NULL, '236f8f22839011da1707ee53e72ef336'),
+(10686, '2015-10-22 04:28:30', '2015-10-22 04:28:30', NULL, '480c081c22bf5473d6d6469089479df5'),
+(10687, '2015-10-22 04:29:25', '2015-10-22 04:29:25', NULL, '2ece7b33539ebde4751cf2f772a29ef1'),
+(10688, '2015-10-22 04:49:55', '2015-10-22 04:49:55', NULL, '407ef25a718e5808b08de9cc01230e72'),
+(10689, '2015-10-22 04:52:08', '2015-10-22 04:52:08', NULL, '6a1a2f40b6e81e337a566b427d8c2af4'),
+(10690, '2015-10-22 04:52:39', '2015-10-22 04:52:39', NULL, '6da32e1324b65eb629397d2006c75866'),
+(10691, '2015-10-22 04:53:52', '2015-10-22 04:53:52', NULL, '06faa635d800db996649ee470b2909d5'),
+(10692, '2015-10-22 05:00:09', '2015-10-22 05:00:09', NULL, 'f6fe82c0150ced97068debbd177a0322'),
+(10693, '2015-10-22 05:17:13', '2015-10-22 05:17:13', NULL, '832c4847362719a8ea633df2d79bc809'),
+(10694, '2015-10-22 05:17:24', '2015-10-22 05:17:24', NULL, 'd3e157269608c46ac4a3a694749500d2'),
+(10695, '2015-10-22 05:18:36', '2015-10-22 05:18:36', NULL, 'abbddfc21f9c7c9de9db583bc619f22b'),
+(10696, '2015-10-22 05:27:05', '2015-10-22 05:27:05', NULL, '025409a237d5940753e370a8a35e91c2'),
+(10697, '2015-10-22 05:42:29', '2015-10-22 05:42:29', NULL, '4e892d944c2e9abb679d5d51637b46ba'),
+(10698, '2015-10-22 05:43:31', '2015-10-22 05:43:31', NULL, 'a4541769f3a3a299f933ea2f4fe6234b'),
+(10699, '2015-10-22 05:43:38', '2015-10-22 05:43:38', NULL, '7ba798b24b2de70cff52a75ece1e4c63'),
+(10700, '2015-10-22 05:44:55', '2015-10-22 05:44:55', NULL, 'eb486ab6851d03e1a9a6793ab998524a'),
+(10701, '2015-10-22 05:50:38', '2015-10-22 05:50:38', NULL, '3a08968b810edac912e1c2c49d327de8'),
+(10702, '2015-10-22 06:03:10', '2015-10-22 06:03:10', NULL, 'c2b851d9ff7c996c2ba44026c2ff697e'),
+(10703, '2015-10-22 06:57:36', '2015-10-22 06:57:36', NULL, 'f41fe7c15b9d75ef66a3d4ef63d64e29'),
+(10704, '2015-10-22 07:00:18', '2015-10-22 07:00:18', NULL, 'b4fa1613eeb971512c32d7d71b0aede3'),
+(10705, '2015-10-22 07:00:45', '2015-10-22 07:00:45', NULL, '18afd17fe03926f2c69ae5103a37eb06'),
+(10706, '2015-10-22 07:06:24', '2015-10-22 07:06:24', NULL, '9c71426c8a257c73d0657aabd8ba163a'),
+(10707, '2015-10-22 07:14:15', '2015-10-22 07:14:15', NULL, 'edb6a80fa4d4dd753ed853a1c9950516'),
+(10708, '2015-10-22 07:24:52', '2015-10-22 07:24:52', NULL, '786131ff7e515c33be07352f265a9cb0'),
+(10709, '2015-10-22 07:33:30', '2015-10-22 07:33:30', NULL, 'b55d48fdccc51eaf16202151468f03ee'),
+(10710, '2015-10-22 07:37:55', '2015-10-22 07:37:55', NULL, '8751dc8e547df8f0884b0243f3a88d09'),
+(10711, '2015-10-22 07:39:46', '2015-10-22 07:39:46', NULL, '68c3cf4888eee34cc4f1fe8e6e6905c4'),
+(10712, '2015-10-22 07:44:53', '2015-10-22 07:44:53', NULL, 'a847e360845ce8ce2be1868cbdc325b1'),
+(10713, '2015-10-22 07:53:15', '2015-10-22 07:53:15', NULL, '01607b7ad96b510dec2bec36f698755d'),
+(10714, '2015-10-22 07:59:05', '2015-10-22 07:59:05', NULL, '33a5211e7cbec0bc9ed116dec95ea673'),
+(10715, '2015-10-22 08:30:34', '2015-10-22 08:30:34', NULL, 'ab5673fe5d828724e6f2677ce303986c'),
+(10716, '2015-10-22 08:34:02', '2015-10-22 08:34:02', NULL, 'c7651274d99e15289b69ea91cdec3b2e'),
+(10717, '2015-10-22 08:47:40', '2015-10-22 08:47:40', NULL, 'f0a3ab9ff6aa22558cc858171bf325bd'),
+(10718, '2015-10-22 08:48:39', '2015-10-22 08:48:39', NULL, '91b2af670c5f74031862676c5ebf717e'),
+(10719, '2015-10-22 08:57:51', '2015-10-22 08:57:51', NULL, 'fe536ebe98419fa0e0e278dbab9e06f8'),
+(10720, '2015-10-22 08:57:52', '2015-10-22 08:57:52', NULL, '2c1e7a6505ccceb29eafa1f41eaa3d6c'),
+(10721, '2015-10-22 09:07:34', '2015-10-22 09:07:34', NULL, '3821a1464c038714eb3f321a1299198c'),
+(10722, '2015-10-22 09:11:06', '2015-10-22 09:11:06', NULL, '4e15efa0eeab3fb5c85aafec4b17e8b5'),
+(10723, '2015-10-22 09:15:38', '2015-10-22 09:15:38', NULL, '24a5567942142da32ebf205b6d0b5752'),
+(10724, '2015-10-22 09:19:12', '2015-10-22 09:19:12', NULL, 'ef40454e6549487008d559c9024a3880'),
+(10725, '2015-10-22 09:19:27', '2015-10-22 09:19:27', NULL, 'df8c234e888648f8857ae998ca9cbc84'),
+(10726, '2015-10-22 09:20:16', '2015-10-22 09:20:16', NULL, 'd6b3452d5180cc7fe878572facab6198'),
+(10727, '2015-10-22 09:34:28', '2015-10-22 09:34:28', NULL, 'e3d25ca6af542337d7310ce380411a47'),
+(10728, '2015-10-22 09:37:02', '2015-10-22 09:37:02', NULL, '08d8a4b32a0277bd55b31935f9052cfd'),
+(10729, '2015-10-22 09:39:25', '2015-10-22 09:39:25', NULL, '5f1df489a7dda28ac52ff215da27adc6'),
+(10730, '2015-10-22 09:54:31', '2015-10-22 09:54:31', NULL, '8bbeab37711e362796c209c80576ea61'),
+(10731, '2015-10-22 10:00:17', '2015-10-22 10:00:17', NULL, '68cefc1ce3ff31ae9e4e01608d815a32'),
+(10732, '2015-10-22 10:00:55', '2015-10-22 10:00:55', NULL, '4e0eaffb4b483648de291b005b9ddc32'),
+(10733, '2015-10-22 10:01:31', '2015-10-22 10:01:31', NULL, 'da951bd190e7515c3feb8e1d02988a0c'),
+(10734, '2015-10-22 10:24:00', '2015-10-22 10:24:00', NULL, '0d516741bd1349007656ae12dc034c70'),
+(10735, '2015-10-22 10:34:26', '2015-10-22 10:34:26', NULL, '077a52c7c924af6bd8ed7ef3a82747c4'),
+(10736, '2015-10-22 10:49:54', '2015-10-22 10:49:54', NULL, '7d7751aa71157528af0c7d379688e0b8'),
+(10737, '2015-10-22 10:53:03', '2015-10-22 10:53:03', NULL, '1d1d75921abf7c1868e4d33a299db88f'),
+(10738, '2015-10-22 11:00:21', '2015-10-22 11:00:21', NULL, '9820e22be5161a1a5c63489c4986824c'),
+(10739, '2015-10-22 11:00:45', '2015-10-22 11:00:45', NULL, '5f43ef211d3d39b4dfb1808ac0021136'),
+(10740, '2015-10-22 11:06:21', '2015-10-22 11:06:21', NULL, 'f3bb87501583870d04c42ee87b8d656e'),
+(10741, '2015-10-22 11:12:30', '2015-10-22 11:12:30', NULL, 'a261c06ac1046c974762979a440487d1'),
+(10742, '2015-10-22 11:13:22', '2015-10-22 11:13:22', NULL, '7c008515d8b89292f45c94c676c550c4'),
+(10743, '2015-10-22 11:20:46', '2015-10-22 11:20:46', NULL, '6df32f001ca6a42944399f7761945b0b'),
+(10744, '2015-10-22 11:22:59', '2015-10-22 11:22:59', NULL, 'ddba2bdd11590d6464f6422d309d9b11'),
+(10745, '2015-10-22 11:27:09', '2015-10-22 11:27:09', NULL, '41377f024aedb480bb8a09e3f94c2f7c'),
+(10746, '2015-10-22 11:31:51', '2015-10-22 11:31:51', NULL, '730f28a6d3f14343d606fadea0085cfc'),
+(10747, '2015-10-22 11:32:43', '2015-10-22 11:32:43', NULL, '4a8b3e3a49ebbfc2109bc373c3bd8685'),
+(10748, '2015-10-22 11:37:24', '2015-10-22 11:37:24', NULL, '60758f3086f92e00977c5a88a63b2522'),
+(10749, '2015-10-22 11:37:27', '2015-10-22 11:37:27', NULL, '221c1f3c660c4c828a600a173b723a78'),
+(10750, '2015-10-22 11:40:08', '2015-10-22 11:40:08', NULL, 'a2a4d975c8f690586ddd06f040479275'),
+(10751, '2015-10-22 11:44:17', '2015-10-22 11:44:17', NULL, 'a80ec03c427744fb8ddd5b57cc490b31'),
+(10752, '2015-10-22 11:48:15', '2015-10-22 11:48:15', NULL, 'c86fb4407e75802b357a46db7e27d7ff'),
+(10753, '2015-10-22 11:48:59', '2015-10-22 11:48:59', NULL, '3083204c94956e2a7727b10cfc8af4da'),
+(10754, '2015-10-22 11:51:13', '2015-10-22 11:51:13', NULL, 'fb6a81fe8a167ca76b18835bc561a4d3'),
+(10755, '2015-10-22 11:55:37', '2015-10-22 11:55:37', NULL, '06c1e363ed0689c968b1789654c71b1e'),
+(10756, '2015-10-22 12:01:13', '2015-10-22 12:01:13', NULL, '009b92fb1e1434bb73e3293ba6e248dd'),
+(10757, '2015-10-22 12:01:25', '2015-10-22 12:01:25', NULL, '46c378a47513e8237480dad3fa0c6d99'),
+(10758, '2015-10-22 12:03:02', '2015-10-22 12:03:02', NULL, 'd3a215df94766e9a7cf383fdd7cf6232'),
+(10759, '2015-10-22 12:12:16', '2015-10-22 12:12:16', NULL, '55cf51a61556c710b48330754479658b'),
+(10760, '2015-10-22 12:19:11', '2015-10-22 12:19:11', NULL, '924f6ffe397446ea8df63d96f934a9d0'),
+(10761, '2015-10-22 12:21:05', '2015-10-22 12:21:05', NULL, '2bdf49fc192922a608f5b239ed7f1fdd'),
+(10762, '2015-10-22 12:33:08', '2015-10-22 12:33:08', NULL, '0c79129e2f47a58fadc62d22d4b4e7d0'),
+(10763, '2015-10-22 12:49:59', '2015-10-22 12:49:59', NULL, 'e53fd479b6007eebd5047b24b40f9878'),
+(10764, '2015-10-22 12:53:51', '2015-10-22 12:53:51', NULL, '6c8af03d9514749a38a85ca0f1283444'),
+(10765, '2015-10-22 12:59:18', '2015-10-22 12:59:18', NULL, '8fda1f5ee24da836d89b04a4085f4470'),
+(10766, '2015-10-22 13:01:17', '2015-10-22 13:01:17', NULL, '9048692be08e89f4934f2c705d093e4a'),
+(10767, '2015-10-22 13:01:17', '2015-10-22 13:01:17', NULL, 'a1bff457290c6d6e051779729f00162c'),
+(10768, '2015-10-22 13:06:08', '2015-10-22 13:06:08', NULL, '749982a0528e15d684f07e3bd6ec5a81'),
+(10769, '2015-10-22 13:15:47', '2015-10-22 13:15:47', NULL, '0346095828d08b943c482e007ba9de83'),
+(10770, '2015-10-22 13:21:09', '2015-10-22 13:21:09', NULL, '6782be27f10fdda784098ee6d0a3b2db'),
+(10771, '2015-10-22 13:25:42', '2015-10-22 13:25:42', NULL, '402c98ae0dee63babf8265fab14e8f13'),
+(10772, '2015-10-22 13:53:44', '2015-10-22 13:53:44', NULL, 'a5f3279a5c470d47745032bbd6bfe7b6'),
+(10773, '2015-10-22 13:53:44', '2015-10-22 13:53:44', NULL, '6e5387ae960ddcc02076ba2e46321de8'),
+(10774, '2015-10-22 13:53:47', '2015-10-22 13:53:47', NULL, '146d074dedbe3bc546a765ce101e9a8b'),
+(10775, '2015-10-22 13:53:47', '2015-10-22 13:53:47', NULL, 'ab7119f6cc06845fa3246965fe30e81a'),
+(10776, '2015-10-22 13:53:50', '2015-10-22 13:53:50', NULL, '4718bc420c75941fa3c0d2b4af4d58a9'),
+(10777, '2015-10-22 13:53:50', '2015-10-22 13:53:50', NULL, 'ab168e1fd4d75ae090f81e29c1aa86c4'),
+(10778, '2015-10-22 14:00:12', '2015-10-22 14:00:12', NULL, 'fb80bc3c669ad7a149f3dc844f8b698a'),
+(10779, '2015-10-22 14:01:56', '2015-10-22 14:01:56', NULL, 'fdb679d0e5d07696f6d37733bc703133'),
+(10780, '2015-10-22 14:01:56', '2015-10-22 14:01:56', NULL, '7989c6b2b0777078ffd88888584a2758'),
+(10781, '2015-10-22 14:12:35', '2015-10-22 14:12:35', NULL, 'fab0271e09d90ff3b10c9db02c6d7656'),
+(10782, '2015-10-22 14:12:35', '2015-10-22 14:12:35', NULL, '5194e9a5352a81b3e7614c1018d56c36'),
+(10783, '2015-10-22 14:16:32', '2015-10-22 14:16:32', NULL, '252f0e6420505a16385d2484d89734a2'),
+(10784, '2015-10-22 14:19:50', '2015-10-22 14:19:50', NULL, '0bb675a51238af733f120cd824315856'),
+(10785, '2015-10-22 14:20:59', '2015-10-22 14:20:59', NULL, '17c6292000e099f20b09750c6ec39292'),
+(10786, '2015-10-22 14:21:42', '2015-10-22 14:21:42', NULL, '20c74e43595699d189e4e4d0132b014a'),
+(10787, '2015-10-22 14:23:24', '2015-10-22 14:23:24', NULL, '134c33a2ee7bddb7ad0ac98bfb289e6f'),
+(10788, '2015-10-22 14:25:32', '2015-10-22 14:25:32', NULL, '8398dc6ba9941d112ba4efeb64fccc0f'),
+(10789, '2015-10-22 14:27:25', '2015-10-22 14:27:25', NULL, '3d121eba4fec8547c84376168b5a51f9'),
+(10790, '2015-10-22 14:32:11', '2015-10-22 14:32:11', NULL, '30cee6c9be0d9500a2d907cc0c33e729'),
+(10791, '2015-10-22 14:32:36', '2015-10-22 14:32:36', NULL, 'f3e6a8313439218d879cfe2010568c72'),
+(10792, '2015-10-22 14:36:09', '2015-10-22 14:36:09', NULL, '0ef57540db39954f98e718635b6e5d5d'),
+(10793, '2015-10-22 14:40:27', '2015-10-22 14:40:27', NULL, 'b20b4e4a0a5da439b4b2065c13bd9b47'),
+(10794, '2015-10-22 14:42:24', '2015-10-22 14:42:24', NULL, 'da6365c72ec9fda10d2e99e92d736307'),
+(10795, '2015-10-22 14:42:30', '2015-10-22 14:42:30', NULL, '96f5a00c6d7ae3cb83863fd08b7761f6'),
+(10796, '2015-10-22 14:43:02', '2015-10-22 14:43:02', NULL, 'ed98881ff389692f211978fd4fe5505b'),
+(10797, '2015-10-22 14:49:42', '2015-10-22 14:49:42', NULL, 'c47c408e34e3374a26cb131460af2a6e'),
+(10798, '2015-10-22 14:52:57', '2015-10-22 14:52:57', NULL, '8cca26e994d8bedf5697f4a6108540f8'),
+(10799, '2015-10-22 14:55:55', '2015-10-22 14:55:55', NULL, 'd30e9c444ae225c17d1ac9409113329b'),
+(10800, '2015-10-22 15:13:33', '2015-10-22 15:13:33', NULL, 'afd45064d79ed0dd9a9df0da4cac0b34'),
+(10801, '2015-10-22 15:15:56', '2015-10-22 15:15:56', NULL, '8a9e9f42da183eb802d694c0d66903b7'),
+(10802, '2015-10-22 15:16:53', '2015-10-22 15:16:53', NULL, 'ad5bec316d83fbea4a42967dd55e2359'),
+(10803, '2015-10-22 15:20:33', '2015-10-22 15:20:33', NULL, 'f195afcc83b954f458f99cdd2728f379'),
+(10804, '2015-10-22 15:20:53', '2015-10-22 15:20:53', NULL, '0e103d73775717b008aad3e69b33cad1'),
+(10805, '2015-10-22 15:21:12', '2015-10-22 15:21:12', NULL, 'daeefb85e3b31eb25158990ff729f776'),
+(10806, '2015-10-22 15:24:59', '2015-10-22 15:24:59', NULL, 'e5cc7bca8253d9b187fa80d78c3bba0c'),
+(10807, '2015-10-22 15:28:41', '2015-10-22 15:28:41', NULL, 'e594ef5e00781e6dd4ce7924ab7e60bc'),
+(10808, '2015-10-22 15:29:00', '2015-10-22 15:29:00', NULL, 'f9e3175bb83e41f6925aced5e2407b76'),
+(10809, '2015-10-22 15:32:42', '2015-10-22 15:32:42', NULL, '179b5cf2211ada89607c50339c62f347'),
+(10810, '2015-10-22 15:33:32', '2015-10-22 15:33:32', NULL, 'eb1d4024cb1a6a0eaf2a04a49ee6df72'),
+(10811, '2015-10-22 15:35:32', '2015-10-22 15:35:32', NULL, 'b28ba8f84cceba0488ba287ee0b8496e'),
+(10812, '2015-10-22 15:45:56', '2015-10-22 15:45:56', NULL, 'dd025444e6f80cf909d80f197157471e'),
+(10813, '2015-10-22 15:54:42', '2015-10-22 15:54:42', NULL, '8fe2bd76ee565ebc711309ededc1ce0a'),
+(10814, '2015-10-22 16:01:35', '2015-10-22 16:01:35', NULL, 'dd7993bcac00a059c75cd6b0095ee976'),
+(10815, '2015-10-22 16:02:49', '2015-10-22 16:02:49', NULL, 'f53faba0aa8dac374cb82ad3729c2a5a'),
+(10816, '2015-10-22 16:14:13', '2015-10-22 16:14:13', NULL, '5cd76a9e81b058d1ad31f29053f0b08b'),
+(10817, '2015-10-22 16:14:52', '2015-10-22 16:14:52', NULL, '632ae7c14150628a9fc7ec7c721fed53'),
+(10818, '2015-10-22 16:16:49', '2015-10-22 16:16:49', NULL, '307a37653c65cb1aad3c49f132764bb3'),
+(10819, '2015-10-22 16:22:18', '2015-10-22 16:22:18', NULL, '78e6bce88f01f874dc6ae65f22bbabaa'),
+(10820, '2015-10-22 16:33:56', '2015-10-22 16:33:56', NULL, '72bfe39d9c442b945ddc27b7727e1b87'),
+(10821, '2015-10-22 16:35:34', '2015-10-22 16:35:34', NULL, '903660c0bd48c9262263137c24e38e78'),
+(10822, '2015-10-22 16:37:01', '2015-10-22 16:37:01', NULL, '41b85aa0e01c9a90890bb8a6d9c4ec8c'),
+(10823, '2015-10-22 16:40:31', '2015-10-22 16:40:31', NULL, '2ae09e2bcfe85f455c2db568a9b8bd4a'),
+(10824, '2015-10-22 16:42:09', '2015-10-22 16:42:09', NULL, '6532689f54ba818e700955fb444dafe1'),
+(10825, '2015-10-22 16:43:08', '2015-10-22 16:43:08', NULL, 'ef00c10684097d66740e0f3356c4b76c'),
+(10826, '2015-10-22 16:47:32', '2015-10-22 16:47:32', NULL, '15a758eac44d93d45c859dca96c71457'),
+(10827, '2015-10-22 17:19:53', '2015-10-22 17:19:53', NULL, '4b2ff78bf95f4645e2a000cdfd5569c8'),
+(10828, '2015-10-22 17:22:24', '2015-10-22 17:22:24', NULL, '395cac08285d8fbf3619a5a6b15364c2'),
+(10829, '2015-10-22 17:22:27', '2015-10-22 17:22:27', NULL, 'c4115b864aac7747d840e82491fb66c6'),
+(10830, '2015-10-22 17:22:29', '2015-10-22 17:22:29', NULL, '77ca68f20e00306d871b21762ea075d1'),
+(10831, '2015-10-22 17:22:31', '2015-10-22 17:22:31', NULL, '231a74daf4b10bd33d37e3744a25bc16'),
+(10832, '2015-10-22 17:22:33', '2015-10-22 17:22:33', NULL, '3ef76f5d2a67c83bd8afd2e39842eaa6'),
+(10833, '2015-10-22 17:22:35', '2015-10-22 17:22:35', NULL, '70747fdaab3fafea087e698b01ef355d'),
+(10834, '2015-10-22 17:22:38', '2015-10-22 17:22:38', NULL, '2a996f15db453de1bd8153c7029684db'),
+(10835, '2015-10-22 17:22:41', '2015-10-22 17:22:41', NULL, '8b443e7ee0523bb0d5f035e77fa75d54'),
+(10836, '2015-10-22 17:22:43', '2015-10-22 17:22:43', NULL, '9b6007f5ece32729d0f6222b62470dfd'),
+(10837, '2015-10-22 17:22:46', '2015-10-22 17:22:46', NULL, 'b77d46a6f82beb1f59b2dc19ddb3e34d'),
+(10838, '2015-10-22 17:22:48', '2015-10-22 17:22:48', NULL, '1c46c9623a21b893fab7d3a96ef12c3c'),
+(10839, '2015-10-22 17:22:50', '2015-10-22 17:22:50', NULL, 'cb406b836ab02ed8b2f7081f8aed3d41'),
+(10840, '2015-10-22 17:22:52', '2015-10-22 17:22:52', NULL, '1a799ccfba8d19efd392923e60137cb4'),
+(10841, '2015-10-22 17:22:54', '2015-10-22 17:22:54', NULL, '4e11b636f45c9bd6c74cd840efc88a88'),
+(10842, '2015-10-22 17:22:56', '2015-10-22 17:22:56', NULL, 'd5aef592b23dd9319913ae51d8286fe7'),
+(10843, '2015-10-22 17:22:59', '2015-10-22 17:22:59', NULL, 'f3f75e8c1ac4ba758ebe4849a86f88ec'),
+(10844, '2015-10-22 17:23:01', '2015-10-22 17:23:01', NULL, '0089f3c874dcffc8a7f11d029ba96a3a'),
+(10845, '2015-10-22 17:23:03', '2015-10-22 17:23:03', NULL, '5401da82c475844c5b47772d5059702c'),
+(10846, '2015-10-22 17:23:05', '2015-10-22 17:23:05', NULL, 'c67dc3c046625a1dc8b57c3f1307486e'),
+(10847, '2015-10-22 17:23:07', '2015-10-22 17:23:07', NULL, 'aa22d570821898c25ab17cfc864baea6'),
+(10848, '2015-10-22 17:23:09', '2015-10-22 17:23:09', NULL, 'a1d93ec46dedaff583bbe3e780165503'),
+(10849, '2015-10-22 17:23:12', '2015-10-22 17:23:12', NULL, '26de5d6b61e937b623a373ba7ff650ab'),
+(10850, '2015-10-22 17:23:14', '2015-10-22 17:23:14', NULL, '4a9bf94a9321cb1eeb8729f58b922837'),
+(10851, '2015-10-22 17:23:16', '2015-10-22 17:23:16', NULL, '4e8b9fc8b22ee6fbe1be9cbfa18552e4'),
+(10852, '2015-10-22 17:23:19', '2015-10-22 17:23:19', NULL, '3a4540accd879a35c3b7582b2d14b2d4'),
+(10853, '2015-10-22 17:23:21', '2015-10-22 17:23:21', NULL, '8c43a4642109281499d9cb27435c3a4f'),
+(10854, '2015-10-22 17:23:23', '2015-10-22 17:23:23', NULL, '65623eabe4d3e7d9b50bac80ce097099'),
+(10855, '2015-10-22 17:23:25', '2015-10-22 17:23:25', NULL, '726840ca14f8fb1dbd16877767093f03'),
+(10856, '2015-10-22 17:23:32', '2015-10-22 17:23:32', NULL, '3dca86de90dc4ed5cd0f5be18e338910'),
+(10857, '2015-10-22 17:23:35', '2015-10-22 17:23:35', NULL, 'd5810dc45f8c3fc4f162acf8223e93cb'),
+(10858, '2015-10-22 17:24:09', '2015-10-22 17:24:09', NULL, '1d07de724badc120e6ec993f6ef214b9'),
+(10859, '2015-10-22 17:24:13', '2015-10-22 17:24:13', NULL, 'bb978888853728b4885d349249010526'),
+(10860, '2015-10-22 18:08:07', '2015-10-22 18:08:07', NULL, '0191e6f425bbb99cb2d989fd88351b4c'),
+(10861, '2015-10-22 18:08:14', '2015-10-22 18:08:14', NULL, '10f3afbc04dfbebf49525c1c49e27676'),
+(10862, '2015-10-22 18:08:19', '2015-10-22 18:08:19', NULL, 'f1f7110c39142f16e4bd792bc0335f58'),
+(10863, '2015-10-22 18:08:23', '2015-10-22 18:08:23', NULL, 'e00ec224240064142072ef95dc0434fc'),
+(10864, '2015-10-22 18:08:30', '2015-10-22 18:08:30', NULL, '7249fc55b164218137b1e043ef47c03c'),
+(10865, '2015-10-22 18:08:33', '2015-10-22 18:08:33', NULL, 'd753edc1eef44261130f7b01b7d980c0'),
+(10866, '2015-10-22 18:08:35', '2015-10-22 18:08:35', NULL, 'c0cabd0fad28cc300deea7506e9b7eb9'),
+(10867, '2015-10-22 18:08:36', '2015-10-22 18:08:36', NULL, '276ebaa5f592d6164f95086280c51eaf'),
+(10868, '2015-10-22 18:08:43', '2015-10-22 18:08:43', NULL, '72ecb748020ed4e2282f33be733de953'),
+(10869, '2015-10-22 18:08:47', '2015-10-22 18:08:47', NULL, '200f406d548fc8abdeaee079f87a712b'),
+(10870, '2015-10-22 18:08:49', '2015-10-22 18:08:49', NULL, '304b4e81b911ada0cdb127d9642d4d2c'),
+(10871, '2015-10-22 18:08:51', '2015-10-22 18:08:51', NULL, 'e41a4a5f29a94fde8a6cb267c00cbc64'),
+(10872, '2015-10-22 18:08:52', '2015-10-22 18:08:52', NULL, '805bf311d06f1d73f602c83be31a3f9e'),
+(10873, '2015-10-22 18:08:54', '2015-10-22 18:08:54', NULL, '09faa1bd5ff2c060143d61ab9c99b31f'),
+(10874, '2015-10-22 18:08:55', '2015-10-22 18:08:55', NULL, '3998752472acff904381fb8be0eb942d'),
+(10875, '2015-10-22 18:08:57', '2015-10-22 18:08:57', NULL, 'de89dc86d49b64850ffc9425b2cb783e'),
+(10876, '2015-10-22 18:08:59', '2015-10-22 18:08:59', NULL, '7cd79c35c321bf3ac5f25437c465b664'),
+(10877, '2015-10-22 18:09:02', '2015-10-22 18:09:02', NULL, 'bebb9be1eb7569e7378887cb5aa1e8e0'),
+(10878, '2015-10-22 18:09:05', '2015-10-22 18:09:05', NULL, '6a66c0d9bbba6530f95d4fc99e1824e8'),
+(10879, '2015-10-22 18:09:08', '2015-10-22 18:09:08', NULL, 'f8ca66f2d8582f9d7e5e6f86a557db08'),
+(10880, '2015-10-22 18:09:10', '2015-10-22 18:09:10', NULL, 'd4a3db24dc1f3fd9992ebd023db5f7ee'),
+(10881, '2015-10-22 18:09:13', '2015-10-22 18:09:13', NULL, '3fab4b2369536b28ac1b6594d15933eb'),
+(10882, '2015-10-22 18:09:14', '2015-10-22 18:09:14', NULL, '7b70fdf77306391f812b6998a732bd9e'),
+(10883, '2015-10-22 18:09:16', '2015-10-22 18:09:16', NULL, 'd8a13bfcc33ca6dc27448dc0f6c5913c'),
+(10884, '2015-10-22 18:09:18', '2015-10-22 18:09:18', NULL, '6732c6ff6b92c22af395d38f4bc52359'),
+(10885, '2015-10-22 18:09:22', '2015-10-22 18:09:22', NULL, '449fe69a3bf773bf10c61a0496884c20'),
+(10886, '2015-10-22 18:09:26', '2015-10-22 18:09:26', NULL, '11770f70a4eb887927af24705d4c7d7d'),
+(10887, '2015-10-22 18:09:28', '2015-10-22 18:09:28', NULL, '8d82c830b9d6211bbcbbbe2ca5139622'),
+(10888, '2015-10-22 18:09:30', '2015-10-22 18:09:30', NULL, 'b32588722eb75a5aaf3cbc80c81c9215'),
+(10889, '2015-10-22 18:09:31', '2015-10-22 18:09:31', NULL, '06cbf32b8797f32f54d5ef271c7f5523'),
+(10890, '2015-10-22 18:09:35', '2015-10-22 18:09:35', NULL, 'b6ded053b2d8ee207612981b482c03b2'),
+(10891, '2015-10-22 18:09:40', '2015-10-22 18:09:40', NULL, '95398f86c6e16f755924cfdce5659912'),
+(10892, '2015-10-22 18:09:43', '2015-10-22 18:09:43', NULL, '520da4617b96c03b45a29792f9e81940'),
+(10893, '2015-10-22 18:09:44', '2015-10-22 18:09:44', NULL, 'd3583f0d72163e02c7c26e7e2d4c28af'),
+(10894, '2015-10-22 18:09:46', '2015-10-22 18:09:46', NULL, '174d92aae5c66cc362c4dfcc69a4cdc2'),
+(10895, '2015-10-22 18:09:48', '2015-10-22 18:09:48', NULL, '4e9aba02c0fc2dfe656a30ab3cb06845'),
+(10896, '2015-10-22 18:09:51', '2015-10-22 18:09:51', NULL, 'ea06d74a9cdc67adeacc3e741f719ab3'),
+(10897, '2015-10-22 18:09:54', '2015-10-22 18:09:54', NULL, 'b34a037c4d42d6737c9b11f0850ad9e7'),
+(10898, '2015-10-22 18:09:56', '2015-10-22 18:09:56', NULL, '612aac2001149ec8d99b85a0b7bbd3b5'),
+(10899, '2015-10-22 18:09:58', '2015-10-22 18:09:58', NULL, 'b7e55a8e4ae0ba852d62366294069416'),
+(10900, '2015-10-22 18:10:00', '2015-10-22 18:10:00', NULL, '8ff861e0413fe9e95c6981f60608f745'),
+(10901, '2015-10-22 18:10:03', '2015-10-22 18:10:03', NULL, '04b899131fbd9e395f0b0d129e9667c1'),
+(10902, '2015-10-22 18:10:07', '2015-10-22 18:10:07', NULL, 'ed961798826fc9ac3e2685f93c73a4d1'),
+(10903, '2015-10-22 18:10:09', '2015-10-22 18:10:09', NULL, 'e5b3b51d71c27b8c17356a78a3900b4a'),
+(10904, '2015-10-22 18:10:11', '2015-10-22 18:10:11', NULL, 'a1b265166b1b87801d3bb5250902d20c'),
+(10905, '2015-10-22 18:10:13', '2015-10-22 18:10:13', NULL, 'd1795083ecd7d9c9f1e635f5d79d0cbc'),
+(10906, '2015-10-22 18:10:15', '2015-10-22 18:10:15', NULL, '27f10b27d6879174a432052d2136fc47'),
+(10907, '2015-10-22 18:10:17', '2015-10-22 18:10:17', NULL, '22636e1223fed524416d2712b611e3ec'),
+(10908, '2015-10-22 18:10:20', '2015-10-22 18:10:20', NULL, 'c7cd95e0823985514787f2700976ec45'),
+(10909, '2015-10-22 18:10:21', '2015-10-22 18:10:21', NULL, '3dc1ffe1d92604260f8dd4c8dbeb5cea'),
+(10910, '2015-10-22 18:10:23', '2015-10-22 18:10:23', NULL, 'dac95e5022b820aa39e3b1397bcbb998'),
+(10911, '2015-10-22 18:10:25', '2015-10-22 18:10:25', NULL, 'b9f082eb136318b4ad9e7e38f48e7572'),
+(10912, '2015-10-22 18:10:33', '2015-10-22 18:10:33', NULL, '6b1ff55b330971bdd5b6e01e1de8fc2e'),
+(10913, '2015-10-22 18:10:36', '2015-10-22 18:10:36', NULL, 'd44afb60bee6dcc85e11db4c7e3845c0'),
+(10914, '2015-10-22 18:10:37', '2015-10-22 18:10:37', NULL, 'a2a9cd6aa3a858c63ec1b85d60fbea8f'),
+(10915, '2015-10-22 18:10:40', '2015-10-22 18:10:40', NULL, '8ecf174e9bd183038376dd0b645eb6b8'),
+(10916, '2015-10-22 18:10:41', '2015-10-22 18:10:41', NULL, '3ea89179485bee8d392ebc55dd2819e9'),
+(10917, '2015-10-22 18:10:44', '2015-10-22 18:10:44', NULL, '1fd7263d028a49e88616a1de07994ba3'),
+(10918, '2015-10-22 18:10:45', '2015-10-22 18:10:45', NULL, '5acb7a7d51000fd4bde8870230f6c43b'),
+(10919, '2015-10-22 18:10:47', '2015-10-22 18:10:47', NULL, 'f18dfd6b178fd34f8838e0a00d3a62a5'),
+(10920, '2015-10-22 18:10:51', '2015-10-22 18:10:51', NULL, '5349c66c437acaa953358ea6417e9e31'),
+(10921, '2015-10-22 18:16:13', '2015-10-22 18:16:13', NULL, '49cd25236ca72286125cda8d63181083'),
+(10922, '2015-10-22 18:16:42', '2015-10-22 18:16:42', NULL, 'b362cc39556dacad95ee90a14de8a70a'),
+(10923, '2015-10-22 18:16:48', '2015-10-22 18:16:48', NULL, '0c8ab3d36a8e5195816d7c6de9c7f84b'),
+(10924, '2015-10-22 18:17:00', '2015-10-22 18:17:00', NULL, 'b13025a0ed74319f04e1440af976399f'),
+(10925, '2015-10-22 18:17:11', '2015-10-22 18:17:11', NULL, 'e146ad7ac5ec5c745c1e2902d61dbf65'),
+(10926, '2015-10-22 18:17:16', '2015-10-22 18:17:16', NULL, '499c3ff7cb7111f0ea0640412ceb2e50'),
+(10927, '2015-10-22 18:17:23', '2015-10-22 18:17:23', NULL, '7e9b15ad76bd5f171b1f469c5ee24fe2'),
+(10928, '2015-10-22 18:17:35', '2015-10-22 18:17:35', NULL, 'ae986809ab8a814714ad989d4b9513a7'),
+(10929, '2015-10-22 18:17:40', '2015-10-22 18:17:40', NULL, '967df467fbe9a1903d4d476e9cddea4a'),
+(10930, '2015-10-22 18:17:46', '2015-10-22 18:17:46', NULL, '235c09b19bcaaee942b8577290bf2a29'),
+(10931, '2015-10-22 18:17:51', '2015-10-22 18:17:51', NULL, 'cf9b15298edeeaa056d5d29d2614fcc4'),
+(10932, '2015-10-22 18:17:55', '2015-10-22 18:17:55', NULL, '6b4cf069e595d2acbc1830810321036a'),
+(10933, '2015-10-22 18:17:58', '2015-10-22 18:17:58', NULL, '3e59921ed5a6cc940c7132db5dcf84f8'),
+(10934, '2015-10-22 18:18:05', '2015-10-22 18:18:05', NULL, 'b40f709f2d6f5b5cc1e0124d3c1de4de'),
+(10935, '2015-10-22 18:18:11', '2015-10-22 18:18:11', NULL, 'f3446b20bf39400e4ff3b1124efaa760'),
+(10936, '2015-10-22 18:18:14', '2015-10-22 18:18:14', NULL, 'f5d319b92dcddd195ee424355bc234a8'),
+(10937, '2015-10-22 18:18:18', '2015-10-22 18:18:18', NULL, '80ece9eccf4c072647879a08f07124b6'),
+(10938, '2015-10-22 18:18:24', '2015-10-22 18:18:24', NULL, 'd7db103f19aa9d0e96590b567dbf2236'),
+(10939, '2015-10-22 18:18:34', '2015-10-22 18:18:34', NULL, '0b4512610c0d741363da5c09612e8f2d'),
+(10940, '2015-10-22 18:18:45', '2015-10-22 18:18:45', NULL, 'b41c95070e84180eb0a4e1f7550e8d8a'),
+(10941, '2015-10-22 18:18:49', '2015-10-22 18:18:49', NULL, '4fb1903991515c39af9e28805f5848a9'),
+(10942, '2015-10-22 18:18:51', '2015-10-22 18:18:51', NULL, '35d51cd740660a2b7a1f04a7bbc78dc7'),
+(10943, '2015-10-22 18:18:57', '2015-10-22 18:18:57', NULL, 'e7b6bb16d4834eafc03a12c8e6f727ab'),
+(10944, '2015-10-22 18:18:59', '2015-10-22 18:18:59', NULL, '7c5a8570b526bf150fd4febd6f8bdcca'),
+(10945, '2015-10-22 18:19:08', '2015-10-22 18:19:08', NULL, '3e6138559cb3f38aba05c17a4760ae5d'),
+(10946, '2015-10-22 18:19:12', '2015-10-22 18:19:12', NULL, 'e9f347f7bc797d292239683027a7c4ec'),
+(10947, '2015-10-22 18:19:15', '2015-10-22 18:19:15', NULL, '86ce349c83bef272fec9c12baa94eceb'),
+(10948, '2015-10-22 18:19:20', '2015-10-22 18:19:20', NULL, '5c0b0536dd1a97490347364f56fab08f'),
+(10949, '2015-10-22 18:19:23', '2015-10-22 18:19:23', NULL, '6b6005ad9ca5791050858428aad4e8ec'),
+(10950, '2015-10-22 18:19:25', '2015-10-22 18:19:25', NULL, '9fefb66bf9f5454bd41195b08d4a9267'),
+(10951, '2015-10-22 18:19:31', '2015-10-22 18:19:31', NULL, 'a3983c30155e9c522b0745be0a8b20e8'),
+(10952, '2015-10-22 18:19:34', '2015-10-22 18:19:34', NULL, 'e4abed42fa0b5d4c2bade99767837a0e'),
+(10953, '2015-10-22 18:19:36', '2015-10-22 18:19:36', NULL, '6d40edab5dcf7ef0004f57c7b42d8ebd'),
+(10954, '2015-10-22 18:19:38', '2015-10-22 18:19:38', NULL, '9b2c8e50d113f243d49ab0090b9e7826'),
+(10955, '2015-10-22 18:19:44', '2015-10-22 18:19:44', NULL, '5882a936bd1a4e36a0f4e4f142556243'),
+(10956, '2015-10-22 18:19:46', '2015-10-22 18:19:46', NULL, '0437c0ef7066ce40cc8cc87c90cd8957'),
+(10957, '2015-10-22 18:19:48', '2015-10-22 18:19:48', NULL, '7c03a16252a119ed55ae8ea4218c26e9'),
+(10958, '2015-10-22 18:19:51', '2015-10-22 18:19:51', NULL, '78e0e9b75badadb8cafd7a70a03cf07d'),
+(10959, '2015-10-22 18:19:57', '2015-10-22 18:19:57', NULL, 'd11cb09d88787890e14d74044903d40d'),
+(10960, '2015-10-22 18:19:59', '2015-10-22 18:19:59', NULL, 'f76a48c61d0917e5775a5055cbe66b9b'),
+(10961, '2015-10-22 18:20:02', '2015-10-22 18:20:02', NULL, 'fd3e3ef8b5ed8079c15aebb4c731ba21'),
+(10962, '2015-10-22 18:20:07', '2015-10-22 18:20:07', NULL, '3fef209a404ee085fb8c66bdcb6e3af9'),
+(10963, '2015-10-22 18:20:10', '2015-10-22 18:20:10', NULL, '14ff49d59e2c5ebeb4ec768fc31f78f7'),
+(10964, '2015-10-22 18:20:12', '2015-10-22 18:20:12', NULL, '48dbf60a152dc1c82233e35c93c8e91c'),
+(10965, '2015-10-22 18:20:14', '2015-10-22 18:20:14', NULL, '7245c62912b899beed151d9634e4e6f1'),
+(10966, '2015-10-22 18:20:19', '2015-10-22 18:20:19', NULL, 'd3e5c40ad6b48b768dca2197a5603626'),
+(10967, '2015-10-22 18:20:22', '2015-10-22 18:20:22', NULL, 'f04ce60b2d65233ca046ae8e17467cab'),
+(10968, '2015-10-22 18:20:24', '2015-10-22 18:20:24', NULL, 'fecc523ea460ba286a4fa114b1cc1d17'),
+(10969, '2015-10-22 18:20:26', '2015-10-22 18:20:26', NULL, '8e71acf00f33b13cad87b3285df9e5bf'),
+(10970, '2015-10-22 18:20:31', '2015-10-22 18:20:31', NULL, '356829f9847d0d254df000eab315bb34'),
+(10971, '2015-10-22 18:20:38', '2015-10-22 18:20:38', NULL, '290af962c6bcb8ced1817c6d3619dbd8'),
+(10972, '2015-10-22 18:20:43', '2015-10-22 18:20:43', NULL, '8ef5a92eeadbeb5805d61d027ea623b4'),
+(10973, '2015-10-22 18:20:45', '2015-10-22 18:20:45', NULL, '088b41984457a0ef4f0ddeb54f386a8f'),
+(10974, '2015-10-22 18:20:48', '2015-10-22 18:20:48', NULL, '34a7340d90554012d363fdd24cba8649'),
+(10975, '2015-10-22 18:20:55', '2015-10-22 18:20:55', NULL, 'c3e9ab4c889ae5301c38d25b20be2526'),
+(10976, '2015-10-22 18:21:02', '2015-10-22 18:21:02', NULL, '2d3480b9594c1d8cee18bafcbffce830'),
+(10977, '2015-10-22 18:21:06', '2015-10-22 18:21:06', NULL, 'c1f5a1b28816f1e8c9d9c65b8d1ce1fe'),
+(10978, '2015-10-22 18:21:08', '2015-10-22 18:21:08', NULL, '01a4e1d632c75405cf180ea93e601c6b'),
+(10979, '2015-10-22 18:21:11', '2015-10-22 18:21:11', NULL, 'd1590afda0851e809283385ca1722713'),
+(10980, '2015-10-22 18:21:14', '2015-10-22 18:21:14', NULL, '488634ffad85c51b6ce45a9a9b4e26df'),
+(10981, '2015-10-22 18:21:18', '2015-10-22 18:21:18', NULL, 'a4a34a96663e1a33eb6cf64d803218bb'),
+(10982, '2015-10-22 18:21:21', '2015-10-22 18:21:21', NULL, 'ebc3ae8884604ae3e9db457254c9e998'),
+(10983, '2015-10-22 18:21:23', '2015-10-22 18:21:23', NULL, 'fc1e704c2cd15ec9c53c2956c26806f1'),
+(10984, '2015-10-22 18:21:26', '2015-10-22 18:21:26', NULL, 'e895bd11d299769e485b27c4e5a6c362'),
+(10985, '2015-10-22 18:21:29', '2015-10-22 18:21:29', NULL, 'd7e005fa50b9bdf59b5f73a16e17efa2'),
+(10986, '2015-10-22 18:21:34', '2015-10-22 18:21:34', NULL, '433e32e2a8795641e0eac1a76b39dacb'),
+(10987, '2015-10-22 18:21:36', '2015-10-22 18:21:36', NULL, '6d51d6fb29fef17093506ef9d31948e7'),
+(10988, '2015-10-22 18:21:41', '2015-10-22 18:21:41', NULL, '9500e4c8d4152c1913f6be55d07ea076'),
+(10989, '2015-10-22 18:21:45', '2015-10-22 18:21:45', NULL, 'a281314527608efe51fd15720dac8f21'),
+(10990, '2015-10-22 18:21:48', '2015-10-22 18:21:48', NULL, '6b9094cca96e0bbcad2cd70f9e3d4012'),
+(10991, '2015-10-22 18:21:53', '2015-10-22 18:21:53', NULL, 'a3099df136dc1ccf69415e10de089c8b'),
+(10992, '2015-10-22 18:21:55', '2015-10-22 18:21:55', NULL, 'e3e347d0b3eea7fed01b891133652b40'),
+(10993, '2015-10-22 18:21:57', '2015-10-22 18:21:57', NULL, '564dd325e9ceb32e1669ae08001ad914'),
+(10994, '2015-10-22 18:22:00', '2015-10-22 18:22:00', NULL, '17ea0308d86788ab5e667481a99d361a'),
+(10995, '2015-10-22 18:22:05', '2015-10-22 18:22:05', NULL, 'da6d63810de9600d66b8f69f3210064d'),
+(10996, '2015-10-22 18:22:07', '2015-10-22 18:22:07', NULL, '281b623aa0e7a140541621d27db6a71f'),
+(10997, '2015-10-22 18:22:09', '2015-10-22 18:22:09', NULL, '26de5b6c98384d9a3eb74b62c8091cd8'),
+(10998, '2015-10-22 18:22:12', '2015-10-22 18:22:12', NULL, 'c334fb5cb43d187410bb6c104ba16b22'),
+(10999, '2015-10-22 18:22:16', '2015-10-22 18:22:16', NULL, 'b32859beafdef1c90d5dac61c62af9ae'),
+(11000, '2015-10-22 18:22:21', '2015-10-22 18:22:21', NULL, '5d87c437a39f1be3c6f6a66c6281be2d'),
+(11001, '2015-10-22 18:22:23', '2015-10-22 18:22:23', NULL, '34a44864d8f966054c8915e02a982165'),
+(11002, '2015-10-22 18:22:28', '2015-10-22 18:22:28', NULL, 'ee56e6a0d5290eefc00eb7a89cfc27d3'),
+(11003, '2015-10-22 18:22:31', '2015-10-22 18:22:31', NULL, 'b1c6b3be31a312f5356aedad5b67c8fd'),
+(11004, '2015-10-22 18:22:33', '2015-10-22 18:22:33', NULL, 'cdf8765a709c1e3ac3c2aa537272c824'),
+(11005, '2015-10-22 18:22:35', '2015-10-22 18:22:35', NULL, 'e15dc3a5ddda116b29f99bbce2ad30c9'),
+(11006, '2015-10-22 18:22:40', '2015-10-22 18:22:40', NULL, 'afc91aebc2dc325a93a00717ff611784'),
+(11007, '2015-10-22 18:22:42', '2015-10-22 18:22:42', NULL, 'eee013830b2b32d5e4d95079bde3920b'),
+(11008, '2015-10-22 18:22:44', '2015-10-22 18:22:44', NULL, '3a640fa8ed379a6fd3b12144e1894673'),
+(11009, '2015-10-22 18:22:46', '2015-10-22 18:22:46', NULL, '6a0c80513f6c4d1b725a6d4f2459dddb'),
+(11010, '2015-10-22 18:22:51', '2015-10-22 18:22:51', NULL, 'd5eb590c984f82e320fd88c40b92899b'),
+(11011, '2015-10-22 18:22:54', '2015-10-22 18:22:54', NULL, 'f54f6aa0dcb75a7e2f468709b1853503'),
+(11012, '2015-10-22 18:22:57', '2015-10-22 18:22:57', NULL, '9d2c4d8ad446d1a9f15af5daf0314d44'),
+(11013, '2015-10-22 18:22:59', '2015-10-22 18:22:59', NULL, '54cc97f0e2e83f251272d86ccf3b316c'),
+(11014, '2015-10-22 18:23:04', '2015-10-22 18:23:04', NULL, '5c4c93b22b7ba696a58e4907e74f5c83'),
+(11015, '2015-10-22 18:23:06', '2015-10-22 18:23:06', NULL, 'ea8573d248a09e4a1c57fc10f4244b42'),
+(11016, '2015-10-22 18:23:08', '2015-10-22 18:23:08', NULL, '6470d2ada3d015e235fedac3b09de61a'),
+(11017, '2015-10-22 18:23:10', '2015-10-22 18:23:10', NULL, '023c23021f20d1f734758b8678eb0fce'),
+(11018, '2015-10-22 18:23:16', '2015-10-22 18:23:16', NULL, '248ecc7b8c8470fbd703a4bc950ddfdf'),
+(11019, '2015-10-22 18:23:18', '2015-10-22 18:23:18', NULL, '431b58fb0862061049e62a77b744afed'),
+(11020, '2015-10-22 18:23:20', '2015-10-22 18:23:20', NULL, 'ee1cbf5e055ce950a7fd88f8ccea1cee'),
+(11021, '2015-10-22 18:23:22', '2015-10-22 18:23:22', NULL, 'a79a8c0beb8a80ba80fc42341b4249a4'),
+(11022, '2015-10-22 18:23:27', '2015-10-22 18:23:27', NULL, 'a0ae119ce770db9c868a6d909c5fec41'),
+(11023, '2015-10-22 18:23:30', '2015-10-22 18:23:30', NULL, '99c86eeabea6bb719ea3a7959dfe88fa'),
+(11024, '2015-10-22 18:23:32', '2015-10-22 18:23:32', NULL, '772b37ab1353fc7f81d053a82d87ffe4'),
+(11025, '2015-10-22 18:23:34', '2015-10-22 18:23:34', NULL, 'fc38e34d6dfd4f993ca50a2df41d250b'),
+(11026, '2015-10-22 18:23:39', '2015-10-22 18:23:39', NULL, 'bcd5af9aeb7fc5a12fd7c2f77c864694'),
+(11027, '2015-10-22 18:23:41', '2015-10-22 18:23:41', NULL, '7dcec3bd946a5c78a48a5f6edb129cb9'),
+(11028, '2015-10-22 18:23:43', '2015-10-22 18:23:43', NULL, 'ced08a946b2f6513bea5b6765fd11064'),
+(11029, '2015-10-22 18:23:46', '2015-10-22 18:23:46', NULL, '9124b2acb32029a5b6e90c7fcafb7597'),
+(11030, '2015-10-22 18:23:51', '2015-10-22 18:23:51', NULL, '1f0977cf72ee9b2587ef4627e41d3f75'),
+(11031, '2015-10-22 18:23:53', '2015-10-22 18:23:53', NULL, '3a101934453daea06aa32486279286f9'),
+(11032, '2015-10-22 18:23:55', '2015-10-22 18:23:55', NULL, 'c03ac32ddc2a974afd97adb45bb79c40'),
+(11033, '2015-10-22 18:23:57', '2015-10-22 18:23:57', NULL, 'c69f60808c9d0e60c7be9aa5f5b6e0c9'),
+(11034, '2015-10-22 18:24:02', '2015-10-22 18:24:02', NULL, 'eab8a7eabbb9c3a2efadbb2e91304516'),
+(11035, '2015-10-22 18:24:05', '2015-10-22 18:24:05', NULL, 'e7badb323318708beb6f38dfca37b2a6'),
+(11036, '2015-10-22 18:24:07', '2015-10-22 18:24:07', NULL, '0de2b86a430a0a62f4029562ce6a5131'),
+(11037, '2015-10-22 18:24:10', '2015-10-22 18:24:10', NULL, 'e35054178a83409a68594957d85aa0a5'),
+(11038, '2015-10-22 18:24:14', '2015-10-22 18:24:14', NULL, '7d0e10e955e5a8ea1ad5f8db5c669029'),
+(11039, '2015-10-22 18:24:16', '2015-10-22 18:24:16', NULL, 'f2c989eccc20871515c9430a63af0c53'),
+(11040, '2015-10-22 18:24:19', '2015-10-22 18:24:19', NULL, 'db43f68ee7081d1713a07af42d0d701f'),
+(11041, '2015-10-22 18:24:21', '2015-10-22 18:24:21', NULL, '25d14e3ed919b8d01fa30b3172960f06'),
+(11042, '2015-10-22 18:24:26', '2015-10-22 18:24:26', NULL, '9c1005069b8e1e32bf930c216db96afd'),
+(11043, '2015-10-22 18:24:28', '2015-10-22 18:24:28', NULL, '4232817d62aef17a2de03be2050d58ec'),
+(11044, '2015-10-22 18:24:31', '2015-10-22 18:24:31', NULL, 'edea6490a8fc0d9edd4a8f63c0b1fe9d'),
+(11045, '2015-10-22 18:24:33', '2015-10-22 18:24:33', NULL, '63ce97760f848298c89ffebc15b73dde'),
+(11046, '2015-10-22 18:24:38', '2015-10-22 18:24:38', NULL, '5c15d8feedab32c7dbd07106de8bef55'),
+(11047, '2015-10-22 18:24:40', '2015-10-22 18:24:40', NULL, 'fea3c8371745262fabc9ca64fa213705'),
+(11048, '2015-10-22 18:24:44', '2015-10-22 18:24:44', NULL, '2f1f4daea128482bd02b44275a061271'),
+(11049, '2015-10-22 18:24:46', '2015-10-22 18:24:46', NULL, 'edc95d463970045111d233b56a7a6d19'),
+(11050, '2015-10-22 18:24:49', '2015-10-22 18:24:49', NULL, '05af4e896b807845981697436cfe6ca9'),
+(11051, '2015-10-22 18:24:52', '2015-10-22 18:24:52', NULL, 'c0163a666f5e190a0fcd3ff5ba4b01e2'),
+(11052, '2015-10-22 18:25:37', '2015-10-22 18:25:37', NULL, '5f193619a601f753c514a35faa0e390d'),
+(11053, '2015-10-22 18:25:49', '2015-10-22 18:25:49', NULL, '6e1d8aba9ae5d39d3f239a8bf225f3ee'),
+(11054, '2015-10-22 18:25:57', '2015-10-22 18:25:57', NULL, '4cf3a67806d8094688cb7976887770a8'),
+(11055, '2015-10-22 18:26:00', '2015-10-22 18:26:00', NULL, '77b0c407d7a9da7c7d2917bfbe597f97'),
+(11056, '2015-10-22 18:26:02', '2015-10-22 18:26:02', NULL, '28ee68b88ab4f8f8d4e56c0a8d4e72d9'),
+(11057, '2015-10-22 18:26:24', '2015-10-22 18:26:24', NULL, 'b5e8fe5e915f9fbfecb11d4e996007c1'),
+(11058, '2015-10-22 18:26:52', '2015-10-22 18:26:52', NULL, 'fba5535772bcdbdfb3dfb6d0a387c6ab'),
+(11059, '2015-10-22 18:26:59', '2015-10-22 18:26:59', NULL, '418e7396578f100e0c64354cc64aca75'),
+(11060, '2015-10-22 18:27:04', '2015-10-22 18:27:04', NULL, 'b3ba2e4ca7a77752e10996e483014d1e'),
+(11061, '2015-10-22 18:27:07', '2015-10-22 18:27:07', NULL, '5cf6dc84d61b05abe8ad560d886ccf7e'),
+(11062, '2015-10-22 18:27:11', '2015-10-22 18:27:11', NULL, '3e1d3835f648448e927ac9c0fb4f991c'),
+(11063, '2015-10-22 18:27:13', '2015-10-22 18:27:13', NULL, 'dc7900d5e71b9ed5b8b241e83611be72'),
+(11064, '2015-10-22 18:27:15', '2015-10-22 18:27:15', NULL, '4d8bd735a741a3e202b05298a3e9fcdf'),
+(11065, '2015-10-22 18:27:18', '2015-10-22 18:27:18', NULL, '06fdd711ad2b82fcb9cd96f65445b618'),
+(11066, '2015-10-22 18:27:22', '2015-10-22 18:27:22', NULL, '68c2bf4d5ea495a7016f85dbbd20a961'),
+(11067, '2015-10-22 18:27:25', '2015-10-22 18:27:25', NULL, 'f35a96b940eaf7d483a33bf50d9aab67'),
+(11068, '2015-10-22 18:27:28', '2015-10-22 18:27:28', NULL, 'e5608d009aeea8cfd940602250326c07'),
+(11069, '2015-10-22 18:27:40', '2015-10-22 18:27:40', NULL, 'e9a4f5ef4e863c47eed60e8c91916973'),
+(11070, '2015-10-22 18:27:46', '2015-10-22 18:27:46', NULL, '6741c57aa59f30303e8f3e50020a2066'),
+(11071, '2015-10-22 18:27:48', '2015-10-22 18:27:48', NULL, '7e229ca281cab1074e219eca9d026e27'),
+(11072, '2015-10-22 18:28:56', '2015-10-22 18:28:56', NULL, '0c7c9e85ed89def467c87cc463e040ae'),
+(11073, '2015-10-22 18:28:59', '2015-10-22 18:28:59', NULL, 'd56fb533766b7c84ba3a9f4d5648bc2b'),
+(11074, '2015-10-22 18:29:01', '2015-10-22 18:29:01', NULL, '97d360ecfbba445e7b631a295e43b99a'),
+(11075, '2015-10-22 18:29:08', '2015-10-22 18:29:08', NULL, 'c300431191a0265179d980b1baa4c815'),
+(11076, '2015-10-22 18:29:10', '2015-10-22 18:29:10', NULL, 'c8a561d7f02932c34690c8c7352d8af6'),
+(11077, '2015-10-22 18:29:13', '2015-10-22 18:29:13', NULL, 'fc081eedcff87e20227c752db8f425e4'),
+(11078, '2015-10-22 18:29:16', '2015-10-22 18:29:16', NULL, '0c5d04f4ea42966e38348ba43936347a'),
+(11079, '2015-10-22 18:29:20', '2015-10-22 18:29:20', NULL, '61221bbe489421e8a1976e54028e2ea4'),
+(11080, '2015-10-22 18:29:22', '2015-10-22 18:29:22', NULL, '55797b9c9445b7a485cf2eb6a69ed0b1'),
+(11081, '2015-10-22 18:29:24', '2015-10-22 18:29:24', NULL, '53f44bce8e3118f73f7dd1f8c06dc75c'),
+(11082, '2015-10-22 18:29:26', '2015-10-22 18:29:26', NULL, 'b1f7a1ba6e6c5daa5cbbf865e21bb91b'),
+(11083, '2015-10-22 18:29:31', '2015-10-22 18:29:31', NULL, '2aaa814b14d1e7e5032a31f0565c8569'),
+(11084, '2015-10-22 18:29:34', '2015-10-22 18:29:34', NULL, '4a8ce09d631dc334cc86aa04401927d7'),
+(11085, '2015-10-22 18:29:36', '2015-10-22 18:29:36', NULL, 'e50d168e5b23b138765c72aacf216129'),
+(11086, '2015-10-22 18:29:38', '2015-10-22 18:29:38', NULL, '6587e24f91995fba108f9de243794a66'),
+(11087, '2015-10-22 18:29:43', '2015-10-22 18:29:43', NULL, '9d061655f71471af7ad19aef73060737'),
+(11088, '2015-10-22 18:29:47', '2015-10-22 18:29:47', NULL, 'adcb6ede92d7b5224e9b92969c552777'),
+(11089, '2015-10-22 18:29:49', '2015-10-22 18:29:49', NULL, '2ed04aa6ec2e0781849c014f502d7dca'),
+(11090, '2015-10-22 18:29:52', '2015-10-22 18:29:52', NULL, 'b77f0227b439b64ce5ac7b5022d70115'),
+(11091, '2015-10-22 18:29:55', '2015-10-22 18:29:55', NULL, 'fcdbbc7ec9097bbe8c452adc12fb2413'),
+(11092, '2015-10-22 18:29:57', '2015-10-22 18:29:57', NULL, '3df81655338c525e7a3e8f1e1a3ca183'),
+(11093, '2015-10-22 18:30:00', '2015-10-22 18:30:00', NULL, 'd941bb63630096ee27cea1060a4560de'),
+(11094, '2015-10-22 18:30:02', '2015-10-22 18:30:02', NULL, 'c7bbcd05fe2ebaa8a5a30031f6abe9f8'),
+(11095, '2015-10-22 18:30:04', '2015-10-22 18:30:04', NULL, 'f6acb006e38f2aeaf44dc6a5895c1a63'),
+(11096, '2015-10-22 18:30:07', '2015-10-22 18:30:07', NULL, '02e343d296c4a9877103d71e80872743'),
+(11097, '2015-10-22 18:30:09', '2015-10-22 18:30:09', NULL, 'ab3c3159befb35513605db95a2533d3b'),
+(11098, '2015-10-22 18:30:11', '2015-10-22 18:30:11', NULL, 'c6a1ae3591dc9070e57a510c73e250f8'),
+(11099, '2015-10-22 18:30:13', '2015-10-22 18:30:13', NULL, '626494ca62b2b380c6ec79bdf43fe5c9'),
+(11100, '2015-10-22 18:30:18', '2015-10-22 18:30:18', NULL, '59471474c356fbb7a152385ea036e4ea'),
+(11101, '2015-10-22 18:30:21', '2015-10-22 18:30:21', NULL, 'e14572e10f60ae3946a20336908a9ded'),
+(11102, '2015-10-22 18:30:23', '2015-10-22 18:30:23', NULL, '4db44f6b98ba7a69f38df7248796b110'),
+(11103, '2015-10-22 18:30:25', '2015-10-22 18:30:25', NULL, 'a5637bd5e5ce1a34169fe31fde4977ce'),
+(11104, '2015-10-22 18:30:31', '2015-10-22 18:30:31', NULL, '35f5d50f1d7854c3d7b23795d9471d81'),
+(11105, '2015-10-22 18:30:33', '2015-10-22 18:30:33', NULL, '9df4b1dbe6b59d19b6302fab3fed98e6'),
+(11106, '2015-10-22 18:30:35', '2015-10-22 18:30:35', NULL, '64e28c9162c0ca9362b1dd0a325fcbaa'),
+(11107, '2015-10-22 18:30:37', '2015-10-22 18:30:37', NULL, '5718e29a0e36d0c2d3b6c73222512de5'),
+(11108, '2015-10-22 18:30:42', '2015-10-22 18:30:42', NULL, '82b87c0090c93ec4d3caa0d0787538e6'),
+(11109, '2015-10-22 18:30:44', '2015-10-22 18:30:44', NULL, '5010a43fec2908de418654ae7a8aa5af'),
+(11110, '2015-10-22 18:30:47', '2015-10-22 18:30:47', NULL, 'e0999a419b0dfc286918027e6795af1d'),
+(11111, '2015-10-22 18:30:49', '2015-10-22 18:30:49', NULL, '387c084943ec8e3670d8d4dfa984e18f'),
+(11112, '2015-10-22 18:30:54', '2015-10-22 18:30:54', NULL, 'fe58437f6965899866bb9c4a48fb901b'),
+(11113, '2015-10-22 18:30:57', '2015-10-22 18:30:57', NULL, 'ad912858f20290b50e28ffe572074ab7'),
+(11114, '2015-10-22 18:30:59', '2015-10-22 18:30:59', NULL, '93936915f80abdb055a4b7bdce217d93'),
+(11115, '2015-10-22 18:31:01', '2015-10-22 18:31:01', NULL, 'fbcd114c27743be554f006f94a379809'),
+(11116, '2015-10-22 18:31:05', '2015-10-22 18:31:05', NULL, '10ae0ca7bf9089d3fad4b23a1d8b9295'),
+(11117, '2015-10-22 18:31:08', '2015-10-22 18:31:08', NULL, '89b010e985891cbe28106b93b173cf83'),
+(11118, '2015-10-22 18:31:10', '2015-10-22 18:31:10', NULL, 'b653eb4705ac65cba7cf1b665bbb655f'),
+(11119, '2015-10-22 18:31:12', '2015-10-22 18:31:12', NULL, '4bc3eea9b2a49e8efa262bed3476ea47'),
+(11120, '2015-10-22 18:31:15', '2015-10-22 18:31:15', NULL, 'c4f35f2d53b94d92851750fd19e6cc9e'),
+(11121, '2015-10-22 18:31:17', '2015-10-22 18:31:17', NULL, 'dcd4e0cf0226c081c05afa3b45892ae2'),
+(11122, '2015-10-22 18:31:20', '2015-10-22 18:31:20', NULL, 'fcc08aa90d164fd945c6a31c4fd7c27c'),
+(11123, '2015-10-22 18:31:22', '2015-10-22 18:31:22', NULL, '2b92d4857ddc89c2e6bcb79ed5e64214'),
+(11124, '2015-10-22 18:31:24', '2015-10-22 18:31:24', NULL, '4113e2f389cf0eb02a36c5ee0e76ea19'),
+(11125, '2015-10-22 18:31:29', '2015-10-22 18:31:29', NULL, '255780ec19ecbfe0ebc4e5ba31cc68ba'),
+(11126, '2015-10-22 18:31:31', '2015-10-22 18:31:31', NULL, '0badf3872d5ba04a3f0cbf0ade3a6f87'),
+(11127, '2015-10-22 18:31:33', '2015-10-22 18:31:33', NULL, '062608acba85005f92ad9b6069949714'),
+(11128, '2015-10-22 18:31:35', '2015-10-22 18:31:35', NULL, 'd27fc1444189f2ce900160a3d836c021'),
+(11129, '2015-10-22 18:31:38', '2015-10-22 18:31:38', NULL, 'c126afc6e8e7f876557a07447fd5c209'),
+(11130, '2015-10-22 18:31:41', '2015-10-22 18:31:41', NULL, 'a043adbaee1185fa2c05723aeadd3b5e'),
+(11131, '2015-10-22 18:31:43', '2015-10-22 18:31:43', NULL, '1b16f0e5084b680da2ff6754a36d45da'),
+(11132, '2015-10-22 18:31:45', '2015-10-22 18:31:45', NULL, '8c5b2532afb131561c3dbae338ee8283'),
+(11133, '2015-10-22 18:31:48', '2015-10-22 18:31:48', NULL, '5f57c7d0e16886169399e7317e58edf1'),
+(11134, '2015-10-22 18:31:52', '2015-10-22 18:31:52', NULL, 'c0dccc8da61b16f9b33d0e7099d35fa0'),
+(11135, '2015-10-22 18:31:55', '2015-10-22 18:31:55', NULL, 'be0192ec332d4cc60a3c282980756817'),
+(11136, '2015-10-22 18:31:57', '2015-10-22 18:31:57', NULL, '78d94901dddfb1f59912a2c19a6d17fa'),
+(11137, '2015-10-22 18:31:59', '2015-10-22 18:31:59', NULL, '2f21fc3afe39be07d2dfb59ae446e789'),
+(11138, '2015-10-22 18:32:01', '2015-10-22 18:32:01', NULL, '033fd4ab63b9df499a9d12411dc6b4cc'),
+(11139, '2015-10-22 18:32:04', '2015-10-22 18:32:04', NULL, '93f2c18bf37cf929a40dfab177f0aa25'),
+(11140, '2015-10-22 18:32:06', '2015-10-22 18:32:06', NULL, 'd96d7e1376cd10bfd98d9b35446b9a3e'),
+(11141, '2015-10-22 18:32:09', '2015-10-22 18:32:09', NULL, '0f8c0eb93e534ecd62fde440c6586bf8'),
+(11142, '2015-10-22 18:32:11', '2015-10-22 18:32:11', NULL, '839ba288d97dc2d165effdc4678d23d5'),
+(11143, '2015-10-22 18:32:16', '2015-10-22 18:32:16', NULL, '83b3fed5221030892b3ac8bf1d4f8013'),
+(11144, '2015-10-22 18:32:18', '2015-10-22 18:32:18', NULL, '3f7d9c41690b5961d515de7fa74719d8'),
+(11145, '2015-10-22 18:32:21', '2015-10-22 18:32:21', NULL, '568161037a52c3e54670ceb07b279b63'),
+(11146, '2015-10-22 18:32:23', '2015-10-22 18:32:23', NULL, 'd4ef1fcfd603071428b16573cde120a4'),
+(11147, '2015-10-22 18:32:28', '2015-10-22 18:32:28', NULL, '1eb32b9049ec3249b269bcb0277d1a1a'),
+(11148, '2015-10-22 18:32:30', '2015-10-22 18:32:30', NULL, 'cd2a228a123dc3c4068c68ae264883c1'),
+(11149, '2015-10-22 18:32:32', '2015-10-22 18:32:32', NULL, 'a3a704f70013832bb77da458cc03432b');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(11150, '2015-10-22 18:32:35', '2015-10-22 18:32:35', NULL, '576bd74acd038d0882d361b781d5e50e'),
+(11151, '2015-10-22 18:32:39', '2015-10-22 18:32:39', NULL, '4a34a4dced446c39b6f28c3893c9fb4d'),
+(11152, '2015-10-22 18:32:42', '2015-10-22 18:32:42', NULL, '7570db52e113d5ce50ddeada190f131e'),
+(11153, '2015-10-22 18:32:44', '2015-10-22 18:32:44', NULL, 'a1bc7b6eb7977cf8a988a3f965c08239'),
+(11154, '2015-10-22 18:32:46', '2015-10-22 18:32:46', NULL, '72dbcc510ae10bb0a9864a37a3b6826a'),
+(11155, '2015-10-22 18:32:48', '2015-10-22 18:32:48', NULL, 'e13e69581ab79d433094f6beb47109bc'),
+(11156, '2015-10-22 18:32:51', '2015-10-22 18:32:51', NULL, 'ed9f0ecede7e167bbb25e1e731b8ac6c'),
+(11157, '2015-10-22 18:32:54', '2015-10-22 18:32:54', NULL, 'caa3cef9a21167ce360eb67baa9a9f4c'),
+(11158, '2015-10-22 18:32:56', '2015-10-22 18:32:56', NULL, 'fa2be16861faa19997b278200e708577'),
+(11159, '2015-10-22 18:32:58', '2015-10-22 18:32:58', NULL, 'af28bc5fd7b4a8190ef265e6f48db474'),
+(11160, '2015-10-22 18:33:00', '2015-10-22 18:33:00', NULL, '65f534a1398234b01f94ec5f8daaba61'),
+(11161, '2015-10-22 18:33:03', '2015-10-22 18:33:03', NULL, '803e20f207a171afc11d72686a55487b'),
+(11162, '2015-10-22 18:33:05', '2015-10-22 18:33:05', NULL, '58098772dc4c2f6797c2e9ae73b66ff0'),
+(11163, '2015-10-22 18:33:07', '2015-10-22 18:33:07', NULL, '1adee51f53369707b0c2b0b9d6b34f1a'),
+(11164, '2015-10-22 18:33:09', '2015-10-22 18:33:09', NULL, 'c107e4e6eeb731a2b898931801e13868'),
+(11165, '2015-10-22 18:33:12', '2015-10-22 18:33:12', NULL, '4cfaa2adb6c674618a57ae35829ba5d0'),
+(11166, '2015-10-22 18:33:14', '2015-10-22 18:33:14', NULL, 'c17ceb98b9297b5556386149b6ce036f'),
+(11167, '2015-10-22 18:33:16', '2015-10-22 18:33:16', NULL, '71c8fcef25eaecbbfd4f25cc89332225'),
+(11168, '2015-10-22 18:33:19', '2015-10-22 18:33:19', NULL, 'a42bb6099e9fa85e10d0c1f30a5a9426'),
+(11169, '2015-10-22 18:33:21', '2015-10-22 18:33:21', NULL, '61e2d0343b4d1f72176a354493e9302e'),
+(11170, '2015-10-22 18:33:23', '2015-10-22 18:33:23', NULL, 'f0e67515e4144fdd2f840fa20386f084'),
+(11171, '2015-10-22 18:33:26', '2015-10-22 18:33:26', NULL, 'bd1ebee05421f60da8375df6499ac83c'),
+(11172, '2015-10-22 18:33:28', '2015-10-22 18:33:28', NULL, '31bf5198f8563b25342ad3b9e226eabc'),
+(11173, '2015-10-22 18:33:31', '2015-10-22 18:33:31', NULL, '38de4c507ea1610adac0a087686f06a1'),
+(11174, '2015-10-22 18:33:33', '2015-10-22 18:33:33', NULL, '24b8e8015d3d5304c38c6f54dab9a2ef'),
+(11175, '2015-10-22 18:33:35', '2015-10-22 18:33:35', NULL, '76419f18294a89c9cc1c46248577086e'),
+(11176, '2015-10-22 18:33:38', '2015-10-22 18:33:38', NULL, '6bfe0a3f011eccce05ccbd79ca2fb32b'),
+(11177, '2015-10-22 18:33:41', '2015-10-22 18:33:41', NULL, 'aa4de98dab01e07d03c33a5cbecb28bf'),
+(11178, '2015-10-22 18:33:43', '2015-10-22 18:33:43', NULL, '41ba489bbddb156fd2ed0bb2e1563884'),
+(11179, '2015-10-22 18:33:45', '2015-10-22 18:33:45', NULL, '5584d11cb534a74a162067fac144b4a2'),
+(11180, '2015-10-22 18:33:50', '2015-10-22 18:33:50', NULL, 'c945d82fad2b87b39ebc77177c0a1f1a'),
+(11181, '2015-10-22 18:33:52', '2015-10-22 18:33:52', NULL, 'ec2ceb1f9472f20f424fb8f9ecd5e11c'),
+(11182, '2015-10-22 18:33:54', '2015-10-22 18:33:54', NULL, 'b1b4c07545e09b079fd4ee7d4ea204da'),
+(11183, '2015-10-22 18:33:57', '2015-10-22 18:33:57', NULL, '607192a74b512de0454837e419d0536d'),
+(11184, '2015-10-22 18:33:59', '2015-10-22 18:33:59', NULL, '4a61881304e2066cb5c50cea4a4f3dc7'),
+(11185, '2015-10-22 18:34:02', '2015-10-22 18:34:02', NULL, '456f6821cd038ede923caab3dad68f7d'),
+(11186, '2015-10-22 18:34:04', '2015-10-22 18:34:04', NULL, 'd257f116db3d640586d619c5eddcad4d'),
+(11187, '2015-10-22 18:34:06', '2015-10-22 18:34:06', NULL, 'd063faaf3a37b3cbd5e7340ca49bb75c'),
+(11188, '2015-10-22 18:34:08', '2015-10-22 18:34:08', NULL, 'ecfdb4be278dd0632a57e70299580869'),
+(11189, '2015-10-22 18:34:11', '2015-10-22 18:34:11', NULL, '4a6113b2417d6f17efa04785330d9123'),
+(11190, '2015-10-22 18:34:13', '2015-10-22 18:34:13', NULL, 'cdfb355f30ce980acd6cf8fbef469fe7'),
+(11191, '2015-10-22 18:34:16', '2015-10-22 18:34:16', NULL, '2f8174fd687fa9bc2084e47ab57827ab'),
+(11192, '2015-10-22 18:34:18', '2015-10-22 18:34:18', NULL, 'c4b0af154c9dab19760a5b83427a9d67'),
+(11193, '2015-10-22 18:34:20', '2015-10-22 18:34:20', NULL, 'cead3cf1026e18c4fe8d991d66e8d4f4'),
+(11194, '2015-10-22 18:34:22', '2015-10-22 18:34:22', NULL, 'f18c6e742af875ff0f88017da3e274f0'),
+(11195, '2015-10-22 18:34:25', '2015-10-22 18:34:25', NULL, 'e40eadc8372102a7c0e8058972276e96'),
+(11196, '2015-10-22 18:34:28', '2015-10-22 18:34:28', NULL, '2a073de9ec187a3110fb22c070f057b8'),
+(11197, '2015-10-22 18:34:30', '2015-10-22 18:34:30', NULL, 'a1de6e914cb335037f14982678158feb'),
+(11198, '2015-10-22 18:34:32', '2015-10-22 18:34:32', NULL, '9fed86565f1d31c275b10be29319502c'),
+(11199, '2015-10-22 18:34:34', '2015-10-22 18:34:34', NULL, '676df8f4a9a92f47e97766358275f323'),
+(11200, '2015-10-22 18:34:37', '2015-10-22 18:34:37', NULL, 'b746d333e834cd31e8bc15609573d851'),
+(11201, '2015-10-22 18:34:39', '2015-10-22 18:34:39', NULL, '1ea3e321d96ca594f1e299c0ee17f059'),
+(11202, '2015-10-22 18:34:42', '2015-10-22 18:34:42', NULL, '152fdfeb3ad36aa2342511182eeb2742'),
+(11203, '2015-10-22 18:34:44', '2015-10-22 18:34:44', NULL, 'caadddd01a7a6652b3c30de561e6e083'),
+(11204, '2015-10-22 18:34:46', '2015-10-22 18:34:46', NULL, '670d6ee5b5b1a823685e78120a07c4aa'),
+(11205, '2015-10-22 18:34:48', '2015-10-22 18:34:48', NULL, 'b557ebce579f1c5172f5c2a298d0f597'),
+(11206, '2015-10-22 18:34:52', '2015-10-22 18:34:52', NULL, 'c4319c21fec352014445ab6196891490'),
+(11207, '2015-10-22 18:34:54', '2015-10-22 18:34:54', NULL, '6ce0da8db7f1650a5a5381d06a9cd663'),
+(11208, '2015-10-22 18:34:56', '2015-10-22 18:34:56', NULL, 'a866f2eedd52d5761957ee1a4263a3ac'),
+(11209, '2015-10-22 18:35:01', '2015-10-22 18:35:01', NULL, 'b8c038fcc12a728058a7b5c157eab075'),
+(11210, '2015-10-22 18:35:03', '2015-10-22 18:35:03', NULL, '49bf3de0a02e8b541318bad95d8e8815'),
+(11211, '2015-10-22 18:35:06', '2015-10-22 18:35:06', NULL, 'd17ad9438568fd456f57299f35f36cbb'),
+(11212, '2015-10-22 18:35:08', '2015-10-22 18:35:08', NULL, '1e787604d4249aa5f2e92362f5688d14'),
+(11213, '2015-10-22 18:35:12', '2015-10-22 18:35:12', NULL, 'f8ffe7e6756035e6846e208822de6065'),
+(11214, '2015-10-22 18:35:15', '2015-10-22 18:35:15', NULL, 'ef35e30d063dab7b5fa2fa068ff7ecd5'),
+(11215, '2015-10-22 18:35:17', '2015-10-22 18:35:17', NULL, 'fd61210f45b063869b9fadf70b25b910'),
+(11216, '2015-10-22 18:35:19', '2015-10-22 18:35:19', NULL, '68fd64a8203179164268b4e00440b17d'),
+(11217, '2015-10-22 18:35:21', '2015-10-22 18:35:21', NULL, '3a819bbf8ad4ad121cd8d66a5a678ec3'),
+(11218, '2015-10-22 18:35:24', '2015-10-22 18:35:24', NULL, '46cac0ce9b638e37f50e9e2edc884266'),
+(11219, '2015-10-22 18:35:27', '2015-10-22 18:35:27', NULL, 'a5bd98366f3172a33143d1ffc46c72c7'),
+(11220, '2015-10-22 18:35:29', '2015-10-22 18:35:29', NULL, 'a8277d8d511a1b662dca6f3a0f4ace5a'),
+(11221, '2015-10-22 18:35:31', '2015-10-22 18:35:31', NULL, '72bd59c1843fdde84d63d3041ede1f74'),
+(11222, '2015-10-22 18:35:33', '2015-10-22 18:35:33', NULL, '0492a92c77ec6fd4f3e506fe24c83503'),
+(11223, '2015-10-22 18:35:36', '2015-10-22 18:35:36', NULL, '4378ba0c06e568ebaa0f70fab8902875'),
+(11224, '2015-10-22 18:35:38', '2015-10-22 18:35:38', NULL, '8a1197633030ec041a358de3b04a7930'),
+(11225, '2015-10-22 18:35:40', '2015-10-22 18:35:40', NULL, '09b90edba700b208787b64031b05e43b'),
+(11226, '2015-10-22 18:35:43', '2015-10-22 18:35:43', NULL, '5f63f0e2f226b80ffc50b3949d7c1617'),
+(11227, '2015-10-22 18:35:45', '2015-10-22 18:35:45', NULL, 'c8e8a3246e62c872d242b2fef5f1526c'),
+(11228, '2015-10-22 18:35:48', '2015-10-22 18:35:48', NULL, '3ae25cad8c0e8d159362093cfae14511'),
+(11229, '2015-10-22 18:35:50', '2015-10-22 18:35:50', NULL, '960c5bc1b612712e3098a83bf8631c6a'),
+(11230, '2015-10-22 18:35:53', '2015-10-22 18:35:53', NULL, '8a52ba0154099ad9a2991a45beba3954'),
+(11231, '2015-10-22 18:35:55', '2015-10-22 18:35:55', NULL, 'd28f036d4ae3d8a5baf4706ffd080f57'),
+(11232, '2015-10-22 18:36:00', '2015-10-22 18:36:00', NULL, '2b6fdd45150bdbb14a2b4b1bae7a0793'),
+(11233, '2015-10-22 18:36:02', '2015-10-22 18:36:02', NULL, '860805864fd6c4e680eab1360ae924bf'),
+(11234, '2015-10-22 18:36:04', '2015-10-22 18:36:04', NULL, '7a8967c4bb04ed1d69ac681c3a3ce7d7'),
+(11235, '2015-10-22 18:36:06', '2015-10-22 18:36:06', NULL, 'aa2b333792cd678bd5eaf7b15032440d'),
+(11236, '2015-10-22 18:36:06', '2015-10-22 18:36:06', NULL, 'b19ab056cb19c9f3da45fff6b704048e'),
+(11237, '2015-10-22 18:36:08', '2015-10-22 18:36:08', NULL, '8e06832da1b6c3746664b48de5d79f34'),
+(11238, '2015-10-22 18:36:09', '2015-10-22 18:36:09', NULL, 'f3954837fc0e7502989161462de3b72f'),
+(11239, '2015-10-22 18:36:11', '2015-10-22 18:36:11', NULL, '1bb45ee48b2a2c5cf28476697b688501'),
+(11240, '2015-10-22 18:36:13', '2015-10-22 18:36:13', NULL, 'fb1a4db84874fc2b2341244d9c404fa9'),
+(11241, '2015-10-22 18:36:14', '2015-10-22 18:36:14', NULL, '1acd0691b5f0dbb5adfb6c01069c6560'),
+(11242, '2015-10-22 18:36:14', '2015-10-22 18:36:14', NULL, '570ec9552e6b5ef4693ec2d29913bad1'),
+(11243, '2015-10-22 18:36:15', '2015-10-22 18:36:15', NULL, '15694b96e0cb8ce93422ac3d9319d7e0'),
+(11244, '2015-10-22 18:36:15', '2015-10-22 18:36:15', NULL, 'ac2d3947413c7dfe28a9de9985f9c715'),
+(11245, '2015-10-22 18:36:16', '2015-10-22 18:36:16', NULL, '58a72398c4c230e6d2dd7c1a9270560a'),
+(11246, '2015-10-22 18:36:18', '2015-10-22 18:36:18', NULL, 'f9c7afa6c01ead1392162cc9a00bf7c4'),
+(11247, '2015-10-22 18:36:19', '2015-10-22 18:36:19', NULL, '119c14b7e66f6cdcb46bf3a323dd93c5'),
+(11248, '2015-10-22 18:36:19', '2015-10-22 18:36:19', NULL, '0ce5cac1347ef0c5d2ea6cf35f449c46'),
+(11249, '2015-10-22 18:36:20', '2015-10-22 18:36:20', NULL, '728e99cb6d5146c16d0ea3d1d5fe44da'),
+(11250, '2015-10-22 18:36:23', '2015-10-22 18:36:23', NULL, '4ad48511874aee0c7324879dc05e76c7'),
+(11251, '2015-10-22 18:36:25', '2015-10-22 18:36:25', NULL, '8aeb303902b176b03e17b95f5eea72f0'),
+(11252, '2015-10-22 18:36:28', '2015-10-22 18:36:28', NULL, '4d63369110d650b12627e704cc8f5b05'),
+(11253, '2015-10-22 18:36:30', '2015-10-22 18:36:30', NULL, 'c43d301714a2ee47ce69e02794044eb9'),
+(11254, '2015-10-22 18:36:32', '2015-10-22 18:36:32', NULL, '863297822104b3eabaa064dcd01cf547'),
+(11255, '2015-10-22 18:36:35', '2015-10-22 18:36:35', NULL, 'c9d3c452633788e6650d186287ac3306'),
+(11256, '2015-10-22 18:36:38', '2015-10-22 18:36:38', NULL, 'f4d716be95cd1a26c082774022896d49'),
+(11257, '2015-10-22 18:36:40', '2015-10-22 18:36:40', NULL, 'a5a168d2280dd2227dc994a923c516dd'),
+(11258, '2015-10-22 18:36:42', '2015-10-22 18:36:42', NULL, 'caf6598d1cfec641f2fb88c8a1e2abde'),
+(11259, '2015-10-22 18:36:47', '2015-10-22 18:36:47', NULL, '0803885a7b8e15fbbdcfab4fa9fe7161'),
+(11260, '2015-10-22 18:36:49', '2015-10-22 18:36:49', NULL, 'a1df9d5cdd2abe10a5b2a9757f236877'),
+(11261, '2015-10-22 18:36:51', '2015-10-22 18:36:51', NULL, '0d5cdfb5b81ba2fdb55f321a8ce459e1'),
+(11262, '2015-10-22 18:36:54', '2015-10-22 18:36:54', NULL, '04d0925582997647806acf6ada8c8dd6'),
+(11263, '2015-10-22 18:36:56', '2015-10-22 18:36:56', NULL, 'f43a67b82fae5ceacf05f1be30e0e81c'),
+(11264, '2015-10-22 18:36:58', '2015-10-22 18:36:58', NULL, '1c1c5658fb9c54c199e2bbe59604d078'),
+(11265, '2015-10-22 18:37:01', '2015-10-22 18:37:01', NULL, 'a3c4471fae5a5da0bd53a117b2c8baa5'),
+(11266, '2015-10-22 18:37:03', '2015-10-22 18:37:03', NULL, '80fa41a5756eeec38eb50657ebacb56c'),
+(11267, '2015-10-22 18:37:06', '2015-10-22 18:37:06', NULL, '92aebf75cf767a677419ac6a48bea36a'),
+(11268, '2015-10-22 18:37:10', '2015-10-22 18:37:10', NULL, 'd6f664ac3a1f3b623f191358806deaa0'),
+(11269, '2015-10-22 18:37:12', '2015-10-22 18:37:12', NULL, 'a535499c8ed133be5095348f0469fa9b'),
+(11270, '2015-10-22 18:37:15', '2015-10-22 18:37:15', NULL, 'f345abfb7492e0fdc181f3693f60549a'),
+(11271, '2015-10-22 18:37:16', '2015-10-22 18:37:16', NULL, 'c51d30e871c9fc30ecea5234a78ca688'),
+(11272, '2015-10-22 18:37:17', '2015-10-22 18:37:17', NULL, '57ac51cd13fadf884642aa3ffbf31893'),
+(11273, '2015-10-22 18:37:19', '2015-10-22 18:37:19', NULL, '6d62ff70ba0f57eee24245c2ee9f2288'),
+(11274, '2015-10-22 18:37:22', '2015-10-22 18:37:22', NULL, '1344318f864ba102dc58fc9186566321'),
+(11275, '2015-10-22 18:37:25', '2015-10-22 18:37:25', NULL, '971e189cb040b1cd52792a4c321e39ae'),
+(11276, '2015-10-22 18:37:27', '2015-10-22 18:37:27', NULL, 'acb1356df78134110ae0ddf595f0f435'),
+(11277, '2015-10-22 18:37:29', '2015-10-22 18:37:29', NULL, 'da15010bd940694038bb4f86fa68736f'),
+(11278, '2015-10-22 18:37:34', '2015-10-22 18:37:34', NULL, 'd95b8a3add70fe44c194aba178cbaf94'),
+(11279, '2015-10-22 18:37:36', '2015-10-22 18:37:36', NULL, '17660647a67c56c635b95fadc44bfc54'),
+(11280, '2015-10-22 18:37:39', '2015-10-22 18:37:39', NULL, 'de8ebd40e6097292d9af2386cd6beaef'),
+(11281, '2015-10-22 18:37:40', '2015-10-22 18:37:40', NULL, '3573b160dd4e20302a11420cd93d56d0'),
+(11282, '2015-10-22 18:37:41', '2015-10-22 18:37:41', NULL, '0df145218327b929cd2a057e68fbddb8'),
+(11283, '2015-10-22 18:37:45', '2015-10-22 18:37:45', NULL, 'bd54d00d2a5c2c67c7790904377f9d10'),
+(11284, '2015-10-22 18:37:48', '2015-10-22 18:37:48', NULL, '6dfcf18f36cafd970931aa348642f643'),
+(11285, '2015-10-22 18:37:50', '2015-10-22 18:37:50', NULL, 'bce778cfff1f2eee87ffc469858c10d8'),
+(11286, '2015-10-22 18:37:52', '2015-10-22 18:37:52', NULL, '78669fa39de160c0033ea5e35fb93b8b'),
+(11287, '2015-10-22 18:37:54', '2015-10-22 18:37:54', NULL, 'bef19cf6d53b2cac6cedd187dd9597bc'),
+(11288, '2015-10-22 18:37:57', '2015-10-22 18:37:57', NULL, 'b90199f5186ce86a25aefecd9276b605'),
+(11289, '2015-10-22 18:38:00', '2015-10-22 18:38:00', NULL, '3f614ee7755b30c32a8ecceb64d61c29'),
+(11290, '2015-10-22 18:38:02', '2015-10-22 18:38:02', NULL, '283194fb4bbcf1a12a01b90c0fb41d5f'),
+(11291, '2015-10-22 18:38:05', '2015-10-22 18:38:05', NULL, '1214ea0278b97215bdc55844e9800995'),
+(11292, '2015-10-22 18:38:09', '2015-10-22 18:38:09', NULL, 'f22e9203ddcadbf1e2af1bdbe5ce133f'),
+(11293, '2015-10-22 18:38:11', '2015-10-22 18:38:11', NULL, '40411b23ac491c978c787793dfe48119'),
+(11294, '2015-10-22 18:38:14', '2015-10-22 18:38:14', NULL, '9154eb0419d774d93f09479b7f9d3187'),
+(11295, '2015-10-22 18:38:16', '2015-10-22 18:38:16', NULL, 'a8518f0d6eec965414ff268130b7634b'),
+(11296, '2015-10-22 18:38:18', '2015-10-22 18:38:18', NULL, 'f2ac8290fdb9ab3b64148b3f6a218e69'),
+(11297, '2015-10-22 18:38:21', '2015-10-22 18:38:21', NULL, 'bf0a3d595d6f309dc7a3c6d408611db4'),
+(11298, '2015-10-22 18:38:24', '2015-10-22 18:38:24', NULL, 'a185ddd6c234c7393aab0afe1f3267a6'),
+(11299, '2015-10-22 18:38:26', '2015-10-22 18:38:26', NULL, '3987dc0983228787e22873855e55dff6'),
+(11300, '2015-10-22 18:38:28', '2015-10-22 18:38:28', NULL, 'f9ee2811814580cdef1642fc6962fcc2'),
+(11301, '2015-10-22 18:38:33', '2015-10-22 18:38:33', NULL, '5f557b503bd670aad1d32eba627e662e'),
+(11302, '2015-10-22 18:38:35', '2015-10-22 18:38:35', NULL, 'd4b5a431930caa7f3844708d77ce3667'),
+(11303, '2015-10-22 18:38:37', '2015-10-22 18:38:37', NULL, '2df30657da349c48ad33e51068f32124'),
+(11304, '2015-10-22 18:38:39', '2015-10-22 18:38:39', NULL, '653ed2cd425044fa0c4e07ee2d4fe0a4'),
+(11305, '2015-10-22 18:38:42', '2015-10-22 18:38:42', NULL, '244f4e2f4188f3566a53b2deb7774693'),
+(11306, '2015-10-22 18:38:44', '2015-10-22 18:38:44', NULL, 'd6acb3645a29b091e64cdedd275dedd7'),
+(11307, '2015-10-22 18:38:48', '2015-10-22 18:38:48', NULL, 'a8b5737b0af90d37a186e2d5f6578c04'),
+(11308, '2015-10-22 18:38:50', '2015-10-22 18:38:50', NULL, 'c426ef4d30ba49dbf753ba731242a80a'),
+(11309, '2015-10-22 18:38:52', '2015-10-22 18:38:52', NULL, '0b8b5dc5109582652251bafd127dcbc8'),
+(11310, '2015-10-22 18:38:56', '2015-10-22 18:38:56', NULL, 'ab03d851c3e4e7e1911fb6574881686a'),
+(11311, '2015-10-22 18:38:59', '2015-10-22 18:38:59', NULL, 'bb0db546fdaa54db999e6b2f1dc67444'),
+(11312, '2015-10-22 18:39:01', '2015-10-22 18:39:01', NULL, '99ade7941aca27502ce10017cbef199a'),
+(11313, '2015-10-22 18:39:03', '2015-10-22 18:39:03', NULL, '96cec882b4bf0883983076f0808a64d1'),
+(11314, '2015-10-22 18:39:05', '2015-10-22 18:39:05', NULL, '1f27d77d0d9435932542cfce28b5a105'),
+(11315, '2015-10-22 18:39:08', '2015-10-22 18:39:08', NULL, '35f8c34605fe94cea328a1dfd2dba18c'),
+(11316, '2015-10-22 18:39:11', '2015-10-22 18:39:11', NULL, 'b082dfc60c2e71fe1e426ff8b733e7c7'),
+(11317, '2015-10-22 18:39:13', '2015-10-22 18:39:13', NULL, 'b9efaffc681ad870f9401f0878c5ec32'),
+(11318, '2015-10-22 18:39:15', '2015-10-22 18:39:15', NULL, 'b94a04741f756d7a0696b2eec83336c9'),
+(11319, '2015-10-22 18:39:19', '2015-10-22 18:39:19', NULL, '87921e6681e963adbed22b481e4a3ff0'),
+(11320, '2015-10-22 18:39:22', '2015-10-22 18:39:22', NULL, '43aa8a48164d5a9aae688d84884070ff'),
+(11321, '2015-10-22 18:39:24', '2015-10-22 18:39:24', NULL, '5abbc2765e849ea74bf3c81ce45603dc'),
+(11322, '2015-10-22 18:39:26', '2015-10-22 18:39:26', NULL, '85e5395089f7c63d896bb558deac16e2'),
+(11323, '2015-10-22 18:39:28', '2015-10-22 18:39:28', NULL, 'f21544fd266474fb9c21a0f132ccf9ec'),
+(11324, '2015-10-22 18:39:31', '2015-10-22 18:39:31', NULL, '8ddf74e12145d2c703176e8650d11186'),
+(11325, '2015-10-22 18:39:34', '2015-10-22 18:39:34', NULL, '774fdf4f69097f36f4c97026b365e108'),
+(11326, '2015-10-22 18:39:36', '2015-10-22 18:39:36', NULL, '5b0bb1d8a59b06fee4f7a415ab8b1e56'),
+(11327, '2015-10-22 18:39:39', '2015-10-22 18:39:39', NULL, 'cee15c4ec6d4ad1858beec9403d02aee'),
+(11328, '2015-10-22 18:39:43', '2015-10-22 18:39:43', NULL, '212321584eabe6bc526f6a96eadeb2f0'),
+(11329, '2015-10-22 18:39:45', '2015-10-22 18:39:45', NULL, 'e8ebe39089c66de7ed488ca1b85ed9eb'),
+(11330, '2015-10-22 18:39:48', '2015-10-22 18:39:48', NULL, 'b14993398d4aaacecaa8e5a522b5721b'),
+(11331, '2015-10-22 18:39:50', '2015-10-22 18:39:50', NULL, 'fd9d092c399fb96b8867199d7338cba7'),
+(11332, '2015-10-22 18:39:52', '2015-10-22 18:39:52', NULL, 'ac8437128065e2c68df0673601d131c0'),
+(11333, '2015-10-22 18:39:55', '2015-10-22 18:39:55', NULL, 'fdcf2a65de393c72e31628a5337c7836'),
+(11334, '2015-10-22 18:39:57', '2015-10-22 18:39:57', NULL, '5fa5cddef5bd2a40fc5d9e621ec6ba16'),
+(11335, '2015-10-22 18:39:59', '2015-10-22 18:39:59', NULL, '3ca7d038faeeb707f4c3f226e2b29af1'),
+(11336, '2015-10-22 18:40:02', '2015-10-22 18:40:02', NULL, '3a31f2ceb74aed71bae0ef0a262bd18b'),
+(11337, '2015-10-22 18:40:04', '2015-10-22 18:40:04', NULL, '0fe25e75c0a832cd06a51a95eac92ad5'),
+(11338, '2015-10-22 18:40:07', '2015-10-22 18:40:07', NULL, 'a6fc3b7d0bee9e80a4bca3e4d988047c'),
+(11339, '2015-10-22 18:40:09', '2015-10-22 18:40:09', NULL, '5045f2be383cba910b107df3608064d3'),
+(11340, '2015-10-22 18:40:12', '2015-10-22 18:40:12', NULL, '39a420bcfe0e5588e3c795625e8aaaf0'),
+(11341, '2015-10-22 18:40:14', '2015-10-22 18:40:14', NULL, 'b5c4b9043e50c009256ca9c5c7a53cac'),
+(11342, '2015-10-22 18:40:16', '2015-10-22 18:40:16', NULL, 'a760f6b7b60ef4c1193d4359db25205a'),
+(11343, '2015-10-22 18:40:19', '2015-10-22 18:40:19', NULL, 'a45e141b9d87f124196c146b67a4870c'),
+(11344, '2015-10-22 18:40:21', '2015-10-22 18:40:21', NULL, '28aaae04e8e55437b2445bceab00dcaf'),
+(11345, '2015-10-22 18:40:23', '2015-10-22 18:40:23', NULL, '9078123e97e6e6eefbbd1d05f7144fd8'),
+(11346, '2015-10-22 18:40:25', '2015-10-22 18:40:25', NULL, '05c7a83f6ea2a233223c0779da989e75'),
+(11347, '2015-10-22 18:40:28', '2015-10-22 18:40:28', NULL, '171848320deb7e65bc971fed31fffaad'),
+(11348, '2015-10-22 18:40:31', '2015-10-22 18:40:31', NULL, '1cec044fed20fcf03650b09660ae6e23'),
+(11349, '2015-10-22 18:40:33', '2015-10-22 18:40:33', NULL, '21abf3f9a0e2d43a30d054c5ff677b63'),
+(11350, '2015-10-22 18:40:35', '2015-10-22 18:40:35', NULL, 'e4facb116252381585b7356448319e9f'),
+(11351, '2015-10-22 18:40:37', '2015-10-22 18:40:37', NULL, 'f0bea677a28b601760894354a5db14dd'),
+(11352, '2015-10-22 18:40:39', '2015-10-22 18:40:39', NULL, '1f1d91d4cdf707cf53b4c91812977c28'),
+(11353, '2015-10-22 18:40:42', '2015-10-22 18:40:42', NULL, 'bd85baf77495c2d66930906919ab439b'),
+(11354, '2015-10-22 18:40:44', '2015-10-22 18:40:44', NULL, '21473f4cb80a47a5db7cbfd0b6a3f599'),
+(11355, '2015-10-22 18:40:46', '2015-10-22 18:40:46', NULL, '8c9613bd06d9108be24d1866e0bfff08'),
+(11356, '2015-10-22 18:40:49', '2015-10-22 18:40:49', NULL, 'b8612211ddf28a021758e585e2440579'),
+(11357, '2015-10-22 18:40:51', '2015-10-22 18:40:51', NULL, '7029582c3f12d05a6fb7713bda2eabe3'),
+(11358, '2015-10-22 18:40:54', '2015-10-22 18:40:54', NULL, 'd9965cdc88e658f2bb9d787f407134ea'),
+(11359, '2015-10-22 18:40:56', '2015-10-22 18:40:56', NULL, '07d9a9c659f4f88a8a7ec3d9de4df698'),
+(11360, '2015-10-22 18:40:58', '2015-10-22 18:40:58', NULL, 'bd85500c5936f67c1c097e341229d4f1'),
+(11361, '2015-10-22 18:41:00', '2015-10-22 18:41:00', NULL, 'b27e7bfd34b77e9ee609386310477af6'),
+(11362, '2015-10-22 18:41:03', '2015-10-22 18:41:03', NULL, 'd685f73d383565bbc56c526465cde7cf'),
+(11363, '2015-10-22 18:41:05', '2015-10-22 18:41:05', NULL, 'b0b36e207744a615f5c9db0104010eea'),
+(11364, '2015-10-22 18:41:08', '2015-10-22 18:41:08', NULL, 'dc43d5507582a5bba06e31c6180c0e4c'),
+(11365, '2015-10-22 18:41:10', '2015-10-22 18:41:10', NULL, '3b296cfb33e12d6f714827b188ba3619'),
+(11366, '2015-10-22 18:41:12', '2015-10-22 18:41:12', NULL, '1bc79675d81b72f1dc29d209f1e6375a'),
+(11367, '2015-10-22 18:41:14', '2015-10-22 18:41:14', NULL, '487dc2c6e25b8f8be939abae595655dd'),
+(11368, '2015-10-22 18:41:17', '2015-10-22 18:41:17', NULL, 'b299c61d104c97a2d678fc0b6c21bcdf'),
+(11369, '2015-10-22 18:41:20', '2015-10-22 18:41:20', NULL, '428c619d507dbdf01355fe09b01364e8'),
+(11370, '2015-10-22 18:41:22', '2015-10-22 18:41:22', NULL, '04be9f2f80e12e7833884e681c2c4ba5'),
+(11371, '2015-10-22 18:41:24', '2015-10-22 18:41:24', NULL, '3f1baa50634df40248d29e7685d06b5a'),
+(11372, '2015-10-22 18:41:26', '2015-10-22 18:41:26', NULL, '81e7e59096834de5afabc848eba4e4e2'),
+(11373, '2015-10-22 18:41:29', '2015-10-22 18:41:29', NULL, 'f76b729479444a04be844e083ff910e5'),
+(11374, '2015-10-22 18:41:31', '2015-10-22 18:41:31', NULL, '254a5566f9cf77ddc9a1d75c611dab25'),
+(11375, '2015-10-22 18:41:34', '2015-10-22 18:41:34', NULL, 'c20a3ac511a44596a0cb8b5f10c54c71'),
+(11376, '2015-10-22 18:41:36', '2015-10-22 18:41:36', NULL, 'f8ff25b569c52b9d05cad00c5809e10b'),
+(11377, '2015-10-22 18:41:38', '2015-10-22 18:41:38', NULL, 'b012a7c58a8b84d025c84efc5adaadd1'),
+(11378, '2015-10-22 18:41:41', '2015-10-22 18:41:41', NULL, '7fc7db4763554c7b2dab1261e5085664'),
+(11379, '2015-10-22 18:41:43', '2015-10-22 18:41:43', NULL, '39d7ad2873f824c0c8b51f13d6e9ed1a'),
+(11380, '2015-10-22 18:41:45', '2015-10-22 18:41:45', NULL, '289427c75b2c0fd17f6677f8bb688705'),
+(11381, '2015-10-22 18:41:47', '2015-10-22 18:41:47', NULL, '538434482983b6f0b37e56fb71b27dce'),
+(11382, '2015-10-22 18:41:49', '2015-10-22 18:41:49', NULL, '77de543972813a98a4767c2ff1e54eb6'),
+(11383, '2015-10-22 18:41:53', '2015-10-22 18:41:53', NULL, '687f199ac34df9a545f1b338ecfa13db'),
+(11384, '2015-10-22 18:41:55', '2015-10-22 18:41:55', NULL, '1ab7aebd266e7efef3accfa14ca781e6'),
+(11385, '2015-10-22 18:41:57', '2015-10-22 18:41:57', NULL, '8aeca8661226bce0f686f1ba940e3c53'),
+(11386, '2015-10-22 18:41:59', '2015-10-22 18:41:59', NULL, '944d8cd77324cf24b385609bd3b7f621'),
+(11387, '2015-10-22 18:42:02', '2015-10-22 18:42:02', NULL, '2c8468d82ec96f618f05aaeba0505541'),
+(11388, '2015-10-22 18:42:04', '2015-10-22 18:42:04', NULL, '41b9fd460456b12475a1b52c16eeb0fb'),
+(11389, '2015-10-22 18:42:07', '2015-10-22 18:42:07', NULL, 'f32b7556f64703411f9645174a1f04b1'),
+(11390, '2015-10-22 18:42:09', '2015-10-22 18:42:09', NULL, '9be00e56b98502036c53567f6ddd93e1'),
+(11391, '2015-10-22 18:42:11', '2015-10-22 18:42:11', NULL, '105df3e275a290e6afef36b66eba55bc'),
+(11392, '2015-10-22 18:42:13', '2015-10-22 18:42:13', NULL, '0a5e6b40450eaee4410b830d5deca084'),
+(11393, '2015-10-22 18:42:16', '2015-10-22 18:42:16', NULL, 'a7f9be00a1f8efb92bcf53f79994e2b7'),
+(11394, '2015-10-22 18:42:18', '2015-10-22 18:42:18', NULL, '52f0959b359b97b7a5760428927a9a0b'),
+(11395, '2015-10-22 18:42:20', '2015-10-22 18:42:20', NULL, 'efd8c31bb1b0c3afffe13bf12a46e5f4'),
+(11396, '2015-10-22 18:42:22', '2015-10-22 18:42:22', NULL, 'fafb15c83f6fc0d3783bbdba9ff41439'),
+(11397, '2015-10-22 18:42:25', '2015-10-22 18:42:25', NULL, '01aaec04e9b0ec4cfdf87ba068319e4d'),
+(11398, '2015-10-22 18:42:28', '2015-10-22 18:42:28', NULL, '6613a9303728adc2c830f79e0c1ba2cf'),
+(11399, '2015-10-22 18:42:30', '2015-10-22 18:42:30', NULL, 'fe0fa088fc63627995243e664a2e547c'),
+(11400, '2015-10-22 18:42:32', '2015-10-22 18:42:32', NULL, 'e01627e5f5662a6ba549d51d31d9f7d2'),
+(11401, '2015-10-22 18:42:34', '2015-10-22 18:42:34', NULL, '8e03aea5b9253f02a644471924dd8355'),
+(11402, '2015-10-22 18:42:36', '2015-10-22 18:42:36', NULL, '843496023f6e98d3805ff8daa93e9a29'),
+(11403, '2015-10-22 18:42:39', '2015-10-22 18:42:39', NULL, 'b0f9db0f451f4e56c0998c51cf9f2104'),
+(11404, '2015-10-22 18:42:42', '2015-10-22 18:42:42', NULL, '2e684982002f7dbc4b132737e046706b'),
+(11405, '2015-10-22 18:42:44', '2015-10-22 18:42:44', NULL, 'a1e77fe0b2cebbf05f2a9a79e25d108f'),
+(11406, '2015-10-22 18:42:46', '2015-10-22 18:42:46', NULL, '7ebc22c6a69c1f0c647146b0e7b427ad'),
+(11407, '2015-10-22 18:42:48', '2015-10-22 18:42:48', NULL, '66965634be79fdeedf9ae83a168ef5ab'),
+(11408, '2015-10-22 18:42:51', '2015-10-22 18:42:51', NULL, '860cc6ff6276204794f2b4addc122686'),
+(11409, '2015-10-22 18:42:54', '2015-10-22 18:42:54', NULL, '45df727932c80d427c046222441e2804'),
+(11410, '2015-10-22 18:42:56', '2015-10-22 18:42:56', NULL, '55d7cbcb81c9b289c2d1d71ebf8142f7'),
+(11411, '2015-10-22 18:42:58', '2015-10-22 18:42:58', NULL, '60cb8dc0119cd39dc036af5b968917b1'),
+(11412, '2015-10-22 18:43:00', '2015-10-22 18:43:00', NULL, '97c2b11ea5e26e2f9b8b06564e7c251d'),
+(11413, '2015-10-22 18:43:03', '2015-10-22 18:43:03', NULL, 'cad4908644a36d1c15a9074246a3bff0'),
+(11414, '2015-10-22 18:43:06', '2015-10-22 18:43:06', NULL, '8d45712e5fb5f405e4812339291085cf'),
+(11415, '2015-10-22 18:43:08', '2015-10-22 18:43:08', NULL, 'dcd8b867eabe8ed468377c33c50e3c85'),
+(11416, '2015-10-22 18:43:10', '2015-10-22 18:43:10', NULL, 'f799cc56ac1c4b7f5333f153270abc47'),
+(11417, '2015-10-22 18:43:12', '2015-10-22 18:43:12', NULL, '435258b58d7098f60783c5dc78bee933'),
+(11418, '2015-10-22 18:43:15', '2015-10-22 18:43:15', NULL, 'f0c0e4c6aa06aa46c452f69530880395'),
+(11419, '2015-10-22 18:43:17', '2015-10-22 18:43:17', NULL, 'c1ad7f57ae45efce00ffa707aa11ffaa'),
+(11420, '2015-10-22 18:43:19', '2015-10-22 18:43:19', NULL, 'a8423dbffd37b4a68e1facb98bbf90b0'),
+(11421, '2015-10-22 18:43:22', '2015-10-22 18:43:22', NULL, 'df7e79db50800913052b4bbaad86eb84'),
+(11422, '2015-10-22 18:43:24', '2015-10-22 18:43:24', NULL, '45f66a31934ee10c9ebf51952ade1f61'),
+(11423, '2015-10-22 18:43:26', '2015-10-22 18:43:26', NULL, 'af6b48e9642d6ab2f939fdcb60de663b'),
+(11424, '2015-10-22 18:43:29', '2015-10-22 18:43:29', NULL, '5041f350dfca94bb6020ed634732ea4a'),
+(11425, '2015-10-22 18:43:32', '2015-10-22 18:43:32', NULL, '1edaa5afc82b9998bea20b46328262d0'),
+(11426, '2015-10-22 18:43:34', '2015-10-22 18:43:34', NULL, '7e0d042cebd085c48d95b86ca4850240'),
+(11427, '2015-10-22 18:43:38', '2015-10-22 18:43:38', NULL, '8f629f48fa420f85854dd00d5e9a9f11'),
+(11428, '2015-10-22 18:43:41', '2015-10-22 18:43:41', NULL, '4c2e78640efaf8f4b7b587fea88cd130'),
+(11429, '2015-10-22 18:43:43', '2015-10-22 18:43:43', NULL, 'b10e74a7362d987de855d0e17e3ae10c'),
+(11430, '2015-10-22 18:43:45', '2015-10-22 18:43:45', NULL, 'b37bca5e2d419dc6a5205ab02a25f6e3'),
+(11431, '2015-10-22 18:43:47', '2015-10-22 18:43:47', NULL, '111194e8d95b94967767d9154d0a439c'),
+(11432, '2015-10-22 18:43:50', '2015-10-22 18:43:50', NULL, '4143b0b46d098edb81632ac3942b5371'),
+(11433, '2015-10-22 18:43:52', '2015-10-22 18:43:52', NULL, '11e2b857e4ac8d24405e6e88c9873818'),
+(11434, '2015-10-22 18:43:54', '2015-10-22 18:43:54', NULL, '50b92634f4b86179efc03fc23318356c'),
+(11435, '2015-10-22 18:43:57', '2015-10-22 18:43:57', NULL, '2f5c216e382d6e79bf69e799c452c1c4'),
+(11436, '2015-10-22 18:43:59', '2015-10-22 18:43:59', NULL, '7230565051568adb22897c01c86223b0'),
+(11437, '2015-10-22 18:44:01', '2015-10-22 18:44:01', NULL, '619bd749ad7508675a1b09dc85e8eec3'),
+(11438, '2015-10-22 18:44:04', '2015-10-22 18:44:04', NULL, '48747780d778529c4df8fab54b2ccdb8'),
+(11439, '2015-10-22 18:44:06', '2015-10-22 18:44:06', NULL, '24e8e910260d7254fce8f3f11d3849fc'),
+(11440, '2015-10-22 18:44:08', '2015-10-22 18:44:08', NULL, '5b0e671de2683da3c886bd7dc83a4e06'),
+(11441, '2015-10-22 18:44:10', '2015-10-22 18:44:10', NULL, '30fdafe9af867dfd5fee235ee2efc87b'),
+(11442, '2015-10-22 18:44:13', '2015-10-22 18:44:13', NULL, '572d7ec04430e2548fe536d004aa7535'),
+(11443, '2015-10-22 18:44:16', '2015-10-22 18:44:16', NULL, '3a2e7b5e6efde024bada4d38dd43f6d6'),
+(11444, '2015-10-22 18:44:18', '2015-10-22 18:44:18', NULL, '8f0bcf02d69cefcb9f0aab5b5d524ded'),
+(11445, '2015-10-22 18:44:20', '2015-10-22 18:44:20', NULL, 'db63b5b2ad99c723f3684a40968d4336'),
+(11446, '2015-10-22 18:44:22', '2015-10-22 18:44:22', NULL, '5a846e8f535a86969972fb8000471343'),
+(11447, '2015-10-22 18:44:25', '2015-10-22 18:44:25', NULL, '67f6cabc6804aa26f31f61dca010de96'),
+(11448, '2015-10-22 18:44:27', '2015-10-22 18:44:27', NULL, 'd4f8411f72f81694d4bca23a77928182'),
+(11449, '2015-10-22 18:44:29', '2015-10-22 18:44:29', NULL, '2865c4e1d2a94461552515ff1baa70ac'),
+(11450, '2015-10-22 18:44:32', '2015-10-22 18:44:32', NULL, '92cf7ad536090cc237938231e2d3fd9f'),
+(11451, '2015-10-22 18:44:34', '2015-10-22 18:44:34', NULL, '5b98060cdc160bb3e12f608048489170'),
+(11452, '2015-10-22 18:44:37', '2015-10-22 18:44:37', NULL, '5e2681dc55642700690779f0e6ae3d82'),
+(11453, '2015-10-22 18:44:39', '2015-10-22 18:44:39', NULL, 'c3c389fb8d5516159379bffc7048fd67'),
+(11454, '2015-10-22 18:44:42', '2015-10-22 18:44:42', NULL, '07e29a4e02d7fa37b39161875b239485'),
+(11455, '2015-10-22 18:44:44', '2015-10-22 18:44:44', NULL, 'f8534e0df417ddbce2513963fcb456c5'),
+(11456, '2015-10-22 18:44:46', '2015-10-22 18:44:46', NULL, '00ab338900aa2c7a78c38aa9c27f4db9'),
+(11457, '2015-10-22 18:44:49', '2015-10-22 18:44:49', NULL, '0e5472b93758dc196fae06798baaebc8'),
+(11458, '2015-10-22 18:44:51', '2015-10-22 18:44:51', NULL, 'b995722b7f7578f5d84d53c7ab9056ea'),
+(11459, '2015-10-22 18:44:53', '2015-10-22 18:44:53', NULL, 'afadb41cb4a07ea3c7196a4a1da6c3b1'),
+(11460, '2015-10-22 18:44:56', '2015-10-22 18:44:56', NULL, '3a64d1d544aa416707e35960fdcdf152'),
+(11461, '2015-10-22 18:44:58', '2015-10-22 18:44:58', NULL, '6da6484bbc5e6409e2b2a013948dca9f'),
+(11462, '2015-10-22 18:45:00', '2015-10-22 18:45:00', NULL, 'f0bc621ac68a7a43d232d5d9c860e5aa'),
+(11463, '2015-10-22 18:45:03', '2015-10-22 18:45:03', NULL, 'f092f382675f1565145d90f8a66167b3'),
+(11464, '2015-10-22 18:45:06', '2015-10-22 18:45:06', NULL, 'db8a9c836e8964508e5316171db82bcd'),
+(11465, '2015-10-22 18:45:08', '2015-10-22 18:45:08', NULL, 'ec8573584245df83d1f4b14b1e51393b'),
+(11466, '2015-10-22 18:45:10', '2015-10-22 18:45:10', NULL, '0dc5fa006ebe1005c317ccdaf00d082a'),
+(11467, '2015-10-22 18:45:13', '2015-10-22 18:45:13', NULL, '52463ec547f6a3101a13bda722c8eefd'),
+(11468, '2015-10-22 18:45:15', '2015-10-22 18:45:15', NULL, '59a7527de09993fca7dc5875fda23b46'),
+(11469, '2015-10-22 18:45:17', '2015-10-22 18:45:17', NULL, '56c39c110d276118345d18267ebae417'),
+(11470, '2015-10-22 18:45:19', '2015-10-22 18:45:19', NULL, '076836f29f09ba76dab244be8c940b57'),
+(11471, '2015-10-22 18:45:21', '2015-10-22 18:45:21', NULL, '0926987a2606ace07e47ca08a3f86136'),
+(11472, '2015-10-22 18:45:24', '2015-10-22 18:45:24', NULL, '7832390ef45a12f55449f3c16187812d'),
+(11473, '2015-10-22 18:45:26', '2015-10-22 18:45:26', NULL, 'f66f1fe627d7e304da8c12e8dc4914ed'),
+(11474, '2015-10-22 18:45:29', '2015-10-22 18:45:29', NULL, '2381affde775ff1665f4baf6934751ea'),
+(11475, '2015-10-22 18:45:32', '2015-10-22 18:45:32', NULL, '12f6d866340bc8e6e0cbfaadc208ea02'),
+(11476, '2015-10-22 18:45:36', '2015-10-22 18:45:36', NULL, '1153cc11e53f5cc503e95915d2d0b475'),
+(11477, '2015-10-22 18:45:39', '2015-10-22 18:45:39', NULL, '2c332135a8eec845bece180defd8caff'),
+(11478, '2015-10-22 18:45:41', '2015-10-22 18:45:41', NULL, 'da1c4de147b782dc546ed0f9a4f34c15'),
+(11479, '2015-10-22 18:45:43', '2015-10-22 18:45:43', NULL, 'f6223408b69ca2720015b849ecb10d75'),
+(11480, '2015-10-22 18:45:45', '2015-10-22 18:45:45', NULL, '0e545544e4e33787d5ab3fb4b3d225be'),
+(11481, '2015-10-22 18:45:48', '2015-10-22 18:45:48', NULL, '89612315579fe0fa6ff42411afdded89'),
+(11482, '2015-10-22 18:45:50', '2015-10-22 18:45:50', NULL, 'e5b70ff494e13ea6724b87bd013cb94e'),
+(11483, '2015-10-22 18:45:52', '2015-10-22 18:45:52', NULL, '4f532f7c4bda6f779311241942c7c243'),
+(11484, '2015-10-22 18:45:54', '2015-10-22 18:45:54', NULL, '4356ccb2815e1171b4468d45715028d1'),
+(11485, '2015-10-22 18:45:59', '2015-10-22 18:45:59', NULL, '887b7bb5ada01f1d170fbe14816b74c2'),
+(11486, '2015-10-22 18:46:02', '2015-10-22 18:46:02', NULL, 'a84f4b488abac5fc24857ab2522240d6'),
+(11487, '2015-10-22 18:46:04', '2015-10-22 18:46:04', NULL, 'df2c82c8f82b5a7d55e85f3d41ed6bfb'),
+(11488, '2015-10-22 18:46:07', '2015-10-22 18:46:07', NULL, 'f16b7867abcefde385bb2563d8dfa820'),
+(11489, '2015-10-22 18:46:11', '2015-10-22 18:46:11', NULL, 'd868f6e97a9c82054c5ec43691bf7c9d'),
+(11490, '2015-10-22 18:46:14', '2015-10-22 18:46:14', NULL, '5f5b8add3f062adedff82e3077ac5c56'),
+(11491, '2015-10-22 18:46:16', '2015-10-22 18:46:16', NULL, '876de210ae1c76715285fc4d7e7fc420'),
+(11492, '2015-10-22 18:46:18', '2015-10-22 18:46:18', NULL, 'b4e2febe20112a423d85b064ddd0cb7e'),
+(11493, '2015-10-22 18:46:21', '2015-10-22 18:46:21', NULL, 'b8440a73b656f4bc32f9a499e88523fc'),
+(11494, '2015-10-22 18:46:23', '2015-10-22 18:46:23', NULL, 'fcde7fc54c05bad9e89892a019f07b6b'),
+(11495, '2015-10-22 18:46:26', '2015-10-22 18:46:26', NULL, '28bae7b0c6a5e377ec61b9e022c817a3'),
+(11496, '2015-10-22 18:46:28', '2015-10-22 18:46:28', NULL, 'ff130b132b5e9af7849a340659669644'),
+(11497, '2015-10-22 18:46:30', '2015-10-22 18:46:30', NULL, 'f1b50a6bd56b9fead618b7605750f338'),
+(11498, '2015-10-22 18:46:32', '2015-10-22 18:46:32', NULL, 'c4e63c1eed9723c0c4a00cab5332fae7'),
+(11499, '2015-10-22 18:46:35', '2015-10-22 18:46:35', NULL, '713a79d8f0314766ced22475aede1405'),
+(11500, '2015-10-22 18:46:37', '2015-10-22 18:46:37', NULL, '414e56734940681f11710c2379552a78'),
+(11501, '2015-10-22 18:46:39', '2015-10-22 18:46:39', NULL, '6bbde033621ea29f88eadb41d6787245'),
+(11502, '2015-10-22 18:46:41', '2015-10-22 18:46:41', NULL, '52b76080101803a79bbbceb6375ecc41'),
+(11503, '2015-10-22 18:46:47', '2015-10-22 18:46:47', NULL, 'c6e55b83ee599258e63899007907a69d'),
+(11504, '2015-10-22 18:46:49', '2015-10-22 18:46:49', NULL, 'a1ac57ce986829f196cae9bf1de42a51'),
+(11505, '2015-10-22 18:46:51', '2015-10-22 18:46:51', NULL, 'c554a59f0a7cd946fa5390f453275756'),
+(11506, '2015-10-22 18:46:53', '2015-10-22 18:46:53', NULL, 'c86046093eb76885efd53f6e4e1f7ab5'),
+(11507, '2015-10-22 18:46:55', '2015-10-22 18:46:55', NULL, 'd60f00bfc000609fedaa030291dc31c9'),
+(11508, '2015-10-22 18:46:59', '2015-10-22 18:46:59', NULL, '9f6ef3d4ae1fa73514ebef9ce5d5c663'),
+(11509, '2015-10-22 18:47:01', '2015-10-22 18:47:01', NULL, '7a33cba79818ed435a636ea62a615ce9'),
+(11510, '2015-10-22 18:47:03', '2015-10-22 18:47:03', NULL, '12af32b1cf8ecbc6681ee3aa71ab0a07'),
+(11511, '2015-10-22 18:47:05', '2015-10-22 18:47:05', NULL, '7d81858c61c74e60f3504732cca395b8'),
+(11512, '2015-10-22 18:47:07', '2015-10-22 18:47:07', NULL, '2a2d0765e3a5454f518069bc0346eb79'),
+(11513, '2015-10-22 18:47:10', '2015-10-22 18:47:10', NULL, 'a006e87a36cc8ab25c00bbb16cff590e'),
+(11514, '2015-10-22 18:47:13', '2015-10-22 18:47:13', NULL, '8426937ce816933dcf51b5dc01b4ed38'),
+(11515, '2015-10-22 18:47:15', '2015-10-22 18:47:15', NULL, '684ee2f38eac2fd06a933f52140dcd90'),
+(11516, '2015-10-22 18:47:17', '2015-10-22 18:47:17', NULL, '446ce3efd020737c5360a792e7ef62ad'),
+(11517, '2015-10-22 18:47:19', '2015-10-22 18:47:19', NULL, '4fa648766a9d18c3823b94d75442549d'),
+(11518, '2015-10-22 18:47:22', '2015-10-22 18:47:22', NULL, '80637f9346d77b04d862764dcb75ce13'),
+(11519, '2015-10-22 18:47:24', '2015-10-22 18:47:24', NULL, '2bfbc7b792bf2edea2105964d1bdbb98'),
+(11520, '2015-10-22 18:47:26', '2015-10-22 18:47:26', NULL, 'd3f3864fef141c67fa34a800811d1da2'),
+(11521, '2015-10-22 18:47:28', '2015-10-22 18:47:28', NULL, '571d8eccf31d398b3826dd8acee59058'),
+(11522, '2015-10-22 18:47:30', '2015-10-22 18:47:30', NULL, '93352d9e65b89bb718efc3b2c0b8541c'),
+(11523, '2015-10-22 18:47:34', '2015-10-22 18:47:34', NULL, '951742efb57cde797ea96ee5e9dbd5ad'),
+(11524, '2015-10-22 18:47:36', '2015-10-22 18:47:36', NULL, 'e4d18298e90db64a70c2b03354028496'),
+(11525, '2015-10-22 18:47:38', '2015-10-22 18:47:38', NULL, '09e492a95af0426d89b766eaeea5d0bb'),
+(11526, '2015-10-22 18:47:41', '2015-10-22 18:47:41', NULL, '42aee8459b632ee46c3e63d2d9ad9c5d'),
+(11527, '2015-10-22 18:47:43', '2015-10-22 18:47:43', NULL, 'a3a8990c9f8ef0dc9ca33aa8e4369048'),
+(11528, '2015-10-22 18:47:45', '2015-10-22 18:47:45', NULL, '3fc1c5b8571a0a14131f2d3177b5a70a'),
+(11529, '2015-10-22 18:47:48', '2015-10-22 18:47:48', NULL, '1acab267a11eb068d4fbeca77ee00e70'),
+(11530, '2015-10-22 18:47:50', '2015-10-22 18:47:50', NULL, '9d06bae8da8b5976b844af0726301619'),
+(11531, '2015-10-22 18:47:52', '2015-10-22 18:47:52', NULL, '549070420a065929f575a6399d4362a2'),
+(11532, '2015-10-22 18:47:54', '2015-10-22 18:47:54', NULL, '14eff9a1d647937874219b674579ca59'),
+(11533, '2015-10-22 18:47:57', '2015-10-22 18:47:57', NULL, 'b33122335cbdfdd6e81e245d231223c0'),
+(11534, '2015-10-22 18:48:00', '2015-10-22 18:48:00', NULL, '90c1d501ad0d851d6bf5eab6b67ca3e8'),
+(11535, '2015-10-22 18:48:02', '2015-10-22 18:48:02', NULL, 'c8b3190f46386a91816a068a84cc7f8b'),
+(11536, '2015-10-22 18:48:04', '2015-10-22 18:48:04', NULL, '1e0e3204fa66350e0cd8b6b5f3eb987d'),
+(11537, '2015-10-22 18:48:06', '2015-10-22 18:48:06', NULL, '01c40e016c1d34869404131a987fa591'),
+(11538, '2015-10-22 18:48:09', '2015-10-22 18:48:09', NULL, '1b92cfc4fa0ebe42a05c3b4616eb07ed'),
+(11539, '2015-10-22 18:48:12', '2015-10-22 18:48:12', NULL, '629049e49e327ce5a1998c247c7198ed'),
+(11540, '2015-10-22 18:48:14', '2015-10-22 18:48:14', NULL, 'b01af506d05d2eb694b1c2aa248b2d21'),
+(11541, '2015-10-22 18:48:16', '2015-10-22 18:48:16', NULL, '67ae082c0882a969666904e8a776340d'),
+(11542, '2015-10-22 18:48:18', '2015-10-22 18:48:18', NULL, 'd83a5bcdeb501c271d37420ccd555f43'),
+(11543, '2015-10-22 18:48:21', '2015-10-22 18:48:21', NULL, '3b77c6d47ecfdcfaa61cf2dc0dc79d7e'),
+(11544, '2015-10-22 18:48:23', '2015-10-22 18:48:23', NULL, '098f6ceac6754ae568717083d5daee1c'),
+(11545, '2015-10-22 18:48:25', '2015-10-22 18:48:25', NULL, '709113db0629d5206a7fb6e71af7b0af'),
+(11546, '2015-10-22 18:48:27', '2015-10-22 18:48:27', NULL, '6ae5a2d50d03819ee7b85cef39013ceb'),
+(11547, '2015-10-22 18:48:30', '2015-10-22 18:48:30', NULL, '353b70d338b2b32aaea64cb39a10a40a'),
+(11548, '2015-10-22 18:48:33', '2015-10-22 18:48:33', NULL, 'a9942e10d3a5eb607ef8e0afd685d890'),
+(11549, '2015-10-22 18:48:35', '2015-10-22 18:48:35', NULL, '98cf6234f44fcaea28ee5abcaa6ab229'),
+(11550, '2015-10-22 18:48:37', '2015-10-22 18:48:37', NULL, 'a26a9399924162bf642d6ed371f0b4d9'),
+(11551, '2015-10-22 18:48:39', '2015-10-22 18:48:39', NULL, 'f62d87edef7bbde009984409287b1ea1'),
+(11552, '2015-10-22 18:48:41', '2015-10-22 18:48:41', NULL, '221474646b71ba71699e23d6fcade264'),
+(11553, '2015-10-22 18:48:44', '2015-10-22 18:48:44', NULL, '0e046ac524b4ad85c0254268e0ce1a22'),
+(11554, '2015-10-22 18:48:47', '2015-10-22 18:48:47', NULL, '33106e9eb356d96bc184937be56889cd'),
+(11555, '2015-10-22 18:48:49', '2015-10-22 18:48:49', NULL, '7c3cfaa5173352a0f89c166c39d1c23b'),
+(11556, '2015-10-22 18:48:51', '2015-10-22 18:48:51', NULL, 'fd052af99fc980d2a256d6918f5b2fbc'),
+(11557, '2015-10-22 18:48:54', '2015-10-22 18:48:54', NULL, '927fadb97a42a88cb12aa8e77f3427f9'),
+(11558, '2015-10-22 18:48:56', '2015-10-22 18:48:56', NULL, 'b21eec291e6589199539352d492ff11b'),
+(11559, '2015-10-22 18:48:59', '2015-10-22 18:48:59', NULL, 'c994f7cb4a4668bb2f11bf470c088c29'),
+(11560, '2015-10-22 18:49:01', '2015-10-22 18:49:01', NULL, '4a4940199a22fc45e8b5349a0994e6b8'),
+(11561, '2015-10-22 18:49:03', '2015-10-22 18:49:03', NULL, '07775b15fd7e8b44fe8cd881c046173f'),
+(11562, '2015-10-22 18:49:05', '2015-10-22 18:49:05', NULL, '7695f055aa0f6e682939fe38a1194be9'),
+(11563, '2015-10-22 18:49:08', '2015-10-22 18:49:08', NULL, 'e64d5f3d70c7c8b4ca93259225729b00'),
+(11564, '2015-10-22 18:49:11', '2015-10-22 18:49:11', NULL, '8c01a2d673346caef3a6d42f0c36197d'),
+(11565, '2015-10-22 18:49:13', '2015-10-22 18:49:13', NULL, 'c9476ff1972fc24408f5f26cea2aca32'),
+(11566, '2015-10-22 18:49:15', '2015-10-22 18:49:15', NULL, '7a60fa0bd409bbb2be17d93c98e8e59c'),
+(11567, '2015-10-22 18:49:17', '2015-10-22 18:49:17', NULL, 'f6cbdb6d5c8803510ee4fc8978c328a3'),
+(11568, '2015-10-22 18:49:20', '2015-10-22 18:49:20', NULL, 'c2721231bd639e7131241431cfe94212'),
+(11569, '2015-10-22 18:49:22', '2015-10-22 18:49:22', NULL, '671962230f46369338ebcaf6a982c96a'),
+(11570, '2015-10-22 18:49:24', '2015-10-22 18:49:24', NULL, 'f884b0fbf8a36c786ec99173d5dd0ceb'),
+(11571, '2015-10-22 18:49:27', '2015-10-22 18:49:27', NULL, '287a3922e8c0c9c664af47cdfd728fc9'),
+(11572, '2015-10-22 18:49:29', '2015-10-22 18:49:29', NULL, '99e272e7d07bae5054d85c896808e2a4'),
+(11573, '2015-10-22 18:49:32', '2015-10-22 18:49:32', NULL, '4dc9c9353fde20cefb73f9b3b5401473'),
+(11574, '2015-10-22 18:49:34', '2015-10-22 18:49:34', NULL, 'd5672e2e39773b260220c0ae3ae122f5'),
+(11575, '2015-10-22 18:49:36', '2015-10-22 18:49:36', NULL, '1edfb9fbd00daf0a443fecbbe80929f3'),
+(11576, '2015-10-22 18:49:38', '2015-10-22 18:49:38', NULL, '1fb9f3916c384ef49020959d7870f6ba'),
+(11577, '2015-10-22 18:49:41', '2015-10-22 18:49:41', NULL, 'd7b340e8cb1a6bb0b0f202c3bdc74d99'),
+(11578, '2015-10-22 18:49:43', '2015-10-22 18:49:43', NULL, '4722cf925d0a924711b1227add7124d3'),
+(11579, '2015-10-22 18:49:46', '2015-10-22 18:49:46', NULL, '28ce0ec5fd8dafa10abd67863ac543ad'),
+(11580, '2015-10-22 18:49:48', '2015-10-22 18:49:48', NULL, '2cb19b4915f2094e1209080964a00982'),
+(11581, '2015-10-22 18:49:50', '2015-10-22 18:49:50', NULL, 'e03b58cee7d1b1d8069d16b8344530b7'),
+(11582, '2015-10-22 18:49:52', '2015-10-22 18:49:52', NULL, 'b5db88a22d0d1fd3c17485c272b2dcda'),
+(11583, '2015-10-22 18:49:55', '2015-10-22 18:49:55', NULL, 'd37c87f13e0973d9f84ae66c0b1263e2'),
+(11584, '2015-10-22 18:49:57', '2015-10-22 18:49:57', NULL, '7fc65999b115ad9c1343d6455e3ebd8b'),
+(11585, '2015-10-22 18:50:00', '2015-10-22 18:50:00', NULL, '7dd5c0d8a58da3852f1be75e5723f12a'),
+(11586, '2015-10-22 18:50:02', '2015-10-22 18:50:02', NULL, '1f2e318e5b75b54eeddd5ebcd5ead6b6'),
+(11587, '2015-10-22 18:50:04', '2015-10-22 18:50:04', NULL, '1f1350650ec616a712b668123c702dbf'),
+(11588, '2015-10-22 18:50:07', '2015-10-22 18:50:07', NULL, 'a2e72065228f2607b6bb259a532a0062'),
+(11589, '2015-10-22 18:50:09', '2015-10-22 18:50:09', NULL, '117b2e74de41a55e01a12414fbca882e'),
+(11590, '2015-10-22 18:50:11', '2015-10-22 18:50:11', NULL, '3a47b54d19f9cef498d86a7909f5f812'),
+(11591, '2015-10-22 18:50:13', '2015-10-22 18:50:13', NULL, '6996fc74b636bf666b964030e8beba54'),
+(11592, '2015-10-22 18:50:16', '2015-10-22 18:50:16', NULL, 'ae63944960b52109bdab6397f5b4dbf8'),
+(11593, '2015-10-22 18:50:19', '2015-10-22 18:50:19', NULL, 'd5ef5520d46192d7b1c511616f05fdec'),
+(11594, '2015-10-22 18:50:21', '2015-10-22 18:50:21', NULL, '2e5ad471f3643393b59e65920323ad4d'),
+(11595, '2015-10-22 18:50:23', '2015-10-22 18:50:23', NULL, '800bce069e5d73ceda8beb8e816fb48b'),
+(11596, '2015-10-22 18:50:25', '2015-10-22 18:50:25', NULL, '675e5f386852ecfc365f77005ee14f21'),
+(11597, '2015-10-22 18:50:28', '2015-10-22 18:50:28', NULL, '8224afca163952d0fee49f672fed9132'),
+(11598, '2015-10-22 18:50:30', '2015-10-22 18:50:30', NULL, '6a5cbbf237af5dd14b183900d65f980f'),
+(11599, '2015-10-22 18:50:33', '2015-10-22 18:50:33', NULL, '0aca885b28450dee242e4520337095ea'),
+(11600, '2015-10-22 18:50:35', '2015-10-22 18:50:35', NULL, '6f113aec5c9855cc8f2a70a9c08a3a0c'),
+(11601, '2015-10-22 18:50:37', '2015-10-22 18:50:37', NULL, 'a1332cb08bf89a9182be52a9c9b23aa6'),
+(11602, '2015-10-22 18:50:39', '2015-10-22 18:50:39', NULL, 'cef632a64a0acc7fd91d5fd9da70c2e1'),
+(11603, '2015-10-22 18:50:42', '2015-10-22 18:50:42', NULL, 'cf59f93235df863dee1e899031a02c34'),
+(11604, '2015-10-22 18:50:44', '2015-10-22 18:50:44', NULL, 'db08b5dcdb77220b31a9d8a873992fe2'),
+(11605, '2015-10-22 18:50:47', '2015-10-22 18:50:47', NULL, 'a24364fcd4ff2d687eb08d201ac78880'),
+(11606, '2015-10-22 18:50:49', '2015-10-22 18:50:49', NULL, 'be3a636f949ea0cfbd76c22ae8996862'),
+(11607, '2015-10-22 18:50:51', '2015-10-22 18:50:51', NULL, 'a6bf06a5298c06d5831d458cce6d6bf1'),
+(11608, '2015-10-22 18:50:54', '2015-10-22 18:50:54', NULL, 'd865a4e02f7f219898bc179139803c84'),
+(11609, '2015-10-22 18:50:56', '2015-10-22 18:50:56', NULL, '58b04dcf13e315b8c36304787c110607'),
+(11610, '2015-10-22 18:50:58', '2015-10-22 18:50:58', NULL, '83fbf89f44acaef23b8e483b7bfb7886'),
+(11611, '2015-10-22 18:51:01', '2015-10-22 18:51:01', NULL, '66ac50b44717102a3f7a30e7673f5f9a'),
+(11612, '2015-10-22 18:51:03', '2015-10-22 18:51:03', NULL, 'b1ebc2403511ac6333bb144655962419'),
+(11613, '2015-10-22 18:51:06', '2015-10-22 18:51:06', NULL, '9b8407e02c64b7ed45f8954645eeb2c9'),
+(11614, '2015-10-22 18:51:08', '2015-10-22 18:51:08', NULL, '85172a50406c51e3861afd0bd8bca60d'),
+(11615, '2015-10-22 18:51:11', '2015-10-22 18:51:11', NULL, '543eb370355a771dd1a15eeafbaa6824'),
+(11616, '2015-10-22 18:51:13', '2015-10-22 18:51:13', NULL, '109ce946f546a84fd9e9a2544f83ef81'),
+(11617, '2015-10-22 18:51:15', '2015-10-22 18:51:15', NULL, '14624f043b6f836605f337f42955684b'),
+(11618, '2015-10-22 18:51:17', '2015-10-22 18:51:17', NULL, '60ba24310543e8a09bc678f4dc0cf6ab'),
+(11619, '2015-10-22 18:51:21', '2015-10-22 18:51:21', NULL, 'a384b1cf4365915f7cca70e69ca75ed4'),
+(11620, '2015-10-22 18:51:23', '2015-10-22 18:51:23', NULL, '6e1303539718b52664936de1c31a3ea9'),
+(11621, '2015-10-22 18:51:25', '2015-10-22 18:51:25', NULL, '9ca62d10734f92dd5ac0d3444782193a'),
+(11622, '2015-10-22 18:51:29', '2015-10-22 18:51:29', NULL, 'fe059fc67b87a0aaf63b6d4c1f9038dc'),
+(11623, '2015-10-22 18:51:32', '2015-10-22 18:51:32', NULL, '970038c58a152307783079fa2a633f42'),
+(11624, '2015-10-22 18:51:34', '2015-10-22 18:51:34', NULL, '74b9cd10150e23c896b1dbbbee0d6509'),
+(11625, '2015-10-22 18:51:36', '2015-10-22 18:51:36', NULL, 'bbcf9606e4afc000ca555e15d01db49f'),
+(11626, '2015-10-22 18:51:38', '2015-10-22 18:51:38', NULL, 'c0621bf1227903aba1f279a42bd50830'),
+(11627, '2015-10-22 18:51:41', '2015-10-22 18:51:41', NULL, '1e7b6144fe6d59e839aac17e1c86936b'),
+(11628, '2015-10-22 18:51:44', '2015-10-22 18:51:44', NULL, '791a06c0c5a5218802b0e124cdc3da9c'),
+(11629, '2015-10-22 18:51:46', '2015-10-22 18:51:46', NULL, 'acfa0ba10711c8e7076695d7333204aa'),
+(11630, '2015-10-22 18:51:49', '2015-10-22 18:51:49', NULL, '882b52f38b228ef8d75e2514a9fd900d'),
+(11631, '2015-10-22 18:51:51', '2015-10-22 18:51:51', NULL, 'e2bfad66b4d07011cd6764794a8e08ec'),
+(11632, '2015-10-22 18:51:53', '2015-10-22 18:51:53', NULL, '9f04373f118f7128143750b0121b53fd'),
+(11633, '2015-10-22 18:51:56', '2015-10-22 18:51:56', NULL, '63b6aeee170ea7dfbf96aa1631ffee37'),
+(11634, '2015-10-22 18:51:58', '2015-10-22 18:51:58', NULL, 'bd85a8e28cf6c02acf29292f6ce279b8'),
+(11635, '2015-10-22 18:52:00', '2015-10-22 18:52:00', NULL, '75b93eede7b90414b808dc7e95237e54'),
+(11636, '2015-10-22 18:52:02', '2015-10-22 18:52:02', NULL, 'd12dac7e6a82bdff8a4efb85c2989802'),
+(11637, '2015-10-22 18:52:05', '2015-10-22 18:52:05', NULL, '986e81d1c823dbe8233d42217b8f7c0d'),
+(11638, '2015-10-22 18:52:07', '2015-10-22 18:52:07', NULL, '11e8908e059652921b25be3dcb6a6f55'),
+(11639, '2015-10-22 18:52:09', '2015-10-22 18:52:09', NULL, '7834a15cb41145aa511da068a60054d7'),
+(11640, '2015-10-22 18:52:12', '2015-10-22 18:52:12', NULL, '2802aefaa67339aa0e8e32fac79855b1'),
+(11641, '2015-10-22 18:52:14', '2015-10-22 18:52:14', NULL, '6121b5be1b7974b1bd8519fa87b0de3f'),
+(11642, '2015-10-22 18:52:17', '2015-10-22 18:52:17', NULL, '2529c6488acf07a81f8a4d9eb516315d'),
+(11643, '2015-10-22 18:52:19', '2015-10-22 18:52:19', NULL, '4db232645a6941a3bd3d22e1381e5c24'),
+(11644, '2015-10-22 18:52:21', '2015-10-22 18:52:21', NULL, 'ff1ee2055c933c21f998dd1630cbfa28'),
+(11645, '2015-10-22 18:52:23', '2015-10-22 18:52:23', NULL, 'cf1c0d9b8bb70dcb888ab2e926a312bf'),
+(11646, '2015-10-22 18:52:26', '2015-10-22 18:52:26', NULL, 'd6932ceaef8bb79c3369ba492a7a9f25'),
+(11647, '2015-10-22 18:52:29', '2015-10-22 18:52:29', NULL, '53b4366bc53d43ba9146da06600f5756'),
+(11648, '2015-10-22 18:52:31', '2015-10-22 18:52:31', NULL, '15df6e6e8dcb2d4641e30244a6d8e67c'),
+(11649, '2015-10-22 18:52:33', '2015-10-22 18:52:33', NULL, '18650238f27c743c69ad26c3d24cfce0'),
+(11650, '2015-10-22 18:52:35', '2015-10-22 18:52:35', NULL, 'e6a9c9b46a98e486083b9d39ef7bd36d'),
+(11651, '2015-10-22 18:52:38', '2015-10-22 18:52:38', NULL, '1e942ade44c933059ab88c718541b3cd'),
+(11652, '2015-10-22 18:52:40', '2015-10-22 18:52:40', NULL, '61cf71e4cc46a6a8f2508151604b8b13'),
+(11653, '2015-10-22 18:52:43', '2015-10-22 18:52:43', NULL, '364993b2d85a2221af5556608551509d'),
+(11654, '2015-10-22 18:52:48', '2015-10-22 18:52:48', NULL, 'a2e548595cb8469ef58f840eec195c44'),
+(11655, '2015-10-22 18:52:52', '2015-10-22 18:52:52', NULL, '5582be62ce215994d142d99b6b30c5a0'),
+(11656, '2015-10-22 18:52:55', '2015-10-22 18:52:55', NULL, '42c91835e6dcdaa2e184a1026d33b4bf'),
+(11657, '2015-10-22 18:52:57', '2015-10-22 18:52:57', NULL, 'ea19136994e243be8dfe83ca4082198a'),
+(11658, '2015-10-22 18:52:59', '2015-10-22 18:52:59', NULL, '5d8603c6026f95448bd1f12c90ba94cd'),
+(11659, '2015-10-22 18:53:05', '2015-10-22 18:53:05', NULL, 'd8f40f2759ee6c3efe49e7460284ff87'),
+(11660, '2015-10-22 18:53:07', '2015-10-22 18:53:07', NULL, '877b542f039f79f271ae9d6ccda8ac99'),
+(11661, '2015-10-22 18:53:09', '2015-10-22 18:53:09', NULL, 'd37ee9783f73105b09809d0a404ca8bc'),
+(11662, '2015-10-22 18:53:11', '2015-10-22 18:53:11', NULL, '5f1a6527124d28090ee2afc1c2f2b77a'),
+(11663, '2015-10-22 18:53:13', '2015-10-22 18:53:13', NULL, 'fab4049ed75bf956c54bc14d3d6a08fd'),
+(11664, '2015-10-22 18:53:16', '2015-10-22 18:53:16', NULL, '6af5071aa6eec05aa5c0ed4daee1b7dd'),
+(11665, '2015-10-22 18:53:18', '2015-10-22 18:53:18', NULL, 'c687b152e323ff2eaa082d442973f496'),
+(11666, '2015-10-22 18:53:20', '2015-10-22 18:53:20', NULL, '3a03cf326b0e263e65c053f9208b0012'),
+(11667, '2015-10-22 18:53:22', '2015-10-22 18:53:22', NULL, '26867ed72d109cb046b1400651d43e00'),
+(11668, '2015-10-22 18:53:23', '2015-10-22 18:53:23', NULL, 'ee88de88044141273769e98e44a63df9'),
+(11669, '2015-10-22 18:53:25', '2015-10-22 18:53:25', NULL, '4e7bee1c48ed756570b413687d0cda1f'),
+(11670, '2015-10-22 18:53:28', '2015-10-22 18:53:28', NULL, '14c8445a920b9b7e4f98f9ec94111a36'),
+(11671, '2015-10-22 18:53:31', '2015-10-22 18:53:31', NULL, 'e7a2896418ba5891137a8ed4f5e6ef80'),
+(11672, '2015-10-22 18:53:33', '2015-10-22 18:53:33', NULL, 'd4e9ce0eed2d7426dc5c556e4738b9fd'),
+(11673, '2015-10-22 18:53:35', '2015-10-22 18:53:35', NULL, '26b918338adc3f5f1df0cba2bc1218d4'),
+(11674, '2015-10-22 18:53:39', '2015-10-22 18:53:39', NULL, 'eca1bfac882a5b0317eca8ebf8eeffac');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(11675, '2015-10-22 18:53:42', '2015-10-22 18:53:42', NULL, '88b9dce4687062f0eb5ac167033fdbba'),
+(11676, '2015-10-22 18:53:44', '2015-10-22 18:53:44', NULL, '015dbc15e976adf248376c5c5d6de83a'),
+(11677, '2015-10-22 18:53:46', '2015-10-22 18:53:46', NULL, '84eb40f71331d73b840e09892badad2e'),
+(11678, '2015-10-22 18:53:48', '2015-10-22 18:53:48', NULL, 'c59f7aa606441ad17ba7d5baa88b4014'),
+(11679, '2015-10-22 18:53:52', '2015-10-22 18:53:52', NULL, '7ff3ae73516273530d938ddecacde01b'),
+(11680, '2015-10-22 18:53:54', '2015-10-22 18:53:54', NULL, '553522c1283a5d6ea641bf4967c4901c'),
+(11681, '2015-10-22 18:53:56', '2015-10-22 18:53:56', NULL, 'db5e87e36323430ce81543699b2f47ea'),
+(11682, '2015-10-22 18:53:59', '2015-10-22 18:53:59', NULL, 'd6d5ee5ba1fa45f9f9c44fc53816d40f'),
+(11683, '2015-10-22 18:54:04', '2015-10-22 18:54:04', NULL, 'dfd5c4a1d3e4fc6932724641de017a26'),
+(11684, '2015-10-22 18:54:06', '2015-10-22 18:54:06', NULL, '06b8bd393ace9bd2dbf0ef9c1686ff4f'),
+(11685, '2015-10-22 18:54:08', '2015-10-22 18:54:08', NULL, 'dba80c8b0bb1470761305f7dc236c8f8'),
+(11686, '2015-10-22 18:54:10', '2015-10-22 18:54:10', NULL, '4698497db16a6d08d5404c6eb5660387'),
+(11687, '2015-10-22 18:54:12', '2015-10-22 18:54:12', NULL, '04da0a1512d871eaad76b5eaa7143ffd'),
+(11688, '2015-10-22 18:54:15', '2015-10-22 18:54:15', NULL, 'f565f27c4019502370070e49f06dd8db'),
+(11689, '2015-10-22 18:54:17', '2015-10-22 18:54:17', NULL, 'b5301acfe5db10f9d1f0427a08e2de19'),
+(11690, '2015-10-22 18:54:19', '2015-10-22 18:54:19', NULL, 'ab4f5969dcab352a1c2f6532cdb17130'),
+(11691, '2015-10-22 18:54:21', '2015-10-22 18:54:21', NULL, '431e8ba23dd9c0454de6438393493eb5'),
+(11692, '2015-10-22 18:54:23', '2015-10-22 18:54:23', NULL, '2c7845cefad3308ac4176a23bff338e0'),
+(11693, '2015-10-22 18:54:27', '2015-10-22 18:54:27', NULL, 'a6aebbe0909ad9c07932eb7f1c016f76'),
+(11694, '2015-10-22 18:54:29', '2015-10-22 18:54:29', NULL, '3c2e9905f04b8eec6ecf4d9ffa913096'),
+(11695, '2015-10-22 18:54:31', '2015-10-22 18:54:31', NULL, '5b800a308316f3e917001c8ca3d3c49d'),
+(11696, '2015-10-22 18:54:33', '2015-10-22 18:54:33', NULL, '8b656c4d3139f8cf47f5e79f3ccd1c85'),
+(11697, '2015-10-22 18:54:35', '2015-10-22 18:54:35', NULL, '3fe6aa76e7742005a4c93ff7fb007246'),
+(11698, '2015-10-22 18:54:38', '2015-10-22 18:54:38', NULL, '6b5b177b10b09d35300db2fe02541860'),
+(11699, '2015-10-22 18:54:41', '2015-10-22 18:54:41', NULL, 'b82500272e1ed9cafe0f40512b62731b'),
+(11700, '2015-10-22 18:54:43', '2015-10-22 18:54:43', NULL, 'db35d614ed724246915f26abae27e72f'),
+(11701, '2015-10-22 18:54:45', '2015-10-22 18:54:45', NULL, '6572376f9945994392fa5d3cc1c26aaa'),
+(11702, '2015-10-22 18:54:47', '2015-10-22 18:54:47', NULL, '491fd51ea315cb5e683b1709aa6cc64b'),
+(11703, '2015-10-22 19:40:14', '2015-10-22 19:40:14', NULL, '9b62e7d44ed4efd05ea27d414921ce4f'),
+(11704, '2015-10-22 19:57:12', '2015-10-27 15:17:04', 1, '4afb798fb805cff601691a1dc41cbf86'),
+(11705, '2015-10-22 20:29:52', '2015-10-22 20:29:52', NULL, 'dc2999f07ff2e5ce7afe259bdc6596ac'),
+(11706, '2015-10-22 20:30:00', '2015-10-22 20:30:00', NULL, 'b0f7f38f4b0caaeeb501baf5919334c1'),
+(11707, '2015-10-22 20:30:06', '2015-10-22 20:30:06', NULL, '10fdf21cc289448185dbf016a37f2cc6'),
+(11708, '2015-10-22 20:30:14', '2015-10-22 20:30:14', NULL, '44fbc307ed3e3e4c25bc16f1a4cf1a33'),
+(11709, '2015-10-22 20:30:18', '2015-10-22 20:30:18', NULL, 'e0d5d2fd81e4a0dc2f339e9fd9845fb0'),
+(11710, '2015-10-22 21:24:43', '2015-10-22 21:24:43', NULL, 'f3f56065e1903a66f079f2cb1f6b680d'),
+(11711, '2015-10-22 21:36:39', '2015-10-22 21:36:39', NULL, '2f3e32a2ef4d4261bc40648dd23194e2'),
+(11712, '2015-10-22 21:47:00', '2015-10-22 21:47:00', NULL, 'ee88fc55d8452d115126df55dd21d40e'),
+(11713, '2015-10-22 23:11:24', '2015-10-22 23:11:24', NULL, 'c3dcc3013b21b78639932379fb0c6dcb'),
+(11714, '2015-10-22 23:21:43', '2015-10-22 23:21:43', NULL, 'f335f905de00ad236fb6543227c01e0a'),
+(11715, '2015-10-23 00:15:08', '2015-10-23 00:15:08', NULL, 'b19facfe12d05e9a91ac1362fc86c8ef'),
+(11716, '2015-10-23 00:15:08', '2015-10-23 00:15:08', NULL, '4abaa883031f5066b5c687142eb21377'),
+(11717, '2015-10-23 01:11:09', '2015-10-23 01:11:09', NULL, '0601f841dda85468b09efd4403d7aea9'),
+(11718, '2015-10-23 01:19:51', '2015-10-23 01:19:51', NULL, '2d043e8a78a59e6f4377ece0634f320e'),
+(11719, '2015-10-23 01:27:15', '2015-10-23 01:27:15', NULL, 'aa0046361ceb5dca50ae13a729828872'),
+(11720, '2015-10-23 01:30:02', '2015-10-23 01:30:02', NULL, '17aa3d4b330483e755c537002a8fb122'),
+(11721, '2015-10-23 01:41:44', '2015-10-23 01:41:44', NULL, '216ca593193c8c2d4a1ae78dd2324cea'),
+(11722, '2015-10-23 01:54:22', '2015-10-23 01:54:22', NULL, 'e80b6e67b6828c29653b59fe5fb795c7'),
+(11723, '2015-10-23 02:28:39', '2015-10-23 02:28:39', NULL, '6413bcf479761c40cbb2c8b83d4749ee'),
+(11724, '2015-10-23 03:03:19', '2015-10-23 03:03:19', NULL, '6da01ff371415284c1c6195c1abb4db4'),
+(11725, '2015-10-23 03:03:20', '2015-10-23 03:03:20', NULL, 'c4dc262776efa10f44198ec5455f08e5'),
+(11726, '2015-10-23 03:16:58', '2015-10-23 03:16:58', NULL, '30f2209a6162fbdf2214f834ed42b060'),
+(11727, '2015-10-23 03:30:09', '2015-10-23 03:30:09', NULL, 'a2e1a87ac84cbf88250f987ba1db0b8f'),
+(11728, '2015-10-23 04:19:36', '2015-10-23 04:19:36', NULL, 'cae957aec70dc9d7ef5d9686a1f63398'),
+(11729, '2015-10-23 04:19:37', '2015-10-23 04:19:37', NULL, '058b7634076535005849e7702b64af40'),
+(11730, '2015-10-23 04:51:27', '2015-10-23 04:51:27', NULL, 'eb0ae792f72b484e5532e390ef6c6d7c'),
+(11731, '2015-10-23 05:11:10', '2015-10-23 05:11:10', NULL, 'b649cbb6181a914a0dbe8227b31dc794'),
+(11732, '2015-10-23 05:27:20', '2015-10-23 05:27:20', NULL, 'b5338bf5821dc216948726c52bfda37b'),
+(11733, '2015-10-23 05:36:17', '2015-10-23 05:36:17', NULL, 'd62b97b381f4f594c8a1b6fc390c4c2f'),
+(11734, '2015-10-23 05:36:21', '2015-10-23 05:36:21', NULL, '7ab028df89ebbc530317fe902824050a'),
+(11735, '2015-10-23 05:36:23', '2015-10-23 05:36:23', NULL, '52de66cc29ac97f7ec6be9f4efc6fdab'),
+(11736, '2015-10-23 05:36:24', '2015-10-23 05:36:24', NULL, '72f216e2ab59da0e208000aad2aec209'),
+(11737, '2015-10-23 05:36:25', '2015-10-23 05:36:25', NULL, 'f9eb719cdc3c7b58a32c8315933e65cd'),
+(11738, '2015-10-23 05:36:26', '2015-10-23 05:36:26', NULL, 'bdf487cfecfa385aab40eaacb1a65ee7'),
+(11739, '2015-10-23 05:36:27', '2015-10-23 05:36:27', NULL, '51aaebe6ab0cf22920d3792172139a85'),
+(11740, '2015-10-23 05:36:28', '2015-10-23 05:36:28', NULL, '3041864858276db63a6b4f5f67ec56c7'),
+(11741, '2015-10-23 05:36:30', '2015-10-23 05:36:30', NULL, '5299e411069e990306411d6908d0c1be'),
+(11742, '2015-10-23 05:36:31', '2015-10-23 05:36:31', NULL, '16820675f5ebce9f051d1fc69b0040a5'),
+(11743, '2015-10-23 05:36:32', '2015-10-23 05:36:32', NULL, '8d2fe4e593607811419f965d5e807c5d'),
+(11744, '2015-10-23 05:36:33', '2015-10-23 05:36:33', NULL, '21fe834b9218c2e530c633b9b5161645'),
+(11745, '2015-10-23 05:36:34', '2015-10-23 05:36:34', NULL, '3915b2090fcd56e9b1cf8e97976f3ba8'),
+(11746, '2015-10-23 05:36:35', '2015-10-23 05:36:35', NULL, '9f8690b3afd76122307c47d5af46cd24'),
+(11747, '2015-10-23 05:36:36', '2015-10-23 05:36:36', NULL, 'fe5029077d05149c85b1dd8414da6c26'),
+(11748, '2015-10-23 05:36:37', '2015-10-23 05:36:37', NULL, '60b049662c246b9f36cb7a7ff142b741'),
+(11749, '2015-10-23 05:36:38', '2015-10-23 05:36:38', NULL, '1c8531f3efd61ffcba7a848ad63f8a9a'),
+(11750, '2015-10-23 05:36:40', '2015-10-23 05:36:40', NULL, 'a2b30058fc7146686da1aac4d29393bb'),
+(11751, '2015-10-23 05:36:41', '2015-10-23 05:36:41', NULL, '3629e921c62b5536d3124ce4eea2bab1'),
+(11752, '2015-10-23 05:36:42', '2015-10-23 05:36:42', NULL, '4cd46b64b6b3df3bc26818f11c10de15'),
+(11753, '2015-10-23 05:36:43', '2015-10-23 05:36:43', NULL, 'fdbc4bc9a7064aa5f764c9803776f6eb'),
+(11754, '2015-10-23 05:36:44', '2015-10-23 05:36:44', NULL, 'fdb36c7db26ba3d5ff77059cd8459f1a'),
+(11755, '2015-10-23 05:36:45', '2015-10-23 05:36:45', NULL, 'c355ea26beaeb1039d5ba86c972ba78e'),
+(11756, '2015-10-23 05:36:46', '2015-10-23 05:36:46', NULL, 'ad7ddda577c7c016a7ccd2c5bf418f74'),
+(11757, '2015-10-23 05:36:47', '2015-10-23 05:36:47', NULL, 'f66f7bea30a40404a5c7d90a83945c27'),
+(11758, '2015-10-23 05:36:48', '2015-10-23 05:36:48', NULL, 'a02aead6f0ebdbf5351ea4d2f540de02'),
+(11759, '2015-10-23 05:36:49', '2015-10-23 05:36:49', NULL, 'a864855489788e323186af16618f3aaa'),
+(11760, '2015-10-23 05:36:51', '2015-10-23 05:36:51', NULL, 'f3f6fb53cb9a2692cf0645512f14e0aa'),
+(11761, '2015-10-23 05:36:52', '2015-10-23 05:36:52', NULL, '9e353ffa3ed3e624e186ff4a68b994bd'),
+(11762, '2015-10-23 05:36:53', '2015-10-23 05:36:53', NULL, '1fa7e081e06d575f9b0ad52521477664'),
+(11763, '2015-10-23 05:36:54', '2015-10-23 05:36:54', NULL, 'e89652303e31fc4f3f23d4b1fd2a0a62'),
+(11764, '2015-10-23 05:36:55', '2015-10-23 05:36:55', NULL, '8d2cf44f293e5153016f083160b0c143'),
+(11765, '2015-10-23 06:05:28', '2015-10-23 06:05:28', NULL, '80192abc6c762097b8d16378573bb96b'),
+(11766, '2015-10-23 06:27:24', '2015-10-23 06:27:24', NULL, 'c1eae754e0f3248fa3f053b20f8ac5a6'),
+(11767, '2015-10-23 07:30:57', '2015-10-23 07:30:57', NULL, '5c064aed18fc396f295b066ab0735474'),
+(11768, '2015-10-23 08:43:34', '2015-10-23 08:43:34', NULL, '366541122de4c1381cd1568732187b63'),
+(11769, '2015-10-23 09:57:15', '2015-10-23 09:57:15', NULL, 'a1f4dda7a7b4b43f437c3af31f30d679'),
+(11770, '2015-10-23 10:03:59', '2015-10-23 10:03:59', NULL, '19e1515b79ae9f364ba46e13c014c0d9'),
+(11771, '2015-10-23 10:35:59', '2015-10-23 10:35:59', NULL, '1fd798457adb291a92465f4420804c0e'),
+(11772, '2015-10-23 12:15:26', '2015-10-23 12:15:26', NULL, 'c408e28ab082ac7950919a483f48922a'),
+(11773, '2015-10-23 13:42:10', '2015-10-23 13:42:10', NULL, '25d88448e62275824c0be559bdaf09b3'),
+(11774, '2015-10-23 14:16:15', '2015-10-23 14:16:15', NULL, '9edfea9d24d600ab21f2b33895fd5d94'),
+(11775, '2015-10-23 14:18:12', '2015-10-23 14:18:12', NULL, '3213a4d424d4f83e901fd01698084c58'),
+(11776, '2015-10-23 14:23:52', '2015-10-23 14:23:52', NULL, '187e88d92a270cf71eb60a19ba99393b'),
+(11777, '2015-10-23 14:24:48', '2015-10-23 14:24:48', NULL, 'dea04562c66c7a384c6d0f3f36e48d11'),
+(11778, '2015-10-23 14:39:09', '2015-10-23 14:39:09', NULL, 'b898b3a55121acd26e401c102911464f'),
+(11779, '2015-10-23 14:44:20', '2015-10-23 14:44:20', NULL, '3adee70a53e7bce4eccfe93ea9dc286c'),
+(11780, '2015-10-23 14:49:53', '2015-10-23 14:49:53', NULL, '7b5f2c71f52b4ebe6728e9c1903d178d'),
+(11781, '2015-10-23 14:52:40', '2015-10-23 14:52:40', NULL, 'e4bf71495be6259e86da98f2938a294c'),
+(11782, '2015-10-23 15:20:57', '2015-10-23 15:20:57', NULL, '214e03b3c5e9f5d2fb907413ca52877c'),
+(11783, '2015-10-23 15:21:00', '2015-10-23 15:21:00', NULL, '64d0cd2cc476b0db8674a7568f3a38a1'),
+(11784, '2015-10-23 15:21:03', '2015-10-23 15:21:03', NULL, '98b8804204885864ba2eec4cd4bac021'),
+(11785, '2015-10-23 16:09:29', '2015-10-23 16:09:29', NULL, '7acc83495bf1124fe75c03462f5fd248'),
+(11786, '2015-10-23 16:09:31', '2015-10-23 16:09:31', NULL, 'de5062871f4581e2b366ef1780604237'),
+(11787, '2015-10-23 16:09:34', '2015-10-23 16:09:34', NULL, 'b98365d56695aac36c0d213f50062292'),
+(11788, '2015-10-23 16:09:36', '2015-10-23 16:09:36', NULL, 'd366a5ee865eb2969bb85ddeb29130db'),
+(11789, '2015-10-23 16:09:39', '2015-10-23 16:09:39', NULL, 'ddd360bc08ea03b4dd8525f29e7f3fc2'),
+(11790, '2015-10-23 16:09:41', '2015-10-23 16:09:41', NULL, '6195a03127974a504be66d28880154e2'),
+(11791, '2015-10-23 16:09:43', '2015-10-23 16:09:43', NULL, 'fbff4114625ece072ba458d02f0b4c5c'),
+(11792, '2015-10-23 16:09:46', '2015-10-23 16:09:46', NULL, '7ba42ef9a2e3bbd59205b8405c35b429'),
+(11793, '2015-10-23 16:09:48', '2015-10-23 16:09:48', NULL, '8977687963f8f529363c67f76a729b48'),
+(11794, '2015-10-23 16:09:50', '2015-10-23 16:09:50', NULL, 'a1903af7a2c742d0446271df44d7ae1f'),
+(11795, '2015-10-23 16:09:52', '2015-10-23 16:09:52', NULL, 'cc50215e0e90bf76460f601345370889'),
+(11796, '2015-10-23 16:09:54', '2015-10-23 16:09:54', NULL, 'be95b86311557a835a621b89f4b20f1e'),
+(11797, '2015-10-23 16:09:56', '2015-10-23 16:09:56', NULL, '5aa275358d7514af266064e3ce4fb5d3'),
+(11798, '2015-10-23 16:09:58', '2015-10-23 16:09:58', NULL, 'f6a42f02314349303c44b8a316cdc0bf'),
+(11799, '2015-10-23 16:10:00', '2015-10-23 16:10:00', NULL, '7254ca5c415e08e1f0b8f1710f69c966'),
+(11800, '2015-10-23 16:10:03', '2015-10-23 16:10:03', NULL, '6ed21612c4128ee75421da93b141d96e'),
+(11801, '2015-10-23 16:10:05', '2015-10-23 16:10:05', NULL, '23625c93246be0a44114ecfac80f688d'),
+(11802, '2015-10-23 16:10:07', '2015-10-23 16:10:07', NULL, 'f17464ba83ff4e54912eeadef61c2e8e'),
+(11803, '2015-10-23 16:10:09', '2015-10-23 16:10:09', NULL, '991477a0f14fdc8444aa6d9a3ec18c9d'),
+(11804, '2015-10-23 16:10:12', '2015-10-23 16:10:12', NULL, 'a17d72a0410d57b612a06ac2cb1726d9'),
+(11805, '2015-10-23 16:10:14', '2015-10-23 16:10:14', NULL, '849dc7be46e1c6472882c45f730ad3db'),
+(11806, '2015-10-23 16:10:16', '2015-10-23 16:10:16', NULL, '6451839fa2e5b49db86843c0797bf8c0'),
+(11807, '2015-10-23 16:10:18', '2015-10-23 16:10:18', NULL, 'a36d298773236f0ea8b59b378452c116'),
+(11808, '2015-10-23 16:10:21', '2015-10-23 16:10:21', NULL, '46b66b69cb1fb040c487208ff8a2432c'),
+(11809, '2015-10-23 16:10:23', '2015-10-23 16:10:23', NULL, '274db684922dcf3a78b62fec3e50007f'),
+(11810, '2015-10-23 16:10:25', '2015-10-23 16:10:25', NULL, 'ccdcf8c6d8e99bae219b97525f063ed8'),
+(11811, '2015-10-23 16:10:27', '2015-10-23 16:10:27', NULL, 'a2bb113789849a9837994f710064665f'),
+(11812, '2015-10-23 16:10:29', '2015-10-23 16:10:29', NULL, '87749f9f8a13b59592aa206b00701c6d'),
+(11813, '2015-10-23 16:10:31', '2015-10-23 16:10:31', NULL, '560a3f72e700ce48d10a85272b3cca0f'),
+(11814, '2015-10-23 16:10:34', '2015-10-23 16:10:34', NULL, '9a76c58dc1eb5c3c2e8e8564cf9800e8'),
+(11815, '2015-10-23 16:10:36', '2015-10-23 16:10:36', NULL, '67b0b75336cf5292834dcc96a284fb1c'),
+(11816, '2015-10-23 16:10:38', '2015-10-23 16:10:38', NULL, 'f69b3f6ccc5c28c240bc1013739f2643'),
+(11817, '2015-10-23 16:10:40', '2015-10-23 16:10:40', NULL, '9cd0d109a9011bb48b8661fb839b3c9a'),
+(11818, '2015-10-23 16:22:59', '2015-10-23 16:22:59', NULL, 'd5dac60ba0a0e09ca1a72a453663089c'),
+(11819, '2015-10-23 16:23:02', '2015-10-23 16:23:02', NULL, '7c2c26f48b0a61ca26db4dd53ebdb1b3'),
+(11820, '2015-10-23 16:23:08', '2015-10-23 16:23:08', NULL, '970bbff53e0d927510f7817a2e4d47d0'),
+(11821, '2015-10-23 16:23:14', '2015-10-23 16:23:14', NULL, '452dbccbe75199e3962fa181de6977b2'),
+(11822, '2015-10-23 16:23:20', '2015-10-23 16:23:20', NULL, 'aad7644ae6484fdd5db7f48362196a30'),
+(11823, '2015-10-23 16:23:24', '2015-10-23 16:23:24', NULL, 'c341b32f474131e805b277b341844b13'),
+(11824, '2015-10-23 16:23:29', '2015-10-23 16:23:29', NULL, 'fc6589f60a79a15155a9ce1e63868d90'),
+(11825, '2015-10-23 16:23:31', '2015-10-23 16:23:31', NULL, '4d53bca7adce602ed7407d03a617bb38'),
+(11826, '2015-10-23 16:23:38', '2015-10-23 16:23:38', NULL, '7acc0637f2abb6ad065362409a4fbabe'),
+(11827, '2015-10-23 16:23:42', '2015-10-23 16:23:42', NULL, '1f8a5a439143de8e355ef854975afd31'),
+(11828, '2015-10-23 16:23:44', '2015-10-23 16:23:44', NULL, '8c0d620ae998596e08aed82140a65674'),
+(11829, '2015-10-23 16:23:51', '2015-10-23 16:23:51', NULL, '4557be5d1d86e34ac5cf28ddd9f99670'),
+(11830, '2015-10-23 16:23:58', '2015-10-23 16:23:58', NULL, '8075d094c7565c6d31ff61029833d654'),
+(11831, '2015-10-23 16:24:04', '2015-10-23 16:24:04', NULL, '44a384fbca7355039afe6b00954d39a7'),
+(11832, '2015-10-23 16:24:08', '2015-10-23 16:24:08', NULL, '5567c0858393e9adaf090fcc7d07a29c'),
+(11833, '2015-10-23 16:24:12', '2015-10-23 16:24:12', NULL, 'ca1b42751588365abf7e8081809f1c6d'),
+(11834, '2015-10-23 16:24:15', '2015-10-23 16:24:15', NULL, '68cc2737a4303912f7926cbbda5878dc'),
+(11835, '2015-10-23 16:24:18', '2015-10-23 16:24:18', NULL, '47f5c26ae402afaceee7fcca7781127d'),
+(11836, '2015-10-23 16:24:24', '2015-10-23 16:24:24', NULL, '0b218ce7a8b97e1bca3bd9955c1266f8'),
+(11837, '2015-10-23 16:24:28', '2015-10-23 16:24:28', NULL, 'a539838527777e0ade3107cab9be2cb9'),
+(11838, '2015-10-23 16:24:31', '2015-10-23 16:24:31', NULL, '10f6f2fc779804e5dd67400ca749aa19'),
+(11839, '2015-10-23 16:24:33', '2015-10-23 16:24:33', NULL, '7fe6edabc6c94e87919316944dc725ab'),
+(11840, '2015-10-23 16:24:33', '2015-10-23 16:24:33', NULL, '2f12c7e87ec51012e35ab6c41cd1f691'),
+(11841, '2015-10-23 16:24:35', '2015-10-23 16:24:35', NULL, '34461039f3118c1e157f2a5771a4fc27'),
+(11842, '2015-10-23 16:24:37', '2015-10-23 16:24:37', NULL, 'fe207a431380b000b6c1b765fd1a1df6'),
+(11843, '2015-10-23 16:24:37', '2015-10-23 16:24:37', NULL, '2cbe8cec61782b09eb7caabf184a6cce'),
+(11844, '2015-10-23 16:24:39', '2015-10-23 16:24:39', NULL, 'db4f1ac7e2eed7683ad6e7a6c869b379'),
+(11845, '2015-10-23 16:24:40', '2015-10-23 16:24:40', NULL, 'cf57dcf3290a04fc491695a13b5cba91'),
+(11846, '2015-10-23 16:24:41', '2015-10-23 16:24:41', NULL, '145b87d68aa3fc37e6b5f1af06fe0abb'),
+(11847, '2015-10-23 16:24:42', '2015-10-23 16:24:42', NULL, 'bb99d05af7778b5042c71477223af6c1'),
+(11848, '2015-10-23 16:24:43', '2015-10-23 16:24:43', NULL, '1b106f9206ee90e41aba0549ab3d7089'),
+(11849, '2015-10-23 16:24:44', '2015-10-23 16:24:44', NULL, '1c20153165b5eb820f8258834c03a9b9'),
+(11850, '2015-10-23 16:24:45', '2015-10-23 16:24:45', NULL, '298e593d0eca7a2e7d5a17940d000588'),
+(11851, '2015-10-23 16:24:45', '2015-10-23 16:24:45', NULL, '33048457d14626b0fac08e77130d5cc6'),
+(11852, '2015-10-23 16:24:47', '2015-10-23 16:24:47', NULL, 'b0bbb5ca6f3453b259da06425fd81b55'),
+(11853, '2015-10-23 16:24:47', '2015-10-23 16:24:47', NULL, 'e9b6bad0aefaaaeb2a0f05113671e071'),
+(11854, '2015-10-23 16:24:49', '2015-10-23 16:24:49', NULL, 'a7b01f9b132f10003717370dbe86ba9a'),
+(11855, '2015-10-23 16:24:49', '2015-10-23 16:24:49', NULL, 'fac37d90ef31964fd470e92836e9a727'),
+(11856, '2015-10-23 16:24:50', '2015-10-23 16:24:50', NULL, 'd00c19a59db13f71ae402b098d32c296'),
+(11857, '2015-10-23 16:24:51', '2015-10-23 16:24:51', NULL, 'a76d88c9dd22411c50f98c6f8a29d8a8'),
+(11858, '2015-10-23 16:24:52', '2015-10-23 16:24:52', NULL, '422002e791e7ead47ec1d500ee767bef'),
+(11859, '2015-10-23 16:24:53', '2015-10-23 16:24:53', NULL, '656fd1e9f28011c9ec0b7d6600f1466e'),
+(11860, '2015-10-23 16:24:53', '2015-10-23 16:24:53', NULL, '4feec06d28e48bc013128fb936789d09'),
+(11861, '2015-10-23 16:24:55', '2015-10-23 16:24:55', NULL, '1dede7d1e2a66795317f9f5503e78bb6'),
+(11862, '2015-10-23 16:24:57', '2015-10-23 16:24:57', NULL, 'cf20bf60a640001b9989afd08970a2af'),
+(11863, '2015-10-23 16:24:59', '2015-10-23 16:24:59', NULL, '8b4224b9e7384fed0e1f535d017c399d'),
+(11864, '2015-10-23 16:25:03', '2015-10-23 16:25:03', NULL, '21d4545602ffd2653d99019635b1ddcd'),
+(11865, '2015-10-23 16:25:05', '2015-10-23 16:25:05', NULL, '02e23c9673b3f08229b100e51b4b1a66'),
+(11866, '2015-10-23 16:25:15', '2015-10-23 16:25:15', NULL, 'ae1fcb23d66b6241e601c86137dcd147'),
+(11867, '2015-10-23 16:25:18', '2015-10-23 16:25:18', NULL, '0859112f43823296e8ec9dba5a64d6e6'),
+(11868, '2015-10-23 16:25:21', '2015-10-23 16:25:21', NULL, '6204df9ffea9bfc11b994d80b71d2f66'),
+(11869, '2015-10-23 16:25:24', '2015-10-23 16:25:24', NULL, '4e22266e4917bb31558edb282cd3968f'),
+(11870, '2015-10-23 16:25:25', '2015-10-23 16:25:25', NULL, '7a37b2f335ae25734186a43e0f4d65f9'),
+(11871, '2015-10-23 16:25:28', '2015-10-23 16:25:28', NULL, 'fa4be327cdf403eee2eb6579c83b6208'),
+(11872, '2015-10-23 16:25:29', '2015-10-23 16:25:29', NULL, 'f97ffe8fe47703f936405b705ea4a2ea'),
+(11873, '2015-10-23 16:25:34', '2015-10-23 16:25:34', NULL, 'b343c6fcd0d4068fe5aa3eaff4b582e0'),
+(11874, '2015-10-23 16:25:37', '2015-10-23 16:25:37', NULL, 'a24db85f66b935da5f7d48777d08ac04'),
+(11875, '2015-10-23 16:25:40', '2015-10-23 16:25:40', NULL, '9fdc526cd0a5ecf6c91e4ccb524f1444'),
+(11876, '2015-10-23 16:25:43', '2015-10-23 16:25:43', NULL, '29f28d463f9e2089c88d2973c6841d8e'),
+(11877, '2015-10-23 16:25:47', '2015-10-23 16:25:47', NULL, 'c203c5b25cd6e6d199ac01ce90ef12bb'),
+(11878, '2015-10-23 16:25:51', '2015-10-23 16:25:51', NULL, '7297d1fae1699050ef37108e0453304e'),
+(11879, '2015-10-23 16:25:54', '2015-10-23 16:25:54', NULL, 'b2904d2efe44081163930003a89282e5'),
+(11880, '2015-10-23 16:25:56', '2015-10-23 16:25:56', NULL, '962f12e6aa2558889d9649e0613c52e4'),
+(11881, '2015-10-23 16:26:00', '2015-10-23 16:26:00', NULL, '614ab818a075fdc4810f0d646584efed'),
+(11882, '2015-10-23 16:26:05', '2015-10-23 16:26:05', NULL, 'dc8c76ad6c12e3128b5bc361c2739673'),
+(11883, '2015-10-23 16:26:07', '2015-10-23 16:26:07', NULL, '1c3fe88e2f3e5372ff46ef2ff9c8a20c'),
+(11884, '2015-10-23 16:26:08', '2015-10-23 16:26:08', NULL, '61dfea108a5f5240c1305f18a20abb2b'),
+(11885, '2015-10-23 16:26:10', '2015-10-23 16:26:10', NULL, '91a05bfb17e7b9ea96fe5e678cf44a61'),
+(11886, '2015-10-23 16:26:13', '2015-10-23 16:26:13', NULL, 'cd30f5c2becc382fe61cd573fad3300c'),
+(11887, '2015-10-23 16:26:18', '2015-10-23 16:26:18', NULL, '16572f7b99e5227a1cfa4f33c667b965'),
+(11888, '2015-10-23 16:26:22', '2015-10-23 16:26:22', NULL, 'a2fcda169d8ddc917c1b2abec88d7313'),
+(11889, '2015-10-23 16:26:25', '2015-10-23 16:26:25', NULL, '8bfbff09bdad5abf93595d24aa2d8378'),
+(11890, '2015-10-23 16:26:28', '2015-10-23 16:26:28', NULL, '7a6bfbc9a0ebef086ea984dec88b21dc'),
+(11891, '2015-10-23 16:26:32', '2015-10-23 16:26:32', NULL, 'c14d1d167cff16bfd7f9bee650d6d493'),
+(11892, '2015-10-23 16:26:37', '2015-10-23 16:26:37', NULL, 'db7418ee67242e8602808d8e8a8c535b'),
+(11893, '2015-10-23 16:26:39', '2015-10-23 16:26:39', NULL, '2e6a1337c77495cfc83f69c562d82b53'),
+(11894, '2015-10-23 16:26:41', '2015-10-23 16:26:41', NULL, '467951f19c24f05b6cd8a62d1b213477'),
+(11895, '2015-10-23 16:26:44', '2015-10-23 16:26:44', NULL, 'ce56b2a5470bc1ed108721221a1ae4ce'),
+(11896, '2015-10-23 16:26:48', '2015-10-23 16:26:48', NULL, '2307795cec3174d039b9dc33fb404b35'),
+(11897, '2015-10-23 16:26:52', '2015-10-23 16:26:52', NULL, '17ac15bae059fcb9704e9ffee5128786'),
+(11898, '2015-10-23 16:26:53', '2015-10-23 16:26:53', NULL, '61b29efb4d44ee0ab4e9f0852e11a113'),
+(11899, '2015-10-23 16:26:57', '2015-10-23 16:26:57', NULL, '55958244d3bf4dbc8473b3ca9e0cb9fe'),
+(11900, '2015-10-23 16:27:01', '2015-10-23 16:27:01', NULL, '91503c6926cbb4fe2ac6fa56b9abf8e3'),
+(11901, '2015-10-23 16:27:06', '2015-10-23 16:27:06', NULL, 'f4bbdfca31b4e47e54ada7b5745d56ec'),
+(11902, '2015-10-23 16:27:09', '2015-10-23 16:27:09', NULL, 'e2f58a570707a369d511a32ec8affd6d'),
+(11903, '2015-10-23 16:27:13', '2015-10-23 16:27:13', NULL, 'bf8895adca228297c9b4179d4dc08470'),
+(11904, '2015-10-23 17:29:07', '2015-10-23 17:29:07', NULL, 'f4bc84ea13da695e3fbf2b23d7f25020'),
+(11905, '2015-10-23 17:35:36', '2015-10-23 17:35:36', NULL, '87b393f2453d4c077eaf0cc1dd2c9157'),
+(11906, '2015-10-23 18:27:25', '2015-10-23 18:27:25', NULL, '59be3f976c8fc6764477efd35cbb900a'),
+(11907, '2015-10-23 18:27:27', '2015-10-23 18:27:27', NULL, 'aff0f241e75ba8362c9c62ce89597139'),
+(11908, '2015-10-23 18:43:28', '2015-10-23 18:43:28', NULL, '1301f1f248dcb9656ede43f59de89cd5'),
+(11909, '2015-10-23 18:43:31', '2015-10-23 18:43:31', NULL, '3b5392faa810256bebb0419466368ba9'),
+(11910, '2015-10-23 18:43:33', '2015-10-23 18:43:33', NULL, '18cc2d3c6d248bf58ab4b8a08425a927'),
+(11911, '2015-10-23 18:43:35', '2015-10-23 18:43:35', NULL, '517f53b47c1729d082d7cafe574c42c9'),
+(11912, '2015-10-23 18:43:36', '2015-10-23 18:43:36', NULL, '64509faacee44ce75e06920ded5a6166'),
+(11913, '2015-10-23 18:43:38', '2015-10-23 18:43:38', NULL, '14dd186b154a1b8a03a91e573c2e4a7e'),
+(11914, '2015-10-23 18:45:42', '2015-10-23 18:45:42', NULL, '73b78f8bb66b2e83dfc32e58c6550e1a'),
+(11915, '2015-10-23 18:45:42', '2015-10-23 18:45:42', NULL, 'e2b6d99085150c6b2ac872c278b8d07e'),
+(11916, '2015-10-23 18:45:43', '2015-10-23 18:45:43', NULL, '1f9e8a3aa3b69cf45ced4937710cb043'),
+(11917, '2015-10-23 18:52:07', '2015-10-23 18:52:07', NULL, '955d5d6e888839d9213e4ac9139f3d76'),
+(11918, '2015-10-23 19:51:57', '2015-10-23 19:51:57', NULL, '8d4ed84c6e9be71be7be6efc7604b5d1'),
+(11919, '2015-10-23 19:52:00', '2015-10-23 19:52:00', NULL, '5f64db137ff960e63fb6d6b02285c9b7'),
+(11920, '2015-10-23 19:52:02', '2015-10-23 19:52:02', NULL, '7a3a52a5ebfac67a696e16c7f70327f3'),
+(11921, '2015-10-23 19:52:05', '2015-10-23 19:52:05', NULL, '0e09d7016501503832222a7675b9dcb2'),
+(11922, '2015-10-23 19:52:07', '2015-10-23 19:52:07', NULL, '809a2dbf8a820a550f0a5f7417fd17b4'),
+(11923, '2015-10-23 19:52:08', '2015-10-23 19:52:08', NULL, 'c7407c9bcf79b58b410d34e69d18c785'),
+(11924, '2015-10-23 19:52:11', '2015-10-23 19:52:11', NULL, 'c522daf00c4aca5df17ed3cd33348675'),
+(11925, '2015-10-23 20:48:44', '2015-10-23 20:48:44', NULL, 'a23c844d982420992d03c831ad96bfd5'),
+(11926, '2015-10-23 21:25:57', '2015-10-23 21:25:57', NULL, 'f787879048ef322b80b5fef5d66843c2'),
+(11927, '2015-10-23 21:31:23', '2015-10-23 21:31:23', NULL, '569e2c0f83f85c73d9c0e07dad4c7618'),
+(11928, '2015-10-23 21:37:09', '2015-10-23 21:37:09', NULL, '46060aedf2e0d251ed9643b759d26843'),
+(11929, '2015-10-23 22:42:38', '2015-10-23 22:42:38', NULL, '2570f0bf04562144d9838f40b5d67a24'),
+(11930, '2015-10-23 22:42:46', '2015-10-23 22:42:46', NULL, '9b05fe226cfdb89ed4c3ab413f05214c'),
+(11931, '2015-10-23 22:43:08', '2015-10-23 22:43:08', NULL, 'dd27d6296f113347ddda7d7f452f9741'),
+(11932, '2015-10-23 22:43:22', '2015-10-23 22:43:22', NULL, '45b3c7ae107028a63680270f14a3bf65'),
+(11933, '2015-10-23 22:43:31', '2015-10-23 22:43:31', NULL, '811ad21a8a4621bec4faad348746be29'),
+(11934, '2015-10-23 22:43:41', '2015-10-23 22:43:41', NULL, 'b00aaa31aa4ac9b2efe6ebab29beadb9'),
+(11935, '2015-10-23 22:44:03', '2015-10-23 22:44:03', NULL, 'b658c6be672af44bdbbff4772dfe89bf'),
+(11936, '2015-10-23 23:47:00', '2015-10-23 23:47:00', NULL, 'f9cd5bd25a1c297c8b8526b0d57721fc'),
+(11937, '2015-10-24 02:25:54', '2015-10-24 02:25:54', NULL, '69d30322cda367d7cd636b5776d03605'),
+(11938, '2015-10-24 02:40:47', '2015-10-24 02:40:47', NULL, '56687b572fec2fb4eeb468438503a182'),
+(11939, '2015-10-24 03:00:15', '2015-10-24 03:00:15', NULL, '71caf34e9ab910ee24b28de363087322'),
+(11940, '2015-10-24 03:00:20', '2015-10-24 03:00:20', NULL, 'ea218c7b553b48add03f8c6d5d5ec238'),
+(11941, '2015-10-24 04:34:58', '2015-10-24 04:34:58', NULL, '49f5661a8922c90b94b796cc4c02755a'),
+(11942, '2015-10-24 05:18:49', '2015-10-24 05:18:49', NULL, 'f82daef98a7ddb48efd725c601a05255'),
+(11943, '2015-10-24 06:43:49', '2015-10-24 06:43:49', NULL, '117d2d9bfbe85d3d7a76ed350ad03069'),
+(11944, '2015-10-24 08:31:17', '2015-10-24 08:31:17', NULL, '4ab5a4070e9960304c262076ab3f5d97'),
+(11945, '2015-10-24 08:31:19', '2015-10-24 08:31:19', NULL, '1159d1eeb7966630b2fca117fb995758'),
+(11946, '2015-10-24 08:39:27', '2015-10-24 08:39:27', NULL, 'dad247eebad6f706c103723dda9da932'),
+(11947, '2015-10-24 10:08:59', '2015-10-24 10:08:59', NULL, 'd0d4995f61762a83db825e1fa53b9ccb'),
+(11948, '2015-10-24 11:36:25', '2015-10-24 11:36:25', NULL, '7a49c42cc918c7d055fb4ea378a7a928'),
+(11949, '2015-10-24 11:36:29', '2015-10-24 11:36:29', NULL, '232d53135e3bb1cac99f2ab6a0c63a29'),
+(11950, '2015-10-24 11:36:33', '2015-10-24 11:36:33', NULL, '49531d9e76da022859a85ab7c0fece66'),
+(11951, '2015-10-24 11:36:35', '2015-10-24 11:36:35', NULL, '652502fa5393b81a329061ecaf76e6f7'),
+(11952, '2015-10-24 11:36:41', '2015-10-24 11:36:41', NULL, 'd761d6dbca928be2c384bbc309701ebf'),
+(11953, '2015-10-24 11:36:44', '2015-10-24 11:36:44', NULL, '47a430112e6440f2300adcb4eeb85fb4'),
+(11954, '2015-10-24 11:36:46', '2015-10-24 11:36:46', NULL, '8ecac482184d5a27d09081448a04e668'),
+(11955, '2015-10-24 11:36:49', '2015-10-24 11:36:49', NULL, '81e1100932839efccb7665be43d741bf'),
+(11956, '2015-10-24 11:36:51', '2015-10-24 11:36:51', NULL, '24217243d8b87d0db28b4fae275e81e1'),
+(11957, '2015-10-24 11:36:54', '2015-10-24 11:36:54', NULL, '0b5b61c919febeb3057211d07fd5d831'),
+(11958, '2015-10-24 11:36:57', '2015-10-24 11:36:57', NULL, '3845dd2e331e141e410c2670e792c3f2'),
+(11959, '2015-10-24 11:37:00', '2015-10-24 11:37:00', NULL, '1f5206dc736aec6ad75d5865644d4581'),
+(11960, '2015-10-24 11:37:02', '2015-10-24 11:37:02', NULL, '0670957011851ea20dffc32c1f1d5eb7'),
+(11961, '2015-10-24 11:37:05', '2015-10-24 11:37:05', NULL, '19c559513f8b3c9798b5ee301b6aecb3'),
+(11962, '2015-10-24 11:37:08', '2015-10-24 11:37:08', NULL, 'b11997e25a2d131ac868fed588f0aefa'),
+(11963, '2015-10-24 11:37:11', '2015-10-24 11:37:11', NULL, '532a6aee9f95db7e9ff5449a6b0875c0'),
+(11964, '2015-10-24 11:37:14', '2015-10-24 11:37:14', NULL, 'f9b718fd700aa2c0f4f6f033a6f81ef6'),
+(11965, '2015-10-24 11:37:16', '2015-10-24 11:37:16', NULL, '0c06143b08a7c48fae21a61f87c40bb7'),
+(11966, '2015-10-24 11:37:19', '2015-10-24 11:37:19', NULL, 'fac8dd82fd529307afe3054dcf5ec362'),
+(11967, '2015-10-24 11:37:22', '2015-10-24 11:37:22', NULL, '578623f7a59cec36d08f07938b6ae236'),
+(11968, '2015-10-24 11:51:29', '2015-10-24 11:51:29', NULL, '829c9099f0cfa94f57a40c3fcb77c2ed'),
+(11969, '2015-10-24 11:51:46', '2015-10-24 11:51:46', NULL, '80b4949751e7245994e582d00126a241'),
+(11970, '2015-10-24 12:42:34', '2015-10-24 12:42:34', NULL, '0635315025153311d23c370b4a346950'),
+(11971, '2015-10-24 12:42:34', '2015-10-24 12:42:34', NULL, '71914ffcaf010fe63f43c5e354e54b21'),
+(11972, '2015-10-24 12:42:36', '2015-10-24 12:42:36', NULL, '829391f61eb0472bed189b50e386dc94'),
+(11973, '2015-10-24 12:42:37', '2015-10-24 12:42:37', NULL, 'b5bf512621a538e5f9ef2e8a416da087'),
+(11974, '2015-10-24 12:42:40', '2015-10-24 12:42:40', NULL, '997d5327e49446ab481e48801d6f2cb9'),
+(11975, '2015-10-24 12:42:42', '2015-10-24 12:42:42', NULL, '78ac02f66360ec7b2a24001d9c36a632'),
+(11976, '2015-10-24 14:04:35', '2015-10-24 14:04:35', NULL, '3225748e6a553622af94570a54278f69'),
+(11977, '2015-10-24 14:07:05', '2015-10-24 14:07:05', NULL, '88558d23177e529cdebdcd314724d2d2'),
+(11978, '2015-10-24 14:34:25', '2015-10-24 14:34:25', NULL, 'fa2c2665053e16d6641e8b1a8ce84b6e'),
+(11979, '2015-10-24 14:34:28', '2015-10-24 14:34:28', NULL, 'd56fdab9379370b0eff02c28230722dc'),
+(11980, '2015-10-24 14:34:42', '2015-10-24 14:34:42', NULL, '224de606d723c5a0f5b3b41c745b9b2e'),
+(11981, '2015-10-24 14:34:43', '2015-10-24 14:34:43', NULL, 'c5763e991ccb7b6bc8e21736ce5f0129'),
+(11982, '2015-10-24 14:34:44', '2015-10-24 14:34:44', NULL, '88898c087e1a279aec390a841a2a7a95'),
+(11983, '2015-10-24 14:34:44', '2015-10-24 14:34:44', NULL, '2c355087288cafce97ad5ec92c24fe55'),
+(11984, '2015-10-24 14:34:45', '2015-10-24 14:34:45', NULL, 'd7dab044d0ab62be6c47c2f616074675'),
+(11985, '2015-10-24 14:34:45', '2015-10-24 14:34:45', NULL, '5fa41bc4c6ac0caa34599e3636ccacbc'),
+(11986, '2015-10-24 14:34:45', '2015-10-24 14:34:45', NULL, '3732321fa2ddfecf6a2bbfb9ce57ff14'),
+(11987, '2015-10-24 14:34:45', '2015-10-24 14:34:45', NULL, '399bf4023beb35a8bfeaf7669a562c3f'),
+(11988, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, 'a9fafc1b012fdeb791e48cfd6dc6c5ee'),
+(11989, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, '70012f6c3df924014a90e96b93fa1f30'),
+(11990, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, '67406b779b9a0d4d57744a9804963811'),
+(11991, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, '19e994aef8f063c26bd3d3b750c9ed4f'),
+(11992, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, '438c587f86d370db0f3a2bc149187439'),
+(11993, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, 'bcb2881aca1e91d8111d79196103448f'),
+(11994, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, 'e401e41348cc20b4b17cfd5bea9445ee'),
+(11995, '2015-10-24 14:34:46', '2015-10-24 14:34:46', NULL, '67da60758697988e73ea1136123bdd55'),
+(11996, '2015-10-24 14:34:47', '2015-10-24 14:34:47', NULL, '8aa3ffa0559ce268f9fcf88481487e3a'),
+(11997, '2015-10-24 14:34:47', '2015-10-24 14:34:47', NULL, '5c9e535e62b8256b7004f3ca60703478'),
+(11998, '2015-10-24 14:34:47', '2015-10-24 14:34:47', NULL, '18fc741bdfc9da2b357e41f991b709cf'),
+(11999, '2015-10-24 14:34:47', '2015-10-24 14:34:47', NULL, '566d05e7403f8875582f660710577545'),
+(12000, '2015-10-24 14:42:34', '2015-10-24 14:42:34', NULL, 'e2d386d337b8611397b14048b00725a5'),
+(12001, '2015-10-24 14:53:43', '2015-10-24 14:53:43', NULL, '4908360469ac08c8bc4bff7e56b24f11'),
+(12002, '2015-10-24 15:01:50', '2015-10-24 15:01:50', NULL, '5acce690cffdf8ba17e1b0b3542e8885'),
+(12003, '2015-10-24 15:01:52', '2015-10-24 15:01:52', NULL, '397e5139ab772436ea79682f504692ac'),
+(12004, '2015-10-24 15:01:55', '2015-10-24 15:01:55', NULL, '977a1ec2b9e4e5b7bf6be276593da78e'),
+(12005, '2015-10-24 15:01:57', '2015-10-24 15:01:57', NULL, '1c8e038fba97a75c0e668c635b057f4e'),
+(12006, '2015-10-24 15:01:59', '2015-10-24 15:01:59', NULL, '652ec982040f7c923c6f9eecd3ba46a9'),
+(12007, '2015-10-24 15:02:00', '2015-10-24 15:02:00', NULL, 'd859d4894b6f808159656c5a5c48855f'),
+(12008, '2015-10-24 15:02:03', '2015-10-24 15:02:03', NULL, '9d37ec29548f37fc01c413cc65c8fa2d'),
+(12009, '2015-10-24 15:02:07', '2015-10-24 15:02:07', NULL, '812f9a42506c254fb53d779112771978'),
+(12010, '2015-10-24 15:02:09', '2015-10-24 15:02:09', NULL, '84a9a1840db9bafc06145ba01d262a41'),
+(12011, '2015-10-24 15:02:11', '2015-10-24 15:02:11', NULL, 'c5f4549e26c807d15fbadd71b9605b6c'),
+(12012, '2015-10-24 15:02:13', '2015-10-24 15:02:13', NULL, '2498648635f49e3017bb50087de27186'),
+(12013, '2015-10-24 15:02:14', '2015-10-24 15:02:14', NULL, '2d9dc5ee70e8bee024d880468bf256fc'),
+(12014, '2015-10-24 15:02:16', '2015-10-24 15:02:16', NULL, '05a49bc0173ec8e6f0edde66d0b935b1'),
+(12015, '2015-10-24 15:02:18', '2015-10-24 15:02:18', NULL, '7897505f1991d5c17ea7f6fd78d14eda'),
+(12016, '2015-10-24 15:02:21', '2015-10-24 15:02:21', NULL, '79bf9dd66c60399e01ac9ba4c7d6a18e'),
+(12017, '2015-10-24 15:02:23', '2015-10-24 15:02:23', NULL, '99c58f9f1678c444add171f98a1be091'),
+(12018, '2015-10-24 15:02:25', '2015-10-24 15:02:25', NULL, 'e6011726df63068f90302ce772a55d38'),
+(12019, '2015-10-24 15:02:27', '2015-10-24 15:02:27', NULL, '5468625c20c497a9c98a0511a3e71058'),
+(12020, '2015-10-24 15:02:29', '2015-10-24 15:02:29', NULL, 'fc2c07409c40466cf33656a516979658'),
+(12021, '2015-10-24 15:02:32', '2015-10-24 15:02:32', NULL, '404601a1b3dd236f008cce3590bb463c'),
+(12022, '2015-10-24 15:02:34', '2015-10-24 15:02:34', NULL, 'c6abac2709e2a3cc8b536353070c65af'),
+(12023, '2015-10-24 15:02:35', '2015-10-24 15:02:35', NULL, '07a16fecca160df40b13b67ea77bd378'),
+(12024, '2015-10-24 15:02:37', '2015-10-24 15:02:37', NULL, '511bc575576b71d096e66f0232246b75'),
+(12025, '2015-10-24 15:02:38', '2015-10-24 15:02:38', NULL, 'b446fbd54cb2aff1da0a2fdb9b9b2d6a'),
+(12026, '2015-10-24 15:02:39', '2015-10-24 15:02:39', NULL, '8a92cd271d98c8e2639c317aac1f9767'),
+(12027, '2015-10-24 15:02:42', '2015-10-24 15:02:42', NULL, '554c3ac23c361edd5df28d66b7607011'),
+(12028, '2015-10-24 15:02:45', '2015-10-24 15:02:45', NULL, '1b20c7eedd726dfbab344e48f55549be'),
+(12029, '2015-10-24 15:02:47', '2015-10-24 15:02:47', NULL, 'eaec178052cbd1021ffb5801f495db9f'),
+(12030, '2015-10-24 15:02:49', '2015-10-24 15:02:49', NULL, 'f57c6c03d7d8ee54eba00d079c809100'),
+(12031, '2015-10-24 15:02:52', '2015-10-24 15:02:52', NULL, 'f29188d26b30fa0327e7ea99520b8de2'),
+(12032, '2015-10-24 15:02:54', '2015-10-24 15:02:54', NULL, '02837e8346740c462a089ba7beab3d02'),
+(12033, '2015-10-24 15:02:56', '2015-10-24 15:02:56', NULL, '02526ad1349f3a99b9ddd41e0bb8bf27'),
+(12034, '2015-10-24 15:02:58', '2015-10-24 15:02:58', NULL, '218235bdf9e50341ebf84955385170e7'),
+(12035, '2015-10-24 15:03:01', '2015-10-24 15:03:01', NULL, '2201feb33c256eed64b5513419b9b1b9'),
+(12036, '2015-10-24 15:03:02', '2015-10-24 15:03:02', NULL, 'd84134fdaa32ac3efe2b548c3471d856'),
+(12037, '2015-10-24 15:03:04', '2015-10-24 15:03:04', NULL, 'ccba5e260ec39737b0229a5f277e2412'),
+(12038, '2015-10-24 15:03:06', '2015-10-24 15:03:06', NULL, '301da0de7c5921c23a93ca65d04f8f73'),
+(12039, '2015-10-24 15:03:08', '2015-10-24 15:03:08', NULL, '6a5188a20c3491e1822c591ccb87b06d'),
+(12040, '2015-10-24 15:03:11', '2015-10-24 15:03:11', NULL, 'abe2644277ffbe0444bb95a2870d9d4e'),
+(12041, '2015-10-24 15:03:12', '2015-10-24 15:03:12', NULL, '949c3295e4138acd5a4d3912ded64f8b'),
+(12042, '2015-10-24 15:03:14', '2015-10-24 15:03:14', NULL, '132a960a5c342306704bab89ffe55444'),
+(12043, '2015-10-24 15:03:16', '2015-10-24 15:03:16', NULL, '3b941464eb41883832e0cc374e9ca6ce'),
+(12044, '2015-10-24 15:03:19', '2015-10-24 15:03:19', NULL, 'fbb00111bc84b3124dbf9fb689512c9c'),
+(12045, '2015-10-24 15:03:20', '2015-10-24 15:03:20', NULL, '6adeb0c6cfcf72d2d1e4b1c621d31216'),
+(12046, '2015-10-24 15:03:22', '2015-10-24 15:03:22', NULL, '7764072cd9df605e9d4ff3459d9a95ac'),
+(12047, '2015-10-24 15:03:24', '2015-10-24 15:03:24', NULL, 'ddb26e79f07393fd14c3abf8eab813df'),
+(12048, '2015-10-24 15:03:26', '2015-10-24 15:03:26', NULL, 'ffa856ce84f569940213df27d7e179df'),
+(12049, '2015-10-24 15:03:28', '2015-10-24 15:03:28', NULL, 'c68f323f68d3eacebb8ebbf4cf1a1ac7'),
+(12050, '2015-10-24 15:03:30', '2015-10-24 15:03:30', NULL, 'ef9f7ece46bc81f619b9cb5483f8d81e'),
+(12051, '2015-10-24 15:03:32', '2015-10-24 15:03:32', NULL, 'd8a7711002e7f3bf811d7f4713ca0cc3'),
+(12052, '2015-10-24 15:03:35', '2015-10-24 15:03:35', NULL, 'f01c084ac91c10381bf6be0cc260a159'),
+(12053, '2015-10-24 15:03:38', '2015-10-24 15:03:38', NULL, '4d9aa9bb2694d30b00859979ec164781'),
+(12054, '2015-10-24 15:03:39', '2015-10-24 15:03:39', NULL, 'a20e2f25057c3a4badb244437bffdca3'),
+(12055, '2015-10-24 15:03:41', '2015-10-24 15:03:41', NULL, '53cff64cc0a38067153d6d1299d6d99c'),
+(12056, '2015-10-24 15:03:44', '2015-10-24 15:03:44', NULL, 'f2c56413464da740c759eed774c5a86b'),
+(12057, '2015-10-24 15:03:46', '2015-10-24 15:03:46', NULL, '1e0fcc3c5e1ae8711f47449f2a1cb93b'),
+(12058, '2015-10-24 15:03:49', '2015-10-24 15:03:49', NULL, '84a26aa48948083207b9ade688eca559'),
+(12059, '2015-10-24 15:03:52', '2015-10-24 15:03:52', NULL, '96b5ac2810feda3a8b4195f5a1f38ea2'),
+(12060, '2015-10-24 15:03:56', '2015-10-24 15:03:56', NULL, '1c932ad9e8c1780aa089a988047536ea'),
+(12061, '2015-10-24 15:03:58', '2015-10-24 15:03:58', NULL, '96245c4290760b62d0bf9a43df5224d2'),
+(12062, '2015-10-24 15:04:01', '2015-10-24 15:04:01', NULL, '8c4de72c43892fcc4b584a4eb0b91344'),
+(12063, '2015-10-24 15:04:04', '2015-10-24 15:04:04', NULL, '19c43fbee1906a6dc7f14c28d343c509'),
+(12064, '2015-10-24 15:04:07', '2015-10-24 15:04:07', NULL, '39966f8ea6b9686382276dc692dbff4d'),
+(12065, '2015-10-24 15:04:10', '2015-10-24 15:04:10', NULL, '4b1148cce12a81c970c358fbe3226baa'),
+(12066, '2015-10-24 15:04:13', '2015-10-24 15:04:13', NULL, '86e103371c3364d3a7e1af6929c1f422'),
+(12067, '2015-10-24 15:04:16', '2015-10-24 15:04:16', NULL, '2e4c082f3ac95a4e704efce1b9c18d0b'),
+(12068, '2015-10-24 15:04:19', '2015-10-24 15:04:19', NULL, '764311d94d7d04a587adc5000108c4a3'),
+(12069, '2015-10-24 15:04:21', '2015-10-24 15:04:21', NULL, '5dff6d2d8b6d98f963eff00e92c175b0'),
+(12070, '2015-10-24 15:04:24', '2015-10-24 15:04:24', NULL, '8e0ac0097962f5ff2c0f721e43f2b049'),
+(12071, '2015-10-24 15:04:27', '2015-10-24 15:04:27', NULL, '5deaf2925eddda10064d1c80bbc69c9d'),
+(12072, '2015-10-24 15:04:29', '2015-10-24 15:04:29', NULL, '24c79d96a4973202108a23c162b0c006'),
+(12073, '2015-10-24 15:04:33', '2015-10-24 15:04:33', NULL, '25f4af4826ceee305f543dfa52074a47'),
+(12074, '2015-10-24 15:04:36', '2015-10-24 15:04:36', NULL, 'c007c75f7bee97b22efd7c80b38c8b01'),
+(12075, '2015-10-24 15:04:39', '2015-10-24 15:04:39', NULL, '1dd59cba7f29cab721418cbf4d75c8af'),
+(12076, '2015-10-24 15:04:42', '2015-10-24 15:04:42', NULL, '43c95c8c1ed8c626241dffbd4ef7ef4c'),
+(12077, '2015-10-24 15:04:44', '2015-10-24 15:04:44', NULL, 'cd7b7e42dfb9d35729b57f207e36eb45'),
+(12078, '2015-10-24 15:13:04', '2015-10-24 15:13:04', NULL, 'c891da3d2c006ce232c5b7b1028696f9'),
+(12079, '2015-10-24 15:25:04', '2015-10-24 15:25:04', NULL, '87118d3ac9374f648c035670c161af69'),
+(12080, '2015-10-24 15:58:58', '2015-10-24 15:58:58', NULL, '0fcd2960f70134cf26e3250d13c8ff1d'),
+(12081, '2015-10-24 16:22:34', '2015-10-24 16:22:34', NULL, '2169ffd199f58130f09e86ff84492ad3'),
+(12082, '2015-10-24 16:22:35', '2015-10-24 16:22:35', NULL, '92541794dfb6049dc898d90dbc206ccb'),
+(12083, '2015-10-24 16:41:28', '2015-10-24 16:41:28', NULL, 'f35371569d13dbbab50c2f1aae9edc54'),
+(12084, '2015-10-24 20:04:10', '2015-10-24 20:04:10', NULL, '1be541d734c2c5b9af01e89344a6ca97'),
+(12085, '2015-10-24 20:35:34', '2015-10-24 20:35:34', NULL, '523aabe8a8994126e092ae6d0294f5bc'),
+(12086, '2015-10-24 23:04:58', '2015-10-24 23:04:58', NULL, '7a9068a3dc2063b8f5ea3d9a7f297ee8'),
+(12087, '2015-10-24 23:06:54', '2015-10-24 23:06:54', NULL, '73ff2ba48c4618d4fbd08b018e09ec6e'),
+(12088, '2015-10-25 01:02:45', '2015-10-25 01:02:45', NULL, 'fc1375ba606489f61dca1a75afaf9193'),
+(12089, '2015-10-25 01:02:45', '2015-10-25 01:02:45', NULL, '952bd7173601dd0cad2a88891cd6e0ea'),
+(12090, '2015-10-25 01:09:14', '2015-10-25 01:09:14', NULL, '269857471caa6fa4133fbce8a4dec59e'),
+(12091, '2015-10-25 03:00:24', '2015-10-25 03:00:24', NULL, '0cf010de2a0c929e7d20b9156128a1f4'),
+(12092, '2015-10-25 03:00:29', '2015-10-25 03:00:29', NULL, 'e7e45e5eeb7af64bb076454acb793e6a'),
+(12093, '2015-10-25 03:00:32', '2015-10-25 03:00:32', NULL, '559e6fb37c8b3dfc97d12c5a0f7cde9c'),
+(12094, '2015-10-25 03:00:35', '2015-10-25 03:00:35', NULL, 'c778b535c8b5cfe74c0e379885f4b233'),
+(12095, '2015-10-25 03:00:37', '2015-10-25 03:00:37', NULL, '4d167a2a5b9ccbbee304334369445a28'),
+(12096, '2015-10-25 03:00:39', '2015-10-25 03:00:39', NULL, 'f6b8a61da8d806d8246b3baf22e7895c'),
+(12097, '2015-10-25 03:00:41', '2015-10-25 03:00:41', NULL, 'e1e1f5681f317f928cf571ff90805746'),
+(12098, '2015-10-25 03:00:44', '2015-10-25 03:00:44', NULL, '409bf1df7aa8c3ab17bbf2cc5a7e58cc'),
+(12099, '2015-10-25 03:00:47', '2015-10-25 03:00:47', NULL, 'f2f734c5cbf605a83fb263a9199a2d9d'),
+(12100, '2015-10-25 03:00:49', '2015-10-25 03:00:49', NULL, '1cfd4627d62e95ad725920183d725b54'),
+(12101, '2015-10-25 03:00:52', '2015-10-25 03:00:52', NULL, '77a00d8316ba5db28da80950d53350e0'),
+(12102, '2015-10-25 03:00:54', '2015-10-25 03:00:54', NULL, 'fd8fd6aba35976ea22f86211c98b9994'),
+(12103, '2015-10-25 03:00:56', '2015-10-25 03:00:56', NULL, '91b7fc30b21e44a8c64efe60f3ba1943'),
+(12104, '2015-10-25 03:06:30', '2015-10-25 03:06:30', NULL, 'c7096a7469c56e853ff3a7b129dea126'),
+(12105, '2015-10-25 03:31:24', '2015-10-25 03:31:24', NULL, '439e272cc71c0c1dc494cec610e22fbe'),
+(12106, '2015-10-25 04:47:17', '2015-10-25 04:47:17', NULL, '73be257512a30e7678a4ae974be0cd74'),
+(12107, '2015-10-25 04:47:18', '2015-10-25 04:47:18', NULL, 'ba4d3ea18187510b91802ef862009596'),
+(12108, '2015-10-25 06:35:08', '2015-10-25 06:35:08', NULL, '56d43a21584fc932a4e4a34e1b245e64'),
+(12109, '2015-10-25 06:47:41', '2015-10-25 06:47:41', NULL, 'd6d6798f3788a7cc0ae3b47baa3c8040'),
+(12110, '2015-10-25 06:48:05', '2015-10-25 06:48:05', NULL, 'd773012198cca9f2fd4b05bcd7ea8358'),
+(12111, '2015-10-25 07:27:32', '2015-10-25 07:27:32', NULL, '3ac0645f850758970848f984d4159b64'),
+(12112, '2015-10-25 07:27:36', '2015-10-25 07:27:36', NULL, '545f52a432cd42ad6f220edda2e93ac1'),
+(12113, '2015-10-25 07:54:54', '2015-10-25 07:54:54', NULL, 'ec09ee30a9fb04aaee2a3f74caa8a0d2'),
+(12114, '2015-10-25 09:44:24', '2015-10-25 09:44:24', NULL, '775b6258d0e921b76e3aa2b07087d515'),
+(12115, '2015-10-25 09:55:56', '2015-10-25 09:55:56', NULL, 'b49ca08c550e474433e79fc3578edb15'),
+(12116, '2015-10-25 09:56:06', '2015-10-25 09:56:06', NULL, '3b9b76037211d172235cd859ad38c36a'),
+(12117, '2015-10-25 11:53:09', '2015-10-25 11:53:09', NULL, 'fda92d1ea364f6a641e06d8fe69b6d00'),
+(12118, '2015-10-25 11:53:10', '2015-10-25 11:53:10', NULL, 'd48b10e1a6495953c1c75b59a95cca64'),
+(12119, '2015-10-25 11:53:11', '2015-10-25 11:53:11', NULL, '4bf69558a3b0587b6f6f950d5643fd65'),
+(12120, '2015-10-25 13:30:50', '2015-10-25 13:30:50', NULL, '40dbd1495d168b036e2b23605920aaaa'),
+(12121, '2015-10-25 14:32:58', '2015-10-25 14:32:58', NULL, '6c490db4c09bb6cc0d42b7e11c1583b6'),
+(12122, '2015-10-25 14:32:59', '2015-10-25 14:32:59', NULL, 'f89b81df76057eac00830711343e2eeb'),
+(12123, '2015-10-25 14:59:50', '2015-10-25 14:59:50', NULL, 'cfbbf35cce268c664d0142b2a28d5d0e'),
+(12124, '2015-10-25 16:14:18', '2015-10-25 16:14:18', NULL, 'ef446c0f39809a8bba7c47f0ed6d15c2'),
+(12125, '2015-10-25 16:14:20', '2015-10-25 16:14:20', NULL, '3bb76fb213ea3bbe40bdddbfdce184bc'),
+(12126, '2015-10-25 16:18:11', '2015-10-25 16:18:11', NULL, 'bfb94c4c8fc297be622402d148ed7f0b'),
+(12127, '2015-10-25 16:18:13', '2015-10-25 16:18:13', NULL, '91dd42d38a664571352bff7779a8aa30'),
+(12128, '2015-10-25 18:03:52', '2015-10-25 18:03:52', NULL, 'b638b3c580e0d7652dc1a4c41dbef72f'),
+(12129, '2015-10-25 18:25:19', '2015-10-25 18:25:19', NULL, 'ab9327aaee081b4f1462e9ae8852be17'),
+(12130, '2015-10-25 19:46:01', '2015-10-25 19:46:01', NULL, '0960a6cdfe02e59ec093cc8a150359a9'),
+(12131, '2015-10-25 20:09:17', '2015-10-25 20:09:17', NULL, '1c6feed5537ccf1eb9f1933306a2aaf6'),
+(12132, '2015-10-25 20:09:22', '2015-10-25 20:09:22', NULL, '86428e6e659858c3b2fe9163e2b5f373'),
+(12133, '2015-10-25 20:30:48', '2015-10-25 20:30:48', NULL, 'd69d708d41caf61e7812eb50cd749e16'),
+(12134, '2015-10-25 21:19:49', '2015-10-25 21:19:49', NULL, 'aed18f9c0957b7723db9b2256e626bf5'),
+(12135, '2015-10-25 21:19:49', '2015-10-25 21:19:49', NULL, 'b9caea624c6bbf1ed45669696337a3ff'),
+(12136, '2015-10-25 21:44:44', '2015-10-25 21:44:44', NULL, 'd965fd1b3d0a9496382c1178b6692e89'),
+(12137, '2015-10-25 21:59:58', '2015-10-25 21:59:58', NULL, '230876386c3be5f27e5103103016c3f6'),
+(12138, '2015-10-25 23:36:21', '2015-10-25 23:36:21', NULL, '15819c73ca9b1e30efbbba8ecbc8436d'),
+(12139, '2015-10-26 00:32:07', '2015-10-26 00:32:07', NULL, 'd743d13c035508cb830cdf036da2c398'),
+(12140, '2015-10-26 00:32:09', '2015-10-26 00:32:09', NULL, '0ef86e9e07f37e416f0323349580a5c5'),
+(12141, '2015-10-26 00:32:15', '2015-10-26 00:32:15', NULL, '913ecaa2c4b4a9a4c74a575c5308af75'),
+(12142, '2015-10-26 00:32:17', '2015-10-26 00:32:17', NULL, '6dfa55696967e937cb0237ac142631f5'),
+(12143, '2015-10-26 00:32:18', '2015-10-26 00:32:18', NULL, '3c36b422ced0eebb3726636de7453346'),
+(12144, '2015-10-26 01:42:29', '2015-10-26 01:42:29', NULL, '38c28fafe63f971b0e93a890f5e9929b'),
+(12145, '2015-10-26 01:42:32', '2015-10-26 01:42:32', NULL, 'ed009c06739c676a98b8c62449ec168a'),
+(12146, '2015-10-26 01:46:15', '2015-10-26 01:46:15', NULL, '2d530eef012cfa489737f4dde1ee8e59'),
+(12147, '2015-10-26 01:49:19', '2015-10-26 01:49:19', NULL, 'cee9df209ddf9fecf26ea3b929d9b132'),
+(12148, '2015-10-26 02:12:02', '2015-10-26 02:12:02', NULL, '9a633af10f4d05153bc6278dab355f91'),
+(12149, '2015-10-26 03:08:51', '2015-10-26 03:08:51', NULL, 'a7d76494ab8f930bd89a565e3a42e0d8'),
+(12150, '2015-10-26 03:08:55', '2015-10-26 03:08:55', NULL, '41d4ae48b9db100dec9d3865b1747916'),
+(12151, '2015-10-26 03:08:58', '2015-10-26 03:08:58', NULL, '09299dd670f36f145e87ca82fcb54bb7'),
+(12152, '2015-10-26 03:08:59', '2015-10-26 03:08:59', NULL, '3eb23a843a78466777c3407296fc0f81'),
+(12153, '2015-10-26 03:09:00', '2015-10-26 03:09:00', NULL, '19eed7c5652594b30d754290cd33b22d'),
+(12154, '2015-10-26 03:09:01', '2015-10-26 03:09:01', NULL, '28fb36fe57dc58ddc1b0492d460c45a5'),
+(12155, '2015-10-26 03:09:02', '2015-10-26 03:09:02', NULL, 'b1e0becf7cb256d93b3a78009e8f5880'),
+(12156, '2015-10-26 03:09:03', '2015-10-26 03:09:03', NULL, '6468c3f415a17ca0d803d55dba101f2c'),
+(12157, '2015-10-26 03:09:04', '2015-10-26 03:09:04', NULL, 'bf51e6374deeb2f82e91b4446eb19434'),
+(12158, '2015-10-26 03:09:05', '2015-10-26 03:09:05', NULL, '552aba63438b7530517e80886d386853'),
+(12159, '2015-10-26 03:09:06', '2015-10-26 03:09:06', NULL, '9562b6479bd703668cfdc54b4df311b8'),
+(12160, '2015-10-26 03:09:07', '2015-10-26 03:09:07', NULL, 'ceda57bec86df8b8c19ef15804b39e5d'),
+(12161, '2015-10-26 03:09:08', '2015-10-26 03:09:08', NULL, '655265a44d468b85d56664c3110efb1d'),
+(12162, '2015-10-26 03:09:09', '2015-10-26 03:09:09', NULL, '27e6c3bc4464bef5f7710f158550ed31'),
+(12163, '2015-10-26 03:09:11', '2015-10-26 03:09:11', NULL, 'a649f7b0cd3a5f3795cf88a2fcc494bb'),
+(12164, '2015-10-26 03:09:12', '2015-10-26 03:09:12', NULL, '2e7dd03173a0e16f60434af644d484f8'),
+(12165, '2015-10-26 03:09:13', '2015-10-26 03:09:13', NULL, '2cfbec44ab96a14cd7fdbab77d0f8714'),
+(12166, '2015-10-26 03:09:14', '2015-10-26 03:09:14', NULL, 'eca56d5aa1694187b19c86d1bff794b6'),
+(12167, '2015-10-26 03:09:15', '2015-10-26 03:09:15', NULL, 'e22023ea3022a655ea9e6c31d7bc3845'),
+(12168, '2015-10-26 03:09:16', '2015-10-26 03:09:16', NULL, '57432604f100f9fbb6b988b7f067d46d'),
+(12169, '2015-10-26 03:09:17', '2015-10-26 03:09:17', NULL, '2be5eddc405fd6cb1408930381d01ee5'),
+(12170, '2015-10-26 03:09:18', '2015-10-26 03:09:18', NULL, '3f9c08c7746ad33fa425a00de869c36c'),
+(12171, '2015-10-26 03:09:19', '2015-10-26 03:09:19', NULL, 'e0139860f46cad6ad04900d88f818c13'),
+(12172, '2015-10-26 03:09:20', '2015-10-26 03:09:20', NULL, 'eae0651280bb51f75380dfcb46acbfb5'),
+(12173, '2015-10-26 03:09:22', '2015-10-26 03:09:22', NULL, '9e306285afa2283d8ba6b13b8bbb176e'),
+(12174, '2015-10-26 03:09:23', '2015-10-26 03:09:23', NULL, '807c29daa071b86bcf26a0d2549fca64'),
+(12175, '2015-10-26 03:09:24', '2015-10-26 03:09:24', NULL, 'b2cd32e9b4e9c755eef2f6b0e28e5458'),
+(12176, '2015-10-26 03:09:25', '2015-10-26 03:09:25', NULL, '47e5cb79f349a5bb4e36c35436c6ee33'),
+(12177, '2015-10-26 03:09:26', '2015-10-26 03:09:26', NULL, '845d258d7d669a5a38c6bce60b99b473'),
+(12178, '2015-10-26 03:09:27', '2015-10-26 03:09:27', NULL, 'be8e8c15d162a7eb63a945f35419d93c'),
+(12179, '2015-10-26 03:09:28', '2015-10-26 03:09:28', NULL, '6cc491d8832ff270a9cbd47ae2c805f6'),
+(12180, '2015-10-26 03:09:29', '2015-10-26 03:09:29', NULL, '798d70dd64e2e74f708ea66e35630d9e'),
+(12181, '2015-10-26 03:22:18', '2015-10-26 03:22:18', NULL, 'bad8e3ed7b3b69d75ec055f38d0ec4ed'),
+(12182, '2015-10-26 03:22:52', '2015-10-26 03:22:52', NULL, '41923fd3efbe01d645f66b31955a8aeb'),
+(12183, '2015-10-26 03:23:03', '2015-10-26 03:23:03', NULL, 'fd535246eb64f133c19059bb2967f0b3'),
+(12184, '2015-10-26 03:23:11', '2015-10-26 03:23:11', NULL, '4a7e19aeac626c965459336fdd43a00f'),
+(12185, '2015-10-26 03:23:32', '2015-10-26 03:23:32', NULL, 'dad05b1206f70adb8b8d9a42d04fef48'),
+(12186, '2015-10-26 03:23:55', '2015-10-26 03:23:55', NULL, 'dc7a31a0eaca865a2f774a771b9d3f90'),
+(12187, '2015-10-26 03:24:44', '2015-10-26 03:24:44', NULL, '33c24282f4929e77a9f9a9c5523c711e'),
+(12188, '2015-10-26 03:38:06', '2015-10-26 03:38:06', NULL, '7e1635dac20859a3def6b8a1978d0d21'),
+(12189, '2015-10-26 03:58:50', '2015-10-26 03:58:50', NULL, '1a550bf3f2b764fdc2df5c3d0ddde592'),
+(12190, '2015-10-26 04:22:47', '2015-10-26 04:22:47', NULL, 'fa0b0653bcfb111f5e0fe89af03d1e13'),
+(12191, '2015-10-26 04:22:49', '2015-10-26 04:22:49', NULL, '6eeeffa9c34fcc98ecebdce4b9f12d3b'),
+(12192, '2015-10-26 04:22:51', '2015-10-26 04:22:51', NULL, '056ec005d4f88d9aff2a6d0721017be6'),
+(12193, '2015-10-26 04:22:54', '2015-10-26 04:22:54', NULL, 'b137f1a3c79b4af7ce1020354858c16f'),
+(12194, '2015-10-26 04:22:56', '2015-10-26 04:22:56', NULL, '72a94449c4aa42e226d7c40c9c6989d1'),
+(12195, '2015-10-26 04:22:58', '2015-10-26 04:22:58', NULL, '5e7a6b86bab7471014c204abd986e7ba'),
+(12196, '2015-10-26 06:08:07', '2015-10-26 06:08:07', NULL, 'cc594cd30075a1ec132f906b284f807d'),
+(12197, '2015-10-26 07:30:52', '2015-10-26 07:30:52', NULL, '3a0dfe7eac4d1f1ded9148104c8a9fc3'),
+(12198, '2015-10-26 09:17:09', '2015-10-26 09:17:09', NULL, '04f19791cfe3636db3fa534ee3b07625'),
+(12199, '2015-10-26 09:18:47', '2015-10-26 09:18:47', NULL, '7a17a8f8675c02499c3fe1301a81aa10');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(12200, '2015-10-26 09:23:55', '2015-10-26 09:23:55', NULL, 'afa5c0b438077278ae1aa7f1724cafb0'),
+(12201, '2015-10-26 09:35:08', '2015-10-26 09:35:08', NULL, 'bd5e023783c020e9789bdd5ebfff2e20'),
+(12202, '2015-10-26 09:35:08', '2015-10-26 09:35:08', NULL, '100b65ebbbc35d0d395c0aa736bc5a93'),
+(12203, '2015-10-26 09:35:12', '2015-10-26 09:35:12', NULL, '288fff169375f5cccb40c2d7f83ec63f'),
+(12204, '2015-10-26 09:36:15', '2015-10-26 09:36:15', NULL, '5346ddf3095d815d8e1b6f889fbd2506'),
+(12205, '2015-10-26 09:51:56', '2015-10-26 09:51:56', NULL, 'd30a91f14ab531385c0a402e4b249a7f'),
+(12206, '2015-10-26 11:41:30', '2015-10-26 11:41:30', NULL, 'bb53c0d2769805fc6ea7c1dce207d737'),
+(12207, '2015-10-26 11:41:33', '2015-10-26 11:41:33', NULL, '6390329cb8ade558dbfb27e59e86a847'),
+(12208, '2015-10-26 12:01:39', '2015-10-26 12:01:39', NULL, '8f153e667cdf86646b0cdd9af0c1b8dc'),
+(12209, '2015-10-26 12:01:42', '2015-10-26 12:01:42', NULL, '9bf4440a3503cd11ed1df1cc47ed942a'),
+(12210, '2015-10-26 12:01:44', '2015-10-26 12:01:44', NULL, 'e8ea909e67fdbf640db4efc4784d18b8'),
+(12211, '2015-10-26 12:01:46', '2015-10-26 12:01:46', NULL, '30643be2d9763e871a050edb6e23a8b5'),
+(12212, '2015-10-26 12:01:47', '2015-10-26 12:01:47', NULL, '75027672462be9ef46e6855663572de9'),
+(12213, '2015-10-26 12:01:49', '2015-10-26 12:01:49', NULL, 'ec1c2c70a14c5a07f7a7f9ebe5ac01e9'),
+(12214, '2015-10-26 12:01:50', '2015-10-26 12:01:50', NULL, '9b35df91db46798759a1f57858d93ae1'),
+(12215, '2015-10-26 12:01:52', '2015-10-26 12:01:52', NULL, 'b3edaa6534ebb6333fd54fa46a3fbe64'),
+(12216, '2015-10-26 12:01:54', '2015-10-26 12:01:54', NULL, 'e458716dcace247c653ffce22bd0be37'),
+(12217, '2015-10-26 12:01:56', '2015-10-26 12:01:56', NULL, 'e6592dd135cd335dea685503726b0846'),
+(12218, '2015-10-26 12:01:58', '2015-10-26 12:01:58', NULL, 'c9ce547b72c3e5f036de1da6047cfb1f'),
+(12219, '2015-10-26 12:01:59', '2015-10-26 12:01:59', NULL, '6c8abc352ca75ceb3c743b589d25d3f1'),
+(12220, '2015-10-26 12:02:01', '2015-10-26 12:02:01', NULL, 'fabee8e1e0c43b70e024daf380a962cf'),
+(12221, '2015-10-26 12:02:03', '2015-10-26 12:02:03', NULL, 'f07da73469f1396f008c91ebb6bce8ce'),
+(12222, '2015-10-26 12:02:05', '2015-10-26 12:02:05', NULL, 'f5ccf2980f11aa4f5ca287ea7829729f'),
+(12223, '2015-10-26 12:02:07', '2015-10-26 12:02:07', NULL, 'b84cb2ad6d701dfa3fdea6920c65612a'),
+(12224, '2015-10-26 12:35:20', '2015-10-26 12:35:20', NULL, '340deb3c6f840ba86657bf5ec2f7a441'),
+(12225, '2015-10-26 12:35:22', '2015-10-26 12:35:22', NULL, '4096b629cd8c31bdde6c5975ebcb8731'),
+(12226, '2015-10-26 12:35:23', '2015-10-26 12:35:23', NULL, 'fc02dc2e62fc2c3bb2409da7fdfebc64'),
+(12227, '2015-10-26 12:35:25', '2015-10-26 12:35:25', NULL, '7bb5fffa7723207b82262d94bc41aa63'),
+(12228, '2015-10-26 12:35:27', '2015-10-26 12:35:27', NULL, 'c344b76f31b8cae11b2450df3f53e8b1'),
+(12229, '2015-10-26 12:35:28', '2015-10-26 12:35:28', NULL, 'a8726689f84f7e05611e19fbc1de0e4d'),
+(12230, '2015-10-26 12:35:30', '2015-10-26 12:35:30', NULL, 'ebcf5cbe79b3086560aa842d96cee1c3'),
+(12231, '2015-10-26 12:36:04', '2015-10-26 12:36:04', NULL, '9e97f7998a705b3c200e35642533b194'),
+(12232, '2015-10-26 12:36:05', '2015-10-26 12:36:05', NULL, '57450a5c3b17fe63c77ff9920a6ec4f0'),
+(12233, '2015-10-26 12:36:07', '2015-10-26 12:36:07', NULL, 'a24cd7079f701c46ec38514e57317445'),
+(12234, '2015-10-26 12:36:09', '2015-10-26 12:36:09', NULL, '1ab219a0e281d20455e37c0e5a48a429'),
+(12235, '2015-10-26 12:36:12', '2015-10-26 12:36:12', NULL, '60d490a9e60bba98015ee42c2491ed9e'),
+(12236, '2015-10-26 12:36:13', '2015-10-26 12:36:13', NULL, '524fe3972545629a0a146a6975d074e1'),
+(12237, '2015-10-26 13:09:07', '2015-10-26 13:09:07', NULL, 'dd3fc802d44ef5bfa250ee5f8848a827'),
+(12238, '2015-10-26 13:09:42', '2015-10-26 13:09:42', NULL, '723d49eed28c1830b7236e7e1f77f0e6'),
+(12239, '2015-10-26 13:10:41', '2015-10-26 13:10:41', NULL, 'aaede55f4dadd834b79b6b0e51e5661a'),
+(12240, '2015-10-26 13:12:30', '2015-10-26 13:12:30', NULL, '6f1d084b3edd9b7d72026eba168e4861'),
+(12241, '2015-10-26 13:21:32', '2015-10-26 13:21:32', NULL, '0dc56cd1e6d337535ed6ba33da6650fa'),
+(12242, '2015-10-26 13:22:58', '2015-10-26 13:22:58', NULL, '8428b557b0ffbd7eb15e22da1b9bad14'),
+(12243, '2015-10-26 13:26:25', '2015-10-26 13:26:25', NULL, '82b52668e429dd8bcacc8747b5c4ccbf'),
+(12244, '2015-10-26 13:40:59', '2015-10-26 13:40:59', NULL, '7003170c3ab3737dfb0399b7b08fd6dd'),
+(12245, '2015-10-26 13:41:27', '2015-10-26 13:41:27', NULL, 'f2749acede14472dfe31fb00878e3379'),
+(12247, '2015-10-26 13:52:46', '2015-10-26 13:52:46', NULL, '9c26031e7aa2211630b13391e105f1d5'),
+(12248, '2015-10-26 13:55:25', '2015-10-26 13:55:25', NULL, 'd183abe63688e0803a957ed8c73c9993'),
+(12249, '2015-10-26 13:56:09', '2015-10-26 13:56:09', NULL, '71d50dd0ab403c8265070fb18b774780'),
+(12250, '2015-10-26 13:59:01', '2015-10-26 13:59:01', NULL, 'c898a536a24d83a18190c273faa0cdd2'),
+(12251, '2015-10-26 14:04:29', '2015-10-26 14:04:29', NULL, '1ae0782fe53ca386cc35597cf86b6b7d'),
+(12252, '2015-10-26 14:17:17', '2015-10-26 14:17:17', NULL, 'ce2194bb496c6f353d420b68eaafbc65'),
+(12253, '2015-10-26 14:17:43', '2015-10-26 14:17:43', NULL, '9050206d6c577fd2a312ae46f6ac9d70'),
+(12254, '2015-10-26 14:19:21', '2015-10-26 14:19:21', NULL, '64cbeb23de7ca81b9df884accb997971'),
+(12255, '2015-10-26 14:22:58', '2015-10-26 14:22:58', NULL, '04042a7bd5887fc4ebdbb91506b7a188'),
+(12256, '2015-10-26 14:23:08', '2015-10-26 14:23:08', NULL, 'ce40ee6d9955adbc317962bbbd88572e'),
+(12257, '2015-10-26 14:25:36', '2015-10-26 14:25:36', NULL, 'b8def5c5c514740f130221d19439e35f'),
+(12258, '2015-10-26 14:28:40', '2015-10-26 14:28:40', NULL, '103534cbdb969889e8a01e13e6bd1cad'),
+(12259, '2015-10-26 14:29:04', '2015-10-26 14:29:04', NULL, 'b2b02019ef388bdb4d4c31a0a2096cfd'),
+(12260, '2015-10-26 14:30:09', '2015-10-26 14:30:09', NULL, '60dd9ec5308f561b0f4045d477ed0f81'),
+(12261, '2015-10-26 14:37:35', '2015-10-26 14:37:35', NULL, '64cf548b01b3f75acfabc2e05c3d0a7b'),
+(12262, '2015-10-26 14:40:02', '2015-10-26 14:40:02', NULL, 'be9285388d8c53f4cd16d8cddd1bc33c'),
+(12263, '2015-10-26 14:41:08', '2015-10-26 14:41:08', NULL, '5f6b91289e711a66be9c1899524fb3f4'),
+(12264, '2015-10-26 14:44:03', '2015-10-26 14:44:03', NULL, '87977627c020414b55f4b68d07376876'),
+(12265, '2015-10-26 14:51:40', '2015-10-26 14:51:40', NULL, 'c07b6f19665c577707e591eec25c8364'),
+(12266, '2015-10-26 15:01:58', '2015-10-26 15:01:58', NULL, 'ccf3aeef8de2a64d1d0969ed76eb4967'),
+(12267, '2015-10-26 15:03:27', '2015-10-26 15:03:27', NULL, 'f9ebd3f2e702a91cb6e8ccfe5b33ed47'),
+(12268, '2015-10-26 15:05:08', '2015-10-26 15:05:08', NULL, '74770241df03308dd0592b3debf44783'),
+(12269, '2015-10-26 15:05:35', '2015-10-26 15:05:35', NULL, '5f8e23956378eec37858333cbcd69d71'),
+(12270, '2015-10-26 15:09:56', '2015-10-26 15:09:56', NULL, '6932dc8d5117472740afe99e1e2776ed'),
+(12271, '2015-10-26 15:13:00', '2015-10-26 15:13:00', NULL, '202c7489c57a3480ee8fcd5beedfb1d0'),
+(12272, '2015-10-26 15:13:42', '2015-10-26 15:13:42', NULL, '4413f77622aa74a9f88f8586b5e2d1d4'),
+(12273, '2015-10-26 15:18:12', '2015-10-26 15:18:12', NULL, '4ca99d009740aa38a2ffc5721e59d898'),
+(12274, '2015-10-26 15:19:29', '2015-10-26 15:19:29', NULL, 'ee4906da95a67418ea8a5a90ea50e0bb'),
+(12275, '2015-10-26 15:20:22', '2015-10-26 15:20:22', NULL, '94e5a839af77773393db370c714771cf'),
+(12276, '2015-10-26 15:22:42', '2015-10-26 15:22:42', NULL, '06b09012a5dcb21898da49123387ee62'),
+(12277, '2015-10-26 15:23:45', '2015-10-26 15:23:45', NULL, 'df554dcae18a9551b7e37a8755230b42'),
+(12278, '2015-10-26 15:25:29', '2015-10-26 15:25:29', NULL, '4d07264a42949edc3485b6aeb5d0c643'),
+(12279, '2015-10-26 15:28:06', '2015-10-26 15:28:06', NULL, '321d212d59505a2a8fc67baa06992a0a'),
+(12280, '2015-10-26 15:32:57', '2015-10-26 15:32:57', NULL, '585685ac5a71a6713dcb965e85928cff'),
+(12281, '2015-10-26 15:43:15', '2015-10-26 15:43:15', NULL, 'b9b7da32109a00ab611a62ccb5a5f4a8'),
+(12282, '2015-10-26 15:45:48', '2015-10-26 15:45:48', NULL, '3bc3c7b52cb14967a0621218c9e898a5'),
+(12283, '2015-10-26 15:46:37', '2015-10-26 15:46:37', NULL, '8f800e3daffc2df9596e0705e7cd10a4'),
+(12284, '2015-10-26 15:51:22', '2015-10-26 15:51:22', NULL, '5076022debb63411ba27c09a8ff3b605'),
+(12285, '2015-10-26 15:52:39', '2015-10-26 15:52:39', NULL, '2c84a2ab031c04391c7c8d2deeb764a9'),
+(12286, '2015-10-26 16:00:41', '2015-10-26 16:00:41', NULL, 'c56190ff55926a50a013a9eb0303c11b'),
+(12287, '2015-10-26 16:01:20', '2015-10-26 16:01:20', NULL, 'e9d84b6a04ab9389b4b195a701fc316b'),
+(12288, '2015-10-26 16:01:25', '2015-10-26 16:01:25', NULL, 'f8865932dea2225d27de5ee46603951b'),
+(12289, '2015-10-26 16:02:47', '2015-10-26 16:02:47', NULL, 'c652a8744755526c00d78774d4f7ac90'),
+(12290, '2015-10-26 16:05:48', '2015-10-26 16:05:48', NULL, 'e3fb22d7f128cfe19017843ffee631fb'),
+(12291, '2015-10-26 16:06:35', '2015-10-26 16:06:35', NULL, 'd27c2c6b65a06adad309007f32aeba58'),
+(12292, '2015-10-26 16:07:04', '2015-10-26 16:07:04', NULL, '9870fc5caef4f8d7d00b9a019b8c8a68'),
+(12293, '2015-10-26 16:08:10', '2015-10-26 16:08:10', NULL, '03c980249cf39929c15ecd78686052d7'),
+(12294, '2015-10-26 16:09:01', '2015-10-26 16:09:01', NULL, 'fa3049e0002fa5f878654ab5bec36a4f'),
+(12295, '2015-10-26 16:09:35', '2015-10-26 16:09:35', NULL, '3033c0765a6e0794d892aa8514e18ca6'),
+(12296, '2015-10-26 16:20:09', '2015-10-26 16:20:09', NULL, 'b044f030f2a2d1e8e6c5d85ef80eac97'),
+(12297, '2015-10-26 16:20:12', '2015-10-26 16:20:12', NULL, '0a7bdbb43253837ba0e6e549fdd50ef8'),
+(12298, '2015-10-26 16:23:27', '2015-10-26 16:23:27', NULL, '92ee2fd518dce67ed06c57cba4814929'),
+(12299, '2015-10-26 16:25:20', '2015-10-26 16:25:20', NULL, 'b2c3188c1fb6f8ca280a5fc8d3bf2ea4'),
+(12300, '2015-10-26 16:30:59', '2015-10-26 16:30:59', NULL, '957e5c453280a23f700edc9d77153815'),
+(12301, '2015-10-26 16:31:00', '2015-10-26 16:31:00', NULL, '31fbaf78f0ac557f1dcf6f7ac06975da'),
+(12302, '2015-10-26 16:34:43', '2015-10-26 16:34:43', NULL, '1c6d598b8b9a878d92231fe7817dbe90'),
+(12303, '2015-10-26 16:36:25', '2015-10-26 16:36:25', NULL, '85c46fe4928e293470f9b3bcd5d8b711'),
+(12304, '2015-10-26 16:36:51', '2015-10-26 16:36:51', NULL, 'dc7f3e52bd05a59e161aa8613df86bc7'),
+(12305, '2015-10-26 16:38:50', '2015-10-26 16:38:50', NULL, '2868f95233e79ed853fca16ff0f0385c'),
+(12306, '2015-10-26 16:42:57', '2015-10-26 16:42:57', NULL, '341055aeefda7cccc395b16e725cd601'),
+(12307, '2015-10-26 16:53:46', '2015-10-26 16:53:46', NULL, '60b6704647f1b32c7effc00bd6e615c2'),
+(12308, '2015-10-26 16:54:20', '2015-10-26 16:54:20', NULL, '7842a65063e612c08a81c1f5cc3eccd4'),
+(12309, '2015-10-26 17:00:40', '2015-10-26 17:00:40', NULL, '7fbcaa1d1ecc16a2e1dc12f255089409'),
+(12310, '2015-10-26 17:00:47', '2015-10-26 17:00:47', NULL, '536963d78debae5916be5cbf505295db'),
+(12311, '2015-10-26 17:11:36', '2015-10-26 17:11:36', NULL, '831eec7594d78c3669ce0de4a298d618'),
+(12312, '2015-10-26 17:13:08', '2015-10-26 17:13:08', NULL, 'c6924ec799bcfd7a97eb6a4e9ff20e93'),
+(12313, '2015-10-26 17:19:42', '2015-10-26 17:19:42', NULL, '29232814d07ac83df88adb4b148b01eb'),
+(12314, '2015-10-26 17:20:06', '2015-10-26 17:20:06', NULL, '1f794585b1f0b366e768c8b53cd2ab5f'),
+(12315, '2015-10-26 17:26:12', '2015-10-26 17:26:12', NULL, '90b03b151ffda2707f0653ccc6a6cacc'),
+(12316, '2015-10-26 17:27:53', '2015-10-26 17:27:53', NULL, 'a52b18d6b7600d7d9696ced28c4bd947'),
+(12317, '2015-10-26 17:29:05', '2015-10-26 17:29:05', NULL, '06841c57495916e0731b08e39216ea16'),
+(12318, '2015-10-26 17:36:09', '2015-10-26 17:36:09', NULL, '18170c2253375222938808faa4ed0a0c'),
+(12319, '2015-10-26 17:38:33', '2015-10-26 17:38:33', NULL, 'dddd846e6ce7471fb878aa7f2220feee'),
+(12320, '2015-10-26 17:40:08', '2015-10-26 17:40:08', NULL, '1cc10adc68408367b51b706f9d52c068'),
+(12321, '2015-10-26 17:56:55', '2015-10-26 17:56:55', NULL, '0623f26f73bd48760467e24e6f03b3e6'),
+(12322, '2015-10-26 18:06:50', '2015-10-26 18:06:50', NULL, 'eafdf33e3a42b676e531822ac07ca3dc'),
+(12323, '2015-10-26 18:08:47', '2015-10-26 18:08:47', NULL, '28296956bbaf6e96ed0181764a306a52'),
+(12324, '2015-10-26 18:13:08', '2015-10-26 18:13:08', NULL, '96d0395b28b4f856093b9b41a6cedb4b'),
+(12325, '2015-10-26 18:13:16', '2015-10-26 18:13:16', NULL, '8b36e0c7d8df339cc4f7a257fd5bd245'),
+(12326, '2015-10-26 18:19:32', '2015-10-26 18:19:32', NULL, 'e141671f3732bf0bd5fbe4eca07f1322'),
+(12327, '2015-10-26 18:25:19', '2015-10-26 18:25:19', NULL, 'b4f940e29af7e1544211eda9cc2cd42b'),
+(12328, '2015-10-26 18:27:22', '2015-10-26 18:27:22', NULL, 'f4b5636424e3c4728ac20fdb209e44c6'),
+(12329, '2015-10-26 18:27:32', '2015-10-26 18:27:32', NULL, '4a6eb5c89ef873bf80841050b6206efd'),
+(12330, '2015-10-26 18:30:28', '2015-10-26 18:30:28', NULL, '6d9a4a5315825ada37434adc40fcc493'),
+(12331, '2015-10-26 18:32:34', '2015-10-26 18:32:34', NULL, '3ea170986fc601533ed21283d9eebc20'),
+(12332, '2015-10-26 18:35:05', '2015-10-26 18:35:05', NULL, 'b73eed49ad38f78b0aa7fcd0fb5932da'),
+(12333, '2015-10-26 18:35:07', '2015-10-26 18:35:07', NULL, 'dab30c6cbeb7f9364369438922fd9968'),
+(12334, '2015-10-26 18:35:09', '2015-10-26 18:35:09', NULL, '40e95db915a0a27b8862a557a17669db'),
+(12335, '2015-10-26 18:44:35', '2015-10-26 18:44:35', NULL, '9c1200d3c92205182abe205763b224c7'),
+(12336, '2015-10-26 18:54:06', '2015-10-26 18:54:06', NULL, 'ce1d2dd6610ce1ad4056f09815dbe04c'),
+(12337, '2015-10-26 18:58:54', '2015-10-26 18:58:54', NULL, '50311f2ac938ca45a2a3edf2b04f4761'),
+(12338, '2015-10-26 19:00:20', '2015-10-26 19:00:20', NULL, '4ee098c3509cf5a51ef6b66a6aaf58a1'),
+(12339, '2015-10-26 19:18:12', '2015-10-26 19:18:12', NULL, 'c456e29518e7a21d254377ac90f4041c'),
+(12340, '2015-10-26 19:25:45', '2015-10-26 19:25:45', NULL, '671df14b6797ce581833a2cf6084f380'),
+(12341, '2015-10-26 19:32:09', '2015-10-26 19:32:09', NULL, '806334e8790213bd541b4ddd54232e0e'),
+(12342, '2015-10-26 19:38:09', '2015-10-26 19:38:09', NULL, 'ffa4865632dfee7ae0536fdf866a273a'),
+(12343, '2015-10-26 19:40:24', '2015-10-26 19:40:24', NULL, 'fd6e4840c3179ae23de4e5bc33d4d3c9'),
+(12344, '2015-10-26 19:40:44', '2015-10-26 19:40:44', NULL, 'eee1d11c763b8765be568d8f2b1afaed'),
+(12345, '2015-10-26 19:50:52', '2015-10-26 19:50:52', NULL, 'bcd6e91538054f1fa002a7e776a7ab31'),
+(12346, '2015-10-26 19:57:31', '2015-10-26 19:57:31', NULL, '8e165b45b555f3b99fa7cf3d56146ace'),
+(12347, '2015-10-26 20:02:15', '2015-10-26 20:02:15', NULL, 'f68f5ebd21affb40b457fbd3d3bc18f1'),
+(12348, '2015-10-26 20:11:01', '2015-10-26 20:11:01', NULL, '7bcf6e53eebcaa0c4aed4a95d23d749c'),
+(12349, '2015-10-26 20:11:37', '2015-10-26 20:11:37', NULL, '4c26387286ad06508854dc7c8f402feb'),
+(12350, '2015-10-26 20:17:54', '2015-10-26 20:17:54', NULL, 'dd94156e3fd62919b0a647ba5a05cc48'),
+(12351, '2015-10-26 20:24:31', '2015-10-26 20:24:31', NULL, 'f7e70e95081ea07aa93c0d460637de9d'),
+(12352, '2015-10-26 20:25:24', '2015-10-26 20:25:24', NULL, '00fa636a253cecf2ea3141c7d0d86f1d'),
+(12353, '2015-10-26 20:25:27', '2015-10-26 20:25:27', NULL, '9442a0cfdf7c616a6a742c9f1c633d5b'),
+(12354, '2015-10-26 20:25:44', '2015-10-26 20:25:44', NULL, '2df0a787b27bf45fbddc913bf3373b67'),
+(12355, '2015-10-26 20:32:54', '2015-10-26 20:32:54', NULL, 'f161b1710b5d4e8e387afc8777a97f48'),
+(12356, '2015-10-26 20:34:16', '2015-10-26 20:34:16', NULL, '18167d92f85c30b6ebfa512da9434237'),
+(12357, '2015-10-26 20:40:34', '2015-10-26 20:40:34', NULL, '42da050e2e45e6f6784f239dede8688a'),
+(12358, '2015-10-26 20:48:22', '2015-10-26 20:48:22', NULL, '5f6cecbb0b21d4923dafe4db8f55434c'),
+(12359, '2015-10-26 20:55:52', '2015-10-26 20:55:52', NULL, '9ab34cd17935416673d53cfa321655ad'),
+(12360, '2015-10-26 21:00:57', '2015-10-26 21:00:57', NULL, 'f689dc8e8c9f8b73f4c45308101a1e28'),
+(12361, '2015-10-26 21:02:59', '2015-10-26 21:02:59', NULL, '1f3f9da5672becacb5e5e7c9145da498'),
+(12362, '2015-10-26 21:03:28', '2015-10-26 21:03:28', NULL, 'a622d3f16272c09d8302374bddad9635'),
+(12363, '2015-10-26 21:04:02', '2015-10-26 21:04:02', NULL, '6e66873906953934f1d1f60824210e90'),
+(12364, '2015-10-26 21:09:36', '2015-10-26 21:09:36', NULL, 'a5c3c3150ee2a2664690945050e2c764'),
+(12365, '2015-10-26 21:10:00', '2015-10-26 21:10:00', NULL, '98887400ca24cef683c6111724d16e8e'),
+(12366, '2015-10-26 21:16:02', '2015-10-26 21:16:02', NULL, '6efeed45921ba06cfc853a6192c34047'),
+(12367, '2015-10-26 21:23:50', '2015-10-26 21:23:50', NULL, '6c895005a68ab85d54771529e880b5ec'),
+(12368, '2015-10-26 21:24:47', '2015-10-26 21:24:47', NULL, 'd24904d0df7805bacbae16faa68606fe'),
+(12369, '2015-10-26 21:25:28', '2015-10-26 21:25:28', NULL, '6b5d8ada9999b2ef07b52651698d4cec'),
+(12370, '2015-10-26 21:26:55', '2015-10-26 21:26:55', NULL, 'f7594c759c5033efedcf50ae9386d348'),
+(12371, '2015-10-26 21:27:37', '2015-10-26 21:27:37', NULL, 'e51291e4cae60bb0788f8af5e14acb7d'),
+(12372, '2015-10-26 21:27:49', '2015-10-26 21:27:49', NULL, 'ed65328ebeeaf19d052cfba6b1ad7f0f'),
+(12373, '2015-10-26 21:31:02', '2015-10-26 21:31:02', NULL, 'b9cef74d92530aa197219c0145012d1c'),
+(12374, '2015-10-26 21:33:26', '2015-10-26 21:33:26', NULL, 'aa6213071d91f4975546d259e3ad0f41'),
+(12375, '2015-10-26 21:36:48', '2015-10-26 21:36:48', NULL, '25b17c5932d19f82aef3f86021198d65'),
+(12376, '2015-10-26 21:36:51', '2015-10-26 21:36:51', NULL, '810b849450426b6246f220dfdff51854'),
+(12377, '2015-10-26 21:40:07', '2015-10-26 21:40:07', NULL, 'f69fe5c61c93882118f98ef0942ddfa8'),
+(12378, '2015-10-26 21:43:22', '2015-10-26 21:43:22', NULL, 'a447eb7e3fce6e01698ad7be8638f737'),
+(12379, '2015-10-26 21:46:19', '2015-10-26 21:46:19', NULL, '650049841c4d5ff63db818aa14c6516a'),
+(12380, '2015-10-26 21:51:30', '2015-10-26 21:51:30', NULL, '4bd97df90e406ea87999dc1ee17c35c8'),
+(12381, '2015-10-26 22:00:02', '2015-10-26 22:00:02', NULL, 'dbb5031f9b05b3345d4e946ec35fb6b3'),
+(12382, '2015-10-26 22:00:21', '2015-10-26 22:00:21', NULL, '87de149b4cf60ce49dd0a54bbbb15c1d'),
+(12383, '2015-10-26 22:02:02', '2015-10-26 22:02:02', NULL, 'ba1b308412960a6ac4b7ca757b112c2b'),
+(12384, '2015-10-26 22:22:28', '2015-10-26 22:22:28', NULL, 'fdc16de00463eac08bcf9ac14012659c'),
+(12385, '2015-10-26 22:23:30', '2015-10-26 22:23:30', NULL, 'bf615cdb7c3bedf81ba0b3566b14abd6'),
+(12386, '2015-10-26 22:29:18', '2015-10-26 22:29:18', NULL, 'a8038319220c5c73108dcefb12c3193b'),
+(12387, '2015-10-26 22:29:57', '2015-10-26 22:29:57', NULL, 'a5af85f8799a733786f3dca71f587377'),
+(12388, '2015-10-26 22:34:03', '2015-10-26 22:34:03', NULL, 'f0e7c6a5e704cfa02a86c4f050fac771'),
+(12389, '2015-10-26 22:36:19', '2015-10-26 22:36:19', NULL, 'ea27fa56dba7bac132efb129194da1bd'),
+(12390, '2015-10-26 22:45:17', '2015-10-26 22:45:17', NULL, '95ff6633abd4e29987fdef111a683293'),
+(12391, '2015-10-26 22:54:51', '2015-10-26 22:54:51', NULL, 'f00a9c4c2f4ba3a0502280ffbfc00254'),
+(12392, '2015-10-26 23:01:40', '2015-10-26 23:01:40', NULL, 'b71b447973ccf61a33270168db599cd1'),
+(12393, '2015-10-26 23:04:02', '2015-10-26 23:04:02', NULL, '64118ffcb1c00641a5d28d6df1edc190'),
+(12394, '2015-10-26 23:06:10', '2015-10-26 23:06:10', NULL, 'fc6ff45b074d2c9f5e3da2e537167e17'),
+(12395, '2015-10-26 23:09:24', '2015-10-26 23:09:24', NULL, 'a6a5fc010cf85e82ac09863257fb192a'),
+(12396, '2015-10-26 23:22:50', '2015-10-26 23:22:50', NULL, '726e1222d874237fe5aa3010386d5d10'),
+(12397, '2015-10-26 23:27:17', '2015-10-26 23:27:17', NULL, '820adfb480915a93a78edbbbabbd97f3'),
+(12398, '2015-10-26 23:30:07', '2015-10-26 23:30:07', NULL, '20262e1376e56b5d561894aae4944219'),
+(12399, '2015-10-26 23:32:44', '2015-10-26 23:32:44', NULL, '727539d7868654422ac53b3075bff67b'),
+(12400, '2015-10-26 23:38:01', '2015-10-26 23:38:01', NULL, 'eb64cbb10fa5a7c861d09c8aaf240215'),
+(12401, '2015-10-26 23:41:55', '2015-10-26 23:41:55', NULL, '69e2e9b03ffc33efb73b02d0e4d3a7f4'),
+(12402, '2015-10-26 23:47:01', '2015-10-26 23:47:01', NULL, '8951ebdb8496da096aaea399318449d9'),
+(12403, '2015-10-26 23:53:42', '2015-10-26 23:53:42', NULL, '8b8ebe47918a1d4a918c88406e295f0c'),
+(12404, '2015-10-26 23:59:17', '2015-10-26 23:59:17', NULL, '5553b554d68a74dfb38213cf7fa1c484'),
+(12405, '2015-10-27 00:00:08', '2015-10-27 00:00:08', NULL, '365714ea3ecf38d2c553ccdbe9ff2eda'),
+(12406, '2015-10-27 00:00:57', '2015-10-27 00:00:57', NULL, '76ba52ffa12c642c64052fbaef5d13f6'),
+(12407, '2015-10-27 00:00:57', '2015-10-27 00:00:57', NULL, 'b7ba4502bf6135da3ad633c04b811200'),
+(12408, '2015-10-27 00:07:39', '2015-10-27 00:07:39', NULL, '3bb871fc4504357b4956d3b5674a5c69'),
+(12409, '2015-10-27 00:10:00', '2015-10-27 00:10:00', NULL, '3743face8f676f939e1f3f7bbea4fce9'),
+(12410, '2015-10-27 00:11:07', '2015-10-27 00:11:07', NULL, '6f0240303920dc09a594ee49e6d30794'),
+(12411, '2015-10-27 00:12:45', '2015-10-27 00:12:45', NULL, 'fb1b23b13cc4885a886c8bfd0d6b407c'),
+(12412, '2015-10-27 00:16:45', '2015-10-27 00:16:45', NULL, 'f0c6e91c3e9a350086fa510d756c95cf'),
+(12413, '2015-10-27 00:22:42', '2015-10-27 00:22:42', NULL, 'b9130dd4c2f002e601da123965ad5e01'),
+(12414, '2015-10-27 00:22:57', '2015-10-27 00:22:57', NULL, '90db7a2f3474a6f07f8bb6e79586f6b6'),
+(12415, '2015-10-27 00:25:31', '2015-10-27 00:25:31', NULL, '5429b18b4e1b7828660583ec53ccf816'),
+(12416, '2015-10-27 00:36:14', '2015-10-27 00:36:14', NULL, '2d09964329b1175b33df9e80af036ea1'),
+(12417, '2015-10-27 00:40:34', '2015-10-27 00:40:34', NULL, 'e63b49571dfcfe413cb091663a463465'),
+(12418, '2015-10-27 00:54:09', '2015-10-27 00:54:09', NULL, 'b292890b2b4ed10312dd1aff11a95332'),
+(12419, '2015-10-27 01:47:39', '2015-10-27 01:47:39', NULL, 'a1c0d404b58a786905dbf8e27c6d3890'),
+(12420, '2015-10-27 01:47:53', '2015-10-27 01:47:53', NULL, 'b3ac2bb150be926187e22f57f086c0be'),
+(12421, '2015-10-27 02:42:28', '2015-10-27 02:42:28', NULL, '9f8a46b6506de305b700d4d4e2d4b8f1'),
+(12422, '2015-10-27 02:43:25', '2015-10-27 02:43:25', NULL, '2c11f75b8cb6d2ed00b797afb462eed5'),
+(12423, '2015-10-27 02:45:11', '2015-10-27 02:45:11', NULL, '166c494a7343015a72b98b08aaa1dfca'),
+(12424, '2015-10-27 03:01:52', '2015-10-27 03:01:52', NULL, 'f6853273cc596c2791a67bf6ef8ecdea'),
+(12425, '2015-10-27 03:05:30', '2015-10-27 03:05:30', NULL, 'a8a17ddbb1a210c83901fb048a5ceb20'),
+(12426, '2015-10-27 03:23:31', '2015-10-27 03:23:31', NULL, '9b6299bf0ec68e9be105f6e017157c48'),
+(12427, '2015-10-27 03:24:33', '2015-10-27 03:24:33', NULL, '4cfb14eea5f5e1af622f2be5635a6305'),
+(12428, '2015-10-27 03:27:56', '2015-10-27 03:27:56', NULL, '3ab0e0b6611f504b4c0e0814ac7eaa88'),
+(12429, '2015-10-27 03:32:02', '2015-10-27 03:32:02', NULL, '95e3fefb49ccacfcb030a9350cec5671'),
+(12430, '2015-10-27 03:36:49', '2015-10-27 03:36:49', NULL, 'ca973724305851c6e437ac54e98c3b94'),
+(12431, '2015-10-27 03:38:45', '2015-10-27 03:38:45', NULL, 'af630c95da0da7c34701105bb9021331'),
+(12432, '2015-10-27 03:40:36', '2015-10-27 03:40:36', NULL, 'd4c0380c39dc43eeed85285cbab7169e'),
+(12433, '2015-10-27 03:52:37', '2015-10-27 03:52:37', NULL, '95f98a361eaca8aa64021b54828e289d'),
+(12434, '2015-10-27 03:53:14', '2015-10-27 03:53:14', NULL, 'c5cc55b30fedd73db0c55d75cc56fa2d'),
+(12435, '2015-10-27 04:04:06', '2015-10-27 04:04:06', NULL, '969f59a9ad557604f62125aa998ac183'),
+(12436, '2015-10-27 04:07:32', '2015-10-27 04:07:32', NULL, 'd5c5984044a3862dc2728611b78537c2'),
+(12437, '2015-10-27 04:12:17', '2015-10-27 04:12:17', NULL, 'af7f46713cbd5e74459de61bcbb36d25'),
+(12438, '2015-10-27 04:18:04', '2015-10-27 04:18:04', NULL, '1dedce2dbef6ba722b72613a47403ff7'),
+(12439, '2015-10-27 04:18:05', '2015-10-27 04:18:05', NULL, '618e4288468f7dc83a472efdccbdc126'),
+(12440, '2015-10-27 04:18:24', '2015-10-27 04:18:24', NULL, '2130e1171048121b124776b154802d9f'),
+(12441, '2015-10-27 04:19:35', '2015-10-27 04:19:35', NULL, 'a937325d755391f8343ef4d17681a175'),
+(12442, '2015-10-27 04:19:36', '2015-10-27 04:19:36', NULL, '2f30f4eb00d8f7a0d7fb1f962ac8d844'),
+(12443, '2015-10-27 04:19:56', '2015-10-27 04:19:56', NULL, 'a790ec124695973934e1504181d3c48a'),
+(12444, '2015-10-27 04:23:34', '2015-10-27 04:23:34', NULL, 'ae909e7a0d17f32ba328f5b1fcf2353c'),
+(12445, '2015-10-27 04:24:19', '2015-10-27 04:24:19', NULL, '7fbc12748a03b3aed514ce7bd72ab781'),
+(12446, '2015-10-27 04:24:20', '2015-10-27 04:24:20', NULL, '0f4858a308a2919aadbd1b449cb29deb'),
+(12447, '2015-10-27 04:24:20', '2015-10-27 04:24:20', NULL, '17d2f238b44a2434e0c5c3f16d6b033b'),
+(12448, '2015-10-27 04:24:25', '2015-10-27 04:24:25', NULL, '13c69450d4c19e36d044e0b84ea990e3'),
+(12449, '2015-10-27 04:26:21', '2015-10-27 04:26:21', NULL, '0d450e41ed170a3a788b3942d433cd2b'),
+(12450, '2015-10-27 04:43:17', '2015-10-27 04:43:17', NULL, '4ba9c42ffa683f1c9059c8a56d45052b'),
+(12451, '2015-10-27 04:47:32', '2015-10-27 04:47:32', NULL, '809b377bea098225b6bb80bd23799b25'),
+(12452, '2015-10-27 04:57:22', '2015-10-27 04:57:22', NULL, '62e8b311b22dcfeef72ecd4ffbc6d842'),
+(12453, '2015-10-27 05:13:59', '2015-10-27 05:13:59', NULL, 'd7277ed71ede94a9cd766058c8b674c5'),
+(12454, '2015-10-27 05:18:00', '2015-10-27 05:18:00', NULL, 'ee4c3728314cc6e2ec1d87ce70e77af7'),
+(12455, '2015-10-27 05:18:03', '2015-10-27 05:18:03', NULL, 'e4ddc14e3b061206a68689196592cf19'),
+(12456, '2015-10-27 05:19:31', '2015-10-27 05:19:31', NULL, 'a8282940510728d985eaa92c3ba4e1a0'),
+(12457, '2015-10-27 05:37:22', '2015-10-27 05:37:22', NULL, 'cbff846fdf20a5f03471bcd0ed781a83'),
+(12458, '2015-10-27 05:45:55', '2015-10-27 05:45:55', NULL, 'e7589fcee76643be8cead6d78f2bcc80'),
+(12459, '2015-10-27 05:52:58', '2015-10-27 05:52:58', NULL, 'd3de3b8f755858b88e23999c8c48d451'),
+(12460, '2015-10-27 05:54:16', '2015-10-27 05:54:16', NULL, '4b5f50480469e82b5c995cdb029511bf'),
+(12461, '2015-10-27 05:55:27', '2015-10-27 05:55:27', NULL, '2e3981a33053772ffba366e19ae5c9e7'),
+(12462, '2015-10-27 06:19:30', '2015-10-27 06:19:30', NULL, 'ca83234388d72a2ab7f757ec91754a1f'),
+(12463, '2015-10-27 06:19:30', '2015-10-27 06:19:30', NULL, '5c4f0feab71a963ab774655636dcadfc'),
+(12464, '2015-10-27 06:36:01', '2015-10-27 06:36:01', NULL, 'd29053e2045529e61e63e8f6aa8a3bf7'),
+(12465, '2015-10-27 06:50:29', '2015-10-27 06:50:29', NULL, '0e06b833f801aa38f062fae5eee06ad3'),
+(12466, '2015-10-27 06:51:16', '2015-10-27 06:51:16', NULL, '3c6f080c4efa6e4e2f26ba208cbb0b92'),
+(12467, '2015-10-27 07:00:32', '2015-10-27 07:00:32', NULL, 'b16c722c1bd21bd5795f18c61823c6a5'),
+(12468, '2015-10-27 07:07:37', '2015-10-27 07:07:37', NULL, '61c12096717a84e9b256a896d7247385'),
+(12469, '2015-10-27 07:17:35', '2015-10-27 07:17:35', NULL, 'e16e724bd8ce791ce15add95a6dac701'),
+(12470, '2015-10-27 07:21:03', '2015-10-27 07:21:03', NULL, '84f94812dc7f8e2622d84a845a04a85a'),
+(12471, '2015-10-27 07:30:11', '2015-10-27 07:30:11', NULL, '34bf0bd4aed78729a220d1feb632b0d5'),
+(12472, '2015-10-27 07:30:33', '2015-10-27 07:30:33', NULL, '84acf65029ec2985e1dcede8dacb2b00'),
+(12473, '2015-10-27 07:32:05', '2015-10-27 07:32:05', NULL, 'e0dbcb4bbf56abdb5a02fe270314ead9'),
+(12474, '2015-10-27 07:39:54', '2015-10-27 07:39:54', NULL, '6ab4ab8d5e19222981936caab9d8b96f'),
+(12475, '2015-10-27 07:51:19', '2015-10-27 07:51:19', NULL, '3fcfc65355907f0dae8f5392aa08ea53'),
+(12476, '2015-10-27 07:55:46', '2015-10-27 07:55:46', NULL, 'bf78adab82dfd7b96f58a252d541129b'),
+(12477, '2015-10-27 07:57:18', '2015-10-27 07:57:18', NULL, 'bce94a4e320f4c9c61d61969e33ef21e'),
+(12478, '2015-10-27 08:02:50', '2015-10-27 08:02:50', NULL, '27f2981bd06de5b9b59a1966f5f66ae6'),
+(12479, '2015-10-27 08:19:28', '2015-10-27 08:19:28', NULL, '656be8fb6ca69b9ee68114471c9fbb73'),
+(12480, '2015-10-27 08:24:23', '2015-10-27 08:24:23', NULL, 'c8f147ab97ca59d9b26c6d86f768d732'),
+(12481, '2015-10-27 08:36:57', '2015-10-27 08:36:57', NULL, '37465afa874151d0cbe0af5487cfa3f6'),
+(12482, '2015-10-27 08:42:16', '2015-10-27 08:42:16', NULL, 'bfd89f8172d827a6da559671d9ba47af'),
+(12483, '2015-10-27 09:01:19', '2015-10-27 09:01:19', NULL, 'd3cbcf5c98a66264c97e25e4d4d75763'),
+(12484, '2015-10-27 09:02:27', '2015-10-27 09:02:27', NULL, 'ae10825df5496d0cdd533f122e1b16d1'),
+(12485, '2015-10-27 09:16:08', '2015-10-27 09:16:08', NULL, 'ce4b5bad9fb0714208de375aefa7577a'),
+(12486, '2015-10-27 09:23:21', '2015-10-27 09:23:21', NULL, '0005de5caf96b1c381414994d72fa05d'),
+(12487, '2015-10-27 09:41:08', '2015-10-27 09:41:08', NULL, 'fb6c5a50f82599a982fc68a05e09728c'),
+(12488, '2015-10-27 09:54:58', '2015-10-27 09:54:58', NULL, '2d15d2620e9ee25003b2693275fe0f10'),
+(12489, '2015-10-27 09:56:00', '2015-10-27 09:56:00', NULL, 'b9c327e1f4ec78dff653188cbe7af3a1'),
+(12490, '2015-10-27 10:06:05', '2015-10-27 10:06:05', NULL, 'e62ead85f00ba82b48d4253b0ffd4a3c'),
+(12491, '2015-10-27 10:12:44', '2015-10-27 10:12:44', NULL, '7df7a77e40326174bbc3decb77f45353'),
+(12492, '2015-10-27 10:12:46', '2015-10-27 10:12:46', NULL, 'd0f7a0a92057e9cfa132ee47e7c5e7e6'),
+(12493, '2015-10-27 10:15:23', '2015-10-27 10:15:23', NULL, 'be9dc42687888e8f9e767100fedc3b7d'),
+(12494, '2015-10-27 10:24:53', '2015-10-27 10:24:53', NULL, '40c354013cd40f79f2b2122106fa1b51'),
+(12495, '2015-10-27 10:29:10', '2015-10-27 10:29:10', NULL, '5eee26d1e078b1cb3cca57c5892a48c0'),
+(12496, '2015-10-27 10:36:23', '2015-10-27 10:36:23', NULL, '7ab3b3db7140cced94225e688b613cf5'),
+(12497, '2015-10-27 10:42:13', '2015-10-27 10:42:13', NULL, 'ab82f911b0d0097a56bc394aedf707c1'),
+(12498, '2015-10-27 10:46:01', '2015-10-27 10:46:01', NULL, '7dca1a9100a58f0c8867d23fbb8ed6a5'),
+(12499, '2015-10-27 10:47:40', '2015-10-27 10:47:40', NULL, '09fbce7835e37d1ac66206583ede7a3c'),
+(12500, '2015-10-27 10:49:51', '2015-10-27 10:49:51', NULL, '054c493c89bceccb9d0aa66c2a08a568'),
+(12501, '2015-10-27 10:50:54', '2015-10-27 10:50:54', NULL, '87daed1985bc78f7d1d7fcd1d04e9cd7'),
+(12502, '2015-10-27 10:59:00', '2015-10-27 10:59:00', NULL, 'cba056beffbb999b2bb8d94a900c1ef1'),
+(12503, '2015-10-27 11:06:03', '2015-10-27 11:06:03', NULL, '439554ac0d824ca3536b5449bd5386a4'),
+(12504, '2015-10-27 11:08:48', '2015-10-27 11:08:48', NULL, '8ac6c0571cb8d7b44f2644d882a8a697'),
+(12505, '2015-10-27 11:08:53', '2015-10-27 11:08:53', NULL, '613f538bfa76963de06d798f062081cc'),
+(12506, '2015-10-27 11:08:58', '2015-10-27 11:08:58', NULL, '26e621d1f746460ec7e05f8baef11b40'),
+(12507, '2015-10-27 11:09:01', '2015-10-27 11:09:01', NULL, 'e94dcadc3f346dc93b13631dfe3bfe3b'),
+(12508, '2015-10-27 11:09:04', '2015-10-27 11:09:04', NULL, 'dda103413761b63f4ae510263fd61779'),
+(12509, '2015-10-27 11:09:07', '2015-10-27 11:09:07', NULL, 'd27080e7cdce196f3d1e71f530594f01'),
+(12510, '2015-10-27 11:09:09', '2015-10-27 11:09:09', NULL, 'e8ae2cd0f9cdfa1ad98746bc7171def5'),
+(12511, '2015-10-27 11:09:12', '2015-10-27 11:09:12', NULL, 'e05697a24ca6229fc22fc8be7f7d020f'),
+(12512, '2015-10-27 11:09:14', '2015-10-27 11:09:14', NULL, 'c40daf087cbe9981862df4defe4b27f9'),
+(12513, '2015-10-27 11:09:17', '2015-10-27 11:09:17', NULL, '55179b0b48dcf995a2a8551b60c89e8d'),
+(12514, '2015-10-27 11:09:19', '2015-10-27 11:09:19', NULL, '30f974632642e725bfd8c16f17365f2a'),
+(12515, '2015-10-27 11:09:22', '2015-10-27 11:09:22', NULL, '0312a8ba947dbbd0a45e8d523a394fba'),
+(12516, '2015-10-27 11:09:25', '2015-10-27 11:09:25', NULL, '4fd6c0f0b343339ba918a49021e8f85a'),
+(12517, '2015-10-27 11:09:29', '2015-10-27 11:09:29', NULL, '5f9834a0cf3d9470e3f075fbc23bf12c'),
+(12518, '2015-10-27 11:09:32', '2015-10-27 11:09:32', NULL, '13e53b3605a405e69fae4922b4b91440'),
+(12519, '2015-10-27 11:09:35', '2015-10-27 11:09:35', NULL, 'fccbc5b6493e9960ebfaace6994ef4b4'),
+(12520, '2015-10-27 11:09:37', '2015-10-27 11:09:37', NULL, '0214a9528a6fba09c340263dbbaed963'),
+(12521, '2015-10-27 11:09:40', '2015-10-27 11:09:40', NULL, '3819b03535f980309b835e48e0b583d8'),
+(12522, '2015-10-27 11:09:44', '2015-10-27 11:09:44', NULL, 'ec2a13f1ae65946eef16a40e34c7f062'),
+(12523, '2015-10-27 11:09:46', '2015-10-27 11:09:46', NULL, '7224158600afa7b3ca6c1ef8c5663d7a'),
+(12524, '2015-10-27 11:09:49', '2015-10-27 11:09:49', NULL, 'd19f204f4313f333b78cfda5d6006a19'),
+(12525, '2015-10-27 11:09:52', '2015-10-27 11:09:52', NULL, '370117a481a0c44d351ec6a146a8d5a9'),
+(12526, '2015-10-27 11:09:55', '2015-10-27 11:09:55', NULL, '33f4cf8d86f9b3bb3417c57399f74016'),
+(12527, '2015-10-27 11:09:57', '2015-10-27 11:09:57', NULL, '585266db8d8cf41f249073fee7bf8a43'),
+(12528, '2015-10-27 11:10:00', '2015-10-27 11:10:00', NULL, '3ceec47dc684430fa036856aa2aac986'),
+(12529, '2015-10-27 11:10:03', '2015-10-27 11:10:03', NULL, '05f600c31051819c1d334646ac11b90a'),
+(12530, '2015-10-27 11:10:06', '2015-10-27 11:10:06', NULL, '45efd6750ba0fed77101553b2fa690ca'),
+(12531, '2015-10-27 11:10:08', '2015-10-27 11:10:08', NULL, 'd7f11b051998b332215fe4fa49b3c421'),
+(12532, '2015-10-27 11:10:11', '2015-10-27 11:10:11', NULL, 'd0cdeefceb61099af0f2c44674b42cf7'),
+(12533, '2015-10-27 11:10:14', '2015-10-27 11:10:14', NULL, 'f4d04ba8cc125db5d105ea0792388fd1'),
+(12534, '2015-10-27 11:10:17', '2015-10-27 11:10:17', NULL, '0282a9630e34683302e3a4274794b4b2'),
+(12535, '2015-10-27 11:10:20', '2015-10-27 11:10:20', NULL, 'a466f1d2f639692f9da74416af8f1e78'),
+(12536, '2015-10-27 11:10:22', '2015-10-27 11:10:22', NULL, 'a937f033589315df283c22c86ef78cc1'),
+(12537, '2015-10-27 11:10:28', '2015-10-27 11:10:28', NULL, '9b62dac3f8ca45d0d09f0f57d9ea69d2'),
+(12538, '2015-10-27 11:10:30', '2015-10-27 11:10:30', NULL, '3b9fb3e5c556681e11730ae61d2817db'),
+(12539, '2015-10-27 11:10:33', '2015-10-27 11:10:33', NULL, '587216d8ce6e707e6c6991a95e157290'),
+(12540, '2015-10-27 11:10:35', '2015-10-27 11:10:35', NULL, '9c45cfacfffe24cbc9f98073258f9f2c'),
+(12541, '2015-10-27 11:10:40', '2015-10-27 11:10:40', NULL, '7b64a0e445ddc4c6a3df2012a5b6acb6'),
+(12542, '2015-10-27 11:10:45', '2015-10-27 11:10:45', NULL, 'd7eab0189a3e312a477b24578e71f768'),
+(12543, '2015-10-27 11:10:48', '2015-10-27 11:10:48', NULL, '9e355c2de80e4c13ff5458ab0fdc3f6b'),
+(12544, '2015-10-27 11:10:50', '2015-10-27 11:10:50', NULL, 'b6fe49283878119b3052af07982f8e1a'),
+(12545, '2015-10-27 11:10:53', '2015-10-27 11:10:53', NULL, '3ccbefd3cbd9d6f0099cfd8b52bf68bc'),
+(12546, '2015-10-27 11:10:56', '2015-10-27 11:10:56', NULL, 'ef2de3211f70376f8c7da55a5c484f10'),
+(12547, '2015-10-27 11:10:58', '2015-10-27 11:10:58', NULL, '1b961c8e38ddfcd14dc2d5d0758f1108'),
+(12548, '2015-10-27 11:11:01', '2015-10-27 11:11:01', NULL, '4dbb9bc3ef9da74a79685030bcf953c0'),
+(12549, '2015-10-27 11:11:03', '2015-10-27 11:11:03', NULL, '78ca4dd43c8b5faa3135ea330811c0c5'),
+(12550, '2015-10-27 11:11:06', '2015-10-27 11:11:06', NULL, '764f0da860e2bfbf1cfbc3982c621acd'),
+(12551, '2015-10-27 11:11:09', '2015-10-27 11:11:09', NULL, '91bde51a40bf9265459720a90d892490'),
+(12552, '2015-10-27 11:11:12', '2015-10-27 11:11:12', NULL, '10b066e833037e9b450893ac35a72175'),
+(12553, '2015-10-27 11:11:15', '2015-10-27 11:11:15', NULL, '581c3add5133b7a6302707b089123668'),
+(12554, '2015-10-27 11:11:19', '2015-10-27 11:11:19', NULL, '6f24f93b5d0d5b2f5d9d9cb61805a096'),
+(12555, '2015-10-27 11:11:25', '2015-10-27 11:11:25', NULL, '73c6cdde5d0d03fe554094c7c214bbe5'),
+(12556, '2015-10-27 11:11:27', '2015-10-27 11:11:27', NULL, '8ca8218017a54e09e2e2a9edcdc532b2'),
+(12557, '2015-10-27 11:11:30', '2015-10-27 11:11:30', NULL, '725cc0fff1dced121b2cb0aff38583e4'),
+(12558, '2015-10-27 11:11:32', '2015-10-27 11:11:32', NULL, 'd4ddd2b27afe5b70a2510bcd84ff5696'),
+(12559, '2015-10-27 11:11:33', '2015-10-27 11:11:33', NULL, 'ce09f9ac0df5dfb1a255584d762aeb57'),
+(12560, '2015-10-27 11:11:35', '2015-10-27 11:11:35', NULL, '48daf9b61a64817d598d749792404222'),
+(12561, '2015-10-27 11:11:38', '2015-10-27 11:11:38', NULL, '42fb28874528d3170581c6761c33917d'),
+(12562, '2015-10-27 11:11:41', '2015-10-27 11:11:41', NULL, '1566afc5b08a7407ace0c39f1a28cc3f'),
+(12563, '2015-10-27 11:11:43', '2015-10-27 11:11:43', NULL, '8f89e4f0520967b8809575cb1c1b6faa'),
+(12564, '2015-10-27 11:11:46', '2015-10-27 11:11:46', NULL, 'ac17f5402b2d584ab905730fa056234c'),
+(12565, '2015-10-27 11:11:48', '2015-10-27 11:11:48', NULL, '883da003fbb4557effdbe81f7fba8200'),
+(12566, '2015-10-27 11:11:51', '2015-10-27 11:11:51', NULL, 'b48a46bde4b34ea5fe3b2c0cdcf48d43'),
+(12567, '2015-10-27 11:11:53', '2015-10-27 11:11:53', NULL, 'd78a9dc4ff3d6b35d1ecbbce9b048be0'),
+(12568, '2015-10-27 11:11:56', '2015-10-27 11:11:56', NULL, '656a8fddea5ee3c7af57d79f8a514f47'),
+(12569, '2015-10-27 11:11:59', '2015-10-27 11:11:59', NULL, '4868258317818b8d5eb1d1ae9e5e771d'),
+(12570, '2015-10-27 11:12:01', '2015-10-27 11:12:01', NULL, 'ee6766fe075d2a4d90497413293150da'),
+(12571, '2015-10-27 11:12:04', '2015-10-27 11:12:04', NULL, 'd5bef7dfcdac0d51b6e9e2066ea0f339'),
+(12572, '2015-10-27 11:12:09', '2015-10-27 11:12:09', NULL, '5aa95d655364d869701fa60ac5b40c8d'),
+(12573, '2015-10-27 11:12:11', '2015-10-27 11:12:11', NULL, '0b18b005ee3d55cf753cefa6d792384e'),
+(12574, '2015-10-27 11:12:14', '2015-10-27 11:12:14', NULL, 'dfd4efc933c4cade1f04420ab35163a8'),
+(12575, '2015-10-27 11:14:31', '2015-10-27 11:14:31', NULL, '020757eec591bb5c2ecae7d1d3422296'),
+(12576, '2015-10-27 11:17:49', '2015-10-27 11:17:49', NULL, 'b8006f3aad0bc80645ec4d4b17b852e2'),
+(12577, '2015-10-27 11:23:00', '2015-10-27 11:23:00', NULL, '0b02de0b0d9ee3e8eb3694cfbab1ea6f'),
+(12578, '2015-10-27 11:31:30', '2015-10-27 11:31:30', NULL, 'f7bbc66c7916b66cdec093e325428b09'),
+(12579, '2015-10-27 11:32:04', '2015-10-27 11:32:04', NULL, 'e2def69089caa13c83376f18a48d9c35'),
+(12580, '2015-10-27 11:48:02', '2015-10-27 11:48:02', NULL, 'd06ee6dcaf9ffd4431d385204d84aa8c'),
+(12581, '2015-10-27 12:03:33', '2015-10-27 12:03:33', NULL, 'cad3f34feccfdaedd9f8f492e87a0d4b'),
+(12582, '2015-10-27 12:12:31', '2015-10-27 12:12:31', NULL, '8bbd29e99c4cc015afe3a927d9d3bf50'),
+(12583, '2015-10-27 12:19:42', '2015-10-27 12:19:42', NULL, '7f78eb2c9b28327f161e17af92e25fff'),
+(12584, '2015-10-27 12:20:54', '2015-10-27 12:20:54', NULL, '11b7eba12972917da4bf14a79dd656ea'),
+(12585, '2015-10-27 12:27:48', '2015-10-27 12:27:48', NULL, '0a3a6e97a11016978371b006631c10eb'),
+(12586, '2015-10-27 12:35:03', '2015-10-27 12:35:03', NULL, 'be3ba42cd63d5da8721e2e5fe47ea4d3'),
+(12587, '2015-10-27 12:43:47', '2015-10-27 12:43:47', NULL, '61c95d4e3c25f9e6238c560dd1bfc0d4'),
+(12588, '2015-10-27 12:51:45', '2015-10-27 12:51:45', NULL, '7842ea81e24f999da675718d666a0699'),
+(12589, '2015-10-27 12:51:52', '2015-10-27 12:51:52', NULL, 'a0309b588b531aa2d7ca65c5548bd704'),
+(12590, '2015-10-27 12:51:53', '2015-10-27 12:51:53', NULL, '24d70d4c409c5b4af5a2b7f595117b9e'),
+(12591, '2015-10-27 12:51:55', '2015-10-27 12:51:55', NULL, 'fa691777372f7d0a924020681b90c5e9'),
+(12592, '2015-10-27 12:51:57', '2015-10-27 12:51:57', NULL, '66ea818a3071f8cbede3e48a8b26b2bd'),
+(12593, '2015-10-27 12:51:59', '2015-10-27 12:51:59', NULL, '6d1ae2ec6fde77b61b8a06e83d3ba847'),
+(12594, '2015-10-27 12:52:01', '2015-10-27 12:52:01', NULL, '120b5031688cf08f47d5d5e5c093590b'),
+(12595, '2015-10-27 12:52:01', '2015-10-27 12:52:01', NULL, 'b6bef81fc629a13da677d65a58fc20a8'),
+(12596, '2015-10-27 12:52:03', '2015-10-27 12:52:03', NULL, 'bee5a69dd68c39f9af4243578fb83645'),
+(12597, '2015-10-27 12:52:05', '2015-10-27 12:52:05', NULL, '6bd905423cad7729f77c1ae5638a8385'),
+(12598, '2015-10-27 12:52:07', '2015-10-27 12:52:07', NULL, 'af84dc2760f828fc34106f8553304699'),
+(12599, '2015-10-27 12:52:09', '2015-10-27 12:52:09', NULL, 'c4f977ed002f523e95d8f2867440eebd'),
+(12600, '2015-10-27 12:52:11', '2015-10-27 12:52:11', NULL, 'ee5e40441a5e3986b64251c2dbe30c37'),
+(12601, '2015-10-27 12:52:12', '2015-10-27 12:52:12', NULL, '536cdf420a373484cb5d8a3b4c9ebfd6'),
+(12602, '2015-10-27 12:58:01', '2015-10-27 12:58:01', NULL, '8b72d54868f46f490eb4a73db81e10bf'),
+(12603, '2015-10-27 12:59:16', '2015-10-27 12:59:16', NULL, '894cd014e5c53a95c04181653a3fc6ea'),
+(12604, '2015-10-27 13:00:10', '2015-10-27 13:00:10', NULL, '28d531d89e89139f271fc054a39d5c08'),
+(12605, '2015-10-27 13:07:03', '2015-10-27 13:07:03', NULL, '872386bb52c013b223c158837e0ef2c6'),
+(12606, '2015-10-27 13:07:09', '2015-10-27 13:07:09', NULL, '1f5076edd7014ed76062af5a2dd56e9b'),
+(12607, '2015-10-27 13:10:25', '2015-10-27 13:10:25', NULL, '0c0ba3abbdc17870dea0fddda3729e04'),
+(12608, '2015-10-27 13:14:03', '2015-10-27 13:14:03', NULL, 'c2241bd4fa388add5d428202017e46f2'),
+(12609, '2015-10-27 13:15:59', '2015-10-27 13:15:59', NULL, 'c98be2a217facd476a46748df0723db6'),
+(12610, '2015-10-27 13:23:21', '2015-10-27 13:23:21', NULL, 'a8b3bd78def713725c05e7ca45c72815'),
+(12611, '2015-10-27 13:23:39', '2015-10-27 13:23:39', NULL, 'c6ab3ad5c90561dea8bb4ff0c02c0f5e'),
+(12612, '2015-10-27 13:36:02', '2015-10-27 13:36:02', NULL, 'c859a1e74d6cdb090b90a3dae836b21c'),
+(12613, '2015-10-27 13:37:22', '2015-10-27 13:37:22', NULL, '9050a06acb5dbbc7f41fdd4a02b96684'),
+(12614, '2015-10-27 13:47:12', '2015-10-27 13:47:12', NULL, '7db8d751e8ea1ba5efec143dc1ab47bc'),
+(12615, '2015-10-27 13:47:29', '2015-10-27 13:47:29', NULL, '6ffc42518f470ecc17e7ac74ef010fe8'),
+(12616, '2015-10-27 13:49:30', '2015-10-27 13:49:30', NULL, '02a622df1371eed3ad5de52e012e521f'),
+(12617, '2015-10-27 13:55:20', '2015-10-27 13:55:20', NULL, '1cb2b19e604ee76a66c305365d414976'),
+(12618, '2015-10-27 13:56:00', '2015-10-27 13:56:00', NULL, 'ae1f15fa380a5d79d1f69863dd904625'),
+(12619, '2015-10-27 14:00:07', '2015-10-27 14:00:07', NULL, '9c3333d17e1fa15e4bca1ab5b2b91d27'),
+(12620, '2015-10-27 14:06:11', '2015-10-27 14:06:11', NULL, 'af6a783291d394fd521189e542f28368'),
+(12621, '2015-10-27 14:23:34', '2015-10-27 14:23:34', NULL, 'e79fccdc3eeb5b2114dda5a5f9080191'),
+(12622, '2015-10-27 14:30:51', '2015-10-27 14:30:51', NULL, '188e7565d25f6e00b4bad6d47c581e1b'),
+(12623, '2015-10-27 14:39:12', '2015-10-27 14:39:12', NULL, '4e5ebfaf43c5ef05f6578f6db35c2f95'),
+(12624, '2015-10-27 14:43:06', '2015-10-27 14:43:06', NULL, 'dd9f1f2d8109d35cd131d706b05d757a'),
+(12625, '2015-10-27 14:53:24', '2015-10-27 14:53:24', NULL, 'ae49c222e812ef5932df139301109019'),
+(12626, '2015-10-27 14:53:53', '2015-10-27 14:53:53', NULL, '57c4bdf19ceb825cd8720a47d075fd59'),
+(12627, '2015-10-27 14:56:05', '2015-10-27 14:56:05', NULL, '68d3647f434a0a534d17759338ae32b7'),
+(12628, '2015-10-27 14:58:36', '2015-10-27 14:58:36', NULL, '6ec99279cd8bd8390a00e7b53ec634d1'),
+(12629, '2015-10-27 15:11:22', '2015-10-27 15:11:22', NULL, 'b34c22f6d59607679d4d96ce05222cd0'),
+(12630, '2015-10-27 15:14:12', '2015-10-27 15:14:12', NULL, '166946177d180f01713b1fdf45cc6e63'),
+(12631, '2015-10-27 15:19:34', '2015-10-27 15:19:34', NULL, '9bceb025f9064c59da97275ff7205622');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_lang`
+-- Table structure for table `b_sale_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_lang`;
@@ -19205,7 +21383,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_lang`
+-- Dumping data for table `b_sale_lang`
 --
 
 INSERT INTO `b_sale_lang` (`LID`, `CURRENCY`) VALUES
@@ -19214,9 +21392,9 @@ INSERT INTO `b_sale_lang` (`LID`, `CURRENCY`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location`
+-- Table structure for table `b_sale_location`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location`;
@@ -19238,7 +21416,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3159 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_location`
+-- Dumping data for table `b_sale_location`
 --
 
 INSERT INTO `b_sale_location` (`ID`, `SORT`, `CODE`, `LEFT_MARGIN`, `RIGHT_MARGIN`, `PARENT_ID`, `DEPTH_LEVEL`, `TYPE_ID`, `LATITUDE`, `LONGITUDE`, `COUNTRY_ID`, `REGION_ID`, `CITY_ID`, `LOC_DEFAULT`) VALUES
@@ -22409,9 +24587,9 @@ INSERT INTO `b_sale_location` (`ID`, `SORT`, `CODE`, `LEFT_MARGIN`, `RIGHT_MARGI
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location2location_group`
+-- Table structure for table `b_sale_location2location_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location2location_group`;
@@ -22423,9 +24601,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location2location_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_city`
+-- Table structure for table `b_sale_location_city`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_city`;
@@ -22439,9 +24617,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_city` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_city_lang`
+-- Table structure for table `b_sale_location_city_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_city_lang`;
@@ -22456,9 +24634,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_city_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_country`
+-- Table structure for table `b_sale_location_country`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_country`;
@@ -22471,9 +24649,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_country` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_country_lang`
+-- Table structure for table `b_sale_location_country_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_country_lang`;
@@ -22488,9 +24666,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_country_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_group`
+-- Table structure for table `b_sale_location_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_group`;
@@ -22503,9 +24681,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_group_lang`
+-- Table structure for table `b_sale_location_group_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_group_lang`;
@@ -22519,9 +24697,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_group_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_region`
+-- Table structure for table `b_sale_location_region`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_region`;
@@ -22534,9 +24712,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_region` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_region_lang`
+-- Table structure for table `b_sale_location_region_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_region_lang`;
@@ -22551,9 +24729,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_region_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_location_zip`
+-- Table structure for table `b_sale_location_zip`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_zip`;
@@ -22566,9 +24744,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_zip` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_2site`
+-- Table structure for table `b_sale_loc_2site`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_2site`;
@@ -22581,9 +24759,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_2site` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_def2site`
+-- Table structure for table `b_sale_loc_def2site`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_def2site`;
@@ -22596,9 +24774,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_def2site` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_ext`
+-- Table structure for table `b_sale_loc_ext`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_ext`;
@@ -22610,7 +24788,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_ext` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2118 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_loc_ext`
+-- Dumping data for table `b_sale_loc_ext`
 --
 
 INSERT INTO `b_sale_loc_ext` (`ID`, `SERVICE_ID`, `LOCATION_ID`, `XML_ID`) VALUES
@@ -24735,9 +26913,9 @@ INSERT INTO `b_sale_loc_ext` (`ID`, `SERVICE_ID`, `LOCATION_ID`, `XML_ID`) VALUE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_ext_srv`
+-- Table structure for table `b_sale_loc_ext_srv`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_ext_srv`;
@@ -24747,7 +26925,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_ext_srv` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_loc_ext_srv`
+-- Dumping data for table `b_sale_loc_ext_srv`
 --
 
 INSERT INTO `b_sale_loc_ext_srv` (`ID`, `CODE`) VALUES
@@ -24757,9 +26935,9 @@ INSERT INTO `b_sale_loc_ext_srv` (`ID`, `CODE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_name`
+-- Table structure for table `b_sale_loc_name`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_name`;
@@ -24773,7 +26951,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_name` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3160 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_loc_name`
+-- Dumping data for table `b_sale_loc_name`
 --
 
 INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
@@ -27943,9 +30121,9 @@ INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_type`
+-- Table structure for table `b_sale_loc_type`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_type`;
@@ -27956,7 +30134,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_loc_type`
+-- Dumping data for table `b_sale_loc_type`
 --
 
 INSERT INTO `b_sale_loc_type` (`ID`, `CODE`, `SORT`) VALUES
@@ -27971,9 +30149,9 @@ INSERT INTO `b_sale_loc_type` (`ID`, `CODE`, `SORT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_loc_type_name`
+-- Table structure for table `b_sale_loc_type_name`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_loc_type_name`;
@@ -27985,7 +30163,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_loc_type_name` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_loc_type_name`
+-- Dumping data for table `b_sale_loc_type_name`
 --
 
 INSERT INTO `b_sale_loc_type_name` (`ID`, `LANGUAGE_ID`, `NAME`, `TYPE_ID`) VALUES
@@ -28014,9 +30192,9 @@ INSERT INTO `b_sale_loc_type_name` (`ID`, `LANGUAGE_ID`, `NAME`, `TYPE_ID`) VALU
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order`
+-- Table structure for table `b_sale_order`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order`;
@@ -28094,7 +30272,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_order`
+-- Dumping data for table `b_sale_order`
 --
 
 INSERT INTO `b_sale_order` (`ID`, `LID`, `PERSON_TYPE_ID`, `PAYED`, `DATE_PAYED`, `EMP_PAYED_ID`, `CANCELED`, `DATE_CANCELED`, `EMP_CANCELED_ID`, `REASON_CANCELED`, `STATUS_ID`, `DATE_STATUS`, `EMP_STATUS_ID`, `PRICE_DELIVERY`, `ALLOW_DELIVERY`, `DATE_ALLOW_DELIVERY`, `EMP_ALLOW_DELIVERY_ID`, `DEDUCTED`, `DATE_DEDUCTED`, `EMP_DEDUCTED_ID`, `REASON_UNDO_DEDUCTED`, `MARKED`, `DATE_MARKED`, `EMP_MARKED_ID`, `REASON_MARKED`, `RESERVED`, `PRICE`, `CURRENCY`, `DISCOUNT_VALUE`, `USER_ID`, `PAY_SYSTEM_ID`, `DELIVERY_ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_DESCRIPTION`, `ADDITIONAL_INFO`, `PS_STATUS`, `PS_STATUS_CODE`, `PS_STATUS_DESCRIPTION`, `PS_STATUS_MESSAGE`, `PS_SUM`, `PS_CURRENCY`, `PS_RESPONSE_DATE`, `COMMENTS`, `TAX_VALUE`, `STAT_GID`, `SUM_PAID`, `RECURRING_ID`, `PAY_VOUCHER_NUM`, `PAY_VOUCHER_DATE`, `LOCKED_BY`, `DATE_LOCK`, `RECOUNT_FLAG`, `AFFILIATE_ID`, `DELIVERY_DOC_NUM`, `DELIVERY_DOC_DATE`, `UPDATED_1C`, `STORE_ID`, `ORDER_TOPIC`, `RESPONSIBLE_ID`, `DATE_PAY_BEFORE`, `DATE_BILL`, `ACCOUNT_NUMBER`, `TRACKING_NUMBER`, `XML_ID`, `ID_1C`, `VERSION_1C`, `VERSION`, `EXTERNAL_ORDER`, `BX_USER_ID`) VALUES
@@ -28108,9 +30286,9 @@ INSERT INTO `b_sale_order` (`ID`, `LID`, `PERSON_TYPE_ID`, `PAYED`, `DATE_PAYED`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_change`
+-- Table structure for table `b_sale_order_change`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_change`;
@@ -28125,7 +30303,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_change` (
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_order_change`
+-- Dumping data for table `b_sale_order_change`
 --
 
 INSERT INTO `b_sale_order_change` (`ID`, `ORDER_ID`, `TYPE`, `DATA`, `DATE_CREATE`, `DATE_MODIFY`, `USER_ID`) VALUES
@@ -28160,9 +30338,9 @@ INSERT INTO `b_sale_order_change` (`ID`, `ORDER_ID`, `TYPE`, `DATA`, `DATE_CREAT
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_delivery`
+-- Table structure for table `b_sale_order_delivery`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_delivery`;
@@ -28177,9 +30355,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_delivery` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_flags2group`
+-- Table structure for table `b_sale_order_flags2group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_flags2group`;
@@ -28192,9 +30370,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_flags2group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_history`
+-- Table structure for table `b_sale_order_history`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_history`;
@@ -28249,9 +30427,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_history` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_processing`
+-- Table structure for table `b_sale_order_processing`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_processing`;
@@ -28262,7 +30440,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_processing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_order_processing`
+-- Dumping data for table `b_sale_order_processing`
 --
 
 INSERT INTO `b_sale_order_processing` (`ORDER_ID`, `PRODUCTS_ADDED`, `PRODUCTS_REMOVED`) VALUES
@@ -28276,9 +30454,9 @@ INSERT INTO `b_sale_order_processing` (`ORDER_ID`, `PRODUCTS_ADDED`, `PRODUCTS_R
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_props`
+-- Table structure for table `b_sale_order_props`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props`;
@@ -28311,7 +30489,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props` (
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_order_props`
+-- Dumping data for table `b_sale_order_props`
 --
 
 INSERT INTO `b_sale_order_props` (`ID`, `PERSON_TYPE_ID`, `NAME`, `TYPE`, `REQUIED`, `DEFAULT_VALUE`, `SORT`, `USER_PROPS`, `IS_LOCATION`, `PROPS_GROUP_ID`, `SIZE1`, `SIZE2`, `DESCRIPTION`, `IS_EMAIL`, `IS_PROFILE_NAME`, `IS_PAYER`, `IS_LOCATION4TAX`, `IS_FILTERED`, `CODE`, `IS_ZIP`, `IS_PHONE`, `ACTIVE`, `UTIL`, `INPUT_FIELD_LOCATION`, `MULTIPLE`) VALUES
@@ -28338,9 +30516,9 @@ INSERT INTO `b_sale_order_props` (`ID`, `PERSON_TYPE_ID`, `NAME`, `TYPE`, `REQUI
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_props_group`
+-- Table structure for table `b_sale_order_props_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_group`;
@@ -28352,7 +30530,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props_group` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_order_props_group`
+-- Dumping data for table `b_sale_order_props_group`
 --
 
 INSERT INTO `b_sale_order_props_group` (`ID`, `PERSON_TYPE_ID`, `NAME`, `SORT`) VALUES
@@ -28364,9 +30542,9 @@ INSERT INTO `b_sale_order_props_group` (`ID`, `PERSON_TYPE_ID`, `NAME`, `SORT`) 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_props_relation`
+-- Table structure for table `b_sale_order_props_relation`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_relation`;
@@ -28379,9 +30557,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props_relation` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_props_value`
+-- Table structure for table `b_sale_order_props_value`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_value`;
@@ -28395,7 +30573,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props_value` (
 ) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_order_props_value`
+-- Dumping data for table `b_sale_order_props_value`
 --
 
 INSERT INTO `b_sale_order_props_value` (`ID`, `ORDER_ID`, `ORDER_PROPS_ID`, `NAME`, `VALUE`, `CODE`) VALUES
@@ -28445,9 +30623,9 @@ INSERT INTO `b_sale_order_props_value` (`ID`, `ORDER_ID`, `ORDER_PROPS_ID`, `NAM
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_props_variant`
+-- Table structure for table `b_sale_order_props_variant`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_variant`;
@@ -28463,9 +30641,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props_variant` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_order_tax`
+-- Table structure for table `b_sale_order_tax`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_tax`;
@@ -28484,9 +30662,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_tax` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_pay_system`
+-- Table structure for table `b_sale_pay_system`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_pay_system`;
@@ -28501,7 +30679,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_pay_system` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_pay_system`
+-- Dumping data for table `b_sale_pay_system`
 --
 
 INSERT INTO `b_sale_pay_system` (`ID`, `LID`, `CURRENCY`, `NAME`, `ACTIVE`, `SORT`, `DESCRIPTION`) VALUES
@@ -28514,9 +30692,9 @@ INSERT INTO `b_sale_pay_system` (`ID`, `LID`, `CURRENCY`, `NAME`, `ACTIVE`, `SOR
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_pay_system_action`
+-- Table structure for table `b_sale_pay_system_action`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_pay_system_action`;
@@ -28540,7 +30718,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_pay_system_action` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_pay_system_action`
+-- Dumping data for table `b_sale_pay_system_action`
 --
 
 INSERT INTO `b_sale_pay_system_action` (`ID`, `PAY_SYSTEM_ID`, `PERSON_TYPE_ID`, `NAME`, `ACTION_FILE`, `RESULT_FILE`, `NEW_WINDOW`, `PARAMS`, `TARIF`, `HAVE_PAYMENT`, `HAVE_ACTION`, `HAVE_RESULT`, `HAVE_PREPAY`, `HAVE_RESULT_RECEIVE`, `ENCODING`, `LOGOTIP`) VALUES
@@ -28553,9 +30731,9 @@ INSERT INTO `b_sale_pay_system_action` (`ID`, `PAY_SYSTEM_ID`, `PERSON_TYPE_ID`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_person_type`
+-- Table structure for table `b_sale_person_type`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_person_type`;
@@ -28568,7 +30746,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_person_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_person_type`
+-- Dumping data for table `b_sale_person_type`
 --
 
 INSERT INTO `b_sale_person_type` (`ID`, `LID`, `NAME`, `SORT`, `ACTIVE`) VALUES
@@ -28578,9 +30756,9 @@ INSERT INTO `b_sale_person_type` (`ID`, `LID`, `NAME`, `SORT`, `ACTIVE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_person_type_site`
+-- Table structure for table `b_sale_person_type_site`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_person_type_site`;
@@ -28590,7 +30768,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_person_type_site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_person_type_site`
+-- Dumping data for table `b_sale_person_type_site`
 --
 
 INSERT INTO `b_sale_person_type_site` (`PERSON_TYPE_ID`, `SITE_ID`) VALUES
@@ -28600,9 +30778,9 @@ INSERT INTO `b_sale_person_type_site` (`PERSON_TYPE_ID`, `SITE_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_product2product`
+-- Table structure for table `b_sale_product2product`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_product2product`;
@@ -28614,7 +30792,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_product2product` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_product2product`
+-- Dumping data for table `b_sale_product2product`
 --
 
 INSERT INTO `b_sale_product2product` (`ID`, `PRODUCT_ID`, `PARENT_PRODUCT_ID`, `CNT`) VALUES
@@ -28634,9 +30812,9 @@ INSERT INTO `b_sale_product2product` (`ID`, `PRODUCT_ID`, `PARENT_PRODUCT_ID`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_recurring`
+-- Table structure for table `b_sale_recurring`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_recurring`;
@@ -28671,9 +30849,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_recurring` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_site2group`
+-- Table structure for table `b_sale_site2group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_site2group`;
@@ -28686,9 +30864,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_site2group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_status`
+-- Table structure for table `b_sale_status`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_status`;
@@ -28698,7 +30876,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_status`
+-- Dumping data for table `b_sale_status`
 --
 
 INSERT INTO `b_sale_status` (`ID`, `SORT`) VALUES
@@ -28709,9 +30887,9 @@ INSERT INTO `b_sale_status` (`ID`, `SORT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_status2group`
+-- Table structure for table `b_sale_status2group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_status2group`;
@@ -28734,9 +30912,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_status2group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_status_lang`
+-- Table structure for table `b_sale_status_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_status_lang`;
@@ -28748,7 +30926,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_status_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_status_lang`
+-- Dumping data for table `b_sale_status_lang`
 --
 
 INSERT INTO `b_sale_status_lang` (`STATUS_ID`, `LID`, `NAME`, `DESCRIPTION`) VALUES
@@ -28762,9 +30940,9 @@ INSERT INTO `b_sale_status_lang` (`STATUS_ID`, `LID`, `NAME`, `DESCRIPTION`) VAL
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_store_barcode`
+-- Table structure for table `b_sale_store_barcode`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_store_barcode`;
@@ -28783,9 +30961,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_store_barcode` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_tax`
+-- Table structure for table `b_sale_tax`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax`;
@@ -28801,9 +30979,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_tax2location`
+-- Table structure for table `b_sale_tax2location`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax2location`;
@@ -28816,9 +30994,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax2location` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_tax_exempt2group`
+-- Table structure for table `b_sale_tax_exempt2group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax_exempt2group`;
@@ -28830,9 +31008,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax_exempt2group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_tax_rate`
+-- Table structure for table `b_sale_tax_rate`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax_rate`;
@@ -28852,9 +31030,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax_rate` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_trading_platform`
+-- Table structure for table `b_sale_trading_platform`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_trading_platform`;
@@ -28868,7 +31046,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_trading_platform` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_trading_platform`
+-- Dumping data for table `b_sale_trading_platform`
 --
 
 INSERT INTO `b_sale_trading_platform` (`ID`, `CODE`, `ACTIVE`, `NAME`, `DESCRIPTION`, `SETTINGS`) VALUES
@@ -28877,9 +31055,9 @@ INSERT INTO `b_sale_trading_platform` (`ID`, `CODE`, `ACTIVE`, `NAME`, `DESCRIPT
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_user_account`
+-- Table structure for table `b_sale_user_account`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_account`;
@@ -28895,7 +31073,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_user_account` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_user_account`
+-- Dumping data for table `b_sale_user_account`
 --
 
 INSERT INTO `b_sale_user_account` (`ID`, `USER_ID`, `TIMESTAMP_X`, `CURRENT_BUDGET`, `CURRENCY`, `LOCKED`, `DATE_LOCKED`, `NOTES`) VALUES
@@ -28904,9 +31082,9 @@ INSERT INTO `b_sale_user_account` (`ID`, `USER_ID`, `TIMESTAMP_X`, `CURRENT_BUDG
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_user_cards`
+-- Table structure for table `b_sale_user_cards`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_cards`;
@@ -28939,9 +31117,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_user_cards` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_user_props`
+-- Table structure for table `b_sale_user_props`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_props`;
@@ -28956,7 +31134,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_user_props` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_user_props`
+-- Dumping data for table `b_sale_user_props`
 --
 
 INSERT INTO `b_sale_user_props` (`ID`, `NAME`, `USER_ID`, `PERSON_TYPE_ID`, `DATE_UPDATE`, `XML_ID`, `VERSION_1C`) VALUES
@@ -28965,9 +31143,9 @@ INSERT INTO `b_sale_user_props` (`ID`, `NAME`, `USER_ID`, `PERSON_TYPE_ID`, `DAT
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_user_props_value`
+-- Table structure for table `b_sale_user_props_value`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_props_value`;
@@ -28980,7 +31158,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_user_props_value` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_user_props_value`
+-- Dumping data for table `b_sale_user_props_value`
 --
 
 INSERT INTO `b_sale_user_props_value` (`ID`, `USER_PROPS_ID`, `ORDER_PROPS_ID`, `NAME`, `VALUE`) VALUES
@@ -28994,9 +31172,9 @@ INSERT INTO `b_sale_user_props_value` (`ID`, `USER_PROPS_ID`, `ORDER_PROPS_ID`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_user_transact`
+-- Table structure for table `b_sale_user_transact`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_transact`;
@@ -29015,7 +31193,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_user_transact` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_user_transact`
+-- Dumping data for table `b_sale_user_transact`
 --
 
 INSERT INTO `b_sale_user_transact` (`ID`, `USER_ID`, `TIMESTAMP_X`, `TRANSACT_DATE`, `AMOUNT`, `CURRENCY`, `DEBIT`, `ORDER_ID`, `DESCRIPTION`, `NOTES`, `EMPLOYEE_ID`) VALUES
@@ -29028,9 +31206,9 @@ INSERT INTO `b_sale_user_transact` (`ID`, `USER_ID`, `TIMESTAMP_X`, `TRANSACT_DA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sale_viewed_product`
+-- Table structure for table `b_sale_viewed_product`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sale_viewed_product`;
@@ -29050,10 +31228,10 @@ CREATE TABLE IF NOT EXISTS `b_sale_viewed_product` (
   `DETAIL_PICTURE` int(11) DEFAULT NULL,
   `CALLBACK_FUNC` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PRODUCT_PROVIDER_CLASS` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sale_viewed_product`
+-- Dumping data for table `b_sale_viewed_product`
 --
 
 INSERT INTO `b_sale_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT_ID`, `MODULE`, `LID`, `NAME`, `DETAIL_PAGE_URL`, `CURRENCY`, `PRICE`, `NOTES`, `PREVIEW_PICTURE`, `DETAIL_PICTURE`, `CALLBACK_FUNC`, `PRODUCT_PROVIDER_CLASS`) VALUES
@@ -29090,14 +31268,44 @@ INSERT INTO `b_sale_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT_ID
 (51, 9543, '2015-10-18 19:58:35', 66, 'catalog', 's1', 'Acuarela UVAS', '/catalog/kitchen/acuarela-uvas/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (52, 10448, '2015-10-21 10:47:25', 58, 'catalog', 's1', 'Коллекция-1', '/catalog/vannaya/kollektsiya-1/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (53, 10448, '2015-10-21 10:43:11', 63, 'catalog', 's1', 'Mallol', '/catalog/vannaya/mallol/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
-(54, 10448, '2015-10-21 10:43:35', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider');
+(54, 10448, '2015-10-21 10:43:35', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(55, 10521, '2015-10-23 13:06:09', 31, 'catalog', 's1', 'Ванная-Azori-Россия-Узоры (Vento)', '/catalog/vannaya/vento/', NULL, '0.00', NULL, 1001, 1002, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(56, 10521, '2015-10-26 13:32:00', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(57, 10521, '2015-10-23 13:06:39', 13, 'catalog', 's1', 'Ванная-Natura Life-Россия-Дерево', '/catalog/vannaya/natura-life/', NULL, '0.00', NULL, 961, 962, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(58, 10521, '2015-10-26 13:32:00', 63, 'catalog', 's1', 'Mallol', '/catalog/vannaya/mallol/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(59, 10521, '2015-10-26 13:32:10', 66, 'catalog', 's1', 'Acuarela UVAS', '/catalog/kitchen/acuarela-uvas/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(60, 11775, '2015-10-23 14:18:50', 37, 'catalog', 's1', 'Гостиная-Azori-Россия-Узоры', '/catalog/gostinaya/gostinaya-azori-rossiya-uzory/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(61, 11775, '2015-10-23 14:18:41', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(62, 11775, '2015-10-23 14:19:07', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(63, 11775, '2015-10-23 14:19:14', 63, 'catalog', 's1', 'Mallol', '/catalog/vannaya/mallol/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(64, 4499, '2015-10-26 13:53:04', 63, 'catalog', 's1', 'Mallol', '/catalog/vannaya/mallol/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(65, 4499, '2015-10-27 15:23:58', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(66, 4499, '2015-10-26 15:52:33', 116, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1181, 1182, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(67, 4499, '2015-10-26 16:04:56', 58, 'catalog', 's1', 'Коллекция-1', '/catalog/vannaya/kollektsiya-1/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(68, 4499, '2015-10-27 15:24:07', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1187, 1188, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(69, 12246, '2015-10-27 11:57:11', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1187, 1188, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(70, 12246, '2015-10-27 11:52:47', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(71, 12246, '2015-10-27 11:52:34', 31, 'catalog', 's1', 'Ванная-Azori-Россия-Узоры (Vento)', '/catalog/vannaya/vento/', NULL, '0.00', NULL, 1001, 1002, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(72, 11704, '2015-10-27 12:18:11', 59, 'catalog', 's1', 'AGAT', '/catalog/kitchen/agat/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(73, 11704, '2015-10-27 12:18:11', 66, 'catalog', 's1', 'Acuarela UVAS', '/catalog/kitchen/acuarela-uvas/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(74, 11704, '2015-10-27 12:18:15', 47, 'catalog', 's1', 'Кухня-1', '/catalog/kitchen/kukhnya-1/', 'RUB', '4400.00', 'Розничная цена', NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(75, 11704, '2015-10-27 12:18:23', 46, 'catalog', 's1', 'Кухня-2', '/catalog/kitchen/kukhnya-2/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(76, 11704, '2015-10-27 12:18:44', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(77, 11704, '2015-10-27 12:43:20', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(78, 12625, '2015-10-27 14:54:02', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(79, 12625, '2015-10-27 14:53:53', 31, 'catalog', 's1', 'Ванная-Azori-Россия-Узоры (Vento)', '/catalog/vannaya/vento/', NULL, '0.00', NULL, 1001, 1002, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(80, 12625, '2015-10-27 14:54:11', 58, 'catalog', 's1', 'Коллекция-1', '/catalog/vannaya/kollektsiya-1/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(81, 12625, '2015-10-27 14:59:33', 11, 'catalog', 's1', 'Гостиная-Italon-Россия-Камень-Natura Stone', '/catalog/gostinaya/natura-stone/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(82, 12625, '2015-10-27 14:54:23', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(83, 12625, '2015-10-27 14:54:26', 37, 'catalog', 's1', 'Гостиная-Azori-Россия-Узоры', '/catalog/gostinaya/gostinaya-azori-rossiya-uzory/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(84, 12625, '2015-10-27 14:54:33', 43, 'catalog', 's1', 'Проверка', '/catalog/kitchen/proverka/', NULL, '0.00', NULL, 1031, 1032, 'CatalogViewedProductCallback', 'CCatalogProductProvider');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content`
+-- Table structure for table `b_search_content`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content`;
@@ -29119,10 +31327,10 @@ CREATE TABLE IF NOT EXISTS `b_search_content` (
   `UPD` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DATE_FROM` datetime DEFAULT NULL,
   `DATE_TO` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=481 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=509 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_search_content`
+-- Dumping data for table `b_search_content`
 --
 
 INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CUSTOM_RANK`, `USER_ID`, `ENTITY_TYPE_ID`, `ENTITY_ID`, `URL`, `TITLE`, `BODY`, `TAGS`, `PARAM1`, `PARAM2`, `UPD`, `DATE_FROM`, `DATE_TO`) VALUES
@@ -29160,8 +31368,6 @@ INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CU
 (366, '2015-09-01 14:06:47', 'main', 's1|/theme/index.php', 0, NULL, NULL, NULL, '/theme/index.php', 'Тематика', ' ', '', '', '', NULL, NULL, NULL),
 (367, '2015-09-14 17:48:53', 'iblock', 'S6', 0, NULL, NULL, NULL, '=ID=6&EXTERNAL_ID=&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=russia', 'Россия', '', NULL, 'directories', '4', NULL, NULL, NULL),
 (368, '2015-10-21 12:00:15', 'iblock', 'S7', 0, NULL, NULL, NULL, '=ID=7&EXTERNAL_ID=&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=ispaniya', 'Испания', '', NULL, 'directories', '4', NULL, NULL, NULL),
-(369, '2015-09-01 14:26:32', 'iblock', '14', 0, NULL, NULL, NULL, '=ID=14&EXTERNAL_ID=14&IBLOCK_SECTION_ID=6&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=kerama-marazzi', 'Kerama Marazzi', '', '', 'directories', '4', NULL, NULL, NULL),
-(370, '2015-09-01 14:27:09', 'iblock', '15', 0, NULL, NULL, NULL, '=ID=15&EXTERNAL_ID=15&IBLOCK_SECTION_ID=6&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=cersanit', 'Cersanit', '', '', 'directories', '4', NULL, NULL, NULL),
 (371, '2015-09-16 13:18:17', 'iblock', 'S8', 0, NULL, NULL, NULL, '=ID=8&EXTERNAL_ID=&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=vannaya', 'Ванная', '', NULL, 'catalog', '2', NULL, NULL, NULL),
 (372, '2015-09-24 13:56:46', 'iblock', 'S9', 0, NULL, NULL, NULL, '=ID=9&EXTERNAL_ID=&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=gostinaya', 'Гостиная', '', NULL, 'catalog', '2', NULL, NULL, NULL),
 (374, '2015-10-21 13:19:11', 'iblock', '16', 0, NULL, NULL, NULL, '=ID=16&EXTERNAL_ID=16&IBLOCK_SECTION_ID=7&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=hispania', 'Hispania', '', '', 'directories', '4', NULL, NULL, NULL),
@@ -29171,16 +31377,14 @@ INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CU
 (378, '2015-10-04 21:36:32', 'iblock', '20', 0, NULL, NULL, NULL, '=ID=20&EXTERNAL_ID=20&IBLOCK_SECTION_ID=9&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=charme', 'Гостиная-Novabelle-Италия-Узоры', '', '', 'catalog', '2', NULL, NULL, NULL),
 (379, '2015-09-16 17:51:25', 'main', 's1|/manufacturers/detail.php', 0, NULL, NULL, NULL, '/manufacturers/detail.php', 'detail', '', '', '', '', NULL, NULL, NULL),
 (381, '2015-10-05 19:58:22', 'iblock', 'S11', 0, NULL, NULL, NULL, '=ID=11&EXTERNAL_ID=&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=poland', 'Польша', '', NULL, 'directories', '4', NULL, NULL, NULL),
-(386, '2015-09-14 17:27:54', 'iblock', '22', 0, NULL, NULL, NULL, '=ID=22&EXTERNAL_ID=22&IBLOCK_SECTION_ID=6&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=italon', 'Italon', 'Италон - итальянская плитка, производимая в России.', '', 'directories', '4', NULL, NULL, NULL),
+(386, '2015-10-22 13:12:23', 'iblock', '22', 0, NULL, NULL, NULL, '=ID=22&EXTERNAL_ID=22&IBLOCK_SECTION_ID=6&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=italon', 'Coliseumgres', 'Италон - итальянская плитка, производимая в России.', '', 'directories', '4', NULL, NULL, NULL),
 (387, '2015-09-14 18:43:00', 'main', 's1|/countries/index.php', 0, NULL, NULL, NULL, '/countries/index.php', 'Страны', 'Text here....', '', '', '', NULL, NULL, NULL),
 (388, '2015-09-15 11:11:30', 'blog', 'U1', 0, NULL, NULL, NULL, NULL, 'Вячеслав Ширшин', '', NULL, 'USER', '1', NULL, NULL, NULL),
 (389, '2015-09-15 11:22:12', 'main', 's1|/themes/index.php', 0, NULL, NULL, NULL, '/themes/index.php', 'Тематика', 'Text here....', '', '', '', NULL, NULL, NULL),
 (390, '2015-09-24 16:25:25', 'main', 's1|/index.php', 0, NULL, NULL, NULL, '/index.php', 'Интернет-магазин "Одежда"', '', '', '', '', NULL, NULL, NULL),
-(391, '2015-09-16 12:00:50', 'iblock', '23', 0, NULL, NULL, NULL, '=ID=23&EXTERNAL_ID=23&IBLOCK_SECTION_ID=6&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=azori', 'Azori', '', '', 'directories', '4', NULL, NULL, NULL),
-(392, '2015-09-16 12:06:00', 'iblock', '24', 0, NULL, NULL, NULL, '=ID=24&EXTERNAL_ID=24&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-napolnaya', 'Ванная-Асти-Россия-Узоры-Напольная', '', '', 'offers', '3', NULL, NULL, NULL),
+(392, '2015-10-26 14:50:24', 'iblock', '24', 0, NULL, NULL, NULL, '=ID=24&EXTERNAL_ID=24&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-napolnaya', 'Ванная-Асти-Россия-Узоры-Напольная', '', '', 'offers', '3', NULL, NULL, NULL),
 (393, '2015-10-04 21:35:44', 'iblock', '25', 0, NULL, NULL, NULL, '=ID=25&EXTERNAL_ID=25&IBLOCK_SECTION_ID=8&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=vannaya-azori-rossiya-uzory-asti', 'Ванная-Azori-Россия-Узоры (Асти)', '', '', 'catalog', '2', NULL, NULL, NULL),
 (394, '2015-09-16 12:06:50', 'iblock', '26', 0, NULL, NULL, NULL, '=ID=26&EXTERNAL_ID=26&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-yfcntyyfz', 'Ванная-Асти-Россия-Узоры-Yfcntyyfz', '', '', 'offers', '3', NULL, NULL, NULL),
-(395, '2015-09-16 12:09:01', 'iblock', '27', 0, NULL, NULL, NULL, '=ID=27&EXTERNAL_ID=27&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-dekor', 'Ванная-Асти-Россия-Узоры-Декор', '', '', 'offers', '3', NULL, NULL, NULL),
 (396, '2015-09-16 12:19:28', 'iblock', '28', 0, NULL, NULL, NULL, '=ID=28&EXTERNAL_ID=28&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=atlantic-mosaic', 'Atlantic Mosaic', '', '', 'offers', '3', NULL, NULL, NULL),
 (397, '2015-09-22 10:05:15', 'iblock', '29', 0, NULL, NULL, NULL, '=ID=29&EXTERNAL_ID=29&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=atlantic', 'Atlantic', '', '', 'offers', '3', NULL, NULL, NULL),
 (398, '2015-09-16 12:17:44', 'iblock', '30', 0, NULL, NULL, NULL, '=ID=30&EXTERNAL_ID=30&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=atlantic-2', 'Atlantic-2', '', '', 'offers', '3', NULL, NULL, NULL),
@@ -29262,14 +31466,31 @@ INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CU
 (477, '2015-10-21 17:30:20', 'iblock', '96', 0, NULL, NULL, NULL, '=ID=96&EXTERNAL_ID=96&IBLOCK_SECTION_ID=19&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=tang', 'Tang', '', '', 'directories', '4', NULL, NULL, NULL),
 (478, '2015-10-21 17:38:22', 'iblock', '97', 0, NULL, NULL, NULL, '=ID=97&EXTERNAL_ID=97&IBLOCK_SECTION_ID=19&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=vider', 'Vider', '', '', 'directories', '4', NULL, NULL, NULL),
 (479, '2015-10-21 17:44:18', 'iblock', '98', 0, NULL, NULL, NULL, '=ID=98&EXTERNAL_ID=98&IBLOCK_SECTION_ID=19&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=imex', 'Imex', '', '', 'directories', '4', NULL, NULL, NULL),
-(480, '2015-10-21 17:46:38', 'iblock', '99', 0, NULL, NULL, NULL, '=ID=99&EXTERNAL_ID=99&IBLOCK_SECTION_ID=19&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=caccia', 'Caccia', '', '', 'directories', '4', NULL, NULL, NULL);
+(480, '2015-10-21 17:46:38', 'iblock', '99', 0, NULL, NULL, NULL, '=ID=99&EXTERNAL_ID=99&IBLOCK_SECTION_ID=19&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=caccia', 'Caccia', '', '', 'directories', '4', NULL, NULL, NULL),
+(482, '2015-10-22 13:14:32', 'iblock', '101', 0, NULL, NULL, NULL, '=ID=101&EXTERNAL_ID=101&IBLOCK_SECTION_ID=17&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=aleluia', 'Aleluia', '', '', 'directories', '4', NULL, NULL, NULL),
+(484, '2015-10-22 13:25:53', 'iblock', 'S20', 0, NULL, NULL, NULL, '=ID=20&EXTERNAL_ID=&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=belorussiya', 'Белоруссия', '', NULL, 'directories', '4', NULL, NULL, NULL),
+(485, '2015-10-22 13:31:04', 'iblock', '102', 0, NULL, NULL, NULL, '=ID=102&EXTERNAL_ID=102&IBLOCK_SECTION_ID=20&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=berezakeramika', 'Березакерамика', '', '', 'directories', '4', NULL, NULL, NULL),
+(486, '2015-10-22 13:32:56', 'iblock', '103', 0, NULL, NULL, NULL, '=ID=103&EXTERNAL_ID=103&IBLOCK_SECTION_ID=20&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=belani', 'Белани', '', '', 'directories', '4', NULL, NULL, NULL),
+(487, '2015-10-22 13:58:00', 'iblock', '104', 0, NULL, NULL, NULL, '=ID=104&EXTERNAL_ID=104&IBLOCK_SECTION_ID=11&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=paradyz', 'Paradyz', '', '', 'directories', '4', NULL, NULL, NULL),
+(488, '2015-10-22 13:59:42', 'iblock', '105', 0, NULL, NULL, NULL, '=ID=105&EXTERNAL_ID=105&IBLOCK_SECTION_ID=11&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=polcolorit', 'Polcolorit', '', '', 'directories', '4', NULL, NULL, NULL),
+(490, '2015-10-26 14:26:16', 'iblock', '107', 0, NULL, NULL, NULL, '=ID=107&EXTERNAL_ID=107&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema', 'Legend crema', '', '', 'offers', '3', NULL, NULL, NULL);
+INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CUSTOM_RANK`, `USER_ID`, `ENTITY_TYPE_ID`, `ENTITY_ID`, `URL`, `TITLE`, `BODY`, `TAGS`, `PARAM1`, `PARAM2`, `UPD`, `DATE_FROM`, `DATE_TO`) VALUES
+(496, '2015-10-26 15:42:54', 'iblock', '112', 0, NULL, NULL, NULL, '=ID=112&EXTERNAL_ID=112&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema2', 'Legend crema2', '', '', 'offers', '3', NULL, NULL, NULL),
+(498, '2015-10-26 15:44:27', 'iblock', '114', 0, NULL, NULL, NULL, '=ID=114&EXTERNAL_ID=114&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-listelo-decoro-crema', 'Legend listelo decoro crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(499, '2015-10-26 15:45:13', 'iblock', '115', 0, NULL, NULL, NULL, '=ID=115&EXTERNAL_ID=115&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema3', 'Legend crema3', '', '', 'offers', '3', NULL, NULL, NULL),
+(502, '2015-10-27 13:29:54', 'iblock', '118', 0, NULL, NULL, NULL, '=ID=118&EXTERNAL_ID=118&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema34', 'Legend crema34', '', '', 'offers', '3', NULL, NULL, NULL),
+(503, '2015-10-27 14:31:36', 'iblock', '119', 0, NULL, NULL, NULL, '=ID=119&EXTERNAL_ID=119&IBLOCK_SECTION_ID=8&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=legend', 'Legend', '', '', 'catalog', '2', NULL, NULL, NULL),
+(504, '2015-10-27 14:59:12', 'iblock', '120', 0, NULL, NULL, NULL, '=ID=120&EXTERNAL_ID=120&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend', 'Legend boiserie crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(505, '2015-10-27 14:24:21', 'iblock', '121', 0, NULL, NULL, NULL, '=ID=121&EXTERNAL_ID=121&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-listelo-decoro-crema1', 'Legend listelo decoro crema1', '', '', 'offers', '3', NULL, NULL, NULL),
+(507, '2015-10-27 14:24:21', 'iblock', '123', 0, NULL, NULL, NULL, '=ID=123&EXTERNAL_ID=123&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-bord', 'Legend bord', '', '', 'offers', '3', NULL, NULL, NULL),
+(508, '2015-10-27 14:31:05', 'iblock', '122', 0, NULL, NULL, NULL, '=ID=122&EXTERNAL_ID=122&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema12', 'Legend crema12', '', '', 'offers', '3', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_freq`
+-- Table structure for table `b_search_content_freq`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_freq`;
@@ -29284,9 +31505,9 @@ CREATE TABLE IF NOT EXISTS `b_search_content_freq` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_param`
+-- Table structure for table `b_search_content_param`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_param`;
@@ -29299,9 +31520,9 @@ CREATE TABLE IF NOT EXISTS `b_search_content_param` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_right`
+-- Table structure for table `b_search_content_right`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_right`;
@@ -29311,7 +31532,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_right` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_search_content_right`
+-- Dumping data for table `b_search_content_right`
 --
 
 INSERT INTO `b_search_content_right` (`SEARCH_CONTENT_ID`, `GROUP_CODE`) VALUES
@@ -29350,8 +31571,6 @@ INSERT INTO `b_search_content_right` (`SEARCH_CONTENT_ID`, `GROUP_CODE`) VALUES
 (367, 'G2'),
 (368, 'G1'),
 (368, 'G2'),
-(369, 'G2'),
-(370, 'G2'),
 (371, 'G2'),
 (372, 'G2'),
 (374, 'G1'),
@@ -29363,16 +31582,16 @@ INSERT INTO `b_search_content_right` (`SEARCH_CONTENT_ID`, `GROUP_CODE`) VALUES
 (379, 'G2'),
 (381, 'G1'),
 (381, 'G2'),
+(386, 'G1'),
 (386, 'G2'),
 (387, 'G2'),
 (388, 'G2'),
 (389, 'G2'),
 (390, 'G2'),
-(391, 'G2'),
+(392, 'G1'),
 (392, 'G2'),
 (393, 'G2'),
 (394, 'G2'),
-(395, 'G2'),
 (396, 'G2'),
 (397, 'G2'),
 (398, 'G2'),
@@ -29507,14 +31726,46 @@ INSERT INTO `b_search_content_right` (`SEARCH_CONTENT_ID`, `GROUP_CODE`) VALUES
 (479, 'G1'),
 (479, 'G2'),
 (480, 'G1'),
-(480, 'G2');
+(480, 'G2'),
+(482, 'G1'),
+(482, 'G2'),
+(484, 'G1'),
+(484, 'G2'),
+(485, 'G1'),
+(485, 'G2'),
+(486, 'G1'),
+(486, 'G2'),
+(487, 'G1'),
+(487, 'G2'),
+(488, 'G1'),
+(488, 'G2'),
+(490, 'G1'),
+(490, 'G2'),
+(496, 'G1'),
+(496, 'G2'),
+(498, 'G1'),
+(498, 'G2'),
+(499, 'G1'),
+(499, 'G2'),
+(502, 'G1'),
+(502, 'G2'),
+(503, 'G1'),
+(503, 'G2'),
+(504, 'G1'),
+(504, 'G2'),
+(505, 'G1'),
+(505, 'G2'),
+(507, 'G1'),
+(507, 'G2'),
+(508, 'G1'),
+(508, 'G2');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_site`
+-- Table structure for table `b_search_content_site`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_site`;
@@ -29525,7 +31776,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_site` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_search_content_site`
+-- Dumping data for table `b_search_content_site`
 --
 
 INSERT INTO `b_search_content_site` (`SEARCH_CONTENT_ID`, `SITE_ID`, `URL`) VALUES
@@ -29563,8 +31814,6 @@ INSERT INTO `b_search_content_site` (`SEARCH_CONTENT_ID`, `SITE_ID`, `URL`) VALU
 (366, 's1', ''),
 (367, 's1', ''),
 (368, 's1', ''),
-(369, 's1', ''),
-(370, 's1', ''),
 (371, 's1', ''),
 (372, 's1', ''),
 (374, 's1', ''),
@@ -29579,11 +31828,9 @@ INSERT INTO `b_search_content_site` (`SEARCH_CONTENT_ID`, `SITE_ID`, `URL`) VALU
 (388, 's1', '/users/1.php'),
 (389, 's1', ''),
 (390, 's1', ''),
-(391, 's1', ''),
 (392, 's1', ''),
 (393, 's1', ''),
 (394, 's1', ''),
-(395, 's1', ''),
 (396, 's1', ''),
 (397, 's1', ''),
 (398, 's1', ''),
@@ -29665,14 +31912,30 @@ INSERT INTO `b_search_content_site` (`SEARCH_CONTENT_ID`, `SITE_ID`, `URL`) VALU
 (477, 's1', ''),
 (478, 's1', ''),
 (479, 's1', ''),
-(480, 's1', '');
+(480, 's1', ''),
+(482, 's1', ''),
+(484, 's1', ''),
+(485, 's1', ''),
+(486, 's1', ''),
+(487, 's1', ''),
+(488, 's1', ''),
+(490, 's1', ''),
+(496, 's1', ''),
+(498, 's1', ''),
+(499, 's1', ''),
+(502, 's1', ''),
+(503, 's1', ''),
+(504, 's1', ''),
+(505, 's1', ''),
+(507, 's1', ''),
+(508, 's1', '');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_stem`
+-- Table structure for table `b_search_content_stem`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_stem`;
@@ -29685,7 +31948,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_stem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
 
 --
--- Дамп данных таблицы `b_search_content_stem`
+-- Dumping data for table `b_search_content_stem`
 --
 
 INSERT INTO `b_search_content_stem` (`SEARCH_CONTENT_ID`, `LANGUAGE_ID`, `STEM`, `TF`, `PS`) VALUES
@@ -30650,9 +32913,6 @@ INSERT INTO `b_search_content_stem` (`SEARCH_CONTENT_ID`, `LANGUAGE_ID`, `STEM`,
 (366, 'ru', 1490, 0.2314, 1),
 (367, 'ru', 451, 0.2314, 1),
 (368, 'ru', 1705, 0.2314, 1),
-(369, 'ru', 1491, 0.2314, 1),
-(369, 'ru', 1492, 0.2314, 2),
-(370, 'ru', 1493, 0.2314, 1),
 (371, 'ru', 1494, 0.2314, 1),
 (372, 'ru', 1560, 0.2314, 1),
 (374, 'ru', 1693, 0.2314, 1),
@@ -30665,12 +32925,12 @@ INSERT INTO `b_search_content_stem` (`SEARCH_CONTENT_ID`, `LANGUAGE_ID`, `STEM`,
 (378, 'ru', 1514, 0.2314, 1),
 (379, 'ru', 1501, 0.2314, 1),
 (381, 'ru', 1666, 0.2314, 1),
-(386, 'ru', 451, 0.2314, 8),
-(386, 'ru', 1484, 0.2314, 2),
-(386, 'ru', 1507, 0.2314, 1),
-(386, 'ru', 1508, 0.2314, 4),
-(386, 'ru', 1509, 0.2314, 5),
-(386, 'ru', 1510, 0.2314, 6),
+(386, 'ru', 1663, 0.2314, 5),
+(386, 'ru', 1680, 0.2314, 8),
+(386, 'ru', 1846, 0.2314, 1),
+(386, 'ru', 1847, 0.2314, 2),
+(386, 'ru', 1848, 0.2314, 4),
+(386, 'ru', 1849, 0.2314, 6),
 (387, 'ru', 805, 0.2314, 1),
 (387, 'ru', 1482, 0.2314, 2),
 (387, 'ru', 1483, 0.2314, 3),
@@ -30681,12 +32941,10 @@ INSERT INTO `b_search_content_stem` (`SEARCH_CONTENT_ID`, `LANGUAGE_ID`, `STEM`,
 (389, 'ru', 1490, 0.2314, 1),
 (390, 'ru', 1561, 0.2314, 1),
 (390, 'ru', 1562, 0.2314, 2),
-(391, 'ru', 1485, 0.2314, 1),
 (392, 'ru', 1518, 0.2314, 1),
 (393, 'ru', 1566, 0.2314, 1),
 (393, 'ru', 1567, 0.2314, 2),
 (394, 'ru', 1520, 0.2314, 1),
-(395, 'ru', 1521, 0.2314, 1),
 (396, 'ru', 1522, 0.2314, 1),
 (396, 'ru', 1523, 0.2314, 2),
 (397, 'ru', 1522, 0.2314, 1),
@@ -30952,14 +33210,44 @@ INSERT INTO `b_search_content_stem` (`SEARCH_CONTENT_ID`, `LANGUAGE_ID`, `STEM`,
 (477, 'ru', 1841, 0.2314, 1),
 (478, 'ru', 1842, 0.2314, 1),
 (479, 'ru', 1843, 0.2314, 1),
-(480, 'ru', 1844, 0.2314, 1);
+(480, 'ru', 1844, 0.2314, 1),
+(482, 'ru', 1850, 0.2314, 1),
+(484, 'ru', 1845, 0.2314, 1),
+(485, 'ru', 1851, 0.2314, 1),
+(486, 'ru', 1852, 0.2314, 1),
+(487, 'ru', 1668, 0.2314, 1),
+(488, 'ru', 1669, 0.2314, 1),
+(490, 'ru', 1853, 0.2314, 1),
+(490, 'ru', 1854, 0.2314, 2),
+(496, 'ru', 1853, 0.2314, 1),
+(496, 'ru', 1855, 0.2314, 2),
+(498, 'ru', 1816, 0.2314, 2),
+(498, 'ru', 1853, 0.2314, 1),
+(498, 'ru', 1854, 0.2314, 4),
+(498, 'ru', 1857, 0.2314, 3),
+(499, 'ru', 1853, 0.2314, 1),
+(499, 'ru', 1858, 0.2314, 2),
+(502, 'ru', 1853, 0.2314, 1),
+(502, 'ru', 1859, 0.2314, 2),
+(503, 'ru', 1853, 0.2314, 1),
+(504, 'ru', 1853, 0.2314, 1),
+(504, 'ru', 1854, 0.2314, 3),
+(504, 'ru', 1856, 0.2314, 2),
+(505, 'ru', 1816, 0.2314, 2),
+(505, 'ru', 1853, 0.2314, 1),
+(505, 'ru', 1857, 0.2314, 3),
+(505, 'ru', 1860, 0.2314, 4),
+(507, 'ru', 1853, 0.2314, 1),
+(507, 'ru', 1862, 0.2314, 2),
+(508, 'ru', 1853, 0.2314, 1),
+(508, 'ru', 1861, 0.2314, 2);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_text`
+-- Table structure for table `b_search_content_text`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_text`;
@@ -30970,7 +33258,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_text` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_search_content_text`
+-- Dumping data for table `b_search_content_text`
 --
 
 INSERT INTO `b_search_content_text` (`SEARCH_CONTENT_ID`, `SEARCH_CONTENT_MD5`, `SEARCHABLE_CONTENT`) VALUES
@@ -31008,8 +33296,6 @@ INSERT INTO `b_search_content_text` (`SEARCH_CONTENT_ID`, `SEARCH_CONTENT_MD5`, 
 (366, '6c1eaae79a8898cf88e78bb73b5b9c16', 'ТЕМАТИКА\r\n \r\n'),
 (367, 'bd42c2954accdfdc41effa16e7eda63b', 'РОССИЯ\r\n\r\n'),
 (368, '536511a9dacee7c6e20d52a0f34bd294', 'ИСПАНИЯ\r\n\r\n'),
-(369, '8f1486644b9fce8be133069d3e20e4b3', 'KERAMA MARAZZI\r\n\r\n'),
-(370, 'a4741ceb8901119f90e15e81f484e450', 'CERSANIT\r\n\r\n'),
 (371, '646ac860a0fd3bf6e0622da77f710000', 'ВАННАЯ\r\n\r\n'),
 (372, '9431de1a78c98ddea574d66ffbad1c97', 'Гостиная\r\n\r\n'),
 (374, '7817320876c6a8a3870086b1b0d8948d', 'HISPANIA\r\n\r\n'),
@@ -31019,16 +33305,14 @@ INSERT INTO `b_search_content_text` (`SEARCH_CONTENT_ID`, `SEARCH_CONTENT_MD5`, 
 (378, 'b18bed4da5ed8c513fde2144d8b24029', 'ГОСТИНАЯ-NOVABELLE-ИТАЛИЯ-УЗОРЫ\r\n\r\n'),
 (379, 'fbb7e58b5e166bcdc4207e33e655192b', 'DETAIL\r\n\r\n'),
 (381, '25f4121aa1100354b847c8434809d402', 'ПОЛЬША\r\n\r\n'),
-(386, '65897bc3be70870e09e46d4bfd387212', 'ITALON\r\nИТАЛОН - ИТАЛЬЯНСКАЯ ПЛИТКА, ПРОИЗВОДИМАЯ В РОССИИ.\r\n'),
+(386, '29303c632b93de7ba32689bb38c86956', 'COLISEUMGRES\r\nИТАЛОН - ИТАЛЬЯНСКАЯ ПЛИТКА, ПРОИЗВОДИМАЯ В РОССИИ.\r\n'),
 (387, 'f23290e8c72cf71f8a7d8879a462b1eb', 'СТРАНЫ\r\nTEXT HERE....\r\n'),
 (388, 'c35a54f790c19f3bb3dffa464f662fa7', 'ВЯЧЕСЛАВ ШИРШИН\r\n\r\n'),
 (389, '25893309a762f1a65c87d4b63e35f56b', 'ТЕМАТИКА\r\nTEXT HERE....\r\n'),
 (390, '0ac74ad80dab90864223cd142d959ebf', 'Интернет-магазин "Одежда"\r\n\r\n'),
-(391, 'da4dbec057d6455d66aa75448afbae61', 'AZORI\r\n\r\n'),
 (392, 'bf09cfbcbac52077a43dad981c8c3b61', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-НАПОЛЬНАЯ\r\n\r\n'),
 (393, 'b3b2b990c9643f42a57e40106c785cc2', 'ВАННАЯ-AZORI-РОССИЯ-УЗОРЫ (АСТИ)\r\n\r\n'),
 (394, '178c33e1f5de90897dbed688c196458c', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-YFCNTYYFZ\r\n\r\n'),
-(395, 'dba6b14b7215030301b4f648f546bdbc', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-ДЕКОР\r\n\r\n'),
 (396, '50f118be67b8f720d46aae86541bb766', 'ATLANTIC MOSAIC\r\n\r\n'),
 (397, '17af783bf20f6a92574f425f3cb19b2e', 'ATLANTIC\r\n\r\n'),
 (398, '8a56a9f66987b8469b01061e86d67668', 'ATLANTIC-2\r\n\r\n'),
@@ -31110,14 +33394,30 @@ INSERT INTO `b_search_content_text` (`SEARCH_CONTENT_ID`, `SEARCH_CONTENT_MD5`, 
 (477, '9b3aea4d8671749bdabc6b7d0c51a62d', 'TANG\r\n\r\n'),
 (478, '17c82f4a5114936ce542a40afb3ec921', 'VIDER\r\n\r\n'),
 (479, '2c4c217ca40fcd98706bb7aed358e2d8', 'IMEX\r\n\r\n'),
-(480, 'f5be27c0e3eb607cf94d7bad3664ffae', 'CACCIA\r\n\r\n');
+(480, 'f5be27c0e3eb607cf94d7bad3664ffae', 'CACCIA\r\n\r\n'),
+(482, '64fd6e6f7a2c3a2d93bdde90aaf0cf7d', 'ALELUIA\r\n\r\n'),
+(484, 'c40fc2b747cd789ccc05c31adb280743', 'БЕЛОРУССИЯ\r\n\r\n'),
+(485, '6c5ef206c91968e88feb2574b962569b', 'БЕРЕЗАКЕРАМИКА\r\n\r\n'),
+(486, '9a75d07204363d3b6d4c25d668970ff8', 'БЕЛАНИ\r\n\r\n'),
+(487, '4637981741b302d2408a024de3de52d2', 'PARADYZ\r\n\r\n'),
+(488, '1e19b69ec57989b4be55b80ba7d9bc4e', 'POLCOLORIT\r\n\r\n'),
+(490, 'd6bb13f827b34670df92019ec0c028b4', 'LEGEND CREMA\r\n\r\n'),
+(496, '2028e13c5249ee91b251e4138c8fb277', 'LEGEND CREMA2\r\n\r\n'),
+(498, '82d095ebc767d043013983c2a1415314', 'LEGEND LISTELO DECORO CREMA\r\n\r\n'),
+(499, '6f5f28a720a5edec304cf99a8d45bd7d', 'LEGEND CREMA3\r\n\r\n'),
+(502, 'a4ad48226b660839a38503afc34bcfe3', 'LEGEND CREMA34\r\n\r\n'),
+(503, '4f19b1c85256908c12410b5a7a87e5aa', 'LEGEND\r\n\r\n'),
+(504, 'a2afa2ef0d4d58fcc786e2a1874fd294', 'LEGEND BOISERIE CREMA\r\n\r\n'),
+(505, '9e99a72877dd5a4904643d2868ad371c', 'LEGEND LISTELO DECORO CREMA1\r\n\r\n'),
+(507, 'ef95b104fdb549c9d696fc1b4ea73382', 'LEGEND BORD\r\n\r\n'),
+(508, 'c9bb1905130f6abaff085d17b59d0133', 'LEGEND CREMA12\r\n\r\n');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_content_title`
+-- Table structure for table `b_search_content_title`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_content_title`;
@@ -31129,7 +33429,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_title` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci DELAY_KEY_WRITE=1;
 
 --
--- Дамп данных таблицы `b_search_content_title`
+-- Dumping data for table `b_search_content_title`
 --
 
 INSERT INTO `b_search_content_title` (`SEARCH_CONTENT_ID`, `SITE_ID`, `POS`, `WORD`) VALUES
@@ -31209,9 +33509,6 @@ INSERT INTO `b_search_content_title` (`SEARCH_CONTENT_ID`, `SITE_ID`, `POS`, `WO
 (366, 's1', 0, 'ТЕМАТИКА'),
 (367, 's1', 0, 'РОССИЯ'),
 (368, 's1', 0, 'ИСПАНИЯ'),
-(369, 's1', 0, 'KERAMA'),
-(369, 's1', 7, 'MARAZZI'),
-(370, 's1', 0, 'CERSANIT'),
 (371, 's1', 0, 'ВАННАЯ'),
 (372, 's1', 0, 'Гостиная'),
 (374, 's1', 0, 'HISPANIA'),
@@ -31224,19 +33521,17 @@ INSERT INTO `b_search_content_title` (`SEARCH_CONTENT_ID`, `SITE_ID`, `POS`, `WO
 (378, 's1', 0, 'ГОСТИНАЯ-NOVABELLE-ИТАЛИЯ-УЗОРЫ'),
 (379, 's1', 0, 'DETAIL'),
 (381, 's1', 0, 'ПОЛЬША'),
-(386, 's1', 0, 'ITALON'),
+(386, 's1', 0, 'COLISEUMGRES'),
 (387, 's1', 0, 'СТРАНЫ'),
 (388, 's1', 0, 'ВЯЧЕСЛАВ'),
 (388, 's1', 9, 'ШИРШИН'),
 (389, 's1', 0, 'ТЕМАТИКА'),
 (390, 's1', 0, 'Интернет-магазин'),
 (390, 's1', 33, 'Одежда'),
-(391, 's1', 0, 'AZORI'),
 (392, 's1', 0, 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-НАПОЛЬНАЯ'),
 (393, 's1', 27, 'АСТИ'),
 (393, 's1', 0, 'ВАННАЯ-AZORI-РОССИЯ-УЗОРЫ'),
 (394, 's1', 0, 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-YFCNTYYFZ'),
-(395, 's1', 0, 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-ДЕКОР'),
 (396, 's1', 0, 'ATLANTIC'),
 (396, 's1', 9, 'MOSAIC'),
 (397, 's1', 0, 'ATLANTIC'),
@@ -31340,14 +33635,44 @@ INSERT INTO `b_search_content_title` (`SEARCH_CONTENT_ID`, `SITE_ID`, `POS`, `WO
 (477, 's1', 0, 'TANG'),
 (478, 's1', 0, 'VIDER'),
 (479, 's1', 0, 'IMEX'),
-(480, 's1', 0, 'CACCIA');
+(480, 's1', 0, 'CACCIA'),
+(482, 's1', 0, 'ALELUIA'),
+(484, 's1', 0, 'БЕЛОРУССИЯ'),
+(485, 's1', 0, 'БЕРЕЗАКЕРАМИКА'),
+(486, 's1', 0, 'БЕЛАНИ'),
+(487, 's1', 0, 'PARADYZ'),
+(488, 's1', 0, 'POLCOLORIT'),
+(490, 's1', 7, 'CREMA'),
+(490, 's1', 0, 'LEGEND'),
+(496, 's1', 7, 'CREMA2'),
+(496, 's1', 0, 'LEGEND'),
+(498, 's1', 22, 'CREMA'),
+(498, 's1', 15, 'DECORO'),
+(498, 's1', 0, 'LEGEND'),
+(498, 's1', 7, 'LISTELO'),
+(499, 's1', 7, 'CREMA3'),
+(499, 's1', 0, 'LEGEND'),
+(502, 's1', 7, 'CREMA34'),
+(502, 's1', 0, 'LEGEND'),
+(503, 's1', 0, 'LEGEND'),
+(504, 's1', 7, 'BOISERIE'),
+(504, 's1', 16, 'CREMA'),
+(504, 's1', 0, 'LEGEND'),
+(505, 's1', 22, 'CREMA1'),
+(505, 's1', 15, 'DECORO'),
+(505, 's1', 0, 'LEGEND'),
+(505, 's1', 7, 'LISTELO'),
+(507, 's1', 7, 'BORD'),
+(507, 's1', 0, 'LEGEND'),
+(508, 's1', 7, 'CREMA12'),
+(508, 's1', 0, 'LEGEND');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_custom_rank`
+-- Table structure for table `b_search_custom_rank`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_custom_rank`;
@@ -31365,9 +33690,9 @@ CREATE TABLE IF NOT EXISTS `b_search_custom_rank` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_phrase`
+-- Table structure for table `b_search_phrase`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_phrase`;
@@ -31388,7 +33713,7 @@ CREATE TABLE IF NOT EXISTS `b_search_phrase` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_search_phrase`
+-- Dumping data for table `b_search_phrase`
 --
 
 INSERT INTO `b_search_phrase` (`ID`, `TIMESTAMP_X`, `SITE_ID`, `RESULT_COUNT`, `PAGES`, `SESSION_ID`, `PHRASE`, `TAGS`, `URL_TO`, `URL_TO_404`, `URL_TO_SITE_ID`, `STAT_SESS_ID`, `EVENT1`) VALUES
@@ -31399,19 +33724,19 @@ INSERT INTO `b_search_phrase` (`ID`, `TIMESTAMP_X`, `SITE_ID`, `RESULT_COUNT`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_stem`
+-- Table structure for table `b_search_stem`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_stem`;
 CREATE TABLE IF NOT EXISTS `b_search_stem` (
   `ID` int(11) NOT NULL,
   `STEM` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1845 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1863 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_search_stem`
+-- Dumping data for table `b_search_stem`
 --
 
 INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
@@ -31773,6 +34098,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1803, 'AGAT'),
 (1687, 'ALBAGRES'),
 (1824, 'ALCOR'),
+(1850, 'ALELUIA'),
 (1647, 'ALIENUM'),
 (1579, 'AMET'),
 (1588, 'AN'),
@@ -31789,6 +34115,8 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1827, 'AZULIBER'),
 (1699, 'BESTILE'),
 (1628, 'BLANDIT'),
+(1856, 'BOISERIE'),
+(1862, 'BORD'),
 (179, 'BX'),
 (1844, 'CACCIA'),
 (382, 'CALL-Р¦Р•РќРўР '),
@@ -31802,15 +34130,23 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1497, 'CHARME'),
 (1828, 'CIFRE'),
 (1655, 'CLITA'),
+(1846, 'COLISEUMGRES'),
 (1812, 'COMPOSICION'),
 (1818, 'COMPOSITION'),
 (1641, 'CONSETETUR'),
 (1618, 'COTIDIEQUE'),
+(1854, 'CREMA'),
+(1860, 'CREMA1'),
+(1861, 'CREMA12'),
+(1855, 'CREMA2'),
+(1858, 'CREMA3'),
+(1859, 'CREMA34'),
 (1688, 'CRISTAL'),
 (1624, 'CU'),
 (552, 'DE'),
 (1500, 'DECOR'),
 (1630, 'DECORE'),
+(1857, 'DECORO'),
 (1716, 'DECOSA'),
 (1784, 'DECOTEC'),
 (1600, 'DELENITI'),
@@ -31868,6 +34204,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1839, 'KITO'),
 (1506, 'KM-01'),
 (1650, 'LABITUR'),
+(1853, 'LEGEND'),
 (1488, 'LIFE'),
 (1513, 'LIFE-Р РћРЎРЎРРЇ-Р”Р•Р Р•Р’'),
 (1529, 'LIGHT'),
@@ -31966,6 +34303,9 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1549, 'Адрес'),
 (1709, 'БАЛК'),
 (1798, 'БЕЛ'),
+(1852, 'БЕЛАН'),
+(1845, 'БЕЛОРУСС'),
+(1851, 'БЕРЕЗАКЕРАМИК'),
 (1725, 'БОЛ'),
 (1566, 'ВАННАЯ-AZORI-РОССИЯ-УЗОР'),
 (1734, 'ВАРИАНТ'),
@@ -31994,6 +34334,8 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1676, 'ИНТЕРЬЕР'),
 (1675, 'ИНТЕРЬЕРОВ'),
 (1705, 'ИСПАН'),
+(1847, 'ИТАЛОН'),
+(1848, 'ИТАЛЬЯНСК'),
 (1561, 'Интернет-магазин'),
 (1740, 'КАЖД'),
 (1794, 'КАМЕН'),
@@ -32066,6 +34408,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1727, 'ПРОГРАММ'),
 (1765, 'ПРОДАЖ'),
 (1724, 'ПРОДУКЦ'),
+(1849, 'ПРОИЗВОДИМ'),
 (1664, 'ПРОИЗВОДСТВ'),
 (1572, 'ПРОСТ'),
 (1565, 'Проверка'),
@@ -33263,9 +35606,9 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_suggest`
+-- Table structure for table `b_search_suggest`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_suggest`;
@@ -33282,9 +35625,9 @@ CREATE TABLE IF NOT EXISTS `b_search_suggest` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_tags`
+-- Table structure for table `b_search_tags`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_tags`;
@@ -33297,9 +35640,9 @@ CREATE TABLE IF NOT EXISTS `b_search_tags` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_search_user_right`
+-- Table structure for table `b_search_user_right`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_search_user_right`;
@@ -33308,12 +35651,23 @@ CREATE TABLE IF NOT EXISTS `b_search_user_right` (
   `GROUP_CODE` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `b_search_user_right`
+--
+
+INSERT INTO `b_search_user_right` (`USER_ID`, `GROUP_CODE`) VALUES
+(2, 'AU'),
+(2, 'G2'),
+(2, 'G6'),
+(2, 'G7'),
+(2, 'U2');
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_security_sitecheck`
+-- Table structure for table `b_security_sitecheck`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_security_sitecheck`;
@@ -33326,9 +35680,9 @@ CREATE TABLE IF NOT EXISTS `b_security_sitecheck` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_filter_mask`
+-- Table structure for table `b_sec_filter_mask`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_filter_mask`;
@@ -33344,9 +35698,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_filter_mask` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_frame_mask`
+-- Table structure for table `b_sec_frame_mask`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_frame_mask`;
@@ -33362,9 +35716,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_frame_mask` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_iprule`
+-- Table structure for table `b_sec_iprule`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule`;
@@ -33385,9 +35739,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_iprule_excl_ip`
+-- Table structure for table `b_sec_iprule_excl_ip`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_excl_ip`;
@@ -33402,9 +35756,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_excl_ip` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_iprule_excl_mask`
+-- Table structure for table `b_sec_iprule_excl_mask`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_excl_mask`;
@@ -33419,9 +35773,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_excl_mask` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_iprule_incl_ip`
+-- Table structure for table `b_sec_iprule_incl_ip`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_incl_ip`;
@@ -33436,9 +35790,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_incl_ip` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_iprule_incl_mask`
+-- Table structure for table `b_sec_iprule_incl_mask`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_incl_mask`;
@@ -33453,9 +35807,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_incl_mask` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_recovery_codes`
+-- Table structure for table `b_sec_recovery_codes`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_recovery_codes`;
@@ -33471,9 +35825,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_recovery_codes` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_redirect_url`
+-- Table structure for table `b_sec_redirect_url`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_redirect_url`;
@@ -33485,7 +35839,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_redirect_url` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sec_redirect_url`
+-- Dumping data for table `b_sec_redirect_url`
 --
 
 INSERT INTO `b_sec_redirect_url` (`IS_SYSTEM`, `SORT`, `URL`, `PARAMETER_NAME`) VALUES
@@ -33496,9 +35850,9 @@ INSERT INTO `b_sec_redirect_url` (`IS_SYSTEM`, `SORT`, `URL`, `PARAMETER_NAME`) 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_session`
+-- Table structure for table `b_sec_session`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_session`;
@@ -33511,9 +35865,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_session` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_user`
+-- Table structure for table `b_sec_user`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_user`;
@@ -33532,9 +35886,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_user` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_virus`
+-- Table structure for table `b_sec_virus`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_virus`;
@@ -33549,9 +35903,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_virus` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sec_white_list`
+-- Table structure for table `b_sec_white_list`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sec_white_list`;
@@ -33563,9 +35917,9 @@ CREATE TABLE IF NOT EXISTS `b_sec_white_list` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_contact`
+-- Table structure for table `b_sender_contact`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_contact`;
@@ -33582,9 +35936,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_contact` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_contact_list`
+-- Table structure for table `b_sender_contact_list`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_contact_list`;
@@ -33596,9 +35950,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_contact_list` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_group`
+-- Table structure for table `b_sender_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_group`;
@@ -33615,9 +35969,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_group_connector`
+-- Table structure for table `b_sender_group_connector`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_group_connector`;
@@ -33631,9 +35985,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_group_connector` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_list`
+-- Table structure for table `b_sender_list`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_list`;
@@ -33647,9 +36001,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_list` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_mailing`
+-- Table structure for table `b_sender_mailing`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing`;
@@ -33671,9 +36025,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_mailing_attachment`
+-- Table structure for table `b_sender_mailing_attachment`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_attachment`;
@@ -33685,9 +36039,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_attachment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_mailing_chain`
+-- Table structure for table `b_sender_mailing_chain`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_chain`;
@@ -33715,9 +36069,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_chain` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_mailing_group`
+-- Table structure for table `b_sender_mailing_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_group`;
@@ -33730,9 +36084,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_mailing_subscription`
+-- Table structure for table `b_sender_mailing_subscription`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_subscription`;
@@ -33745,9 +36099,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_subscription` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_mailing_trigger`
+-- Table structure for table `b_sender_mailing_trigger`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_trigger`;
@@ -33762,9 +36116,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_trigger` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_posting`
+-- Table structure for table `b_sender_posting`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting`;
@@ -33781,9 +36135,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_posting_click`
+-- Table structure for table `b_sender_posting_click`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_click`;
@@ -33798,9 +36152,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_click` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_posting_read`
+-- Table structure for table `b_sender_posting_read`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_read`;
@@ -33814,9 +36168,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_read` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_posting_recipient`
+-- Table structure for table `b_sender_posting_recipient`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_recipient`;
@@ -33837,9 +36191,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_recipient` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_posting_unsub`
+-- Table structure for table `b_sender_posting_unsub`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_unsub`;
@@ -33853,9 +36207,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_unsub` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sender_preset_template`
+-- Table structure for table `b_sender_preset_template`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sender_preset_template`;
@@ -33869,11 +36223,11 @@ CREATE TABLE IF NOT EXISTS `b_sender_preset_template` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_autolog`
+-- Table structure for table `b_seo_adv_autolog`
 --
--- Создание: Сен 25 2015 г., 08:21
--- Последнее обновление: Сен 25 2015 г., 08:21
--- Последняя проверка: Сен 25 2015 г., 10:08
+-- Creation: Sep 25, 2015 at 08:21 AM
+-- Last update: Sep 25, 2015 at 08:21 AM
+-- Last check: Sep 25, 2015 at 10:08 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_autolog`;
@@ -33892,9 +36246,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_autolog` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_banner`
+-- Table structure for table `b_seo_adv_banner`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_banner`;
@@ -33917,9 +36271,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_banner` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_campaign`
+-- Table structure for table `b_seo_adv_campaign`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_campaign`;
@@ -33938,9 +36292,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_campaign` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_group`
+-- Table structure for table `b_seo_adv_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_group`;
@@ -33960,9 +36314,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_link`
+-- Table structure for table `b_seo_adv_link`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_link`;
@@ -33975,9 +36329,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_link` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_log`
+-- Table structure for table `b_seo_adv_log`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_log`;
@@ -33995,9 +36349,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_log` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_order`
+-- Table structure for table `b_seo_adv_order`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_order`;
@@ -34015,9 +36369,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_order` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_adv_region`
+-- Table structure for table `b_seo_adv_region`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_region`;
@@ -34037,9 +36391,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_region` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_keywords`
+-- Table structure for table `b_seo_keywords`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_keywords`;
@@ -34053,9 +36407,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_keywords` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_search_engine`
+-- Table structure for table `b_seo_search_engine`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_search_engine`;
@@ -34072,7 +36426,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_search_engine` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_seo_search_engine`
+-- Dumping data for table `b_seo_search_engine`
 --
 
 INSERT INTO `b_seo_search_engine` (`ID`, `CODE`, `ACTIVE`, `SORT`, `NAME`, `CLIENT_ID`, `CLIENT_SECRET`, `REDIRECT_URI`, `SETTINGS`) VALUES
@@ -34083,9 +36437,9 @@ INSERT INTO `b_seo_search_engine` (`ID`, `CODE`, `ACTIVE`, `SORT`, `NAME`, `CLIE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_sitemap`
+-- Table structure for table `b_seo_sitemap`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap`;
@@ -34102,9 +36456,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_sitemap_entity`
+-- Table structure for table `b_seo_sitemap_entity`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap_entity`;
@@ -34118,9 +36472,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap_entity` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_sitemap_iblock`
+-- Table structure for table `b_seo_sitemap_iblock`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap_iblock`;
@@ -34133,9 +36487,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap_iblock` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_sitemap_runtime`
+-- Table structure for table `b_seo_sitemap_runtime`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap_runtime`;
@@ -34153,9 +36507,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap_runtime` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_seo_yandex_direct_stat`
+-- Table structure for table `b_seo_yandex_direct_stat`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_seo_yandex_direct_stat`;
@@ -34179,9 +36533,9 @@ CREATE TABLE IF NOT EXISTS `b_seo_yandex_direct_stat` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_short_uri`
+-- Table structure for table `b_short_uri`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_short_uri`;
@@ -34200,9 +36554,9 @@ CREATE TABLE IF NOT EXISTS `b_short_uri` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_site_template`
+-- Table structure for table `b_site_template`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_site_template`;
@@ -34215,7 +36569,7 @@ CREATE TABLE IF NOT EXISTS `b_site_template` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_site_template`
+-- Dumping data for table `b_site_template`
 --
 
 INSERT INTO `b_site_template` (`ID`, `SITE_ID`, `CONDITION`, `SORT`, `TEMPLATE`) VALUES
@@ -34224,9 +36578,9 @@ INSERT INTO `b_site_template` (`ID`, `SITE_ID`, `CONDITION`, `SORT`, `TEMPLATE`)
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_smile`
+-- Table structure for table `b_smile`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_smile`;
@@ -34245,7 +36599,7 @@ CREATE TABLE IF NOT EXISTS `b_smile` (
 ) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_smile`
+-- Dumping data for table `b_smile`
 --
 
 INSERT INTO `b_smile` (`ID`, `TYPE`, `SET_ID`, `SORT`, `TYPING`, `CLICKABLE`, `IMAGE`, `IMAGE_WIDTH`, `IMAGE_HEIGHT`, `HIDDEN`, `IMAGE_DEFINITION`) VALUES
@@ -34277,9 +36631,9 @@ INSERT INTO `b_smile` (`ID`, `TYPE`, `SET_ID`, `SORT`, `TYPING`, `CLICKABLE`, `I
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_smile_lang`
+-- Table structure for table `b_smile_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_smile_lang`;
@@ -34292,7 +36646,7 @@ CREATE TABLE IF NOT EXISTS `b_smile_lang` (
 ) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_smile_lang`
+-- Dumping data for table `b_smile_lang`
 --
 
 INSERT INTO `b_smile_lang` (`ID`, `TYPE`, `SID`, `LID`, `NAME`) VALUES
@@ -34338,9 +36692,9 @@ INSERT INTO `b_smile_lang` (`ID`, `TYPE`, `SID`, `LID`, `NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_smile_set`
+-- Table structure for table `b_smile_set`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_smile_set`;
@@ -34353,7 +36707,7 @@ CREATE TABLE IF NOT EXISTS `b_smile_set` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_smile_set`
+-- Dumping data for table `b_smile_set`
 --
 
 INSERT INTO `b_smile_set` (`ID`, `STRING_ID`, `SORT`, `TYPE`, `PARENT_ID`) VALUES
@@ -34363,9 +36717,9 @@ INSERT INTO `b_smile_set` (`ID`, `STRING_ID`, `SORT`, `TYPE`, `PARENT_ID`) VALUE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_socialservices_message`
+-- Table structure for table `b_socialservices_message`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_socialservices_message`;
@@ -34382,9 +36736,9 @@ CREATE TABLE IF NOT EXISTS `b_socialservices_message` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_socialservices_user`
+-- Table structure for table `b_socialservices_user`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_socialservices_user`;
@@ -34413,9 +36767,9 @@ CREATE TABLE IF NOT EXISTS `b_socialservices_user` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_socialservices_user_link`
+-- Table structure for table `b_socialservices_user_link`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_socialservices_user_link`;
@@ -34433,9 +36787,9 @@ CREATE TABLE IF NOT EXISTS `b_socialservices_user_link` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sticker`
+-- Table structure for table `b_sticker`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sticker`;
@@ -34469,9 +36823,9 @@ CREATE TABLE IF NOT EXISTS `b_sticker` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_sticker_group_task`
+-- Table structure for table `b_sticker_group_task`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_sticker_group_task`;
@@ -34481,7 +36835,7 @@ CREATE TABLE IF NOT EXISTS `b_sticker_group_task` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_sticker_group_task`
+-- Dumping data for table `b_sticker_group_task`
 --
 
 INSERT INTO `b_sticker_group_task` (`GROUP_ID`, `TASK_ID`) VALUES
@@ -34490,9 +36844,9 @@ INSERT INTO `b_sticker_group_task` (`GROUP_ID`, `TASK_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_subscription`
+-- Table structure for table `b_subscription`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_subscription`;
@@ -34512,9 +36866,9 @@ CREATE TABLE IF NOT EXISTS `b_subscription` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_subscription_rubric`
+-- Table structure for table `b_subscription_rubric`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_subscription_rubric`;
@@ -34526,9 +36880,9 @@ CREATE TABLE IF NOT EXISTS `b_subscription_rubric` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_task`
+-- Table structure for table `b_task`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_task`;
@@ -34543,7 +36897,7 @@ CREATE TABLE IF NOT EXISTS `b_task` (
 ) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_task`
+-- Dumping data for table `b_task`
 --
 
 INSERT INTO `b_task` (`ID`, `NAME`, `LETTER`, `MODULE_ID`, `SYS`, `DESCRIPTION`, `BINDING`) VALUES
@@ -34601,9 +36955,9 @@ INSERT INTO `b_task` (`ID`, `NAME`, `LETTER`, `MODULE_ID`, `SYS`, `DESCRIPTION`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_task_operation`
+-- Table structure for table `b_task_operation`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_task_operation`;
@@ -34613,7 +36967,7 @@ CREATE TABLE IF NOT EXISTS `b_task_operation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_task_operation`
+-- Dumping data for table `b_task_operation`
 --
 
 INSERT INTO `b_task_operation` (`TASK_ID`, `OPERATION_ID`) VALUES
@@ -34878,9 +37232,9 @@ INSERT INTO `b_task_operation` (`TASK_ID`, `OPERATION_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_undo`
+-- Table structure for table `b_undo`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_undo`;
@@ -34894,12 +37248,25 @@ CREATE TABLE IF NOT EXISTS `b_undo` (
   `TIMESTAMP_X` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `b_undo`
+--
+
+INSERT INTO `b_undo` (`ID`, `MODULE_ID`, `UNDO_TYPE`, `UNDO_HANDLER`, `CONTENT`, `USER_ID`, `TIMESTAMP_X`) VALUES
+('2156b54c9d0ef56742f206173c132abf5', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:13:"Legend crema3";s:8:"SUB_CODE";s:13:"legend-crema3";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"-39";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"2";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:22:"legend crema 45x45.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445863517871/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"72731";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:22:"legend crema 45x45.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445863918986/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"72731";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:0:"";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"N";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:0:"";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"N";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"5";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:0:"";s:17:"SUBCAT_BASE_WIDTH";s:0:"";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"-39";s:6:"TMP_ID";s:2:"39";}', 2, 1445863500),
+('249503db5f3ff781120cc17d2a900a5ec', 'main', 'autosave', 'CAutoSave::_Restore', 'a:88:{s:6:"ACTIVE";s:1:"Y";s:11:"ACTIVE_FROM";s:0:"";s:9:"ACTIVE_TO";s:0:"";s:4:"NAME";s:12:"Legend crema";s:4:"CODE";s:12:"legend-crema";s:4:"SORT";s:3:"500";s:39:"PROPX000091X7X000093XX000091Xn0X000093X";s:0:"";s:25:"bxu_filesX000091XX000093X";a:3:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";}s:39:"PROPX000091X8X000093XX000091Xn0X000093X";s:0:"";s:40:"PROPX000091X9X000093XX000091X305X000093X";s:2:"76";s:38:"PROPX000091X10X000093XX000091XX000093X";a:1:{i:0;s:1:"7";}s:41:"PROPX000091X12X000093XX000091X307X000093X";s:2:"53";s:17:"PREVIEW_TEXT_TYPE";s:0:"";s:12:"PREVIEW_TEXT";s:0:"";s:16:"DETAIL_TEXT_TYPE";s:0:"";s:11:"DETAIL_TEXT";s:0:"";s:77:"IPROPERTY_TEMPLATESX000091XELEMENT_META_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:78:"IPROPERTY_TEMPLATESX000091XELEMENT_META_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:80:"IPROPERTY_TEMPLATESX000091XELEMENT_META_KEYWORDSX000093XX000091XTEMPLATEX000093X";s:0:"";s:81:"IPROPERTY_TEMPLATESX000091XELEMENT_META_KEYWORDSX000093XX000091XINHERITEDX000093X";s:0:"";s:83:"IPROPERTY_TEMPLATESX000091XELEMENT_META_DESCRIPTIONX000093XX000091XTEMPLATEX000093X";s:0:"";s:84:"IPROPERTY_TEMPLATESX000091XELEMENT_META_DESCRIPTIONX000093XX000091XINHERITEDX000093X";s:0:"";s:77:"IPROPERTY_TEMPLATESX000091XELEMENT_PAGE_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:78:"IPROPERTY_TEMPLATESX000091XELEMENT_PAGE_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_ALTX000093XX000091XTEMPLATEX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_ALTX000093XX000091XINHERITEDX000093X";s:0:"";s:93:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:94:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XTEMPLATEX000093X";s:0:"";s:93:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XINHERITEDX000093X";s:0:"";s:89:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XLOWERX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XTRANSLITX000093X";s:0:"";s:89:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XSPACEX000093X";s:0:"";s:90:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_ALTX000093XX000091XTEMPLATEX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_ALTX000093XX000091XINHERITEDX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:93:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XTEMPLATEX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XINHERITEDX000093X";s:0:"";s:88:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XLOWERX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XTRANSLITX000093X";s:0:"";s:88:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XSPACEX000093X";s:0:"";s:4:"TAGS";s:0:"";s:7:"ck_TAGS";s:0:"";s:14:"IBLOCK_SECTION";a:1:{i:0;s:1:"8";}s:30:"IBLOCK_SECTIONX000091XX000093X";a:1:{i:0;s:0:"";}s:16:"price_useextform";s:0:"";s:10:"CAT_VAT_ID";s:0:"";s:16:"CAT_VAT_INCLUDED";s:0:"";s:14:"CAT_BASE_PRICE";s:4:"1.00";s:17:"CAT_BASE_CURRENCY";s:3:"RUB";s:15:"CAT_PRICE_EXIST";s:1:"Y";s:24:"CAT_BASE_QUANTITY_FROM_0";s:0:"";s:28:"CAT_BASE_IDX000091X0X000093X";s:2:"42";s:22:"CAT_BASE_QUANTITY_TO_0";s:0:"";s:16:"CAT_BASE_PRICE_0";s:4:"1.00";s:19:"CAT_BASE_CURRENCY_0";s:3:"RUB";s:15:"CAT_ROW_COUNTER";s:1:"0";s:17:"CAT_PRICE_EXIST_0";s:1:"Y";s:17:"CAT_BASE_QUANTITY";s:1:"0";s:26:"CAT_BASE_QUANTITY_RESERVED";s:1:"0";s:11:"CAT_MEASURE";s:1:"1";s:17:"CAT_MEASURE_RATIO";s:1:"1";s:20:"CAT_MEASURE_RATIO_ID";s:2:"42";s:23:"CAT_BASE_QUANTITY_TRACE";s:1:"D";s:9:"USE_STORE";s:1:"D";s:15:"NEGATIVE_AMOUNT";s:1:"D";s:9:"SUBSCRIBE";s:1:"D";s:15:"CAT_BASE_WEIGHT";s:1:"0";s:15:"CAT_BASE_LENGTH";s:1:"0";s:14:"CAT_BASE_WIDTH";s:1:"0";s:15:"CAT_BASE_HEIGHT";s:1:"0";s:4:"save";s:0:"";s:5:"apply";s:0:"";s:8:"dontsave";s:0:"";s:12:"save_and_add";s:0:"";s:25:"form_element_2_active_tab";s:6:"edit10";s:20:"find_section_section";s:1:"8";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"N";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:2:"ID";s:3:"108";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:6:"TMP_ID";s:1:"0";}', 2, 1445859308),
+('24af22e0eb631991e597758a5c2820371', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:12:"Legend crema";s:8:"SUB_CODE";s:12:"legend-crema";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"-43";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445865615056/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"25307";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445865353926/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"25307";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:1:"8";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"N";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:0:"";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"N";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"5";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:0:"";s:17:"SUBCAT_BASE_WIDTH";s:0:"";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"-43";s:6:"TMP_ID";s:2:"43";}', 2, 1445865004),
+('299033c6f936e06fe67240b4744ac5a1c', 'main', 'autosave', 'CAutoSave::_Restore', 'a:68:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:21:"Legend boiserie crema";s:8:"SUB_CODE";s:6:"legend";s:8:"SUB_SORT";s:3:"500";s:61:"PROPX000091X5X000093XX000091X350X000093XX000091XVALUEX000093X";s:3:"119";s:67:"PROPX000091X5X000093XX000091X350X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:6:"88.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445941519571/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"41573";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:6:"88.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445942120271/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"41573";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:5:"15.00";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:31:"SUBCAT_BASE_IDX000091X0X000093X";s:2:"50";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:5:"15.00";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:1:"0";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:1:"0";s:14:"SUBCAT_MEASURE";s:1:"1";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:2:"50";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:1:"0";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"750";s:18:"SUBCAT_BASE_HEIGHT";s:1:"0";s:11:"from_module";s:6:"iblock";s:8:"bxpublic";s:1:"Y";s:28:"form_subelement_3_active_tab";s:9:"sub_edit6";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"N";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:2:"ID";s:3:"120";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"119";s:6:"TMP_ID";s:1:"0";}', 2, 1445941512),
+('29cf648cba9c6f33cceca31f92dd5d45b', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:11:"Legend bord";s:8:"SUB_CODE";s:11:"legend-bord";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"119";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"9";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:6:"89.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445941989906/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:4:"5817";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:6:"89.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445942629595/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:4:"5817";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:1:"3";s:20:"SUBCAT_BASE_CURRENCY";s:3:"EUR";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:1:"3";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"EUR";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"5";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"120";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"119";s:6:"TMP_ID";s:1:"0";}', 2, 1445941934),
+('2cd64c5accde5ad645b4fd7f2d5719310', 'main', 'autosave', 'CAutoSave::_Restore', 'a:60:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:21:"Legend boiserie crema";s:8:"SUB_CODE";s:6:"legend";s:8:"SUB_SORT";s:3:"500";s:61:"PROPX000091X5X000093XX000091X350X000093XX000091XVALUEX000093X";s:3:"119";s:67:"PROPX000091X5X000093XX000091X350X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:19:"SUB_PREVIEW_PICTURE";s:4:"1190";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:18:"SUB_DETAIL_PICTURE";s:4:"1191";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:5:"15.00";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:31:"SUBCAT_BASE_IDX000091X0X000093X";s:2:"50";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:5:"15.00";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:1:"0";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:1:"0";s:14:"SUBCAT_MEASURE";s:1:"1";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:2:"50";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:1:"0";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"750";s:18:"SUBCAT_BASE_HEIGHT";s:1:"0";s:11:"from_module";s:6:"iblock";s:8:"bxpublic";s:1:"Y";s:28:"form_subelement_3_active_tab";s:9:"sub_edit1";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"N";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:2:"ID";s:3:"120";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"119";s:6:"TMP_ID";s:1:"0";}', 2, 1445866018),
+('2d32ca68e3716b27bcb4af6bd01cf1d32', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:12:"Legend crema";s:8:"SUB_CODE";s:12:"legend-crema";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"-41";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445865154858/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"25307";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445864654852/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"25307";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:1:"5";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:1:"5";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"1";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"750";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"-41";s:6:"TMP_ID";s:2:"41";}', 2, 1445864589);
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user`
+-- Table structure for table `b_user`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user`;
@@ -34968,20 +37335,20 @@ CREATE TABLE IF NOT EXISTS `b_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user`
+-- Dumping data for table `b_user`
 --
 
 INSERT INTO `b_user` (`ID`, `TIMESTAMP_X`, `LOGIN`, `PASSWORD`, `CHECKWORD`, `ACTIVE`, `NAME`, `LAST_NAME`, `EMAIL`, `LAST_LOGIN`, `DATE_REGISTER`, `LID`, `PERSONAL_PROFESSION`, `PERSONAL_WWW`, `PERSONAL_ICQ`, `PERSONAL_GENDER`, `PERSONAL_BIRTHDATE`, `PERSONAL_PHOTO`, `PERSONAL_PHONE`, `PERSONAL_FAX`, `PERSONAL_MOBILE`, `PERSONAL_PAGER`, `PERSONAL_STREET`, `PERSONAL_MAILBOX`, `PERSONAL_CITY`, `PERSONAL_STATE`, `PERSONAL_ZIP`, `PERSONAL_COUNTRY`, `PERSONAL_NOTES`, `WORK_COMPANY`, `WORK_DEPARTMENT`, `WORK_POSITION`, `WORK_WWW`, `WORK_PHONE`, `WORK_FAX`, `WORK_PAGER`, `WORK_STREET`, `WORK_MAILBOX`, `WORK_CITY`, `WORK_STATE`, `WORK_ZIP`, `WORK_COUNTRY`, `WORK_PROFILE`, `WORK_LOGO`, `WORK_NOTES`, `ADMIN_NOTES`, `STORED_HASH`, `XML_ID`, `PERSONAL_BIRTHDAY`, `EXTERNAL_AUTH_ID`, `CHECKWORD_TIME`, `SECOND_NAME`, `CONFIRM_CODE`, `LOGIN_ATTEMPTS`, `LAST_ACTIVITY_DATE`, `AUTO_TIME_ZONE`, `TIME_ZONE`, `TIME_ZONE_OFFSET`, `TITLE`, `BX_USER_ID`, `LANGUAGE_ID`) VALUES
-(1, '2015-09-15 07:11:30', 'admin', 'jTgFUHs43d73b14209c6495b8c8e5dddc6cf9eab', 'NtnFE6si377bf6f632f1ab1bc82bb888781abbc6', 'Y', 'Вячеслав', 'Ширшин', 'den.silents@yandex.ru', '2015-10-21 20:37:40', '2015-08-27 09:43:52', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-09-15 10:11:30', '', NULL, 1, NULL, '', NULL, NULL, '', 'fc39bb45e747a02941a59eeac0ee581f', NULL),
-(2, '2015-10-05 16:54:56', 'editor', 'dXnvq92p3d55b22371e156a0c168953b19831fa3', 'gyXNDy4F0d19b130a107ec536586329911862214', 'Y', '', '', 'den.silents@yandex.ru', '2015-10-21 14:23:07', '2015-10-05 19:51:27', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-10-05 19:54:56', '', NULL, 0, NULL, '', NULL, NULL, '', 'edbca7bfcdf13d63fb8f12405af13b78', NULL),
+(1, '2015-09-15 07:11:30', 'admin', 'jTgFUHs43d73b14209c6495b8c8e5dddc6cf9eab', 'NtnFE6si377bf6f632f1ab1bc82bb888781abbc6', 'Y', 'Вячеслав', 'Ширшин', 'den.silents@yandex.ru', '2015-10-27 15:17:04', '2015-08-27 09:43:52', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-09-15 10:11:30', '', NULL, 0, NULL, '', NULL, NULL, '', 'cc3cefd8cea8bfa68cf103f431d19771', NULL),
+(2, '2015-10-05 16:54:56', 'editor', 'dXnvq92p3d55b22371e156a0c168953b19831fa3', 'gyXNDy4F0d19b130a107ec536586329911862214', 'Y', '', '', 'den.silents@yandex.ru', '2015-10-27 14:08:40', '2015-10-05 19:51:27', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-10-05 19:54:56', '', NULL, 0, NULL, '', NULL, NULL, '', 'edbca7bfcdf13d63fb8f12405af13b78', NULL),
 (3, '2015-10-13 19:43:57', 'Anthonyfulp', 'coktholh479d9721b1513699ee73ab6715897ced', '3Ybfnf6f003f919c7dad56eb5aa0078cc8528d97', 'Y', 'Anthonyfulp', 'AnthonyfulpXE', 'danie12722@mail.ru', '2015-10-13 22:43:57', '2015-10-13 22:43:57', 's1', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-10-13 22:43:57', NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_access`
+-- Table structure for table `b_user_access`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_access`;
@@ -34992,7 +37359,7 @@ CREATE TABLE IF NOT EXISTS `b_user_access` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user_access`
+-- Dumping data for table `b_user_access`
 --
 
 INSERT INTO `b_user_access` (`USER_ID`, `PROVIDER_ID`, `ACCESS_CODE`) VALUES
@@ -35015,9 +37382,9 @@ INSERT INTO `b_user_access` (`USER_ID`, `PROVIDER_ID`, `ACCESS_CODE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_access_check`
+-- Table structure for table `b_user_access_check`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_access_check`;
@@ -35027,7 +37394,7 @@ CREATE TABLE IF NOT EXISTS `b_user_access_check` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user_access_check`
+-- Dumping data for table `b_user_access_check`
 --
 
 INSERT INTO `b_user_access_check` (`USER_ID`, `PROVIDER_ID`) VALUES
@@ -35041,9 +37408,9 @@ INSERT INTO `b_user_access_check` (`USER_ID`, `PROVIDER_ID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_counter`
+-- Table structure for table `b_user_counter`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_counter`;
@@ -35061,9 +37428,9 @@ CREATE TABLE IF NOT EXISTS `b_user_counter` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_digest`
+-- Table structure for table `b_user_digest`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_digest`;
@@ -35075,9 +37442,9 @@ CREATE TABLE IF NOT EXISTS `b_user_digest` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_field`
+-- Table structure for table `b_user_field`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_field`;
@@ -35098,7 +37465,7 @@ CREATE TABLE IF NOT EXISTS `b_user_field` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user_field`
+-- Dumping data for table `b_user_field`
 --
 
 INSERT INTO `b_user_field` (`ID`, `ENTITY_ID`, `FIELD_NAME`, `USER_TYPE_ID`, `XML_ID`, `SORT`, `MULTIPLE`, `MANDATORY`, `SHOW_FILTER`, `SHOW_IN_LIST`, `EDIT_IN_LIST`, `IS_SEARCHABLE`, `SETTINGS`) VALUES
@@ -35109,9 +37476,9 @@ INSERT INTO `b_user_field` (`ID`, `ENTITY_ID`, `FIELD_NAME`, `USER_TYPE_ID`, `XM
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_field_confirm`
+-- Table structure for table `b_user_field_confirm`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_field_confirm`;
@@ -35127,9 +37494,9 @@ CREATE TABLE IF NOT EXISTS `b_user_field_confirm` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_field_enum`
+-- Table structure for table `b_user_field_enum`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_field_enum`;
@@ -35145,9 +37512,9 @@ CREATE TABLE IF NOT EXISTS `b_user_field_enum` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_field_lang`
+-- Table structure for table `b_user_field_lang`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_field_lang`;
@@ -35164,9 +37531,9 @@ CREATE TABLE IF NOT EXISTS `b_user_field_lang` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_group`
+-- Table structure for table `b_user_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_group`;
@@ -35178,7 +37545,7 @@ CREATE TABLE IF NOT EXISTS `b_user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user_group`
+-- Dumping data for table `b_user_group`
 --
 
 INSERT INTO `b_user_group` (`USER_ID`, `GROUP_ID`, `DATE_ACTIVE_FROM`, `DATE_ACTIVE_TO`) VALUES
@@ -35194,9 +37561,9 @@ INSERT INTO `b_user_group` (`USER_ID`, `GROUP_ID`, `DATE_ACTIVE_FROM`, `DATE_ACT
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_hit_auth`
+-- Table structure for table `b_user_hit_auth`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_hit_auth`;
@@ -35212,9 +37579,9 @@ CREATE TABLE IF NOT EXISTS `b_user_hit_auth` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_option`
+-- Table structure for table `b_user_option`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_option`;
@@ -35225,22 +37592,22 @@ CREATE TABLE IF NOT EXISTS `b_user_option` (
   `NAME` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `VALUE` text COLLATE utf8_unicode_ci,
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user_option`
+-- Dumping data for table `b_user_option`
 --
 
 INSERT INTO `b_user_option` (`ID`, `USER_ID`, `CATEGORY`, `NAME`, `VALUE`, `COMMON`) VALUES
 (1, NULL, 'intranet', '~gadgets_admin_index', 'a:1:{i:0;a:1:{s:7:"GADGETS";a:11:{s:28:"ADMIN_ORDERS_GRAPH@111111111";a:3:{s:6:"COLUMN";i:0;s:3:"ROW";i:0;s:4:"HIDE";s:1:"N";}s:22:"ADMIN_ORDERS@111111111";a:3:{s:6:"COLUMN";i:0;s:3:"ROW";i:1;s:4:"HIDE";s:1:"N";}s:19:"HTML_AREA@444444444";a:5:{s:6:"COLUMN";i:1;s:3:"ROW";i:0;s:4:"HIDE";s:1:"N";s:8:"USERDATA";a:1:{s:7:"content";s:797:"<table class="bx-gadgets-info-site-table" cellspacing="0"><tr>	<td class="bx-gadget-gray">Создатель сайта:</td>	<td>Группа компаний &laquo;1С-Битрикс&raquo;.</td>	<td class="bx-gadgets-info-site-logo" rowspan="5"><img src="/bitrix/components/bitrix/desktop/templates/admin/images/site_logo.png"></td></tr><tr>	<td class="bx-gadget-gray">Адрес сайта:</td>	<td><a href="http://www.1c-bitrix.ru">www.1c-bitrix.ru</a></td></tr><tr>	<td class="bx-gadget-gray">Сайт сдан:</td>	<td>12 декабря 2010 г.</td></tr><tr>	<td class="bx-gadget-gray">Ответственное лицо:</td>	<td>Иван Иванов</td></tr><tr>	<td class="bx-gadget-gray">E-mail:</td>	<td><a href="mailto:info@1c-bitrix.ru">info@1c-bitrix.ru</a></td></tr></table>";}s:8:"SETTINGS";a:1:{s:9:"TITLE_STD";s:34:"Информация о сайте";}}s:24:"ADMIN_SECURITY@555555555";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:1;s:4:"HIDE";s:1:"N";}s:23:"ADMIN_PERFMON@666666666";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:2;s:4:"HIDE";s:1:"N";}s:24:"ADMIN_PRODUCTS@111111111";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:5;s:4:"HIDE";s:1:"N";}s:20:"ADMIN_INFO@333333333";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:6;s:4:"HIDE";s:1:"N";}s:25:"ADMIN_CHECKLIST@777888999";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:7;s:4:"HIDE";s:1:"N";}s:19:"RSSREADER@777777777";a:4:{s:6:"COLUMN";i:1;s:3:"ROW";i:8;s:4:"HIDE";s:1:"N";s:8:"SETTINGS";a:3:{s:9:"TITLE_STD";s:33:"Новости 1С-Битрикс";s:3:"CNT";i:10;s:7:"RSS_URL";s:45:"https://www.1c-bitrix.ru/about/life/news/rss/";}}s:23:"ADMIN_MARKETPALCE@22549";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:3;s:4:"HIDE";s:1:"N";}s:22:"ADMIN_MOBILESHOP@13391";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:4;s:4:"HIDE";s:1:"N";}}}}', 'Y'),
 (2, NULL, 'main.interface', 'global', 'a:1:{s:5:"theme";s:5:"green";}', 'Y'),
 (3, NULL, 'filter', 'tbl_product_admin_51650330e96c767cf675e245aee13389_filter', 'a:1:{s:4:"rows";s:22:"miss-0,IBEL_A_F_PARENT";}', 'Y'),
-(4, 1, 'admin_panel', 'settings', 'a:2:{s:4:"edit";s:3:"off";s:9:"collapsed";s:3:"off";}', 'N'),
+(4, 1, 'admin_panel', 'settings', 'a:2:{s:4:"edit";s:3:"off";s:9:"collapsed";s:2:"on";}', 'N'),
 (5, 1, 'html_editor', 'user_settings__filesrc_pub', 'a:4:{s:13:"taskbar_shown";s:1:"1";s:4:"view";s:4:"code";s:16:"link_dialog_type";s:8:"external";s:12:"specialchars";s:141:"&raquo;|&laquo;|&cent;|&sect;|&euro;|&pound;|&yen;|&copy;|&reg;|&deg;|&plusmn;|&para;|&hellip;|&prime;|&Prime;|&trade;|&asymp;|&ne;|&lt;|&gt;";}', 'N'),
 (6, 1, 'BX.WindowManager.9.5', 'size_/bitrix/admin/component_props.php', 'a:2:{s:5:"width";s:4:"1069";s:6:"height";s:3:"510";}', 'N'),
 (7, 1, 'BX.WindowManager.9.5', 'size_bx_component_properties_res', 'a:2:{s:5:"width";s:4:"1052";s:6:"height";s:3:"610";}', 'N'),
 (8, 1, 'favorite', 'favorite_menu', 'a:1:{s:5:"stick";s:1:"N";}', 'N'),
-(9, 1, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:326:"menu_highloadblock,menu_iblock_/offers/3,menu_module_settings,menu_fileman_file_s1_,menu_sale_settings,menu_iblock_/slider/5,menu_site,urlrewrite,menu_lang,menu_sale_delivery,menu_sale_taxes,menu_iblock_/catalog/2,menu_users,menu_currency,menu_iblock_/catalog,menu_iblock_/directories,menu_util,backup,menu_iblock,iblock_admin";}', 'N'),
+(9, 1, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:368:"menu_highloadblock,menu_iblock_/offers/3,menu_module_settings,menu_fileman_file_s1_,menu_sale_settings,menu_iblock_/slider/5,menu_site,urlrewrite,menu_lang,menu_sale_delivery,menu_sale_taxes,menu_iblock_/catalog/2,menu_users,menu_currency,menu_iblock_/catalog,menu_iblock_/directories,menu_util,backup,menu_iblock,iblock_admin,menu_iblock_/offers,menu_iblock_/offers/3";}', 'N'),
 (10, 1, 'filter', 'tbl_eshop_color_reference_filter_id', 'a:1:{s:4:"rows";s:1:"0";}', 'N'),
 (11, 1, 'filter', 'tbl_eshop_brand_reference_filter_id', 'a:1:{s:4:"rows";s:1:"0";}', 'N'),
 (12, 1, 'BX.WindowManager.9.5', 'size_/bitrix/admin/iblock_edit_property.php', 'a:2:{s:5:"width";s:3:"955";s:6:"height";s:3:"564";}', 'N'),
@@ -35267,21 +37634,26 @@ INSERT INTO `b_user_option` (`ID`, `USER_ID`, `CATEGORY`, `NAME`, `VALUE`, `COMM
 (33, 1, 'list', 'tbl_iblock_el_search6a57d3d7f28a0fe4d7695ef9f0933761', 'a:4:{s:7:"columns";s:7:"ID,NAME";s:2:"by";s:4:"name";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
 (34, 2, 'admin_panel', 'settings', 'a:1:{s:4:"edit";s:3:"off";}', 'N'),
 (35, 2, 'favorite', 'favorite_menu', 'a:1:{s:5:"stick";s:1:"N";}', 'N'),
-(36, 2, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:114:"menu_iblock_/directories/6,menu_iblock_/slider/5,iblock_import,menu_sale_buyers,menu_sale_discount,menu_sale_taxes";}', 'N'),
-(37, 2, 'main', 'fileinput', 'a:2:{s:7:"presets";a:4:{i:0;a:3:{s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:5:"title";s:7:"200x200";}i:1;a:3:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";s:5:"title";s:3:"500";}i:2;a:3:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";s:5:"title";s:7:"500x500";}i:3;a:3:{s:5:"width";s:4:"1070";s:6:"height";s:3:"300";s:5:"title";s:10:"Слайд";}}s:4:"mode";s:9:"mode-pict";}', 'N'),
+(36, 2, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:245:"menu_iblock_/directories/6,menu_iblock_/slider/5,iblock_import,menu_sale_buyers,menu_sale_discount,menu_sale_taxes,menu_iblock_/directories,menu_iblock,menu_iblock_/offers,menu_iblock_%2Foffers%2F3,menu_iblock_/catalog,menu_iblock_%2Fcatalog%2F2";}', 'N'),
+(37, 2, 'main', 'fileinput', 'a:3:{s:7:"presets";a:5:{i:0;a:3:{s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:5:"title";s:7:"200x200";}i:1;a:3:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";s:5:"title";s:3:"500";}i:2;a:3:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";s:5:"title";s:7:"500x500";}i:3;a:3:{s:5:"width";s:4:"1070";s:6:"height";s:3:"300";s:5:"title";s:10:"Слайд";}i:4;a:3:{s:5:"width";s:3:"130";s:6:"height";s:3:"390";s:5:"title";s:2:"11";}}s:4:"mode";s:9:"mode-pict";s:10:"frameFiles";s:1:"N";}', 'N'),
 (38, 2, 'filter', 'tbl_iblock_el_search859784e286e2d897f982a12582078e8b_filter', 'a:1:{s:4:"rows";s:2:"id";}', 'N'),
 (39, 2, 'list', 'tbl_iblock_el_search859784e286e2d897f982a12582078e8b', 'a:4:{s:7:"columns";s:7:"ID,NAME";s:2:"by";s:4:"name";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
 (40, 2, 'filter', 'tbl_iblock_el_search6a57d3d7f28a0fe4d7695ef9f0933761_filter', 'a:1:{s:4:"rows";s:2:"id";}', 'N'),
 (41, 2, 'list', 'tbl_iblock_el_search6a57d3d7f28a0fe4d7695ef9f0933761', 'a:4:{s:7:"columns";s:7:"ID,NAME";s:2:"by";s:4:"name";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
 (42, 2, 'BX.WindowManager.9.5', 'size_iblock_subelement_edit.php', 'a:2:{s:5:"width";s:3:"851";s:6:"height";s:3:"540";}', 'N'),
-(43, 2, 'filter', 'b_catalog_store_filter', 'a:1:{s:4:"rows";s:1:"0";}', 'N');
+(43, 2, 'filter', 'b_catalog_store_filter', 'a:1:{s:4:"rows";s:1:"0";}', 'N'),
+(44, 2, 'start_menu', 'recent', 'a:5:{i:0;a:4:{s:3:"url";s:148:"/bitrix/admin/iblock_list_admin.php?IBLOCK_ID=2&type=catalog&lang=ru&find_section_section=0&back_url_pub=%2Fcatalog%2Fgostinaya%2Fcharme%2Findex.php";s:4:"text";s:18:"Коллекции";s:5:"title";s:18:"Коллекции";s:4:"icon";s:9:"undefined";}i:1;a:4:{s:3:"url";s:148:"/bitrix/admin/iblock_list_admin.php?IBLOCK_ID=2&type=catalog&lang=ru&find_section_section=8&back_url_pub=%2Fcatalog%2Fgostinaya%2Fcharme%2Findex.php";s:4:"text";s:12:"Ванная";s:5:"title";s:12:"Ванная";s:4:"icon";s:9:"undefined";}i:2;a:4:{s:3:"url";s:125:"/bitrix/admin/iblock_list_admin.php?IBLOCK_ID=2&type=catalog&lang=ru&find_section_section=8&back_url_pub=%2Flogin%2Findex.php";s:4:"text";s:12:"Ванная";s:5:"title";s:12:"Ванная";s:4:"icon";s:9:"undefined";}i:3;a:4:{s:3:"url";s:154:"/bitrix/admin/cat_product_list.php?lang=ru&IBLOCK_ID=2&type=catalog&find_section_section=-1&back_url_pub=%2Fmanufacturers%2Fdetail.php%3Felement_code%3D76";s:4:"text";s:27:"Список товаров";s:5:"title";s:0:"";s:4:"icon";s:9:"undefined";}i:4;a:4:{s:3:"url";s:154:"/bitrix/admin/cat_section_admin.php?lang=ru&type=catalog&IBLOCK_ID=2&find_section_section=0&back_url_pub=%2Fmanufacturers%2Fdetail.php%3Felement_code%3D76";s:4:"text";s:14:"Разделы";s:5:"title";s:0:"";s:4:"icon";s:9:"undefined";}}', 'N'),
+(45, 2, 'search_tags', 'order', 's:4:"NAME";', 'N'),
+(46, 2, 'BX.WindowManager.9.5', 'options_8a89be1e0e71327e9f19485a59ab8804', 'a:4:{s:3:"pin";s:5:"false";s:3:"top";s:5:"false";s:4:"left";s:5:"false";s:9:"transform";s:5:"false";}', 'N'),
+(47, 2, 'list', 'tbl_iblock_sub_element_ef0c70488f2295b4f6bae07cdcf066f1', 'a:4:{s:7:"columns";s:94:"CATALOG_TYPE,NAME,ACTIVE,SORT,ID,CATALOG_GROUP_1,EXTERNAL_ID,CATALOG_MEASURE_RATIO,PROPERTY_11";s:2:"by";s:2:"id";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
+(48, 2, 'list', 'tbl_iblock_list_a787d39d17af063ea1c165aff454b7d6', 'a:4:{s:7:"columns";s:56:"CATALOG_TYPE,NAME,ACTIVE,SORT,TIMESTAMP_X,ID,PROPERTY_10";s:2:"by";s:11:"timestamp_x";s:5:"order";s:4:"desc";s:9:"page_size";s:2:"20";}', 'N');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_user_stored_auth`
+-- Table structure for table `b_user_stored_auth`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_user_stored_auth`;
@@ -35293,27 +37665,27 @@ CREATE TABLE IF NOT EXISTS `b_user_stored_auth` (
   `STORED_HASH` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `TEMP_HASH` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   `IP_ADDR` int(10) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_user_stored_auth`
+-- Dumping data for table `b_user_stored_auth`
 --
 
 INSERT INTO `b_user_stored_auth` (`ID`, `USER_ID`, `DATE_REG`, `LAST_AUTH`, `STORED_HASH`, `TEMP_HASH`, `IP_ADDR`) VALUES
 (1, 1, '2015-08-27 09:43:52', '2015-08-27 09:43:52', '5cfebdc818b183ff67b2f713a3d4c22d', 'N', 2130706433),
 (2, 1, '2015-08-27 11:00:40', '2015-08-27 17:50:02', 'ed752865a1c20638303ff19117af7d9c', 'N', 2130706433),
 (3, 1, '2015-09-17 16:34:58', '2015-09-23 11:35:38', 'def37519bc76e1310fba6182a8536148', 'N', 2130706433),
-(4, 1, '2015-09-24 21:16:15', '2015-10-21 20:37:40', 'fef3ce4384d4ddf1297d19e77d1cc033', 'N', 2151974653),
-(6, 2, '2015-10-06 10:16:16', '2015-10-06 10:16:16', 'e771bd4f0bc9ddc40ef167cf8b476641', 'N', 3650294786),
-(7, 2, '2015-10-21 11:48:54', '2015-10-21 11:48:54', 'c0811cb505639e0a25ef8492053a8c28', 'N', 3650294786),
-(9, 1, '2015-10-21 13:25:14', '2015-10-21 13:25:14', '3e7293457396e7011144f508b341e9c1', 'N', 1435467550);
+(4, 1, '2015-09-24 21:16:15', '2015-10-22 19:57:12', 'fef3ce4384d4ddf1297d19e77d1cc033', 'N', 2151974653),
+(6, 2, '2015-10-06 10:16:16', '2015-10-27 12:40:15', 'e771bd4f0bc9ddc40ef167cf8b476641', 'N', 3650294786),
+(9, 1, '2015-10-21 13:25:14', '2015-10-27 15:17:04', '3e7293457396e7011144f508b341e9c1', 'N', 1435467550),
+(12, 2, '2015-10-27 14:00:28', '2015-10-27 14:08:40', '4373c263b1b240e164f8dad76253f900', 'N', 3650294786);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_utm_blog_comment`
+-- Table structure for table `b_utm_blog_comment`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_utm_blog_comment`;
@@ -35330,9 +37702,9 @@ CREATE TABLE IF NOT EXISTS `b_utm_blog_comment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_utm_blog_post`
+-- Table structure for table `b_utm_blog_post`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_utm_blog_post`;
@@ -35349,9 +37721,9 @@ CREATE TABLE IF NOT EXISTS `b_utm_blog_post` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_uts_blog_comment`
+-- Table structure for table `b_uts_blog_comment`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_uts_blog_comment`;
@@ -35363,9 +37735,9 @@ CREATE TABLE IF NOT EXISTS `b_uts_blog_comment` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_uts_blog_post`
+-- Table structure for table `b_uts_blog_post`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_uts_blog_post`;
@@ -35378,9 +37750,9 @@ CREATE TABLE IF NOT EXISTS `b_uts_blog_post` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote`
+-- Table structure for table `b_vote`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote`;
@@ -35414,9 +37786,9 @@ CREATE TABLE IF NOT EXISTS `b_vote` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_answer`
+-- Table structure for table `b_vote_answer`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_answer`;
@@ -35439,9 +37811,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_answer` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_channel`
+-- Table structure for table `b_vote_channel`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_channel`;
@@ -35461,9 +37833,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_channel` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_channel_2_group`
+-- Table structure for table `b_vote_channel_2_group`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_channel_2_group`;
@@ -35477,9 +37849,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_channel_2_group` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_channel_2_site`
+-- Table structure for table `b_vote_channel_2_site`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_channel_2_site`;
@@ -35491,9 +37863,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_channel_2_site` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_event`
+-- Table structure for table `b_vote_event`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_event`;
@@ -35510,9 +37882,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_event` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_event_answer`
+-- Table structure for table `b_vote_event_answer`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_event_answer`;
@@ -35526,9 +37898,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_event_answer` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_event_question`
+-- Table structure for table `b_vote_event_question`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_event_question`;
@@ -35541,9 +37913,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_event_question` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_question`
+-- Table structure for table `b_vote_question`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_question`;
@@ -35567,9 +37939,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_question` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_vote_user`
+-- Table structure for table `b_vote_user`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_vote_user`;
@@ -35586,9 +37958,9 @@ CREATE TABLE IF NOT EXISTS `b_vote_user` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `b_xml_tree`
+-- Table structure for table `b_xml_tree`
 --
--- Создание: Сен 25 2015 г., 08:21
+-- Creation: Sep 25, 2015 at 08:21 AM
 --
 
 DROP TABLE IF EXISTS `b_xml_tree`;
@@ -35604,7 +37976,7 @@ CREATE TABLE IF NOT EXISTS `b_xml_tree` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2759 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Дамп данных таблицы `b_xml_tree`
+-- Dumping data for table `b_xml_tree`
 --
 
 INSERT INTO `b_xml_tree` (`ID`, `PARENT_ID`, `LEFT_MARGIN`, `RIGHT_MARGIN`, `DEPTH_LEVEL`, `NAME`, `VALUE`, `ATTRIBUTES`) VALUES
@@ -38370,3717 +40742,3717 @@ INSERT INTO `b_xml_tree` (`ID`, `PARENT_ID`, `LEFT_MARGIN`, `RIGHT_MARGIN`, `DEP
 (2758, 0, 316, 0, 0, '', NULL, NULL);
 
 --
--- Индексы сохранённых таблиц
+-- Indexes for dumped tables
 --
 
 --
--- Индексы таблицы `b_admin_notify`
+-- Indexes for table `b_admin_notify`
 --
 ALTER TABLE `b_admin_notify`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_AD_TAG` (`TAG`);
 
 --
--- Индексы таблицы `b_admin_notify_lang`
+-- Indexes for table `b_admin_notify_lang`
 --
 ALTER TABLE `b_admin_notify_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_ADM_NTFY_LANG` (`NOTIFY_ID`,`LID`), ADD KEY `IX_ADM_NTFY_LID` (`LID`);
 
 --
--- Индексы таблицы `b_agent`
+-- Indexes for table `b_agent`
 --
 ALTER TABLE `b_agent`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_act_next_exec` (`ACTIVE`,`NEXT_EXEC`), ADD KEY `ix_agent_user_id` (`USER_ID`);
 
 --
--- Индексы таблицы `b_app_password`
+-- Indexes for table `b_app_password`
 --
 ALTER TABLE `b_app_password`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_app_password_user` (`USER_ID`);
 
 --
--- Индексы таблицы `b_bitrixcloud_option`
+-- Indexes for table `b_bitrixcloud_option`
 --
 ALTER TABLE `b_bitrixcloud_option`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_bitrixcloud_option_1` (`NAME`);
 
 --
--- Индексы таблицы `b_blog`
+-- Indexes for table `b_blog`
 --
 ALTER TABLE `b_blog`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_BLOG_4` (`URL`), ADD KEY `IX_BLOG_BLOG_1` (`GROUP_ID`,`ACTIVE`), ADD KEY `IX_BLOG_BLOG_2` (`OWNER_ID`), ADD KEY `IX_BLOG_BLOG_5` (`LAST_POST_DATE`), ADD KEY `IX_BLOG_BLOG_6` (`SOCNET_GROUP_ID`);
 
 --
--- Индексы таблицы `b_blog_category`
+-- Indexes for table `b_blog_category`
 --
 ALTER TABLE `b_blog_category`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_CAT_1` (`BLOG_ID`,`NAME`);
 
 --
--- Индексы таблицы `b_blog_comment`
+-- Indexes for table `b_blog_comment`
 --
 ALTER TABLE `b_blog_comment`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_COMM_1` (`BLOG_ID`,`POST_ID`), ADD KEY `IX_BLOG_COMM_2` (`AUTHOR_ID`), ADD KEY `IX_BLOG_COMM_3` (`DATE_CREATE`,`AUTHOR_ID`);
 
 --
--- Индексы таблицы `b_blog_group`
+-- Indexes for table `b_blog_group`
 --
 ALTER TABLE `b_blog_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_GROUP_1` (`SITE_ID`);
 
 --
--- Индексы таблицы `b_blog_image`
+-- Indexes for table `b_blog_image`
 --
 ALTER TABLE `b_blog_image`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_IMAGE_1` (`POST_ID`,`BLOG_ID`);
 
 --
--- Индексы таблицы `b_blog_post`
+-- Indexes for table `b_blog_post`
 --
 ALTER TABLE `b_blog_post`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_POST_1` (`BLOG_ID`,`PUBLISH_STATUS`,`DATE_PUBLISH`), ADD KEY `IX_BLOG_POST_2` (`BLOG_ID`,`DATE_PUBLISH`,`PUBLISH_STATUS`), ADD KEY `IX_BLOG_POST_3` (`BLOG_ID`,`CATEGORY_ID`), ADD KEY `IX_BLOG_POST_4` (`PUBLISH_STATUS`,`DATE_PUBLISH`), ADD KEY `IX_BLOG_POST_5` (`DATE_PUBLISH`,`AUTHOR_ID`), ADD KEY `IX_BLOG_POST_CODE` (`BLOG_ID`,`CODE`), ADD KEY `IX_BLOG_POST_6` (`CODE`);
 
 --
--- Индексы таблицы `b_blog_post_category`
+-- Indexes for table `b_blog_post_category`
 --
 ALTER TABLE `b_blog_post_category`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_POST_CATEGORY` (`POST_ID`,`CATEGORY_ID`), ADD KEY `IX_BLOG_POST_CATEGORY_CAT_ID` (`CATEGORY_ID`);
 
 --
--- Индексы таблицы `b_blog_post_param`
+-- Indexes for table `b_blog_post_param`
 --
 ALTER TABLE `b_blog_post_param`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_PP_1` (`POST_ID`,`USER_ID`), ADD KEY `IX_BLOG_PP_2` (`USER_ID`);
 
 --
--- Индексы таблицы `b_blog_site_path`
+-- Indexes for table `b_blog_site_path`
 --
 ALTER TABLE `b_blog_site_path`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_SITE_PATH_2` (`SITE_ID`,`TYPE`);
 
 --
--- Индексы таблицы `b_blog_smile`
+-- Indexes for table `b_blog_smile`
 --
 ALTER TABLE `b_blog_smile`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_blog_smile_lang`
+-- Indexes for table `b_blog_smile_lang`
 --
 ALTER TABLE `b_blog_smile_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_SMILE_K` (`SMILE_ID`,`LID`);
 
 --
--- Индексы таблицы `b_blog_socnet`
+-- Indexes for table `b_blog_socnet`
 --
 ALTER TABLE `b_blog_socnet`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_SOCNET` (`BLOG_ID`);
 
 --
--- Индексы таблицы `b_blog_socnet_rights`
+-- Indexes for table `b_blog_socnet_rights`
 --
 ALTER TABLE `b_blog_socnet_rights`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_SR_1` (`POST_ID`);
 
 --
--- Индексы таблицы `b_blog_trackback`
+-- Indexes for table `b_blog_trackback`
 --
 ALTER TABLE `b_blog_trackback`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_TRBK_1` (`BLOG_ID`,`POST_ID`), ADD KEY `IX_BLOG_TRBK_2` (`POST_ID`);
 
 --
--- Индексы таблицы `b_blog_user`
+-- Indexes for table `b_blog_user`
 --
 ALTER TABLE `b_blog_user`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_USER_1` (`USER_ID`), ADD KEY `IX_BLOG_USER_2` (`ALIAS`);
 
 --
--- Индексы таблицы `b_blog_user2blog`
+-- Indexes for table `b_blog_user2blog`
 --
 ALTER TABLE `b_blog_user2blog`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_USER2GROUP_1` (`BLOG_ID`,`USER_ID`);
 
 --
--- Индексы таблицы `b_blog_user2user_group`
+-- Indexes for table `b_blog_user2user_group`
 --
 ALTER TABLE `b_blog_user2user_group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_USER2GROUP_1` (`USER_ID`,`BLOG_ID`,`USER_GROUP_ID`);
 
 --
--- Индексы таблицы `b_blog_user_group`
+-- Indexes for table `b_blog_user_group`
 --
 ALTER TABLE `b_blog_user_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_BLOG_USER_GROUP_1` (`BLOG_ID`);
 
 --
--- Индексы таблицы `b_blog_user_group_perms`
+-- Indexes for table `b_blog_user_group_perms`
 --
 ALTER TABLE `b_blog_user_group_perms`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_BLOG_UG_PERMS_1` (`BLOG_ID`,`USER_GROUP_ID`,`PERMS_TYPE`,`POST_ID`), ADD KEY `IX_BLOG_UG_PERMS_2` (`USER_GROUP_ID`,`PERMS_TYPE`,`POST_ID`), ADD KEY `IX_BLOG_UG_PERMS_3` (`POST_ID`,`USER_GROUP_ID`,`PERMS_TYPE`);
 
 --
--- Индексы таблицы `b_cache_tag`
+-- Indexes for table `b_cache_tag`
 --
 ALTER TABLE `b_cache_tag`
   ADD KEY `ix_b_cache_tag_0` (`SITE_ID`,`CACHE_SALT`,`RELATIVE_PATH`(50)), ADD KEY `ix_b_cache_tag_1` (`TAG`);
 
 --
--- Индексы таблицы `b_captcha`
+-- Indexes for table `b_captcha`
 --
 ALTER TABLE `b_captcha`
   ADD UNIQUE KEY `UX_B_CAPTCHA` (`ID`);
 
 --
--- Индексы таблицы `b_catalog_contractor`
+-- Indexes for table `b_catalog_contractor`
 --
 ALTER TABLE `b_catalog_contractor`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_currency`
+-- Indexes for table `b_catalog_currency`
 --
 ALTER TABLE `b_catalog_currency`
   ADD PRIMARY KEY (`CURRENCY`);
 
 --
--- Индексы таблицы `b_catalog_currency_lang`
+-- Indexes for table `b_catalog_currency_lang`
 --
 ALTER TABLE `b_catalog_currency_lang`
   ADD PRIMARY KEY (`CURRENCY`,`LID`);
 
 --
--- Индексы таблицы `b_catalog_currency_rate`
+-- Indexes for table `b_catalog_currency_rate`
 --
 ALTER TABLE `b_catalog_currency_rate`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_CURRENCY_RATE` (`CURRENCY`,`DATE_RATE`);
 
 --
--- Индексы таблицы `b_catalog_discount`
+-- Indexes for table `b_catalog_discount`
 --
 ALTER TABLE `b_catalog_discount`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_C_D_COUPON` (`COUPON`), ADD KEY `IX_C_D_ACT` (`ACTIVE`,`ACTIVE_FROM`,`ACTIVE_TO`), ADD KEY `IX_C_D_ACT_B` (`SITE_ID`,`RENEWAL`,`ACTIVE`,`ACTIVE_FROM`,`ACTIVE_TO`);
 
 --
--- Индексы таблицы `b_catalog_discount2cat`
+-- Indexes for table `b_catalog_discount2cat`
 --
 ALTER TABLE `b_catalog_discount2cat`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_C_D2C_CATDIS` (`CATALOG_GROUP_ID`,`DISCOUNT_ID`), ADD UNIQUE KEY `IX_C_D2C_CATDIS_B` (`DISCOUNT_ID`,`CATALOG_GROUP_ID`);
 
 --
--- Индексы таблицы `b_catalog_discount2group`
+-- Indexes for table `b_catalog_discount2group`
 --
 ALTER TABLE `b_catalog_discount2group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_C_D2G_GRDIS` (`GROUP_ID`,`DISCOUNT_ID`), ADD UNIQUE KEY `IX_C_D2G_GRDIS_B` (`DISCOUNT_ID`,`GROUP_ID`);
 
 --
--- Индексы таблицы `b_catalog_discount2iblock`
+-- Indexes for table `b_catalog_discount2iblock`
 --
 ALTER TABLE `b_catalog_discount2iblock`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_C_D2I_IBDIS` (`IBLOCK_ID`,`DISCOUNT_ID`), ADD UNIQUE KEY `IX_C_D2I_IBDIS_B` (`DISCOUNT_ID`,`IBLOCK_ID`);
 
 --
--- Индексы таблицы `b_catalog_discount2product`
+-- Indexes for table `b_catalog_discount2product`
 --
 ALTER TABLE `b_catalog_discount2product`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_C_D2P_PRODIS` (`PRODUCT_ID`,`DISCOUNT_ID`), ADD UNIQUE KEY `IX_C_D2P_PRODIS_B` (`DISCOUNT_ID`,`PRODUCT_ID`);
 
 --
--- Индексы таблицы `b_catalog_discount2section`
+-- Indexes for table `b_catalog_discount2section`
 --
 ALTER TABLE `b_catalog_discount2section`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_C_D2S_SECDIS` (`SECTION_ID`,`DISCOUNT_ID`), ADD UNIQUE KEY `IX_C_D2S_SECDIS_B` (`DISCOUNT_ID`,`SECTION_ID`);
 
 --
--- Индексы таблицы `b_catalog_discount_cond`
+-- Indexes for table `b_catalog_discount_cond`
 --
 ALTER TABLE `b_catalog_discount_cond`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_discount_coupon`
+-- Indexes for table `b_catalog_discount_coupon`
 --
 ALTER TABLE `b_catalog_discount_coupon`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ix_cat_dc_index1` (`DISCOUNT_ID`,`COUPON`), ADD KEY `ix_cat_dc_index2` (`COUPON`,`ACTIVE`);
 
 --
--- Индексы таблицы `b_catalog_discount_module`
+-- Indexes for table `b_catalog_discount_module`
 --
 ALTER TABLE `b_catalog_discount_module`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSC_MOD` (`DISCOUNT_ID`);
 
 --
--- Индексы таблицы `b_catalog_disc_save_group`
+-- Indexes for table `b_catalog_disc_save_group`
 --
 ALTER TABLE `b_catalog_disc_save_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSG_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSG_GROUP` (`GROUP_ID`);
 
 --
--- Индексы таблицы `b_catalog_disc_save_range`
+-- Indexes for table `b_catalog_disc_save_range`
 --
 ALTER TABLE `b_catalog_disc_save_range`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSR_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSR_DISCOUNT2` (`DISCOUNT_ID`,`RANGE_FROM`);
 
 --
--- Индексы таблицы `b_catalog_disc_save_user`
+-- Indexes for table `b_catalog_disc_save_user`
 --
 ALTER TABLE `b_catalog_disc_save_user`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSU_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSU_USER` (`DISCOUNT_ID`,`USER_ID`);
 
 --
--- Индексы таблицы `b_catalog_docs_barcode`
+-- Indexes for table `b_catalog_docs_barcode`
 --
 ALTER TABLE `b_catalog_docs_barcode`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_CATALOG_DOCS_BARCODE1` (`DOC_ELEMENT_ID`);
 
 --
--- Индексы таблицы `b_catalog_docs_element`
+-- Indexes for table `b_catalog_docs_element`
 --
 ALTER TABLE `b_catalog_docs_element`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_CATALOG_DOCS_ELEMENT1` (`DOC_ID`);
 
 --
--- Индексы таблицы `b_catalog_export`
+-- Indexes for table `b_catalog_export`
 --
 ALTER TABLE `b_catalog_export`
   ADD PRIMARY KEY (`ID`), ADD KEY `BCAT_EX_FILE_NAME` (`FILE_NAME`), ADD KEY `IX_CAT_IS_EXPORT` (`IS_EXPORT`);
 
 --
--- Индексы таблицы `b_catalog_extra`
+-- Indexes for table `b_catalog_extra`
 --
 ALTER TABLE `b_catalog_extra`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_group`
+-- Indexes for table `b_catalog_group`
 --
 ALTER TABLE `b_catalog_group`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_group2group`
+-- Indexes for table `b_catalog_group2group`
 --
 ALTER TABLE `b_catalog_group2group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_CATG2G_UNI` (`CATALOG_GROUP_ID`,`GROUP_ID`,`BUY`);
 
 --
--- Индексы таблицы `b_catalog_group_lang`
+-- Indexes for table `b_catalog_group_lang`
 --
 ALTER TABLE `b_catalog_group_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_CATALOG_GROUP_ID` (`CATALOG_GROUP_ID`,`LANG`);
 
 --
--- Индексы таблицы `b_catalog_iblock`
+-- Indexes for table `b_catalog_iblock`
 --
 ALTER TABLE `b_catalog_iblock`
   ADD PRIMARY KEY (`IBLOCK_ID`), ADD KEY `IXS_CAT_IB_PRODUCT` (`PRODUCT_IBLOCK_ID`), ADD KEY `IXS_CAT_IB_SKU_PROP` (`SKU_PROPERTY_ID`);
 
 --
--- Индексы таблицы `b_catalog_load`
+-- Indexes for table `b_catalog_load`
 --
 ALTER TABLE `b_catalog_load`
   ADD PRIMARY KEY (`NAME`,`TYPE`);
 
 --
--- Индексы таблицы `b_catalog_measure`
+-- Indexes for table `b_catalog_measure`
 --
 ALTER TABLE `b_catalog_measure`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_CATALOG_MEASURE1` (`CODE`);
 
 --
--- Индексы таблицы `b_catalog_measure_ratio`
+-- Indexes for table `b_catalog_measure_ratio`
 --
 ALTER TABLE `b_catalog_measure_ratio`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_CATALOG_MEASURE_RATIO` (`PRODUCT_ID`,`RATIO`);
 
 --
--- Индексы таблицы `b_catalog_price`
+-- Indexes for table `b_catalog_price`
 --
 ALTER TABLE `b_catalog_price`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_CAT_PRICE_PID` (`PRODUCT_ID`,`CATALOG_GROUP_ID`), ADD KEY `IXS_CAT_PRICE_GID` (`CATALOG_GROUP_ID`);
 
 --
--- Индексы таблицы `b_catalog_product`
+-- Indexes for table `b_catalog_product`
 --
 ALTER TABLE `b_catalog_product`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_product2group`
+-- Indexes for table `b_catalog_product2group`
 --
 ALTER TABLE `b_catalog_product2group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_C_P2G_PROD_GROUP` (`PRODUCT_ID`,`GROUP_ID`);
 
 --
--- Индексы таблицы `b_catalog_product_sets`
+-- Indexes for table `b_catalog_product_sets`
 --
 ALTER TABLE `b_catalog_product_sets`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_PR_SET_TYPE` (`TYPE`), ADD KEY `IX_CAT_PR_SET_OWNER_ID` (`OWNER_ID`), ADD KEY `IX_CAT_PR_SET_SET_ID` (`SET_ID`), ADD KEY `IX_CAT_PR_SET_ITEM_ID` (`ITEM_ID`);
 
 --
--- Индексы таблицы `b_catalog_store`
+-- Indexes for table `b_catalog_store`
 --
 ALTER TABLE `b_catalog_store`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_store_barcode`
+-- Indexes for table `b_catalog_store_barcode`
 --
 ALTER TABLE `b_catalog_store_barcode`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_CATALOG_STORE_BARCODE1` (`BARCODE`);
 
 --
--- Индексы таблицы `b_catalog_store_docs`
+-- Indexes for table `b_catalog_store_docs`
 --
 ALTER TABLE `b_catalog_store_docs`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_catalog_store_product`
+-- Indexes for table `b_catalog_store_product`
 --
 ALTER TABLE `b_catalog_store_product`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_CATALOG_STORE_PRODUCT2` (`PRODUCT_ID`,`STORE_ID`), ADD KEY `IX_CATALOG_STORE_PRODUCT1` (`STORE_ID`);
 
 --
--- Индексы таблицы `b_catalog_vat`
+-- Indexes for table `b_catalog_vat`
 --
 ALTER TABLE `b_catalog_vat`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_VAT_ACTIVE` (`ACTIVE`);
 
 --
--- Индексы таблицы `b_catalog_viewed_product`
+-- Indexes for table `b_catalog_viewed_product`
 --
 ALTER TABLE `b_catalog_viewed_product`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_V_PR_FUSER_ID` (`FUSER_ID`);
 
 --
--- Индексы таблицы `b_checklist`
+-- Indexes for table `b_checklist`
 --
 ALTER TABLE `b_checklist`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_clouds_file_bucket`
+-- Indexes for table `b_clouds_file_bucket`
 --
 ALTER TABLE `b_clouds_file_bucket`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_clouds_file_resize`
+-- Indexes for table `b_clouds_file_resize`
 --
 ALTER TABLE `b_clouds_file_resize`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_file_resize_ts` (`TIMESTAMP_X`), ADD KEY `ix_b_file_resize_path` (`TO_PATH`(100)), ADD KEY `ix_b_file_resize_file` (`FILE_ID`);
 
 --
--- Индексы таблицы `b_clouds_file_upload`
+-- Indexes for table `b_clouds_file_upload`
 --
 ALTER TABLE `b_clouds_file_upload`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_component_params`
+-- Indexes for table `b_component_params`
 --
 ALTER TABLE `b_component_params`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_comp_params_name` (`COMPONENT_NAME`), ADD KEY `ix_comp_params_path` (`SITE_ID`,`REAL_PATH`), ADD KEY `ix_comp_params_sname` (`SITE_ID`,`COMPONENT_NAME`);
 
 --
--- Индексы таблицы `b_counter_data`
+-- Indexes for table `b_counter_data`
 --
 ALTER TABLE `b_counter_data`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_culture`
+-- Indexes for table `b_culture`
 --
 ALTER TABLE `b_culture`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_event`
+-- Indexes for table `b_event`
 --
 ALTER TABLE `b_event`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_success` (`SUCCESS_EXEC`), ADD KEY `ix_b_event_date_exec` (`DATE_EXEC`);
 
 --
--- Индексы таблицы `b_event_attachment`
+-- Indexes for table `b_event_attachment`
 --
 ALTER TABLE `b_event_attachment`
   ADD PRIMARY KEY (`EVENT_ID`,`FILE_ID`);
 
 --
--- Индексы таблицы `b_event_log`
+-- Indexes for table `b_event_log`
 --
 ALTER TABLE `b_event_log`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_event_log_time` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_event_message`
+-- Indexes for table `b_event_message`
 --
 ALTER TABLE `b_event_message`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_event_message_name` (`EVENT_NAME`(50));
 
 --
--- Индексы таблицы `b_event_message_attachment`
+-- Indexes for table `b_event_message_attachment`
 --
 ALTER TABLE `b_event_message_attachment`
   ADD PRIMARY KEY (`EVENT_MESSAGE_ID`,`FILE_ID`);
 
 --
--- Индексы таблицы `b_event_message_site`
+-- Indexes for table `b_event_message_site`
 --
 ALTER TABLE `b_event_message_site`
   ADD PRIMARY KEY (`EVENT_MESSAGE_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_event_type`
+-- Indexes for table `b_event_type`
 --
 ALTER TABLE `b_event_type`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_1` (`EVENT_NAME`,`LID`);
 
 --
--- Индексы таблицы `b_favorite`
+-- Indexes for table `b_favorite`
 --
 ALTER TABLE `b_favorite`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_file`
+-- Indexes for table `b_file`
 --
 ALTER TABLE `b_file`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FILE_EXTERNAL_ID` (`EXTERNAL_ID`);
 
 --
--- Индексы таблицы `b_file_search`
+-- Indexes for table `b_file_search`
 --
 ALTER TABLE `b_file_search`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_filters`
+-- Indexes for table `b_filters`
 --
 ALTER TABLE `b_filters`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_finder_dest`
+-- Indexes for table `b_finder_dest`
 --
 ALTER TABLE `b_finder_dest`
   ADD PRIMARY KEY (`USER_ID`,`CODE`,`CONTEXT`), ADD KEY `IX_FINDER_DEST` (`CODE_TYPE`);
 
 --
--- Индексы таблицы `b_form`
+-- Indexes for table `b_form`
 --
 ALTER TABLE `b_form`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SID` (`SID`);
 
 --
--- Индексы таблицы `b_form_2_group`
+-- Indexes for table `b_form_2_group`
 --
 ALTER TABLE `b_form_2_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_ID` (`FORM_ID`);
 
 --
--- Индексы таблицы `b_form_2_mail_template`
+-- Indexes for table `b_form_2_mail_template`
 --
 ALTER TABLE `b_form_2_mail_template`
   ADD PRIMARY KEY (`FORM_ID`,`MAIL_TEMPLATE_ID`);
 
 --
--- Индексы таблицы `b_form_2_site`
+-- Indexes for table `b_form_2_site`
 --
 ALTER TABLE `b_form_2_site`
   ADD PRIMARY KEY (`FORM_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_form_answer`
+-- Indexes for table `b_form_answer`
 --
 ALTER TABLE `b_form_answer`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FIELD_ID` (`FIELD_ID`);
 
 --
--- Индексы таблицы `b_form_crm`
+-- Indexes for table `b_form_crm`
 --
 ALTER TABLE `b_form_crm`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_form_crm_field`
+-- Indexes for table `b_form_crm_field`
 --
 ALTER TABLE `b_form_crm_field`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_form_crm_field_1` (`LINK_ID`);
 
 --
--- Индексы таблицы `b_form_crm_link`
+-- Indexes for table `b_form_crm_link`
 --
 ALTER TABLE `b_form_crm_link`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_form_crm_link_1` (`FORM_ID`,`CRM_ID`);
 
 --
--- Индексы таблицы `b_form_field`
+-- Indexes for table `b_form_field`
 --
 ALTER TABLE `b_form_field`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_ID` (`FORM_ID`), ADD KEY `IX_SID` (`SID`);
 
 --
--- Индексы таблицы `b_form_field_filter`
+-- Indexes for table `b_form_field_filter`
 --
 ALTER TABLE `b_form_field_filter`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FIELD_ID` (`FIELD_ID`);
 
 --
--- Индексы таблицы `b_form_field_validator`
+-- Indexes for table `b_form_field_validator`
 --
 ALTER TABLE `b_form_field_validator`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_ID` (`FORM_ID`), ADD KEY `IX_FIELD_ID` (`FIELD_ID`);
 
 --
--- Индексы таблицы `b_form_menu`
+-- Indexes for table `b_form_menu`
 --
 ALTER TABLE `b_form_menu`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_ID` (`FORM_ID`);
 
 --
--- Индексы таблицы `b_form_result`
+-- Indexes for table `b_form_result`
 --
 ALTER TABLE `b_form_result`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_ID` (`FORM_ID`), ADD KEY `IX_STATUS_ID` (`STATUS_ID`), ADD KEY `IX_SENT_TO_CRM` (`SENT_TO_CRM`);
 
 --
--- Индексы таблицы `b_form_result_answer`
+-- Indexes for table `b_form_result_answer`
 --
 ALTER TABLE `b_form_result_answer`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_RESULT_ID` (`RESULT_ID`), ADD KEY `IX_FIELD_ID` (`FIELD_ID`), ADD KEY `IX_ANSWER_ID` (`ANSWER_ID`);
 
 --
--- Индексы таблицы `b_form_status`
+-- Indexes for table `b_form_status`
 --
 ALTER TABLE `b_form_status`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_ID` (`FORM_ID`);
 
 --
--- Индексы таблицы `b_form_status_2_group`
+-- Indexes for table `b_form_status_2_group`
 --
 ALTER TABLE `b_form_status_2_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORM_STATUS_GROUP` (`STATUS_ID`,`GROUP_ID`);
 
 --
--- Индексы таблицы `b_form_status_2_mail_template`
+-- Indexes for table `b_form_status_2_mail_template`
 --
 ALTER TABLE `b_form_status_2_mail_template`
   ADD PRIMARY KEY (`STATUS_ID`,`MAIL_TEMPLATE_ID`);
 
 --
--- Индексы таблицы `b_forum`
+-- Indexes for table `b_forum`
 --
 ALTER TABLE `b_forum`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORUM_SORT` (`SORT`), ADD KEY `IX_FORUM_ACTIVE` (`ACTIVE`), ADD KEY `IX_FORUM_GROUP_ID` (`FORUM_GROUP_ID`);
 
 --
--- Индексы таблицы `b_forum2site`
+-- Indexes for table `b_forum2site`
 --
 ALTER TABLE `b_forum2site`
   ADD PRIMARY KEY (`FORUM_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_forum_dictionary`
+-- Indexes for table `b_forum_dictionary`
 --
 ALTER TABLE `b_forum_dictionary`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_forum_email`
+-- Indexes for table `b_forum_email`
 --
 ALTER TABLE `b_forum_email`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FORUM_EMAIL_FORUM_SOC` (`FORUM_ID`,`SOCNET_GROUP_ID`), ADD KEY `IX_B_FORUM_EMAIL_FILTER_ID` (`MAIL_FILTER_ID`);
 
 --
--- Индексы таблицы `b_forum_file`
+-- Indexes for table `b_forum_file`
 --
 ALTER TABLE `b_forum_file`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORUM_FILE_FILE` (`FILE_ID`), ADD KEY `IX_FORUM_FILE_FORUM` (`FORUM_ID`), ADD KEY `IX_FORUM_FILE_TOPIC` (`TOPIC_ID`), ADD KEY `IX_FORUM_FILE_MESSAGE` (`MESSAGE_ID`);
 
 --
--- Индексы таблицы `b_forum_filter`
+-- Indexes for table `b_forum_filter`
 --
 ALTER TABLE `b_forum_filter`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FORUM_FILTER_2` (`USE_IT`), ADD KEY `IX_B_FORUM_FILTER_3` (`PATTERN_CREATE`);
 
 --
--- Индексы таблицы `b_forum_group`
+-- Indexes for table `b_forum_group`
 --
 ALTER TABLE `b_forum_group`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_forum_group_lang`
+-- Indexes for table `b_forum_group_lang`
 --
 ALTER TABLE `b_forum_group_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_FORUM_GROUP` (`FORUM_GROUP_ID`,`LID`);
 
 --
--- Индексы таблицы `b_forum_letter`
+-- Indexes for table `b_forum_letter`
 --
 ALTER TABLE `b_forum_letter`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_forum_message`
+-- Indexes for table `b_forum_message`
 --
 ALTER TABLE `b_forum_message`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORUM_MESSAGE_FORUM` (`FORUM_ID`,`APPROVED`), ADD KEY `IX_FORUM_MESSAGE_TOPIC` (`TOPIC_ID`,`APPROVED`,`ID`), ADD KEY `IX_FORUM_MESSAGE_AUTHOR` (`AUTHOR_ID`,`APPROVED`,`FORUM_ID`,`ID`), ADD KEY `IX_FORUM_MESSAGE_APPROVED` (`APPROVED`), ADD KEY `IX_FORUM_MESSAGE_PARAM2` (`PARAM2`), ADD KEY `IX_FORUM_MESSAGE_XML_ID` (`XML_ID`), ADD KEY `IX_FORUM_MESSAGE_DATE_AUTHOR_ID` (`POST_DATE`,`AUTHOR_ID`), ADD KEY `IX_FORUM_MESSAGE_AUTHOR_TOPIC_ID` (`AUTHOR_ID`,`TOPIC_ID`,`ID`), ADD KEY `IX_FORUM_MESSAGE_AUTHOR_FORUM_ID` (`AUTHOR_ID`,`FORUM_ID`,`ID`,`APPROVED`,`TOPIC_ID`);
 
 --
--- Индексы таблицы `b_forum_perms`
+-- Indexes for table `b_forum_perms`
 --
 ALTER TABLE `b_forum_perms`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORUM_PERMS_FORUM` (`FORUM_ID`,`GROUP_ID`), ADD KEY `IX_FORUM_PERMS_GROUP` (`GROUP_ID`);
 
 --
--- Индексы таблицы `b_forum_pm_folder`
+-- Indexes for table `b_forum_pm_folder`
 --
 ALTER TABLE `b_forum_pm_folder`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FORUM_PM_FOLDER_USER_IST` (`USER_ID`,`ID`,`SORT`,`TITLE`);
 
 --
--- Индексы таблицы `b_forum_points`
+-- Indexes for table `b_forum_points`
 --
 ALTER TABLE `b_forum_points`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_FORUM_P_MP` (`MIN_POINTS`);
 
 --
--- Индексы таблицы `b_forum_points2post`
+-- Indexes for table `b_forum_points2post`
 --
 ALTER TABLE `b_forum_points2post`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_FORUM_P2P_MNP` (`MIN_NUM_POSTS`);
 
 --
--- Индексы таблицы `b_forum_points_lang`
+-- Indexes for table `b_forum_points_lang`
 --
 ALTER TABLE `b_forum_points_lang`
   ADD PRIMARY KEY (`POINTS_ID`,`LID`);
 
 --
--- Индексы таблицы `b_forum_private_message`
+-- Indexes for table `b_forum_private_message`
 --
 ALTER TABLE `b_forum_private_message`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FORUM_PM_USER` (`USER_ID`), ADD KEY `IX_B_FORUM_PM_AFR` (`AUTHOR_ID`,`FOLDER_ID`,`IS_READ`), ADD KEY `IX_B_FORUM_PM_UFP` (`USER_ID`,`FOLDER_ID`,`POST_DATE`), ADD KEY `IX_B_FORUM_PM_POST_DATE` (`POST_DATE`);
 
 --
--- Индексы таблицы `b_forum_rank`
+-- Indexes for table `b_forum_rank`
 --
 ALTER TABLE `b_forum_rank`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_forum_rank_lang`
+-- Indexes for table `b_forum_rank_lang`
 --
 ALTER TABLE `b_forum_rank_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_FORUM_RANK` (`RANK_ID`,`LID`);
 
 --
--- Индексы таблицы `b_forum_smile`
+-- Indexes for table `b_forum_smile`
 --
 ALTER TABLE `b_forum_smile`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_forum_smile_lang`
+-- Indexes for table `b_forum_smile_lang`
 --
 ALTER TABLE `b_forum_smile_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_FORUM_SMILE_K` (`SMILE_ID`,`LID`);
 
 --
--- Индексы таблицы `b_forum_stat`
+-- Indexes for table `b_forum_stat`
 --
 ALTER TABLE `b_forum_stat`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FORUM_STAT_SITE_ID` (`SITE_ID`,`LAST_VISIT`), ADD KEY `IX_B_FORUM_STAT_TOPIC_ID` (`TOPIC_ID`,`LAST_VISIT`), ADD KEY `IX_B_FORUM_STAT_FORUM_ID` (`FORUM_ID`,`LAST_VISIT`), ADD KEY `IX_B_FORUM_STAT_PHPSESSID` (`PHPSESSID`);
 
 --
--- Индексы таблицы `b_forum_subscribe`
+-- Indexes for table `b_forum_subscribe`
 --
 ALTER TABLE `b_forum_subscribe`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_FORUM_SUBSCRIBE_USER` (`USER_ID`,`FORUM_ID`,`TOPIC_ID`,`SOCNET_GROUP_ID`);
 
 --
--- Индексы таблицы `b_forum_topic`
+-- Indexes for table `b_forum_topic`
 --
 ALTER TABLE `b_forum_topic`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_FORUM_TOPIC_FORUM` (`FORUM_ID`,`APPROVED`), ADD KEY `IX_FORUM_TOPIC_APPROVED` (`APPROVED`), ADD KEY `IX_FORUM_TOPIC_ABS_L_POST_DATE` (`ABS_LAST_POST_DATE`), ADD KEY `IX_FORUM_TOPIC_LAST_POST_DATE` (`LAST_POST_DATE`), ADD KEY `IX_FORUM_TOPIC_USER_START_ID` (`USER_START_ID`), ADD KEY `IX_FORUM_TOPIC_DATE_USER_START_ID` (`START_DATE`,`USER_START_ID`), ADD KEY `IX_FORUM_TOPIC_XML_ID` (`XML_ID`), ADD KEY `IX_FORUM_TOPIC_TITLE_SEO` (`FORUM_ID`,`TITLE_SEO`), ADD KEY `IX_FORUM_TOPIC_TITLE_SEO2` (`TITLE_SEO`);
 
 --
--- Индексы таблицы `b_forum_user`
+-- Indexes for table `b_forum_user`
 --
 ALTER TABLE `b_forum_user`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_FORUM_USER_USER6` (`USER_ID`);
 
 --
--- Индексы таблицы `b_forum_user_forum`
+-- Indexes for table `b_forum_user_forum`
 --
 ALTER TABLE `b_forum_user_forum`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_FORUM_USER_FORUM_ID1` (`USER_ID`,`FORUM_ID`);
 
 --
--- Индексы таблицы `b_forum_user_points`
+-- Indexes for table `b_forum_user_points`
 --
 ALTER TABLE `b_forum_user_points`
   ADD PRIMARY KEY (`FROM_USER_ID`,`TO_USER_ID`), ADD KEY `IX_B_FORUM_USER_POINTS_TO_USER` (`TO_USER_ID`);
 
 --
--- Индексы таблицы `b_forum_user_topic`
+-- Indexes for table `b_forum_user_topic`
 --
 ALTER TABLE `b_forum_user_topic`
   ADD PRIMARY KEY (`TOPIC_ID`,`USER_ID`), ADD KEY `ID` (`ID`), ADD KEY `IX_B_FORUM_USER_FORUM_ID2` (`USER_ID`,`FORUM_ID`,`TOPIC_ID`);
 
 --
--- Индексы таблицы `b_group`
+-- Indexes for table `b_group`
 --
 ALTER TABLE `b_group`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_group_collection_task`
+-- Indexes for table `b_group_collection_task`
 --
 ALTER TABLE `b_group_collection_task`
   ADD PRIMARY KEY (`GROUP_ID`,`TASK_ID`,`COLLECTION_ID`);
 
 --
--- Индексы таблицы `b_group_subordinate`
+-- Indexes for table `b_group_subordinate`
 --
 ALTER TABLE `b_group_subordinate`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_group_task`
+-- Indexes for table `b_group_task`
 --
 ALTER TABLE `b_group_task`
   ADD PRIMARY KEY (`GROUP_ID`,`TASK_ID`);
 
 --
--- Индексы таблицы `b_hlblock_entity`
+-- Indexes for table `b_hlblock_entity`
 --
 ALTER TABLE `b_hlblock_entity`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_hot_keys`
+-- Indexes for table `b_hot_keys`
 --
 ALTER TABLE `b_hot_keys`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ix_b_hot_keys_co_u` (`CODE_ID`,`USER_ID`), ADD KEY `ix_hot_keys_code` (`CODE_ID`), ADD KEY `ix_hot_keys_user` (`USER_ID`);
 
 --
--- Индексы таблицы `b_hot_keys_code`
+-- Indexes for table `b_hot_keys_code`
 --
 ALTER TABLE `b_hot_keys_code`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_hot_keys_code_cn` (`CLASS_NAME`), ADD KEY `ix_hot_keys_code_url` (`URL`);
 
 --
--- Индексы таблицы `b_iblock`
+-- Indexes for table `b_iblock`
 --
 ALTER TABLE `b_iblock`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_iblock` (`IBLOCK_TYPE_ID`,`LID`,`ACTIVE`);
 
 --
--- Индексы таблицы `b_iblock_cache`
+-- Indexes for table `b_iblock_cache`
 --
 ALTER TABLE `b_iblock_cache`
   ADD PRIMARY KEY (`CACHE_KEY`);
 
 --
--- Индексы таблицы `b_iblock_element`
+-- Indexes for table `b_iblock_element`
 --
 ALTER TABLE `b_iblock_element`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_iblock_element_1` (`IBLOCK_ID`,`IBLOCK_SECTION_ID`), ADD KEY `ix_iblock_element_4` (`IBLOCK_ID`,`XML_ID`,`WF_PARENT_ELEMENT_ID`), ADD KEY `ix_iblock_element_3` (`WF_PARENT_ELEMENT_ID`), ADD KEY `ix_iblock_element_code` (`IBLOCK_ID`,`CODE`);
 
 --
--- Индексы таблицы `b_iblock_element_iprop`
+-- Indexes for table `b_iblock_element_iprop`
 --
 ALTER TABLE `b_iblock_element_iprop`
   ADD PRIMARY KEY (`ELEMENT_ID`,`IPROP_ID`), ADD KEY `ix_b_iblock_element_iprop_0` (`IPROP_ID`), ADD KEY `ix_b_iblock_element_iprop_1` (`IBLOCK_ID`);
 
 --
--- Индексы таблицы `b_iblock_element_lock`
+-- Indexes for table `b_iblock_element_lock`
 --
 ALTER TABLE `b_iblock_element_lock`
   ADD PRIMARY KEY (`IBLOCK_ELEMENT_ID`);
 
 --
--- Индексы таблицы `b_iblock_element_property`
+-- Indexes for table `b_iblock_element_property`
 --
 ALTER TABLE `b_iblock_element_property`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_iblock_element_property_1` (`IBLOCK_ELEMENT_ID`,`IBLOCK_PROPERTY_ID`), ADD KEY `ix_iblock_element_property_2` (`IBLOCK_PROPERTY_ID`), ADD KEY `ix_iblock_element_prop_enum` (`VALUE_ENUM`,`IBLOCK_PROPERTY_ID`), ADD KEY `ix_iblock_element_prop_num` (`VALUE_NUM`,`IBLOCK_PROPERTY_ID`);
 
 --
--- Индексы таблицы `b_iblock_element_right`
+-- Indexes for table `b_iblock_element_right`
 --
 ALTER TABLE `b_iblock_element_right`
   ADD PRIMARY KEY (`RIGHT_ID`,`ELEMENT_ID`,`SECTION_ID`), ADD KEY `ix_b_iblock_element_right_1` (`ELEMENT_ID`,`IBLOCK_ID`), ADD KEY `ix_b_iblock_element_right_2` (`IBLOCK_ID`,`RIGHT_ID`);
 
 --
--- Индексы таблицы `b_iblock_fields`
+-- Indexes for table `b_iblock_fields`
 --
 ALTER TABLE `b_iblock_fields`
   ADD PRIMARY KEY (`IBLOCK_ID`,`FIELD_ID`);
 
 --
--- Индексы таблицы `b_iblock_group`
+-- Indexes for table `b_iblock_group`
 --
 ALTER TABLE `b_iblock_group`
   ADD UNIQUE KEY `ux_iblock_group_1` (`IBLOCK_ID`,`GROUP_ID`);
 
 --
--- Индексы таблицы `b_iblock_iblock_iprop`
+-- Indexes for table `b_iblock_iblock_iprop`
 --
 ALTER TABLE `b_iblock_iblock_iprop`
   ADD PRIMARY KEY (`IBLOCK_ID`,`IPROP_ID`), ADD KEY `ix_b_iblock_iblock_iprop_0` (`IPROP_ID`);
 
 --
--- Индексы таблицы `b_iblock_iproperty`
+-- Indexes for table `b_iblock_iproperty`
 --
 ALTER TABLE `b_iblock_iproperty`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_iblock_iprop_0` (`IBLOCK_ID`,`ENTITY_TYPE`,`ENTITY_ID`);
 
 --
--- Индексы таблицы `b_iblock_messages`
+-- Indexes for table `b_iblock_messages`
 --
 ALTER TABLE `b_iblock_messages`
   ADD PRIMARY KEY (`IBLOCK_ID`,`MESSAGE_ID`);
 
 --
--- Индексы таблицы `b_iblock_offers_tmp`
+-- Indexes for table `b_iblock_offers_tmp`
 --
 ALTER TABLE `b_iblock_offers_tmp`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_iblock_property`
+-- Indexes for table `b_iblock_property`
 --
 ALTER TABLE `b_iblock_property`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_iblock_property_1` (`IBLOCK_ID`), ADD KEY `ix_iblock_property_3` (`LINK_IBLOCK_ID`), ADD KEY `ix_iblock_property_2` (`CODE`);
 
 --
--- Индексы таблицы `b_iblock_property_enum`
+-- Indexes for table `b_iblock_property_enum`
 --
 ALTER TABLE `b_iblock_property_enum`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_iblock_property_enum` (`PROPERTY_ID`,`XML_ID`);
 
 --
--- Индексы таблицы `b_iblock_right`
+-- Indexes for table `b_iblock_right`
 --
 ALTER TABLE `b_iblock_right`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_iblock_right_iblock_id` (`IBLOCK_ID`,`ENTITY_TYPE`,`ENTITY_ID`), ADD KEY `ix_b_iblock_right_group_code` (`GROUP_CODE`,`IBLOCK_ID`), ADD KEY `ix_b_iblock_right_entity` (`ENTITY_ID`,`ENTITY_TYPE`), ADD KEY `ix_b_iblock_right_op_eread` (`ID`,`OP_EREAD`,`GROUP_CODE`), ADD KEY `ix_b_iblock_right_op_sread` (`ID`,`OP_SREAD`,`GROUP_CODE`), ADD KEY `ix_b_iblock_right_task_id` (`TASK_ID`);
 
 --
--- Индексы таблицы `b_iblock_rss`
+-- Indexes for table `b_iblock_rss`
 --
 ALTER TABLE `b_iblock_rss`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_iblock_section`
+-- Indexes for table `b_iblock_section`
 --
 ALTER TABLE `b_iblock_section`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_iblock_section_1` (`IBLOCK_ID`,`IBLOCK_SECTION_ID`), ADD KEY `ix_iblock_section_depth_level` (`IBLOCK_ID`,`DEPTH_LEVEL`), ADD KEY `ix_iblock_section_left_margin` (`IBLOCK_ID`,`LEFT_MARGIN`,`RIGHT_MARGIN`), ADD KEY `ix_iblock_section_right_margin` (`IBLOCK_ID`,`RIGHT_MARGIN`,`LEFT_MARGIN`), ADD KEY `ix_iblock_section_code` (`IBLOCK_ID`,`CODE`);
 
 --
--- Индексы таблицы `b_iblock_section_element`
+-- Indexes for table `b_iblock_section_element`
 --
 ALTER TABLE `b_iblock_section_element`
   ADD UNIQUE KEY `ux_iblock_section_element` (`IBLOCK_SECTION_ID`,`IBLOCK_ELEMENT_ID`,`ADDITIONAL_PROPERTY_ID`), ADD KEY `UX_IBLOCK_SECTION_ELEMENT2` (`IBLOCK_ELEMENT_ID`);
 
 --
--- Индексы таблицы `b_iblock_section_iprop`
+-- Indexes for table `b_iblock_section_iprop`
 --
 ALTER TABLE `b_iblock_section_iprop`
   ADD PRIMARY KEY (`SECTION_ID`,`IPROP_ID`), ADD KEY `ix_b_iblock_section_iprop_0` (`IPROP_ID`), ADD KEY `ix_b_iblock_section_iprop_1` (`IBLOCK_ID`);
 
 --
--- Индексы таблицы `b_iblock_section_property`
+-- Indexes for table `b_iblock_section_property`
 --
 ALTER TABLE `b_iblock_section_property`
   ADD PRIMARY KEY (`IBLOCK_ID`,`SECTION_ID`,`PROPERTY_ID`), ADD KEY `ix_b_iblock_section_property_1` (`PROPERTY_ID`), ADD KEY `ix_b_iblock_section_property_2` (`SECTION_ID`);
 
 --
--- Индексы таблицы `b_iblock_section_right`
+-- Indexes for table `b_iblock_section_right`
 --
 ALTER TABLE `b_iblock_section_right`
   ADD PRIMARY KEY (`RIGHT_ID`,`SECTION_ID`), ADD KEY `ix_b_iblock_section_right_1` (`SECTION_ID`,`IBLOCK_ID`), ADD KEY `ix_b_iblock_section_right_2` (`IBLOCK_ID`,`RIGHT_ID`);
 
 --
--- Индексы таблицы `b_iblock_sequence`
+-- Indexes for table `b_iblock_sequence`
 --
 ALTER TABLE `b_iblock_sequence`
   ADD PRIMARY KEY (`IBLOCK_ID`,`CODE`);
 
 --
--- Индексы таблицы `b_iblock_site`
+-- Indexes for table `b_iblock_site`
 --
 ALTER TABLE `b_iblock_site`
   ADD PRIMARY KEY (`IBLOCK_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_iblock_type`
+-- Indexes for table `b_iblock_type`
 --
 ALTER TABLE `b_iblock_type`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_lang`
+-- Indexes for table `b_lang`
 --
 ALTER TABLE `b_lang`
   ADD PRIMARY KEY (`LID`);
 
 --
--- Индексы таблицы `b_language`
+-- Indexes for table `b_language`
 --
 ALTER TABLE `b_language`
   ADD PRIMARY KEY (`LID`);
 
 --
--- Индексы таблицы `b_lang_domain`
+-- Indexes for table `b_lang_domain`
 --
 ALTER TABLE `b_lang_domain`
   ADD PRIMARY KEY (`LID`,`DOMAIN`);
 
 --
--- Индексы таблицы `b_list_rubric`
+-- Indexes for table `b_list_rubric`
 --
 ALTER TABLE `b_list_rubric`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_medialib_collection`
+-- Indexes for table `b_medialib_collection`
 --
 ALTER TABLE `b_medialib_collection`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_medialib_collection_item`
+-- Indexes for table `b_medialib_collection_item`
 --
 ALTER TABLE `b_medialib_collection_item`
   ADD PRIMARY KEY (`ITEM_ID`,`COLLECTION_ID`);
 
 --
--- Индексы таблицы `b_medialib_item`
+-- Indexes for table `b_medialib_item`
 --
 ALTER TABLE `b_medialib_item`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_medialib_type`
+-- Indexes for table `b_medialib_type`
 --
 ALTER TABLE `b_medialib_type`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_mobileapp_app`
+-- Indexes for table `b_mobileapp_app`
 --
 ALTER TABLE `b_mobileapp_app`
   ADD PRIMARY KEY (`CODE`);
 
 --
--- Индексы таблицы `b_mobileapp_config`
+-- Indexes for table `b_mobileapp_config`
 --
 ALTER TABLE `b_mobileapp_config`
   ADD PRIMARY KEY (`APP_CODE`,`PLATFORM`);
 
 --
--- Индексы таблицы `b_module`
+-- Indexes for table `b_module`
 --
 ALTER TABLE `b_module`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_module_group`
+-- Indexes for table `b_module_group`
 --
 ALTER TABLE `b_module_group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UK_GROUP_MODULE` (`MODULE_ID`,`GROUP_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_module_to_module`
+-- Indexes for table `b_module_to_module`
 --
 ALTER TABLE `b_module_to_module`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_module_to_module` (`FROM_MODULE_ID`,`MESSAGE_ID`,`TO_MODULE_ID`,`TO_CLASS`,`TO_METHOD`);
 
 --
--- Индексы таблицы `b_operation`
+-- Indexes for table `b_operation`
 --
 ALTER TABLE `b_operation`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_option`
+-- Indexes for table `b_option`
 --
 ALTER TABLE `b_option`
   ADD UNIQUE KEY `ix_option` (`MODULE_ID`,`NAME`,`SITE_ID`), ADD KEY `ix_option_name` (`NAME`);
 
 --
--- Индексы таблицы `b_perf_cache`
+-- Indexes for table `b_perf_cache`
 --
 ALTER TABLE `b_perf_cache`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_PERF_CACHE_0` (`HIT_ID`,`NN`), ADD KEY `IX_B_PERF_CACHE_1` (`COMPONENT_ID`);
 
 --
--- Индексы таблицы `b_perf_cluster`
+-- Indexes for table `b_perf_cluster`
 --
 ALTER TABLE `b_perf_cluster`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_perf_component`
+-- Indexes for table `b_perf_component`
 --
 ALTER TABLE `b_perf_component`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_PERF_COMPONENT_0` (`HIT_ID`,`NN`);
 
 --
--- Индексы таблицы `b_perf_error`
+-- Indexes for table `b_perf_error`
 --
 ALTER TABLE `b_perf_error`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_PERF_ERROR_0` (`HIT_ID`);
 
 --
--- Индексы таблицы `b_perf_history`
+-- Indexes for table `b_perf_history`
 --
 ALTER TABLE `b_perf_history`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_perf_hit`
+-- Indexes for table `b_perf_hit`
 --
 ALTER TABLE `b_perf_hit`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_PERF_HIT_0` (`DATE_HIT`);
 
 --
--- Индексы таблицы `b_perf_index_ban`
+-- Indexes for table `b_perf_index_ban`
 --
 ALTER TABLE `b_perf_index_ban`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_perf_index_complete`
+-- Indexes for table `b_perf_index_complete`
 --
 ALTER TABLE `b_perf_index_complete`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_perf_index_complete_0` (`TABLE_NAME`);
 
 --
--- Индексы таблицы `b_perf_index_suggest`
+-- Indexes for table `b_perf_index_suggest`
 --
 ALTER TABLE `b_perf_index_suggest`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_perf_index_suggest_0` (`SQL_MD5`);
 
 --
--- Индексы таблицы `b_perf_index_suggest_sql`
+-- Indexes for table `b_perf_index_suggest_sql`
 --
 ALTER TABLE `b_perf_index_suggest_sql`
   ADD PRIMARY KEY (`SUGGEST_ID`,`SQL_ID`), ADD KEY `ix_b_perf_index_suggest_sql_0` (`SQL_ID`,`SUGGEST_ID`);
 
 --
--- Индексы таблицы `b_perf_sql`
+-- Indexes for table `b_perf_sql`
 --
 ALTER TABLE `b_perf_sql`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_PERF_SQL_0` (`HIT_ID`,`NN`), ADD KEY `IX_B_PERF_SQL_1` (`COMPONENT_ID`);
 
 --
--- Индексы таблицы `b_perf_sql_backtrace`
+-- Indexes for table `b_perf_sql_backtrace`
 --
 ALTER TABLE `b_perf_sql_backtrace`
   ADD PRIMARY KEY (`SQL_ID`,`NN`);
 
 --
--- Индексы таблицы `b_perf_tab_column_stat`
+-- Indexes for table `b_perf_tab_column_stat`
 --
 ALTER TABLE `b_perf_tab_column_stat`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_perf_tab_column_stat` (`TABLE_NAME`,`COLUMN_NAME`);
 
 --
--- Индексы таблицы `b_perf_tab_stat`
+-- Indexes for table `b_perf_tab_stat`
 --
 ALTER TABLE `b_perf_tab_stat`
   ADD PRIMARY KEY (`TABLE_NAME`);
 
 --
--- Индексы таблицы `b_perf_test`
+-- Indexes for table `b_perf_test`
 --
 ALTER TABLE `b_perf_test`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_PERF_TEST_0` (`REFERENCE_ID`);
 
 --
--- Индексы таблицы `b_posting`
+-- Indexes for table `b_posting`
 --
 ALTER TABLE `b_posting`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_posting_email`
+-- Indexes for table `b_posting_email`
 --
 ALTER TABLE `b_posting_email`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_posting_email_status` (`POSTING_ID`,`STATUS`), ADD KEY `ix_posting_email_email` (`POSTING_ID`,`EMAIL`);
 
 --
--- Индексы таблицы `b_posting_file`
+-- Indexes for table `b_posting_file`
 --
 ALTER TABLE `b_posting_file`
   ADD UNIQUE KEY `UK_POSTING_POSTING_FILE` (`POSTING_ID`,`FILE_ID`);
 
 --
--- Индексы таблицы `b_posting_group`
+-- Indexes for table `b_posting_group`
 --
 ALTER TABLE `b_posting_group`
   ADD UNIQUE KEY `UK_POSTING_POSTING_GROUP` (`POSTING_ID`,`GROUP_ID`);
 
 --
--- Индексы таблицы `b_posting_rubric`
+-- Indexes for table `b_posting_rubric`
 --
 ALTER TABLE `b_posting_rubric`
   ADD UNIQUE KEY `UK_POSTING_POSTING_RUBRIC` (`POSTING_ID`,`LIST_RUBRIC_ID`);
 
 --
--- Индексы таблицы `b_pull_channel`
+-- Indexes for table `b_pull_channel`
 --
 ALTER TABLE `b_pull_channel`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_PULL_CN_UID` (`USER_ID`,`CHANNEL_TYPE`), ADD KEY `IX_PULL_CN_CID` (`CHANNEL_ID`), ADD KEY `IX_PULL_CN_D` (`DATE_CREATE`);
 
 --
--- Индексы таблицы `b_pull_push`
+-- Indexes for table `b_pull_push`
 --
 ALTER TABLE `b_pull_push`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_PULL_PSH_UID` (`USER_ID`), ADD KEY `IX_PULL_PSH_UH` (`UNIQUE_HASH`);
 
 --
--- Индексы таблицы `b_pull_push_queue`
+-- Indexes for table `b_pull_push_queue`
 --
 ALTER TABLE `b_pull_push_queue`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_PULL_PSHQ_UT` (`USER_ID`,`TAG`), ADD KEY `IX_PULL_PSHQ_UST` (`USER_ID`,`SUB_TAG`), ADD KEY `IX_PULL_PSHQ_UID` (`USER_ID`), ADD KEY `IX_PULL_PSHQ_DC` (`DATE_CREATE`), ADD KEY `IX_PULL_PSHQ_AID` (`APP_ID`);
 
 --
--- Индексы таблицы `b_pull_stack`
+-- Indexes for table `b_pull_stack`
 --
 ALTER TABLE `b_pull_stack`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_PULL_STACK_CID` (`CHANNEL_ID`), ADD KEY `IX_PULL_STACK_D` (`DATE_CREATE`);
 
 --
--- Индексы таблицы `b_pull_watch`
+-- Indexes for table `b_pull_watch`
 --
 ALTER TABLE `b_pull_watch`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_PULL_W_UT` (`USER_ID`,`TAG`), ADD KEY `IX_PULL_W_D` (`DATE_CREATE`), ADD KEY `IX_PULL_W_T` (`TAG`);
 
 --
--- Индексы таблицы `b_rating`
+-- Indexes for table `b_rating`
 --
 ALTER TABLE `b_rating`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_rating_component`
+-- Indexes for table `b_rating_component`
 --
 ALTER TABLE `b_rating_component`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_RATING_ID_1` (`RATING_ID`,`ACTIVE`,`NEXT_CALCULATION`);
 
 --
--- Индексы таблицы `b_rating_component_results`
+-- Indexes for table `b_rating_component_results`
 --
 ALTER TABLE `b_rating_component_results`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_ENTITY_TYPE_ID` (`ENTITY_TYPE_ID`), ADD KEY `IX_COMPLEX_NAME` (`COMPLEX_NAME`), ADD KEY `IX_RATING_ID_2` (`RATING_ID`,`COMPLEX_NAME`);
 
 --
--- Индексы таблицы `b_rating_results`
+-- Indexes for table `b_rating_results`
 --
 ALTER TABLE `b_rating_results`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_RATING_3` (`RATING_ID`,`ENTITY_TYPE_ID`,`ENTITY_ID`), ADD KEY `IX_RATING_4` (`RATING_ID`,`ENTITY_ID`);
 
 --
--- Индексы таблицы `b_rating_rule`
+-- Indexes for table `b_rating_rule`
 --
 ALTER TABLE `b_rating_rule`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_rating_rule_vetting`
+-- Indexes for table `b_rating_rule_vetting`
 --
 ALTER TABLE `b_rating_rule_vetting`
   ADD PRIMARY KEY (`ID`), ADD KEY `RULE_ID` (`RULE_ID`,`ENTITY_TYPE_ID`,`ENTITY_ID`);
 
 --
--- Индексы таблицы `b_rating_user`
+-- Indexes for table `b_rating_user`
 --
 ALTER TABLE `b_rating_user`
   ADD PRIMARY KEY (`ID`), ADD KEY `RATING_ID` (`RATING_ID`,`ENTITY_ID`), ADD KEY `IX_B_RAT_USER_2` (`ENTITY_ID`);
 
 --
--- Индексы таблицы `b_rating_vote`
+-- Indexes for table `b_rating_vote`
 --
 ALTER TABLE `b_rating_vote`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_RAT_VOTE_ID` (`RATING_VOTING_ID`,`USER_ID`), ADD KEY `IX_RAT_VOTE_ID_2` (`ENTITY_TYPE_ID`,`ENTITY_ID`,`USER_ID`), ADD KEY `IX_RAT_VOTE_ID_3` (`OWNER_ID`,`CREATED`), ADD KEY `IX_RAT_VOTE_ID_4` (`USER_ID`), ADD KEY `IX_RAT_VOTE_ID_5` (`CREATED`,`VALUE`), ADD KEY `IX_RAT_VOTE_ID_6` (`ACTIVE`), ADD KEY `IX_RAT_VOTE_ID_7` (`RATING_VOTING_ID`,`CREATED`), ADD KEY `IX_RAT_VOTE_ID_8` (`ENTITY_TYPE_ID`,`CREATED`), ADD KEY `IX_RAT_VOTE_ID_9` (`CREATED`,`USER_ID`);
 
 --
--- Индексы таблицы `b_rating_vote_group`
+-- Indexes for table `b_rating_vote_group`
 --
 ALTER TABLE `b_rating_vote_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `RATING_ID` (`GROUP_ID`,`TYPE`);
 
 --
--- Индексы таблицы `b_rating_voting`
+-- Indexes for table `b_rating_voting`
 --
 ALTER TABLE `b_rating_voting`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_ENTITY_TYPE_ID_2` (`ENTITY_TYPE_ID`,`ENTITY_ID`,`ACTIVE`), ADD KEY `IX_ENTITY_TYPE_ID_4` (`TOTAL_VALUE`);
 
 --
--- Индексы таблицы `b_rating_voting_prepare`
+-- Indexes for table `b_rating_voting_prepare`
 --
 ALTER TABLE `b_rating_voting_prepare`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_RATING_VOTING_ID` (`RATING_VOTING_ID`);
 
 --
--- Индексы таблицы `b_rating_weight`
+-- Indexes for table `b_rating_weight`
 --
 ALTER TABLE `b_rating_weight`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_affiliate`
+-- Indexes for table `b_sale_affiliate`
 --
 ALTER TABLE `b_sale_affiliate`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_SAA_USER_ID` (`USER_ID`,`SITE_ID`), ADD KEY `IX_SAA_AFFILIATE_ID` (`AFFILIATE_ID`);
 
 --
--- Индексы таблицы `b_sale_affiliate_plan`
+-- Indexes for table `b_sale_affiliate_plan`
 --
 ALTER TABLE `b_sale_affiliate_plan`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_affiliate_plan_section`
+-- Indexes for table `b_sale_affiliate_plan_section`
 --
 ALTER TABLE `b_sale_affiliate_plan_section`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_SAP_PLAN_ID` (`PLAN_ID`,`MODULE_ID`,`SECTION_ID`);
 
 --
--- Индексы таблицы `b_sale_affiliate_tier`
+-- Indexes for table `b_sale_affiliate_tier`
 --
 ALTER TABLE `b_sale_affiliate_tier`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_SAT_SITE_ID` (`SITE_ID`);
 
 --
--- Индексы таблицы `b_sale_affiliate_transact`
+-- Indexes for table `b_sale_affiliate_transact`
 --
 ALTER TABLE `b_sale_affiliate_transact`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SAT_AFFILIATE_ID` (`AFFILIATE_ID`);
 
 --
--- Индексы таблицы `b_sale_auxiliary`
+-- Indexes for table `b_sale_auxiliary`
 --
 ALTER TABLE `b_sale_auxiliary`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_STT_USER_ITEM` (`USER_ID`,`ITEM_MD5`);
 
 --
--- Индексы таблицы `b_sale_basket`
+-- Indexes for table `b_sale_basket`
 --
 ALTER TABLE `b_sale_basket`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_BASKET_LID` (`LID`), ADD KEY `IXS_BASKET_USER_ID` (`FUSER_ID`), ADD KEY `IXS_BASKET_ORDER_ID` (`ORDER_ID`), ADD KEY `IXS_BASKET_PRODUCT_ID` (`PRODUCT_ID`), ADD KEY `IXS_BASKET_PRODUCT_PRICE_ID` (`PRODUCT_PRICE_ID`), ADD KEY `IXS_SBAS_XML_ID` (`PRODUCT_XML_ID`,`CATALOG_XML_ID`);
 
 --
--- Индексы таблицы `b_sale_basket_props`
+-- Indexes for table `b_sale_basket_props`
 --
 ALTER TABLE `b_sale_basket_props`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_BASKET_PROPS_BASKET` (`BASKET_ID`), ADD KEY `IXS_BASKET_PROPS_CODE` (`CODE`);
 
 --
--- Индексы таблицы `b_sale_delivery`
+-- Indexes for table `b_sale_delivery`
 --
 ALTER TABLE `b_sale_delivery`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_DELIVERY_LID` (`LID`);
 
 --
--- Индексы таблицы `b_sale_delivery2location`
+-- Indexes for table `b_sale_delivery2location`
 --
 ALTER TABLE `b_sale_delivery2location`
   ADD PRIMARY KEY (`DELIVERY_ID`,`LOCATION_CODE`,`LOCATION_TYPE`);
 
 --
--- Индексы таблицы `b_sale_delivery2paysystem`
+-- Indexes for table `b_sale_delivery2paysystem`
 --
 ALTER TABLE `b_sale_delivery2paysystem`
   ADD KEY `IX_DELIVERY` (`DELIVERY_ID`), ADD KEY `IX_PAYSYSTEM` (`PAYSYSTEM_ID`);
 
 --
--- Индексы таблицы `b_sale_delivery_handler`
+-- Indexes for table `b_sale_delivery_handler`
 --
 ALTER TABLE `b_sale_delivery_handler`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_HID` (`HID`);
 
 --
--- Индексы таблицы `b_sale_discount`
+-- Indexes for table `b_sale_discount`
 --
 ALTER TABLE `b_sale_discount`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_DISCOUNT_LID` (`LID`), ADD KEY `IX_SSD_ACTIVE_DATE` (`ACTIVE_FROM`,`ACTIVE_TO`);
 
 --
--- Индексы таблицы `b_sale_discount_coupon`
+-- Indexes for table `b_sale_discount_coupon`
 --
 ALTER TABLE `b_sale_discount_coupon`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_discount_entities`
+-- Indexes for table `b_sale_discount_entities`
 --
 ALTER TABLE `b_sale_discount_entities`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SALE_DSC_ENT_DISCOUNT_ID` (`DISCOUNT_ID`);
 
 --
--- Индексы таблицы `b_sale_discount_group`
+-- Indexes for table `b_sale_discount_group`
 --
 ALTER TABLE `b_sale_discount_group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_S_DISGRP` (`DISCOUNT_ID`,`GROUP_ID`), ADD UNIQUE KEY `IX_S_DISGRP_G` (`GROUP_ID`,`DISCOUNT_ID`), ADD KEY `IX_S_DISGRP_D` (`DISCOUNT_ID`);
 
 --
--- Индексы таблицы `b_sale_discount_module`
+-- Indexes for table `b_sale_discount_module`
 --
 ALTER TABLE `b_sale_discount_module`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SALE_DSC_MOD` (`DISCOUNT_ID`);
 
 --
--- Индексы таблицы `b_sale_export`
+-- Indexes for table `b_sale_export`
 --
 ALTER TABLE `b_sale_export`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_fuser`
+-- Indexes for table `b_sale_fuser`
 --
 ALTER TABLE `b_sale_fuser`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_USER_ID` (`USER_ID`), ADD KEY `IX_CODE` (`CODE`);
 
 --
--- Индексы таблицы `b_sale_lang`
+-- Indexes for table `b_sale_lang`
 --
 ALTER TABLE `b_sale_lang`
   ADD PRIMARY KEY (`LID`);
 
 --
--- Индексы таблицы `b_sale_location`
+-- Indexes for table `b_sale_location`
 --
 ALTER TABLE `b_sale_location`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_SALE_LOC_CODE` (`CODE`), ADD KEY `IX_B_SALE_LOC_MARGINS` (`LEFT_MARGIN`,`RIGHT_MARGIN`), ADD KEY `IX_B_SALE_LOC_MARGINS_REV` (`RIGHT_MARGIN`,`LEFT_MARGIN`), ADD KEY `IX_B_SALE_LOC_PARENT` (`PARENT_ID`), ADD KEY `IX_B_SALE_LOC_DL` (`DEPTH_LEVEL`), ADD KEY `IX_B_SALE_LOC_TYPE` (`TYPE_ID`), ADD KEY `IXS_LOCATION_COUNTRY_ID` (`COUNTRY_ID`), ADD KEY `IXS_LOCATION_REGION_ID` (`REGION_ID`), ADD KEY `IXS_LOCATION_CITY_ID` (`CITY_ID`);
 
 --
--- Индексы таблицы `b_sale_location2location_group`
+-- Indexes for table `b_sale_location2location_group`
 --
 ALTER TABLE `b_sale_location2location_group`
   ADD PRIMARY KEY (`LOCATION_ID`,`LOCATION_GROUP_ID`);
 
 --
--- Индексы таблицы `b_sale_location_city`
+-- Indexes for table `b_sale_location_city`
 --
 ALTER TABLE `b_sale_location_city`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_LOCAT_REGION_ID` (`REGION_ID`);
 
 --
--- Индексы таблицы `b_sale_location_city_lang`
+-- Indexes for table `b_sale_location_city_lang`
 --
 ALTER TABLE `b_sale_location_city_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IXS_LOCAT_CITY_LID` (`CITY_ID`,`LID`), ADD KEY `IX_NAME` (`NAME`);
 
 --
--- Индексы таблицы `b_sale_location_country`
+-- Indexes for table `b_sale_location_country`
 --
 ALTER TABLE `b_sale_location_country`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_NAME` (`NAME`);
 
 --
--- Индексы таблицы `b_sale_location_country_lang`
+-- Indexes for table `b_sale_location_country_lang`
 --
 ALTER TABLE `b_sale_location_country_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IXS_LOCAT_CNTR_LID` (`COUNTRY_ID`,`LID`);
 
 --
--- Индексы таблицы `b_sale_location_group`
+-- Indexes for table `b_sale_location_group`
 --
 ALTER TABLE `b_sale_location_group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_SALE_LOC_GROUP_CODE` (`CODE`);
 
 --
--- Индексы таблицы `b_sale_location_group_lang`
+-- Indexes for table `b_sale_location_group_lang`
 --
 ALTER TABLE `b_sale_location_group_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_LOCATION_GROUP_LID` (`LOCATION_GROUP_ID`,`LID`);
 
 --
--- Индексы таблицы `b_sale_location_region`
+-- Indexes for table `b_sale_location_region`
 --
 ALTER TABLE `b_sale_location_region`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_location_region_lang`
+-- Indexes for table `b_sale_location_region_lang`
 --
 ALTER TABLE `b_sale_location_region_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IXS_LOCAT_REGION_LID` (`REGION_ID`,`LID`), ADD KEY `IXS_NAME` (`NAME`);
 
 --
--- Индексы таблицы `b_sale_location_zip`
+-- Indexes for table `b_sale_location_zip`
 --
 ALTER TABLE `b_sale_location_zip`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_LOCATION_ID` (`LOCATION_ID`), ADD KEY `IX_ZIP` (`ZIP`);
 
 --
--- Индексы таблицы `b_sale_loc_2site`
+-- Indexes for table `b_sale_loc_2site`
 --
 ALTER TABLE `b_sale_loc_2site`
   ADD PRIMARY KEY (`SITE_ID`,`LOCATION_ID`,`LOCATION_TYPE`);
 
 --
--- Индексы таблицы `b_sale_loc_def2site`
+-- Indexes for table `b_sale_loc_def2site`
 --
 ALTER TABLE `b_sale_loc_def2site`
   ADD PRIMARY KEY (`LOCATION_CODE`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_sale_loc_ext`
+-- Indexes for table `b_sale_loc_ext`
 --
 ALTER TABLE `b_sale_loc_ext`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_EXT_LID_SID` (`LOCATION_ID`,`SERVICE_ID`);
 
 --
--- Индексы таблицы `b_sale_loc_ext_srv`
+-- Indexes for table `b_sale_loc_ext_srv`
 --
 ALTER TABLE `b_sale_loc_ext_srv`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_loc_name`
+-- Indexes for table `b_sale_loc_name`
 --
 ALTER TABLE `b_sale_loc_name`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_NAME_NAME_U` (`NAME_UPPER`), ADD KEY `IX_B_SALE_LOC_NAME_LI_LI` (`LOCATION_ID`,`LANGUAGE_ID`);
 
 --
--- Индексы таблицы `b_sale_loc_type`
+-- Indexes for table `b_sale_loc_type`
 --
 ALTER TABLE `b_sale_loc_type`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_loc_type_name`
+-- Indexes for table `b_sale_loc_type_name`
 --
 ALTER TABLE `b_sale_loc_type_name`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_TYPE_NAME_TI_LI` (`TYPE_ID`,`LANGUAGE_ID`);
 
 --
--- Индексы таблицы `b_sale_order`
+-- Indexes for table `b_sale_order`
 --
 ALTER TABLE `b_sale_order`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IXS_ACCOUNT_NUMBER` (`ACCOUNT_NUMBER`), ADD KEY `IXS_ORDER_USER_ID` (`USER_ID`), ADD KEY `IXS_ORDER_PERSON_TYPE_ID` (`PERSON_TYPE_ID`), ADD KEY `IXS_ORDER_PAYED` (`PAYED`), ADD KEY `IXS_ORDER_STATUS_ID` (`STATUS_ID`), ADD KEY `IXS_ORDER_REC_ID` (`RECURRING_ID`), ADD KEY `IX_SOO_AFFILIATE_ID` (`AFFILIATE_ID`), ADD KEY `IXS_ORDER_UPDATED_1C` (`UPDATED_1C`), ADD KEY `IXS_SALE_COUNT` (`USER_ID`,`LID`,`PAYED`,`CANCELED`), ADD KEY `IXS_DATE_UPDATE` (`DATE_UPDATE`), ADD KEY `IXS_XML_ID` (`XML_ID`), ADD KEY `IXS_ID_1C` (`ID_1C`);
 
 --
--- Индексы таблицы `b_sale_order_change`
+-- Indexes for table `b_sale_order_change`
 --
 ALTER TABLE `b_sale_order_change`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_ORDER_ID_CHANGE` (`ORDER_ID`), ADD KEY `IXS_TYPE_CHANGE` (`TYPE`);
 
 --
--- Индексы таблицы `b_sale_order_delivery`
+-- Indexes for table `b_sale_order_delivery`
 --
 ALTER TABLE `b_sale_order_delivery`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_ORDER_ID` (`ORDER_ID`);
 
 --
--- Индексы таблицы `b_sale_order_flags2group`
+-- Indexes for table `b_sale_order_flags2group`
 --
 ALTER TABLE `b_sale_order_flags2group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ix_sale_ordfla2group` (`GROUP_ID`,`ORDER_FLAG`);
 
 --
--- Индексы таблицы `b_sale_order_history`
+-- Indexes for table `b_sale_order_history`
 --
 ALTER TABLE `b_sale_order_history`
   ADD PRIMARY KEY (`ID`), ADD KEY `ixH_ORDER_ID` (`H_ORDER_ID`);
 
 --
--- Индексы таблицы `b_sale_order_props`
+-- Indexes for table `b_sale_order_props`
 --
 ALTER TABLE `b_sale_order_props`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_ORDER_PROPS_PERSON_TYPE_ID` (`PERSON_TYPE_ID`), ADD KEY `IXS_CODE_OPP` (`CODE`);
 
 --
--- Индексы таблицы `b_sale_order_props_group`
+-- Indexes for table `b_sale_order_props_group`
 --
 ALTER TABLE `b_sale_order_props_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_ORDER_PROPS_GROUP_PERSON_TYPE_ID` (`PERSON_TYPE_ID`);
 
 --
--- Индексы таблицы `b_sale_order_props_relation`
+-- Indexes for table `b_sale_order_props_relation`
 --
 ALTER TABLE `b_sale_order_props_relation`
   ADD PRIMARY KEY (`PROPERTY_ID`,`ENTITY_ID`,`ENTITY_TYPE`), ADD KEY `IX_PROPERTY` (`PROPERTY_ID`), ADD KEY `IX_ENTITY_ID` (`ENTITY_ID`);
 
 --
--- Индексы таблицы `b_sale_order_props_value`
+-- Indexes for table `b_sale_order_props_value`
 --
 ALTER TABLE `b_sale_order_props_value`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_SOPV_ORD_PROP_UNI` (`ORDER_ID`,`ORDER_PROPS_ID`);
 
 --
--- Индексы таблицы `b_sale_order_props_variant`
+-- Indexes for table `b_sale_order_props_variant`
 --
 ALTER TABLE `b_sale_order_props_variant`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_ORDER_PROPS_VARIANT_ORDER_PROPS_ID` (`ORDER_PROPS_ID`);
 
 --
--- Индексы таблицы `b_sale_order_tax`
+-- Indexes for table `b_sale_order_tax`
 --
 ALTER TABLE `b_sale_order_tax`
   ADD PRIMARY KEY (`ID`), ADD KEY `ixs_sot_order_id` (`ORDER_ID`);
 
 --
--- Индексы таблицы `b_sale_pay_system`
+-- Indexes for table `b_sale_pay_system`
 --
 ALTER TABLE `b_sale_pay_system`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_PAY_SYSTEM_LID` (`LID`);
 
 --
--- Индексы таблицы `b_sale_pay_system_action`
+-- Indexes for table `b_sale_pay_system_action`
 --
 ALTER TABLE `b_sale_pay_system_action`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_SPSA_PSPT_UNI` (`PAY_SYSTEM_ID`,`PERSON_TYPE_ID`), ADD KEY `IXS_PAY_SYSTEM_ACTION_PERSON_TYPE_ID` (`PERSON_TYPE_ID`);
 
 --
--- Индексы таблицы `b_sale_person_type`
+-- Indexes for table `b_sale_person_type`
 --
 ALTER TABLE `b_sale_person_type`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_PERSON_TYPE_LID` (`LID`);
 
 --
--- Индексы таблицы `b_sale_person_type_site`
+-- Indexes for table `b_sale_person_type_site`
 --
 ALTER TABLE `b_sale_person_type_site`
   ADD PRIMARY KEY (`PERSON_TYPE_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_sale_product2product`
+-- Indexes for table `b_sale_product2product`
 --
 ALTER TABLE `b_sale_product2product`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_PRODUCT2PRODUCT_PRODUCT_ID` (`PRODUCT_ID`);
 
 --
--- Индексы таблицы `b_sale_recurring`
+-- Indexes for table `b_sale_recurring`
 --
 ALTER TABLE `b_sale_recurring`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_S_R_USER_ID` (`USER_ID`), ADD KEY `IX_S_R_NEXT_DATE` (`NEXT_DATE`,`CANCELED`,`REMAINING_ATTEMPTS`), ADD KEY `IX_S_R_PRODUCT_ID` (`MODULE`,`PRODUCT_ID`,`PRODUCT_PRICE_ID`);
 
 --
--- Индексы таблицы `b_sale_site2group`
+-- Indexes for table `b_sale_site2group`
 --
 ALTER TABLE `b_sale_site2group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ix_sale_site2group` (`GROUP_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_sale_status`
+-- Indexes for table `b_sale_status`
 --
 ALTER TABLE `b_sale_status`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_status2group`
+-- Indexes for table `b_sale_status2group`
 --
 ALTER TABLE `b_sale_status2group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ix_sale_s2g_ix1` (`GROUP_ID`,`STATUS_ID`), ADD KEY `ix_sale_s2g_1` (`STATUS_ID`);
 
 --
--- Индексы таблицы `b_sale_status_lang`
+-- Indexes for table `b_sale_status_lang`
 --
 ALTER TABLE `b_sale_status_lang`
   ADD PRIMARY KEY (`STATUS_ID`,`LID`), ADD UNIQUE KEY `ixs_status_lang_status_id` (`STATUS_ID`,`LID`);
 
 --
--- Индексы таблицы `b_sale_store_barcode`
+-- Indexes for table `b_sale_store_barcode`
 --
 ALTER TABLE `b_sale_store_barcode`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sale_tax`
+-- Indexes for table `b_sale_tax`
 --
 ALTER TABLE `b_sale_tax`
   ADD PRIMARY KEY (`ID`), ADD KEY `itax_lid` (`LID`);
 
 --
--- Индексы таблицы `b_sale_tax2location`
+-- Indexes for table `b_sale_tax2location`
 --
 ALTER TABLE `b_sale_tax2location`
   ADD PRIMARY KEY (`TAX_RATE_ID`,`LOCATION_CODE`,`LOCATION_TYPE`);
 
 --
--- Индексы таблицы `b_sale_tax_exempt2group`
+-- Indexes for table `b_sale_tax_exempt2group`
 --
 ALTER TABLE `b_sale_tax_exempt2group`
   ADD PRIMARY KEY (`GROUP_ID`,`TAX_ID`);
 
 --
--- Индексы таблицы `b_sale_tax_rate`
+-- Indexes for table `b_sale_tax_rate`
 --
 ALTER TABLE `b_sale_tax_rate`
   ADD PRIMARY KEY (`ID`), ADD KEY `itax_pers_type` (`PERSON_TYPE_ID`), ADD KEY `itax_lid` (`TAX_ID`), ADD KEY `itax_inprice` (`IS_IN_PRICE`);
 
 --
--- Индексы таблицы `b_sale_trading_platform`
+-- Indexes for table `b_sale_trading_platform`
 --
 ALTER TABLE `b_sale_trading_platform`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_CODE` (`CODE`);
 
 --
--- Индексы таблицы `b_sale_user_account`
+-- Indexes for table `b_sale_user_account`
 --
 ALTER TABLE `b_sale_user_account`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_S_U_USER_ID` (`USER_ID`,`CURRENCY`);
 
 --
--- Индексы таблицы `b_sale_user_cards`
+-- Indexes for table `b_sale_user_cards`
 --
 ALTER TABLE `b_sale_user_cards`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_S_U_C_USER_ID` (`USER_ID`,`ACTIVE`,`CURRENCY`);
 
 --
--- Индексы таблицы `b_sale_user_props`
+-- Indexes for table `b_sale_user_props`
 --
 ALTER TABLE `b_sale_user_props`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_USER_PROPS_USER_ID` (`USER_ID`), ADD KEY `IXS_USER_PROPS_PERSON_TYPE_ID` (`PERSON_TYPE_ID`), ADD KEY `IXS_USER_PROPS_XML_ID` (`XML_ID`);
 
 --
--- Индексы таблицы `b_sale_user_props_value`
+-- Indexes for table `b_sale_user_props_value`
 --
 ALTER TABLE `b_sale_user_props_value`
   ADD PRIMARY KEY (`ID`), ADD KEY `IXS_USER_PROPS_VALUE_USER_PROPS_ID` (`USER_PROPS_ID`), ADD KEY `IXS_USER_PROPS_VALUE_ORDER_PROPS_ID` (`ORDER_PROPS_ID`);
 
 --
--- Индексы таблицы `b_sale_user_transact`
+-- Indexes for table `b_sale_user_transact`
 --
 ALTER TABLE `b_sale_user_transact`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_S_U_T_USER_ID` (`USER_ID`), ADD KEY `IX_S_U_T_USER_ID_CURRENCY` (`USER_ID`,`CURRENCY`), ADD KEY `IX_S_U_T_ORDER_ID` (`ORDER_ID`);
 
 --
--- Индексы таблицы `b_sale_viewed_product`
+-- Indexes for table `b_sale_viewed_product`
 --
 ALTER TABLE `b_sale_viewed_product`
   ADD PRIMARY KEY (`ID`), ADD KEY `ixLID` (`FUSER_ID`,`LID`), ADD KEY `ixPRODUCT_ID` (`PRODUCT_ID`), ADD KEY `ixDATE_VISIT` (`DATE_VISIT`);
 
 --
--- Индексы таблицы `b_search_content`
+-- Indexes for table `b_search_content`
 --
 ALTER TABLE `b_search_content`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_B_SEARCH_CONTENT` (`MODULE_ID`,`ITEM_ID`), ADD KEY `IX_B_SEARCH_CONTENT_1` (`MODULE_ID`,`PARAM1`(50),`PARAM2`(50)), ADD KEY `IX_B_SEARCH_CONTENT_2` (`ENTITY_ID`(50),`ENTITY_TYPE_ID`);
 
 --
--- Индексы таблицы `b_search_content_freq`
+-- Indexes for table `b_search_content_freq`
 --
 ALTER TABLE `b_search_content_freq`
   ADD UNIQUE KEY `UX_B_SEARCH_CONTENT_FREQ` (`STEM`,`LANGUAGE_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_search_content_param`
+-- Indexes for table `b_search_content_param`
 --
 ALTER TABLE `b_search_content_param`
   ADD KEY `IX_B_SEARCH_CONTENT_PARAM` (`SEARCH_CONTENT_ID`,`PARAM_NAME`), ADD KEY `IX_B_SEARCH_CONTENT_PARAM_1` (`PARAM_NAME`,`PARAM_VALUE`(50),`SEARCH_CONTENT_ID`);
 
 --
--- Индексы таблицы `b_search_content_right`
+-- Indexes for table `b_search_content_right`
 --
 ALTER TABLE `b_search_content_right`
   ADD UNIQUE KEY `UX_B_SEARCH_CONTENT_RIGHT` (`SEARCH_CONTENT_ID`,`GROUP_CODE`);
 
 --
--- Индексы таблицы `b_search_content_site`
+-- Indexes for table `b_search_content_site`
 --
 ALTER TABLE `b_search_content_site`
   ADD PRIMARY KEY (`SEARCH_CONTENT_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_search_content_stem`
+-- Indexes for table `b_search_content_stem`
 --
 ALTER TABLE `b_search_content_stem`
   ADD UNIQUE KEY `UX_B_SEARCH_CONTENT_STEM` (`STEM`,`LANGUAGE_ID`,`TF`,`PS`,`SEARCH_CONTENT_ID`), ADD KEY `IND_B_SEARCH_CONTENT_STEM` (`SEARCH_CONTENT_ID`);
 
 --
--- Индексы таблицы `b_search_content_text`
+-- Indexes for table `b_search_content_text`
 --
 ALTER TABLE `b_search_content_text`
   ADD PRIMARY KEY (`SEARCH_CONTENT_ID`);
 
 --
--- Индексы таблицы `b_search_content_title`
+-- Indexes for table `b_search_content_title`
 --
 ALTER TABLE `b_search_content_title`
   ADD UNIQUE KEY `UX_B_SEARCH_CONTENT_TITLE` (`SITE_ID`,`WORD`,`SEARCH_CONTENT_ID`,`POS`), ADD KEY `IND_B_SEARCH_CONTENT_TITLE` (`SEARCH_CONTENT_ID`);
 
 --
--- Индексы таблицы `b_search_custom_rank`
+-- Indexes for table `b_search_custom_rank`
 --
 ALTER TABLE `b_search_custom_rank`
   ADD PRIMARY KEY (`ID`), ADD KEY `IND_B_SEARCH_CUSTOM_RANK` (`SITE_ID`,`MODULE_ID`);
 
 --
--- Индексы таблицы `b_search_phrase`
+-- Indexes for table `b_search_phrase`
 --
 ALTER TABLE `b_search_phrase`
   ADD PRIMARY KEY (`ID`), ADD KEY `IND_PK_B_SEARCH_PHRASE_SESS_PH` (`SESSION_ID`,`PHRASE`(50)), ADD KEY `IND_PK_B_SEARCH_PHRASE_SESS_TG` (`SESSION_ID`,`TAGS`(50)), ADD KEY `IND_PK_B_SEARCH_PHRASE_TIME` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_search_stem`
+-- Indexes for table `b_search_stem`
 --
 ALTER TABLE `b_search_stem`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_B_SEARCH_STEM` (`STEM`);
 
 --
--- Индексы таблицы `b_search_suggest`
+-- Indexes for table `b_search_suggest`
 --
 ALTER TABLE `b_search_suggest`
   ADD PRIMARY KEY (`ID`), ADD KEY `IND_B_SEARCH_SUGGEST` (`FILTER_MD5`,`PHRASE`(50),`RATE`), ADD KEY `IND_B_SEARCH_SUGGEST_PHRASE` (`PHRASE`(50),`RATE`), ADD KEY `IND_B_SEARCH_SUGGEST_TIME` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_search_tags`
+-- Indexes for table `b_search_tags`
 --
 ALTER TABLE `b_search_tags`
   ADD PRIMARY KEY (`SEARCH_CONTENT_ID`,`SITE_ID`,`NAME`), ADD KEY `IX_B_SEARCH_TAGS_0` (`NAME`);
 
 --
--- Индексы таблицы `b_search_user_right`
+-- Indexes for table `b_search_user_right`
 --
 ALTER TABLE `b_search_user_right`
   ADD UNIQUE KEY `UX_B_SEARCH_USER_RIGHT` (`USER_ID`,`GROUP_CODE`);
 
 --
--- Индексы таблицы `b_security_sitecheck`
+-- Indexes for table `b_security_sitecheck`
 --
 ALTER TABLE `b_security_sitecheck`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sec_filter_mask`
+-- Indexes for table `b_sec_filter_mask`
 --
 ALTER TABLE `b_sec_filter_mask`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sec_frame_mask`
+-- Indexes for table `b_sec_frame_mask`
 --
 ALTER TABLE `b_sec_frame_mask`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sec_iprule`
+-- Indexes for table `b_sec_iprule`
 --
 ALTER TABLE `b_sec_iprule`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_sec_iprule_active_to` (`ACTIVE_TO`);
 
 --
--- Индексы таблицы `b_sec_iprule_excl_ip`
+-- Indexes for table `b_sec_iprule_excl_ip`
 --
 ALTER TABLE `b_sec_iprule_excl_ip`
   ADD PRIMARY KEY (`IPRULE_ID`,`RULE_IP`);
 
 --
--- Индексы таблицы `b_sec_iprule_excl_mask`
+-- Indexes for table `b_sec_iprule_excl_mask`
 --
 ALTER TABLE `b_sec_iprule_excl_mask`
   ADD PRIMARY KEY (`IPRULE_ID`,`RULE_MASK`);
 
 --
--- Индексы таблицы `b_sec_iprule_incl_ip`
+-- Indexes for table `b_sec_iprule_incl_ip`
 --
 ALTER TABLE `b_sec_iprule_incl_ip`
   ADD PRIMARY KEY (`IPRULE_ID`,`RULE_IP`);
 
 --
--- Индексы таблицы `b_sec_iprule_incl_mask`
+-- Indexes for table `b_sec_iprule_incl_mask`
 --
 ALTER TABLE `b_sec_iprule_incl_mask`
   ADD PRIMARY KEY (`IPRULE_ID`,`RULE_MASK`);
 
 --
--- Индексы таблицы `b_sec_recovery_codes`
+-- Indexes for table `b_sec_recovery_codes`
 --
 ALTER TABLE `b_sec_recovery_codes`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_sec_recovery_codes_user_id` (`USER_ID`);
 
 --
--- Индексы таблицы `b_sec_session`
+-- Indexes for table `b_sec_session`
 --
 ALTER TABLE `b_sec_session`
   ADD PRIMARY KEY (`SESSION_ID`), ADD KEY `ix_b_sec_session_time` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_sec_user`
+-- Indexes for table `b_sec_user`
 --
 ALTER TABLE `b_sec_user`
   ADD PRIMARY KEY (`USER_ID`);
 
 --
--- Индексы таблицы `b_sec_virus`
+-- Indexes for table `b_sec_virus`
 --
 ALTER TABLE `b_sec_virus`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sec_white_list`
+-- Indexes for table `b_sec_white_list`
 --
 ALTER TABLE `b_sec_white_list`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sender_contact`
+-- Indexes for table `b_sender_contact`
 --
 ALTER TABLE `b_sender_contact`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UK_SENDER_CONTACT_EMAIL` (`EMAIL`);
 
 --
--- Индексы таблицы `b_sender_contact_list`
+-- Indexes for table `b_sender_contact_list`
 --
 ALTER TABLE `b_sender_contact_list`
   ADD UNIQUE KEY `UK_SENDER_CONTACT_LIST` (`CONTACT_ID`,`LIST_ID`);
 
 --
--- Индексы таблицы `b_sender_group`
+-- Indexes for table `b_sender_group`
 --
 ALTER TABLE `b_sender_group`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sender_group_connector`
+-- Indexes for table `b_sender_group_connector`
 --
 ALTER TABLE `b_sender_group_connector`
   ADD KEY `IX_SENDER_GROUP_CONNECTOR` (`GROUP_ID`);
 
 --
--- Индексы таблицы `b_sender_list`
+-- Indexes for table `b_sender_list`
 --
 ALTER TABLE `b_sender_list`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sender_mailing`
+-- Indexes for table `b_sender_mailing`
 --
 ALTER TABLE `b_sender_mailing`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sender_mailing_attachment`
+-- Indexes for table `b_sender_mailing_attachment`
 --
 ALTER TABLE `b_sender_mailing_attachment`
   ADD PRIMARY KEY (`CHAIN_ID`,`FILE_ID`);
 
 --
--- Индексы таблицы `b_sender_mailing_chain`
+-- Indexes for table `b_sender_mailing_chain`
 --
 ALTER TABLE `b_sender_mailing_chain`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SENDER_MAILING_CHAIN_MAILING` (`MAILING_ID`,`STATUS`), ADD KEY `IX_SENDER_MAILING_CHAIN_REITERATE` (`REITERATE`,`STATUS`);
 
 --
--- Индексы таблицы `b_sender_mailing_group`
+-- Indexes for table `b_sender_mailing_group`
 --
 ALTER TABLE `b_sender_mailing_group`
   ADD UNIQUE KEY `UK_SENDER_MAILING_GROUP` (`MAILING_ID`,`GROUP_ID`,`INCLUDE`);
 
 --
--- Индексы таблицы `b_sender_mailing_subscription`
+-- Indexes for table `b_sender_mailing_subscription`
 --
 ALTER TABLE `b_sender_mailing_subscription`
   ADD PRIMARY KEY (`MAILING_ID`,`CONTACT_ID`);
 
 --
--- Индексы таблицы `b_sender_posting`
+-- Indexes for table `b_sender_posting`
 --
 ALTER TABLE `b_sender_posting`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SENDER_POSTING_MAILING_CHAIN` (`MAILING_ID`,`STATUS`), ADD KEY `IX_SENDER_POSTING_MAILING` (`MAILING_CHAIN_ID`,`STATUS`);
 
 --
--- Индексы таблицы `b_sender_posting_click`
+-- Indexes for table `b_sender_posting_click`
 --
 ALTER TABLE `b_sender_posting_click`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SENDER_POSTING_CLICK` (`POSTING_ID`,`RECIPIENT_ID`);
 
 --
--- Индексы таблицы `b_sender_posting_read`
+-- Indexes for table `b_sender_posting_read`
 --
 ALTER TABLE `b_sender_posting_read`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SENDER_POSTING_READ` (`POSTING_ID`,`RECIPIENT_ID`);
 
 --
--- Индексы таблицы `b_sender_posting_recipient`
+-- Indexes for table `b_sender_posting_recipient`
 --
 ALTER TABLE `b_sender_posting_recipient`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SENDER_POSTING_RECIP_STATUS` (`STATUS`,`POSTING_ID`), ADD KEY `IX_SENDER_POSTING_RECIP_EMAIL` (`EMAIL`);
 
 --
--- Индексы таблицы `b_sender_posting_unsub`
+-- Indexes for table `b_sender_posting_unsub`
 --
 ALTER TABLE `b_sender_posting_unsub`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_SENDER_POSTING_UNSUB` (`POSTING_ID`,`RECIPIENT_ID`);
 
 --
--- Индексы таблицы `b_sender_preset_template`
+-- Indexes for table `b_sender_preset_template`
 --
 ALTER TABLE `b_sender_preset_template`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_seo_adv_autolog`
+-- Indexes for table `b_seo_adv_autolog`
 --
 ALTER TABLE `b_seo_adv_autolog`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_seo_adv_autolog1` (`ENGINE_ID`), ADD KEY `ix_b_seo_adv_autolog2` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_seo_adv_banner`
+-- Indexes for table `b_seo_adv_banner`
 --
 ALTER TABLE `b_seo_adv_banner`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_seo_adv_banner` (`ENGINE_ID`,`XML_ID`), ADD KEY `ix_b_seo_adv_banner1` (`CAMPAIGN_ID`), ADD KEY `ix_b_seo_adv_banner2` (`AUTO_QUANTITY_OFF`,`AUTO_QUANTITY_ON`);
 
 --
--- Индексы таблицы `b_seo_adv_campaign`
+-- Indexes for table `b_seo_adv_campaign`
 --
 ALTER TABLE `b_seo_adv_campaign`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_seo_adv_campaign` (`ENGINE_ID`,`XML_ID`);
 
 --
--- Индексы таблицы `b_seo_adv_group`
+-- Indexes for table `b_seo_adv_group`
 --
 ALTER TABLE `b_seo_adv_group`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_seo_adv_group` (`ENGINE_ID`,`XML_ID`), ADD KEY `ix_b_seo_adv_group1` (`CAMPAIGN_ID`);
 
 --
--- Индексы таблицы `b_seo_adv_link`
+-- Indexes for table `b_seo_adv_link`
 --
 ALTER TABLE `b_seo_adv_link`
   ADD PRIMARY KEY (`LINK_TYPE`,`LINK_ID`,`BANNER_ID`);
 
 --
--- Индексы таблицы `b_seo_adv_log`
+-- Indexes for table `b_seo_adv_log`
 --
 ALTER TABLE `b_seo_adv_log`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_seo_adv_log1` (`ENGINE_ID`), ADD KEY `ix_b_seo_adv_log2` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_seo_adv_order`
+-- Indexes for table `b_seo_adv_order`
 --
 ALTER TABLE `b_seo_adv_order`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_seo_adv_order` (`ENGINE_ID`,`CAMPAIGN_ID`,`BANNER_ID`,`ORDER_ID`), ADD KEY `ix_b_seo_adv_order1` (`ORDER_ID`,`PROCESSED`);
 
 --
--- Индексы таблицы `b_seo_adv_region`
+-- Indexes for table `b_seo_adv_region`
 --
 ALTER TABLE `b_seo_adv_region`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_seo_adv_region` (`ENGINE_ID`,`XML_ID`), ADD KEY `ix_b_seo_adv_region1` (`PARENT_ID`);
 
 --
--- Индексы таблицы `b_seo_keywords`
+-- Indexes for table `b_seo_keywords`
 --
 ALTER TABLE `b_seo_keywords`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_seo_keywords_url` (`URL`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_seo_search_engine`
+-- Indexes for table `b_seo_search_engine`
 --
 ALTER TABLE `b_seo_search_engine`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_b_seo_search_engine_code` (`CODE`);
 
 --
--- Индексы таблицы `b_seo_sitemap`
+-- Indexes for table `b_seo_sitemap`
 --
 ALTER TABLE `b_seo_sitemap`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_seo_sitemap_entity`
+-- Indexes for table `b_seo_sitemap_entity`
 --
 ALTER TABLE `b_seo_sitemap_entity`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_seo_sitemap_entity_1` (`ENTITY_TYPE`,`ENTITY_ID`), ADD KEY `ix_b_seo_sitemap_entity_2` (`SITEMAP_ID`);
 
 --
--- Индексы таблицы `b_seo_sitemap_iblock`
+-- Indexes for table `b_seo_sitemap_iblock`
 --
 ALTER TABLE `b_seo_sitemap_iblock`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_seo_sitemap_iblock_1` (`IBLOCK_ID`), ADD KEY `ix_b_seo_sitemap_iblock_2` (`SITEMAP_ID`);
 
 --
--- Индексы таблицы `b_seo_sitemap_runtime`
+-- Indexes for table `b_seo_sitemap_runtime`
 --
 ALTER TABLE `b_seo_sitemap_runtime`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_seo_sitemap_runtime1` (`PID`,`PROCESSED`,`ITEM_TYPE`,`ITEM_ID`);
 
 --
--- Индексы таблицы `b_seo_yandex_direct_stat`
+-- Indexes for table `b_seo_yandex_direct_stat`
 --
 ALTER TABLE `b_seo_yandex_direct_stat`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_seo_yandex_direct_stat` (`BANNER_ID`,`DATE_DAY`), ADD KEY `ix_seo_yandex_direct_stat1` (`CAMPAIGN_ID`);
 
 --
--- Индексы таблицы `b_short_uri`
+-- Indexes for table `b_short_uri`
 --
 ALTER TABLE `b_short_uri`
   ADD PRIMARY KEY (`ID`), ADD KEY `ux_b_short_uri_1` (`SHORT_URI_CRC`), ADD KEY `ux_b_short_uri_2` (`URI_CRC`);
 
 --
--- Индексы таблицы `b_site_template`
+-- Indexes for table `b_site_template`
 --
 ALTER TABLE `b_site_template`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_B_SITE_TEMPLATE` (`SITE_ID`,`CONDITION`,`TEMPLATE`);
 
 --
--- Индексы таблицы `b_smile`
+-- Indexes for table `b_smile`
 --
 ALTER TABLE `b_smile`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_smile_lang`
+-- Indexes for table `b_smile_lang`
 --
 ALTER TABLE `b_smile_lang`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UX_SMILE_SL` (`TYPE`,`SID`,`LID`);
 
 --
--- Индексы таблицы `b_smile_set`
+-- Indexes for table `b_smile_set`
 --
 ALTER TABLE `b_smile_set`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_socialservices_message`
+-- Indexes for table `b_socialservices_message`
 --
 ALTER TABLE `b_socialservices_message`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_socialservices_user`
+-- Indexes for table `b_socialservices_user`
 --
 ALTER TABLE `b_socialservices_user`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_B_SOCIALSERVICES_USER` (`XML_ID`,`EXTERNAL_AUTH_ID`), ADD KEY `IX_B_SOCIALSERVICES_US_1` (`USER_ID`), ADD KEY `IX_B_SOCIALSERVICES_US_2` (`INITIALIZED`), ADD KEY `IX_B_SOCIALSERVICES_US_3` (`LOGIN`);
 
 --
--- Индексы таблицы `b_socialservices_user_link`
+-- Indexes for table `b_socialservices_user_link`
 --
 ALTER TABLE `b_socialservices_user_link`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sticker`
+-- Indexes for table `b_sticker`
 --
 ALTER TABLE `b_sticker`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_sticker_group_task`
+-- Indexes for table `b_sticker_group_task`
 --
 ALTER TABLE `b_sticker_group_task`
   ADD PRIMARY KEY (`GROUP_ID`,`TASK_ID`);
 
 --
--- Индексы таблицы `b_subscription`
+-- Indexes for table `b_subscription`
 --
 ALTER TABLE `b_subscription`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `UK_SUBSCRIPTION_EMAIL` (`EMAIL`,`USER_ID`), ADD KEY `IX_DATE_CONFIRM` (`CONFIRMED`,`DATE_CONFIRM`);
 
 --
--- Индексы таблицы `b_subscription_rubric`
+-- Indexes for table `b_subscription_rubric`
 --
 ALTER TABLE `b_subscription_rubric`
   ADD UNIQUE KEY `UK_SUBSCRIPTION_RUBRIC` (`SUBSCRIPTION_ID`,`LIST_RUBRIC_ID`);
 
 --
--- Индексы таблицы `b_task`
+-- Indexes for table `b_task`
 --
 ALTER TABLE `b_task`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_task` (`MODULE_ID`,`BINDING`,`LETTER`,`SYS`);
 
 --
--- Индексы таблицы `b_task_operation`
+-- Indexes for table `b_task_operation`
 --
 ALTER TABLE `b_task_operation`
   ADD PRIMARY KEY (`TASK_ID`,`OPERATION_ID`);
 
 --
--- Индексы таблицы `b_undo`
+-- Indexes for table `b_undo`
 --
 ALTER TABLE `b_undo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_user`
+-- Indexes for table `b_user`
 --
 ALTER TABLE `b_user`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ix_login` (`LOGIN`,`EXTERNAL_AUTH_ID`), ADD KEY `ix_b_user_email` (`EMAIL`), ADD KEY `ix_b_user_activity_date` (`LAST_ACTIVITY_DATE`), ADD KEY `IX_B_USER_XML_ID` (`XML_ID`);
 
 --
--- Индексы таблицы `b_user_access`
+-- Indexes for table `b_user_access`
 --
 ALTER TABLE `b_user_access`
   ADD KEY `ix_ua_user_provider` (`USER_ID`,`PROVIDER_ID`), ADD KEY `ix_ua_user_access` (`USER_ID`,`ACCESS_CODE`);
 
 --
--- Индексы таблицы `b_user_access_check`
+-- Indexes for table `b_user_access_check`
 --
 ALTER TABLE `b_user_access_check`
   ADD KEY `ix_uac_user_provider` (`USER_ID`,`PROVIDER_ID`);
 
 --
--- Индексы таблицы `b_user_counter`
+-- Indexes for table `b_user_counter`
 --
 ALTER TABLE `b_user_counter`
   ADD PRIMARY KEY (`USER_ID`,`SITE_ID`,`CODE`), ADD KEY `ix_buc_tag` (`TAG`), ADD KEY `ix_buc_sent` (`SENT`);
 
 --
--- Индексы таблицы `b_user_digest`
+-- Indexes for table `b_user_digest`
 --
 ALTER TABLE `b_user_digest`
   ADD PRIMARY KEY (`USER_ID`);
 
 --
--- Индексы таблицы `b_user_field`
+-- Indexes for table `b_user_field`
 --
 ALTER TABLE `b_user_field`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_user_type_entity` (`ENTITY_ID`,`FIELD_NAME`);
 
 --
--- Индексы таблицы `b_user_field_confirm`
+-- Indexes for table `b_user_field_confirm`
 --
 ALTER TABLE `b_user_field_confirm`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_user_field_confirm1` (`USER_ID`,`CONFIRM_CODE`);
 
 --
--- Индексы таблицы `b_user_field_enum`
+-- Indexes for table `b_user_field_enum`
 --
 ALTER TABLE `b_user_field_enum`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ux_user_field_enum` (`USER_FIELD_ID`,`XML_ID`);
 
 --
--- Индексы таблицы `b_user_field_lang`
+-- Indexes for table `b_user_field_lang`
 --
 ALTER TABLE `b_user_field_lang`
   ADD PRIMARY KEY (`USER_FIELD_ID`,`LANGUAGE_ID`);
 
 --
--- Индексы таблицы `b_user_group`
+-- Indexes for table `b_user_group`
 --
 ALTER TABLE `b_user_group`
   ADD UNIQUE KEY `ix_user_group` (`USER_ID`,`GROUP_ID`), ADD KEY `ix_user_group_group` (`GROUP_ID`);
 
 --
--- Индексы таблицы `b_user_hit_auth`
+-- Indexes for table `b_user_hit_auth`
 --
 ALTER TABLE `b_user_hit_auth`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_USER_HIT_AUTH_1` (`HASH`), ADD KEY `IX_USER_HIT_AUTH_2` (`USER_ID`), ADD KEY `IX_USER_HIT_AUTH_3` (`TIMESTAMP_X`);
 
 --
--- Индексы таблицы `b_user_option`
+-- Indexes for table `b_user_option`
 --
 ALTER TABLE `b_user_option`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_user_option_user` (`USER_ID`,`CATEGORY`);
 
 --
--- Индексы таблицы `b_user_stored_auth`
+-- Indexes for table `b_user_stored_auth`
 --
 ALTER TABLE `b_user_stored_auth`
   ADD PRIMARY KEY (`ID`), ADD KEY `ux_user_hash` (`USER_ID`);
 
 --
--- Индексы таблицы `b_utm_blog_comment`
+-- Indexes for table `b_utm_blog_comment`
 --
 ALTER TABLE `b_utm_blog_comment`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_utm_BLOG_COMMENT_1` (`FIELD_ID`), ADD KEY `ix_utm_BLOG_COMMENT_2` (`VALUE_ID`);
 
 --
--- Индексы таблицы `b_utm_blog_post`
+-- Indexes for table `b_utm_blog_post`
 --
 ALTER TABLE `b_utm_blog_post`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_utm_BLOG_POST_1` (`FIELD_ID`), ADD KEY `ix_utm_BLOG_POST_2` (`VALUE_ID`);
 
 --
--- Индексы таблицы `b_uts_blog_comment`
+-- Indexes for table `b_uts_blog_comment`
 --
 ALTER TABLE `b_uts_blog_comment`
   ADD PRIMARY KEY (`VALUE_ID`);
 
 --
--- Индексы таблицы `b_uts_blog_post`
+-- Indexes for table `b_uts_blog_post`
 --
 ALTER TABLE `b_uts_blog_post`
   ADD PRIMARY KEY (`VALUE_ID`);
 
 --
--- Индексы таблицы `b_vote`
+-- Indexes for table `b_vote`
 --
 ALTER TABLE `b_vote`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CHANNEL_ID` (`CHANNEL_ID`);
 
 --
--- Индексы таблицы `b_vote_answer`
+-- Indexes for table `b_vote_answer`
 --
 ALTER TABLE `b_vote_answer`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_QUESTION_ID` (`QUESTION_ID`);
 
 --
--- Индексы таблицы `b_vote_channel`
+-- Indexes for table `b_vote_channel`
 --
 ALTER TABLE `b_vote_channel`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_vote_channel_2_group`
+-- Indexes for table `b_vote_channel_2_group`
 --
 ALTER TABLE `b_vote_channel_2_group`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_VOTE_CHANNEL_ID_GROUP_ID` (`CHANNEL_ID`,`GROUP_ID`);
 
 --
--- Индексы таблицы `b_vote_channel_2_site`
+-- Indexes for table `b_vote_channel_2_site`
 --
 ALTER TABLE `b_vote_channel_2_site`
   ADD PRIMARY KEY (`CHANNEL_ID`,`SITE_ID`);
 
 --
--- Индексы таблицы `b_vote_event`
+-- Indexes for table `b_vote_event`
 --
 ALTER TABLE `b_vote_event`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_USER_ID` (`VOTE_USER_ID`), ADD KEY `IX_B_VOTE_EVENT_2` (`VOTE_ID`,`IP`);
 
 --
--- Индексы таблицы `b_vote_event_answer`
+-- Indexes for table `b_vote_event_answer`
 --
 ALTER TABLE `b_vote_event_answer`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_EVENT_QUESTION_ID` (`EVENT_QUESTION_ID`);
 
 --
--- Индексы таблицы `b_vote_event_question`
+-- Indexes for table `b_vote_event_question`
 --
 ALTER TABLE `b_vote_event_question`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_EVENT_ID` (`EVENT_ID`);
 
 --
--- Индексы таблицы `b_vote_question`
+-- Indexes for table `b_vote_question`
 --
 ALTER TABLE `b_vote_question`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_VOTE_ID` (`VOTE_ID`);
 
 --
--- Индексы таблицы `b_vote_user`
+-- Indexes for table `b_vote_user`
 --
 ALTER TABLE `b_vote_user`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Индексы таблицы `b_xml_tree`
+-- Indexes for table `b_xml_tree`
 --
 ALTER TABLE `b_xml_tree`
   ADD PRIMARY KEY (`ID`), ADD KEY `ix_b_xml_tree_parent` (`PARENT_ID`), ADD KEY `ix_b_xml_tree_left` (`LEFT_MARGIN`);
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT для таблицы `b_admin_notify`
+-- AUTO_INCREMENT for table `b_admin_notify`
 --
 ALTER TABLE `b_admin_notify`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_admin_notify_lang`
+-- AUTO_INCREMENT for table `b_admin_notify_lang`
 --
 ALTER TABLE `b_admin_notify_lang`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_agent`
+-- AUTO_INCREMENT for table `b_agent`
 --
 ALTER TABLE `b_agent`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=78;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82;
 --
--- AUTO_INCREMENT для таблицы `b_app_password`
+-- AUTO_INCREMENT for table `b_app_password`
 --
 ALTER TABLE `b_app_password`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_bitrixcloud_option`
+-- AUTO_INCREMENT for table `b_bitrixcloud_option`
 --
 ALTER TABLE `b_bitrixcloud_option`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `b_blog`
+-- AUTO_INCREMENT for table `b_blog`
 --
 ALTER TABLE `b_blog`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_blog_category`
+-- AUTO_INCREMENT for table `b_blog_category`
 --
 ALTER TABLE `b_blog_category`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_comment`
+-- AUTO_INCREMENT for table `b_blog_comment`
 --
 ALTER TABLE `b_blog_comment`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_group`
+-- AUTO_INCREMENT for table `b_blog_group`
 --
 ALTER TABLE `b_blog_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_blog_image`
+-- AUTO_INCREMENT for table `b_blog_image`
 --
 ALTER TABLE `b_blog_image`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_post`
+-- AUTO_INCREMENT for table `b_blog_post`
 --
 ALTER TABLE `b_blog_post`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT для таблицы `b_blog_post_category`
+-- AUTO_INCREMENT for table `b_blog_post_category`
 --
 ALTER TABLE `b_blog_post_category`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_post_param`
+-- AUTO_INCREMENT for table `b_blog_post_param`
 --
 ALTER TABLE `b_blog_post_param`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_site_path`
+-- AUTO_INCREMENT for table `b_blog_site_path`
 --
 ALTER TABLE `b_blog_site_path`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_smile`
+-- AUTO_INCREMENT for table `b_blog_smile`
 --
 ALTER TABLE `b_blog_smile`
   MODIFY `ID` smallint(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
--- AUTO_INCREMENT для таблицы `b_blog_smile_lang`
+-- AUTO_INCREMENT for table `b_blog_smile_lang`
 --
 ALTER TABLE `b_blog_smile_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
--- AUTO_INCREMENT для таблицы `b_blog_socnet`
+-- AUTO_INCREMENT for table `b_blog_socnet`
 --
 ALTER TABLE `b_blog_socnet`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_socnet_rights`
+-- AUTO_INCREMENT for table `b_blog_socnet_rights`
 --
 ALTER TABLE `b_blog_socnet_rights`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_trackback`
+-- AUTO_INCREMENT for table `b_blog_trackback`
 --
 ALTER TABLE `b_blog_trackback`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_user`
+-- AUTO_INCREMENT for table `b_blog_user`
 --
 ALTER TABLE `b_blog_user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_blog_user2blog`
+-- AUTO_INCREMENT for table `b_blog_user2blog`
 --
 ALTER TABLE `b_blog_user2blog`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_user2user_group`
+-- AUTO_INCREMENT for table `b_blog_user2user_group`
 --
 ALTER TABLE `b_blog_user2user_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_blog_user_group`
+-- AUTO_INCREMENT for table `b_blog_user_group`
 --
 ALTER TABLE `b_blog_user_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_blog_user_group_perms`
+-- AUTO_INCREMENT for table `b_blog_user_group_perms`
 --
 ALTER TABLE `b_blog_user_group_perms`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_contractor`
+-- AUTO_INCREMENT for table `b_catalog_contractor`
 --
 ALTER TABLE `b_catalog_contractor`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_currency_rate`
+-- AUTO_INCREMENT for table `b_catalog_currency_rate`
 --
 ALTER TABLE `b_catalog_currency_rate`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount`
+-- AUTO_INCREMENT for table `b_catalog_discount`
 --
 ALTER TABLE `b_catalog_discount`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount2cat`
+-- AUTO_INCREMENT for table `b_catalog_discount2cat`
 --
 ALTER TABLE `b_catalog_discount2cat`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount2group`
+-- AUTO_INCREMENT for table `b_catalog_discount2group`
 --
 ALTER TABLE `b_catalog_discount2group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount2iblock`
+-- AUTO_INCREMENT for table `b_catalog_discount2iblock`
 --
 ALTER TABLE `b_catalog_discount2iblock`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount2product`
+-- AUTO_INCREMENT for table `b_catalog_discount2product`
 --
 ALTER TABLE `b_catalog_discount2product`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount2section`
+-- AUTO_INCREMENT for table `b_catalog_discount2section`
 --
 ALTER TABLE `b_catalog_discount2section`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount_cond`
+-- AUTO_INCREMENT for table `b_catalog_discount_cond`
 --
 ALTER TABLE `b_catalog_discount_cond`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount_coupon`
+-- AUTO_INCREMENT for table `b_catalog_discount_coupon`
 --
 ALTER TABLE `b_catalog_discount_coupon`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_discount_module`
+-- AUTO_INCREMENT for table `b_catalog_discount_module`
 --
 ALTER TABLE `b_catalog_discount_module`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_disc_save_group`
+-- AUTO_INCREMENT for table `b_catalog_disc_save_group`
 --
 ALTER TABLE `b_catalog_disc_save_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_disc_save_range`
+-- AUTO_INCREMENT for table `b_catalog_disc_save_range`
 --
 ALTER TABLE `b_catalog_disc_save_range`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_disc_save_user`
+-- AUTO_INCREMENT for table `b_catalog_disc_save_user`
 --
 ALTER TABLE `b_catalog_disc_save_user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_docs_barcode`
+-- AUTO_INCREMENT for table `b_catalog_docs_barcode`
 --
 ALTER TABLE `b_catalog_docs_barcode`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_docs_element`
+-- AUTO_INCREMENT for table `b_catalog_docs_element`
 --
 ALTER TABLE `b_catalog_docs_element`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_export`
+-- AUTO_INCREMENT for table `b_catalog_export`
 --
 ALTER TABLE `b_catalog_export`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_extra`
+-- AUTO_INCREMENT for table `b_catalog_extra`
 --
 ALTER TABLE `b_catalog_extra`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_group`
+-- AUTO_INCREMENT for table `b_catalog_group`
 --
 ALTER TABLE `b_catalog_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_group2group`
+-- AUTO_INCREMENT for table `b_catalog_group2group`
 --
 ALTER TABLE `b_catalog_group2group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_group_lang`
+-- AUTO_INCREMENT for table `b_catalog_group_lang`
 --
 ALTER TABLE `b_catalog_group_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_measure`
+-- AUTO_INCREMENT for table `b_catalog_measure`
 --
 ALTER TABLE `b_catalog_measure`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_measure_ratio`
+-- AUTO_INCREMENT for table `b_catalog_measure_ratio`
 --
 ALTER TABLE `b_catalog_measure_ratio`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_price`
+-- AUTO_INCREMENT for table `b_catalog_price`
 --
 ALTER TABLE `b_catalog_price`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_product2group`
+-- AUTO_INCREMENT for table `b_catalog_product2group`
 --
 ALTER TABLE `b_catalog_product2group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_product_sets`
+-- AUTO_INCREMENT for table `b_catalog_product_sets`
 --
 ALTER TABLE `b_catalog_product_sets`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_store`
+-- AUTO_INCREMENT for table `b_catalog_store`
 --
 ALTER TABLE `b_catalog_store`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_store_barcode`
+-- AUTO_INCREMENT for table `b_catalog_store_barcode`
 --
 ALTER TABLE `b_catalog_store_barcode`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_store_docs`
+-- AUTO_INCREMENT for table `b_catalog_store_docs`
 --
 ALTER TABLE `b_catalog_store_docs`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_store_product`
+-- AUTO_INCREMENT for table `b_catalog_store_product`
 --
 ALTER TABLE `b_catalog_store_product`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_vat`
+-- AUTO_INCREMENT for table `b_catalog_vat`
 --
 ALTER TABLE `b_catalog_vat`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_catalog_viewed_product`
+-- AUTO_INCREMENT for table `b_catalog_viewed_product`
 --
 ALTER TABLE `b_catalog_viewed_product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
 --
--- AUTO_INCREMENT для таблицы `b_checklist`
+-- AUTO_INCREMENT for table `b_checklist`
 --
 ALTER TABLE `b_checklist`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_clouds_file_bucket`
+-- AUTO_INCREMENT for table `b_clouds_file_bucket`
 --
 ALTER TABLE `b_clouds_file_bucket`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_clouds_file_resize`
+-- AUTO_INCREMENT for table `b_clouds_file_resize`
 --
 ALTER TABLE `b_clouds_file_resize`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_component_params`
+-- AUTO_INCREMENT for table `b_component_params`
 --
 ALTER TABLE `b_component_params`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=631;
 --
--- AUTO_INCREMENT для таблицы `b_culture`
+-- AUTO_INCREMENT for table `b_culture`
 --
 ALTER TABLE `b_culture`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_event`
+-- AUTO_INCREMENT for table `b_event`
 --
 ALTER TABLE `b_event`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT для таблицы `b_event_log`
+-- AUTO_INCREMENT for table `b_event_log`
 --
 ALTER TABLE `b_event_log`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=140;
 --
--- AUTO_INCREMENT для таблицы `b_event_message`
+-- AUTO_INCREMENT for table `b_event_message`
 --
 ALTER TABLE `b_event_message`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
--- AUTO_INCREMENT для таблицы `b_event_type`
+-- AUTO_INCREMENT for table `b_event_type`
 --
 ALTER TABLE `b_event_type`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=74;
 --
--- AUTO_INCREMENT для таблицы `b_favorite`
+-- AUTO_INCREMENT for table `b_favorite`
 --
 ALTER TABLE `b_favorite`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_file`
+-- AUTO_INCREMENT for table `b_file`
 --
 ALTER TABLE `b_file`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1153;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1216;
 --
--- AUTO_INCREMENT для таблицы `b_file_search`
+-- AUTO_INCREMENT for table `b_file_search`
 --
 ALTER TABLE `b_file_search`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_filters`
+-- AUTO_INCREMENT for table `b_filters`
 --
 ALTER TABLE `b_filters`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_form`
+-- AUTO_INCREMENT for table `b_form`
 --
 ALTER TABLE `b_form`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_2_group`
+-- AUTO_INCREMENT for table `b_form_2_group`
 --
 ALTER TABLE `b_form_2_group`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_answer`
+-- AUTO_INCREMENT for table `b_form_answer`
 --
 ALTER TABLE `b_form_answer`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_crm`
+-- AUTO_INCREMENT for table `b_form_crm`
 --
 ALTER TABLE `b_form_crm`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_crm_field`
+-- AUTO_INCREMENT for table `b_form_crm_field`
 --
 ALTER TABLE `b_form_crm_field`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_crm_link`
+-- AUTO_INCREMENT for table `b_form_crm_link`
 --
 ALTER TABLE `b_form_crm_link`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_field`
+-- AUTO_INCREMENT for table `b_form_field`
 --
 ALTER TABLE `b_form_field`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_field_filter`
+-- AUTO_INCREMENT for table `b_form_field_filter`
 --
 ALTER TABLE `b_form_field_filter`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_field_validator`
+-- AUTO_INCREMENT for table `b_form_field_validator`
 --
 ALTER TABLE `b_form_field_validator`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_menu`
+-- AUTO_INCREMENT for table `b_form_menu`
 --
 ALTER TABLE `b_form_menu`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_result`
+-- AUTO_INCREMENT for table `b_form_result`
 --
 ALTER TABLE `b_form_result`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_result_answer`
+-- AUTO_INCREMENT for table `b_form_result_answer`
 --
 ALTER TABLE `b_form_result_answer`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_status`
+-- AUTO_INCREMENT for table `b_form_status`
 --
 ALTER TABLE `b_form_status`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_form_status_2_group`
+-- AUTO_INCREMENT for table `b_form_status_2_group`
 --
 ALTER TABLE `b_form_status_2_group`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum`
+-- AUTO_INCREMENT for table `b_forum`
 --
 ALTER TABLE `b_forum`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_forum_dictionary`
+-- AUTO_INCREMENT for table `b_forum_dictionary`
 --
 ALTER TABLE `b_forum_dictionary`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `b_forum_email`
+-- AUTO_INCREMENT for table `b_forum_email`
 --
 ALTER TABLE `b_forum_email`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_file`
+-- AUTO_INCREMENT for table `b_forum_file`
 --
 ALTER TABLE `b_forum_file`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_filter`
+-- AUTO_INCREMENT for table `b_forum_filter`
 --
 ALTER TABLE `b_forum_filter`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=152;
 --
--- AUTO_INCREMENT для таблицы `b_forum_group`
+-- AUTO_INCREMENT for table `b_forum_group`
 --
 ALTER TABLE `b_forum_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_forum_group_lang`
+-- AUTO_INCREMENT for table `b_forum_group_lang`
 --
 ALTER TABLE `b_forum_group_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_forum_letter`
+-- AUTO_INCREMENT for table `b_forum_letter`
 --
 ALTER TABLE `b_forum_letter`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
--- AUTO_INCREMENT для таблицы `b_forum_message`
+-- AUTO_INCREMENT for table `b_forum_message`
 --
 ALTER TABLE `b_forum_message`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_perms`
+-- AUTO_INCREMENT for table `b_forum_perms`
 --
 ALTER TABLE `b_forum_perms`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_forum_pm_folder`
+-- AUTO_INCREMENT for table `b_forum_pm_folder`
 --
 ALTER TABLE `b_forum_pm_folder`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `b_forum_points`
+-- AUTO_INCREMENT for table `b_forum_points`
 --
 ALTER TABLE `b_forum_points`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_points2post`
+-- AUTO_INCREMENT for table `b_forum_points2post`
 --
 ALTER TABLE `b_forum_points2post`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_private_message`
+-- AUTO_INCREMENT for table `b_forum_private_message`
 --
 ALTER TABLE `b_forum_private_message`
   MODIFY `ID` bigint(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_rank`
+-- AUTO_INCREMENT for table `b_forum_rank`
 --
 ALTER TABLE `b_forum_rank`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_rank_lang`
+-- AUTO_INCREMENT for table `b_forum_rank_lang`
 --
 ALTER TABLE `b_forum_rank_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_smile`
+-- AUTO_INCREMENT for table `b_forum_smile`
 --
 ALTER TABLE `b_forum_smile`
   MODIFY `ID` smallint(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
 --
--- AUTO_INCREMENT для таблицы `b_forum_smile_lang`
+-- AUTO_INCREMENT for table `b_forum_smile_lang`
 --
 ALTER TABLE `b_forum_smile_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
--- AUTO_INCREMENT для таблицы `b_forum_stat`
+-- AUTO_INCREMENT for table `b_forum_stat`
 --
 ALTER TABLE `b_forum_stat`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_subscribe`
+-- AUTO_INCREMENT for table `b_forum_subscribe`
 --
 ALTER TABLE `b_forum_subscribe`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_topic`
+-- AUTO_INCREMENT for table `b_forum_topic`
 --
 ALTER TABLE `b_forum_topic`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_user`
+-- AUTO_INCREMENT for table `b_forum_user`
 --
 ALTER TABLE `b_forum_user`
   MODIFY `ID` bigint(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_forum_user_forum`
+-- AUTO_INCREMENT for table `b_forum_user_forum`
 --
 ALTER TABLE `b_forum_user_forum`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_forum_user_topic`
+-- AUTO_INCREMENT for table `b_forum_user_topic`
 --
 ALTER TABLE `b_forum_user_topic`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_group`
+-- AUTO_INCREMENT for table `b_group`
 --
 ALTER TABLE `b_group`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT для таблицы `b_hlblock_entity`
+-- AUTO_INCREMENT for table `b_hlblock_entity`
 --
 ALTER TABLE `b_hlblock_entity`
   MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_hot_keys`
+-- AUTO_INCREMENT for table `b_hot_keys`
 --
 ALTER TABLE `b_hot_keys`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT для таблицы `b_hot_keys_code`
+-- AUTO_INCREMENT for table `b_hot_keys_code`
 --
 ALTER TABLE `b_hot_keys_code`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=140;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=142;
 --
--- AUTO_INCREMENT для таблицы `b_iblock`
+-- AUTO_INCREMENT for table `b_iblock`
 --
 ALTER TABLE `b_iblock`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_element`
+-- AUTO_INCREMENT for table `b_iblock_element`
 --
 ALTER TABLE `b_iblock_element`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=100;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=124;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_element_property`
+-- AUTO_INCREMENT for table `b_iblock_element_property`
 --
 ALTER TABLE `b_iblock_element_property`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=300;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=402;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_iproperty`
+-- AUTO_INCREMENT for table `b_iblock_iproperty`
 --
 ALTER TABLE `b_iblock_iproperty`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_offers_tmp`
+-- AUTO_INCREMENT for table `b_iblock_offers_tmp`
 --
 ALTER TABLE `b_iblock_offers_tmp`
-  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_property`
+-- AUTO_INCREMENT for table `b_iblock_property`
 --
 ALTER TABLE `b_iblock_property`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_property_enum`
+-- AUTO_INCREMENT for table `b_iblock_property_enum`
 --
 ALTER TABLE `b_iblock_property_enum`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_right`
+-- AUTO_INCREMENT for table `b_iblock_right`
 --
 ALTER TABLE `b_iblock_right`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_rss`
+-- AUTO_INCREMENT for table `b_iblock_rss`
 --
 ALTER TABLE `b_iblock_rss`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_iblock_section`
+-- AUTO_INCREMENT for table `b_iblock_section`
 --
 ALTER TABLE `b_iblock_section`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
--- AUTO_INCREMENT для таблицы `b_list_rubric`
+-- AUTO_INCREMENT for table `b_list_rubric`
 --
 ALTER TABLE `b_list_rubric`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_medialib_collection`
+-- AUTO_INCREMENT for table `b_medialib_collection`
 --
 ALTER TABLE `b_medialib_collection`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_medialib_item`
+-- AUTO_INCREMENT for table `b_medialib_item`
 --
 ALTER TABLE `b_medialib_item`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_medialib_type`
+-- AUTO_INCREMENT for table `b_medialib_type`
 --
 ALTER TABLE `b_medialib_type`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_module_group`
+-- AUTO_INCREMENT for table `b_module_group`
 --
 ALTER TABLE `b_module_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT для таблицы `b_module_to_module`
+-- AUTO_INCREMENT for table `b_module_to_module`
 --
 ALTER TABLE `b_module_to_module`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=337;
 --
--- AUTO_INCREMENT для таблицы `b_operation`
+-- AUTO_INCREMENT for table `b_operation`
 --
 ALTER TABLE `b_operation`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=124;
 --
--- AUTO_INCREMENT для таблицы `b_perf_cache`
+-- AUTO_INCREMENT for table `b_perf_cache`
 --
 ALTER TABLE `b_perf_cache`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_cluster`
+-- AUTO_INCREMENT for table `b_perf_cluster`
 --
 ALTER TABLE `b_perf_cluster`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_component`
+-- AUTO_INCREMENT for table `b_perf_component`
 --
 ALTER TABLE `b_perf_component`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_error`
+-- AUTO_INCREMENT for table `b_perf_error`
 --
 ALTER TABLE `b_perf_error`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_history`
+-- AUTO_INCREMENT for table `b_perf_history`
 --
 ALTER TABLE `b_perf_history`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_perf_hit`
+-- AUTO_INCREMENT for table `b_perf_hit`
 --
 ALTER TABLE `b_perf_hit`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_perf_index_ban`
+-- AUTO_INCREMENT for table `b_perf_index_ban`
 --
 ALTER TABLE `b_perf_index_ban`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_index_complete`
+-- AUTO_INCREMENT for table `b_perf_index_complete`
 --
 ALTER TABLE `b_perf_index_complete`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_index_suggest`
+-- AUTO_INCREMENT for table `b_perf_index_suggest`
 --
 ALTER TABLE `b_perf_index_suggest`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_sql`
+-- AUTO_INCREMENT for table `b_perf_sql`
 --
 ALTER TABLE `b_perf_sql`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_perf_tab_column_stat`
+-- AUTO_INCREMENT for table `b_perf_tab_column_stat`
 --
 ALTER TABLE `b_perf_tab_column_stat`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_perf_test`
+-- AUTO_INCREMENT for table `b_perf_test`
 --
 ALTER TABLE `b_perf_test`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=401;
 --
--- AUTO_INCREMENT для таблицы `b_posting`
+-- AUTO_INCREMENT for table `b_posting`
 --
 ALTER TABLE `b_posting`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_posting_email`
+-- AUTO_INCREMENT for table `b_posting_email`
 --
 ALTER TABLE `b_posting_email`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_pull_channel`
+-- AUTO_INCREMENT for table `b_pull_channel`
 --
 ALTER TABLE `b_pull_channel`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
 --
--- AUTO_INCREMENT для таблицы `b_pull_push`
+-- AUTO_INCREMENT for table `b_pull_push`
 --
 ALTER TABLE `b_pull_push`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_pull_push_queue`
+-- AUTO_INCREMENT for table `b_pull_push_queue`
 --
 ALTER TABLE `b_pull_push_queue`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_pull_stack`
+-- AUTO_INCREMENT for table `b_pull_stack`
 --
 ALTER TABLE `b_pull_stack`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
--- AUTO_INCREMENT для таблицы `b_pull_watch`
+-- AUTO_INCREMENT for table `b_pull_watch`
 --
 ALTER TABLE `b_pull_watch`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating`
+-- AUTO_INCREMENT for table `b_rating`
 --
 ALTER TABLE `b_rating`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_rating_component`
+-- AUTO_INCREMENT for table `b_rating_component`
 --
 ALTER TABLE `b_rating_component`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_component_results`
+-- AUTO_INCREMENT for table `b_rating_component_results`
 --
 ALTER TABLE `b_rating_component_results`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_results`
+-- AUTO_INCREMENT for table `b_rating_results`
 --
 ALTER TABLE `b_rating_results`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_rule`
+-- AUTO_INCREMENT for table `b_rating_rule`
 --
 ALTER TABLE `b_rating_rule`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT для таблицы `b_rating_rule_vetting`
+-- AUTO_INCREMENT for table `b_rating_rule_vetting`
 --
 ALTER TABLE `b_rating_rule_vetting`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_user`
+-- AUTO_INCREMENT for table `b_rating_user`
 --
 ALTER TABLE `b_rating_user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_rating_vote`
+-- AUTO_INCREMENT for table `b_rating_vote`
 --
 ALTER TABLE `b_rating_vote`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_vote_group`
+-- AUTO_INCREMENT for table `b_rating_vote_group`
 --
 ALTER TABLE `b_rating_vote_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_rating_voting`
+-- AUTO_INCREMENT for table `b_rating_voting`
 --
 ALTER TABLE `b_rating_voting`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_voting_prepare`
+-- AUTO_INCREMENT for table `b_rating_voting_prepare`
 --
 ALTER TABLE `b_rating_voting_prepare`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_rating_weight`
+-- AUTO_INCREMENT for table `b_rating_weight`
 --
 ALTER TABLE `b_rating_weight`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_sale_affiliate`
+-- AUTO_INCREMENT for table `b_sale_affiliate`
 --
 ALTER TABLE `b_sale_affiliate`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_affiliate_plan`
+-- AUTO_INCREMENT for table `b_sale_affiliate_plan`
 --
 ALTER TABLE `b_sale_affiliate_plan`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_affiliate_plan_section`
+-- AUTO_INCREMENT for table `b_sale_affiliate_plan_section`
 --
 ALTER TABLE `b_sale_affiliate_plan_section`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_affiliate_tier`
+-- AUTO_INCREMENT for table `b_sale_affiliate_tier`
 --
 ALTER TABLE `b_sale_affiliate_tier`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_affiliate_transact`
+-- AUTO_INCREMENT for table `b_sale_affiliate_transact`
 --
 ALTER TABLE `b_sale_affiliate_transact`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_auxiliary`
+-- AUTO_INCREMENT for table `b_sale_auxiliary`
 --
 ALTER TABLE `b_sale_auxiliary`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_basket`
+-- AUTO_INCREMENT for table `b_sale_basket`
 --
 ALTER TABLE `b_sale_basket`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
 --
--- AUTO_INCREMENT для таблицы `b_sale_basket_props`
+-- AUTO_INCREMENT for table `b_sale_basket_props`
 --
 ALTER TABLE `b_sale_basket_props`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
 --
--- AUTO_INCREMENT для таблицы `b_sale_delivery`
+-- AUTO_INCREMENT for table `b_sale_delivery`
 --
 ALTER TABLE `b_sale_delivery`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_sale_delivery_handler`
+-- AUTO_INCREMENT for table `b_sale_delivery_handler`
 --
 ALTER TABLE `b_sale_delivery_handler`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_sale_discount`
+-- AUTO_INCREMENT for table `b_sale_discount`
 --
 ALTER TABLE `b_sale_discount`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_discount_coupon`
+-- AUTO_INCREMENT for table `b_sale_discount_coupon`
 --
 ALTER TABLE `b_sale_discount_coupon`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_discount_entities`
+-- AUTO_INCREMENT for table `b_sale_discount_entities`
 --
 ALTER TABLE `b_sale_discount_entities`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_discount_group`
+-- AUTO_INCREMENT for table `b_sale_discount_group`
 --
 ALTER TABLE `b_sale_discount_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_discount_module`
+-- AUTO_INCREMENT for table `b_sale_discount_module`
 --
 ALTER TABLE `b_sale_discount_module`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_export`
+-- AUTO_INCREMENT for table `b_sale_export`
 --
 ALTER TABLE `b_sale_export`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_sale_fuser`
+-- AUTO_INCREMENT for table `b_sale_fuser`
 --
 ALTER TABLE `b_sale_fuser`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10595;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12632;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location`
+-- AUTO_INCREMENT for table `b_sale_location`
 --
 ALTER TABLE `b_sale_location`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3159;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_city`
+-- AUTO_INCREMENT for table `b_sale_location_city`
 --
 ALTER TABLE `b_sale_location_city`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_city_lang`
+-- AUTO_INCREMENT for table `b_sale_location_city_lang`
 --
 ALTER TABLE `b_sale_location_city_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_country`
+-- AUTO_INCREMENT for table `b_sale_location_country`
 --
 ALTER TABLE `b_sale_location_country`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_country_lang`
+-- AUTO_INCREMENT for table `b_sale_location_country_lang`
 --
 ALTER TABLE `b_sale_location_country_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_group`
+-- AUTO_INCREMENT for table `b_sale_location_group`
 --
 ALTER TABLE `b_sale_location_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_group_lang`
+-- AUTO_INCREMENT for table `b_sale_location_group_lang`
 --
 ALTER TABLE `b_sale_location_group_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_region`
+-- AUTO_INCREMENT for table `b_sale_location_region`
 --
 ALTER TABLE `b_sale_location_region`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_region_lang`
+-- AUTO_INCREMENT for table `b_sale_location_region_lang`
 --
 ALTER TABLE `b_sale_location_region_lang`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_location_zip`
+-- AUTO_INCREMENT for table `b_sale_location_zip`
 --
 ALTER TABLE `b_sale_location_zip`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_loc_ext`
+-- AUTO_INCREMENT for table `b_sale_loc_ext`
 --
 ALTER TABLE `b_sale_loc_ext`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2118;
 --
--- AUTO_INCREMENT для таблицы `b_sale_loc_ext_srv`
+-- AUTO_INCREMENT for table `b_sale_loc_ext_srv`
 --
 ALTER TABLE `b_sale_loc_ext_srv`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_sale_loc_name`
+-- AUTO_INCREMENT for table `b_sale_loc_name`
 --
 ALTER TABLE `b_sale_loc_name`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3160;
 --
--- AUTO_INCREMENT для таблицы `b_sale_loc_type`
+-- AUTO_INCREMENT for table `b_sale_loc_type`
 --
 ALTER TABLE `b_sale_loc_type`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT для таблицы `b_sale_loc_type_name`
+-- AUTO_INCREMENT for table `b_sale_loc_type_name`
 --
 ALTER TABLE `b_sale_loc_type_name`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order`
+-- AUTO_INCREMENT for table `b_sale_order`
 --
 ALTER TABLE `b_sale_order`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_change`
+-- AUTO_INCREMENT for table `b_sale_order_change`
 --
 ALTER TABLE `b_sale_order_change`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_delivery`
+-- AUTO_INCREMENT for table `b_sale_order_delivery`
 --
 ALTER TABLE `b_sale_order_delivery`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_flags2group`
+-- AUTO_INCREMENT for table `b_sale_order_flags2group`
 --
 ALTER TABLE `b_sale_order_flags2group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_history`
+-- AUTO_INCREMENT for table `b_sale_order_history`
 --
 ALTER TABLE `b_sale_order_history`
   MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_props`
+-- AUTO_INCREMENT for table `b_sale_order_props`
 --
 ALTER TABLE `b_sale_order_props`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_props_group`
+-- AUTO_INCREMENT for table `b_sale_order_props_group`
 --
 ALTER TABLE `b_sale_order_props_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_props_value`
+-- AUTO_INCREMENT for table `b_sale_order_props_value`
 --
 ALTER TABLE `b_sale_order_props_value`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_props_variant`
+-- AUTO_INCREMENT for table `b_sale_order_props_variant`
 --
 ALTER TABLE `b_sale_order_props_variant`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_order_tax`
+-- AUTO_INCREMENT for table `b_sale_order_tax`
 --
 ALTER TABLE `b_sale_order_tax`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_pay_system`
+-- AUTO_INCREMENT for table `b_sale_pay_system`
 --
 ALTER TABLE `b_sale_pay_system`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT для таблицы `b_sale_pay_system_action`
+-- AUTO_INCREMENT for table `b_sale_pay_system_action`
 --
 ALTER TABLE `b_sale_pay_system_action`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT для таблицы `b_sale_person_type`
+-- AUTO_INCREMENT for table `b_sale_person_type`
 --
 ALTER TABLE `b_sale_person_type`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT для таблицы `b_sale_product2product`
+-- AUTO_INCREMENT for table `b_sale_product2product`
 --
 ALTER TABLE `b_sale_product2product`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT для таблицы `b_sale_recurring`
+-- AUTO_INCREMENT for table `b_sale_recurring`
 --
 ALTER TABLE `b_sale_recurring`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_site2group`
+-- AUTO_INCREMENT for table `b_sale_site2group`
 --
 ALTER TABLE `b_sale_site2group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_status2group`
+-- AUTO_INCREMENT for table `b_sale_status2group`
 --
 ALTER TABLE `b_sale_status2group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_store_barcode`
+-- AUTO_INCREMENT for table `b_sale_store_barcode`
 --
 ALTER TABLE `b_sale_store_barcode`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_tax`
+-- AUTO_INCREMENT for table `b_sale_tax`
 --
 ALTER TABLE `b_sale_tax`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_tax_rate`
+-- AUTO_INCREMENT for table `b_sale_tax_rate`
 --
 ALTER TABLE `b_sale_tax_rate`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_trading_platform`
+-- AUTO_INCREMENT for table `b_sale_trading_platform`
 --
 ALTER TABLE `b_sale_trading_platform`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_sale_user_account`
+-- AUTO_INCREMENT for table `b_sale_user_account`
 --
 ALTER TABLE `b_sale_user_account`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_sale_user_cards`
+-- AUTO_INCREMENT for table `b_sale_user_cards`
 --
 ALTER TABLE `b_sale_user_cards`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sale_user_props`
+-- AUTO_INCREMENT for table `b_sale_user_props`
 --
 ALTER TABLE `b_sale_user_props`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT для таблицы `b_sale_user_props_value`
+-- AUTO_INCREMENT for table `b_sale_user_props_value`
 --
 ALTER TABLE `b_sale_user_props_value`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT для таблицы `b_sale_user_transact`
+-- AUTO_INCREMENT for table `b_sale_user_transact`
 --
 ALTER TABLE `b_sale_user_transact`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
--- AUTO_INCREMENT для таблицы `b_sale_viewed_product`
+-- AUTO_INCREMENT for table `b_sale_viewed_product`
 --
 ALTER TABLE `b_sale_viewed_product`
-  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
 --
--- AUTO_INCREMENT для таблицы `b_search_content`
+-- AUTO_INCREMENT for table `b_search_content`
 --
 ALTER TABLE `b_search_content`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=481;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=509;
 --
--- AUTO_INCREMENT для таблицы `b_search_custom_rank`
+-- AUTO_INCREMENT for table `b_search_custom_rank`
 --
 ALTER TABLE `b_search_custom_rank`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_search_phrase`
+-- AUTO_INCREMENT for table `b_search_phrase`
 --
 ALTER TABLE `b_search_phrase`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_search_stem`
+-- AUTO_INCREMENT for table `b_search_stem`
 --
 ALTER TABLE `b_search_stem`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1845;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1863;
 --
--- AUTO_INCREMENT для таблицы `b_search_suggest`
+-- AUTO_INCREMENT for table `b_search_suggest`
 --
 ALTER TABLE `b_search_suggest`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_security_sitecheck`
+-- AUTO_INCREMENT for table `b_security_sitecheck`
 --
 ALTER TABLE `b_security_sitecheck`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sec_filter_mask`
+-- AUTO_INCREMENT for table `b_sec_filter_mask`
 --
 ALTER TABLE `b_sec_filter_mask`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sec_frame_mask`
+-- AUTO_INCREMENT for table `b_sec_frame_mask`
 --
 ALTER TABLE `b_sec_frame_mask`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sec_iprule`
+-- AUTO_INCREMENT for table `b_sec_iprule`
 --
 ALTER TABLE `b_sec_iprule`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sec_recovery_codes`
+-- AUTO_INCREMENT for table `b_sec_recovery_codes`
 --
 ALTER TABLE `b_sec_recovery_codes`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_contact`
+-- AUTO_INCREMENT for table `b_sender_contact`
 --
 ALTER TABLE `b_sender_contact`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_group`
+-- AUTO_INCREMENT for table `b_sender_group`
 --
 ALTER TABLE `b_sender_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_list`
+-- AUTO_INCREMENT for table `b_sender_list`
 --
 ALTER TABLE `b_sender_list`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_mailing`
+-- AUTO_INCREMENT for table `b_sender_mailing`
 --
 ALTER TABLE `b_sender_mailing`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_mailing_chain`
+-- AUTO_INCREMENT for table `b_sender_mailing_chain`
 --
 ALTER TABLE `b_sender_mailing_chain`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_posting`
+-- AUTO_INCREMENT for table `b_sender_posting`
 --
 ALTER TABLE `b_sender_posting`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_posting_click`
+-- AUTO_INCREMENT for table `b_sender_posting_click`
 --
 ALTER TABLE `b_sender_posting_click`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_posting_read`
+-- AUTO_INCREMENT for table `b_sender_posting_read`
 --
 ALTER TABLE `b_sender_posting_read`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_posting_recipient`
+-- AUTO_INCREMENT for table `b_sender_posting_recipient`
 --
 ALTER TABLE `b_sender_posting_recipient`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_posting_unsub`
+-- AUTO_INCREMENT for table `b_sender_posting_unsub`
 --
 ALTER TABLE `b_sender_posting_unsub`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sender_preset_template`
+-- AUTO_INCREMENT for table `b_sender_preset_template`
 --
 ALTER TABLE `b_sender_preset_template`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_autolog`
+-- AUTO_INCREMENT for table `b_seo_adv_autolog`
 --
 ALTER TABLE `b_seo_adv_autolog`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_banner`
+-- AUTO_INCREMENT for table `b_seo_adv_banner`
 --
 ALTER TABLE `b_seo_adv_banner`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_campaign`
+-- AUTO_INCREMENT for table `b_seo_adv_campaign`
 --
 ALTER TABLE `b_seo_adv_campaign`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_group`
+-- AUTO_INCREMENT for table `b_seo_adv_group`
 --
 ALTER TABLE `b_seo_adv_group`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_log`
+-- AUTO_INCREMENT for table `b_seo_adv_log`
 --
 ALTER TABLE `b_seo_adv_log`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_order`
+-- AUTO_INCREMENT for table `b_seo_adv_order`
 --
 ALTER TABLE `b_seo_adv_order`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_adv_region`
+-- AUTO_INCREMENT for table `b_seo_adv_region`
 --
 ALTER TABLE `b_seo_adv_region`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_keywords`
+-- AUTO_INCREMENT for table `b_seo_keywords`
 --
 ALTER TABLE `b_seo_keywords`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_search_engine`
+-- AUTO_INCREMENT for table `b_seo_search_engine`
 --
 ALTER TABLE `b_seo_search_engine`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_seo_sitemap`
+-- AUTO_INCREMENT for table `b_seo_sitemap`
 --
 ALTER TABLE `b_seo_sitemap`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_sitemap_entity`
+-- AUTO_INCREMENT for table `b_seo_sitemap_entity`
 --
 ALTER TABLE `b_seo_sitemap_entity`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_sitemap_iblock`
+-- AUTO_INCREMENT for table `b_seo_sitemap_iblock`
 --
 ALTER TABLE `b_seo_sitemap_iblock`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_sitemap_runtime`
+-- AUTO_INCREMENT for table `b_seo_sitemap_runtime`
 --
 ALTER TABLE `b_seo_sitemap_runtime`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_seo_yandex_direct_stat`
+-- AUTO_INCREMENT for table `b_seo_yandex_direct_stat`
 --
 ALTER TABLE `b_seo_yandex_direct_stat`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_short_uri`
+-- AUTO_INCREMENT for table `b_short_uri`
 --
 ALTER TABLE `b_short_uri`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_site_template`
+-- AUTO_INCREMENT for table `b_site_template`
 --
 ALTER TABLE `b_site_template`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_smile`
+-- AUTO_INCREMENT for table `b_smile`
 --
 ALTER TABLE `b_smile`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
--- AUTO_INCREMENT для таблицы `b_smile_lang`
+-- AUTO_INCREMENT for table `b_smile_lang`
 --
 ALTER TABLE `b_smile_lang`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 --
--- AUTO_INCREMENT для таблицы `b_smile_set`
+-- AUTO_INCREMENT for table `b_smile_set`
 --
 ALTER TABLE `b_smile_set`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_socialservices_message`
+-- AUTO_INCREMENT for table `b_socialservices_message`
 --
 ALTER TABLE `b_socialservices_message`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_socialservices_user`
+-- AUTO_INCREMENT for table `b_socialservices_user`
 --
 ALTER TABLE `b_socialservices_user`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_socialservices_user_link`
+-- AUTO_INCREMENT for table `b_socialservices_user_link`
 --
 ALTER TABLE `b_socialservices_user_link`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_sticker`
+-- AUTO_INCREMENT for table `b_sticker`
 --
 ALTER TABLE `b_sticker`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_subscription`
+-- AUTO_INCREMENT for table `b_subscription`
 --
 ALTER TABLE `b_subscription`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_task`
+-- AUTO_INCREMENT for table `b_task`
 --
 ALTER TABLE `b_task`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
--- AUTO_INCREMENT для таблицы `b_user`
+-- AUTO_INCREMENT for table `b_user`
 --
 ALTER TABLE `b_user`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_user_field`
+-- AUTO_INCREMENT for table `b_user_field`
 --
 ALTER TABLE `b_user_field`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT для таблицы `b_user_field_confirm`
+-- AUTO_INCREMENT for table `b_user_field_confirm`
 --
 ALTER TABLE `b_user_field_confirm`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_user_field_enum`
+-- AUTO_INCREMENT for table `b_user_field_enum`
 --
 ALTER TABLE `b_user_field_enum`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_user_hit_auth`
+-- AUTO_INCREMENT for table `b_user_hit_auth`
 --
 ALTER TABLE `b_user_hit_auth`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_user_option`
+-- AUTO_INCREMENT for table `b_user_option`
 --
 ALTER TABLE `b_user_option`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 --
--- AUTO_INCREMENT для таблицы `b_user_stored_auth`
+-- AUTO_INCREMENT for table `b_user_stored_auth`
 --
 ALTER TABLE `b_user_stored_auth`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT для таблицы `b_utm_blog_comment`
+-- AUTO_INCREMENT for table `b_utm_blog_comment`
 --
 ALTER TABLE `b_utm_blog_comment`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_utm_blog_post`
+-- AUTO_INCREMENT for table `b_utm_blog_post`
 --
 ALTER TABLE `b_utm_blog_post`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote`
+-- AUTO_INCREMENT for table `b_vote`
 --
 ALTER TABLE `b_vote`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_answer`
+-- AUTO_INCREMENT for table `b_vote_answer`
 --
 ALTER TABLE `b_vote_answer`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_channel`
+-- AUTO_INCREMENT for table `b_vote_channel`
 --
 ALTER TABLE `b_vote_channel`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_channel_2_group`
+-- AUTO_INCREMENT for table `b_vote_channel_2_group`
 --
 ALTER TABLE `b_vote_channel_2_group`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_event`
+-- AUTO_INCREMENT for table `b_vote_event`
 --
 ALTER TABLE `b_vote_event`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_event_answer`
+-- AUTO_INCREMENT for table `b_vote_event_answer`
 --
 ALTER TABLE `b_vote_event_answer`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_event_question`
+-- AUTO_INCREMENT for table `b_vote_event_question`
 --
 ALTER TABLE `b_vote_event_question`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_question`
+-- AUTO_INCREMENT for table `b_vote_question`
 --
 ALTER TABLE `b_vote_question`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_vote_user`
+-- AUTO_INCREMENT for table `b_vote_user`
 --
 ALTER TABLE `b_vote_user`
   MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT для таблицы `b_xml_tree`
+-- AUTO_INCREMENT for table `b_xml_tree`
 --
 ALTER TABLE `b_xml_tree`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2759;

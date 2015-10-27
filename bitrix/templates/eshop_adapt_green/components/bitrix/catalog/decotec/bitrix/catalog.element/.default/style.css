@@ -20,7 +20,7 @@
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 	margin-right:2%;
-	width:38%;
+	width:68%;
 }
 .bx_item_detail .bx_item_container .bx_rt{
 	float:left;
@@ -28,7 +28,7 @@
 	-moz-box-sizing:border-box;
 	box-sizing:border-box;
 	margin-left:2%;
-	width:58%;
+	width:28%;
 }
 .bx_item_detail .bx_item_container .bx_md{clear:both}
 .bx_item_detail .bx_item_container .bx_lb{
@@ -413,14 +413,14 @@
 	box-sizing: border-box;
 	margin: 0 auto;
 	padding: 0;
-	max-width: 440px;
+	/*max-width: 440px;*/
 	border: 1px solid #cfcfcf;
 	border-radius: 2px;
 	background: #fff;
 	text-align: center;
 	height: 0;
 	width: 100%;
-	padding-top: 99%;
+	padding-top: 66%;
 }
 .bx_item_detail .bx_item_slider .bx_bigimages .bx_bigimages_imgcontainer{
 	position: absolute;
