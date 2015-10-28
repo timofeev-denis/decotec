@@ -139,17 +139,19 @@ if ($arResult['SHOW_SLIDER'])
 		if (5 < $arResult['MORE_PHOTO_COUNT'])
 		{
 			$strClass = 'bx_slider_conteiner full';
-			$strOneWidth = (100/$arResult['MORE_PHOTO_COUNT']).'%';
+			$strOneWidth = (100/$arResult['MORE_PHOTO_COUNT']);
 			$strWidth = (20*$arResult['MORE_PHOTO_COUNT']).'%';
 			$strSlideStyle = '';
 		}
 		else
 		{
 			$strClass = 'bx_slider_conteiner';
-			$strOneWidth = '20%';
+			$strOneWidth = '20';
 			$strWidth = '100%';
 			$strSlideStyle = 'display: none;';
 		}
+		$strOnePadding = $strOneWidth / 1.4 . '%';
+		$strOneWidth .= '%';
 ?>
 	<div class="<? echo $strClass; ?>" id="<? echo $arItemIDs['SLIDER_CONT_ID']; ?>">
 	<div class="bx_slider_scroller_container">
@@ -160,7 +162,7 @@ if ($arResult['SHOW_SLIDER'])
 		foreach ($arResult['MORE_PHOTO'] as &$arOnePhoto)
 		{
 ?>
-	<li class="img_preview<? echo ( $i==0 ? " bx_active" : "") ?>" data-value="<? echo $arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOneWidth; ?>;"><span class="cnt"><span class="cnt_item" style="background-image:url('<? echo $arOnePhoto['SRC']; ?>');"></span></span></li>
+	<li class="img_preview<? echo ( $i==0 ? " bx_active" : "") ?>" data-value="<? echo $arOnePhoto['ID']; ?>" style="width: <? echo $strOneWidth; ?>; padding-top: <? echo $strOnePadding; ?>;"><span class="cnt"><span class="cnt_item" style="background-image:url('<? echo $arOnePhoto['SRC']; ?>');"></span></span></li>
 <?			$i++;
 		}
 		unset($arOnePhoto);
