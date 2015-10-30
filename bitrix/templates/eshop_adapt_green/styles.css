@@ -917,9 +917,11 @@ tabsection,
 .bx-touch 	 .bx_catalog_top_home .bx_item_detail_scu .bx_slide_left {left:   0;background:url(images/fade_left.png)  repeat-y   left  center;background-size: 100% auto}
 .bx-touch 	 .bx_catalog_top_home .bx_item_detail_scu .bx_slide_right{right:  0;background:url(images/fade_right.png) repeat-y   right center;background-size: 100% auto}
 
-#item_dialog .item_image,
-#item_dialog .item_param_name
- {
+#item_dialog .item_image {
+	width: 380px;
+	float: left;
+}
+#item_dialog .item_param_name {
 	/*width: 50%;*/
 	width: 220px;
 	float: left;
@@ -927,10 +929,10 @@ tabsection,
 #item_dialog .item_info {
 	margin-left: 20px;
 	width: 400px;
-	float: left;
+	float: right;
 }
 #item_dialog .item_param_value {
-	margin-left: 20px;
+	/*margin-left: 20px;*/
 	width: 40%;
 	float: left;
 }
@@ -938,6 +940,20 @@ tabsection,
 #item_dialog .item_info_section {
 	padding-top: 20px;
 	clear: both;
+}
+#item_dialog #item_title {
+    height: 40px;
+    font-size: 1.5em;
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+}
+#item_dialog .item_imgcontainer {
+	text-align: center;
+	padding-top: 20px;
+}
+#item_dialog .item_imgwrapper {
+	display: inline-block;
 }
 #item_dialog {
 	overflow: hidden;
@@ -953,4 +969,10 @@ tabsection,
 }
 div.bootstrap-touchspin {
 	width: 140px;
+}
+
+.bx_item_list_you_looked_horizontal .bx_catalog_item_images,
+.bx_item_list_you_looked_horizontal .bx_catalog_item_images_double{
+	-webkit-background-size: contain !important;
+    background-size: contain !important;
 }

@@ -541,7 +541,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 				$( "#item_dialog" ).dialog({
 					autoOpen: false,
 					resizable: false,
-					height: 650,
+					height: 'auto',
 					modal: true
 				});
 				// Скрыть заголовок
@@ -567,7 +567,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 					e.preventDefault();
 					// Устанавливаем ширину
 					// w = $( document ).width() * 0.7;
-					w = 700;
+					w = 820;
 					$( "#item_dialog" ).dialog( "option", "width", w );
 					
 					//console.log( $(e).parent( "bx_catalog_item" ) );
@@ -577,10 +577,11 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						url: "/get_tile_data.php",
 						data: { id: itemid }
 					}).done( function( data ) {
-						$( "#item_dialog" ).dialog( "option", "title", data.NAME );
+						//$( "#item_dialog" ).dialog( "option", "title", data.NAME );
 						$( "#item_dialog" ).dialog( "open" );
 						$( "#buy_button" ).focus();
 						$( "#item_price" ).text( data.PRICE + " / шт." );
+						$( "#item_title" ).text( data.NAME );
 						$( "#item_type" ).text( data.ATT_TYPE );
 						$( "#item_size" ).text( data.WIDTH + " x " + data.LENGTH + " мм" );
 						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
@@ -590,14 +591,18 @@ if ('Y' == $arParams['USE_COMMENTS'])
 		</script>
 		<div id="item_dialog">
 			<div class="row">
+				<div id="item_title">Ванная-KM-Россия-Однотонная wide</div>
+			</div>
+			<div class="row">
 				<div class="bx_item_container">
 					<div class="item_image">
 						<div class="bx_item_slider" id="bx_117848907_87_big_slider">
 							<div class="bx_bigimages" id="bx_117848907_87_bigimg_cont">
-								<div class="bx_bigimages_imgcontainer">
-									<span class="bx_bigimages_aligner"><img id="item_detail_picture" src="/images/tile_default.jpg" alt="Ванная-KM-Россия-Однотонная wide" title="Ванная-KM-Россия-Однотонная wide"></span>
+								<div class="item_imgcontainer">
+									<span class="item_imgwrapper"><img id="item_detail_picture" src="/images/tile_default.jpg" alt="" title=""></span>
 								</div>
 							</div>
+							<div class="item_info_section"></div>
 							<div class="bx_slider_conteiner" id="bx_117848907_87_slider_cont">
 							<div class="bx_slider_scroller_container">
 							<div class="bx_slide">
@@ -703,6 +708,8 @@ if ('Y' == $arParams['USE_COMMENTS'])
 							</div>
 						</div>
 
+						<div class="item_info_section"></div>
+						
 						<div class="clb"></div>
 					</div>
 				</div>
