@@ -474,52 +474,249 @@ if ('Y' == $arParams['USE_COMMENTS'])
 }
 ?>
 </div>
-		</div>
-			<div style="clear: both;"></div>
-			<div class="item_offers">
-				<div class="bx_catalog_list_home col3 bx_green">
-				<?php
-				if( isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
-				//if( false ) {
-					foreach ($arResult['OFFERS'] as $key => $arOneOffer) {
-						//print_r( $arOneOffer );
-					?>
-						<div class="bx_catalog_item">
-							<form method="GET">
-								<div class="bx_catalog_item_container" id="bx_328740560_20">
-									<a id="bx_328740560_20_pict" href="/catalog/gostinaya/charme/" class="bx_catalog_item_images" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>
-									<a id="bx_328740560_20_secondpict" href="/catalog/gostinaya/charme/" class="bx_catalog_item_images_double" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>');" title="<?=$arOneOffer["NAME"]?>">		</a>
-									<div class="bx_catalog_item_title">
-										<a href="/catalog/gostinaya/charme/" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["NAME"]?></a>
-									</div>
-									<div class="bx_catalog_item_title">
-										<a href="/catalog/gostinaya/charme/" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["PROPERTIES"]["ATT_TYPE"]["VALUE"]?></a>
-									</div>
-									<div class="bx_catalog_item_price">
-										<div id="bx_328740560_20_price" class="bx_price"><?=$arOneOffer["PRICES"]["BASE"]["PRINT_VALUE"]?> за <?=$arOneOffer["CATALOG_MEASURE_NAME"]?></div>
-									</div>
-										<input type="hidden" name="id" value="<?=$arOneOffer["ID"]?>" />
-										<input type="hidden" name="action" value="BUY" />
-									
-										<div class="bx_catalog_item_controls no_touch">
-											<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" id="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" style="width: 40px; text-align: center;">
-											<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
-										</div>
-										<div class="bx_catalog_item_controls touch">
-											<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
-										</div>
+	</div>
+		<div style="clear: both;"></div>
+		<div class="item_offers">
+			<div class="bx_catalog_list_home col3 bx_green">
+			<?php
+			if( isset($arResult['OFFERS']) && !empty($arResult['OFFERS'])) {
+			//if( false ) {
+				foreach ($arResult['OFFERS'] as $key => $arOneOffer) {
+					//print_r( $arOneOffer );
+				?>
+					<div class="bx_catalog_item" data-itemid="<?=$arOneOffer["ID"]?>">
+						<form method="GET">
+							<div class="bx_catalog_item_container" id="bx_328740560_20">
+								<a id="bx_328740560_20_pict" href="#item_dialog" class="bx_catalog_item_images showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>
+								<a id="bx_328740560_20_secondpict" href="#item_dialog" class="bx_catalog_item_images_double showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>');" title="<?=$arOneOffer["NAME"]?>">		</a>
+								<div class="bx_catalog_item_title">
+									<a class="showItemDialog" href="#item_dialog" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["NAME"]?></a>
 								</div>
-							</form>
+								<div class="bx_catalog_item_title">
+									<a class="showItemDialog" href="#item_dialog" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["PROPERTIES"]["ATT_TYPE"]["VALUE"]?></a>
+								</div>
+								<div class="bx_catalog_item_price">
+									<div id="bx_328740560_20_price" class="bx_price"><?=$arOneOffer["PRICES"]["BASE"]["PRINT_VALUE"]?> за <?=$arOneOffer["CATALOG_MEASURE_NAME"]?></div>
+								</div>
+									<input type="hidden" name="id" value="<?=$arOneOffer["ID"]?>" />
+									<input type="hidden" name="action" value="BUY" />
+								
+									<div class="bx_catalog_item_controls no_touch">
+										<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" id="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" style="width: 40px; text-align: center;">
+										<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
+									</div>
+									<div class="bx_catalog_item_controls touch">
+										<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
+									</div>
+							</div>
+						</form>
+					</div>
+					
+				<?
+				}
+			} else {
+			?>
+				
+			<?}?>
+			</div>
+		</div>
+		<!-- /item_offers -->
+		<!-- offer_dialog -->
+		
+		
+		
+		<!--
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css">
+		-->
+		<link rel="stylesheet" href="/bitrix/css/main/jquery-ui.css">
+		
+		<link rel="stylesheet" href="/bitrix/css/main/jquery.bootstrap-touchspin.css">
+		<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<script type="text/javascript" src="/bitrix/js/main/jquery/jquery.bootstrap-touchspin.js"></script>
+		
+		<script>
+			$(function() {
+				
+				// Подготавливаем диалог
+				$( "#item_dialog" ).dialog({
+					autoOpen: false,
+					resizable: false,
+					height: 650,
+					modal: true
+				});
+				// Скрыть заголовок
+				// $(".ui-dialog-titlebar").hide();
+				// Предотвращение прокрутки окна при нажатии на кнопку закрытия диалога
+				$('.ui-dialog-titlebar-close').mousedown( function() {
+					$('#item_dialog').dialog('close');
+				});
+				// Определяем ширину диалога и открываем его
+				/*
+				$( ".showItemDialog" ).on( "click", function( e ) {
+					// Устанавливаем ширину
+					w = $( document ).width() * 0.7;
+					$( "#item_dialog" ).dialog( "option", "width", w );
+					
+					//console.log( $(e).parent( "bx_catalog_item" ) );
+					console.log( e.srcElement );
+					$( "#item_dialog" ).dialog( "option", "title", "New Title" );
+					$( "#item_dialog" ).dialog( "open" );
+				});
+				*/
+				$( ".showItemDialog" ).click(function( e ) {
+					e.preventDefault();
+					// Устанавливаем ширину
+					// w = $( document ).width() * 0.7;
+					w = 700;
+					$( "#item_dialog" ).dialog( "option", "width", w );
+					
+					//console.log( $(e).parent( "bx_catalog_item" ) );
+					itemid = $( this ).parents( ".bx_catalog_item" ).data( "itemid" );
+					$.ajax({
+						dataType: "json",
+						url: "/get_tile_data.php",
+						data: { id: itemid }
+					}).done( function( data ) {
+						$( "#item_dialog" ).dialog( "option", "title", data.NAME );
+						$( "#item_dialog" ).dialog( "open" );
+						$( "#buy_button" ).focus();
+						$( "#item_price" ).text( data.PRICE + " / шт." );
+						$( "#item_type" ).text( data.ATT_TYPE );
+						$( "#item_size" ).text( data.WIDTH + "x" + data.HEIGHT );
+						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
+					});
+				});
+			});
+		</script>
+		<div id="item_dialog">
+			<div class="row">
+				<div class="bx_item_container">
+					<div class="item_image">
+						<div class="bx_item_slider" id="bx_117848907_87_big_slider">
+							<div class="bx_bigimages" id="bx_117848907_87_bigimg_cont">
+								<div class="bx_bigimages_imgcontainer">
+									<span class="bx_bigimages_aligner"><img id="item_detail_picture" src="/images/tile_default.jpg" alt="Ванная-KM-Россия-Однотонная wide" title="Ванная-KM-Россия-Однотонная wide"></span>
+								</div>
+							</div>
+							<div class="bx_slider_conteiner" id="bx_117848907_87_slider_cont">
+							<div class="bx_slider_scroller_container">
+							<div class="bx_slide">
+							<!--
+							<ul style="width: 100%;" id="bx_117848907_87_slider_list">
+							<li class="img_preview bx_active" data-value="1126" style="width: 20%; padding-top: 14.285714285714%;"><span class="cnt">По кв. м.</span></li>
+							<li class="img_preview" data-value="1127" style="width: 20%; padding-top: 14.285714285714%;"><span class="cnt">По шт.</span></li>
+							<li class="img_preview" data-value="1128" style="width: 20%; padding-top: 14.285714285714%;"><span class="cnt">По уп.</span></li>
+							</ul>
+							-->
+							</div>
+							<div class="bx_slide_left" id="bx_117848907_87_slider_left" style="cursor: default; opacity: 0.2;"></div>
+							<div class="bx_slide_right" id="bx_117848907_87_slider_right" style="cursor: pointer; opacity: 1;"></div>
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="item_info">
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Страна</div>
+								<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["DISPLAY_VALUE"]?></div>
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Производитель</div>
+								<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["DISPLAY_VALUE"]?></div>
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Вид</div>
+								<div class="item_param_value"><a href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?echo $arResult["SECTION"]["PATH"][0]["NAME"]?></a></div>
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
+								<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></div>
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тип</div>
+								<div class="item_param_value" id="item_type"></div>
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Размер</div>
+								<div class="item_param_value" id="item_size"></div>
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Цена</div>
+								<div class="item_param_value" id="item_price"></div>
+							</div>
 						</div>
 						
-					<?
-					}
-				} else {
-				?>
-					
-				<?}?>
+						<div class="buy_controls" style = "float: right; text-align: center; padding-top: 50px; width: 400px;">
+							<div style = "display: inline-block;">
+							
+								<div style = "float: left;">
+									<span>В штуках</span>
+									<input id="tiles" type="text" value="" name="tiles">
+									<script>
+										$("input[name='tiles']").TouchSpin({
+											initval: 1
+										});
+									</script>
+								</div>
+								
+								<div style = "float: left; width: 50px; height: 10px;"></div>
+								
+								<div style = "float: left;">
+									<span>В метрах<sup>2</sup></span>
+									<input id="meters" type="text" value="" name="meters">
+									<script>
+										$("input[name='meters']").TouchSpin({
+											initval: 1
+										});
+									</script>
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="item_info_section">
+							<div class="bx_item_description">
+								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;"></div>
+								<div class="item_param_value" id="item_price">
+									<button id="buy_button">В корзину</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="clb"></div>
+					</div>
 				</div>
 			</div>
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- /offer_dialog -->
 	</div>
 	<div class="clb"></div>
 </div><?

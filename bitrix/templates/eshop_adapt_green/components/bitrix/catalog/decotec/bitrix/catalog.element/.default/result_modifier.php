@@ -585,4 +585,12 @@ if ($arResult['MODULES']['currency'])
 		unset($currencyFormat, $currency, $currencyIterator);
 	}
 }
+function cmp( $a, $b ) {
+    if( $a[ "SORT" ] == $b[ "SORT" ] ) {
+        return 0;
+    }
+    return ( $a[ "SORT" ] < $b[ "SORT" ] ) ? -1 : 1;
+}
+usort( $arResult[ "OFFERS" ], "cmp" );
+
 ?>

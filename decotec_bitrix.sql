@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: decotec.mysql
--- Generation Time: Oct 27, 2015 at 03:27 PM
--- Server version: 5.1.73-log
+-- Generation Time: Oct 30, 2015 at 12:02 PM
+-- Server version: 5.6.25-73.1
 -- PHP Version: 5.6.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,25 +23,9 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bx_test_tmp`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `bx_test_tmp`;
-CREATE TABLE IF NOT EXISTS `bx_test_tmp` (
-  `tst` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tst2` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tst3` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tst4` text COLLATE utf8_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `b_admin_notify`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_admin_notify`;
@@ -59,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `b_admin_notify` (
 --
 -- Table structure for table `b_admin_notify_lang`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_admin_notify_lang`;
@@ -75,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `b_admin_notify_lang` (
 --
 -- Table structure for table `b_agent`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_agent`;
@@ -92,21 +76,21 @@ CREATE TABLE IF NOT EXISTS `b_agent` (
   `IS_PERIOD` char(1) COLLATE utf8_unicode_ci DEFAULT 'Y',
   `USER_ID` int(18) DEFAULT NULL,
   `RUNNING` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_agent`
 --
 
 INSERT INTO `b_agent` (`ID`, `MODULE_ID`, `SORT`, `NAME`, `ACTIVE`, `LAST_EXEC`, `NEXT_EXEC`, `DATE_CHECK`, `AGENT_INTERVAL`, `IS_PERIOD`, `USER_ID`, `RUNNING`) VALUES
-(1, 'main', 100, 'CEvent::CleanUpAgent();', 'Y', '2015-10-27 00:00:06', '2015-10-28 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
-(2, 'main', 100, 'CUser::CleanUpHitAuthAgent();', 'Y', '2015-10-27 00:00:06', '2015-10-28 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(1, 'main', 100, 'CEvent::CleanUpAgent();', 'Y', '2015-10-30 00:00:39', '2015-10-31 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(2, 'main', 100, 'CUser::CleanUpHitAuthAgent();', 'Y', '2015-10-30 00:00:39', '2015-10-31 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
 (3, 'main', 100, 'CCaptchaAgent::DeleteOldCaptcha(3600);', 'Y', '2015-09-23 11:35:36', '2015-09-23 12:35:36', NULL, 3600, 'N', NULL, 'N'),
-(4, 'main', 100, 'CUndo::CleanUpOld();', 'Y', '2015-10-27 00:00:06', '2015-10-28 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(4, 'main', 100, 'CUndo::CleanUpOld();', 'Y', '2015-10-30 00:00:39', '2015-10-31 00:00:00', NULL, 86400, 'Y', NULL, 'N'),
 (5, 'main', 100, 'CSiteCheckerTest::CommonTest();', 'Y', '2015-09-23 11:35:36', '2015-09-24 11:35:36', NULL, 86400, 'N', NULL, 'N'),
 (6, 'main', 100, '\\Bitrix\\Main\\Analytics\\CounterDataTable::submitData();', 'Y', '2015-09-23 12:33:30', '2015-09-23 12:34:30', NULL, 60, 'N', NULL, 'N'),
 (7, 'catalog', 100, '\\Bitrix\\Catalog\\CatalogViewedProductTable::clearAgent();', 'Y', '2015-09-22 09:46:33', '2015-09-27 09:46:33', NULL, 432000, 'N', NULL, 'N'),
-(8, 'currency', 100, '\\Bitrix\\Currency\\CurrencyTable::currencyBaseRateAgent();', 'Y', '2015-10-27 00:07:39', '2015-10-28 00:01:00', NULL, 86400, 'Y', NULL, 'N'),
+(8, 'currency', 100, '\\Bitrix\\Currency\\CurrencyTable::currencyBaseRateAgent();', 'Y', '2015-10-30 00:09:19', '2015-10-31 00:01:00', NULL, 86400, 'Y', NULL, 'N'),
 (9, 'forum', 100, 'CForumStat::CleanUp();', 'Y', '2015-09-23 11:35:37', '2015-09-24 11:35:37', NULL, 86400, 'N', NULL, 'N'),
 (10, 'forum', 100, 'CForumFiles::CleanUp();', 'Y', '2015-09-23 11:35:37', '2015-09-24 11:35:37', NULL, 86400, 'N', NULL, 'N'),
 (14, 'sale', 100, 'CSaleRecurring::AgentCheckRecurring();', 'Y', '2015-09-23 11:35:37', '2015-09-23 13:35:37', NULL, 7200, 'N', NULL, 'N'),
@@ -121,7 +105,7 @@ INSERT INTO `b_agent` (`ID`, `MODULE_ID`, `SORT`, `NAME`, `ACTIVE`, `LAST_EXEC`,
 (28, 'seo', 100, 'Bitrix\\Seo\\Engine\\YandexDirect::updateAgent();', 'Y', '2015-09-23 11:35:39', '2015-09-23 12:35:39', NULL, 3600, 'N', NULL, 'N'),
 (29, 'seo', 100, 'Bitrix\\Seo\\Adv\\LogTable::clean();', 'Y', '2015-09-23 11:35:39', '2015-09-24 11:35:39', NULL, 86400, 'N', NULL, 'N'),
 (32, 'storeassist', 100, 'CStoreAssist::AgentCountDayOrders();', 'Y', '2015-09-23 11:35:40', '2015-09-24 11:35:40', NULL, 86400, 'N', NULL, 'N'),
-(34, 'subscribe', 100, 'CSubscription::CleanUp();', 'Y', '2015-10-27 03:01:51', '2015-10-28 03:00:00', NULL, 86400, 'Y', NULL, 'N'),
+(34, 'subscribe', 100, 'CSubscription::CleanUp();', 'Y', '2015-10-30 03:18:15', '2015-10-31 03:00:00', NULL, 86400, 'Y', NULL, 'N'),
 (37, 'sale', 100, 'CSaleProduct::RefreshProductList();', 'Y', '2015-09-22 09:46:36', '2015-09-26 09:46:36', NULL, 345600, 'N', NULL, 'N'),
 (38, 'subscribe', 100, 'CPostingTemplate::Execute();', 'Y', '2015-09-23 12:33:30', '2015-09-23 12:34:30', NULL, 60, 'N', NULL, 'N'),
 (41, 'pull', 100, 'CPullChannel::CheckExpireAgent();', 'Y', '2015-09-23 11:35:41', '2015-09-23 23:35:41', NULL, 43200, 'N', NULL, 'N'),
@@ -135,7 +119,7 @@ INSERT INTO `b_agent` (`ID`, `MODULE_ID`, `SORT`, `NAME`, `ACTIVE`, `LAST_EXEC`,
 --
 -- Table structure for table `b_app_password`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_app_password`;
@@ -158,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `b_app_password` (
 --
 -- Table structure for table `b_bitrixcloud_option`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_bitrixcloud_option`;
@@ -178,14 +162,14 @@ INSERT INTO `b_bitrixcloud_option` (`ID`, `NAME`, `SORT`, `PARAM_KEY`, `PARAM_VA
 (1, 'backup_quota', 0, '0', '0'),
 (2, 'backup_total_size', 0, '0', '0'),
 (3, 'backup_last_backup_time', 0, '0', '1440657983'),
-(4, 'monitoring_expire_time', 0, '0', '1445970046');
+(4, 'monitoring_expire_time', 0, '0', '1446217007');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_blog`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog`;
@@ -225,7 +209,7 @@ INSERT INTO `b_blog` (`ID`, `NAME`, `DESCRIPTION`, `DATE_CREATE`, `DATE_UPDATE`,
 --
 -- Table structure for table `b_blog_category`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_category`;
@@ -240,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_category` (
 --
 -- Table structure for table `b_blog_comment`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_comment`;
@@ -269,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_comment` (
 --
 -- Table structure for table `b_blog_group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_group`;
@@ -291,7 +275,7 @@ INSERT INTO `b_blog_group` (`ID`, `NAME`, `SITE_ID`) VALUES
 --
 -- Table structure for table `b_blog_image`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_image`;
@@ -313,7 +297,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_image` (
 --
 -- Table structure for table `b_blog_post`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_post`;
@@ -370,7 +354,7 @@ INSERT INTO `b_blog_post` (`ID`, `TITLE`, `BLOG_ID`, `AUTHOR_ID`, `PREVIEW_TEXT`
 --
 -- Table structure for table `b_blog_post_category`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_post_category`;
@@ -386,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_post_category` (
 --
 -- Table structure for table `b_blog_post_param`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_post_param`;
@@ -403,7 +387,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_post_param` (
 --
 -- Table structure for table `b_blog_site_path`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_site_path`;
@@ -419,7 +403,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_site_path` (
 --
 -- Table structure for table `b_blog_smile`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_smile`;
@@ -460,7 +444,7 @@ INSERT INTO `b_blog_smile` (`ID`, `SMILE_TYPE`, `TYPING`, `IMAGE`, `DESCRIPTION`
 --
 -- Table structure for table `b_blog_smile_lang`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_smile_lang`;
@@ -510,7 +494,7 @@ INSERT INTO `b_blog_smile_lang` (`ID`, `SMILE_ID`, `LID`, `NAME`) VALUES
 --
 -- Table structure for table `b_blog_socnet`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_socnet`;
@@ -524,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_socnet` (
 --
 -- Table structure for table `b_blog_socnet_rights`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_socnet_rights`;
@@ -541,7 +525,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_socnet_rights` (
 --
 -- Table structure for table `b_blog_trackback`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_trackback`;
@@ -561,7 +545,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_trackback` (
 --
 -- Table structure for table `b_blog_user`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_user`;
@@ -590,7 +574,7 @@ INSERT INTO `b_blog_user` (`ID`, `USER_ID`, `ALIAS`, `DESCRIPTION`, `AVATAR`, `I
 --
 -- Table structure for table `b_blog_user2blog`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_user2blog`;
@@ -605,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_user2blog` (
 --
 -- Table structure for table `b_blog_user2user_group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_user2user_group`;
@@ -621,7 +605,7 @@ CREATE TABLE IF NOT EXISTS `b_blog_user2user_group` (
 --
 -- Table structure for table `b_blog_user_group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_user_group`;
@@ -644,7 +628,7 @@ INSERT INTO `b_blog_user_group` (`ID`, `BLOG_ID`, `NAME`) VALUES
 --
 -- Table structure for table `b_blog_user_group_perms`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_blog_user_group_perms`;
@@ -701,7 +685,7 @@ INSERT INTO `b_blog_user_group_perms` (`ID`, `BLOG_ID`, `USER_GROUP_ID`, `PERMS_
 --
 -- Table structure for table `b_cache_tag`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_cache_tag`;
@@ -717,14 +701,14 @@ CREATE TABLE IF NOT EXISTS `b_cache_tag` (
 --
 
 INSERT INTO `b_cache_tag` (`SITE_ID`, `CACHE_SALT`, `RELATIVE_PATH`, `TAG`) VALUES
-(NULL, NULL, '0:1445893659', '**');
+(NULL, NULL, '0:1446066511', '**');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_captcha`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_captcha`;
@@ -741,8 +725,10 @@ CREATE TABLE IF NOT EXISTS `b_captcha` (
 
 INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('007d3a9c692e97bdcb09684787763459', 'BBXBF', '188.165.15.13', '2015-10-26 13:21:32'),
+('008a20b225405d0099963ccf87c2ced6', 'CMTHX', '68.180.229.107', '2015-10-29 02:59:58'),
 ('008bde643faa56bd428bf8c1d3439eed', 'XXB55', '5.9.98.178', '2015-09-27 14:19:28'),
 ('00a00fd2264ca650a9ea5af722314c4b', '63WMA', '66.249.78.10', '2015-10-19 13:57:05'),
+('00f395df4310ed6bee87edad79cb4ac6', 'GL983', '37.187.56.76', '2015-10-27 20:51:00'),
 ('00fb72aa5fa2345634606c886e5a0ba2', '2W8L5', '46.9.164.175', '2015-10-18 14:47:42'),
 ('010f018ffc0e4862e5a3a62f3fc88b09', 'N39RT', '95.211.81.86', '2015-10-18 13:13:48'),
 ('013b02dfed04ce2c39d6e1df596b401d', 'CE9TL', '5.9.98.178', '2015-09-27 14:17:39'),
@@ -750,6 +736,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('01b4e602daaffdb042c182881ba50f50', 'M2A6L', '188.165.196.25', '2015-10-16 08:20:13'),
 ('01e630198953028855600d4b4b3b3102', 'XA5G4', '104.236.54.82', '2015-10-24 14:34:44'),
 ('01eaa825a6f2052c15914823e973e877', 'M3GD8', '104.131.115.133', '2015-10-18 00:00:07'),
+('0203a8f1fb73d75b7b96610b72b7cd2c', 'GB75T', '68.180.229.107', '2015-10-29 01:47:52'),
 ('0206c4aa26b5c6ba96f3ecd31e9652cd', '94XFQ', '151.80.31.126', '2015-10-12 14:55:15'),
 ('024e0d020be122a6ade490d1813c5918', 'FHQFT', '62.210.152.89', '2015-10-07 11:47:05'),
 ('026d7d3dc389ac79c28a1453362d3d57', 'XTGJW', '104.236.54.82', '2015-10-24 14:34:45'),
@@ -777,6 +764,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('04632a93bd047c59149133f5804aa2b4', 'QW5NG', '151.80.31.141', '2015-10-21 19:46:49'),
 ('04a9a7340ccfd88a1087de548bf40d75', 'D4DFD', '149.202.54.71', '2015-10-12 08:03:52'),
 ('04b791d554ccb8098509348e36586631', '7ACJA', '5.9.98.178', '2015-09-27 14:19:18'),
+('04d886f711fd1dfcf0992d353186cfbf', 'YM5DL', '66.249.78.10', '2015-10-29 10:14:57'),
 ('0524f0216ecd9a17636be07d4f94e2ea', '9434W', '91.77.21.173', '2015-10-24 15:13:07'),
 ('0550942a918fd8821f261f46290bad53', 'QDRXC', '37.59.60.67', '2015-10-06 23:43:08'),
 ('056dd7f87f0d46145ab65b3f639b8369', '6RNK8', '5.9.98.178', '2015-10-15 12:09:23'),
@@ -789,7 +777,10 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('073284121cf8bc96bd5c20d877274bf9', 'MZ6HB', '176.111.61.12', '2015-10-24 15:01:55'),
 ('073b23b90fc641179d9c018b4d66f815', 'LSLZ2', '85.25.185.173', '2015-10-02 08:44:43'),
 ('0751ed4f9df1638c969253924c660f77', 'C3LAB', '148.251.223.21', '2015-10-09 09:24:13'),
+('07a1c90cdd64448c04c6a986da7da5b9', 'Z2MX5', '188.40.95.70', '2015-10-28 10:03:13'),
 ('07c8365455cdbb691c55fbaa5b8fbfab', '9K8Q5', '176.111.61.12', '2015-10-24 15:03:49'),
+('07e60cd4095c9ce5d1e8d88d9e047742', '2WE5R', '5.9.98.178', '2015-10-28 10:26:33'),
+('07f3f627a05c86edacca54d69a5301fb', '6AE2Q', '5.9.98.178', '2015-10-28 10:27:30'),
 ('080c273f633b7531c589f24ef027af91', 'GPKJX', '62.210.78.209', '2015-10-23 18:43:31'),
 ('081db157630d846410f5aa80658fc13a', 'CLA6C', '198.27.64.33', '2015-10-13 04:28:00'),
 ('0886e78884540774dd2730e039e2c6b4', '7F4K6', '45.55.229.93', '2015-10-11 11:11:44'),
@@ -800,14 +791,19 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('09197efa7bed09c9db716bf438252654', 'R67ZC', '188.165.15.14', '2015-10-02 07:24:57'),
 ('091a9f35265c9379fe4f61a9a0aadf35', 'FZBNX', '94.29.51.208', '2015-10-08 10:31:52'),
 ('097c8438f2099795f5c9718a5d1c6d07', 'KANM4', '95.133.36.184', '2015-10-08 03:34:39'),
+('098e335b04fc301c3a3be1cea33043cb', 'K3P6N', '188.165.15.13', '2015-10-29 05:36:20'),
 ('09b77f8812570be08421b1fcee03d198', '55C6Q', '188.165.196.25', '2015-10-13 17:57:46'),
 ('09cb1744842db74202eaaf71a1e94fc8', '9458M', '198.245.49.180', '2015-10-15 01:12:06'),
+('09ffe5a5c912166f73ba261bf782b3fd', 'D22KG', '37.112.233.9', '2015-10-27 17:47:25'),
+('0a150ec6f8421cc4129cb281eaebec23', 'Y8L8G', '94.23.19.178', '2015-10-30 11:11:34'),
 ('0a1b0dc36136939a0aedb01d1f0b3463', '68GE7', '142.4.214.124', '2015-10-04 12:31:43'),
 ('0a3029011ba040b16d94ed674a2cd0fe', 'ED53K', '188.165.196.25', '2015-10-16 08:21:33'),
 ('0a3711d4bdb8498159baf214b2248bfc', 'TF4F3', '85.143.127.30', '2015-09-24 13:37:33'),
 ('0a65af5507dab993005915c8e5d0ee3e', '6CCL2', '93.73.141.135', '2015-10-01 03:11:42'),
 ('0a811a7edd824687ddbf834a195853c0', 'MQA9E', '188.165.196.25', '2015-10-13 17:59:05'),
 ('0a92233224c0ea0d6bf306908b4d652f', '6GXM3', '217.147.20.2', '2015-09-25 10:01:17'),
+('0abcf12bcde2135e8641cdf03381cb72', 'J3WAL', '37.187.56.76', '2015-10-27 20:53:29'),
+('0ae43a0ad5fe4f547345b6e46b4a5506', '435X6', '176.36.80.39', '2015-10-29 15:57:03'),
 ('0afa21bf112c889e4b6dbddf0f408966', 'Q8634', '85.143.127.30', '2015-09-24 13:24:06'),
 ('0b0769a46469ccb34f4c4e9a32fa3d6a', 'EB7D4', '104.131.115.133', '2015-10-18 00:00:07'),
 ('0b2254ab3d1d23905a9b62265a61b66f', '5PX49', '46.4.123.172', '2015-10-19 00:10:32'),
@@ -815,6 +811,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('0b602ec3fc53d97343de725baf1b9823', 'H9YYL', '66.249.78.10', '2015-10-02 09:39:27'),
 ('0b648172da931b063c66f128394e61c7', 'TL4FB', '188.42.240.119', '2015-10-13 04:36:07'),
 ('0b75351e6675796f822008820da4eae8', 'EAMMW', '192.99.150.97', '2015-10-07 17:49:37'),
+('0b7f45862a7982e91a4667ec7c2244f4', '2MNJ2', '5.9.98.178', '2015-10-28 10:26:30'),
 ('0b87aad1a34919138e1d77b2463eb582', 'YJXXA', '198.245.62.10', '2015-10-18 12:49:40'),
 ('0b9d050f8460a3d9ca935f19762de033', '9PMKQ', '5.9.98.178', '2015-09-27 14:18:34'),
 ('0ba1131bba16f9314dfe3ca8c8dfa225', 'KHK3A', '94.29.51.208', '2015-10-08 10:31:53'),
@@ -827,6 +824,8 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('0cecb51c462653fb56415906cee7a710', 'H2N3R', '46.105.98.166', '2015-09-29 10:30:31'),
 ('0ced4feffe1d309d57637663c061e8c5', 'CQ9BH', '151.80.31.141', '2015-10-19 09:49:11'),
 ('0d22b5faceaf3457d3b1100bee7761ec', '3K9PY', '217.147.20.2', '2015-09-24 14:45:47'),
+('0d2bd23b9fa945c0b045d33f21b3b13e', 'SPDH6', '46.105.98.166', '2015-10-30 08:32:47'),
+('0d4399debd1b21632211a717bef74e9a', 'H8BRY', '5.9.98.178', '2015-10-28 10:24:10'),
 ('0d5c7ebc66b78a5f616f6a5a593e50dc', 'FPE8T', '198.27.82.147', '2015-10-10 23:23:01'),
 ('0d86935b149d6d50d3b707a69da6c6c9', '285GK', '85.25.185.173', '2015-10-02 08:44:53'),
 ('0d8e5ce95ec86df603bd2fdca6d623f7', 'R9RAJ', '93.73.141.135', '2015-10-01 03:11:41'),
@@ -840,6 +839,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('0e5080ce9dd5d53eefc17f6c54b32988', '94RMW', '5.9.98.178', '2015-10-15 12:09:27'),
 ('0e7401b4538d7b335e23dfcc0b2bb9b2', 'RAMJ8', '46.172.225.170', '2015-10-16 14:15:42'),
 ('0e7cf212e0c56540d1bd27324f684cf0', 'RJD8F', '217.147.20.2', '2015-10-23 14:20:07'),
+('0e8d44ce80c0a8d9f03ecbfdf26b7497', '8MGKD', '5.9.98.178', '2015-10-28 10:27:27'),
 ('0eb185f5c00b2c85bd4a628b1bea8723', '9FW7R', '66.249.78.249', '2015-10-19 17:47:52'),
 ('0eb868812863b37f095590db01608ce1', 'X4FGN', '66.249.78.249', '2015-10-02 05:23:15'),
 ('0ed4107d0d05cbafda46803e694d5cc3', 'WSYX7', '198.27.82.152', '2015-10-17 03:39:59'),
@@ -851,6 +851,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 ('0f1d22438b1e9022c783d49da08d3c7d', '2HFSF', '176.111.61.12', '2015-10-24 15:03:06'),
 ('0f3f3a8aa48777bad612a57dbca06b9c', '98P22', '198.245.62.10', '2015-10-18 12:51:20'),
 ('0f480bc4e8a2104ad8353fbf77e5731e', 'JFMLK', '46.4.123.172', '2015-10-19 00:10:19'),
+('0f4e5f03305b608ec4b4f1e54453f9d4', '9J3JS', '46.105.98.166', '2015-10-30 08:30:11'),
 ('0fbe56713196c08f7de990e9ddeec7f6', 'SRN63', '94.29.51.208', '2015-10-08 10:31:51'),
 ('0fc5ee659b26e1558794f822af201b81', 'CYNPE', '198.245.62.10', '2015-10-18 12:47:34'),
 ('0fd5ba195b96dc2a0b5260b44d24937e', '6XQNX', '142.4.214.124', '2015-10-15 09:07:08');
@@ -860,7 +861,7 @@ INSERT INTO `b_captcha` (`ID`, `CODE`, `IP`, `DATE_CREATE`) VALUES
 --
 -- Table structure for table `b_catalog_contractor`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_contractor`;
@@ -890,7 +891,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_contractor` (
 --
 -- Table structure for table `b_catalog_currency`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_currency`;
@@ -924,7 +925,7 @@ INSERT INTO `b_catalog_currency` (`CURRENCY`, `AMOUNT_CNT`, `AMOUNT`, `SORT`, `D
 --
 -- Table structure for table `b_catalog_currency_lang`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_currency_lang`;
@@ -965,7 +966,7 @@ INSERT INTO `b_catalog_currency_lang` (`CURRENCY`, `LID`, `FORMAT_STRING`, `FULL
 --
 -- Table structure for table `b_catalog_currency_rate`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_currency_rate`;
@@ -991,9 +992,59 @@ INSERT INTO `b_catalog_currency_rate` (`ID`, `CURRENCY`, `DATE_RATE`, `RATE_CNT`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `b_catalog_disc_save_group`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_catalog_disc_save_group`;
+CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_group` (
+  `ID` int(11) NOT NULL,
+  `DISCOUNT_ID` int(11) NOT NULL,
+  `GROUP_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_catalog_disc_save_range`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_catalog_disc_save_range`;
+CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_range` (
+  `ID` int(11) NOT NULL,
+  `DISCOUNT_ID` int(11) NOT NULL,
+  `RANGE_FROM` double NOT NULL,
+  `TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'P',
+  `VALUE` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_catalog_disc_save_user`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_catalog_disc_save_user`;
+CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_user` (
+  `ID` int(11) NOT NULL,
+  `DISCOUNT_ID` int(11) NOT NULL,
+  `USER_ID` int(11) NOT NULL,
+  `ACTIVE_FROM` datetime NOT NULL,
+  `ACTIVE_TO` datetime NOT NULL,
+  `RANGE_FROM` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `b_catalog_discount`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount`;
@@ -1047,7 +1098,7 @@ INSERT INTO `b_catalog_discount` (`ID`, `XML_ID`, `SITE_ID`, `TYPE`, `ACTIVE`, `
 --
 -- Table structure for table `b_catalog_discount2cat`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2cat`;
@@ -1062,7 +1113,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2cat` (
 --
 -- Table structure for table `b_catalog_discount2group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2group`;
@@ -1077,7 +1128,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2group` (
 --
 -- Table structure for table `b_catalog_discount2iblock`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2iblock`;
@@ -1092,7 +1143,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2iblock` (
 --
 -- Table structure for table `b_catalog_discount2product`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2product`;
@@ -1107,7 +1158,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount2product` (
 --
 -- Table structure for table `b_catalog_discount2section`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount2section`;
@@ -1129,7 +1180,7 @@ INSERT INTO `b_catalog_discount2section` (`ID`, `DISCOUNT_ID`, `SECTION_ID`) VAL
 --
 -- Table structure for table `b_catalog_discount_cond`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount_cond`;
@@ -1153,7 +1204,7 @@ INSERT INTO `b_catalog_discount_cond` (`ID`, `DISCOUNT_ID`, `ACTIVE`, `USER_GROU
 --
 -- Table structure for table `b_catalog_discount_coupon`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount_coupon`;
@@ -1176,7 +1227,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount_coupon` (
 --
 -- Table structure for table `b_catalog_discount_module`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_discount_module`;
@@ -1189,59 +1240,9 @@ CREATE TABLE IF NOT EXISTS `b_catalog_discount_module` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `b_catalog_disc_save_group`
---
--- Creation: Sep 25, 2015 at 08:20 AM
---
-
-DROP TABLE IF EXISTS `b_catalog_disc_save_group`;
-CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_group` (
-  `ID` int(11) NOT NULL,
-  `DISCOUNT_ID` int(11) NOT NULL,
-  `GROUP_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_catalog_disc_save_range`
---
--- Creation: Sep 25, 2015 at 08:20 AM
---
-
-DROP TABLE IF EXISTS `b_catalog_disc_save_range`;
-CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_range` (
-  `ID` int(11) NOT NULL,
-  `DISCOUNT_ID` int(11) NOT NULL,
-  `RANGE_FROM` double NOT NULL,
-  `TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'P',
-  `VALUE` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_catalog_disc_save_user`
---
--- Creation: Sep 25, 2015 at 08:20 AM
---
-
-DROP TABLE IF EXISTS `b_catalog_disc_save_user`;
-CREATE TABLE IF NOT EXISTS `b_catalog_disc_save_user` (
-  `ID` int(11) NOT NULL,
-  `DISCOUNT_ID` int(11) NOT NULL,
-  `USER_ID` int(11) NOT NULL,
-  `ACTIVE_FROM` datetime NOT NULL,
-  `ACTIVE_TO` datetime NOT NULL,
-  `RANGE_FROM` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `b_catalog_docs_barcode`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_docs_barcode`;
@@ -1256,7 +1257,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_docs_barcode` (
 --
 -- Table structure for table `b_catalog_docs_element`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_docs_element`;
@@ -1275,7 +1276,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_docs_element` (
 --
 -- Table structure for table `b_catalog_export`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_export`;
@@ -1309,7 +1310,7 @@ INSERT INTO `b_catalog_export` (`ID`, `FILE_NAME`, `NAME`, `DEFAULT_PROFILE`, `I
 --
 -- Table structure for table `b_catalog_extra`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_extra`;
@@ -1324,7 +1325,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_extra` (
 --
 -- Table structure for table `b_catalog_group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_group`;
@@ -1352,7 +1353,7 @@ INSERT INTO `b_catalog_group` (`ID`, `NAME`, `BASE`, `SORT`, `XML_ID`, `TIMESTAM
 --
 -- Table structure for table `b_catalog_group2group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_group2group`;
@@ -1378,7 +1379,7 @@ INSERT INTO `b_catalog_group2group` (`ID`, `CATALOG_GROUP_ID`, `GROUP_ID`, `BUY`
 --
 -- Table structure for table `b_catalog_group_lang`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_group_lang`;
@@ -1402,7 +1403,7 @@ INSERT INTO `b_catalog_group_lang` (`ID`, `CATALOG_GROUP_ID`, `LANG`, `NAME`) VA
 --
 -- Table structure for table `b_catalog_iblock`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_iblock`;
@@ -1428,7 +1429,7 @@ INSERT INTO `b_catalog_iblock` (`IBLOCK_ID`, `YANDEX_EXPORT`, `SUBSCRIPTION`, `V
 --
 -- Table structure for table `b_catalog_load`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_load`;
@@ -1444,7 +1445,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_load` (
 --
 -- Table structure for table `b_catalog_measure`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_measure`;
@@ -1475,7 +1476,7 @@ INSERT INTO `b_catalog_measure` (`ID`, `CODE`, `MEASURE_TITLE`, `SYMBOL_RUS`, `S
 --
 -- Table structure for table `b_catalog_measure_ratio`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_measure_ratio`;
@@ -1483,7 +1484,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_measure_ratio` (
   `ID` int(11) NOT NULL,
   `PRODUCT_ID` int(11) NOT NULL,
   `RATIO` double NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_catalog_measure_ratio`
@@ -1528,22 +1529,20 @@ INSERT INTO `b_catalog_measure_ratio` (`ID`, `PRODUCT_ID`, `RATIO`) VALUES
 (37, 70, 1),
 (38, 71, 1),
 (39, 72, 1),
-(41, 107, 1),
 (45, 112, 1),
 (47, 114, 1),
-(48, 115, 1),
-(49, 118, 1),
 (50, 120, 1),
-(51, 121, 1),
 (52, 122, 1),
-(53, 123, 1);
+(53, 123, 1),
+(55, 125, 1),
+(56, 126, 1);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_catalog_price`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_price`;
@@ -1558,7 +1557,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_price` (
   `QUANTITY_FROM` int(11) DEFAULT NULL,
   `QUANTITY_TO` int(11) DEFAULT NULL,
   `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_catalog_price`
@@ -1575,7 +1574,7 @@ INSERT INTO `b_catalog_price` (`ID`, `PRODUCT_ID`, `EXTRA_ID`, `CATALOG_GROUP_ID
 (8, 17, NULL, 1, '3400.00', 'RUB', '2015-09-01 11:51:07', NULL, NULL, NULL),
 (9, 18, NULL, 1, '1300.00', 'RUB', '2015-09-01 11:51:38', NULL, NULL, NULL),
 (10, 19, NULL, 1, '4380.00', 'RUB', '2015-09-01 11:52:25', NULL, NULL, NULL),
-(11, 24, NULL, 1, '642.00', 'RUB', '2015-09-16 09:06:00', NULL, NULL, NULL),
+(11, 24, NULL, 1, '25.00', 'EUR', '2015-10-28 19:38:27', NULL, NULL, NULL),
 (12, 26, NULL, 1, '629.00', 'RUB', '2015-09-16 09:06:50', NULL, NULL, NULL),
 (14, 28, NULL, 1, '225.00', 'RUB', '2015-09-16 09:14:39', NULL, NULL, NULL),
 (15, 29, NULL, 1, '624.00', 'RUB', '2015-09-16 09:15:17', NULL, NULL, NULL),
@@ -1603,22 +1602,20 @@ INSERT INTO `b_catalog_price` (`ID`, `PRODUCT_ID`, `EXTRA_ID`, `CATALOG_GROUP_ID
 (37, 70, NULL, 1, '36.00', 'EUR', '2015-10-06 08:38:41', NULL, NULL, NULL),
 (38, 71, NULL, 1, '12.00', 'EUR', '2015-10-06 08:40:05', NULL, NULL, NULL),
 (39, 72, NULL, 1, '36.00', 'EUR', '2015-10-06 08:41:29', NULL, NULL, NULL),
-(41, 107, NULL, 1, '50.00', 'RUB', '2015-10-26 11:26:17', NULL, NULL, NULL),
-(45, 112, NULL, 1, '15.00', 'RUB', '2015-10-26 12:39:54', NULL, NULL, NULL),
+(45, 112, NULL, 1, '15.00', 'EUR', '2015-10-28 16:18:30', NULL, NULL, NULL),
 (47, 114, NULL, 1, '20.00', 'RUB', '2015-10-26 12:44:27', NULL, NULL, NULL),
-(48, 115, NULL, 1, '8.00', 'RUB', '2015-10-26 12:45:13', NULL, NULL, NULL),
-(49, 118, NULL, 1, '8.00', 'EUR', '2015-10-27 10:29:54', NULL, NULL, NULL),
 (50, 120, NULL, 1, '15.00', 'EUR', '2015-10-27 11:38:39', NULL, NULL, NULL),
-(51, 121, NULL, 1, '60.00', 'RUB', '2015-10-26 13:28:13', NULL, NULL, NULL),
 (52, 122, NULL, 1, '30.00', 'RUB', '2015-10-26 13:30:09', NULL, NULL, NULL),
-(53, 123, NULL, 1, '3.00', 'EUR', '2015-10-27 10:32:17', NULL, NULL, NULL);
+(53, 123, NULL, 1, '3.00', 'EUR', '2015-10-27 10:32:17', NULL, NULL, NULL),
+(55, 125, NULL, 1, '10.00', 'EUR', '2015-10-28 08:01:56', NULL, NULL, NULL),
+(56, 126, NULL, 1, '10.00', 'EUR', '2015-10-28 08:20:09', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_catalog_product`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_product`;
@@ -1670,7 +1667,7 @@ INSERT INTO `b_catalog_product` (`ID`, `QUANTITY`, `QUANTITY_TRACE`, `WEIGHT`, `
 (18, 0, 'N', 0, '2015-09-04 10:06:19', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 45, 45, 0, 6, 1),
 (19, 0, 'D', 0, '2015-09-01 11:52:25', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 29, 29, 0, 5, 1),
 (20, 0, 'N', 0, '2015-09-01 11:52:30', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'N', 'N', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, NULL, 1),
-(24, 0, 'D', 0, '2015-09-16 09:06:00', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 333, 333, 0, 1, 1),
+(24, 0, 'D', 0, '2015-10-28 19:38:27', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, '20.00', 'EUR', 'N', 0, 'D', 333, 333, 0, 1, 1),
 (25, 0, 'N', 0, '2015-09-16 09:06:05', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'N', 'N', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, NULL, 1),
 (26, 0, 'D', 0, '2015-09-16 09:06:50', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 201, 405, 0, 1, 1),
 (28, 0, 'D', 0, '2015-09-16 09:14:39', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 300, 200, 0, 5, 1),
@@ -1707,23 +1704,21 @@ INSERT INTO `b_catalog_product` (`ID`, `QUANTITY`, `QUANTITY_TRACE`, `WEIGHT`, `
 (70, 0, 'D', 0, '2015-10-06 08:38:41', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 330, 330, 0, 6, 1),
 (71, 0, 'D', 0, '2015-10-06 08:40:05', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 75, 750, 0, 5, 1),
 (72, 0, 'D', 0, '2015-10-06 08:41:29', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 750, 0, 5, 1),
-(107, 0, 'D', 0, '2015-10-26 11:26:17', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, 5, 1),
-(112, 0, 'D', 0, '2015-10-26 12:42:54', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 1, 1),
+(112, 0, 'D', 100, '2015-10-28 16:18:30', 'S', 0, 'D', NULL, 'N', 'Y', 2, 'Y', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 250, 750, 0, 6, 1),
 (114, 0, 'D', 0, '2015-10-26 12:44:27', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 250, 120, 0, 5, 1),
-(115, 0, 'D', 0, '2015-10-26 12:45:13', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 450, 450, 0, 1, 1),
-(118, 0, 'D', 0, '2015-10-26 13:10:26', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 1, 1),
 (119, 0, 'N', 0, '2015-10-26 13:10:55', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'N', 'N', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, NULL, 1),
-(120, 0, 'D', 0, '2015-10-26 13:25:48', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 1, 1),
-(121, 0, 'D', 0, '2015-10-26 13:28:13', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 250, 120, 0, 5, 1),
-(122, 0, 'D', 0, '2015-10-26 13:30:08', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 450, 450, 0, 1, 1),
-(123, 0, 'D', 0, '2015-10-27 10:32:17', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 120, 250, 0, 5, 1);
+(120, 0, 'D', 0, '2015-10-28 15:57:37', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 750, 250, 0, 6, 1),
+(122, 0, 'D', 0, '2015-10-28 15:57:37', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 450, 450, 0, 6, 1),
+(123, 0, 'D', 0, '2015-10-27 10:32:17', 'S', 0, 'D', NULL, 'N', 'Y', 0, 'N', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 120, 250, 0, 5, 1),
+(125, 0, 'D', 0, '2015-10-28 08:01:56', 'S', 0, 'D', NULL, 'N', 'Y', 2, 'Y', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, 5, 1),
+(126, 0, 'D', 0, '2015-10-28 15:57:37', 'S', 0, 'D', NULL, 'N', 'Y', 2, 'Y', 'D', 'D', NULL, NULL, NULL, 'N', 0, 'D', 0, 0, 0, 6, 1);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_catalog_product2group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_product2group`;
@@ -1740,7 +1735,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_product2group` (
 --
 -- Table structure for table `b_catalog_product_sets`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_product_sets`;
@@ -1767,7 +1762,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_product_sets` (
 --
 -- Table structure for table `b_catalog_store`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store`;
@@ -1800,7 +1795,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store` (
 --
 -- Table structure for table `b_catalog_store_barcode`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store_barcode`;
@@ -1821,7 +1816,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store_barcode` (
 --
 -- Table structure for table `b_catalog_store_docs`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store_docs`;
@@ -1848,7 +1843,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store_docs` (
 --
 -- Table structure for table `b_catalog_store_product`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_store_product`;
@@ -1864,7 +1859,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_store_product` (
 --
 -- Table structure for table `b_catalog_vat`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_vat`;
@@ -1890,7 +1885,7 @@ INSERT INTO `b_catalog_vat` (`ID`, `TIMESTAMP_X`, `ACTIVE`, `C_SORT`, `NAME`, `R
 --
 -- Table structure for table `b_catalog_viewed_product`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_catalog_viewed_product`;
@@ -1903,7 +1898,7 @@ CREATE TABLE IF NOT EXISTS `b_catalog_viewed_product` (
   `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
   `VIEW_COUNT` int(11) NOT NULL DEFAULT '1',
   `RECOMMENDATION` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_catalog_viewed_product`
@@ -1931,7 +1926,7 @@ INSERT INTO `b_catalog_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT
 (23, 2612, '2015-09-30 17:14:18', 46, 46, 's1', 7, ''),
 (24, 3642, '2015-10-06 10:54:51', 7, 7, 's1', 2, ''),
 (25, 2571, '2015-10-05 16:09:32', 7, 7, 's1', 4, ''),
-(26, 3642, '2015-10-06 10:48:23', 20, 20, 's1', 7, ''),
+(26, 3642, '2015-10-28 19:49:37', 20, 20, 's1', 10, ''),
 (27, 3900, '2015-10-03 07:10:34', 31, 31, 's1', 1, ''),
 (28, 2571, '2015-10-05 16:23:14', 11, 11, 's1', 1, ''),
 (29, 3902, '2015-10-06 07:48:47', 11, 11, 's1', 1, ''),
@@ -1972,21 +1967,21 @@ INSERT INTO `b_catalog_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT
 (64, 11775, '2015-10-23 14:18:41', 20, 20, 's1', 1, ''),
 (65, 11775, '2015-10-23 14:19:07', 7, 7, 's1', 1, ''),
 (66, 11775, '2015-10-23 14:19:15', 63, 63, 's1', 1, ''),
-(67, 4499, '2015-10-27 15:23:59', 20, 20, 's1', 35, ''),
+(67, 4499, '2015-10-29 13:19:05', 20, 20, 's1', 48, ''),
 (68, 12246, '2015-10-27 11:56:49', 20, 20, 's1', 6, ''),
 (69, 12246, '2015-10-26 15:06:05', 110, 110, 's1', 2, ''),
 (70, 4499, '2015-10-26 15:52:34', 116, 116, 's1', 1, ''),
 (71, 4499, '2015-10-26 16:04:40', 58, 58, 's1', 1, ''),
-(72, 4499, '2015-10-27 15:24:07', 119, 119, 's1', 40, ''),
+(72, 4499, '2015-10-30 11:42:06', 119, 119, 's1', 57, ''),
 (73, 12246, '2015-10-27 13:56:03', 119, 119, 's1', 14, ''),
 (74, 12246, '2015-10-27 11:52:34', 31, 31, 's1', 1, ''),
-(75, 3642, '2015-10-27 14:19:37', 119, 119, 's1', 4, ''),
+(75, 3642, '2015-10-30 11:49:13', 119, 119, 's1', 11, ''),
 (76, 11704, '2015-10-27 12:18:02', 59, 59, 's1', 1, ''),
 (77, 11704, '2015-10-27 12:18:11', 66, 66, 's1', 1, ''),
 (78, 11704, '2015-10-27 12:18:15', 47, 47, 's1', 1, ''),
 (79, 11704, '2015-10-27 12:18:24', 46, 46, 's1', 1, ''),
 (80, 11704, '2015-10-27 12:18:45', 20, 20, 's1', 1, ''),
-(81, 11704, '2015-10-27 12:43:20', 7, 7, 's1', 1, ''),
+(81, 11704, '2015-10-28 15:13:44', 7, 7, 's1', 2, ''),
 (82, 12625, '2015-10-27 14:54:03', 7, 7, 's1', 2, ''),
 (83, 12625, '2015-10-27 14:53:54', 31, 31, 's1', 1, ''),
 (84, 12625, '2015-10-27 14:54:11', 58, 58, 's1', 1, ''),
@@ -1994,14 +1989,19 @@ INSERT INTO `b_catalog_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT
 (86, 12625, '2015-10-27 14:54:24', 20, 20, 's1', 1, ''),
 (87, 12625, '2015-10-27 14:54:26', 37, 37, 's1', 1, ''),
 (88, 12625, '2015-10-27 14:54:34', 43, 43, 's1', 1, ''),
-(89, 11704, '2015-10-27 15:17:14', 119, 119, 's1', 1, '');
+(89, 11704, '2015-10-30 11:58:22', 119, 119, 's1', 15, ''),
+(90, 12887, '2015-10-28 04:32:32', 63, 63, 's1', 1, ''),
+(91, 11773, '2015-10-28 12:59:06', 7, 7, 's1', 1, ''),
+(92, 13121, '2015-10-28 15:45:18', 119, 119, 's1', 1, ''),
+(93, 11704, '2015-10-28 21:04:06', 25, 25, 's1', 1, ''),
+(94, 13848, '2015-10-30 11:38:21', 119, 119, 's1', 2, '');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_checklist`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_checklist`;
@@ -2030,7 +2030,7 @@ CREATE TABLE IF NOT EXISTS `b_checklist` (
 --
 -- Table structure for table `b_clouds_file_bucket`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_clouds_file_bucket`;
@@ -2056,7 +2056,7 @@ CREATE TABLE IF NOT EXISTS `b_clouds_file_bucket` (
 --
 -- Table structure for table `b_clouds_file_resize`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_clouds_file_resize`;
@@ -2075,7 +2075,7 @@ CREATE TABLE IF NOT EXISTS `b_clouds_file_resize` (
 --
 -- Table structure for table `b_clouds_file_upload`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_clouds_file_upload`;
@@ -2096,7 +2096,7 @@ CREATE TABLE IF NOT EXISTS `b_clouds_file_upload` (
 --
 -- Table structure for table `b_component_params`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_component_params`;
@@ -2172,7 +2172,7 @@ INSERT INTO `b_component_params` (`ID`, `SITE_ID`, `COMPONENT_NAME`, `TEMPLATE_N
 --
 -- Table structure for table `b_counter_data`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_counter_data`;
@@ -2196,7 +2196,7 @@ INSERT INTO `b_counter_data` (`ID`, `TYPE`, `DATA`) VALUES
 --
 -- Table structure for table `b_culture`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_culture`;
@@ -2225,7 +2225,7 @@ INSERT INTO `b_culture` (`ID`, `CODE`, `NAME`, `FORMAT_DATE`, `FORMAT_DATETIME`,
 --
 -- Table structure for table `b_event`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event`;
@@ -2256,7 +2256,7 @@ INSERT INTO `b_event` (`ID`, `EVENT_NAME`, `MESSAGE_ID`, `LID`, `C_FIELDS`, `DAT
 --
 -- Table structure for table `b_event_attachment`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event_attachment`;
@@ -2270,7 +2270,7 @@ CREATE TABLE IF NOT EXISTS `b_event_attachment` (
 --
 -- Table structure for table `b_event_log`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event_log`;
@@ -2333,7 +2333,7 @@ INSERT INTO `b_event_log` (`ID`, `TIMESTAMP_X`, `SEVERITY`, `AUDIT_TYPE_ID`, `MO
 --
 -- Table structure for table `b_event_message`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event_message`;
@@ -2411,7 +2411,7 @@ INSERT INTO `b_event_message` (`ID`, `TIMESTAMP_X`, `EVENT_NAME`, `LID`, `ACTIVE
 --
 -- Table structure for table `b_event_message_attachment`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event_message_attachment`;
@@ -2425,7 +2425,7 @@ CREATE TABLE IF NOT EXISTS `b_event_message_attachment` (
 --
 -- Table structure for table `b_event_message_site`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event_message_site`;
@@ -2482,7 +2482,7 @@ INSERT INTO `b_event_message_site` (`EVENT_MESSAGE_ID`, `SITE_ID`) VALUES
 --
 -- Table structure for table `b_event_type`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_event_type`;
@@ -2579,7 +2579,7 @@ INSERT INTO `b_event_type` (`ID`, `LID`, `EVENT_NAME`, `NAME`, `DESCRIPTION`, `S
 --
 -- Table structure for table `b_favorite`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_favorite`;
@@ -2599,14 +2599,14 @@ CREATE TABLE IF NOT EXISTS `b_favorite` (
   `CODE_ID` int(18) DEFAULT NULL,
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
   `MENU_ID` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_file`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_file`;
@@ -2624,7 +2624,7 @@ CREATE TABLE IF NOT EXISTS `b_file` (
   `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `HANDLER_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `EXTERNAL_ID` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1216 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1246 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_file`
@@ -2844,34 +2844,30 @@ INSERT INTO `b_file` (`ID`, `TIMESTAMP_X`, `MODULE_ID`, `HEIGHT`, `WIDTH`, `FILE
 (1166, '2015-10-22 10:58:00', 'iblock', 208, 293, 7748, 'image/jpeg', 'iblock/625', '62568d7914a3fdbb7aa57baa38cfae74.jpg', 'full_1360149990.jpg', '', NULL, '3cc0f527a58b9532f0a8a39cbe6f0fd8'),
 (1167, '2015-10-22 10:59:42', 'iblock', 60, 200, 5634, 'image/jpeg', 'iblock/05c', '05cf46ef3c1a4af97ea5f5f305338454.jpg', 'POLCOLORIT.jpg', '', NULL, 'f826b8c38e7d0cb3253e20aecdccc8b3'),
 (1168, '2015-10-22 10:59:42', 'iblock', 150, 500, 12412, 'image/jpeg', 'iblock/285', '285a168f6117c2b6a4c6132fc9cd3a4a.jpg', 'POLCOLORIT.jpg', '', NULL, 'fe49f134e30fa6ee155b4fc4f6e2a9a6'),
-(1169, '2015-10-26 11:26:16', 'iblock', 200, 200, 5239, 'image/jpeg', 'iblock/764', '764e7a794dc016b6a0598f975bdebe62.jpg', 'legend crema 25x75.jpg', '', NULL, '571f8879e358da5017b50056012cf08a'),
-(1170, '2015-10-26 11:26:16', 'iblock', 300, 300, 10366, 'image/jpeg', 'iblock/35d', '35de35c6875b2780bcf8e2ff91666a20.jpg', 'legend crema 25x75.jpg', '', NULL, '424b7a18d6cb79d984f7445c09447c78'),
-(1173, '2015-10-26 12:39:54', 'iblock', 200, 200, 5239, 'image/jpeg', 'iblock/fed', 'fed6ca9b060583117a18afc5fea45e7f.jpg', 'legend crema 25x75.jpg', '', NULL, 'd6e54865677012faa22419f72c16ce2b'),
-(1174, '2015-10-26 12:39:54', 'iblock', 300, 300, 10366, 'image/jpeg', 'iblock/eff', 'effed032d567d85f9c521ebb384f6abd.jpg', 'legend crema 25x75.jpg', '', NULL, '3d88b44d573bbcae021ffbfa34e130d1'),
-(1177, '2015-10-26 12:44:27', 'iblock', 200, 200, 13465, 'image/jpeg', 'iblock/09d', '09d2b8a62fe4735b63962b1349bd420a.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, '72fc41280991f8086ff4c83dc86ab453'),
-(1178, '2015-10-26 12:44:27', 'iblock', 300, 300, 28081, 'image/jpeg', 'iblock/ce3', 'ce3622b6593f67c752839c258cf74c4f.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, '7d43174d3b500d2d60d8df5e0dd50da2'),
-(1179, '2015-10-26 12:45:13', 'iblock', 200, 200, 12148, 'image/jpeg', 'iblock/b8e', 'b8e2a1d7f1c16ed68dc86a62b64e1ba9.jpg', 'legend crema 45x45.jpg', '', NULL, '66d108fda5aadd8b5e04497bbb41bba7'),
-(1180, '2015-10-26 12:45:13', 'iblock', 300, 300, 28706, 'image/jpeg', 'iblock/3fb', '3fbf74101a8d006080bab3445134c5fa.jpg', 'legend crema 45x45.jpg', '', NULL, '55a9f3fdfab7a19b3b76ea5059f39ac9'),
-(1192, '2015-10-26 13:28:13', 'iblock', 200, 200, 13465, 'image/jpeg', 'iblock/11f', '11f012490ac878e716ad0540e5461601.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, 'e68c2eb2f3cd2068220c0852f3dbebbb'),
-(1193, '2015-10-26 13:28:13', 'iblock', 300, 300, 28081, 'image/jpeg', 'iblock/867', '867d1c991224ead5752e09a0a33b266a.jpg', 'LISTELO LEGEND DECORO 12X25.jpg', '', NULL, 'eff9d5f4ee26798bc6fb0240f777efa5'),
-(1194, '2015-10-26 13:30:08', 'iblock', 200, 200, 12148, 'image/jpeg', 'iblock/b65', 'b65e3b4bfff15309f75e16940325f057.jpg', 'legend crema 45x45.jpg', '', NULL, '7964cf8be878d10e034a82360a8c2e9e'),
-(1195, '2015-10-26 13:30:08', 'iblock', 300, 300, 28706, 'image/jpeg', 'iblock/6d5', '6d5ac22a3e645962054e8c480c3b96b1.jpg', 'legend crema 45x45.jpg', '', NULL, '5cf213dc1a73aa723ce533fe63a023d2'),
 (1197, '2015-10-26 14:08:31', 'iblock', 200, 200, 16089, 'image/jpeg', 'iblock/862', '8629305b532f5c8d149158271ae8330c.jpg', 'amb  legend.jpg', '', NULL, 'f2841b5ddfec64e39530240f6bbfc84c'),
 (1198, '2015-10-26 14:08:31', 'iblock', 300, 300, 33207, 'image/jpeg', 'iblock/e94', 'e94374cdb77c622dd00096569986c523.jpg', 'amb  legend.jpg', '', NULL, '21b6036d53c5a26538c25c34205d8637'),
-(1199, '2015-10-26 14:08:31', 'iblock', 601, 601, 83282, 'image/jpeg', 'iblock/141', '141d0674a5ad370966e41bbc7c0254ad.jpg', 'amb  legend.jpg', '', NULL, '09926533049b60903daff960d6304be4'),
-(1200, '2015-10-27 09:42:29', 'iblock', 200, 66, 4042, 'image/jpeg', 'iblock/621', '621e530504ea9d1a11a931474930dfce.jpg', 'legend crema 25x75.jpg', '', NULL, '3a0b77f655c40edd7b1fc981be1bae27'),
-(1201, '2015-10-27 09:42:29', 'iblock', 300, 100, 3328, 'image/jpeg', 'iblock/6d7', '6d72723ce5a2aa84d794699817d1e808.jpg', 'legend crema 25x75.jpg', '', NULL, '45b65656d7102dab59cba41fd36009e9'),
-(1211, '2015-10-27 10:25:16', 'iblock', 300, 99, 16752, 'image/jpeg', 'iblock/448', '4486c43f18c1f92b9e5ae00221feafa1.jpg', '88.jpg', '', NULL, '58da0a1c699f0dd3fe9eca730a992176'),
-(1212, '2015-10-27 10:32:17', 'iblock', 96, 200, 5817, 'image/jpeg', 'iblock/729', '7294c6e268ceb23cc6b0ca544b4cc8a2.jpg', '89.jpg', '', NULL, 'e6519d2d6c2cb7c68cd18db47c76a9f5'),
-(1213, '2015-10-27 10:32:17', 'iblock', 96, 200, 5817, 'image/jpeg', 'iblock/fde', 'fdecd77d3fd98b5f3da47043203f8ebd.jpg', '89.jpg', '', NULL, '3488988e580cfa93496803e8154a463a'),
-(1215, '2015-10-27 11:59:12', 'iblock', 200, 66, 7964, 'image/jpeg', 'iblock/af1', 'af16dc7f8a7976f03c5a63035d6804e7.jpg', 'legend boiserie crema 25x75.jpg', '', NULL, 'a9ff5b95bc0e252c482ddbde170aac45');
+(1216, '2015-10-27 12:39:34', 'iblock', 601, 901, 127380, 'image/jpeg', 'iblock/b5e', 'b5e62b3e16f463e2d7bcf931e75951ce.jpg', 'amb  legend.jpg', '', NULL, 'd24a353501d0be51b7aba6343aeac6c9'),
+(1232, '2015-10-30 08:58:19', 'iblock', 400, 132, 26832, 'image/jpeg', 'iblock/8a5', '8a5a9e979127972bffa463cf4bcf8beb.jpg', 'legend boiserie crema 25x75 big.jpg', '', NULL, 'd8251aae0f820b48ebd34c9f8843b636'),
+(1233, '2015-10-30 08:58:19', 'iblock', 600, 198, 41573, 'image/jpeg', 'iblock/f63', 'f63b8e4e7876326f59da039a997e4637.jpg', 'legend boiserie crema 25x75 big.jpg', '', NULL, '116943c121ea64aeea8674508e00aad8'),
+(1234, '2015-10-30 08:59:16', 'iblock', 400, 132, 13927, 'image/jpeg', 'iblock/4be', '4be73463937e81dbf0bc08d313375886.jpg', 'legend crema 25x75.jpg', '', NULL, '0826d96207b0462cc69c812967cf574c'),
+(1235, '2015-10-30 08:59:16', 'iblock', 600, 198, 19399, 'image/jpeg', 'iblock/465', '465c8e8ec1abf795619a34d7599d2abe.jpg', 'legend crema 25x75.jpg', '', NULL, '4590bf06133349dcdd0c41c6cf4fcacc'),
+(1236, '2015-10-30 09:01:07', 'iblock', 63, 133, 5786, 'image/jpeg', 'iblock/ce9', 'ce9c6027a5789f5c84d2ed2af01146df.jpg', 'LISTELO LEGEND DECORO 12X25 2.jpg', '', NULL, 'd8f982601d79462d638b7c9acd33b5f0'),
+(1237, '2015-10-30 09:01:07', 'iblock', 96, 200, 8359, 'image/jpeg', 'iblock/486', '486fa14b31e2716dd220c63905ea6bf0.jpg', 'LISTELO LEGEND DECORO 12X25 2.jpg', '', NULL, 'aa32c3bfd64fe7116b12fb6fdbbe39ab'),
+(1238, '2015-10-30 09:01:39', 'iblock', 400, 132, 16922, 'image/jpeg', 'iblock/9ac', '9ac0dae60fcdadb7066fa9a700d59e54.jpg', 'LEGEND INSERTO CREMA.jpg', '', NULL, 'd9f76bd8218c973b2dcc47eaa0f4becc'),
+(1239, '2015-10-30 09:01:39', 'iblock', 600, 198, 24737, 'image/jpeg', 'iblock/95f', '95f9bc74cbecf69193e5e73037301fec.jpg', 'LEGEND INSERTO CREMA.jpg', '', NULL, '7f0eba978932fa295fb2708dfe5fd8f6'),
+(1240, '2015-10-30 09:01:58', 'iblock', 63, 133, 4226, 'image/jpeg', 'iblock/cec', 'cecfbc630fd84c1e352781ba857e0ab2.jpg', 'LISTELO LEGEND REPOSO 12X25 2.jpg', '', NULL, '62b51f100cf4be31e98074e102254388'),
+(1241, '2015-10-30 09:01:58', 'iblock', 96, 200, 5817, 'image/jpeg', 'iblock/6b7', '6b7a3e71519e416fed9e6bed2b931e55.jpg', 'LISTELO LEGEND REPOSO 12X25 2.jpg', '', NULL, '8bddccfa10de3ab26cf98222eb0bcc75'),
+(1242, '2015-10-30 09:02:23', 'iblock', 133, 133, 5581, 'image/jpeg', 'iblock/483', '4836f38bf3b4007db638c2a1d3fa1b3a.jpg', 'legend crema 45x45.jpg', '', NULL, 'e18076180f329e7ecc7156ffd4306de5'),
+(1243, '2015-10-30 09:02:23', 'iblock', 200, 200, 12148, 'image/jpeg', 'iblock/047', '0471341fe165b689ba8969ae73d10e06.jpg', 'legend crema 45x45.jpg', '', NULL, '8592d3d5c0d47d2adf9382051e659ca9'),
+(1244, '2015-10-30 09:02:40', 'iblock', 133, 133, 9582, 'image/jpeg', 'iblock/4aa', '4aa835d1914c7bbae0bfaf2f8ddd4ca0.jpg', 'legend moka 45x45.jpg', '', NULL, 'b7438e30d2d189559d13e7a13c3e35f5'),
+(1245, '2015-10-30 09:02:40', 'iblock', 200, 200, 20595, 'image/jpeg', 'iblock/8ae', '8ae8b91e8f27f327574778e55e9f3c87.jpg', 'legend moka 45x45.jpg', '', NULL, 'f7af08501fc1af5aa75f9993cbf149d1');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_file_search`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_file_search`;
@@ -2890,7 +2886,7 @@ CREATE TABLE IF NOT EXISTS `b_file_search` (
 --
 -- Table structure for table `b_filters`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_filters`;
@@ -2920,9 +2916,9 @@ INSERT INTO `b_filters` (`ID`, `USER_ID`, `FILTER_ID`, `NAME`, `FIELDS`, `COMMON
 --
 -- Table structure for table `b_finder_dest`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
--- Last update: Sep 25, 2015 at 08:20 AM
--- Last check: Sep 25, 2015 at 09:34 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
+-- Last update: Oct 28, 2015 at 10:10 PM
+-- Last check: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_finder_dest`;
@@ -2940,7 +2936,7 @@ CREATE TABLE IF NOT EXISTS `b_finder_dest` (
 --
 -- Table structure for table `b_form`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form`;
@@ -2979,7 +2975,7 @@ CREATE TABLE IF NOT EXISTS `b_form` (
 --
 -- Table structure for table `b_form_2_group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_2_group`;
@@ -2995,7 +2991,7 @@ CREATE TABLE IF NOT EXISTS `b_form_2_group` (
 --
 -- Table structure for table `b_form_2_mail_template`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_2_mail_template`;
@@ -3009,7 +3005,7 @@ CREATE TABLE IF NOT EXISTS `b_form_2_mail_template` (
 --
 -- Table structure for table `b_form_2_site`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_2_site`;
@@ -3023,7 +3019,7 @@ CREATE TABLE IF NOT EXISTS `b_form_2_site` (
 --
 -- Table structure for table `b_form_answer`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_answer`;
@@ -3046,7 +3042,7 @@ CREATE TABLE IF NOT EXISTS `b_form_answer` (
 --
 -- Table structure for table `b_form_crm`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_crm`;
@@ -3063,7 +3059,7 @@ CREATE TABLE IF NOT EXISTS `b_form_crm` (
 --
 -- Table structure for table `b_form_crm_field`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_crm_field`;
@@ -3080,7 +3076,7 @@ CREATE TABLE IF NOT EXISTS `b_form_crm_field` (
 --
 -- Table structure for table `b_form_crm_link`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_crm_link`;
@@ -3096,7 +3092,7 @@ CREATE TABLE IF NOT EXISTS `b_form_crm_link` (
 --
 -- Table structure for table `b_form_field`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_field`;
@@ -3126,7 +3122,7 @@ CREATE TABLE IF NOT EXISTS `b_form_field` (
 --
 -- Table structure for table `b_form_field_filter`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_field_filter`;
@@ -3142,7 +3138,7 @@ CREATE TABLE IF NOT EXISTS `b_form_field_filter` (
 --
 -- Table structure for table `b_form_field_validator`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_field_validator`;
@@ -3162,7 +3158,7 @@ CREATE TABLE IF NOT EXISTS `b_form_field_validator` (
 --
 -- Table structure for table `b_form_menu`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_menu`;
@@ -3178,7 +3174,7 @@ CREATE TABLE IF NOT EXISTS `b_form_menu` (
 --
 -- Table structure for table `b_form_result`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_result`;
@@ -3200,7 +3196,7 @@ CREATE TABLE IF NOT EXISTS `b_form_result` (
 --
 -- Table structure for table `b_form_result_answer`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_result_answer`;
@@ -3230,7 +3226,7 @@ CREATE TABLE IF NOT EXISTS `b_form_result_answer` (
 --
 -- Table structure for table `b_form_status`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_status`;
@@ -3254,7 +3250,7 @@ CREATE TABLE IF NOT EXISTS `b_form_status` (
 --
 -- Table structure for table `b_form_status_2_group`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_status_2_group`;
@@ -3270,7 +3266,7 @@ CREATE TABLE IF NOT EXISTS `b_form_status_2_group` (
 --
 -- Table structure for table `b_form_status_2_mail_template`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_form_status_2_mail_template`;
@@ -3284,7 +3280,7 @@ CREATE TABLE IF NOT EXISTS `b_form_status_2_mail_template` (
 --
 -- Table structure for table `b_forum`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum`;
@@ -3352,7 +3348,7 @@ INSERT INTO `b_forum` (`ID`, `FORUM_GROUP_ID`, `NAME`, `DESCRIPTION`, `SORT`, `A
 --
 -- Table structure for table `b_forum2site`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum2site`;
@@ -3374,7 +3370,7 @@ INSERT INTO `b_forum2site` (`FORUM_ID`, `SITE_ID`, `PATH2FORUM_MESSAGE`) VALUES
 --
 -- Table structure for table `b_forum_dictionary`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_dictionary`;
@@ -3399,7 +3395,7 @@ INSERT INTO `b_forum_dictionary` (`ID`, `TITLE`, `TYPE`) VALUES
 --
 -- Table structure for table `b_forum_email`
 --
--- Creation: Sep 25, 2015 at 08:20 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_email`;
@@ -3423,7 +3419,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_email` (
 --
 -- Table structure for table `b_forum_file`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_file`;
@@ -3443,7 +3439,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_file` (
 --
 -- Table structure for table `b_forum_filter`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_filter`;
@@ -3620,7 +3616,7 @@ INSERT INTO `b_forum_filter` (`ID`, `DICTIONARY_ID`, `WORDS`, `PATTERN`, `REPLAC
 --
 -- Table structure for table `b_forum_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_group`;
@@ -3646,7 +3642,7 @@ INSERT INTO `b_forum_group` (`ID`, `SORT`, `PARENT_ID`, `LEFT_MARGIN`, `RIGHT_MA
 --
 -- Table structure for table `b_forum_group_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_group_lang`;
@@ -3671,7 +3667,7 @@ INSERT INTO `b_forum_group_lang` (`ID`, `FORUM_GROUP_ID`, `LID`, `NAME`, `DESCRI
 --
 -- Table structure for table `b_forum_letter`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_letter`;
@@ -3730,7 +3726,7 @@ INSERT INTO `b_forum_letter` (`ID`, `DICTIONARY_ID`, `LETTER`, `REPLACEMENT`) VA
 --
 -- Table structure for table `b_forum_message`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_message`;
@@ -3771,7 +3767,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_message` (
 --
 -- Table structure for table `b_forum_perms`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_perms`;
@@ -3794,7 +3790,7 @@ INSERT INTO `b_forum_perms` (`ID`, `FORUM_ID`, `GROUP_ID`, `PERMISSION`) VALUES
 --
 -- Table structure for table `b_forum_pm_folder`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_pm_folder`;
@@ -3820,7 +3816,7 @@ INSERT INTO `b_forum_pm_folder` (`ID`, `TITLE`, `USER_ID`, `SORT`) VALUES
 --
 -- Table structure for table `b_forum_points`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_points`;
@@ -3836,7 +3832,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_points` (
 --
 -- Table structure for table `b_forum_points2post`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_points2post`;
@@ -3851,7 +3847,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_points2post` (
 --
 -- Table structure for table `b_forum_points_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_points_lang`;
@@ -3866,7 +3862,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_points_lang` (
 --
 -- Table structure for table `b_forum_private_message`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_private_message`;
@@ -3889,7 +3885,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_private_message` (
 --
 -- Table structure for table `b_forum_rank`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_rank`;
@@ -3904,7 +3900,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_rank` (
 --
 -- Table structure for table `b_forum_rank_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_rank_lang`;
@@ -3920,7 +3916,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_rank_lang` (
 --
 -- Table structure for table `b_forum_smile`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_smile`;
@@ -3969,7 +3965,7 @@ INSERT INTO `b_forum_smile` (`ID`, `TYPE`, `TYPING`, `IMAGE`, `DESCRIPTION`, `CL
 --
 -- Table structure for table `b_forum_smile_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_smile_lang`;
@@ -4035,7 +4031,7 @@ INSERT INTO `b_forum_smile_lang` (`ID`, `SMILE_ID`, `LID`, `NAME`) VALUES
 --
 -- Table structure for table `b_forum_stat`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_stat`;
@@ -4056,7 +4052,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_stat` (
 --
 -- Table structure for table `b_forum_subscribe`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_subscribe`;
@@ -4077,7 +4073,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_subscribe` (
 --
 -- Table structure for table `b_forum_topic`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_topic`;
@@ -4118,7 +4114,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_topic` (
 --
 -- Table structure for table `b_forum_user`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_user`;
@@ -4158,7 +4154,7 @@ INSERT INTO `b_forum_user` (`ID`, `USER_ID`, `ALIAS`, `DESCRIPTION`, `IP_ADDRESS
 --
 -- Table structure for table `b_forum_user_forum`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_user_forum`;
@@ -4175,7 +4171,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_user_forum` (
 --
 -- Table structure for table `b_forum_user_points`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_user_points`;
@@ -4191,7 +4187,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_user_points` (
 --
 -- Table structure for table `b_forum_user_topic`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_forum_user_topic`;
@@ -4208,7 +4204,7 @@ CREATE TABLE IF NOT EXISTS `b_forum_user_topic` (
 --
 -- Table structure for table `b_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_group`;
@@ -4242,7 +4238,7 @@ INSERT INTO `b_group` (`ID`, `TIMESTAMP_X`, `ACTIVE`, `C_SORT`, `ANONYMOUS`, `NA
 --
 -- Table structure for table `b_group_collection_task`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_group_collection_task`;
@@ -4257,7 +4253,7 @@ CREATE TABLE IF NOT EXISTS `b_group_collection_task` (
 --
 -- Table structure for table `b_group_subordinate`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_group_subordinate`;
@@ -4271,7 +4267,7 @@ CREATE TABLE IF NOT EXISTS `b_group_subordinate` (
 --
 -- Table structure for table `b_group_task`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_group_task`;
@@ -4296,7 +4292,7 @@ INSERT INTO `b_group_task` (`GROUP_ID`, `TASK_ID`, `EXTERNAL_ID`) VALUES
 --
 -- Table structure for table `b_hlblock_entity`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_hlblock_entity`;
@@ -4311,7 +4307,7 @@ CREATE TABLE IF NOT EXISTS `b_hlblock_entity` (
 --
 -- Table structure for table `b_hot_keys`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_hot_keys`;
@@ -4345,7 +4341,7 @@ INSERT INTO `b_hot_keys` (`ID`, `KEYS_STRING`, `CODE_ID`, `USER_ID`) VALUES
 --
 -- Table structure for table `b_hot_keys_code`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_hot_keys_code`;
@@ -4358,7 +4354,7 @@ CREATE TABLE IF NOT EXISTS `b_hot_keys_code` (
   `TITLE_OBJ` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `URL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `IS_CUSTOM` tinyint(1) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_hot_keys_code`
@@ -4450,7 +4446,7 @@ INSERT INTO `b_hot_keys_code` (`ID`, `CLASS_NAME`, `CODE`, `NAME`, `COMMENTS`, `
 --
 -- Table structure for table `b_iblock`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock`;
@@ -4515,7 +4511,7 @@ INSERT INTO `b_iblock` (`ID`, `TIMESTAMP_X`, `IBLOCK_TYPE_ID`, `LID`, `CODE`, `N
 --
 -- Table structure for table `b_iblock_cache`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_cache`;
@@ -4537,7 +4533,7 @@ INSERT INTO `b_iblock_cache` (`CACHE_KEY`, `CACHE`, `CACHE_DATE`) VALUES
 --
 -- Table structure for table `b_iblock_element`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element`;
@@ -4575,16 +4571,16 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element` (
   `WF_LAST_HISTORY_ID` int(11) DEFAULT NULL,
   `SHOW_COUNTER` int(18) DEFAULT NULL,
   `SHOW_COUNTER_START` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_iblock_element`
 --
 
 INSERT INTO `b_iblock_element` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE`, `CREATED_BY`, `IBLOCK_ID`, `IBLOCK_SECTION_ID`, `ACTIVE`, `ACTIVE_FROM`, `ACTIVE_TO`, `SORT`, `NAME`, `PREVIEW_PICTURE`, `PREVIEW_TEXT`, `PREVIEW_TEXT_TYPE`, `DETAIL_PICTURE`, `DETAIL_TEXT`, `DETAIL_TEXT_TYPE`, `SEARCHABLE_CONTENT`, `WF_STATUS_ID`, `WF_PARENT_ELEMENT_ID`, `WF_NEW`, `WF_LOCKED_BY`, `WF_DATE_LOCK`, `WF_COMMENTS`, `IN_SECTIONS`, `XML_ID`, `CODE`, `TAGS`, `TMP_ID`, `WF_LAST_HISTORY_ID`, `SHOW_COUNTER`, `SHOW_COUNTER_START`) VALUES
-(1, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Форум производителей одежды в России', 1, 'С 20 по 23 февраля состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в этом году.', 'html', 2, '<p>С 20 по 23 февраля этого года состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в текущем году. В экспозиции принимают участие свыше 160 компаний из <em>Беларуси, Австрии, Латвии, Литвы, России, Польши </em>и<em> Украины</em>. В составе форума состоится пять выставок:&quot;Московский Фэшн Салон&quot;, &quot;Технологии в Одежде&quot;, &quot;Офис Комфорт&quot;, &quot;Повседневная одежда&quot; и &quot;Детская одежда&quot;. Экспозиция будет строиться по принципу двух тематических секторов:<em> одежда</em> и <em>материалы для ее производства</em>.\r\n					<br />\r\n					</p>\r\n\r\n					<p>В секторе готовой одежды будут представлены:</p>\r\n\r\n					<ul>\r\n					<li>одежда для дома;</li>\r\n\r\n					<li>одежда для детей и молодежи;</li>\r\n\r\n					<li>аксессуары в одежде;</li>\r\n\r\n					<li>одежда для спорта и отдыха;</li>\r\n\r\n					<li>одежда для офиса.</li>\r\n					</ul>\r\n\r\n					<p>В секторе материалов для производства одежды будут демонстрироваться новинки рынка одежной фурнитуры, материалов, тканей, элементов и аксессуаров для производства одежды.\r\n					<br />\r\n					</p>\r\n\r\n					<p>Помимо расширенной экспозиции пяти тематических выставок &quot;Экспофорум&quot; подготовил разнообразную деловую программу форума производителей Одежды. В рамках выставки состоятся семинары и мастер-классы. И поистине масштабным в этом году обещает стать республиканский конкурс форума &quot;<strong>Народное признание</strong>&quot;. В этом году он выходит за рамки выставки и становится республиканским смотром образцов одежды.   </p>\r\n\r\n					<p><strong>Форум производителей Одежды</strong> предоставляет специалистам возможность познакомиться с тенденциями моды, провести переговоры, получить практические предложения рынка, увидеть перспективы развития и новые конкурентные преимущества. Впервые для участников конкурса будет подготовлен маркетинговый отчет по результатам опроса посетителей выставок <strong>Форума производителей Одежды</strong>.\r\n					<br />\r\n					</p>\r\n\r\n					<p><em>Прием заявок на участие в конкурсе осуществляется до 12 января этого года.</em></p>\r\n\r\n					<ul> </ul>\r\n ', 'html', 'ФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ\r\nС 20 ПО 23 ФЕВРАЛЯ СОСТОИТСЯ ФОРУМ ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ МЕРОПРИЯТИИ \r\nОТРАСЛИ В ЭТОМ ГОДУ.\r\nС 20 ПО 23 ФЕВРАЛЯ ЭТОГО ГОДА СОСТОИТСЯ ФОРУМ \r\nПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ \r\nМЕРОПРИЯТИИ ОТРАСЛИ В ТЕКУЩЕМ ГОДУ. В ЭКСПОЗИЦИИ \r\nПРИНИМАЮТ УЧАСТИЕ СВЫШЕ 160 КОМПАНИЙ ИЗ БЕЛАРУСИ, \r\nАВСТРИИ, ЛАТВИИ, ЛИТВЫ, РОССИИ, ПОЛЬШИ И \r\nУКРАИНЫ. В СОСТАВЕ ФОРУМА СОСТОИТСЯ ПЯТЬ \r\nВЫСТАВОК:"МОСКОВСКИЙ ФЭШН САЛОН", "ТЕХНОЛОГИИ \r\nВ ОДЕЖДЕ", "ОФИС КОМФОРТ", "ПОВСЕДНЕВНАЯ ОДЕЖДА" \r\nИ "ДЕТСКАЯ ОДЕЖДА". ЭКСПОЗИЦИЯ БУДЕТ СТРОИТЬСЯ \r\nПО ПРИНЦИПУ ДВУХ ТЕМАТИЧЕСКИХ СЕКТОРОВ: ОДЕЖДА \r\nИ МАТЕРИАЛЫ ДЛЯ ЕЕ ПРОИЗВОДСТВА. \r\n \r\n\r\nВ СЕКТОРЕ ГОТОВОЙ ОДЕЖДЫ БУДУТ ПРЕДСТАВЛЕНЫ: \r\n\r\n- ОДЕЖДА ДЛЯ ДОМА; \r\n- ОДЕЖДА ДЛЯ ДЕТЕЙ И МОЛОДЕЖИ; \r\n- АКСЕССУАРЫ В ОДЕЖДЕ; \r\n- ОДЕЖДА ДЛЯ СПОРТА И ОТДЫХА; \r\n- ОДЕЖДА ДЛЯ ОФИСА. \r\n\r\nВ СЕКТОРЕ МАТЕРИАЛОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ БУДУТ ДЕМОНСТРИРОВАТЬСЯ НОВИНКИ \r\nРЫНКА ОДЕЖНОЙ ФУРНИТУРЫ, МАТЕРИАЛОВ, ТКАНЕЙ, \r\nЭЛЕМЕНТОВ И АКСЕССУАРОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ. \r\n \r\n\r\nПОМИМО РАСШИРЕННОЙ ЭКСПОЗИЦИИ ПЯТИ ТЕМАТИЧЕСКИХ \r\nВЫСТАВОК "ЭКСПОФОРУМ" ПОДГОТОВИЛ РАЗНООБРАЗНУЮ \r\nДЕЛОВУЮ ПРОГРАММУ ФОРУМА ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ. В РАМКАХ ВЫСТАВКИ СОСТОЯТСЯ СЕМИНАРЫ \r\nИ МАСТЕР-КЛАССЫ. И ПОИСТИНЕ МАСШТАБНЫМ В \r\nЭТОМ ГОДУ ОБЕЩАЕТ СТАТЬ РЕСПУБЛИКАНСКИЙ \r\nКОНКУРС ФОРУМА "НАРОДНОЕ ПРИЗНАНИЕ". В ЭТОМ \r\nГОДУ ОН ВЫХОДИТ ЗА РАМКИ ВЫСТАВКИ И СТАНОВИТСЯ \r\nРЕСПУБЛИКАНСКИМ СМОТРОМ ОБРАЗЦОВ ОДЕЖДЫ. \r\n   \r\n\r\nФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ ПРЕДОСТАВЛЯЕТ \r\nСПЕЦИАЛИСТАМ ВОЗМОЖНОСТЬ ПОЗНАКОМИТЬСЯ \r\nС ТЕНДЕНЦИЯМИ МОДЫ, ПРОВЕСТИ ПЕРЕГОВОРЫ, \r\nПОЛУЧИТЬ ПРАКТИЧЕСКИЕ ПРЕДЛОЖЕНИЯ РЫНКА, \r\nУВИДЕТЬ ПЕРСПЕКТИВЫ РАЗВИТИЯ И НОВЫЕ КОНКУРЕНТНЫЕ \r\nПРЕИМУЩЕСТВА. ВПЕРВЫЕ ДЛЯ УЧАСТНИКОВ КОНКУРСА \r\nБУДЕТ ПОДГОТОВЛЕН МАРКЕТИНГОВЫЙ ОТЧЕТ \r\nПО РЕЗУЛЬТАТАМ ОПРОСА ПОСЕТИТЕЛЕЙ ВЫСТАВОК \r\nФОРУМА ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ. \r\n \r\n\r\nПРИЕМ ЗАЯВОК НА УЧАСТИЕ В КОНКУРСЕ ОСУЩЕСТВЛЯЕТСЯ \r\nДО 12 ЯНВАРЯ ЭТОГО ГОДА.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '1', 'forum_of_producers_of_clothes_in_russia', '', '-600328566', NULL, 16, '2015-09-25 10:03:40'),
-(2, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Международная выставка одежды Salon De Fashion', 3, 'В следующем году состоится выставка одежды - Salon De Fashion, которая обещает быть еще более расширенной и интересной.', 'html', NULL, 'В следующем  году выставка Salon De Fashion обещает быть еще более расширенной и интересной. На выставке Salon De Fashion будут представлены все типы одежды для офиса и дома от платьев и шорт до VIP-аксессуаров, включая оборудование для производства и детской одежды. \r\n					<div>\r\n					<br />\r\n					</div>\r\n\r\n					<div>Заявки на участие подали более чем 1 500 компаний со всего мира. Предполагается, что за время проведения выставки ее посетят более 300 000 тысяч человек. Экспозиция выставки разместится на общей площади 149 871 кв.м. В следующем году эта поистине грандиозная выставка будет проводиться уже в 14-й раз.</div>\r\n				', 'html', 'МЕЖДУНАРОДНАЯ ВЫСТАВКА ОДЕЖДЫ SALON DE FASHION\r\nВ СЛЕДУЮЩЕМ ГОДУ СОСТОИТСЯ ВЫСТАВКА ОДЕЖДЫ \r\n- SALON DE FASHION, КОТОРАЯ ОБЕЩАЕТ БЫТЬ ЕЩЕ БОЛЕЕ \r\nРАСШИРЕННОЙ И ИНТЕРЕСНОЙ.\r\nВ СЛЕДУЮЩЕМ  ГОДУ ВЫСТАВКА SALON DE FASHION ОБЕЩАЕТ \r\nБЫТЬ ЕЩЕ БОЛЕЕ РАСШИРЕННОЙ И ИНТЕРЕСНОЙ. \r\nНА ВЫСТАВКЕ SALON DE FASHION БУДУТ ПРЕДСТАВЛЕНЫ \r\nВСЕ ТИПЫ ОДЕЖДЫ ДЛЯ ОФИСА И ДОМА ОТ ПЛАТЬЕВ \r\nИ ШОРТ ДО VIP-АКСЕССУАРОВ, ВКЛЮЧАЯ ОБОРУДОВАНИЕ \r\nДЛЯ ПРОИЗВОДСТВА И ДЕТСКОЙ ОДЕЖДЫ.  \r\nЗАЯВКИ НА УЧАСТИЕ ПОДАЛИ БОЛЕЕ ЧЕМ 1 500 КОМПАНИЙ \r\nСО ВСЕГО МИРА. ПРЕДПОЛАГАЕТСЯ, ЧТО ЗА ВРЕМЯ \r\nПРОВЕДЕНИЯ ВЫСТАВКИ ЕЕ ПОСЕТЯТ БОЛЕЕ 300 \r\n000 ТЫСЯЧ ЧЕЛОВЕК. ЭКСПОЗИЦИЯ ВЫСТАВКИ РАЗМЕСТИТСЯ \r\nНА ОБЩЕЙ ПЛОЩАДИ 149 871 КВ.М. В СЛЕДУЮЩЕМ ГОДУ \r\nЭТА ПОИСТИНЕ ГРАНДИОЗНАЯ ВЫСТАВКА БУДЕТ \r\nПРОВОДИТЬСЯ УЖЕ В 14-Й РАЗ.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '8', 'exhibition_salon_de_fashion', '', '1890358504', NULL, 16, '2015-09-27 14:19:10'),
-(3, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Новое веяние в одежде - получено прочное водостойкое соединение', 7, 'Получено новое прочное водостойкое клеевое соединение.Изобретение относится к области получения и применения клеящих составов, используемых в обработке тканей, кожи и других материалов. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный очень гибкий отвердитель. Который даст возможность делать новые виды аппликаций и соединения тканей и различных типов материалов.', 'html', 8, '<b>Авторы изобретения</b>: Разиньков Егор Михайлович и Зайцева Анна Анатольевна\r\n					<br />\r\n					Патент Российской Федерации RU2277566\r\n					<br />\r\n\r\n					<h3>Описание изобретения</h3>\r\n\r\n					<p>Изобретение относится к области получения и применения клеящих составов, используемых в производстве одежды и аксессуаров. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный гибкий отвердитель. Прототипом клеевой композиции является клей, состоящий из карбамидоформальдегидной смолы, сополимера акрилонитрила с N-винилкапролактамом и отвердитель. В качестве отвердителя применяют хлористый аммоний либо акриловую кислоту. </p>\r\n\r\n					<p>Изобретение решает задачу по получению прочного и водостойкого клеевого соединения. Это достигается тем, что клеевая композиция, включающая синтетическую смолу и отвердитель, согласно изобретению, дополнительно содержит модификатор, причем в качестве синтетической смолы клеевая композиция включает карбамидомеламиноформальдегидную смолу с отвердителем 2542, в качестве модификатора - карбамидоформальдегидную смолу, а в качестве отвердителя - 10%-ный раствор щавелевой кислоты при следующем соотношении компонентов, мас.ч.: </p>\r\n\r\n					<table cellspacing="0">\r\n					<tbody>\r\n					<tr> <td>Карбамидомеламиноформальдегидная смола</td><td>64,5-79,2</td> </tr>\r\n\r\n					<tr> <td>10%-ный Раствор щавелевой кислоты</td><td>4,4-20,5</td> </tr>\r\n\r\n					<tr> <td> Отвердитель для карбамидомеламиноформальдегидной </td><td>0,6-2,0</td> </tr>\r\n\r\n					<tr> <td> смолы 2542</td><td>13,0-15,8</td> </tr>\r\n					</tbody>\r\n					</table>\r\n', 'html', 'НОВОЕ ВЕЯНИЕ В ОДЕЖДЕ - ПОЛУЧЕНО ПРОЧНОЕ ВОДОСТОЙКОЕ СОЕДИНЕНИЕ\r\nПОЛУЧЕНО НОВОЕ ПРОЧНОЕ ВОДОСТОЙКОЕ КЛЕЕВОЕ \r\nСОЕДИНЕНИЕ.ИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ \r\nПОЛУЧЕНИЯ И ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, \r\nИСПОЛЬЗУЕМЫХ В ОБРАБОТКЕ ТКАНЕЙ, КОЖИ И \r\nДРУГИХ МАТЕРИАЛОВ. ДАННАЯ КЛЕЕВАЯ КОМПОЗИЦИЯ \r\nПРЕДНАЗНАЧЕНА ТОЛЬКО ДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ \r\nИ ИМЕЕТ В СВОЕМ СОСТАВЕ МНОГОКОМПОНЕНТНЫЙ \r\nОЧЕНЬ ГИБКИЙ ОТВЕРДИТЕЛЬ. КОТОРЫЙ ДАСТ \r\nВОЗМОЖНОСТЬ ДЕЛАТЬ НОВЫЕ ВИДЫ АППЛИКАЦИЙ \r\nИ СОЕДИНЕНИЯ ТКАНЕЙ И РАЗЛИЧНЫХ ТИПОВ МАТЕРИАЛОВ.\r\nАВТОРЫ ИЗОБРЕТЕНИЯ: РАЗИНЬКОВ ЕГОР МИХАЙЛОВИЧ \r\nИ ЗАЙЦЕВА АННА АНАТОЛЬЕВНА \r\nПАТЕНТ РОССИЙСКОЙ ФЕДЕРАЦИИ RU2277566 \r\nОПИСАНИЕ ИЗОБРЕТЕНИЯ \r\n\r\nИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ ПОЛУЧЕНИЯ \r\nИ ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, ИСПОЛЬЗУЕМЫХ \r\nВ ПРОИЗВОДСТВЕ ОДЕЖДЫ И АКСЕССУАРОВ. ДАННАЯ \r\nКЛЕЕВАЯ КОМПОЗИЦИЯ ПРЕДНАЗНАЧЕНА ТОЛЬКО \r\nДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ И ИМЕЕТ В СВОЕМ \r\nСОСТАВЕ МНОГОКОМПОНЕНТНЫЙ ГИБКИЙ ОТВЕРДИТЕЛЬ. \r\nПРОТОТИПОМ КЛЕЕВОЙ КОМПОЗИЦИИ ЯВЛЯЕТСЯ \r\nКЛЕЙ, СОСТОЯЩИЙ ИЗ КАРБАМИДОФОРМАЛЬДЕГИДНОЙ \r\nСМОЛЫ, СОПОЛИМЕРА АКРИЛОНИТРИЛА С N-ВИНИЛКАПРОЛАКТАМОМ \r\nИ ОТВЕРДИТЕЛЬ. В КАЧЕСТВЕ ОТВЕРДИТЕЛЯ ПРИМЕНЯЮТ \r\nХЛОРИСТЫЙ АММОНИЙ ЛИБО АКРИЛОВУЮ КИСЛОТУ. \r\n\r\nИЗОБРЕТЕНИЕ РЕШАЕТ ЗАДАЧУ ПО ПОЛУЧЕНИЮ \r\nПРОЧНОГО И ВОДОСТОЙКОГО КЛЕЕВОГО СОЕДИНЕНИЯ. \r\nЭТО ДОСТИГАЕТСЯ ТЕМ, ЧТО КЛЕЕВАЯ КОМПОЗИЦИЯ, \r\nВКЛЮЧАЮЩАЯ СИНТЕТИЧЕСКУЮ СМОЛУ И ОТВЕРДИТЕЛЬ, \r\nСОГЛАСНО ИЗОБРЕТЕНИЮ, ДОПОЛНИТЕЛЬНО СОДЕРЖИТ \r\nМОДИФИКАТОР, ПРИЧЕМ В КАЧЕСТВЕ СИНТЕТИЧЕСКОЙ \r\nСМОЛЫ КЛЕЕВАЯ КОМПОЗИЦИЯ ВКЛЮЧАЕТ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНУЮ \r\nСМОЛУ С ОТВЕРДИТЕЛЕМ 2542, В КАЧЕСТВЕ МОДИФИКАТОРА \r\n- КАРБАМИДОФОРМАЛЬДЕГИДНУЮ СМОЛУ, А В КАЧЕСТВЕ \r\nОТВЕРДИТЕЛЯ - 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ \r\nПРИ СЛЕДУЮЩЕМ СООТНОШЕНИИ КОМПОНЕНТОВ, \r\nМАС.Ч.: \r\n КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНАЯ СМОЛА \r\n   64,5-79,2     \r\n 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ    4,4-20,5 \r\n    \r\n ОТВЕРДИТЕЛЬ ДЛЯ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНОЙ \r\n    0,6-2,0     \r\n СМОЛЫ 2542    13,0-15,8', 1, NULL, NULL, NULL, NULL, NULL, 'N', '9', 'waterproof_connection', '', '-2110133196', NULL, 15, '2015-09-27 14:19:08'),
+(1, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Форум производителей одежды в России', 1, 'С 20 по 23 февраля состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в этом году.', 'html', 2, '<p>С 20 по 23 февраля этого года состоится <strong>Форум производителей одежды в России</strong> &ndash; важнейшее мероприятии отрасли в текущем году. В экспозиции принимают участие свыше 160 компаний из <em>Беларуси, Австрии, Латвии, Литвы, России, Польши </em>и<em> Украины</em>. В составе форума состоится пять выставок:&quot;Московский Фэшн Салон&quot;, &quot;Технологии в Одежде&quot;, &quot;Офис Комфорт&quot;, &quot;Повседневная одежда&quot; и &quot;Детская одежда&quot;. Экспозиция будет строиться по принципу двух тематических секторов:<em> одежда</em> и <em>материалы для ее производства</em>.\r\n					<br />\r\n					</p>\r\n\r\n					<p>В секторе готовой одежды будут представлены:</p>\r\n\r\n					<ul>\r\n					<li>одежда для дома;</li>\r\n\r\n					<li>одежда для детей и молодежи;</li>\r\n\r\n					<li>аксессуары в одежде;</li>\r\n\r\n					<li>одежда для спорта и отдыха;</li>\r\n\r\n					<li>одежда для офиса.</li>\r\n					</ul>\r\n\r\n					<p>В секторе материалов для производства одежды будут демонстрироваться новинки рынка одежной фурнитуры, материалов, тканей, элементов и аксессуаров для производства одежды.\r\n					<br />\r\n					</p>\r\n\r\n					<p>Помимо расширенной экспозиции пяти тематических выставок &quot;Экспофорум&quot; подготовил разнообразную деловую программу форума производителей Одежды. В рамках выставки состоятся семинары и мастер-классы. И поистине масштабным в этом году обещает стать республиканский конкурс форума &quot;<strong>Народное признание</strong>&quot;. В этом году он выходит за рамки выставки и становится республиканским смотром образцов одежды.   </p>\r\n\r\n					<p><strong>Форум производителей Одежды</strong> предоставляет специалистам возможность познакомиться с тенденциями моды, провести переговоры, получить практические предложения рынка, увидеть перспективы развития и новые конкурентные преимущества. Впервые для участников конкурса будет подготовлен маркетинговый отчет по результатам опроса посетителей выставок <strong>Форума производителей Одежды</strong>.\r\n					<br />\r\n					</p>\r\n\r\n					<p><em>Прием заявок на участие в конкурсе осуществляется до 12 января этого года.</em></p>\r\n\r\n					<ul> </ul>\r\n ', 'html', 'ФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ\r\nС 20 ПО 23 ФЕВРАЛЯ СОСТОИТСЯ ФОРУМ ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ МЕРОПРИЯТИИ \r\nОТРАСЛИ В ЭТОМ ГОДУ.\r\nС 20 ПО 23 ФЕВРАЛЯ ЭТОГО ГОДА СОСТОИТСЯ ФОРУМ \r\nПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ В РОССИИ &NDASH; ВАЖНЕЙШЕЕ \r\nМЕРОПРИЯТИИ ОТРАСЛИ В ТЕКУЩЕМ ГОДУ. В ЭКСПОЗИЦИИ \r\nПРИНИМАЮТ УЧАСТИЕ СВЫШЕ 160 КОМПАНИЙ ИЗ БЕЛАРУСИ, \r\nАВСТРИИ, ЛАТВИИ, ЛИТВЫ, РОССИИ, ПОЛЬШИ И \r\nУКРАИНЫ. В СОСТАВЕ ФОРУМА СОСТОИТСЯ ПЯТЬ \r\nВЫСТАВОК:"МОСКОВСКИЙ ФЭШН САЛОН", "ТЕХНОЛОГИИ \r\nВ ОДЕЖДЕ", "ОФИС КОМФОРТ", "ПОВСЕДНЕВНАЯ ОДЕЖДА" \r\nИ "ДЕТСКАЯ ОДЕЖДА". ЭКСПОЗИЦИЯ БУДЕТ СТРОИТЬСЯ \r\nПО ПРИНЦИПУ ДВУХ ТЕМАТИЧЕСКИХ СЕКТОРОВ: ОДЕЖДА \r\nИ МАТЕРИАЛЫ ДЛЯ ЕЕ ПРОИЗВОДСТВА. \r\n \r\n\r\nВ СЕКТОРЕ ГОТОВОЙ ОДЕЖДЫ БУДУТ ПРЕДСТАВЛЕНЫ: \r\n\r\n- ОДЕЖДА ДЛЯ ДОМА; \r\n- ОДЕЖДА ДЛЯ ДЕТЕЙ И МОЛОДЕЖИ; \r\n- АКСЕССУАРЫ В ОДЕЖДЕ; \r\n- ОДЕЖДА ДЛЯ СПОРТА И ОТДЫХА; \r\n- ОДЕЖДА ДЛЯ ОФИСА. \r\n\r\nВ СЕКТОРЕ МАТЕРИАЛОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ БУДУТ ДЕМОНСТРИРОВАТЬСЯ НОВИНКИ \r\nРЫНКА ОДЕЖНОЙ ФУРНИТУРЫ, МАТЕРИАЛОВ, ТКАНЕЙ, \r\nЭЛЕМЕНТОВ И АКСЕССУАРОВ ДЛЯ ПРОИЗВОДСТВА \r\nОДЕЖДЫ. \r\n \r\n\r\nПОМИМО РАСШИРЕННОЙ ЭКСПОЗИЦИИ ПЯТИ ТЕМАТИЧЕСКИХ \r\nВЫСТАВОК "ЭКСПОФОРУМ" ПОДГОТОВИЛ РАЗНООБРАЗНУЮ \r\nДЕЛОВУЮ ПРОГРАММУ ФОРУМА ПРОИЗВОДИТЕЛЕЙ \r\nОДЕЖДЫ. В РАМКАХ ВЫСТАВКИ СОСТОЯТСЯ СЕМИНАРЫ \r\nИ МАСТЕР-КЛАССЫ. И ПОИСТИНЕ МАСШТАБНЫМ В \r\nЭТОМ ГОДУ ОБЕЩАЕТ СТАТЬ РЕСПУБЛИКАНСКИЙ \r\nКОНКУРС ФОРУМА "НАРОДНОЕ ПРИЗНАНИЕ". В ЭТОМ \r\nГОДУ ОН ВЫХОДИТ ЗА РАМКИ ВЫСТАВКИ И СТАНОВИТСЯ \r\nРЕСПУБЛИКАНСКИМ СМОТРОМ ОБРАЗЦОВ ОДЕЖДЫ. \r\n   \r\n\r\nФОРУМ ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ ПРЕДОСТАВЛЯЕТ \r\nСПЕЦИАЛИСТАМ ВОЗМОЖНОСТЬ ПОЗНАКОМИТЬСЯ \r\nС ТЕНДЕНЦИЯМИ МОДЫ, ПРОВЕСТИ ПЕРЕГОВОРЫ, \r\nПОЛУЧИТЬ ПРАКТИЧЕСКИЕ ПРЕДЛОЖЕНИЯ РЫНКА, \r\nУВИДЕТЬ ПЕРСПЕКТИВЫ РАЗВИТИЯ И НОВЫЕ КОНКУРЕНТНЫЕ \r\nПРЕИМУЩЕСТВА. ВПЕРВЫЕ ДЛЯ УЧАСТНИКОВ КОНКУРСА \r\nБУДЕТ ПОДГОТОВЛЕН МАРКЕТИНГОВЫЙ ОТЧЕТ \r\nПО РЕЗУЛЬТАТАМ ОПРОСА ПОСЕТИТЕЛЕЙ ВЫСТАВОК \r\nФОРУМА ПРОИЗВОДИТЕЛЕЙ ОДЕЖДЫ. \r\n \r\n\r\nПРИЕМ ЗАЯВОК НА УЧАСТИЕ В КОНКУРСЕ ОСУЩЕСТВЛЯЕТСЯ \r\nДО 12 ЯНВАРЯ ЭТОГО ГОДА.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '1', 'forum_of_producers_of_clothes_in_russia', '', '-600328566', NULL, 19, '2015-09-25 10:03:40'),
+(2, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Международная выставка одежды Salon De Fashion', 3, 'В следующем году состоится выставка одежды - Salon De Fashion, которая обещает быть еще более расширенной и интересной.', 'html', NULL, 'В следующем  году выставка Salon De Fashion обещает быть еще более расширенной и интересной. На выставке Salon De Fashion будут представлены все типы одежды для офиса и дома от платьев и шорт до VIP-аксессуаров, включая оборудование для производства и детской одежды. \r\n					<div>\r\n					<br />\r\n					</div>\r\n\r\n					<div>Заявки на участие подали более чем 1 500 компаний со всего мира. Предполагается, что за время проведения выставки ее посетят более 300 000 тысяч человек. Экспозиция выставки разместится на общей площади 149 871 кв.м. В следующем году эта поистине грандиозная выставка будет проводиться уже в 14-й раз.</div>\r\n				', 'html', 'МЕЖДУНАРОДНАЯ ВЫСТАВКА ОДЕЖДЫ SALON DE FASHION\r\nВ СЛЕДУЮЩЕМ ГОДУ СОСТОИТСЯ ВЫСТАВКА ОДЕЖДЫ \r\n- SALON DE FASHION, КОТОРАЯ ОБЕЩАЕТ БЫТЬ ЕЩЕ БОЛЕЕ \r\nРАСШИРЕННОЙ И ИНТЕРЕСНОЙ.\r\nВ СЛЕДУЮЩЕМ  ГОДУ ВЫСТАВКА SALON DE FASHION ОБЕЩАЕТ \r\nБЫТЬ ЕЩЕ БОЛЕЕ РАСШИРЕННОЙ И ИНТЕРЕСНОЙ. \r\nНА ВЫСТАВКЕ SALON DE FASHION БУДУТ ПРЕДСТАВЛЕНЫ \r\nВСЕ ТИПЫ ОДЕЖДЫ ДЛЯ ОФИСА И ДОМА ОТ ПЛАТЬЕВ \r\nИ ШОРТ ДО VIP-АКСЕССУАРОВ, ВКЛЮЧАЯ ОБОРУДОВАНИЕ \r\nДЛЯ ПРОИЗВОДСТВА И ДЕТСКОЙ ОДЕЖДЫ.  \r\nЗАЯВКИ НА УЧАСТИЕ ПОДАЛИ БОЛЕЕ ЧЕМ 1 500 КОМПАНИЙ \r\nСО ВСЕГО МИРА. ПРЕДПОЛАГАЕТСЯ, ЧТО ЗА ВРЕМЯ \r\nПРОВЕДЕНИЯ ВЫСТАВКИ ЕЕ ПОСЕТЯТ БОЛЕЕ 300 \r\n000 ТЫСЯЧ ЧЕЛОВЕК. ЭКСПОЗИЦИЯ ВЫСТАВКИ РАЗМЕСТИТСЯ \r\nНА ОБЩЕЙ ПЛОЩАДИ 149 871 КВ.М. В СЛЕДУЮЩЕМ ГОДУ \r\nЭТА ПОИСТИНЕ ГРАНДИОЗНАЯ ВЫСТАВКА БУДЕТ \r\nПРОВОДИТЬСЯ УЖЕ В 14-Й РАЗ.', 1, NULL, NULL, NULL, NULL, NULL, 'N', '8', 'exhibition_salon_de_fashion', '', '1890358504', NULL, 19, '2015-09-27 14:19:10'),
+(3, '2015-08-27 09:44:58', 1, '2015-08-27 09:44:58', 1, 1, NULL, 'Y', NULL, NULL, 500, 'Новое веяние в одежде - получено прочное водостойкое соединение', 7, 'Получено новое прочное водостойкое клеевое соединение.Изобретение относится к области получения и применения клеящих составов, используемых в обработке тканей, кожи и других материалов. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный очень гибкий отвердитель. Который даст возможность делать новые виды аппликаций и соединения тканей и различных типов материалов.', 'html', 8, '<b>Авторы изобретения</b>: Разиньков Егор Михайлович и Зайцева Анна Анатольевна\r\n					<br />\r\n					Патент Российской Федерации RU2277566\r\n					<br />\r\n\r\n					<h3>Описание изобретения</h3>\r\n\r\n					<p>Изобретение относится к области получения и применения клеящих составов, используемых в производстве одежды и аксессуаров. Данная клеевая композиция предназначена только для горячего прессования и имеет в своем составе многокомпонентный гибкий отвердитель. Прототипом клеевой композиции является клей, состоящий из карбамидоформальдегидной смолы, сополимера акрилонитрила с N-винилкапролактамом и отвердитель. В качестве отвердителя применяют хлористый аммоний либо акриловую кислоту. </p>\r\n\r\n					<p>Изобретение решает задачу по получению прочного и водостойкого клеевого соединения. Это достигается тем, что клеевая композиция, включающая синтетическую смолу и отвердитель, согласно изобретению, дополнительно содержит модификатор, причем в качестве синтетической смолы клеевая композиция включает карбамидомеламиноформальдегидную смолу с отвердителем 2542, в качестве модификатора - карбамидоформальдегидную смолу, а в качестве отвердителя - 10%-ный раствор щавелевой кислоты при следующем соотношении компонентов, мас.ч.: </p>\r\n\r\n					<table cellspacing="0">\r\n					<tbody>\r\n					<tr> <td>Карбамидомеламиноформальдегидная смола</td><td>64,5-79,2</td> </tr>\r\n\r\n					<tr> <td>10%-ный Раствор щавелевой кислоты</td><td>4,4-20,5</td> </tr>\r\n\r\n					<tr> <td> Отвердитель для карбамидомеламиноформальдегидной </td><td>0,6-2,0</td> </tr>\r\n\r\n					<tr> <td> смолы 2542</td><td>13,0-15,8</td> </tr>\r\n					</tbody>\r\n					</table>\r\n', 'html', 'НОВОЕ ВЕЯНИЕ В ОДЕЖДЕ - ПОЛУЧЕНО ПРОЧНОЕ ВОДОСТОЙКОЕ СОЕДИНЕНИЕ\r\nПОЛУЧЕНО НОВОЕ ПРОЧНОЕ ВОДОСТОЙКОЕ КЛЕЕВОЕ \r\nСОЕДИНЕНИЕ.ИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ \r\nПОЛУЧЕНИЯ И ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, \r\nИСПОЛЬЗУЕМЫХ В ОБРАБОТКЕ ТКАНЕЙ, КОЖИ И \r\nДРУГИХ МАТЕРИАЛОВ. ДАННАЯ КЛЕЕВАЯ КОМПОЗИЦИЯ \r\nПРЕДНАЗНАЧЕНА ТОЛЬКО ДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ \r\nИ ИМЕЕТ В СВОЕМ СОСТАВЕ МНОГОКОМПОНЕНТНЫЙ \r\nОЧЕНЬ ГИБКИЙ ОТВЕРДИТЕЛЬ. КОТОРЫЙ ДАСТ \r\nВОЗМОЖНОСТЬ ДЕЛАТЬ НОВЫЕ ВИДЫ АППЛИКАЦИЙ \r\nИ СОЕДИНЕНИЯ ТКАНЕЙ И РАЗЛИЧНЫХ ТИПОВ МАТЕРИАЛОВ.\r\nАВТОРЫ ИЗОБРЕТЕНИЯ: РАЗИНЬКОВ ЕГОР МИХАЙЛОВИЧ \r\nИ ЗАЙЦЕВА АННА АНАТОЛЬЕВНА \r\nПАТЕНТ РОССИЙСКОЙ ФЕДЕРАЦИИ RU2277566 \r\nОПИСАНИЕ ИЗОБРЕТЕНИЯ \r\n\r\nИЗОБРЕТЕНИЕ ОТНОСИТСЯ К ОБЛАСТИ ПОЛУЧЕНИЯ \r\nИ ПРИМЕНЕНИЯ КЛЕЯЩИХ СОСТАВОВ, ИСПОЛЬЗУЕМЫХ \r\nВ ПРОИЗВОДСТВЕ ОДЕЖДЫ И АКСЕССУАРОВ. ДАННАЯ \r\nКЛЕЕВАЯ КОМПОЗИЦИЯ ПРЕДНАЗНАЧЕНА ТОЛЬКО \r\nДЛЯ ГОРЯЧЕГО ПРЕССОВАНИЯ И ИМЕЕТ В СВОЕМ \r\nСОСТАВЕ МНОГОКОМПОНЕНТНЫЙ ГИБКИЙ ОТВЕРДИТЕЛЬ. \r\nПРОТОТИПОМ КЛЕЕВОЙ КОМПОЗИЦИИ ЯВЛЯЕТСЯ \r\nКЛЕЙ, СОСТОЯЩИЙ ИЗ КАРБАМИДОФОРМАЛЬДЕГИДНОЙ \r\nСМОЛЫ, СОПОЛИМЕРА АКРИЛОНИТРИЛА С N-ВИНИЛКАПРОЛАКТАМОМ \r\nИ ОТВЕРДИТЕЛЬ. В КАЧЕСТВЕ ОТВЕРДИТЕЛЯ ПРИМЕНЯЮТ \r\nХЛОРИСТЫЙ АММОНИЙ ЛИБО АКРИЛОВУЮ КИСЛОТУ. \r\n\r\nИЗОБРЕТЕНИЕ РЕШАЕТ ЗАДАЧУ ПО ПОЛУЧЕНИЮ \r\nПРОЧНОГО И ВОДОСТОЙКОГО КЛЕЕВОГО СОЕДИНЕНИЯ. \r\nЭТО ДОСТИГАЕТСЯ ТЕМ, ЧТО КЛЕЕВАЯ КОМПОЗИЦИЯ, \r\nВКЛЮЧАЮЩАЯ СИНТЕТИЧЕСКУЮ СМОЛУ И ОТВЕРДИТЕЛЬ, \r\nСОГЛАСНО ИЗОБРЕТЕНИЮ, ДОПОЛНИТЕЛЬНО СОДЕРЖИТ \r\nМОДИФИКАТОР, ПРИЧЕМ В КАЧЕСТВЕ СИНТЕТИЧЕСКОЙ \r\nСМОЛЫ КЛЕЕВАЯ КОМПОЗИЦИЯ ВКЛЮЧАЕТ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНУЮ \r\nСМОЛУ С ОТВЕРДИТЕЛЕМ 2542, В КАЧЕСТВЕ МОДИФИКАТОРА \r\n- КАРБАМИДОФОРМАЛЬДЕГИДНУЮ СМОЛУ, А В КАЧЕСТВЕ \r\nОТВЕРДИТЕЛЯ - 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ \r\nПРИ СЛЕДУЮЩЕМ СООТНОШЕНИИ КОМПОНЕНТОВ, \r\nМАС.Ч.: \r\n КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНАЯ СМОЛА \r\n   64,5-79,2     \r\n 10%-НЫЙ РАСТВОР ЩАВЕЛЕВОЙ КИСЛОТЫ    4,4-20,5 \r\n    \r\n ОТВЕРДИТЕЛЬ ДЛЯ КАРБАМИДОМЕЛАМИНОФОРМАЛЬДЕГИДНОЙ \r\n    0,6-2,0     \r\n СМОЛЫ 2542    13,0-15,8', 1, NULL, NULL, NULL, NULL, NULL, 'N', '9', 'waterproof_connection', '', '-2110133196', NULL, 18, '2015-09-27 14:19:08'),
 (4, '2015-09-03 19:50:31', 1, '2015-08-28 19:11:41', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Wood', 943, '', 'text', 944, '', 'text', 'NATURA WOOD\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '4', 'natura-wood-1', '', '0', NULL, NULL, NULL),
 (5, '2015-09-03 19:50:21', 1, '2015-08-28 19:12:27', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Wood 2', 945, '', 'text', 946, '', 'text', 'NATURA WOOD 2\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '5', 'natura-wood-2', '', '0', NULL, NULL, NULL),
 (6, '2015-09-03 19:50:12', 1, '2015-08-28 19:13:33', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Natura Wood 3', 947, '', 'text', 948, '', 'text', 'NATURA WOOD 3\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '6', 'natura-wood-3', '', '0', NULL, NULL, NULL),
@@ -4601,7 +4597,7 @@ INSERT INTO `b_iblock_element` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE
 (19, '2015-09-03 19:48:27', 1, '2015-09-01 14:52:25', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Charme decor', 975, '', 'text', 976, '', 'text', 'CHARME DECOR\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '19', 'charme-decor', '', '0', NULL, NULL, NULL),
 (20, '2015-10-04 21:36:32', 1, '2015-09-01 14:52:30', 1, 2, 9, 'Y', NULL, NULL, 500, 'Гостиная-Novabelle-Италия-Узоры', NULL, '', 'text', NULL, '', 'text', 'ГОСТИНАЯ-NOVABELLE-ИТАЛИЯ-УЗОРЫ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '20', 'charme', '', '0', NULL, 12, '2015-09-01 17:33:59'),
 (22, '2015-10-22 13:12:23', 2, '2015-09-14 17:27:54', 1, 4, 6, 'Y', NULL, NULL, 500, 'Coliseumgres', 1155, '', 'text', 1156, 'Италон - итальянская плитка, производимая в России.', 'text', 'COLISEUMGRES\r\n\r\nИТАЛОН - ИТАЛЬЯНСКАЯ ПЛИТКА, ПРОИЗВОДИМАЯ В РОССИИ.', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '22', 'italon', '', '0', NULL, NULL, NULL),
-(24, '2015-10-26 14:50:24', 2, '2015-09-16 12:06:00', 1, 3, NULL, 'Y', NULL, NULL, 499, 'Ванная-Асти-Россия-Узоры-Напольная', 987, '', 'text', 988, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-НАПОЛЬНАЯ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '24', 'vannaya-asti-rossiya-uzory-napolnaya', '', '0', NULL, NULL, NULL),
+(24, '2015-10-28 22:38:27', 1, '2015-09-16 12:06:00', 1, 3, NULL, 'Y', NULL, NULL, 499, 'Ванная-Асти-Россия-Узоры-Напольная', 987, '', 'text', 988, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-НАПОЛЬНАЯ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '24', 'vannaya-asti-rossiya-uzory-napolnaya', '', '0', NULL, NULL, NULL),
 (25, '2015-10-04 21:35:44', 1, '2015-09-16 12:06:05', 1, 2, 8, 'Y', NULL, NULL, 500, 'Ванная-Azori-Россия-Узоры (Асти)', 989, '', 'text', 990, '', 'text', 'ВАННАЯ-AZORI-РОССИЯ-УЗОРЫ (АСТИ)\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '25', 'vannaya-azori-rossiya-uzory-asti', '', '0', NULL, 4, '2015-09-18 13:36:29'),
 (26, '2015-09-16 12:06:50', 1, '2015-09-16 12:06:50', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Ванная-Асти-Россия-Узоры-Yfcntyyfz', 991, '', 'text', 992, '', 'text', 'ВАННАЯ-АСТИ-РОССИЯ-УЗОРЫ-YFCNTYYFZ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '26', 'vannaya-asti-rossiya-uzory-yfcntyyfz', '', '0', NULL, NULL, NULL),
 (28, '2015-09-16 12:19:28', 1, '2015-09-16 12:14:39', 1, 3, NULL, 'Y', NULL, NULL, 500, 'Atlantic Mosaic', 995, '', 'text', 996, '', 'text', 'ATLANTIC MOSAIC\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '28', 'atlantic-mosaic', '', '0', NULL, NULL, NULL),
@@ -4680,23 +4676,21 @@ INSERT INTO `b_iblock_element` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE
 (103, '2015-10-22 13:32:56', 2, '2015-10-22 13:32:56', 2, 4, 20, 'Y', NULL, NULL, 500, 'Белани', 1163, '', 'text', 1164, '', 'text', 'БЕЛАНИ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '103', 'belani', '', '0', NULL, NULL, NULL),
 (104, '2015-10-22 13:58:00', 2, '2015-10-22 13:58:00', 2, 4, 11, 'Y', NULL, NULL, 500, 'Paradyz', 1165, '', 'text', 1166, '', 'text', 'PARADYZ\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '104', 'paradyz', '', '0', NULL, NULL, NULL),
 (105, '2015-10-22 13:59:42', 2, '2015-10-22 13:59:42', 2, 4, 11, 'Y', NULL, NULL, 500, 'Polcolorit', 1167, '', 'text', 1168, '', 'text', 'POLCOLORIT\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '105', 'polcolorit', '', '0', NULL, NULL, NULL),
-(107, '2015-10-26 14:26:16', 2, '2015-10-26 14:26:16', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema', 1169, '', 'text', 1170, '', 'text', 'LEGEND CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '107', 'legend-crema', '', '0', NULL, NULL, NULL),
-(112, '2015-10-26 15:42:54', 2, '2015-10-26 15:39:54', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema2', 1173, '', 'text', 1174, '', 'text', 'LEGEND CREMA2\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '112', 'legend-crema2', '', '39', NULL, NULL, NULL),
-(114, '2015-10-26 15:44:27', 2, '2015-10-26 15:44:27', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend listelo decoro crema', 1177, '', 'text', 1178, '', 'text', 'LEGEND LISTELO DECORO CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '114', 'legend-listelo-decoro-crema', '', '39', NULL, NULL, NULL),
-(115, '2015-10-26 15:45:13', 2, '2015-10-26 15:45:13', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema3', 1179, '', 'text', 1180, '', 'text', 'LEGEND CREMA3\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '115', 'legend-crema3', '', '39', NULL, NULL, NULL),
-(118, '2015-10-27 13:29:54', 2, '2015-10-26 16:10:26', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema34', 1200, '', 'text', 1201, '', 'text', 'LEGEND CREMA34\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '118', 'legend-crema34', '', '0', NULL, NULL, NULL),
-(119, '2015-10-27 14:31:36', 2, '2015-10-26 16:10:55', 2, 2, 8, 'Y', NULL, NULL, 500, 'Legend', 1197, '', 'text', 1198, '', 'text', 'LEGEND\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '119', 'legend', '', '0', NULL, NULL, NULL),
-(120, '2015-10-27 14:59:12', 2, '2015-10-26 16:25:48', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend boiserie crema', 1215, '', 'text', 1211, '', 'text', 'LEGEND BOISERIE CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '120', 'legend', '', '0', NULL, NULL, NULL),
-(121, '2015-10-27 14:24:21', 2, '2015-10-26 16:28:13', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend listelo decoro crema1', 1192, '', 'text', 1193, '', 'text', 'LEGEND LISTELO DECORO CREMA1\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '121', 'legend-listelo-decoro-crema1', '', '0', NULL, NULL, NULL),
-(122, '2015-10-27 14:31:05', 2, '2015-10-26 16:30:08', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend crema12', 1194, '', 'text', 1195, '', 'text', 'LEGEND CREMA12\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '122', 'legend-crema12', '', '0', NULL, NULL, NULL),
-(123, '2015-10-27 14:24:21', 2, '2015-10-27 13:32:17', 2, 3, NULL, 'Y', NULL, NULL, 500, 'Legend bord', 1212, '', 'text', 1213, '', 'text', 'LEGEND BORD\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '123', 'legend-bord', '', '0', NULL, NULL, NULL);
+(112, '2015-10-30 12:00:07', 2, '2015-10-26 15:39:54', 2, 3, NULL, 'Y', NULL, NULL, 700, 'Legend crema', 1234, '', 'text', 1235, '', 'text', 'LEGEND CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '112', 'legend-crema', '', '0', NULL, NULL, NULL),
+(114, '2015-10-30 12:01:07', 2, '2015-10-26 15:44:27', 2, 3, NULL, 'Y', NULL, NULL, 703, 'Legend listelo decoro crema', 1236, '', 'text', 1237, '', 'text', 'LEGEND LISTELO DECORO CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '114', 'legend-listelo-decoro-crema', '', '0', NULL, NULL, NULL),
+(119, '2015-10-30 11:58:21', 1, '2015-10-26 16:10:55', 2, 2, 8, 'Y', NULL, NULL, 500, 'Legend', 1197, '', 'text', 1198, '', 'text', 'LEGEND\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'Y', '119', 'legend', '', '0', NULL, NULL, NULL),
+(120, '2015-10-30 12:00:16', 2, '2015-10-26 16:25:48', 2, 3, NULL, 'Y', NULL, NULL, 701, 'Legend boiserie crema', 1232, '', 'text', 1233, '', 'text', 'LEGEND BOISERIE CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '120', 'legend', '', '0', NULL, NULL, NULL),
+(122, '2015-10-30 12:02:23', 2, '2015-10-26 16:30:08', 2, 3, NULL, 'Y', NULL, NULL, 705, 'Legend crema', 1242, '', 'text', 1243, '', 'text', 'LEGEND CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '122', 'legend-crema 40x40', '', '0', NULL, NULL, NULL),
+(123, '2015-10-30 12:01:58', 2, '2015-10-27 13:32:17', 2, 3, NULL, 'Y', NULL, NULL, 704, 'Legend listelo reposo crema', 1240, '', 'text', 1241, '', 'text', 'LEGEND LISTELO REPOSO CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '123', 'legend-bord', '', '0', NULL, NULL, NULL),
+(125, '2015-10-30 12:01:39', 2, '2015-10-28 11:01:56', 2, 3, NULL, 'Y', NULL, NULL, 702, 'Legend inserto decoro crema', 1238, '', 'text', 1239, '', 'text', 'LEGEND INSERTO DECORO CREMA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '125', 'legend-inserto-decoro-crema', '', '0', NULL, NULL, NULL),
+(126, '2015-10-30 12:02:40', 2, '2015-10-28 11:20:09', 2, 3, NULL, 'Y', NULL, NULL, 706, 'Legend moka', 1244, '', 'text', 1245, '', 'text', 'LEGEND MOKA\r\n\r\n', 1, NULL, NULL, NULL, NULL, NULL, 'N', '126', 'legend-moka', '', '0', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_iblock_element_iprop`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_iprop`;
@@ -4713,7 +4707,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_iprop` (
 --
 -- Table structure for table `b_iblock_element_lock`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_lock`;
@@ -4728,7 +4722,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_lock` (
 --
 -- Table structure for table `b_iblock_element_property`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_property`;
@@ -4741,7 +4735,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_property` (
   `VALUE_ENUM` int(11) DEFAULT NULL,
   `VALUE_NUM` decimal(18,4) DEFAULT NULL,
   `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=402 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=453 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_iblock_element_property`
@@ -4886,35 +4880,33 @@ INSERT INTO `b_iblock_element_property` (`ID`, `IBLOCK_PROPERTY_ID`, `IBLOCK_ELE
 (295, 10, 63, '7', 'text', NULL, '7.0000', NULL),
 (298, 11, 35, '2', 'text', 2, NULL, NULL),
 (299, 10, 37, '6', 'text', NULL, '6.0000', NULL),
-(304, 11, 107, '1', 'text', 1, NULL, NULL),
-(315, 11, 24, '2', 'text', 2, NULL, NULL),
-(325, 5, 112, '-39', 'text', NULL, '-39.0000', ''),
-(329, 11, 112, '1', 'text', 1, NULL, NULL),
-(331, 5, 114, '-39', 'text', NULL, '-39.0000', ''),
-(332, 11, 114, '9', 'text', 9, NULL, NULL),
-(333, 5, 115, '-39', 'text', NULL, '-39.0000', ''),
-(334, 11, 115, '2', 'text', 2, NULL, NULL),
+(331, 5, 114, '119', 'text', NULL, '119.0000', ''),
 (343, 9, 119, '76', 'text', NULL, '76.0000', ''),
 (345, 12, 119, '53', 'text', NULL, '53.0000', ''),
-(346, 5, 118, '119', 'text', NULL, '119.0000', NULL),
 (350, 5, 120, '119', 'text', NULL, '119.0000', ''),
-(353, 5, 121, '119', 'text', NULL, '119.0000', ''),
 (355, 5, 122, '119', 'text', NULL, '119.0000', ''),
-(360, 13, 119, '1199', 'text', NULL, '1199.0000', NULL),
-(361, 11, 118, '1', 'text', 1, NULL, NULL),
 (378, 5, 123, '119', 'text', NULL, '119.0000', ''),
-(390, 11, 121, '9', 'text', 9, NULL, NULL),
-(391, 11, 123, '9', 'text', 9, NULL, NULL),
-(394, 11, 122, '2', 'text', 2, NULL, NULL),
-(397, 10, 119, '7', 'text', NULL, '7.0000', NULL),
-(401, 11, 120, '1', 'text', 1, NULL, NULL);
+(403, 13, 119, '1216', 'text', NULL, '1216.0000', NULL),
+(411, 5, 125, '119', 'text', NULL, '119.0000', ''),
+(417, 5, 126, '119', 'text', NULL, '119.0000', ''),
+(420, 14, 120, 'ssd', 'text', NULL, '0.0000', ''),
+(434, 5, 112, '119', 'text', NULL, '119.0000', ''),
+(441, 11, 24, '2', 'text', 2, NULL, NULL),
+(444, 10, 119, '7', 'text', NULL, '7.0000', NULL),
+(446, 11, 112, '1', 'text', 1, NULL, NULL),
+(447, 11, 120, '1', 'text', 1, NULL, NULL),
+(448, 11, 114, '9', 'text', 9, NULL, NULL),
+(449, 11, 125, '3', 'text', 3, NULL, NULL),
+(450, 11, 123, '9', 'text', 9, NULL, NULL),
+(451, 11, 122, '2', 'text', 2, NULL, NULL),
+(452, 11, 126, '2', 'text', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_iblock_element_right`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_element_right`;
@@ -4931,7 +4923,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_element_right` (
 --
 -- Table structure for table `b_iblock_fields`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_fields`;
@@ -5015,7 +5007,7 @@ INSERT INTO `b_iblock_fields` (`IBLOCK_ID`, `FIELD_ID`, `IS_REQUIRED`, `DEFAULT_
 (3, 'ACTIVE_FROM', 'N', ''),
 (3, 'ACTIVE_TO', 'N', ''),
 (3, 'CODE', 'Y', 'a:8:{s:6:"UNIQUE";s:1:"Y";s:15:"TRANSLITERATION";s:1:"Y";s:9:"TRANS_LEN";i:100;s:10:"TRANS_CASE";s:1:"L";s:11:"TRANS_SPACE";s:1:"-";s:11:"TRANS_OTHER";s:1:"-";s:9:"TRANS_EAT";s:1:"Y";s:10:"USE_GOOGLE";s:1:"Y";}'),
-(3, 'DETAIL_PICTURE', 'Y', 'a:17:{s:5:"SCALE";s:1:"Y";s:5:"WIDTH";i:600;s:6:"HEIGHT";i:300;s:13:"IGNORE_ERRORS";s:1:"Y";s:6:"METHOD";s:8:"resample";s:11:"COMPRESSION";i:95;s:18:"USE_WATERMARK_TEXT";s:1:"N";s:14:"WATERMARK_TEXT";s:0:"";s:19:"WATERMARK_TEXT_FONT";s:0:"";s:20:"WATERMARK_TEXT_COLOR";s:0:"";s:19:"WATERMARK_TEXT_SIZE";s:0:"";s:23:"WATERMARK_TEXT_POSITION";s:2:"tl";s:18:"USE_WATERMARK_FILE";s:1:"N";s:14:"WATERMARK_FILE";s:0:"";s:20:"WATERMARK_FILE_ALPHA";s:0:"";s:23:"WATERMARK_FILE_POSITION";s:2:"tl";s:20:"WATERMARK_FILE_ORDER";N;}'),
+(3, 'DETAIL_PICTURE', 'Y', 'a:17:{s:5:"SCALE";s:1:"Y";s:5:"WIDTH";i:200;s:6:"HEIGHT";i:600;s:13:"IGNORE_ERRORS";s:1:"Y";s:6:"METHOD";s:8:"resample";s:11:"COMPRESSION";i:95;s:18:"USE_WATERMARK_TEXT";s:1:"N";s:14:"WATERMARK_TEXT";s:0:"";s:19:"WATERMARK_TEXT_FONT";s:0:"";s:20:"WATERMARK_TEXT_COLOR";s:0:"";s:19:"WATERMARK_TEXT_SIZE";s:0:"";s:23:"WATERMARK_TEXT_POSITION";s:2:"tl";s:18:"USE_WATERMARK_FILE";s:1:"N";s:14:"WATERMARK_FILE";s:0:"";s:20:"WATERMARK_FILE_ALPHA";s:0:"";s:23:"WATERMARK_FILE_POSITION";s:2:"tl";s:20:"WATERMARK_FILE_ORDER";N;}'),
 (3, 'DETAIL_TEXT', 'N', ''),
 (3, 'DETAIL_TEXT_TYPE', 'Y', 'text'),
 (3, 'DETAIL_TEXT_TYPE_ALLOW_CHANGE', 'N', 'Y'),
@@ -5027,7 +5019,7 @@ INSERT INTO `b_iblock_fields` (`IBLOCK_ID`, `FIELD_ID`, `IS_REQUIRED`, `DEFAULT_
 (3, 'LOG_SECTION_DELETE', 'N', NULL),
 (3, 'LOG_SECTION_EDIT', 'N', NULL),
 (3, 'NAME', 'Y', ''),
-(3, 'PREVIEW_PICTURE', 'Y', 'a:20:{s:11:"FROM_DETAIL";s:1:"Y";s:5:"SCALE";s:1:"Y";s:5:"WIDTH";i:200;s:6:"HEIGHT";i:200;s:13:"IGNORE_ERRORS";s:1:"Y";s:6:"METHOD";s:8:"resample";s:11:"COMPRESSION";i:95;s:18:"DELETE_WITH_DETAIL";s:1:"Y";s:18:"UPDATE_WITH_DETAIL";s:1:"Y";s:18:"USE_WATERMARK_TEXT";s:1:"N";s:14:"WATERMARK_TEXT";s:0:"";s:19:"WATERMARK_TEXT_FONT";s:0:"";s:20:"WATERMARK_TEXT_COLOR";s:0:"";s:19:"WATERMARK_TEXT_SIZE";s:0:"";s:23:"WATERMARK_TEXT_POSITION";s:2:"tl";s:18:"USE_WATERMARK_FILE";s:1:"N";s:14:"WATERMARK_FILE";s:0:"";s:20:"WATERMARK_FILE_ALPHA";s:0:"";s:23:"WATERMARK_FILE_POSITION";s:2:"tl";s:20:"WATERMARK_FILE_ORDER";N;}'),
+(3, 'PREVIEW_PICTURE', 'Y', 'a:20:{s:11:"FROM_DETAIL";s:1:"Y";s:5:"SCALE";s:1:"Y";s:5:"WIDTH";i:133;s:6:"HEIGHT";i:400;s:13:"IGNORE_ERRORS";s:1:"Y";s:6:"METHOD";s:8:"resample";s:11:"COMPRESSION";i:95;s:18:"DELETE_WITH_DETAIL";s:1:"Y";s:18:"UPDATE_WITH_DETAIL";s:1:"Y";s:18:"USE_WATERMARK_TEXT";s:1:"N";s:14:"WATERMARK_TEXT";s:0:"";s:19:"WATERMARK_TEXT_FONT";s:0:"";s:20:"WATERMARK_TEXT_COLOR";s:0:"";s:19:"WATERMARK_TEXT_SIZE";s:0:"";s:23:"WATERMARK_TEXT_POSITION";s:2:"tl";s:18:"USE_WATERMARK_FILE";s:1:"N";s:14:"WATERMARK_FILE";s:0:"";s:20:"WATERMARK_FILE_ALPHA";s:0:"";s:23:"WATERMARK_FILE_POSITION";s:2:"tl";s:20:"WATERMARK_FILE_ORDER";N;}'),
 (3, 'PREVIEW_TEXT', 'N', ''),
 (3, 'PREVIEW_TEXT_TYPE', 'Y', 'text'),
 (3, 'PREVIEW_TEXT_TYPE_ALLOW_CHANGE', 'N', 'Y'),
@@ -5145,7 +5137,7 @@ INSERT INTO `b_iblock_fields` (`IBLOCK_ID`, `FIELD_ID`, `IS_REQUIRED`, `DEFAULT_
 --
 -- Table structure for table `b_iblock_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_group`;
@@ -5183,7 +5175,7 @@ INSERT INTO `b_iblock_group` (`IBLOCK_ID`, `GROUP_ID`, `PERMISSION`) VALUES
 --
 -- Table structure for table `b_iblock_iblock_iprop`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_iblock_iprop`;
@@ -5198,7 +5190,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_iblock_iprop` (
 --
 -- Table structure for table `b_iblock_iproperty`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_iproperty`;
@@ -5216,7 +5208,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_iproperty` (
 --
 -- Table structure for table `b_iblock_messages`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_messages`;
@@ -5297,7 +5289,7 @@ INSERT INTO `b_iblock_messages` (`IBLOCK_ID`, `MESSAGE_ID`, `MESSAGE_TEXT`) VALU
 --
 -- Table structure for table `b_iblock_offers_tmp`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_offers_tmp`;
@@ -5306,39 +5298,21 @@ CREATE TABLE IF NOT EXISTS `b_iblock_offers_tmp` (
   `PRODUCT_IBLOCK_ID` int(11) unsigned NOT NULL,
   `OFFERS_IBLOCK_ID` int(11) unsigned NOT NULL,
   `TIMESTAMP_X` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_iblock_offers_tmp`
 --
 
 INSERT INTO `b_iblock_offers_tmp` (`ID`, `PRODUCT_IBLOCK_ID`, `OFFERS_IBLOCK_ID`, `TIMESTAMP_X`) VALUES
-(19, 2, 3, '2015-10-26 10:35:52'),
-(20, 2, 3, '2015-10-26 10:53:56'),
-(21, 2, 3, '2015-10-26 10:58:12'),
-(22, 2, 3, '2015-10-26 10:58:49'),
-(23, 2, 3, '2015-10-26 11:19:07'),
-(24, 2, 3, '2015-10-26 11:21:21'),
-(25, 2, 3, '2015-10-26 11:31:18'),
-(27, 2, 3, '2015-10-26 11:38:30'),
-(28, 2, 3, '2015-10-26 11:40:59'),
-(29, 2, 3, '2015-10-26 11:43:53'),
-(30, 2, 3, '2015-10-26 11:44:43'),
-(32, 2, 3, '2015-10-26 12:01:55'),
-(33, 2, 3, '2015-10-26 12:04:41'),
-(34, 2, 3, '2015-10-26 12:07:27'),
-(35, 2, 3, '2015-10-26 12:20:44'),
-(37, 2, 3, '2015-10-26 12:24:53'),
-(39, 2, 3, '2015-10-26 12:32:22'),
-(40, 2, 3, '2015-10-26 12:52:47'),
-(41, 2, 3, '2015-10-26 12:53:22');
+(45, 2, 3, '2015-10-28 16:26:03');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_iblock_property`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_property`;
@@ -5369,7 +5343,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_property` (
   `USER_TYPE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `USER_TYPE_SETTINGS` text COLLATE utf8_unicode_ci,
   `HINT` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_iblock_property`
@@ -5384,14 +5358,15 @@ INSERT INTO `b_iblock_property` (`ID`, `TIMESTAMP_X`, `IBLOCK_ID`, `NAME`, `ACTI
 (10, '2015-09-14 15:10:27', 2, 'Страна', 'Y', 500, 'ATT_COUNTRY', '', 'G', 1, 30, 'L', 'N', NULL, '', 5, NULL, 4, 'N', 'N', 'N', 'Y', 1, NULL, NULL, ''),
 (11, '2015-09-03 16:48:09', 3, 'Тип', 'Y', 500, 'ATT_TYPE', '', 'L', 1, 30, 'L', 'N', NULL, '', 5, NULL, 0, 'N', 'N', 'N', 'Y', 1, NULL, NULL, ''),
 (12, '2015-10-04 18:21:38', 2, 'Тематика', 'Y', 500, 'ATT_THEME', '', 'E', 1, 30, 'L', 'N', NULL, '', 5, NULL, 6, 'N', 'N', 'N', 'Y', 1, NULL, NULL, ''),
-(13, '2015-09-25 15:12:00', 2, 'Изображения', 'Y', 500, 'MORE_PHOTO', '', 'F', 1, 30, 'L', 'Y', NULL, 'jpg, gif, bmp, png, jpeg', 5, NULL, 0, 'N', 'N', 'N', 'Y', 1, NULL, NULL, '');
+(13, '2015-09-25 15:12:00', 2, 'Изображения', 'Y', 500, 'MORE_PHOTO', '', 'F', 1, 30, 'L', 'Y', NULL, 'jpg, gif, bmp, png, jpeg', 5, NULL, 0, 'N', 'N', 'N', 'Y', 1, NULL, NULL, ''),
+(14, '2015-10-27 14:08:38', 3, 'Номенклатор', 'Y', 500, 'ATT_NOMENKLATOR', '', 'N', 1, 30, 'L', 'N', NULL, '', 5, NULL, 0, 'N', 'N', 'N', 'N', 1, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_iblock_property_enum`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_property_enum`;
@@ -5420,7 +5395,7 @@ INSERT INTO `b_iblock_property_enum` (`ID`, `PROPERTY_ID`, `VALUE`, `DEF`, `SORT
 --
 -- Table structure for table `b_iblock_right`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_right`;
@@ -5442,7 +5417,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_right` (
 --
 -- Table structure for table `b_iblock_rss`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_rss`;
@@ -5458,7 +5433,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_rss` (
 --
 -- Table structure for table `b_iblock_section`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section`;
@@ -5513,7 +5488,7 @@ INSERT INTO `b_iblock_section` (`ID`, `TIMESTAMP_X`, `MODIFIED_BY`, `DATE_CREATE
 --
 -- Table structure for table `b_iblock_section_element`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_element`;
@@ -5597,7 +5572,7 @@ INSERT INTO `b_iblock_section_element` (`IBLOCK_SECTION_ID`, `IBLOCK_ELEMENT_ID`
 --
 -- Table structure for table `b_iblock_section_iprop`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_iprop`;
@@ -5613,7 +5588,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_iprop` (
 --
 -- Table structure for table `b_iblock_section_property`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_property`;
@@ -5632,7 +5607,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_property` (
 --
 -- Table structure for table `b_iblock_section_right`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_section_right`;
@@ -5648,7 +5623,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_section_right` (
 --
 -- Table structure for table `b_iblock_sequence`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_sequence`;
@@ -5663,7 +5638,7 @@ CREATE TABLE IF NOT EXISTS `b_iblock_sequence` (
 --
 -- Table structure for table `b_iblock_site`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_site`;
@@ -5689,7 +5664,7 @@ INSERT INTO `b_iblock_site` (`IBLOCK_ID`, `SITE_ID`) VALUES
 --
 -- Table structure for table `b_iblock_type`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_type`;
@@ -5719,7 +5694,7 @@ INSERT INTO `b_iblock_type` (`ID`, `SECTIONS`, `EDIT_FILE_BEFORE`, `EDIT_FILE_AF
 --
 -- Table structure for table `b_iblock_type_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_iblock_type_lang`;
@@ -5754,7 +5729,7 @@ INSERT INTO `b_iblock_type_lang` (`IBLOCK_TYPE_ID`, `LID`, `NAME`, `SECTION_NAME
 --
 -- Table structure for table `b_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_lang`;
@@ -5789,9 +5764,23 @@ INSERT INTO `b_lang` (`LID`, `SORT`, `DEF`, `ACTIVE`, `NAME`, `DIR`, `FORMAT_DAT
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `b_lang_domain`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_lang_domain`;
+CREATE TABLE IF NOT EXISTS `b_lang_domain` (
+  `LID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `DOMAIN` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `b_language`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_language`;
@@ -5821,23 +5810,9 @@ INSERT INTO `b_language` (`LID`, `SORT`, `DEF`, `ACTIVE`, `NAME`, `FORMAT_DATE`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `b_lang_domain`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_lang_domain`;
-CREATE TABLE IF NOT EXISTS `b_lang_domain` (
-  `LID` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `DOMAIN` varchar(255) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `b_list_rubric`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_list_rubric`;
@@ -5871,7 +5846,7 @@ INSERT INTO `b_list_rubric` (`ID`, `LID`, `CODE`, `NAME`, `DESCRIPTION`, `SORT`,
 --
 -- Table structure for table `b_medialib_collection`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_medialib_collection`;
@@ -5894,7 +5869,7 @@ CREATE TABLE IF NOT EXISTS `b_medialib_collection` (
 --
 -- Table structure for table `b_medialib_collection_item`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_medialib_collection_item`;
@@ -5908,7 +5883,7 @@ CREATE TABLE IF NOT EXISTS `b_medialib_collection_item` (
 --
 -- Table structure for table `b_medialib_item`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_medialib_item`;
@@ -5929,7 +5904,7 @@ CREATE TABLE IF NOT EXISTS `b_medialib_item` (
 --
 -- Table structure for table `b_medialib_type`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_medialib_type`;
@@ -5956,7 +5931,7 @@ INSERT INTO `b_medialib_type` (`ID`, `NAME`, `CODE`, `EXT`, `SYSTEM`, `DESCRIPTI
 --
 -- Table structure for table `b_mobileapp_app`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_mobileapp_app`;
@@ -5977,7 +5952,7 @@ CREATE TABLE IF NOT EXISTS `b_mobileapp_app` (
 --
 -- Table structure for table `b_mobileapp_config`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_mobileapp_config`;
@@ -5993,7 +5968,7 @@ CREATE TABLE IF NOT EXISTS `b_mobileapp_config` (
 --
 -- Table structure for table `b_module`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_module`;
@@ -6041,7 +6016,7 @@ INSERT INTO `b_module` (`ID`, `DATE_ACTIVE`) VALUES
 --
 -- Table structure for table `b_module_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_module_group`;
@@ -6070,7 +6045,7 @@ INSERT INTO `b_module_group` (`ID`, `MODULE_ID`, `GROUP_ID`, `G_ACCESS`, `SITE_I
 --
 -- Table structure for table `b_module_to_module`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_module_to_module`;
@@ -6435,7 +6410,7 @@ INSERT INTO `b_module_to_module` (`ID`, `TIMESTAMP_X`, `SORT`, `FROM_MODULE_ID`,
 --
 -- Table structure for table `b_operation`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_operation`;
@@ -6581,7 +6556,7 @@ INSERT INTO `b_operation` (`ID`, `NAME`, `MODULE_ID`, `DESCRIPTION`, `BINDING`) 
 --
 -- Table structure for table `b_option`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_option`;
@@ -6949,7 +6924,7 @@ INSERT INTO `b_option` (`MODULE_ID`, `NAME`, `VALUE`, `DESCRIPTION`, `SITE_ID`) 
 --
 -- Table structure for table `b_perf_cache`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_cache`;
@@ -6973,7 +6948,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_cache` (
 --
 -- Table structure for table `b_perf_cluster`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_cluster`;
@@ -6993,7 +6968,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_cluster` (
 --
 -- Table structure for table `b_perf_component`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_component`;
@@ -7017,7 +6992,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_component` (
 --
 -- Table structure for table `b_perf_error`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_error`;
@@ -7035,7 +7010,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_error` (
 --
 -- Table structure for table `b_perf_history`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_history`;
@@ -7058,7 +7033,7 @@ INSERT INTO `b_perf_history` (`ID`, `TIMESTAMP_X`, `TOTAL_MARK`, `ACCELERATOR_EN
 --
 -- Table structure for table `b_perf_hit`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_hit`;
@@ -7102,15 +7077,15 @@ CREATE TABLE IF NOT EXISTS `b_perf_hit` (
 
 INSERT INTO `b_perf_hit` (`ID`, `DATE_HIT`, `IS_ADMIN`, `REQUEST_METHOD`, `SERVER_NAME`, `SERVER_PORT`, `SCRIPT_NAME`, `REQUEST_URI`, `INCLUDED_FILES`, `MEMORY_PEAK_USAGE`, `CACHE_TYPE`, `CACHE_SIZE`, `CACHE_COUNT_R`, `CACHE_COUNT_W`, `CACHE_COUNT_C`, `QUERIES`, `QUERIES_TIME`, `COMPONENTS`, `COMPONENTS_TIME`, `SQL_LOG`, `PAGE_TIME`, `PROLOG_TIME`, `PROLOG_BEFORE_TIME`, `AGENTS_TIME`, `PROLOG_AFTER_TIME`, `WORK_AREA_TIME`, `EPILOG_TIME`, `EPILOG_BEFORE_TIME`, `EVENTS_TIME`, `EPILOG_AFTER_TIME`, `MENU_RECALC`) VALUES
 (1, '2015-09-16 13:12:51', 'N', NULL, NULL, NULL, 'E:\\Bitrix_3\\www\\bitrix\\modules\\main\\tools\\cron_events.php', NULL, 153, 18557408, 'N', 0, 0, 0, 0, 2, 0.000299931, 0, 0, 'Y', 0.163847, NULL, NULL, 0.0362709, NULL, NULL, NULL, NULL, 0, NULL, 0),
-(2, '2015-09-16 13:13:38', 'N', 'POST', 'localhost', 6449, '/bitrix/components/bitrix/pull.request/ajax.php', '/bitrix/components/bitrix/pull.request/ajax.php?UPDATE_STATE', 148, 3692800, 'N', 0, 0, 0, 0, 2, 0.000362158, 0, 0, 'Y', 0.0512638, NULL, NULL, 3.38554e-05, NULL, NULL, NULL, NULL, 7.39098e-05, NULL, 0),
-(3, '2015-09-16 13:13:41', 'N', 'POST', 'localhost', 6449, '/bitrix/components/bitrix/pull.request/ajax.php', '/bitrix/components/bitrix/pull.request/ajax.php?UPDATE_STATE', 148, 4353928, 'N', 0, 0, 0, 0, 2, 0.00425196, 0, 0, 'Y', 0.215125, NULL, NULL, 3.19481e-05, NULL, NULL, NULL, NULL, 0.000516891, NULL, 0);
+(2, '2015-09-16 13:13:38', 'N', 'POST', 'localhost', 6449, '/bitrix/components/bitrix/pull.request/ajax.php', '/bitrix/components/bitrix/pull.request/ajax.php?UPDATE_STATE', 148, 3692800, 'N', 0, 0, 0, 0, 2, 0.000362158, 0, 0, 'Y', 0.0512638, NULL, NULL, 0.0000338554, NULL, NULL, NULL, NULL, 0.0000739098, NULL, 0),
+(3, '2015-09-16 13:13:41', 'N', 'POST', 'localhost', 6449, '/bitrix/components/bitrix/pull.request/ajax.php', '/bitrix/components/bitrix/pull.request/ajax.php?UPDATE_STATE', 148, 4353928, 'N', 0, 0, 0, 0, 2, 0.00425196, 0, 0, 'Y', 0.215125, NULL, NULL, 0.0000319481, NULL, NULL, NULL, NULL, 0.000516891, NULL, 0);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_perf_index_ban`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_ban`;
@@ -7126,7 +7101,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_ban` (
 --
 -- Table structure for table `b_perf_index_complete`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_complete`;
@@ -7143,7 +7118,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_complete` (
 --
 -- Table structure for table `b_perf_index_suggest`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_suggest`;
@@ -7164,7 +7139,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_suggest` (
 --
 -- Table structure for table `b_perf_index_suggest_sql`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_index_suggest_sql`;
@@ -7178,7 +7153,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_index_suggest_sql` (
 --
 -- Table structure for table `b_perf_sql`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_sql`;
@@ -7211,7 +7186,7 @@ INSERT INTO `b_perf_sql` (`ID`, `HIT_ID`, `COMPONENT_ID`, `NN`, `QUERY_TIME`, `N
 --
 -- Table structure for table `b_perf_sql_backtrace`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_sql_backtrace`;
@@ -7229,7 +7204,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_sql_backtrace` (
 --
 -- Table structure for table `b_perf_tab_column_stat`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_tab_column_stat`;
@@ -7247,7 +7222,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_tab_column_stat` (
 --
 -- Table structure for table `b_perf_tab_stat`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_tab_stat`;
@@ -7262,7 +7237,7 @@ CREATE TABLE IF NOT EXISTS `b_perf_tab_stat` (
 --
 -- Table structure for table `b_perf_test`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_perf_test`;
@@ -7684,7 +7659,7 @@ INSERT INTO `b_perf_test` (`ID`, `REFERENCE_ID`, `NAME`) VALUES
 --
 -- Table structure for table `b_posting`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_posting`;
@@ -7716,7 +7691,7 @@ CREATE TABLE IF NOT EXISTS `b_posting` (
 --
 -- Table structure for table `b_posting_email`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_posting_email`;
@@ -7734,7 +7709,7 @@ CREATE TABLE IF NOT EXISTS `b_posting_email` (
 --
 -- Table structure for table `b_posting_file`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_posting_file`;
@@ -7748,7 +7723,7 @@ CREATE TABLE IF NOT EXISTS `b_posting_file` (
 --
 -- Table structure for table `b_posting_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_posting_group`;
@@ -7762,7 +7737,7 @@ CREATE TABLE IF NOT EXISTS `b_posting_group` (
 --
 -- Table structure for table `b_posting_rubric`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_posting_rubric`;
@@ -7776,7 +7751,7 @@ CREATE TABLE IF NOT EXISTS `b_posting_rubric` (
 --
 -- Table structure for table `b_pull_channel`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_pull_channel`;
@@ -7787,7 +7762,7 @@ CREATE TABLE IF NOT EXISTS `b_pull_channel` (
   `CHANNEL_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `LAST_ID` int(18) DEFAULT NULL,
   `DATE_CREATE` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_pull_channel`
@@ -7795,15 +7770,15 @@ CREATE TABLE IF NOT EXISTS `b_pull_channel` (
 
 INSERT INTO `b_pull_channel` (`ID`, `USER_ID`, `CHANNEL_TYPE`, `CHANNEL_ID`, `LAST_ID`, `DATE_CREATE`) VALUES
 (31, 3, 'private', 'e7c04e27755c4799faeec6a8c8e99aa7', 0, '2015-10-13 22:43:58'),
-(40, 1, 'private', 'd2eba145fe2dc8848bfe73db1b447d97', 0, '2015-10-27 12:17:34'),
-(41, 2, 'private', '5076e504b778211dfc7dc849d210b05f', 0, '2015-10-27 12:40:16');
+(46, 1, 'private', 'b3230e6bd2d541ee79fa31c2b15525b2', 0, '2015-10-30 11:39:34'),
+(47, 2, 'private', 'ba9f87aad5675f2fc1c0539e7adc8263', 0, '2015-10-30 11:41:56');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_pull_push`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_pull_push`;
@@ -7825,7 +7800,7 @@ CREATE TABLE IF NOT EXISTS `b_pull_push` (
 --
 -- Table structure for table `b_pull_push_queue`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_pull_push_queue`;
@@ -7846,7 +7821,7 @@ CREATE TABLE IF NOT EXISTS `b_pull_push_queue` (
 --
 -- Table structure for table `b_pull_stack`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_pull_stack`;
@@ -7855,7 +7830,7 @@ CREATE TABLE IF NOT EXISTS `b_pull_stack` (
   `CHANNEL_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `MESSAGE` text COLLATE utf8_unicode_ci NOT NULL,
   `DATE_CREATE` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_pull_stack`
@@ -7891,14 +7866,20 @@ INSERT INTO `b_pull_stack` (`ID`, `CHANNEL_ID`, `MESSAGE`, `DATE_CREATE`) VALUES
 (43, '0e0b97d9595de7f69ee416d0d7db120d', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-26 13:35:12'),
 (44, 'c45a80a92d0a1384542ff26bd64a2ff9', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-26 15:30:17'),
 (45, '27472a48e0167cc8772963991d715188', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-27 12:17:34'),
-(46, '8def70e8ea8996b721823ff5598590a0', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-27 12:40:16');
+(46, '8def70e8ea8996b721823ff5598590a0', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-27 12:40:16'),
+(47, '5076e504b778211dfc7dc849d210b05f', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-28 10:45:39'),
+(48, 'd2eba145fe2dc8848bfe73db1b447d97', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-28 15:13:32'),
+(49, '493701468cbe9238d878867259085212', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-29 09:54:37'),
+(50, '8179a84edbed19fc4a6862f400764a07', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-29 13:17:55'),
+(51, '1a7c2d40c1603745cd380817a38534a8', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-30 11:39:34'),
+(52, 'a0c7bdfb7d875860ad3569dfa591ed05', 'a:3:{s:9:"module_id";s:4:"pull";s:7:"command";s:11:"channel_die";s:6:"params";a:2:{s:7:"replace";s:0:"";s:4:"from";s:17:"delete by channel";}}', '2015-10-30 11:41:56');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_pull_watch`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_pull_watch`;
@@ -7915,7 +7896,7 @@ CREATE TABLE IF NOT EXISTS `b_pull_watch` (
 --
 -- Table structure for table `b_rating`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating`;
@@ -7947,7 +7928,7 @@ INSERT INTO `b_rating` (`ID`, `ACTIVE`, `NAME`, `ENTITY_ID`, `CALCULATION_METHOD
 --
 -- Table structure for table `b_rating_component`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_component`;
@@ -7975,7 +7956,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_component` (
 --
 -- Table structure for table `b_rating_component_results`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_component_results`;
@@ -7996,7 +7977,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_component_results` (
 --
 -- Table structure for table `b_rating_prepare`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_prepare`;
@@ -8009,7 +7990,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_prepare` (
 --
 -- Table structure for table `b_rating_results`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_results`;
@@ -8029,7 +8010,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_results` (
 --
 -- Table structure for table `b_rating_rule`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_rule`;
@@ -8072,7 +8053,7 @@ INSERT INTO `b_rating_rule` (`ID`, `ACTIVE`, `NAME`, `ENTITY_TYPE_ID`, `CONDITIO
 --
 -- Table structure for table `b_rating_rule_vetting`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_rule_vetting`;
@@ -8090,7 +8071,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_rule_vetting` (
 --
 -- Table structure for table `b_rating_user`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_user`;
@@ -8117,7 +8098,7 @@ INSERT INTO `b_rating_user` (`ID`, `RATING_ID`, `ENTITY_ID`, `BONUS`, `VOTE_WEIG
 --
 -- Table structure for table `b_rating_vote`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_vote`;
@@ -8139,7 +8120,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_vote` (
 --
 -- Table structure for table `b_rating_vote_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_vote_group`;
@@ -8166,7 +8147,7 @@ INSERT INTO `b_rating_vote_group` (`ID`, `GROUP_ID`, `TYPE`) VALUES
 --
 -- Table structure for table `b_rating_voting`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_voting`;
@@ -8189,7 +8170,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_voting` (
 --
 -- Table structure for table `b_rating_voting_prepare`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_voting_prepare`;
@@ -8207,7 +8188,7 @@ CREATE TABLE IF NOT EXISTS `b_rating_voting_prepare` (
 --
 -- Table structure for table `b_rating_weight`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_rating_weight`;
@@ -8231,7 +8212,7 @@ INSERT INTO `b_rating_weight` (`ID`, `RATING_FROM`, `RATING_TO`, `WEIGHT`, `COUN
 --
 -- Table structure for table `b_sale_affiliate`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate`;
@@ -8260,7 +8241,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate` (
 --
 -- Table structure for table `b_sale_affiliate_plan`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_plan`;
@@ -8284,7 +8265,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_plan` (
 --
 -- Table structure for table `b_sale_affiliate_plan_section`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_plan_section`;
@@ -8303,7 +8284,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_plan_section` (
 --
 -- Table structure for table `b_sale_affiliate_tier`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_tier`;
@@ -8322,7 +8303,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_tier` (
 --
 -- Table structure for table `b_sale_affiliate_transact`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_affiliate_transact`;
@@ -8343,7 +8324,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_affiliate_transact` (
 --
 -- Table structure for table `b_sale_auxiliary`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_auxiliary`;
@@ -8361,7 +8342,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_auxiliary` (
 --
 -- Table structure for table `b_sale_basket`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_basket`;
@@ -8408,7 +8389,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_basket` (
   `MEASURE_CODE` int(11) DEFAULT NULL,
   `MEASURE_NAME` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `RECOMMENDATION` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_sale_basket`
@@ -8426,15 +8407,14 @@ INSERT INTO `b_sale_basket` (`ID`, `FUSER_ID`, `ORDER_ID`, `PRODUCT_ID`, `PRODUC
 (12, 1, 5, 122, 81, '989.10', 'RUB', '2015-08-27 09:46:14', '2015-08-27 09:46:14', 0.00, 1.00, 's1', 'N', 'Нижнее белье Интимный Вечер', 'Y', 'catalog', '', 'Розничная цена', '', '/catalog/underwear/lingerie-intimate-evening/', '109.90', '', '', 'CCatalogProductProvider', NULL, '309', '[1] Скидка на нижнее белье', '10%', '', '0.00', 'N', 'N', 'N', 'N', NULL, 'N', 'a:3:{s:5:"WIDTH";s:1:"0";s:6:"HEIGHT";s:1:"0";s:6:"LENGTH";s:1:"0";}', NULL, NULL, NULL, NULL, NULL),
 (13, 1, 5, 140, 99, '1349.10', 'RUB', '2015-08-27 09:46:14', '2015-08-27 09:46:14', 0.00, 1.00, 's1', 'N', 'Нижнее белье Огонек в Ночи', 'Y', 'catalog', '', 'Розничная цена', '', '/catalog/underwear/underwear-lights-in-the-night/', '149.90', '', '', 'CCatalogProductProvider', NULL, '338', '[1] Скидка на нижнее белье', '10%', '', '0.00', 'N', 'N', 'N', 'N', NULL, 'N', 'a:3:{s:5:"WIDTH";s:1:"0";s:6:"HEIGHT";s:1:"0";s:6:"LENGTH";s:1:"0";}', NULL, NULL, NULL, NULL, NULL),
 (14, 1, 6, 19, 10, '3942.00', 'RUB', '2015-09-14 17:17:56', '2015-09-14 17:18:52', 0.00, 1.00, 's1', 'N', 'Charme decor', 'Y', 'catalog', NULL, 'Розничная цена', NULL, '/offers/detail.php?ID=19', '438.00', NULL, NULL, 'CCatalogProductProvider', NULL, '20#19', '[1] Скидка на нижнее белье', '10%', '', '0.00', 'N', 'N', 'N', 'N', NULL, 'N', 'a:3:{s:5:"WIDTH";s:2:"29";s:6:"HEIGHT";s:1:"0";s:6:"LENGTH";s:2:"29";}', NULL, 0, 796, 'шт.', NULL),
-(28, 4499, NULL, 45, 25, '1200.00', 'RUB', '2015-09-29 21:06:01', '2015-10-21 11:48:54', 0.00, 3.00, 's1', 'Y', 'Кухня-2 напольная', 'Y', 'catalog', NULL, 'Розничная цена', NULL, '/offers/detail.php?ID=45', '0.00', NULL, NULL, 'CCatalogProductProvider', NULL, '46#45', '', '0', '', '0.00', 'N', 'N', 'N', 'N', NULL, 'N', 'a:3:{s:5:"WIDTH";s:1:"0";s:6:"HEIGHT";s:1:"0";s:6:"LENGTH";s:1:"0";}', NULL, 0, 796, 'шт.', NULL),
-(30, 3642, NULL, 18, 9, '1300.00', 'RUB', '2015-10-05 16:21:48', '2015-10-05 16:22:02', 0.00, 1.00, 's1', 'N', 'Charme floor', 'Y', 'catalog', NULL, 'Розничная цена', NULL, '/offers/detail.php?ID=18', '0.00', NULL, NULL, 'CCatalogProductProvider', NULL, '20#18', '', '0', '', '0.00', 'N', 'N', 'N', 'N', NULL, 'N', 'a:3:{s:5:"WIDTH";s:2:"45";s:6:"HEIGHT";s:1:"0";s:6:"LENGTH";s:2:"45";}', NULL, 0, 55, 'м&sup2;', NULL);
+(28, 4499, NULL, 45, 25, '1200.00', 'RUB', '2015-09-29 21:06:01', '2015-10-21 11:48:54', 0.00, 3.00, 's1', 'Y', 'Кухня-2 напольная', 'Y', 'catalog', NULL, 'Розничная цена', NULL, '/offers/detail.php?ID=45', '0.00', NULL, NULL, 'CCatalogProductProvider', NULL, '46#45', '', '0', '', '0.00', 'N', 'N', 'N', 'N', NULL, 'N', 'a:3:{s:5:"WIDTH";s:1:"0";s:6:"HEIGHT";s:1:"0";s:6:"LENGTH";s:1:"0";}', NULL, 0, 796, 'шт.', NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_sale_basket_props`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_basket_props`;
@@ -8445,7 +8425,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_basket_props` (
   `VALUE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `CODE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SORT` int(11) NOT NULL DEFAULT '100'
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_sale_basket_props`
@@ -8455,16 +8435,14 @@ INSERT INTO `b_sale_basket_props` (`ID`, `BASKET_ID`, `NAME`, `VALUE`, `CODE`, `
 (2, 14, 'Product XML_ID', '20#19', 'PRODUCT.XML_ID', 100),
 (3, 14, 'Тип', 'Декор', 'ATT_TYPE', 1),
 (33, 28, 'Тип', 'Напольная', 'ATT_TYPE', 1),
-(34, 28, 'Product XML_ID', '46#45', 'PRODUCT.XML_ID', 100),
-(37, 30, 'Тип', 'Напольная', 'ATT_TYPE', 1),
-(38, 30, 'Product XML_ID', '20#18', 'PRODUCT.XML_ID', 100);
+(34, 28, 'Product XML_ID', '46#45', 'PRODUCT.XML_ID', 100);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_sale_delivery`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery`;
@@ -8502,7 +8480,7 @@ INSERT INTO `b_sale_delivery` (`ID`, `NAME`, `LID`, `PERIOD_FROM`, `PERIOD_TO`, 
 --
 -- Table structure for table `b_sale_delivery2location`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery2location`;
@@ -8525,7 +8503,7 @@ INSERT INTO `b_sale_delivery2location` (`DELIVERY_ID`, `LOCATION_CODE`, `LOCATIO
 --
 -- Table structure for table `b_sale_delivery2paysystem`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery2paysystem`;
@@ -8540,7 +8518,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_delivery2paysystem` (
 --
 -- Table structure for table `b_sale_delivery_handler`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_delivery_handler`;
@@ -8577,7 +8555,7 @@ INSERT INTO `b_sale_delivery_handler` (`ID`, `LID`, `ACTIVE`, `HID`, `NAME`, `SO
 --
 -- Table structure for table `b_sale_discount`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount`;
@@ -8615,7 +8593,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount` (
 --
 -- Table structure for table `b_sale_discount_coupon`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_coupon`;
@@ -8643,7 +8621,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_coupon` (
 --
 -- Table structure for table `b_sale_discount_entities`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_entities`;
@@ -8661,7 +8639,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_entities` (
 --
 -- Table structure for table `b_sale_discount_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_group`;
@@ -8677,7 +8655,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_group` (
 --
 -- Table structure for table `b_sale_discount_module`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_discount_module`;
@@ -8692,7 +8670,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_discount_module` (
 --
 -- Table structure for table `b_sale_export`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_export`;
@@ -8715,7 +8693,7 @@ INSERT INTO `b_sale_export` (`ID`, `PERSON_TYPE_ID`, `VARS`) VALUES
 --
 -- Table structure for table `b_sale_fuser`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_fuser`;
@@ -8725,7 +8703,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_fuser` (
   `DATE_UPDATE` datetime NOT NULL,
   `USER_ID` int(11) DEFAULT NULL,
   `CODE` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12632 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13855 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_sale_fuser`
@@ -8734,7 +8712,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_fuser` (
 INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
 (3, '2015-09-04 11:40:33', '2015-09-04 11:40:33', NULL, 'cf7973ee52c654329c8e412ff7bb4045'),
 (4, '2015-09-04 14:03:26', '2015-09-04 14:03:26', NULL, '405385c53964b2193661c9744e9ebc15'),
-(6, '2015-09-23 16:30:48', '2015-10-06 10:50:46', NULL, '620bce4b1b43c1cc27ae272079a71e52'),
+(6, '2015-09-23 16:30:48', '2015-10-28 22:38:36', NULL, '620bce4b1b43c1cc27ae272079a71e52'),
 (7, '2015-09-23 16:36:39', '2015-09-23 16:36:39', NULL, '215f26b32ffc59c356e5b92e05e518fd'),
 (8, '2015-09-23 16:39:00', '2015-09-23 16:39:00', NULL, '0249404ac4dbf58b7b350600b66ab613'),
 (9, '2015-09-23 16:49:08', '2015-09-23 16:49:08', NULL, '565e706008bc76ca658a43d48d488e62'),
@@ -12373,7 +12351,7 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (3639, '2015-10-02 13:24:20', '2015-10-02 13:24:20', NULL, '2d522c6071a842b2158da557b0680316'),
 (3640, '2015-10-02 13:25:50', '2015-10-02 13:25:50', NULL, '29b0068eb8c77010dbda6078313efa3f'),
 (3641, '2015-10-02 13:27:50', '2015-10-02 13:27:50', NULL, 'bdbb0dc4ac0b9a871f949e53bbbb5d3b'),
-(3642, '2015-10-02 13:32:23', '2015-10-27 14:15:49', NULL, '213a7db29712d4db6945309cdb7683a3'),
+(3642, '2015-10-02 13:32:23', '2015-10-30 11:48:11', NULL, '213a7db29712d4db6945309cdb7683a3'),
 (3643, '2015-10-02 13:42:49', '2015-10-02 13:42:49', NULL, '24f968e8ffcfd2f946224a1ce4dac32d'),
 (3644, '2015-10-02 13:43:46', '2015-10-02 13:43:46', NULL, '5b05d0b96038d279b094774bbee6a5ae'),
 (3645, '2015-10-02 13:46:14', '2015-10-02 13:46:14', NULL, 'e59b7f85ab9fde94e2f7b35ba693f796'),
@@ -13231,7 +13209,7 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (4495, '2015-10-05 17:51:37', '2015-10-05 17:51:37', NULL, 'bb4f75f162b0994465965ca4e5b3a670'),
 (4496, '2015-10-05 17:51:38', '2015-10-05 17:51:38', NULL, '7745ddb1b4655870f14cd141d16058c5'),
 (4497, '2015-10-05 19:27:19', '2015-10-05 19:27:19', NULL, '30504a2473676b8f73b09c3f60779817'),
-(4499, '2015-10-05 19:51:35', '2015-10-27 14:08:40', 2, '3a6b2180f914517f85e9069070209348'),
+(4499, '2015-10-05 19:51:35', '2015-10-30 11:41:56', 2, '3a6b2180f914517f85e9069070209348'),
 (4504, '2015-10-05 20:27:15', '2015-10-05 20:27:15', NULL, 'a43536d188252dffb6ee31a1d8407245'),
 (4505, '2015-10-05 20:27:16', '2015-10-06 10:51:28', NULL, '6501d21fbe1e051c2090bec1b1f1ac28'),
 (4506, '2015-10-05 20:46:54', '2015-10-05 20:46:54', NULL, '997f0e5d844b9010d8b3f9a7434a53af'),
@@ -20439,7 +20417,7 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (11701, '2015-10-22 18:54:45', '2015-10-22 18:54:45', NULL, '6572376f9945994392fa5d3cc1c26aaa'),
 (11702, '2015-10-22 18:54:47', '2015-10-22 18:54:47', NULL, '491fd51ea315cb5e683b1709aa6cc64b'),
 (11703, '2015-10-22 19:40:14', '2015-10-22 19:40:14', NULL, '9b62e7d44ed4efd05ea27d414921ce4f'),
-(11704, '2015-10-22 19:57:12', '2015-10-27 15:17:04', 1, '4afb798fb805cff601691a1dc41cbf86'),
+(11704, '2015-10-22 19:57:12', '2015-10-30 11:39:33', 1, '4afb798fb805cff601691a1dc41cbf86'),
 (11705, '2015-10-22 20:29:52', '2015-10-22 20:29:52', NULL, 'dc2999f07ff2e5ce7afe259bdc6596ac'),
 (11706, '2015-10-22 20:30:00', '2015-10-22 20:30:00', NULL, 'b0f7f38f4b0caaeeb501baf5919334c1'),
 (11707, '2015-10-22 20:30:06', '2015-10-22 20:30:06', NULL, '10fdf21cc289448185dbf016a37f2cc6'),
@@ -20508,7 +20486,7 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (11770, '2015-10-23 10:03:59', '2015-10-23 10:03:59', NULL, '19e1515b79ae9f364ba46e13c014c0d9'),
 (11771, '2015-10-23 10:35:59', '2015-10-23 10:35:59', NULL, '1fd798457adb291a92465f4420804c0e'),
 (11772, '2015-10-23 12:15:26', '2015-10-23 12:15:26', NULL, 'c408e28ab082ac7950919a483f48922a'),
-(11773, '2015-10-23 13:42:10', '2015-10-23 13:42:10', NULL, '25d88448e62275824c0be559bdaf09b3'),
+(11773, '2015-10-23 13:42:10', '2015-10-28 12:58:58', NULL, '25d88448e62275824c0be559bdaf09b3'),
 (11774, '2015-10-23 14:16:15', '2015-10-23 14:16:15', NULL, '9edfea9d24d600ab21f2b33895fd5d94'),
 (11775, '2015-10-23 14:18:12', '2015-10-23 14:18:12', NULL, '3213a4d424d4f83e901fd01698084c58'),
 (11776, '2015-10-23 14:23:52', '2015-10-23 14:23:52', NULL, '187e88d92a270cf71eb60a19ba99393b'),
@@ -21366,14 +21344,1239 @@ INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE
 (12628, '2015-10-27 14:58:36', '2015-10-27 14:58:36', NULL, '6ec99279cd8bd8390a00e7b53ec634d1'),
 (12629, '2015-10-27 15:11:22', '2015-10-27 15:11:22', NULL, 'b34c22f6d59607679d4d96ce05222cd0'),
 (12630, '2015-10-27 15:14:12', '2015-10-27 15:14:12', NULL, '166946177d180f01713b1fdf45cc6e63'),
-(12631, '2015-10-27 15:19:34', '2015-10-27 15:19:34', NULL, '9bceb025f9064c59da97275ff7205622');
+(12631, '2015-10-27 15:19:34', '2015-10-27 15:19:34', NULL, '9bceb025f9064c59da97275ff7205622'),
+(12632, '2015-10-27 15:37:43', '2015-10-27 15:37:43', NULL, '56b4b896e190899ad8e9046360d428ae'),
+(12633, '2015-10-27 15:43:04', '2015-10-27 15:43:04', NULL, '9076800559fd97964a106fdbd226277d'),
+(12634, '2015-10-27 15:57:09', '2015-10-27 15:57:09', NULL, 'bd17470e14e250b056481c3c5d125d19'),
+(12635, '2015-10-27 16:04:59', '2015-10-27 16:04:59', NULL, '970f6cc112478ce5553e239f466c66c6'),
+(12636, '2015-10-27 16:17:01', '2015-10-27 16:17:01', NULL, 'edfac009a2735887c8311fd60fe136a0'),
+(12637, '2015-10-27 16:24:28', '2015-10-27 16:24:28', NULL, '0975e0a2262826dc7e32aa7d778b00bd'),
+(12638, '2015-10-27 16:27:05', '2015-10-27 16:27:05', NULL, '3fbc6f2552cc33b68d61f803ea2ce086'),
+(12639, '2015-10-27 16:31:51', '2015-10-27 16:31:51', NULL, '4c890ce1b9056c23323856dd45b7dd6b'),
+(12640, '2015-10-27 16:37:50', '2015-10-27 16:37:50', NULL, '92b40dc4bc04659a3c58c78a1857bbac'),
+(12641, '2015-10-27 16:53:01', '2015-10-27 16:53:01', NULL, '8872b3efb2df9eb1dcfa735285125be2'),
+(12642, '2015-10-27 16:55:02', '2015-10-27 16:55:02', NULL, '34f6894fefa57f968ec2fdcc9ab64dbf'),
+(12643, '2015-10-27 16:56:43', '2015-10-27 16:56:43', NULL, 'd2ad60dc73a3f475339813d24e89d893'),
+(12644, '2015-10-27 16:58:15', '2015-10-27 16:58:15', NULL, 'e24f2e67087617f55c5e3f2b99681e38'),
+(12645, '2015-10-27 17:02:27', '2015-10-27 17:02:27', NULL, 'a7c2c6cfc5de9f60c27e92b888a77d51'),
+(12646, '2015-10-27 17:19:03', '2015-10-27 17:19:03', NULL, '1ce5ab78402010cd51b03454ec9188bd'),
+(12647, '2015-10-27 17:30:41', '2015-10-27 17:30:41', NULL, '1d03731bbfe8b0ad21f7ec655c633df7'),
+(12648, '2015-10-27 17:44:00', '2015-10-27 17:44:00', NULL, 'a7c7776138de37030f27a5c890834190'),
+(12649, '2015-10-27 17:47:25', '2015-10-27 17:47:25', NULL, '2e5cf1a0b059f4e1e7b0f4b02a6d7976'),
+(12650, '2015-10-27 17:58:59', '2015-10-27 17:58:59', NULL, '2cbedac43138cb5b8e13c00914c40e18'),
+(12651, '2015-10-27 18:01:01', '2015-10-27 18:01:01', NULL, '109857d293896c0bfbd08b45abdbd9eb'),
+(12652, '2015-10-27 18:04:12', '2015-10-27 18:04:12', NULL, '5cab9affc4f299a47258d743204ed5da'),
+(12653, '2015-10-27 18:20:09', '2015-10-27 18:20:09', NULL, 'fb8e8c2acd57cb296a78a1fc63230104'),
+(12654, '2015-10-27 18:21:10', '2015-10-27 18:21:10', NULL, 'bc7e761f2a79dcdcc19f077a478dfc49'),
+(12655, '2015-10-27 18:37:32', '2015-10-27 18:37:32', NULL, '019911ed7dd6405dc3422df33144b4fe'),
+(12656, '2015-10-27 18:39:18', '2015-10-27 18:39:18', NULL, '9af9f5f751a63f162b74bcdf72cc4cab'),
+(12657, '2015-10-27 18:46:35', '2015-10-27 18:46:35', NULL, 'ccd6e2952e5b1e7246acfbb2dc9f0071'),
+(12658, '2015-10-27 18:47:19', '2015-10-27 18:47:19', NULL, '8d76e2bfb27a70ececc33f4f88eb07ee'),
+(12659, '2015-10-27 18:48:18', '2015-10-27 18:48:18', NULL, '57373fe7d79e6566ff2f9a9f6e4e8893'),
+(12660, '2015-10-27 18:54:27', '2015-10-27 18:54:27', NULL, '3abf9918e58ac8cfcb1d3248acc13e76'),
+(12661, '2015-10-27 19:06:21', '2015-10-27 19:06:21', NULL, '27f9486e91d5499c51b5424eb797b135'),
+(12662, '2015-10-27 19:06:22', '2015-10-27 19:06:22', NULL, 'd3757ae3e69b547b38af88aae3c96da8'),
+(12663, '2015-10-27 19:06:57', '2015-10-27 19:06:57', NULL, '4cdd1726911a6ebd8cb935f87ee7fc70'),
+(12664, '2015-10-27 19:18:08', '2015-10-27 19:18:08', NULL, '7f7d48ad13ea48d85dab983e5c68971a'),
+(12665, '2015-10-27 19:18:24', '2015-10-27 19:18:24', NULL, '96dd96592bd06f6d8fcf31742b6c33a7'),
+(12666, '2015-10-27 19:18:24', '2015-10-27 19:18:24', NULL, '96e830ca5c53a1b09d9251ef6ab30279'),
+(12667, '2015-10-27 19:19:37', '2015-10-27 19:19:37', NULL, 'c819cebe33b514facfb497d06e49ccb4'),
+(12668, '2015-10-27 19:46:43', '2015-10-27 19:46:43', NULL, 'a97ab5d9f6c66ded581bd693e912e83e'),
+(12669, '2015-10-27 19:48:07', '2015-10-27 19:48:07', NULL, 'dcab96461d9d2970477119241379ce2e'),
+(12670, '2015-10-27 20:01:52', '2015-10-27 20:01:52', NULL, 'ffca1df09fcfca9017e33e4e4eacb10d'),
+(12671, '2015-10-27 20:01:53', '2015-10-27 20:01:53', NULL, '7e606ed29cdb9c4bb6c44295c3b19dc7'),
+(12672, '2015-10-27 20:10:13', '2015-10-27 20:10:13', NULL, 'c81b0048e474438c14d57bf63e28f44a'),
+(12673, '2015-10-27 20:10:18', '2015-10-27 20:10:18', NULL, '66b0e3e98c9c6a6b586418033154085b'),
+(12674, '2015-10-27 20:12:30', '2015-10-27 20:12:30', NULL, '8a89479bc171c2656d7ce5702b6cf4b3'),
+(12675, '2015-10-27 20:21:33', '2015-10-27 20:21:33', NULL, 'db8192fd16b1f4bdd7099879accec7ba'),
+(12676, '2015-10-27 20:21:36', '2015-10-27 20:21:36', NULL, 'efaaca28d3eadf4dc3df77624203e955'),
+(12677, '2015-10-27 20:21:44', '2015-10-27 20:21:44', NULL, 'ad3e39528008aeb8115eee169d46d572'),
+(12678, '2015-10-27 20:24:37', '2015-10-27 20:24:37', NULL, '7db35db3fe224b35487873b5af5a51bd'),
+(12679, '2015-10-27 20:24:54', '2015-10-27 20:24:54', NULL, 'd4587025899d74ec5a2f68d3884c279b'),
+(12680, '2015-10-27 20:25:12', '2015-10-27 20:25:12', NULL, 'f1c8ce6a8b73c1774ffd18b1bea94274'),
+(12681, '2015-10-27 20:35:11', '2015-10-27 20:35:11', NULL, 'db4bd6de5bc0c84f7bcf8e7a39e51894'),
+(12682, '2015-10-27 20:38:35', '2015-10-27 20:38:35', NULL, '3bcb77b8aba3b0be3dd88cbec98a100b'),
+(12683, '2015-10-27 20:41:01', '2015-10-27 20:41:01', NULL, 'c6fa922f551a6c8cbed86420b3e52b92'),
+(12684, '2015-10-27 20:50:54', '2015-10-27 20:50:54', NULL, '615e1b4c93e35550c092b0a4711e6ee4'),
+(12685, '2015-10-27 20:50:55', '2015-10-27 20:50:55', NULL, '8bbcaba3cb4c45f0c860a020f086a7df'),
+(12686, '2015-10-27 20:50:57', '2015-10-27 20:50:57', NULL, '20e0297ac374e5611ec37d9115102b31'),
+(12687, '2015-10-27 20:51:00', '2015-10-27 20:51:00', NULL, 'e813f29173cfab3a561f3c0441b1570e'),
+(12688, '2015-10-27 20:51:02', '2015-10-27 20:51:02', NULL, '041ce1f457588edea7ba4ba461c98db1'),
+(12689, '2015-10-27 20:51:04', '2015-10-27 20:51:04', NULL, '607359f224f4b95e5aa01712fcd556c6'),
+(12690, '2015-10-27 20:51:06', '2015-10-27 20:51:06', NULL, '1454f644f7f44fa43ee006f6f4211cd9'),
+(12691, '2015-10-27 20:51:09', '2015-10-27 20:51:09', NULL, '5ed83c778e18e7d42b192be7fd238857'),
+(12692, '2015-10-27 20:51:11', '2015-10-27 20:51:11', NULL, 'b7e1f2d630bcfeb66992c1e56f5a299c'),
+(12693, '2015-10-27 20:51:13', '2015-10-27 20:51:13', NULL, '91353b18a665b5bc9adac6c8edd5af83'),
+(12694, '2015-10-27 20:51:15', '2015-10-27 20:51:15', NULL, '24a3632bea22378c607c964f1a89911a'),
+(12695, '2015-10-27 20:51:17', '2015-10-27 20:51:17', NULL, '0d0bd7c9474a0eefa5274c8ae1fe08b9'),
+(12696, '2015-10-27 20:51:19', '2015-10-27 20:51:19', NULL, 'f2bfc5a0c7b2b583b551a8578864f9bd'),
+(12697, '2015-10-27 20:51:22', '2015-10-27 20:51:22', NULL, '347f2df950ef134365c2fe318e81870f'),
+(12698, '2015-10-27 20:51:24', '2015-10-27 20:51:24', NULL, 'a620eb5fa326c835def807844003d876'),
+(12699, '2015-10-27 20:51:26', '2015-10-27 20:51:26', NULL, 'c594c623b70bd1b416248decb919ee16'),
+(12700, '2015-10-27 20:51:28', '2015-10-27 20:51:28', NULL, 'afd56fd6843120d17be514fa3e607a01'),
+(12701, '2015-10-27 20:51:30', '2015-10-27 20:51:30', NULL, '24dcd6228db88752c134a870a53f1d94'),
+(12702, '2015-10-27 20:51:33', '2015-10-27 20:51:33', NULL, '0d8da20ebed12cd9a6a85d7532381b9d'),
+(12703, '2015-10-27 20:51:35', '2015-10-27 20:51:35', NULL, '963b52b3dad8a3d327a9839b13299a6e'),
+(12704, '2015-10-27 20:51:37', '2015-10-27 20:51:37', NULL, 'a39a1963615babe548bf5c22cf878c85'),
+(12705, '2015-10-27 20:51:39', '2015-10-27 20:51:39', NULL, '92a123ced7c4d17192b4af87ea78b763'),
+(12706, '2015-10-27 20:51:41', '2015-10-27 20:51:41', NULL, '3273287696a0bc291bb23f85c042a3f0'),
+(12707, '2015-10-27 20:51:44', '2015-10-27 20:51:44', NULL, '8ad8568fff1b1d841876555d831d9cd1'),
+(12708, '2015-10-27 20:51:46', '2015-10-27 20:51:46', NULL, '0eba8d36f9980c2ecfb396c748e17523'),
+(12709, '2015-10-27 20:51:48', '2015-10-27 20:51:48', NULL, '5f7cec348950b3566efb04b163627c6c'),
+(12710, '2015-10-27 20:51:50', '2015-10-27 20:51:50', NULL, 'd257cc9041abc7b7235737ad91f3e78a'),
+(12711, '2015-10-27 20:51:52', '2015-10-27 20:51:52', NULL, '566b65b1fb80075d2bd26ec53ff21191'),
+(12712, '2015-10-27 20:51:55', '2015-10-27 20:51:55', NULL, '0cbd493786b4e30afc9d7b79362118cd'),
+(12713, '2015-10-27 20:51:57', '2015-10-27 20:51:57', NULL, '7197ddcd222ee2d471cc2a59d40c33f9'),
+(12714, '2015-10-27 20:51:59', '2015-10-27 20:51:59', NULL, '5e7a694a6d7e57c093134d15b23b518f'),
+(12715, '2015-10-27 20:52:01', '2015-10-27 20:52:01', NULL, 'd2addaf5d6dce2d0fbc3d6c90203dade'),
+(12716, '2015-10-27 20:52:03', '2015-10-27 20:52:03', NULL, '09628c92af8348fe96d9c599ca8d0d4f'),
+(12717, '2015-10-27 20:52:05', '2015-10-27 20:52:05', NULL, 'acc37af4cd599e8be265624c50f392eb'),
+(12718, '2015-10-27 20:52:08', '2015-10-27 20:52:08', NULL, 'f316dd92d18b914d63c9d5bdc80cb5d5'),
+(12719, '2015-10-27 20:52:10', '2015-10-27 20:52:10', NULL, 'd9e95088ef422814f3bace50551ee132'),
+(12720, '2015-10-27 20:52:12', '2015-10-27 20:52:12', NULL, '629f360d222dd5deb2bdb6f37ad7db46'),
+(12721, '2015-10-27 20:52:14', '2015-10-27 20:52:14', NULL, 'e842059a88cf1a7e8d3cd7e9613b0fe4'),
+(12722, '2015-10-27 20:52:16', '2015-10-27 20:52:16', NULL, '6c1e4f0d1d500fb97ba0f2f2e3f3ccd2'),
+(12723, '2015-10-27 20:52:18', '2015-10-27 20:52:18', NULL, '2e195dc2c8ab9efaf48418c7ddeda5c9'),
+(12724, '2015-10-27 20:52:21', '2015-10-27 20:52:21', NULL, '108131f3dbd5375036da31670b5391e7'),
+(12725, '2015-10-27 20:52:23', '2015-10-27 20:52:23', NULL, '5a0461ccfc447e74d726e31064e60fda');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(12726, '2015-10-27 20:52:25', '2015-10-27 20:52:25', NULL, '22eb855b91536659df4ae90a287ec191'),
+(12727, '2015-10-27 20:52:27', '2015-10-27 20:52:27', NULL, '3650a179568fc301e06640c46d1ed8c7'),
+(12728, '2015-10-27 20:52:29', '2015-10-27 20:52:29', NULL, '1333dc0a7c5015d11d501a241d11d41f'),
+(12729, '2015-10-27 20:52:31', '2015-10-27 20:52:31', NULL, '02a3f2352b2537021f2ce79f6da58f1f'),
+(12730, '2015-10-27 20:52:34', '2015-10-27 20:52:34', NULL, '2c6fcd4c751951ecffe996e67090c103'),
+(12731, '2015-10-27 20:52:36', '2015-10-27 20:52:36', NULL, '524884132cc8d90b89f0b5d14ac2d135'),
+(12732, '2015-10-27 20:52:38', '2015-10-27 20:52:38', NULL, '2e83d9299e2720d73f090639e7360278'),
+(12733, '2015-10-27 20:52:40', '2015-10-27 20:52:40', NULL, '96cab86593eaa0504047330748f3c4b8'),
+(12734, '2015-10-27 20:52:43', '2015-10-27 20:52:43', NULL, 'eda30a3a8b7ca74d56c06b5dc0ba00b2'),
+(12735, '2015-10-27 20:52:45', '2015-10-27 20:52:45', NULL, 'abc77f5a0338f75ee989d1ea497713a8'),
+(12736, '2015-10-27 20:52:47', '2015-10-27 20:52:47', NULL, 'fca0da8472209ba8b31b41da78076ab0'),
+(12737, '2015-10-27 20:52:49', '2015-10-27 20:52:49', NULL, '2ef98439128ed3bcab0d5f4fde2f86d1'),
+(12738, '2015-10-27 20:52:52', '2015-10-27 20:52:52', NULL, '50ff4cf81d6297a9addadbfa987765e4'),
+(12739, '2015-10-27 20:52:54', '2015-10-27 20:52:54', NULL, 'f1d3894ff41f31cbe728eaa5f000d085'),
+(12740, '2015-10-27 20:52:57', '2015-10-27 20:52:57', NULL, '151f485cc639ce45e6936d305515d014'),
+(12741, '2015-10-27 20:52:59', '2015-10-27 20:52:59', NULL, '6442847a9c0e0641833f73b62707a0cd'),
+(12742, '2015-10-27 20:53:02', '2015-10-27 20:53:02', NULL, '2f37b015e7a137caef5ceda3378bf864'),
+(12743, '2015-10-27 20:53:04', '2015-10-27 20:53:04', NULL, '91be487b8dc457e6882cd855e60808bd'),
+(12744, '2015-10-27 20:53:06', '2015-10-27 20:53:06', NULL, '29b46dfd3509cacd38ffab74cd5b720f'),
+(12745, '2015-10-27 20:53:09', '2015-10-27 20:53:09', NULL, '1e0215faaea547f2bbdfc93e7a739dc7'),
+(12746, '2015-10-27 20:53:11', '2015-10-27 20:53:11', NULL, 'bb6f81a63ed58578c1c81ba14a3344e1'),
+(12747, '2015-10-27 20:53:13', '2015-10-27 20:53:13', NULL, '900798de9c7f8b92c863e5cab8efde56'),
+(12748, '2015-10-27 20:53:16', '2015-10-27 20:53:16', NULL, '697d57c86696cc63d7da186babf6b96f'),
+(12749, '2015-10-27 20:53:18', '2015-10-27 20:53:18', NULL, '13cb888043eaccc28c1af75e4d7ce7f3'),
+(12750, '2015-10-27 20:53:20', '2015-10-27 20:53:20', NULL, '4530040c3d8292c9e2aab5dd3f62bc45'),
+(12751, '2015-10-27 20:53:22', '2015-10-27 20:53:22', NULL, '3b7378ee97933c2cedad252cc34648da'),
+(12752, '2015-10-27 20:53:25', '2015-10-27 20:53:25', NULL, '53ac85000bc6025aa90500b702919ac8'),
+(12753, '2015-10-27 20:53:27', '2015-10-27 20:53:27', NULL, '2f6b7afb7580ce94f2ce8a95063266e9'),
+(12754, '2015-10-27 20:53:29', '2015-10-27 20:53:29', NULL, '426c49b81ff31f1e85c7643dd6ad07ef'),
+(12755, '2015-10-27 20:53:35', '2015-10-27 20:53:35', NULL, '7596d439fde90d29fe153a18b6ed50ed'),
+(12756, '2015-10-27 20:53:40', '2015-10-27 20:53:40', NULL, '7ac13a535c3aab032a223fcc3c5f37b3'),
+(12757, '2015-10-27 20:53:42', '2015-10-27 20:53:42', NULL, '321bed415382081496dc0c348c9d136b'),
+(12758, '2015-10-27 20:53:44', '2015-10-27 20:53:44', NULL, '38b36ccbe256ac419ce729c0a6b11bd9'),
+(12759, '2015-10-27 20:53:46', '2015-10-27 20:53:46', NULL, 'dc0f8f293b25162b70db2142e5ec1930'),
+(12760, '2015-10-27 20:53:49', '2015-10-27 20:53:49', NULL, '47a46077cb769eb59155a217e48a9e66'),
+(12761, '2015-10-27 20:53:51', '2015-10-27 20:53:51', NULL, '792457b2cbccf6fd267c26356c9f0871'),
+(12762, '2015-10-27 20:53:56', '2015-10-27 20:53:56', NULL, 'dc29d992cb029606a734efcbb5849c16'),
+(12763, '2015-10-27 20:53:58', '2015-10-27 20:53:58', NULL, 'ba0d930b01f3698c61dcdf9920e36ba4'),
+(12764, '2015-10-27 20:54:00', '2015-10-27 20:54:00', NULL, '0abbfd864cb6db38371a5715055c3c7a'),
+(12765, '2015-10-27 20:54:03', '2015-10-27 20:54:03', NULL, 'da1540f08f6378ad5d61a4d3d72ec1d2'),
+(12766, '2015-10-27 20:54:05', '2015-10-27 20:54:05', NULL, 'b0feaaab13f6963a6ae5515e03352c8c'),
+(12767, '2015-10-27 20:54:07', '2015-10-27 20:54:07', NULL, '3b0ee49463d73049edfb678e76077814'),
+(12768, '2015-10-27 20:54:12', '2015-10-27 20:54:12', NULL, '68909278db2efd5cdc4437386c3af6a8'),
+(12769, '2015-10-27 20:54:12', '2015-10-27 20:54:12', NULL, '30a3cfa4706c4c3a84bcae60d3443633'),
+(12770, '2015-10-27 20:54:14', '2015-10-27 20:54:14', NULL, 'd2293b66bbf8211e50e843ba7554639a'),
+(12771, '2015-10-27 20:54:14', '2015-10-27 20:54:14', NULL, 'daf530fcafaa495b49e93418ff2f74fb'),
+(12772, '2015-10-27 20:54:14', '2015-10-27 20:54:14', NULL, '20b03dd9e0173d5fdaa6898fcda15f79'),
+(12773, '2015-10-27 20:54:14', '2015-10-27 20:54:14', NULL, 'bdca90391538774b9b2c0e42f3373488'),
+(12774, '2015-10-27 20:54:15', '2015-10-27 20:54:15', NULL, 'd7ff4f2548aa27e783ce84ba1476301f'),
+(12775, '2015-10-27 20:54:15', '2015-10-27 20:54:15', NULL, 'c9c877a8f50914e92c2791838b857bdc'),
+(12776, '2015-10-27 20:54:15', '2015-10-27 20:54:15', NULL, 'e7961607b2a32beb700107099694866b'),
+(12777, '2015-10-27 20:54:15', '2015-10-27 20:54:15', NULL, 'cfa523a44f459194d4a2bdfbfbdc35a7'),
+(12778, '2015-10-27 20:54:15', '2015-10-27 20:54:15', NULL, '06e9c62ef6916442a935cbe67f9c4a66'),
+(12779, '2015-10-27 20:54:18', '2015-10-27 20:54:18', NULL, '9bba2b509180cef124596a33906c1529'),
+(12780, '2015-10-27 20:54:20', '2015-10-27 20:54:20', NULL, '4b5f4086ca97374f10fd48dd898448ac'),
+(12781, '2015-10-27 20:54:22', '2015-10-27 20:54:22', NULL, 'c9f769f78492da005b9cfb3e51be1a15'),
+(12782, '2015-10-27 20:54:35', '2015-10-27 20:54:35', NULL, 'd137c113b09dde8205ae736a47031075'),
+(12783, '2015-10-27 20:54:43', '2015-10-27 20:54:43', NULL, '4da4f14328492527e355ba39b43f9dc6'),
+(12784, '2015-10-27 20:54:44', '2015-10-27 20:54:44', NULL, 'cf4a6ac631dc547f29e214784fe413de'),
+(12785, '2015-10-27 20:54:44', '2015-10-27 20:54:44', NULL, '860689e4d3bb0b8d5f3123559cf364ae'),
+(12786, '2015-10-27 20:54:44', '2015-10-27 20:54:44', NULL, '6ad35b55eb4d766f3bb0888e857e04d5'),
+(12787, '2015-10-27 20:54:44', '2015-10-27 20:54:44', NULL, '4c619282cfd242bab1ea66f546685d67'),
+(12788, '2015-10-27 20:54:44', '2015-10-27 20:54:44', NULL, '4a206e752623c7c75d7ec158348884b3'),
+(12789, '2015-10-27 20:54:45', '2015-10-27 20:54:45', NULL, '4df9b8ce137388ea2eb02b3efa327abe'),
+(12790, '2015-10-27 20:54:45', '2015-10-27 20:54:45', NULL, '819a4df29c37d693082a77d3adbb2eda'),
+(12791, '2015-10-27 20:54:45', '2015-10-27 20:54:45', NULL, '1a176583d65d4ed4a432ee88bc91c314'),
+(12792, '2015-10-27 20:54:45', '2015-10-27 20:54:45', NULL, '8286daa50843d813d894c85b822c4999'),
+(12793, '2015-10-27 20:54:46', '2015-10-27 20:54:46', NULL, '08c10f8941729b3dca260725b08f37bd'),
+(12794, '2015-10-27 20:54:46', '2015-10-27 20:54:46', NULL, '18cbc2e3946944e2934fe224ed4b8be3'),
+(12795, '2015-10-27 20:54:48', '2015-10-27 20:54:48', NULL, 'e79136c66961787deb3517cc3be7ad62'),
+(12796, '2015-10-27 20:54:48', '2015-10-27 20:54:48', NULL, '49ab03bb5c904010bec4a99020b5d141'),
+(12797, '2015-10-27 20:54:48', '2015-10-27 20:54:48', NULL, '69491475263e66c94442d033626de67b'),
+(12798, '2015-10-27 20:58:52', '2015-10-27 20:58:52', NULL, 'd27a41ee11873287c43100ca9db8d7b4'),
+(12799, '2015-10-27 21:01:29', '2015-10-27 21:01:29', NULL, 'bafac0e29daaed5cf67b85ebac692394'),
+(12800, '2015-10-27 21:05:57', '2015-10-27 21:05:57', NULL, '7ad856cdd2138057980369cb6a3db16f'),
+(12801, '2015-10-27 21:06:38', '2015-10-27 21:06:38', NULL, 'a9276d9fd7eab842ecccf3be2342d331'),
+(12802, '2015-10-27 21:23:36', '2015-10-27 21:23:36', NULL, '8f1da66242dc25837ecfb0582ea3715d'),
+(12803, '2015-10-27 21:26:32', '2015-10-27 21:26:32', NULL, 'cc9cfd2d2c66f7695a502f5ad48119b8'),
+(12804, '2015-10-27 21:42:22', '2015-10-27 21:42:22', NULL, '4dfebb3dfc07132c3c2bf015027378e9'),
+(12805, '2015-10-27 21:58:07', '2015-10-27 21:58:07', NULL, '5c05f2422f9ce2b768c8f51ee6b89403'),
+(12806, '2015-10-27 22:07:51', '2015-10-27 22:07:51', NULL, '80ef965bb7450daebc6430e0626c0394'),
+(12807, '2015-10-27 22:09:25', '2015-10-27 22:09:25', NULL, 'b46ef1f48426d41b0e034bb98fa3da98'),
+(12808, '2015-10-27 22:09:49', '2015-10-27 22:09:49', NULL, '7ee323ba29439ae1db35e045ea92a861'),
+(12809, '2015-10-27 22:14:24', '2015-10-27 22:14:24', NULL, '354c909a6d6de3df31de382f608d1055'),
+(12810, '2015-10-27 22:18:43', '2015-10-27 22:18:43', NULL, '93e323914a16de2a7c42e3c4ebd8c59c'),
+(12811, '2015-10-27 22:21:43', '2015-10-27 22:21:43', NULL, '38fbaf0dc574eb6c868ac91d5568f93a'),
+(12812, '2015-10-27 22:31:11', '2015-10-27 22:31:11', NULL, 'ec151f21a302005686903dbcd2965223'),
+(12813, '2015-10-27 22:38:01', '2015-10-27 22:38:01', NULL, '317b8c655b67301464ab87fe12268cd7'),
+(12814, '2015-10-27 22:44:30', '2015-10-27 22:44:30', NULL, '54fb398c3da64b872c1270551b31671e'),
+(12815, '2015-10-27 22:50:53', '2015-10-27 22:50:53', NULL, 'ff8e2ce82535b3447618308a19409c2f'),
+(12816, '2015-10-27 23:03:57', '2015-10-27 23:03:57', NULL, '871e9ad757f6651adf4a53e004b4b1c2'),
+(12817, '2015-10-27 23:08:12', '2015-10-27 23:08:12', NULL, '9013fe3bc8668634d455d3c356d2c5f2'),
+(12818, '2015-10-27 23:15:57', '2015-10-27 23:15:57', NULL, '3f2611e7894b508cc97adef465d50dc9'),
+(12819, '2015-10-27 23:27:20', '2015-10-27 23:27:20', NULL, '521a1bfe6fb70548f946cf00f4032635'),
+(12820, '2015-10-27 23:31:36', '2015-10-27 23:31:36', NULL, '0808f4fd24d0f16f773927ca9951082a'),
+(12821, '2015-10-27 23:39:30', '2015-10-27 23:39:30', NULL, '7cabb9d5ee2ca4e5ba158152b1836e97'),
+(12822, '2015-10-27 23:46:05', '2015-10-27 23:46:05', NULL, '2610d61ba8c0ce9bb62f9fc49a870120'),
+(12823, '2015-10-27 23:50:28', '2015-10-27 23:50:28', NULL, 'ad89f70f9a8b173e1ac76de7e654c805'),
+(12824, '2015-10-27 23:53:58', '2015-10-27 23:53:58', NULL, 'e8fa21768325cb1a5a07a24cbd34d85e'),
+(12825, '2015-10-28 00:01:58', '2015-10-28 00:01:58', NULL, '80dae7ff65d38c4bf85d40f758761482'),
+(12826, '2015-10-28 00:13:38', '2015-10-28 00:13:38', NULL, 'ad328cb56767f2682df542bf29c21d1d'),
+(12827, '2015-10-28 00:19:19', '2015-10-28 00:19:19', NULL, '85c820fe35ba7260a445141aa89367fa'),
+(12828, '2015-10-28 00:21:15', '2015-10-28 00:21:15', NULL, '38a161ae46a8f9248467b2f0979fc27d'),
+(12829, '2015-10-28 00:23:53', '2015-10-28 00:23:53', NULL, 'b611567c9455e3cae094b22b69aefa89'),
+(12830, '2015-10-28 00:36:15', '2015-10-28 00:36:15', NULL, 'e0807245e61e97c0d68e41796bc1c3a8'),
+(12831, '2015-10-28 00:36:19', '2015-10-28 00:36:19', NULL, '71c5109d2a6bd0a483817eea1d247cef'),
+(12832, '2015-10-28 00:36:23', '2015-10-28 00:36:23', NULL, '4d2b2c68cb5909242298d62189b3c8fc'),
+(12833, '2015-10-28 00:36:27', '2015-10-28 00:36:27', NULL, 'aaf951b0d0c849ca30b77778b4d5783b'),
+(12834, '2015-10-28 00:36:32', '2015-10-28 00:36:32', NULL, 'bd449b0f46d898ac51f9bec43c022f51'),
+(12835, '2015-10-28 00:36:37', '2015-10-28 00:36:37', NULL, '97e6637d694bea69ee1fe871fda334cd'),
+(12836, '2015-10-28 00:36:42', '2015-10-28 00:36:42', NULL, '717aa0365e648a5ec922aa1e87fb910c'),
+(12837, '2015-10-28 00:36:46', '2015-10-28 00:36:46', NULL, 'b807f0dffb675dd296151fea726366ef'),
+(12838, '2015-10-28 00:36:51', '2015-10-28 00:36:51', NULL, 'ad64c2eb72ad0c15e03a1cc8b3aa6f76'),
+(12839, '2015-10-28 00:36:57', '2015-10-28 00:36:57', NULL, '77e4d13ff204a9db69964a509af56034'),
+(12840, '2015-10-28 00:37:01', '2015-10-28 00:37:01', NULL, 'e78998af30a61787a3dec9c454837c02'),
+(12841, '2015-10-28 00:37:04', '2015-10-28 00:37:04', NULL, '22832d5b086bb1182264cd35d0f70932'),
+(12842, '2015-10-28 00:37:07', '2015-10-28 00:37:07', NULL, '14df0f4976061f3b618fd28fcdd2d077'),
+(12843, '2015-10-28 00:38:13', '2015-10-28 00:38:13', NULL, '67313975baafb04cdee24e34bb8e74be'),
+(12844, '2015-10-28 00:39:24', '2015-10-28 00:39:24', NULL, '93a3b7d1c9aaa7a2471007d0e1102f42'),
+(12845, '2015-10-28 00:43:24', '2015-10-28 00:43:24', NULL, '301d2792b9a2a03e0efa77d2068a6f71'),
+(12846, '2015-10-28 00:44:07', '2015-10-28 00:44:07', NULL, 'ff91f85576bc73ebae67e0e5b9f06548'),
+(12847, '2015-10-28 00:46:08', '2015-10-28 00:46:08', NULL, '5cec7238ca1fb3edc8ab2cc0bb71eca6'),
+(12848, '2015-10-28 00:58:48', '2015-10-28 00:58:48', NULL, 'c2bbadd76597a7dcc5c0739a8d2700d6'),
+(12849, '2015-10-28 01:02:58', '2015-10-28 01:02:58', NULL, '27ec4473d1aa59153c00c1cfcc3a08ab'),
+(12850, '2015-10-28 01:08:09', '2015-10-28 01:08:09', NULL, '592cf7d673932f941588e21de9251380'),
+(12851, '2015-10-28 01:08:13', '2015-10-28 01:08:13', NULL, '2c100f494e0a58af3b2038d069de6f17'),
+(12852, '2015-10-28 01:16:46', '2015-10-28 01:16:46', NULL, '3f744c6bda904f1bdc37e9d71e6898b2'),
+(12853, '2015-10-28 01:17:41', '2015-10-28 01:17:41', NULL, '6c017560f7aa8653a94f1f3e9c8cbdbc'),
+(12854, '2015-10-28 01:19:48', '2015-10-28 01:19:48', NULL, '54a27dd05f2183f8ed1a6e6364d15bdc'),
+(12855, '2015-10-28 01:24:35', '2015-10-28 01:24:35', NULL, 'b070463aa15f97f6e05e674b9fb682d3'),
+(12856, '2015-10-28 01:36:19', '2015-10-28 01:36:19', NULL, '65bde4045cadf63d707a9fdf9120a96a'),
+(12857, '2015-10-28 01:36:23', '2015-10-28 01:36:23', NULL, '69c594b11dfc8d5e3733a85949b882f6'),
+(12858, '2015-10-28 01:39:21', '2015-10-28 01:39:21', NULL, '29561f5a8ef99d2345047471cb20c526'),
+(12859, '2015-10-28 01:45:15', '2015-10-28 01:45:15', NULL, '5ecab5ea45d3dd13cbf1cd916b522044'),
+(12860, '2015-10-28 01:48:24', '2015-10-28 01:48:24', NULL, 'bedfe671e2e415f83219c6ff26a77f30'),
+(12861, '2015-10-28 01:53:09', '2015-10-28 01:53:09', NULL, 'df150c86a2f810ce586c2c0d41816219'),
+(12862, '2015-10-28 01:57:23', '2015-10-28 01:57:23', NULL, '19c269e485a0f9941a793fe4c26d44e4'),
+(12863, '2015-10-28 01:59:25', '2015-10-28 01:59:25', NULL, '2c541bfeac9b7a1b7189265a6b5b4721'),
+(12864, '2015-10-28 02:01:25', '2015-10-28 02:01:25', NULL, '770ef66db87f88ef04649df44e388052'),
+(12865, '2015-10-28 02:01:52', '2015-10-28 02:01:52', NULL, '95242a318d95e82fa18e5645e8f35794'),
+(12866, '2015-10-28 02:04:13', '2015-10-28 02:04:13', NULL, '2a08f13b890e693125ff6ffd7033581a'),
+(12867, '2015-10-28 02:09:39', '2015-10-28 02:09:39', NULL, 'a143c4d69c0d2ae9c910a1baad52064b'),
+(12868, '2015-10-28 02:18:05', '2015-10-28 02:18:05', NULL, 'f61c75479588ae784cf91e885b5f6ff7'),
+(12869, '2015-10-28 02:18:05', '2015-10-28 02:18:05', NULL, '681a0caf8abb7effe6e7721ce2a98a92'),
+(12870, '2015-10-28 02:18:06', '2015-10-28 02:18:06', NULL, '00c51ce206b670845fb9eb188958d73d'),
+(12871, '2015-10-28 02:21:27', '2015-10-28 02:21:27', NULL, '4f1cad6bd6044a44200d65c2b709680a'),
+(12872, '2015-10-28 02:22:46', '2015-10-28 02:22:46', NULL, 'b5bb952ab0bf2f7441dc7931a4d2d881'),
+(12873, '2015-10-28 02:23:16', '2015-10-28 02:23:16', NULL, 'f92bc329f40c137fcd4c05cd7bc1020e'),
+(12874, '2015-10-28 02:30:42', '2015-10-28 02:30:42', NULL, 'def417a9735e3ff8d525d86a3a74c9a6'),
+(12875, '2015-10-28 02:34:39', '2015-10-28 02:34:39', NULL, '6aeb9a382441fbb4c3fb89c0bd0d5fff'),
+(12876, '2015-10-28 02:36:16', '2015-10-28 02:36:16', NULL, 'bb8f75c2d5777a19c30bea354347f82f'),
+(12877, '2015-10-28 02:39:38', '2015-10-28 02:39:38', NULL, '7eabebbee125a46e7d03cfde8d9b91ff'),
+(12878, '2015-10-28 02:51:23', '2015-10-28 02:51:23', NULL, '2e13d7acd893eeb9cb44fee4f5505823'),
+(12879, '2015-10-28 02:55:07', '2015-10-28 02:55:07', NULL, 'ecfd981093737f7674d6c26f97edaec3'),
+(12880, '2015-10-28 02:55:17', '2015-10-28 02:55:17', NULL, 'ea9132d8f75f5865263be584f0f8e2c6'),
+(12881, '2015-10-28 02:57:37', '2015-10-28 02:57:37', NULL, '3ccfb440da5e6e8ab6939f39c57878a4'),
+(12882, '2015-10-28 03:13:56', '2015-10-28 03:13:56', NULL, 'bc3a27d63307b3d3a4873d026e5b8f90'),
+(12883, '2015-10-28 03:19:34', '2015-10-28 03:19:34', NULL, 'fb8924d965c807605ede73802797744e'),
+(12884, '2015-10-28 03:25:06', '2015-10-28 03:25:06', NULL, 'fb73b622dccd2d95cc12fbb6f92dfb88'),
+(12885, '2015-10-28 03:55:42', '2015-10-28 03:55:42', NULL, 'd1906199d92463d8929ee6e3ee1bc113'),
+(12886, '2015-10-28 04:00:22', '2015-10-28 04:00:22', NULL, '5727e676a60ae65eb549265d547331ea'),
+(12887, '2015-10-28 04:05:22', '2015-10-28 04:32:32', NULL, '71990b887512b84f4d866076561f9591'),
+(12888, '2015-10-28 04:28:22', '2015-10-28 04:28:22', NULL, '6dcd155da73048fd80bdf071b916e2b2'),
+(12889, '2015-10-28 04:41:16', '2015-10-28 04:41:16', NULL, '92159bc088d7e648b3fe82491eee3b6b'),
+(12890, '2015-10-28 05:05:35', '2015-10-28 05:05:35', NULL, '0c28dbab3d53fe1d0b165518c7bfdc02'),
+(12891, '2015-10-28 05:05:41', '2015-10-28 05:05:41', NULL, '88d94e78aeb285db9b32a5e0ba92dc8d'),
+(12892, '2015-10-28 05:09:00', '2015-10-28 05:09:00', NULL, 'bf2a540e832dfee5feef2b870e9a851b'),
+(12893, '2015-10-28 05:09:25', '2015-10-28 05:09:25', NULL, '5cff661964d68f8daedf8802aa3cd7f1'),
+(12894, '2015-10-28 05:24:35', '2015-10-28 05:24:35', NULL, '813c968082ad1bea8204921887bf2525'),
+(12895, '2015-10-28 05:24:40', '2015-10-28 05:24:40', NULL, 'e39bb32da10e71e88cc8d1eb9b3f826c'),
+(12896, '2015-10-28 05:28:16', '2015-10-28 05:28:16', NULL, '7cfd777773ab18cf5d5ec049a65862b1'),
+(12897, '2015-10-28 05:29:40', '2015-10-28 05:29:40', NULL, 'a31e6fbee54aea9dcba3a098f035aa06'),
+(12898, '2015-10-28 05:38:53', '2015-10-28 05:38:53', NULL, '80899c7eebadaee4ea2a439afc28d9b8'),
+(12899, '2015-10-28 05:42:24', '2015-10-28 05:42:24', NULL, '29737609e902a5735a84d05da1242690'),
+(12900, '2015-10-28 05:42:36', '2015-10-28 05:42:36', NULL, 'a83f982c1d934231a0fde8969caa419b'),
+(12901, '2015-10-28 06:00:27', '2015-10-28 06:00:27', NULL, '23628f06b89e68ed2d12780e8f117977'),
+(12902, '2015-10-28 06:12:14', '2015-10-28 06:12:14', NULL, '4b0be845d4111fbdb6b5ad47c6cf06cb'),
+(12903, '2015-10-28 06:15:54', '2015-10-28 06:15:54', NULL, 'fdb409fe1ec810708f80451dd5c10f41'),
+(12904, '2015-10-28 07:01:57', '2015-10-28 07:01:57', NULL, '5d34498ebb319d1668dd3b4dcc7ed9aa'),
+(12905, '2015-10-28 07:05:42', '2015-10-28 07:05:42', NULL, 'bedb6d6d90c4c0f05e27a4d717818b85'),
+(12906, '2015-10-28 07:07:06', '2015-10-28 07:07:06', NULL, '720cd09d905dd87312c73dac78290a6d'),
+(12907, '2015-10-28 07:09:40', '2015-10-28 07:09:40', NULL, 'e9f4d1c79f3c1c47a63d0c827ca9568f'),
+(12908, '2015-10-28 07:21:26', '2015-10-28 07:21:26', NULL, 'b6dedb06993ae2dcc093dd8ef338c843'),
+(12909, '2015-10-28 07:29:28', '2015-10-28 07:29:28', NULL, '318f3dc61528eabc71760a5f8ad1c5fe'),
+(12910, '2015-10-28 07:30:27', '2015-10-28 07:30:27', NULL, '3bfeb84bcf5e3357e567aca62415613c'),
+(12911, '2015-10-28 07:37:29', '2015-10-28 07:37:29', NULL, '687cce6f4883cb4947432a3d79888ae7'),
+(12912, '2015-10-28 07:41:41', '2015-10-28 07:41:41', NULL, '2bdda34490b47bd401ff70d44fbdd4d1'),
+(12913, '2015-10-28 07:43:06', '2015-10-28 07:43:06', NULL, 'a15000a99c945898e21d04994c8cb20f'),
+(12914, '2015-10-28 07:48:00', '2015-10-28 07:48:00', NULL, '1c43aec4d4d0ad6d05be315314a4b321'),
+(12915, '2015-10-28 07:52:33', '2015-10-28 07:52:33', NULL, '32985765af24fe341fea7baaf29885f0'),
+(12916, '2015-10-28 07:52:50', '2015-10-28 07:52:50', NULL, 'b18e52e3015f02ae37ef5bed6dd4c1c3'),
+(12917, '2015-10-28 07:52:51', '2015-10-28 07:52:51', NULL, '5cd73bb908ce793123f574d901d70d9e'),
+(12918, '2015-10-28 07:56:12', '2015-10-28 07:56:12', NULL, 'f5bd3c87b8e6bce3067c2ae92a6dc6c8'),
+(12919, '2015-10-28 08:06:41', '2015-10-28 08:06:41', NULL, 'd46615d51dfd8bf41332adc27d5d67e6'),
+(12920, '2015-10-28 08:14:17', '2015-10-28 08:14:17', NULL, '40c5ab6a04dc9f9bb690bc120291b66d'),
+(12921, '2015-10-28 08:33:15', '2015-10-28 08:33:15', NULL, '1f24d1c4a3cf10123cc9a7806dc51a53'),
+(12922, '2015-10-28 08:50:58', '2015-10-28 08:50:58', NULL, 'a89f989597e308c1a13209c477f98ae5'),
+(12923, '2015-10-28 08:54:38', '2015-10-28 08:54:38', NULL, 'e5eb7710938170ee236c425764648a9f'),
+(12924, '2015-10-28 08:54:38', '2015-10-28 08:54:38', NULL, '429cc50cf53a252efbafc6ccf67733f3'),
+(12925, '2015-10-28 09:00:37', '2015-10-28 09:00:37', NULL, '35f00433d796982360f3d889d03086df'),
+(12926, '2015-10-28 09:15:13', '2015-10-28 09:15:13', NULL, '06e12dcdd4abcdfd4f3e483f8ec1046b'),
+(12927, '2015-10-28 09:26:25', '2015-10-28 09:26:25', NULL, 'a9f2e1db1b1b672662a2eee774e6009c'),
+(12928, '2015-10-28 09:27:31', '2015-10-28 09:27:31', NULL, '9705716d8cc39835315918af391da820'),
+(12929, '2015-10-28 09:27:43', '2015-10-28 09:27:43', NULL, 'c542b6eb71f8950e69f363b871ef936c'),
+(12930, '2015-10-28 09:33:19', '2015-10-28 09:33:19', NULL, 'b71bb93510787b08d2676c2ad374d9b0'),
+(12931, '2015-10-28 09:34:16', '2015-10-28 09:34:16', NULL, '6fa7aaa32e65dd7f95bb8b333ddaa077'),
+(12932, '2015-10-28 09:42:37', '2015-10-28 09:42:37', NULL, 'bd3b7039b48d098ad1cef220466ec6fa'),
+(12933, '2015-10-28 09:44:10', '2015-10-28 09:44:10', NULL, '453228a2591ef7169353b822f75daa1d'),
+(12934, '2015-10-28 09:59:36', '2015-10-28 09:59:36', NULL, 'a382b7aa870ed8a8aba3c0f8a43e91d3'),
+(12935, '2015-10-28 10:00:18', '2015-10-28 10:00:18', NULL, 'abd6f9810f940f2ba930d284017f112d'),
+(12936, '2015-10-28 10:03:11', '2015-10-28 10:03:11', NULL, '0ab8549b352793a2a35a2df4996f9089'),
+(12937, '2015-10-28 10:03:13', '2015-10-28 10:03:13', NULL, 'd98f9ba87e6332bd14f9c5f8cd9170b5'),
+(12938, '2015-10-28 10:03:14', '2015-10-28 10:03:14', NULL, 'b968b503d47d360228b9add51fde35cc'),
+(12939, '2015-10-28 10:03:16', '2015-10-28 10:03:16', NULL, '4e1a732e2325d630865e7b8826c8dd8c'),
+(12940, '2015-10-28 10:03:18', '2015-10-28 10:03:18', NULL, '349bb3f7c2931514e29c0c8aa0b9ce9b'),
+(12941, '2015-10-28 10:03:20', '2015-10-28 10:03:20', NULL, 'f00e44c0dd0b46fe2218d49d350f082d'),
+(12942, '2015-10-28 10:09:16', '2015-10-28 10:09:16', NULL, '240e726f4eed68fe20be68819bba3381'),
+(12943, '2015-10-28 10:20:19', '2015-10-28 10:20:19', NULL, 'c4d7773776a3c8eef9a30e75bfd46b5e'),
+(12944, '2015-10-28 10:21:20', '2015-10-28 10:21:20', NULL, '1578c3899b64f968a8d8267a1b4709d3'),
+(12945, '2015-10-28 10:24:03', '2015-10-28 10:24:03', NULL, '9ad00ec6b1daaf6a87154ed528e374a4'),
+(12946, '2015-10-28 10:24:05', '2015-10-28 10:24:05', NULL, 'da80400ca887b20fad8d2a44086faf96'),
+(12947, '2015-10-28 10:24:07', '2015-10-28 10:24:07', NULL, 'ef61700bceaf7fe5f260b674e0708f46'),
+(12948, '2015-10-28 10:24:10', '2015-10-28 10:24:10', NULL, 'b439881524a8a5a957392cb45f9bbf1a'),
+(12949, '2015-10-28 10:24:12', '2015-10-28 10:24:12', NULL, 'e54c9906931e033f2b1e674f81ef2a2e'),
+(12950, '2015-10-28 10:24:14', '2015-10-28 10:24:14', NULL, '1d21cfee2a39ca1cd7b8f9d4c07a5de0'),
+(12951, '2015-10-28 10:24:16', '2015-10-28 10:24:16', NULL, '593f56f1defe1f9c3474bdeadd74775d'),
+(12952, '2015-10-28 10:24:18', '2015-10-28 10:24:18', NULL, 'd22b5b728684d947218e0da95844bb7e'),
+(12953, '2015-10-28 10:24:20', '2015-10-28 10:24:20', NULL, 'cd01debb58576e60134aefac0caa7d7c'),
+(12954, '2015-10-28 10:24:22', '2015-10-28 10:24:22', NULL, '527acd658a2a07c19e420cbf3f9b23f3'),
+(12955, '2015-10-28 10:24:24', '2015-10-28 10:24:24', NULL, 'b52299772f1322d54a51aedce314cd88'),
+(12956, '2015-10-28 10:24:26', '2015-10-28 10:24:26', NULL, '957e6699788554190c19ba21662e8627'),
+(12957, '2015-10-28 10:24:28', '2015-10-28 10:24:28', NULL, '0d4e84338f862ca443a830e7518a2a72'),
+(12958, '2015-10-28 10:24:29', '2015-10-28 10:24:29', NULL, '169c17298e904210c4d5cd81f6dce143'),
+(12959, '2015-10-28 10:24:31', '2015-10-28 10:24:31', NULL, '8b1edf49af5517451a4e11ddb4bc756b'),
+(12960, '2015-10-28 10:24:33', '2015-10-28 10:24:33', NULL, 'ab47eda82ef9189a44c97c5c9d9aa08c'),
+(12961, '2015-10-28 10:24:34', '2015-10-28 10:24:34', NULL, 'bead2ffdcce0b211c39c6cc96152c1d1'),
+(12962, '2015-10-28 10:24:36', '2015-10-28 10:24:36', NULL, '0f3d4515b30343b2716db4c42e69094d'),
+(12963, '2015-10-28 10:24:37', '2015-10-28 10:24:37', NULL, '7bcaf2208355a21c255e1c528c3e64aa'),
+(12964, '2015-10-28 10:24:39', '2015-10-28 10:24:39', NULL, '4b7dbdfcf2df14bf49435074ebc8c7b8'),
+(12965, '2015-10-28 10:24:41', '2015-10-28 10:24:41', NULL, '0214059e77fc9cf51ce4e188958b2cd8'),
+(12966, '2015-10-28 10:24:42', '2015-10-28 10:24:42', NULL, '2857f32cffa9b7deeae5238ed171d4bf'),
+(12967, '2015-10-28 10:24:43', '2015-10-28 10:24:43', NULL, 'b624d94171bbc2941075863958bae284'),
+(12968, '2015-10-28 10:24:45', '2015-10-28 10:24:45', NULL, '67945ad64431fd3e1468b7709257fd0f'),
+(12969, '2015-10-28 10:24:47', '2015-10-28 10:24:47', NULL, 'c00260e021d5b0bfc11a7c96f3a65a0c'),
+(12970, '2015-10-28 10:24:49', '2015-10-28 10:24:49', NULL, '99d7ba44600b187ada9a57c18bae7658'),
+(12971, '2015-10-28 10:24:50', '2015-10-28 10:24:50', NULL, 'dfc12804af651c4a30cb4a820b5206a7'),
+(12972, '2015-10-28 10:24:52', '2015-10-28 10:24:52', NULL, '82213f0b4dc7d3d27296881daee5f05a'),
+(12973, '2015-10-28 10:24:54', '2015-10-28 10:24:54', NULL, 'a346126c790518d97861d848f6c64323'),
+(12974, '2015-10-28 10:24:55', '2015-10-28 10:24:55', NULL, '9e79784422d8826b1bfd8a7058f5d255'),
+(12975, '2015-10-28 10:24:57', '2015-10-28 10:24:57', NULL, '70db35185effb05fc652293520821ff3'),
+(12976, '2015-10-28 10:24:59', '2015-10-28 10:24:59', NULL, 'f0f79de0a401636ebeb5d25c2d7dd53f'),
+(12977, '2015-10-28 10:25:00', '2015-10-28 10:25:00', NULL, '001191a7bda944095403e5b369f5c98b'),
+(12978, '2015-10-28 10:25:01', '2015-10-28 10:25:01', NULL, 'dbfa99ae29c670960241eea0ba50c0c6'),
+(12979, '2015-10-28 10:25:03', '2015-10-28 10:25:03', NULL, 'c6cc28c198820cdbbcbb0ed07e376985'),
+(12980, '2015-10-28 10:25:05', '2015-10-28 10:25:05', NULL, 'dc894cc2db61626afc30296dfd1165eb'),
+(12981, '2015-10-28 10:25:07', '2015-10-28 10:25:07', NULL, '3e70aabcc80b612d1487eb95d7bab569'),
+(12982, '2015-10-28 10:25:09', '2015-10-28 10:25:09', NULL, 'ba8c83b37278e2a7fcf99ff21944ad87'),
+(12983, '2015-10-28 10:25:11', '2015-10-28 10:25:11', NULL, '055a14a47bfab4922b79d50202552057'),
+(12984, '2015-10-28 10:25:12', '2015-10-28 10:25:12', NULL, '56e262bb665b04da6d37461cf8a0553d'),
+(12985, '2015-10-28 10:25:14', '2015-10-28 10:25:14', NULL, 'f3d2f810dd9364fe2e69cbe34d20f2ba'),
+(12986, '2015-10-28 10:25:16', '2015-10-28 10:25:16', NULL, 'adf1975a2e776c6229a6545832e3f32e'),
+(12987, '2015-10-28 10:25:18', '2015-10-28 10:25:18', NULL, '45bf120aa852af7a509096038aec4e92'),
+(12988, '2015-10-28 10:25:21', '2015-10-28 10:25:21', NULL, '40d879b189fb8d1ad9ce41f3e4b27948'),
+(12989, '2015-10-28 10:25:27', '2015-10-28 10:25:27', NULL, '5dd9cb9cd00e087ba4cef69b34934a18'),
+(12990, '2015-10-28 10:25:30', '2015-10-28 10:25:30', NULL, '4d79b53faef78bcb09b4458fe04eb259'),
+(12991, '2015-10-28 10:25:37', '2015-10-28 10:25:37', NULL, 'be8fc7ab72373f91ec5052f7674ff2bb'),
+(12992, '2015-10-28 10:25:41', '2015-10-28 10:25:41', NULL, '0c4ef8646ebd4e385106f2ab1f8f3c50'),
+(12993, '2015-10-28 10:25:43', '2015-10-28 10:25:43', NULL, '5c3d5756e2f3d2976c808c3c977305fd'),
+(12994, '2015-10-28 10:25:47', '2015-10-28 10:25:47', NULL, '60f57757a1435a27dc07482b2d8941ac'),
+(12995, '2015-10-28 10:25:50', '2015-10-28 10:25:50', NULL, '545258e1086e62f43572ad0268202ebf'),
+(12996, '2015-10-28 10:25:52', '2015-10-28 10:25:52', NULL, '1af66e5bd10eeffc74ab2c515f8f364a'),
+(12997, '2015-10-28 10:25:54', '2015-10-28 10:25:54', NULL, '08debad00351b1de8e47ff30b4f47542'),
+(12998, '2015-10-28 10:25:56', '2015-10-28 10:25:56', NULL, '0f66374357602a376f9d2f9a8ef0500f'),
+(12999, '2015-10-28 10:25:58', '2015-10-28 10:25:58', NULL, 'c2bfbade9165c298f589643a9e5fc7a7'),
+(13000, '2015-10-28 10:26:01', '2015-10-28 10:26:01', NULL, '0f82fe0d097e40293880bcaab212ba79'),
+(13001, '2015-10-28 10:26:02', '2015-10-28 10:26:02', NULL, '3b18827f2363eb9655caf5f2940413c4'),
+(13002, '2015-10-28 10:26:05', '2015-10-28 10:26:05', NULL, '9823c51c513b44c0274ad8a913aa48f9'),
+(13003, '2015-10-28 10:26:06', '2015-10-28 10:26:06', NULL, '6981f1c08c057f7bafd73345b024a181'),
+(13004, '2015-10-28 10:26:08', '2015-10-28 10:26:08', NULL, '5789aded10c75dffa86135fe5e84f153'),
+(13005, '2015-10-28 10:26:09', '2015-10-28 10:26:09', NULL, '4d0c20cf54321adae536318570e9939b'),
+(13006, '2015-10-28 10:26:13', '2015-10-28 10:26:13', NULL, '7789e8ef70a686c69f37885d6fbc3f9e'),
+(13007, '2015-10-28 10:26:15', '2015-10-28 10:26:15', NULL, '496600d79f18c452215f6c902702f0ad'),
+(13008, '2015-10-28 10:26:17', '2015-10-28 10:26:17', NULL, 'eb30c395b84975b53a29a15170159c51'),
+(13009, '2015-10-28 10:26:18', '2015-10-28 10:26:18', NULL, '3987130de756ac4e9cc528ad1cd5dac0'),
+(13010, '2015-10-28 10:26:20', '2015-10-28 10:26:20', NULL, 'c0ff59cbe677083e58b3850b822815d5'),
+(13011, '2015-10-28 10:26:22', '2015-10-28 10:26:22', NULL, 'a09e2d3531fa6d3b350a9551db504b06'),
+(13012, '2015-10-28 10:26:24', '2015-10-28 10:26:24', NULL, '5561102599e2444eb27d8c616094fba7'),
+(13013, '2015-10-28 10:26:26', '2015-10-28 10:26:26', NULL, 'b0b1cc8a3e188e79f7304af419faa26c'),
+(13014, '2015-10-28 10:26:28', '2015-10-28 10:26:28', NULL, '69d7b09b7453f3c396d55af1a44e20e3'),
+(13015, '2015-10-28 10:26:30', '2015-10-28 10:26:30', NULL, '6a3b1eccaf736148e44b7ef056103c14'),
+(13016, '2015-10-28 10:26:32', '2015-10-28 10:26:32', NULL, '20d9b024ef86acf90b019dc679da0a8e'),
+(13017, '2015-10-28 10:26:34', '2015-10-28 10:26:34', NULL, 'fc6bf19f425fce187aab7146048e0cf2'),
+(13018, '2015-10-28 10:26:35', '2015-10-28 10:26:35', NULL, 'b9c438d15441ad29e2d721cfeec0a802'),
+(13019, '2015-10-28 10:26:37', '2015-10-28 10:26:37', NULL, 'a86bf920173f6fb8d09a360195dac87f'),
+(13020, '2015-10-28 10:26:39', '2015-10-28 10:26:39', NULL, '293da78656e7514870bba03d3f2c980f'),
+(13021, '2015-10-28 10:26:41', '2015-10-28 10:26:41', NULL, '214e3e0e78ab0e1c52e7cc8ad09e51e7'),
+(13022, '2015-10-28 10:26:42', '2015-10-28 10:26:42', NULL, '0e59252cd4ff3584cfa2023c13210b5d'),
+(13023, '2015-10-28 10:26:51', '2015-10-28 10:26:51', NULL, '4360f8e4869464ccc7089bed47844509'),
+(13024, '2015-10-28 10:26:53', '2015-10-28 10:26:53', NULL, '811bbb82f02bfd16eec5657341a46981'),
+(13025, '2015-10-28 10:26:54', '2015-10-28 10:26:54', NULL, '83152302d9257c22ba8260f89d0b0fc6'),
+(13026, '2015-10-28 10:26:57', '2015-10-28 10:26:57', NULL, 'd3204646a71043a1ce77677a14f44bb9'),
+(13027, '2015-10-28 10:26:59', '2015-10-28 10:26:59', NULL, '5843b615bcfa6fa09db76f51540ebe20'),
+(13028, '2015-10-28 10:27:06', '2015-10-28 10:27:06', NULL, '661488a1bb1a48bf034936f40f6bc19c'),
+(13029, '2015-10-28 10:27:08', '2015-10-28 10:27:08', NULL, '55407755c29ceb738f0a95a4a18710fc'),
+(13030, '2015-10-28 10:27:10', '2015-10-28 10:27:10', NULL, '99c048de4cca793f9c1b31da835640ea'),
+(13031, '2015-10-28 10:27:13', '2015-10-28 10:27:13', NULL, '0821826aadaf436cd2aa12bfd9d0020c'),
+(13032, '2015-10-28 10:27:14', '2015-10-28 10:27:14', NULL, 'c828e847374790894bff5d55b08740fa'),
+(13033, '2015-10-28 10:27:16', '2015-10-28 10:27:16', NULL, '18b2306c6b4f88d31439a627031ea77b'),
+(13034, '2015-10-28 10:27:17', '2015-10-28 10:27:17', NULL, 'f98532ee01d91c98263de454f2e4704a'),
+(13035, '2015-10-28 10:27:19', '2015-10-28 10:27:19', NULL, 'ef6083597a5cc0546ad9e62fa659e13b'),
+(13036, '2015-10-28 10:27:21', '2015-10-28 10:27:21', NULL, '320556bd8bc6d29818be136294ca9948'),
+(13037, '2015-10-28 10:27:22', '2015-10-28 10:27:22', NULL, 'c926daae797cb535a0396e1a9c8491e2'),
+(13038, '2015-10-28 10:27:25', '2015-10-28 10:27:25', NULL, '973ef651f2563940cd44ce0816930dfd'),
+(13039, '2015-10-28 10:27:27', '2015-10-28 10:27:27', NULL, 'cd8bfc86cb008cd15d35f79f4bf0dba3'),
+(13040, '2015-10-28 10:27:29', '2015-10-28 10:27:29', NULL, '9e47ce7f035844e4bbfd2ee23c6d814f'),
+(13041, '2015-10-28 10:27:30', '2015-10-28 10:27:30', NULL, '31250dad6a9f4e80cb409b86c0ed4490'),
+(13042, '2015-10-28 10:27:30', '2015-10-28 10:27:30', NULL, 'c0476ad9524f55893a11bbc4d5affd1f'),
+(13043, '2015-10-28 10:27:31', '2015-10-28 10:27:31', NULL, 'c9101750fb9551b0ab7e8cfe0b8825ae'),
+(13044, '2015-10-28 10:27:33', '2015-10-28 10:27:33', NULL, 'e0ff7c293050063b3bc3de5f291ea78e'),
+(13045, '2015-10-28 10:27:40', '2015-10-28 10:27:40', NULL, '6eaf41b1a129f4872e200955c16cba5f'),
+(13046, '2015-10-28 10:49:32', '2015-10-28 10:49:32', NULL, '197d8f69598b65ad0013718fe00a3cb1'),
+(13047, '2015-10-28 10:53:04', '2015-10-28 10:53:04', NULL, '89ff0dc2cf6db36f25654a65e43673e4'),
+(13048, '2015-10-28 10:59:28', '2015-10-28 10:59:28', NULL, 'c297fd78d8ed152f9d6f7c5bd6bea930'),
+(13049, '2015-10-28 10:59:56', '2015-10-28 10:59:56', NULL, '0232de28c2e7983340bcdfbc062bd4d3'),
+(13050, '2015-10-28 11:09:16', '2015-10-28 11:09:16', NULL, '2b45576f311027ef14cd255bd3bf1e59'),
+(13051, '2015-10-28 11:15:37', '2015-10-28 11:15:37', NULL, '480d54098249b4e3b1d59bdca76c952e'),
+(13052, '2015-10-28 11:19:09', '2015-10-28 11:19:09', NULL, '94e9d9787b4185892d9f20a8de09e5f6'),
+(13053, '2015-10-28 11:23:01', '2015-10-28 11:23:01', NULL, '566bce06c693d7399787c4a622992979'),
+(13054, '2015-10-28 11:26:16', '2015-10-28 11:26:16', NULL, 'c52e4cce2cefd212448eca64f8cd2e90'),
+(13055, '2015-10-28 11:26:20', '2015-10-28 11:26:20', NULL, '30b198a7550dfdf2d50b1986fcc6ab7d'),
+(13056, '2015-10-28 11:26:22', '2015-10-28 11:26:22', NULL, '7ad2886e748e58a72ce8cfdaf6b3baf1'),
+(13057, '2015-10-28 11:26:29', '2015-10-28 11:26:29', NULL, 'a58b5f08455eb194ea264cc167234f89'),
+(13058, '2015-10-28 11:27:51', '2015-10-28 11:27:51', NULL, '1770a5deecf87b7fd05ad6ff8182b358'),
+(13059, '2015-10-28 11:37:41', '2015-10-28 11:37:41', NULL, '25cb0a5910b32de9ab9973fd20c103ee'),
+(13060, '2015-10-28 11:37:42', '2015-10-28 11:37:42', NULL, 'd6b841a16fa4ee36bc1c8cb8f58292aa'),
+(13061, '2015-10-28 11:37:44', '2015-10-28 11:37:44', NULL, '27dd514f32a202d08577b785444acabd'),
+(13062, '2015-10-28 11:37:46', '2015-10-28 11:37:46', NULL, 'ab808c3bbb9cd8f674f2c0d0284e3164'),
+(13063, '2015-10-28 11:37:47', '2015-10-28 11:37:47', NULL, '474215566459bfc4145cb89dbfa22b9b'),
+(13064, '2015-10-28 11:40:50', '2015-10-28 11:40:50', NULL, 'b3db2e39e687a284da7b74e8535153a3'),
+(13065, '2015-10-28 11:43:59', '2015-10-28 11:43:59', NULL, '081e0b5b00e3d77e3c1371f1ccacfcc8'),
+(13066, '2015-10-28 11:48:59', '2015-10-28 11:48:59', NULL, 'babadeb42c058ff51e48d8737b0b42b3'),
+(13067, '2015-10-28 11:53:52', '2015-10-28 11:53:52', NULL, '1f4dbc67f2b33abac932719a5694d138'),
+(13068, '2015-10-28 12:01:22', '2015-10-28 12:01:22', NULL, '1fd9deee31590fb099abd0a39b00e68e'),
+(13069, '2015-10-28 12:17:59', '2015-10-28 12:17:59', NULL, 'a3eb5866eac0f3f0c6df09f6f47e94c1'),
+(13070, '2015-10-28 12:53:35', '2015-10-28 12:53:35', NULL, 'e96bf5eb2466cfaa3812f906cff13503'),
+(13071, '2015-10-28 12:56:07', '2015-10-28 12:56:07', NULL, '0ee81580429c96ba7cec259818d39751'),
+(13072, '2015-10-28 12:56:40', '2015-10-28 12:56:40', NULL, '4fb5fb3fde24fa5a7ce7448349708afc'),
+(13073, '2015-10-28 12:58:01', '2015-10-28 12:58:01', NULL, 'a6c4c3f786993a60bcb987706e046a2d'),
+(13074, '2015-10-28 13:35:10', '2015-10-28 13:35:10', NULL, 'e22433284320d54630ec825e233b86a3'),
+(13075, '2015-10-28 13:36:16', '2015-10-28 13:36:16', NULL, '2cc7cf1b517888840317dc78e8e60642'),
+(13076, '2015-10-28 13:36:20', '2015-10-28 13:36:20', NULL, '6a0e3b5eba744dc97a5c118da36172ac'),
+(13077, '2015-10-28 13:41:53', '2015-10-28 13:41:53', NULL, '0a352c3ad28e1eff2962a670ff414fd3'),
+(13078, '2015-10-28 13:46:23', '2015-10-28 13:46:23', NULL, '6f73419361c7cdfbe465b7653de6383b'),
+(13079, '2015-10-28 13:51:19', '2015-10-28 13:51:19', NULL, '2645008af1c887b306a0e1a0c8e42937'),
+(13080, '2015-10-28 13:53:09', '2015-10-28 13:53:09', NULL, 'de257cf61df4daa75ab891f342caed90'),
+(13081, '2015-10-28 14:02:41', '2015-10-28 14:02:41', NULL, '14917516b0e046511c64de05f39f6f8f'),
+(13082, '2015-10-28 14:02:43', '2015-10-28 14:02:43', NULL, '38b4a40e6e35a0d994d427bf1841c0b9'),
+(13083, '2015-10-28 14:02:45', '2015-10-28 14:02:45', NULL, '3e64c46d9a316be71593d64b539ea858'),
+(13084, '2015-10-28 14:02:47', '2015-10-28 14:02:47', NULL, '7e8c43a82200c79c1f4241bad4a8bfaa'),
+(13085, '2015-10-28 14:02:49', '2015-10-28 14:02:49', NULL, '041217f08ec77f422696227ad9611952'),
+(13086, '2015-10-28 14:02:51', '2015-10-28 14:02:51', NULL, '06004ec14113ab419a2dedda0eaf1aa6'),
+(13087, '2015-10-28 14:09:51', '2015-10-28 14:09:51', NULL, '8176b0c40f0f429148c72b864262ce00'),
+(13088, '2015-10-28 14:11:25', '2015-10-28 14:11:25', NULL, '59c85b2b2c260218f9f0261e929b1f7e'),
+(13089, '2015-10-28 14:15:19', '2015-10-28 14:15:19', NULL, 'c58506fb3a62d78765b3add51cdfe8d9'),
+(13090, '2015-10-28 14:26:42', '2015-10-28 14:26:42', NULL, 'fe2c3b46e161e82321db66e51d4ef861'),
+(13091, '2015-10-28 14:36:41', '2015-10-28 14:36:41', NULL, '32e17b3bbf0ec1d9d340d563a429e223'),
+(13092, '2015-10-28 14:36:53', '2015-10-28 14:36:53', NULL, 'cbe9f637b362f68a62a123a38c351cef'),
+(13093, '2015-10-28 14:41:08', '2015-10-28 14:41:08', NULL, '604ca6bef9b4a4ed3f17c06044313d4d'),
+(13094, '2015-10-28 14:42:16', '2015-10-28 14:42:16', NULL, '5805198b584e86a3eaac53a42323e73a'),
+(13095, '2015-10-28 14:42:42', '2015-10-28 14:42:42', NULL, '78109917999309e8162de2b6449e6851'),
+(13096, '2015-10-28 14:47:12', '2015-10-28 14:47:12', NULL, '69dc90c59c1cfed39bc1f692ea140a11'),
+(13097, '2015-10-28 14:51:14', '2015-10-28 14:51:14', NULL, 'e512d77d8b03a2b7765fd5db198bb701'),
+(13098, '2015-10-28 14:51:34', '2015-10-28 14:51:34', NULL, 'e2741f565f0dd1d89c1a21188287c3b1'),
+(13099, '2015-10-28 14:58:23', '2015-10-28 14:58:23', NULL, 'ad8d906386487fafd2688190dd152fec'),
+(13100, '2015-10-28 14:58:58', '2015-10-28 14:58:58', NULL, 'b307fda1c1586a1a6e7abd898b6dca35'),
+(13101, '2015-10-28 15:06:25', '2015-10-28 15:06:25', NULL, '70912ce3e59c934eccd939d2a2813036'),
+(13102, '2015-10-28 15:15:45', '2015-10-28 15:15:45', NULL, '565a1bd8bdf815d46cc3a2c6651547f5'),
+(13103, '2015-10-28 15:15:47', '2015-10-28 15:15:47', NULL, 'de2b998812dbc3657c90c4b5767f6929'),
+(13104, '2015-10-28 15:15:49', '2015-10-28 15:15:49', NULL, '6b42eb258289be56c60877fec2ec993c'),
+(13105, '2015-10-28 15:15:51', '2015-10-28 15:15:51', NULL, '68196247c58833c4a8c4d406d41e43e8'),
+(13106, '2015-10-28 15:15:52', '2015-10-28 15:15:52', NULL, 'f46434ab53fbcdfabdde29dc04c9d6ee'),
+(13107, '2015-10-28 15:15:54', '2015-10-28 15:15:54', NULL, '10193c7a09f8f73e4bcc45d4d31b6b4d'),
+(13108, '2015-10-28 15:15:55', '2015-10-28 15:15:55', NULL, 'addec555339dc2faf12fff3c747d4bd5'),
+(13109, '2015-10-28 15:15:56', '2015-10-28 15:15:56', NULL, '4e70e845cd328f25e72dd17e828444d6'),
+(13110, '2015-10-28 15:15:58', '2015-10-28 15:15:58', NULL, '79114d6826b08823eead6f82ff39db95'),
+(13111, '2015-10-28 15:16:00', '2015-10-28 15:16:00', NULL, 'bf9034d7ba754a7670469bff1c6ca500'),
+(13112, '2015-10-28 15:16:02', '2015-10-28 15:16:02', NULL, 'ea72c1d02452d1b62a064bfb8138eca0'),
+(13113, '2015-10-28 15:17:57', '2015-10-28 15:17:57', NULL, '175c884045ca95eb1fcd0070b0b9a023'),
+(13114, '2015-10-28 15:25:03', '2015-10-28 15:25:03', NULL, 'b3b96a62c17469edaab5a4042e7dd903'),
+(13115, '2015-10-28 15:25:39', '2015-10-28 15:25:39', NULL, '789fc905e9f659e9c87291896e1a8b52'),
+(13116, '2015-10-28 15:25:49', '2015-10-28 15:25:49', NULL, '2cdd4088fec94f4f0549119a5b7ff852'),
+(13117, '2015-10-28 15:32:23', '2015-10-28 15:32:23', NULL, '4d4b1b245c755799afd32b3dfda47358'),
+(13118, '2015-10-28 15:35:49', '2015-10-28 15:35:49', NULL, 'efc483bc282d2169a291c2cdb06035f6'),
+(13119, '2015-10-28 15:44:08', '2015-10-28 15:44:08', NULL, 'd037d01d13faa1f645ffbff5bd05362d'),
+(13120, '2015-10-28 15:45:10', '2015-10-28 15:45:10', NULL, 'dc6ed5c903807517002c6805767cdeea'),
+(13122, '2015-10-28 15:46:12', '2015-10-28 15:46:12', NULL, '4438db1ec1faa37b128186326b0340d7'),
+(13123, '2015-10-28 15:52:46', '2015-10-28 15:52:46', NULL, 'a32d9bbd11172b38c8be8e60228c1ca6'),
+(13124, '2015-10-28 16:05:33', '2015-10-28 16:05:33', NULL, '72e33980c2c1afd70b7507f5d43bbcb0'),
+(13125, '2015-10-28 16:14:41', '2015-10-28 16:14:41', NULL, 'e38874a93bc489f0546b6aaca8c1492f'),
+(13126, '2015-10-28 16:22:11', '2015-10-28 16:22:11', NULL, '4c7fcf9706476f73dc05e86bcd7a4864'),
+(13127, '2015-10-28 16:22:56', '2015-10-28 16:22:56', NULL, '5154f7c9abfc3883b2d470376262bc2a'),
+(13128, '2015-10-28 16:34:09', '2015-10-28 16:34:09', NULL, '4cd0f3b0dbe8e9ae21a109de38214520'),
+(13129, '2015-10-28 16:34:39', '2015-10-28 16:34:39', NULL, '6307e7807477b9e81d6c48727e0eeaa5'),
+(13130, '2015-10-28 16:34:39', '2015-10-28 16:34:39', NULL, '0d3ddae35558e5efb1ac5174056a4748'),
+(13131, '2015-10-28 16:34:39', '2015-10-28 16:34:39', NULL, '6fb8c7c86b4835afdefe5552faf7f597'),
+(13132, '2015-10-28 16:34:39', '2015-10-28 16:34:39', NULL, '21f2f7197d780ad15db41996104ef39f'),
+(13133, '2015-10-28 16:34:40', '2015-10-28 16:34:40', NULL, 'ead2b706f644769d65f6ac0213b5d14a'),
+(13134, '2015-10-28 16:34:40', '2015-10-28 16:34:40', NULL, '5f58446af4fad8943d4996145f86de7f'),
+(13135, '2015-10-28 16:34:40', '2015-10-28 16:34:40', NULL, '916a5bb1beb28753c91a1f7249fc411f'),
+(13136, '2015-10-28 16:34:42', '2015-10-28 16:34:42', NULL, 'a8cf1216268841505dc3c1a9833d1301'),
+(13137, '2015-10-28 16:52:19', '2015-10-28 16:52:19', NULL, '3bbb0aee13ff9baff5f89b776bd26afa'),
+(13138, '2015-10-28 16:54:46', '2015-10-28 16:54:46', NULL, '74e12522ccf748a4a56380ec1f4d3322'),
+(13139, '2015-10-28 17:00:59', '2015-10-28 17:00:59', NULL, 'd01cecba7135a9b7a9cb78986a1825e0'),
+(13140, '2015-10-28 17:01:04', '2015-10-28 17:01:04', NULL, '6565b703a2d04ef7ad6f2434d9db9d89'),
+(13141, '2015-10-28 17:08:14', '2015-10-28 17:08:14', NULL, '6c7e8ce0d18f7656088d3ea3fd1c4b92'),
+(13142, '2015-10-28 17:17:12', '2015-10-28 17:17:12', NULL, '83f168771658b06c7a19d2308a52076c'),
+(13143, '2015-10-28 17:19:50', '2015-10-28 17:19:50', NULL, '87c0debe5c55c9ef97c20464300ae806'),
+(13144, '2015-10-28 17:22:17', '2015-10-28 17:22:17', NULL, '4dc0abf6534b9ecaffed6d4aec149fe1'),
+(13145, '2015-10-28 17:33:09', '2015-10-28 17:33:09', NULL, '2bf9080c0fffe836abce06699d574f71'),
+(13146, '2015-10-28 17:33:12', '2015-10-28 17:33:12', NULL, '40e9f476fb65366fd583a23286c47df0'),
+(13147, '2015-10-28 17:42:01', '2015-10-28 17:42:01', NULL, '75beaed697afcfc93f29f1ebf0147ccd'),
+(13148, '2015-10-28 17:43:14', '2015-10-28 17:43:14', NULL, 'e8f3684a211d5b3af15ab181dbba0257'),
+(13149, '2015-10-28 18:04:35', '2015-10-28 18:04:35', NULL, '42d2f1e6b0153041793176734da8e209'),
+(13150, '2015-10-28 18:05:44', '2015-10-28 18:05:44', NULL, '34d8a84fec1a2e8fb3e6375e35d5644a'),
+(13151, '2015-10-28 18:25:01', '2015-10-28 18:25:01', NULL, 'a0732253bb2f5191462114e3cc5aebc9'),
+(13152, '2015-10-28 18:26:16', '2015-10-28 18:26:16', NULL, '15e0c7a1a4f872ed37a2afcebf07ace7'),
+(13153, '2015-10-28 18:28:38', '2015-10-28 18:28:38', NULL, '80c32871a06dede7c0ad3c7a1e328b78'),
+(13154, '2015-10-28 18:32:03', '2015-10-28 18:32:03', NULL, '3e9db56777df41b85f0aab97415789fc'),
+(13155, '2015-10-28 18:32:59', '2015-10-28 18:32:59', NULL, '6405d6e9064323fe047a952a4b2e78a6'),
+(13156, '2015-10-28 18:42:41', '2015-10-28 18:42:41', NULL, 'e623e4b505b259b9a6e4eee4ebd3a34d'),
+(13157, '2015-10-28 18:47:51', '2015-10-28 18:47:51', NULL, '52b04f3fd6eb5d9a7dadf3650e0bc7b7'),
+(13158, '2015-10-28 18:49:49', '2015-10-28 18:49:49', NULL, 'bce4f07d082353516a4b04c11ff247c7'),
+(13159, '2015-10-28 18:57:17', '2015-10-28 18:57:17', NULL, 'ed9f098bc2948b60d4b6e0562866853e'),
+(13160, '2015-10-28 18:58:30', '2015-10-28 18:58:30', NULL, 'b5d1f52c0f0dac1ee4a5a095f855434b'),
+(13161, '2015-10-28 19:04:05', '2015-10-28 19:04:05', NULL, 'e1da494f4c578b190c9f1eb75ed330c7'),
+(13162, '2015-10-28 19:05:49', '2015-10-28 19:05:49', NULL, '9da3ea9b8d8408eb0c8c1fbd81eddbb4'),
+(13163, '2015-10-28 19:11:07', '2015-10-28 19:11:07', NULL, 'bdf0a85f85ac3533fa5d62865cd2bcb3'),
+(13164, '2015-10-28 19:15:55', '2015-10-28 19:15:55', NULL, 'b5f0bd6a1afdde81e035f41125e333e9'),
+(13165, '2015-10-28 19:20:07', '2015-10-28 19:20:07', NULL, '9c860a03e08971f45c58e7e9556ff85e'),
+(13166, '2015-10-28 19:40:00', '2015-10-28 19:40:00', NULL, '1f19b5a00565e43b574e6ad774bf10eb'),
+(13167, '2015-10-28 19:41:46', '2015-10-28 19:41:46', NULL, 'b20953c4d2a2149cb3b873718f9ba88a'),
+(13168, '2015-10-28 19:54:02', '2015-10-28 19:54:02', NULL, 'e59902f187540ba155ee9ef23bdc3b4e'),
+(13169, '2015-10-28 19:56:30', '2015-10-28 19:56:30', NULL, 'c6cadcfb065192527ee6391be17ddc1f'),
+(13170, '2015-10-28 19:57:29', '2015-10-28 19:57:29', NULL, 'adbf2f8c13d394185158c47353742854'),
+(13171, '2015-10-28 20:20:59', '2015-10-28 20:20:59', NULL, 'd2d4d99711b7b16b43303e3b6ea96bd6'),
+(13172, '2015-10-28 20:28:52', '2015-10-28 20:28:52', NULL, '36ef39f7d42d657556b5dfbf9b24fbf3'),
+(13173, '2015-10-28 20:38:44', '2015-10-28 20:38:44', NULL, '97f6e6d3ecb496725be127f76318d8e1'),
+(13174, '2015-10-28 20:50:55', '2015-10-28 20:50:55', NULL, 'aed12dfd3d37c78f6356901c6e368b3d'),
+(13175, '2015-10-28 20:51:37', '2015-10-28 20:51:37', NULL, 'e3df2b259195e0bd2ea8717c172bda8d'),
+(13176, '2015-10-28 21:00:31', '2015-10-28 21:00:31', NULL, '30a0be50e1cbc5634f7b8f8a25e33cf7'),
+(13177, '2015-10-28 21:02:28', '2015-10-28 21:02:28', NULL, '2d10b433db91aefccb951bbc5420228a'),
+(13178, '2015-10-28 21:03:37', '2015-10-28 21:03:37', NULL, '251b5844b2194f290dfa06dcb6f25030'),
+(13179, '2015-10-28 21:13:15', '2015-10-28 21:13:15', NULL, '2e0b375f9f40a54553b475a019720f2c'),
+(13180, '2015-10-28 21:13:16', '2015-10-28 21:13:16', NULL, 'dea5a9ec0e13b177327829859f9faf46'),
+(13181, '2015-10-28 21:22:45', '2015-10-28 21:22:45', NULL, 'faefa34b97ffec65f47d0e2c8163e439'),
+(13182, '2015-10-28 21:27:12', '2015-10-28 21:27:12', NULL, 'd174703e1193f4dc9f52b0e25e304189'),
+(13183, '2015-10-28 21:28:46', '2015-10-28 21:28:46', NULL, '15978a4017f4e81ab9bc0a479a9700d3'),
+(13184, '2015-10-28 21:37:47', '2015-10-28 21:37:47', NULL, '4acccb911acda1bcd82d3275ca9b745c'),
+(13185, '2015-10-28 21:41:00', '2015-10-28 21:41:00', NULL, '4b384e4ad5e5ade88870f3049ddcd382'),
+(13186, '2015-10-28 21:48:28', '2015-10-28 21:48:28', NULL, '3e1baae262cbe3be4658568033bd4ff7'),
+(13187, '2015-10-28 21:51:02', '2015-10-28 21:51:02', NULL, '10e6323e15dce599a44e0def093f9655'),
+(13188, '2015-10-28 21:56:03', '2015-10-28 21:56:03', NULL, '12ca3649b3f687362aa9830eb4537d5e'),
+(13189, '2015-10-28 22:37:55', '2015-10-28 22:37:55', NULL, '913e0de101b957f97440a610e4a26e6f'),
+(13190, '2015-10-28 22:38:27', '2015-10-28 22:38:27', NULL, '63cd53f5d2e12c1f27cc7f9d86b7e90c'),
+(13191, '2015-10-28 22:38:33', '2015-10-28 22:38:33', NULL, '1ecaa89dc4c4713f727f97d77d6124a1'),
+(13192, '2015-10-28 22:38:34', '2015-10-28 22:38:34', NULL, '9f282e72ae606321d787595c8e26f48d'),
+(13193, '2015-10-28 22:38:34', '2015-10-28 22:38:34', NULL, 'f9fca371e0dcd1c42d5f3ce61a3d9f1d'),
+(13194, '2015-10-28 22:38:34', '2015-10-28 22:38:34', NULL, '6b440d60a1dbba5ca2eb9484368a42bc'),
+(13195, '2015-10-28 22:38:34', '2015-10-28 22:38:34', NULL, '863369463de307e3dc24dba702283777'),
+(13196, '2015-10-28 22:38:34', '2015-10-28 22:38:34', NULL, 'b9bf5f344498a87ba9aabe447a2a9ad2'),
+(13197, '2015-10-28 22:38:34', '2015-10-28 22:38:34', NULL, '25ad0c3ef2c6dc272fe8e873ba7d3d7c'),
+(13198, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '95ed292e68c82d357dfea93fab0f1996'),
+(13199, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '8490d8d069c27524225427c97127fad5'),
+(13200, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '745a55daab58d50524b4b214d3f4bae8'),
+(13201, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '2cd2207bc0bbfef4ab542e5b65eba411'),
+(13202, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '9f82cb5242a2b9a11cc5ba2cd5da7686'),
+(13203, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'c2bff18a6137fa086cdb256b9d4f52b2'),
+(13204, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'd0260a0e498cfd99dda10f1b8185714e'),
+(13205, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'f8823c1418a421cde11ddc87b2191505'),
+(13206, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '67f6f9e32b87078559a4606f7dcbbb77'),
+(13207, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '1da88c3bdb9c9a9483ec5df7d39e20fc'),
+(13208, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'a84f80e9ac310aa74a1bd3d377c566df'),
+(13209, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '9a662c16eda4093fdd8f0896d3203688'),
+(13210, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'c8bda529410ece633c09568aec4ada1c'),
+(13211, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '978b26eb9544788c0158e189a6ed9c49'),
+(13212, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '348a660a19f8ececfc44e69c99e679a2'),
+(13213, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '4ec3e3cabd6390b653349e3fe2430a2f'),
+(13214, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'c36cd1d690a6a47f085b2aff99e50f11'),
+(13215, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, 'e52b4cf842808e34ce28dabc420e383c'),
+(13216, '2015-10-28 22:38:35', '2015-10-28 22:38:35', NULL, '68678a6f30292d3b3180bcff6f4c19b6'),
+(13217, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '1c136997f622671fa63147e613adb538'),
+(13218, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '30ce7cb12e4f577b025a43ee7b723861'),
+(13219, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '40d98c04b01c1209f52160a9e35cd8da'),
+(13220, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '3f8ae6838187e42b6dfd3bc886134ce8'),
+(13221, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '8a6e0fdf293ba6440c0e95284caa4d14'),
+(13222, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '2e6e7eebc95fbc81bd3e99892ede438e'),
+(13223, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '180fe2ebc4252f87efb4c5c8f8f11750'),
+(13224, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '28399297720bfa025f251dced6e04123'),
+(13225, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '5340ea0b6fb36bd192473a82c729bea6'),
+(13226, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, 'e213c56e66348d2e62321464d50cad0c'),
+(13227, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '9e1cc5a6f13d3835b09baa8d4c56a8a7'),
+(13228, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '3d0b12d3b552d099d75b19b7c27feaf3'),
+(13229, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '14cf89f55ab584b751e81e137e5b3ef1'),
+(13230, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, 'c1e21a2be9078257d09417a538bd5ae4'),
+(13231, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '14b582d5aac8a84fb92266f26ba95a18'),
+(13232, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '766c16951f70c9e64c19907aa3045fda'),
+(13233, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '25944d6b4e460795c203b79de0bf8a4d'),
+(13234, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '632fc44f6a6602cdd2325d0186632b40'),
+(13235, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, 'e86fda2834408bbb318ff11777184d90'),
+(13236, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, '84c71f58bbe59933fccb4634382a8fe5'),
+(13237, '2015-10-28 22:38:36', '2015-10-28 22:38:36', NULL, 'e805a61f35d627eb1fe5334add8dbcfc'),
+(13238, '2015-10-28 22:38:43', '2015-10-28 22:38:43', NULL, '4767d92a83995073c8356d3cb0ac1f15'),
+(13239, '2015-10-28 22:46:12', '2015-10-28 22:46:12', NULL, '7f07fef3b01cc6c4a7722b737ec3e8e3'),
+(13240, '2015-10-28 22:46:13', '2015-10-28 22:46:13', NULL, '387547697ec247c453b9722fc2efd768'),
+(13241, '2015-10-28 22:48:37', '2015-10-28 22:48:37', NULL, 'a5c777e0dde763b24a3faefa7eb206be'),
+(13242, '2015-10-28 22:59:48', '2015-10-28 22:59:48', NULL, '18e0f5d56a17706487a291946a2bf5d3'),
+(13243, '2015-10-28 22:59:50', '2015-10-28 22:59:50', NULL, 'ecd961017425cdb18622591f2d9d5a06'),
+(13244, '2015-10-28 22:59:52', '2015-10-28 22:59:52', NULL, '827f859883500085b5a9bd86f249b5a3'),
+(13245, '2015-10-28 22:59:59', '2015-10-28 22:59:59', NULL, '8128595cdb27e2d1754caecc41bf4f0c'),
+(13246, '2015-10-28 23:00:06', '2015-10-28 23:00:06', NULL, '940695f1d19fe3b1c89cad0c4a9d7f32'),
+(13247, '2015-10-28 23:00:08', '2015-10-28 23:00:08', NULL, 'b5074ee0b369be357ee5777f2c966882'),
+(13248, '2015-10-28 23:00:37', '2015-10-28 23:00:37', NULL, '012eadcd557cced1eb64117de759cb32'),
+(13249, '2015-10-28 23:19:57', '2015-10-28 23:19:57', NULL, '824f54fa54e4878a6694ddb18fc42da3'),
+(13250, '2015-10-28 23:19:57', '2015-10-28 23:19:57', NULL, '3ea321ec16a8a8bf847e7fc6e3bc64f8'),
+(13251, '2015-10-28 23:34:18', '2015-10-28 23:34:18', NULL, '837d07fcec1bb17b62dde55ead497751');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(13252, '2015-10-28 23:47:34', '2015-10-28 23:47:34', NULL, '704f3fb972dc1979f27495fec9235881'),
+(13253, '2015-10-28 23:49:14', '2015-10-28 23:49:14', NULL, '56a220019a2040bc082f336d9953ab36'),
+(13254, '2015-10-28 23:49:33', '2015-10-28 23:49:33', NULL, 'f41d32af0fb15e66e52aa4b3de385e0c'),
+(13255, '2015-10-28 23:59:17', '2015-10-28 23:59:17', NULL, 'c9cb8e2a7b866ec6b2cded0f8bff4714'),
+(13256, '2015-10-29 00:03:15', '2015-10-29 00:03:15', NULL, 'e72e5eaadb81abd13833be80767fe448'),
+(13257, '2015-10-29 00:08:06', '2015-10-29 00:08:06', NULL, '066db744b3499fd78a266a5fea412cbd'),
+(13258, '2015-10-29 00:08:14', '2015-10-29 00:08:14', NULL, '72acc6ac30af59842f33c39e27fb503d'),
+(13259, '2015-10-29 00:08:31', '2015-10-29 00:08:31', NULL, '76bec3703183f578e4a16fed71d5c0c5'),
+(13260, '2015-10-29 00:08:46', '2015-10-29 00:08:46', NULL, 'fb3cdbf50d2a1f1e375fef980d0be7e5'),
+(13261, '2015-10-29 00:23:14', '2015-10-29 00:23:14', NULL, '1e2a55d9a36ba922335bb301d396bc37'),
+(13262, '2015-10-29 00:32:45', '2015-10-29 00:32:45', NULL, '4054c541c8dd4797b10f78ff14b3e40d'),
+(13263, '2015-10-29 00:32:55', '2015-10-29 00:32:55', NULL, '360c2c836796f65154b0f3eee382b35c'),
+(13264, '2015-10-29 00:41:05', '2015-10-29 00:41:05', NULL, '827096eee46ef07759007364f79cd8d5'),
+(13265, '2015-10-29 00:46:05', '2015-10-29 00:46:05', NULL, 'c8eedd340ecd4e3487e3826f3b3850f9'),
+(13266, '2015-10-29 00:47:36', '2015-10-29 00:47:36', NULL, 'db15a664a3646cec6f03f42e75aa94e3'),
+(13267, '2015-10-29 00:55:22', '2015-10-29 00:55:22', NULL, '7350663d2fefe318d6b29993aa0357db'),
+(13268, '2015-10-29 00:57:59', '2015-10-29 00:57:59', NULL, '5b41228761f7fc5c20a2de2b640a54cc'),
+(13269, '2015-10-29 01:15:38', '2015-10-29 01:15:38', NULL, 'f6674f4289cd825e5f6f02c13eb43ab6'),
+(13270, '2015-10-29 01:17:41', '2015-10-29 01:17:41', NULL, 'b62c26a680d43ab03741c3a63e915805'),
+(13271, '2015-10-29 01:17:43', '2015-10-29 01:17:43', NULL, 'e904e9f0701790b867010b65810f57a4'),
+(13272, '2015-10-29 01:35:43', '2015-10-29 01:35:43', NULL, '5fffaf4c3b1ef713f91f7c3c1b7b86a5'),
+(13273, '2015-10-29 01:38:10', '2015-10-29 01:38:10', NULL, 'ef6f749a76c5c8fac71fe18d5293a1fa'),
+(13274, '2015-10-29 01:41:05', '2015-10-29 01:41:05', NULL, 'f7fd449b50e4f2a34b6b8226ac780494'),
+(13275, '2015-10-29 01:47:14', '2015-10-29 01:47:14', NULL, 'b24b80fd46351ace521e5a3d92c6796d'),
+(13276, '2015-10-29 01:47:15', '2015-10-29 01:47:15', NULL, '70e65a7efe02ca945a601d322fc58a9b'),
+(13277, '2015-10-29 01:47:52', '2015-10-29 01:47:52', NULL, '29a473ed9dbe22ad184a04ae762a659a'),
+(13278, '2015-10-29 01:47:58', '2015-10-29 01:47:58', NULL, '4a1a67830d24ec8c7f7f45648434bbff'),
+(13279, '2015-10-29 01:48:00', '2015-10-29 01:48:00', NULL, '578bfcfc59cf570ef6fc39c8c92483ed'),
+(13280, '2015-10-29 01:48:18', '2015-10-29 01:48:18', NULL, 'af2a5932f318e00c243741bcf164f138'),
+(13281, '2015-10-29 01:48:18', '2015-10-29 01:48:18', NULL, '9529f7710f9093c24138dca6b09df276'),
+(13282, '2015-10-29 01:48:36', '2015-10-29 01:48:36', NULL, '47b3cc0e4ff70006cd92d8e9d83009c2'),
+(13283, '2015-10-29 01:48:47', '2015-10-29 01:48:47', NULL, 'c6cb7cb9664e13ee12651909f7d3d7b2'),
+(13284, '2015-10-29 01:48:47', '2015-10-29 01:48:47', NULL, '1231e321dc8af0d87eb69292d92beda5'),
+(13285, '2015-10-29 01:48:53', '2015-10-29 01:48:53', NULL, 'b5c2fc047bff3892f166b4da33bc96cc'),
+(13286, '2015-10-29 01:48:53', '2015-10-29 01:48:53', NULL, 'eca21c0b67afc5c6f89714e2a212a57b'),
+(13287, '2015-10-29 01:48:59', '2015-10-29 01:48:59', NULL, '6a15c825122091c80d84cf76f5250b46'),
+(13288, '2015-10-29 01:49:01', '2015-10-29 01:49:01', NULL, '5019359a719f8d51f836a7919d18eb8a'),
+(13289, '2015-10-29 01:49:03', '2015-10-29 01:49:03', NULL, '338d087b832f5959a999f3f421ce09b4'),
+(13290, '2015-10-29 01:49:11', '2015-10-29 01:49:11', NULL, '4912e1d83f46abfb7caa7aebb7ee355d'),
+(13291, '2015-10-29 01:49:16', '2015-10-29 01:49:16', NULL, 'cbd6e3f220b69c0861bb5b9158738727'),
+(13292, '2015-10-29 01:49:19', '2015-10-29 01:49:19', NULL, 'f1479f90abf9a5d60871c440fae09875'),
+(13293, '2015-10-29 01:49:21', '2015-10-29 01:49:21', NULL, '0896f70f48309ef5851e72f528c309bc'),
+(13294, '2015-10-29 01:49:31', '2015-10-29 01:49:31', NULL, '9c7ba2fa86934658b88f59a98d9c51af'),
+(13295, '2015-10-29 01:49:34', '2015-10-29 01:49:34', NULL, 'd3f0810f4732d74ae49ce1e24def047f'),
+(13296, '2015-10-29 01:49:35', '2015-10-29 01:49:35', NULL, 'd2257e31f54697db2b55d5c955dbe2a3'),
+(13297, '2015-10-29 01:49:38', '2015-10-29 01:49:38', NULL, '6f8053cb9a6c4bca7f5e562e5f513901'),
+(13298, '2015-10-29 01:49:45', '2015-10-29 01:49:45', NULL, '6d68fc77050341c2bed7bf6414c0ea6e'),
+(13299, '2015-10-29 01:49:54', '2015-10-29 01:49:54', NULL, 'e2d25eef12ff5f4b05bafab06fdcac88'),
+(13300, '2015-10-29 01:50:04', '2015-10-29 01:50:04', NULL, '8703fcc0d0e23b7d408bbc614826b813'),
+(13301, '2015-10-29 01:50:10', '2015-10-29 01:50:10', NULL, '93ebff3a2ada81fb000060842b77b1e5'),
+(13302, '2015-10-29 01:50:16', '2015-10-29 01:50:16', NULL, '10864e4facee709dabe06d9d3d5e95cd'),
+(13303, '2015-10-29 01:50:16', '2015-10-29 01:50:16', NULL, '9de50259691e1cd0aa31d4c57a9e4c59'),
+(13304, '2015-10-29 01:50:19', '2015-10-29 01:50:19', NULL, '4e94f6f2031745da27a1549ba0234fff'),
+(13305, '2015-10-29 01:50:25', '2015-10-29 01:50:25', NULL, '7cff5d65c7b57905707ca0f262532725'),
+(13306, '2015-10-29 01:50:37', '2015-10-29 01:50:37', NULL, '11f83fa0ce2c97ca31f23117e2f804fd'),
+(13307, '2015-10-29 01:51:13', '2015-10-29 01:51:13', NULL, '32ecb3dcd7497fb133e2e1f9c406e56c'),
+(13308, '2015-10-29 01:51:20', '2015-10-29 01:51:20', NULL, '7f42a5631efe8cdd9c02820f66c0ba50'),
+(13309, '2015-10-29 01:51:21', '2015-10-29 01:51:21', NULL, '8f49a38607a0675427ece4dba4a73467'),
+(13310, '2015-10-29 01:51:35', '2015-10-29 01:51:35', NULL, '47ddce22f9d34976fa16eb28fb1f4d77'),
+(13311, '2015-10-29 01:51:40', '2015-10-29 01:51:40', NULL, 'b18c850896097ad3e251b9c3bd4a0701'),
+(13312, '2015-10-29 01:51:45', '2015-10-29 01:51:45', NULL, '687fa9961b98a61d40926399d895c67f'),
+(13313, '2015-10-29 01:52:07', '2015-10-29 01:52:07', NULL, '112150ea3078064b8d58e1eef3925b1b'),
+(13314, '2015-10-29 01:52:11', '2015-10-29 01:52:11', NULL, '940884acdff3dbbf0a1d94d9763bf0d2'),
+(13315, '2015-10-29 01:52:16', '2015-10-29 01:52:16', NULL, '7398475542c386589bd9815968e576a8'),
+(13316, '2015-10-29 01:52:57', '2015-10-29 01:52:57', NULL, '9f0663e48f7a71cb24c8526c327dd3ff'),
+(13317, '2015-10-29 01:52:59', '2015-10-29 01:52:59', NULL, '016986c39c8d25414b3fa7d210658695'),
+(13318, '2015-10-29 01:53:03', '2015-10-29 01:53:03', NULL, 'dce31698fe11ee047eedae4fb184eedc'),
+(13319, '2015-10-29 01:53:10', '2015-10-29 01:53:10', NULL, '7290d042cb1743aceb106ee1057f9daf'),
+(13320, '2015-10-29 01:53:23', '2015-10-29 01:53:23', NULL, '42b9da951cb003bfea122be5ebb48368'),
+(13321, '2015-10-29 01:53:31', '2015-10-29 01:53:31', NULL, 'a5ee7f694bad6ecdd5882b873f384702'),
+(13322, '2015-10-29 01:54:00', '2015-10-29 01:54:00', NULL, '3a0e4bd83a932e87f1f2204551ec3cff'),
+(13323, '2015-10-29 01:54:11', '2015-10-29 01:54:11', NULL, 'b06db53f1bf7b816a1ce1b74b4690d20'),
+(13324, '2015-10-29 01:54:48', '2015-10-29 01:54:48', NULL, '6d7b5eb5c63e8cfa61d586b1e0f6934e'),
+(13325, '2015-10-29 01:55:09', '2015-10-29 01:55:09', NULL, 'b5193cc6065d8f9f51dbac5f2d6bcac1'),
+(13326, '2015-10-29 01:55:22', '2015-10-29 01:55:22', NULL, '99547f10df6fa00ed9ec362037435009'),
+(13327, '2015-10-29 01:58:11', '2015-10-29 01:58:11', NULL, '6f0ef9eeccdbeaf3fc47d6b921c5df3c'),
+(13328, '2015-10-29 01:58:32', '2015-10-29 01:58:32', NULL, 'e2b84122013827c64851c5bcaede1e10'),
+(13329, '2015-10-29 02:01:15', '2015-10-29 02:01:15', NULL, '7dace86159558294f6e18c54e6130e58'),
+(13330, '2015-10-29 02:01:27', '2015-10-29 02:01:27', NULL, '6243cc486807fda7a0849bcefb3b5726'),
+(13331, '2015-10-29 02:01:37', '2015-10-29 02:01:37', NULL, 'e08d71b5d77d682fa45777ea1db64796'),
+(13332, '2015-10-29 02:02:09', '2015-10-29 02:02:09', NULL, '6a46b1a824f018e9fbf8201ab1c726e3'),
+(13333, '2015-10-29 02:02:31', '2015-10-29 02:02:31', NULL, 'f33bc9468c45a389bb298ac819b5fc10'),
+(13334, '2015-10-29 02:06:08', '2015-10-29 02:06:08', NULL, 'fb602122d8aca7d4715eec1c589fe8f2'),
+(13335, '2015-10-29 02:07:13', '2015-10-29 02:07:13', NULL, '6c085235aacc5c3d03a0ac5a755661bf'),
+(13336, '2015-10-29 02:08:44', '2015-10-29 02:08:44', NULL, '3c0ebfc8ce3a8a245c6c0656273b52a5'),
+(13337, '2015-10-29 02:10:58', '2015-10-29 02:10:58', NULL, '718711ee1bcf4a317a31bccb94b06a9f'),
+(13338, '2015-10-29 02:11:37', '2015-10-29 02:11:37', NULL, 'ae8033889f5f98ee54717cd748c668af'),
+(13339, '2015-10-29 02:13:38', '2015-10-29 02:13:38', NULL, 'e5e5fe6b94798982ff7311b9dd27da1d'),
+(13340, '2015-10-29 02:14:19', '2015-10-29 02:14:19', NULL, 'e5cda381931119910e801e91bf058033'),
+(13341, '2015-10-29 02:24:22', '2015-10-29 02:24:22', NULL, '45e894568123722c071d29db04fc2eba'),
+(13342, '2015-10-29 02:32:00', '2015-10-29 02:32:00', NULL, '9c9d8fb5d321029ffa552c9c6f40e90f'),
+(13343, '2015-10-29 02:32:04', '2015-10-29 02:32:04', NULL, '02509449c44fff36e8a828f909fb9780'),
+(13344, '2015-10-29 02:32:53', '2015-10-29 02:32:53', NULL, '2c461430bb1ceead316445e01906c7b1'),
+(13345, '2015-10-29 02:35:07', '2015-10-29 02:35:07', NULL, '453d99981c2c5ae8f9cf5340a7172da7'),
+(13346, '2015-10-29 02:35:37', '2015-10-29 02:35:37', NULL, 'a5aadf455c0dce404a0cd16371e1035d'),
+(13347, '2015-10-29 02:47:43', '2015-10-29 02:47:43', NULL, '8569c5fc25b024d8783c2158ea7abceb'),
+(13348, '2015-10-29 02:56:08', '2015-10-29 02:56:08', NULL, 'bd84bf4e675a5efe41ebc21fefb1e6fa'),
+(13349, '2015-10-29 02:58:16', '2015-10-29 02:58:16', NULL, 'd3e76b5540fb1f4a07ddf8f9b4bc28ba'),
+(13350, '2015-10-29 02:59:58', '2015-10-29 02:59:58', NULL, 'e6c98b93ddf633023cd5dc075489019e'),
+(13351, '2015-10-29 03:03:07', '2015-10-29 03:03:07', NULL, 'be64b2d9dc43fe6342fa17230ce4b32b'),
+(13352, '2015-10-29 03:14:29', '2015-10-29 03:14:29', NULL, '6c6e155137ca4a287507f0a545f7fe95'),
+(13353, '2015-10-29 03:26:45', '2015-10-29 03:26:45', NULL, 'dd64656358f8e93374590f80c7f4f613'),
+(13354, '2015-10-29 03:29:08', '2015-10-29 03:29:08', NULL, '1cb21cb9fc1cbd4f4d11fa5e8b0afb22'),
+(13355, '2015-10-29 03:29:09', '2015-10-29 03:29:09', NULL, 'f722442fe860036e81b640546bf046a9'),
+(13356, '2015-10-29 03:29:47', '2015-10-29 03:29:47', NULL, 'a5bc53e52f8e745b1319ec64adb0793d'),
+(13357, '2015-10-29 03:36:34', '2015-10-29 03:36:34', NULL, 'bb5a334d3d43f5eff48453185826cde6'),
+(13358, '2015-10-29 03:36:38', '2015-10-29 03:36:38', NULL, 'a330c62d05ba436f00fbb61f00e40754'),
+(13359, '2015-10-29 03:36:46', '2015-10-29 03:36:46', NULL, 'f21f684a9b0dedf63bed4ea146883790'),
+(13360, '2015-10-29 03:39:51', '2015-10-29 03:39:51', NULL, '14d7a01900bff226301a7caa1a1422ef'),
+(13361, '2015-10-29 03:39:51', '2015-10-29 03:39:51', NULL, 'fe073f49598f82621db62f5fd22ecec0'),
+(13362, '2015-10-29 03:39:52', '2015-10-29 03:39:52', NULL, 'c48c92b3285615ccc4af17e817c7430a'),
+(13363, '2015-10-29 03:44:41', '2015-10-29 03:44:41', NULL, '949a2d8b574763bdb25f804774ba84e7'),
+(13364, '2015-10-29 03:45:14', '2015-10-29 03:45:14', NULL, '033af734c6d403719dbc00268d403999'),
+(13365, '2015-10-29 03:56:15', '2015-10-29 03:56:15', NULL, '12273581f21244b34e09dfc33759130b'),
+(13366, '2015-10-29 03:56:16', '2015-10-29 03:56:16', NULL, 'f68ce8b6a11f461dd6e825fd4198d6c0'),
+(13367, '2015-10-29 04:08:03', '2015-10-29 04:08:03', NULL, 'f0f3136a4800e4cdfa328649539a3e09'),
+(13368, '2015-10-29 04:13:18', '2015-10-29 04:13:18', NULL, 'fd7b07eb901ed79a9eb9698fedc74e32'),
+(13369, '2015-10-29 04:22:25', '2015-10-29 04:22:25', NULL, '23697993cfd4e1e8090e2c797f2b44b4'),
+(13370, '2015-10-29 04:24:22', '2015-10-29 04:24:22', NULL, '368813ed7d60e8fe248a53c7294ead77'),
+(13371, '2015-10-29 04:30:40', '2015-10-29 04:30:40', NULL, '3a1d4ec7f1d2e8d2f698a5dc3f1e84c5'),
+(13372, '2015-10-29 04:35:48', '2015-10-29 04:35:48', NULL, '82d08a15f1ab354a276c15aa8a59032f'),
+(13373, '2015-10-29 04:37:37', '2015-10-29 04:37:37', NULL, '2c8943a46e96440ad6c908e00dee1d1a'),
+(13374, '2015-10-29 04:40:27', '2015-10-29 04:40:27', NULL, '31eb836518e1ece354e08c57b7cacb70'),
+(13375, '2015-10-29 04:40:43', '2015-10-29 04:40:43', NULL, '6e5b38574ede5a1362b586ff9943002c'),
+(13376, '2015-10-29 04:43:13', '2015-10-29 04:43:13', NULL, '15705b354a96ba42338744277c4cbdb2'),
+(13377, '2015-10-29 04:43:57', '2015-10-29 04:43:57', NULL, '14f136b8c5daa64ee84fa11d794f220e'),
+(13378, '2015-10-29 04:45:59', '2015-10-29 04:45:59', NULL, 'c066e61bfc5d495e6005af744eb0371e'),
+(13379, '2015-10-29 04:46:02', '2015-10-29 04:46:02', NULL, 'ef35924ecacd2f419a8f52218600b5fb'),
+(13380, '2015-10-29 04:47:11', '2015-10-29 04:47:11', NULL, '20ac180d7244481b8195ada67b0080a1'),
+(13381, '2015-10-29 05:10:58', '2015-10-29 05:10:58', NULL, 'b4733f5449aa5b932c7f016d58c9091f'),
+(13382, '2015-10-29 05:13:25', '2015-10-29 05:13:25', NULL, 'f59bc1246efc088fdbd1bc4a6933e51e'),
+(13383, '2015-10-29 05:26:28', '2015-10-29 05:26:28', NULL, '103ec1282e89ea950fb1da525fbe23c3'),
+(13384, '2015-10-29 05:36:20', '2015-10-29 05:36:20', NULL, 'afdee124e743eff2dcc5caa305fe6d6a'),
+(13385, '2015-10-29 05:37:51', '2015-10-29 05:37:51', NULL, '933addd11a559fae074d54621b64a267'),
+(13386, '2015-10-29 05:38:49', '2015-10-29 05:38:49', NULL, 'f3bc6d943bea4d0b795c66b37a180420'),
+(13387, '2015-10-29 05:41:58', '2015-10-29 05:41:58', NULL, '12814c6fe63ae3eaacfcc4bf451402b6'),
+(13388, '2015-10-29 05:43:11', '2015-10-29 05:43:11', NULL, 'b49298fb3413daaba4215cf28f86d87c'),
+(13389, '2015-10-29 05:44:17', '2015-10-29 05:44:17', NULL, '1f4336fb3948d3c460b7e728fa996b9a'),
+(13390, '2015-10-29 05:48:21', '2015-10-29 05:48:21', NULL, '03caa53971a84a2005671dc94dd4a17f'),
+(13391, '2015-10-29 06:01:29', '2015-10-29 06:01:29', NULL, 'a9fcd826f6ddaf843728532ce79a9f5f'),
+(13392, '2015-10-29 06:01:38', '2015-10-29 06:01:38', NULL, '7f37e37905ceecabce3adb41631fb4ee'),
+(13393, '2015-10-29 06:20:16', '2015-10-29 06:20:16', NULL, '2163e5de9545f73aef86da6538bdaf34'),
+(13394, '2015-10-29 06:39:30', '2015-10-29 06:39:30', NULL, 'e6c38c3ffce069d573864b3fe93f1d75'),
+(13395, '2015-10-29 06:41:43', '2015-10-29 06:41:43', NULL, '79bcf0ecd649d4dd056369c06f3fb471'),
+(13396, '2015-10-29 06:47:15', '2015-10-29 06:47:15', NULL, '21da6df14e65beead7392aaac78fe27a'),
+(13397, '2015-10-29 06:47:53', '2015-10-29 06:47:53', NULL, 'a1a294f523093a6da0dada37029c4adf'),
+(13398, '2015-10-29 06:48:25', '2015-10-29 06:48:25', NULL, 'a1faf68c0a66d3262435dd41ec7d07c8'),
+(13399, '2015-10-29 06:54:04', '2015-10-29 06:54:04', NULL, '17f326638005a82c7a51e2df28839c19'),
+(13400, '2015-10-29 07:04:10', '2015-10-29 07:04:10', NULL, '6d46377d73e64890a37ef21aa48acca4'),
+(13401, '2015-10-29 07:25:14', '2015-10-29 07:25:14', NULL, '4de33deed150c85a6cc57ef75aa364ad'),
+(13402, '2015-10-29 07:28:53', '2015-10-29 07:28:53', NULL, 'f3a10a114cc16ad42f03776f93f72429'),
+(13403, '2015-10-29 07:29:02', '2015-10-29 07:29:02', NULL, '3cb4ffd3d5b1183299002b780947438d'),
+(13404, '2015-10-29 07:33:37', '2015-10-29 07:33:37', NULL, '0c9b7b2c47300180cdae8e00b71ce301'),
+(13405, '2015-10-29 07:48:02', '2015-10-29 07:48:02', NULL, '5d0f654026f8a0642beb3a841719589e'),
+(13406, '2015-10-29 07:49:36', '2015-10-29 07:49:36', NULL, '71259bc9fec14049d22944da1455232b'),
+(13407, '2015-10-29 07:52:10', '2015-10-29 07:52:10', NULL, 'a3c0a41393a4f9a1cabff2a8c7efc067'),
+(13408, '2015-10-29 07:52:31', '2015-10-29 07:52:31', NULL, '4e7b47e61bae8ba43f350e3038a96946'),
+(13409, '2015-10-29 08:10:44', '2015-10-29 08:10:44', NULL, 'ee493c1bafdd3eca59304f560d36c619'),
+(13410, '2015-10-29 08:13:29', '2015-10-29 08:13:29', NULL, '9223f7e8f373824dad2463e7bf19cfe1'),
+(13411, '2015-10-29 08:13:48', '2015-10-29 08:13:48', NULL, '71a0dd303d282579c5c762fe1fdf205b'),
+(13412, '2015-10-29 08:21:06', '2015-10-29 08:21:06', NULL, '3d8993a63c4621e5d0534eb1f575a6e1'),
+(13413, '2015-10-29 08:23:20', '2015-10-29 08:23:20', NULL, 'e95830df0e5f84d193a78c1aec262f4a'),
+(13414, '2015-10-29 08:24:09', '2015-10-29 08:24:09', NULL, '42814303152d34ef982596e57df5f419'),
+(13415, '2015-10-29 08:27:25', '2015-10-29 08:27:25', NULL, '54af45aff66d44b57faaa54536b4cf74'),
+(13416, '2015-10-29 08:31:39', '2015-10-29 08:31:39', NULL, '00c0899954dfd92c7a157d378135bafa'),
+(13417, '2015-10-29 08:31:41', '2015-10-29 08:31:41', NULL, 'd7fa8b256117263ac102595978cbf28b'),
+(13418, '2015-10-29 08:39:28', '2015-10-29 08:39:28', NULL, 'd053bb1f0b5c1ef4d5aceddf4cd6ab4a'),
+(13419, '2015-10-29 09:03:57', '2015-10-29 09:03:57', NULL, '8571ded18fca1e0f5fdd4f266664cfb9'),
+(13420, '2015-10-29 09:11:34', '2015-10-29 09:11:34', NULL, '1203decf4d864ba1db30bc262802d500'),
+(13421, '2015-10-29 09:26:06', '2015-10-29 09:26:06', NULL, 'af1d1ec27d2eb3b5bd891be3adaa007f'),
+(13422, '2015-10-29 09:29:24', '2015-10-29 09:29:24', NULL, '8be9309511819c6f90be9ef4f58da59d'),
+(13423, '2015-10-29 09:33:59', '2015-10-29 09:33:59', NULL, '945c545fa39867e731c3e7c76c6cab19'),
+(13424, '2015-10-29 09:34:17', '2015-10-29 09:34:17', NULL, '8ac9d054636a210ee83b88c93da1b9b7'),
+(13425, '2015-10-29 09:36:59', '2015-10-29 09:36:59', NULL, '4e9657165320cbeac15ab55ea3b32650'),
+(13426, '2015-10-29 09:51:27', '2015-10-29 09:51:27', NULL, 'f3dfb6eb23f6c1ba4ae556e5a3c054b4'),
+(13427, '2015-10-29 09:56:12', '2015-10-29 09:56:12', NULL, '5f2948259499fe3f04121ce0bad94424'),
+(13428, '2015-10-29 09:56:17', '2015-10-29 09:56:17', NULL, '4ee3a2fe632b046b9df0ecbb10239c95'),
+(13429, '2015-10-29 09:56:18', '2015-10-29 09:56:18', NULL, '73f934a0ccc12985e3448929a2b73bc1'),
+(13430, '2015-10-29 10:01:38', '2015-10-29 10:01:38', NULL, '5c5e609a3cd1b3d460a7b7d064877155'),
+(13431, '2015-10-29 10:03:25', '2015-10-29 10:03:25', NULL, 'b161ec3c887cf439d28687dc3fb2d3f1'),
+(13432, '2015-10-29 10:07:21', '2015-10-29 10:07:21', NULL, '2c14a726815df31b259197cc6980e468'),
+(13433, '2015-10-29 10:14:57', '2015-10-29 10:14:57', NULL, '79b4db7d3985a51c6a452c958ac045e3'),
+(13434, '2015-10-29 10:14:57', '2015-10-29 10:14:57', NULL, '8b17be55cbeee3837412103a08dffcf7'),
+(13435, '2015-10-29 10:19:13', '2015-10-29 10:19:13', NULL, '4c380279c4e3cfc7dd6960b60f5379fd'),
+(13436, '2015-10-29 10:26:47', '2015-10-29 10:26:47', NULL, 'f4be3f26dcbb12c2e1688f0e1f44e9ed'),
+(13437, '2015-10-29 10:27:53', '2015-10-29 10:27:53', NULL, '9e59059502f1af9ee6a7f0f4a70c2eca'),
+(13438, '2015-10-29 10:28:09', '2015-10-29 10:28:09', NULL, '9abd57444eb938e4e1348c856739defe'),
+(13439, '2015-10-29 10:29:59', '2015-10-29 10:29:59', NULL, '420d32a115a238a25a0283658727cb21'),
+(13440, '2015-10-29 10:30:07', '2015-10-29 10:30:07', NULL, '87fffc89171dead26c54ecb0bfae877b'),
+(13441, '2015-10-29 10:30:27', '2015-10-29 10:30:27', NULL, 'fe6cf405ba792704759607ce5439bfbb'),
+(13442, '2015-10-29 10:31:01', '2015-10-29 10:31:01', NULL, '337abcf162f796619903892204897c66'),
+(13443, '2015-10-29 10:53:56', '2015-10-29 10:53:56', NULL, '6de9f2cb6cca7e7eefd183a7a1cd3781'),
+(13444, '2015-10-29 11:03:26', '2015-10-29 11:03:26', NULL, 'd2abbcc162fbbcca59ea949aaedf0eab'),
+(13445, '2015-10-29 11:15:42', '2015-10-29 11:15:42', NULL, '1cc422d14a0223a1e084ca8990233870'),
+(13446, '2015-10-29 11:24:17', '2015-10-29 11:24:17', NULL, '2289347f96f5aab92cb4f700ade5ae3b'),
+(13447, '2015-10-29 11:24:17', '2015-10-29 11:24:17', NULL, 'b3a903a7d7982a587cf3b45c385ce5eb'),
+(13448, '2015-10-29 11:35:55', '2015-10-29 11:35:55', NULL, '16418f1cc44d7ad7009058f4a471359f'),
+(13449, '2015-10-29 11:36:30', '2015-10-29 11:36:30', NULL, 'b9814af1f98e8bc137b01dbcb91216ac'),
+(13450, '2015-10-29 11:49:29', '2015-10-29 11:49:29', NULL, '3b44d944dc342173864e07c82009c44f'),
+(13451, '2015-10-29 11:52:40', '2015-10-29 11:52:40', NULL, '6f0fb098f0f597317489a8ae20973631'),
+(13452, '2015-10-29 11:53:27', '2015-10-29 11:53:27', NULL, 'c8b72642c628db4aa8f6cdc6889eff5f'),
+(13453, '2015-10-29 12:05:59', '2015-10-29 12:05:59', NULL, 'e50bf2e330e051294c9c65cd82516a32'),
+(13454, '2015-10-29 12:07:36', '2015-10-29 12:07:36', NULL, 'a3c3d6a6d96e9880b7b16db4404e5370'),
+(13455, '2015-10-29 12:08:51', '2015-10-29 12:08:51', NULL, '60d99357161bea5a3d47adeb4f981555'),
+(13456, '2015-10-29 12:10:09', '2015-10-29 12:10:09', NULL, '7e0197eb304743e3903be575e15ad8da'),
+(13457, '2015-10-29 12:12:42', '2015-10-29 12:12:42', NULL, '54e07deb39af3330c2fe2a798442d681'),
+(13458, '2015-10-29 12:14:24', '2015-10-29 12:14:24', NULL, 'aa7ff9f5f3f753a6182255e52f267de9'),
+(13459, '2015-10-29 12:14:50', '2015-10-29 12:14:50', NULL, '5ba8ea786328a3ec5a1a961890c7f0c9'),
+(13460, '2015-10-29 12:24:51', '2015-10-29 12:24:51', NULL, 'ee76e9a2716df454f576e31d26f37566'),
+(13461, '2015-10-29 12:24:53', '2015-10-29 12:24:53', NULL, 'b3100d9bc520a045fa0af28329939259'),
+(13462, '2015-10-29 12:24:55', '2015-10-29 12:24:55', NULL, '44f1296a0c07fdc0780ab183091f8100'),
+(13463, '2015-10-29 12:24:56', '2015-10-29 12:24:56', NULL, '6ef284a26b71cdb4e3ee9d7b5240c14d'),
+(13464, '2015-10-29 12:24:59', '2015-10-29 12:24:59', NULL, '83a1d1fca04de3427fca663e5e5e400b'),
+(13465, '2015-10-29 12:25:01', '2015-10-29 12:25:01', NULL, 'bc1c3852dd4ec6c6f8e7a98481879149'),
+(13466, '2015-10-29 12:25:03', '2015-10-29 12:25:03', NULL, 'a8091d028f3e2d362e4e7c199ca3f80d'),
+(13467, '2015-10-29 12:26:07', '2015-10-29 12:26:07', NULL, '794fbca0d9d95dd4d09bdb50be6e85b1'),
+(13468, '2015-10-29 12:26:16', '2015-10-29 12:26:16', NULL, '1811b3c8266f28001e44f69b08d68889'),
+(13469, '2015-10-29 12:27:13', '2015-10-29 12:27:13', NULL, 'f14622a413f4a72922916241b20cf080'),
+(13470, '2015-10-29 12:30:49', '2015-10-29 12:30:49', NULL, 'ed5618e2e367a8e6824fd75b572154c5'),
+(13471, '2015-10-29 12:31:24', '2015-10-29 12:31:24', NULL, '0ca1e4f2ecbbdf55e0eb0380d30117aa'),
+(13472, '2015-10-29 12:31:39', '2015-10-29 12:31:39', NULL, '47f996f9a4b66f0590ad69dc1416f878'),
+(13473, '2015-10-29 12:34:38', '2015-10-29 12:34:38', NULL, '43b170923cca6ac2a02e0abf2b332fef'),
+(13474, '2015-10-29 12:43:33', '2015-10-29 12:43:33', NULL, 'f02a8652c4ce9028df81095f3bc7a314'),
+(13475, '2015-10-29 12:43:34', '2015-10-29 12:43:34', NULL, '0c60baaca5be2a4e97da6c2361c9e8af'),
+(13476, '2015-10-29 12:50:07', '2015-10-29 12:50:07', NULL, '17fc707ae6bf1c8edec411fe45089863'),
+(13477, '2015-10-29 12:54:09', '2015-10-29 12:54:09', NULL, '8195308517d938750fef05e49d860033'),
+(13478, '2015-10-29 12:56:17', '2015-10-29 12:56:17', NULL, 'b55fe6a14df9fffd3c203f3799be91a5'),
+(13479, '2015-10-29 12:58:17', '2015-10-29 12:58:17', NULL, '6447dbd30e407ec975359a3c96213824'),
+(13480, '2015-10-29 13:01:57', '2015-10-29 13:01:57', NULL, 'ceae92f9e202c5a58ae201cc1bfd3887'),
+(13481, '2015-10-29 13:08:47', '2015-10-29 13:08:47', NULL, 'd8683da2bc6c62f09682bdc22cc818bb'),
+(13482, '2015-10-29 13:15:30', '2015-10-29 13:15:30', NULL, '05cb0ceb748487471e75509b993030a3'),
+(13483, '2015-10-29 13:30:41', '2015-10-29 13:30:41', NULL, '61ec2f2978169c78d82301d73431153a'),
+(13484, '2015-10-29 13:33:02', '2015-10-29 13:33:02', NULL, '162f71db94886b3aa864dd82cefcc2e8'),
+(13485, '2015-10-29 13:37:09', '2015-10-29 13:37:09', NULL, 'de9265369ff4a1d4a55f81017a1a7dbd'),
+(13486, '2015-10-29 13:41:23', '2015-10-29 13:41:23', NULL, '2b3c85f6f0ac52a0a52c30392be17fce'),
+(13487, '2015-10-29 13:42:39', '2015-10-29 13:42:39', NULL, '6e4c7565f03a21fa60ab262dff9cd0ff'),
+(13488, '2015-10-29 13:43:27', '2015-10-29 13:43:27', NULL, 'd96c93b32e9820e7a2e11e4119642cbb'),
+(13489, '2015-10-29 13:44:14', '2015-10-29 13:44:14', NULL, '81593bbfb08cf9c92b9d07cb87c42f6f'),
+(13490, '2015-10-29 13:55:11', '2015-10-29 13:55:11', NULL, '15298bd9e692d3b133f937fca5ffbdd5'),
+(13491, '2015-10-29 13:55:13', '2015-10-29 13:55:13', NULL, 'bef0f92a8076b4c29f21cd626aacf4b7'),
+(13492, '2015-10-29 14:04:16', '2015-10-29 14:04:16', NULL, 'cfdd638b0926ca895b97227e5686a04e'),
+(13493, '2015-10-29 14:09:30', '2015-10-29 14:09:30', NULL, 'a39ba912756eaad3b245d8dafa30791f'),
+(13494, '2015-10-29 14:10:37', '2015-10-29 14:10:37', NULL, '4d14a3a8f76d9c577589bb5b886b8bd8'),
+(13495, '2015-10-29 14:12:57', '2015-10-29 14:12:57', NULL, '2390a9c896ac43bc41bc255ba7511d03'),
+(13496, '2015-10-29 14:14:02', '2015-10-29 14:14:02', NULL, 'cf42fc06954c8f638d2fac96010f7729'),
+(13497, '2015-10-29 14:17:53', '2015-10-29 14:17:53', NULL, 'f47a1a7655298e0a8ef59b0e9c4f2891'),
+(13498, '2015-10-29 14:29:01', '2015-10-29 14:29:01', NULL, '0441a4ff03ebb612ac39af736966d47c'),
+(13499, '2015-10-29 14:34:11', '2015-10-29 14:34:11', NULL, 'cf2a69bd0db33bb4e77242a16b8b6144'),
+(13500, '2015-10-29 14:48:55', '2015-10-29 14:48:55', NULL, 'b10f55f5fd8d90590787f3789192300b'),
+(13501, '2015-10-29 15:01:59', '2015-10-29 15:01:59', NULL, 'a9d79af39329e53be8b79418dad0c88b'),
+(13502, '2015-10-29 15:02:00', '2015-10-29 15:02:00', NULL, '754181fec30380d7398217afa4c7f135'),
+(13503, '2015-10-29 15:03:28', '2015-10-29 15:03:28', NULL, 'b9ee5cf8debc12ce68e3ab6bf2f5c494'),
+(13504, '2015-10-29 15:03:32', '2015-10-29 15:03:32', NULL, '7630081fccbb3264bf6ebad9bc81b96c'),
+(13505, '2015-10-29 15:04:50', '2015-10-29 15:04:50', NULL, '10ebccac9ad809cd216ec46c8afb14c1'),
+(13506, '2015-10-29 15:06:43', '2015-10-29 15:06:43', NULL, '058ddb58a1b0df9e9f87e32392935997'),
+(13507, '2015-10-29 15:06:45', '2015-10-29 15:06:45', NULL, 'bfbd3f5b97d7b0f8927fd6592d2f26e3'),
+(13508, '2015-10-29 15:13:21', '2015-10-29 15:13:21', NULL, '8488cfc7c9d4b447efbb2df87dbd9362'),
+(13509, '2015-10-29 15:17:27', '2015-10-29 15:17:27', NULL, '4efae835866adb90078b4502dd14d4db'),
+(13510, '2015-10-29 15:19:47', '2015-10-29 15:19:47', NULL, '4bc0e99d73215edcf6a049aa293fad06'),
+(13511, '2015-10-29 15:20:33', '2015-10-29 15:20:33', NULL, '85766cc9feefaabe38d6ee3ec8211c99'),
+(13512, '2015-10-29 15:20:47', '2015-10-29 15:20:47', NULL, '381d27d7500f609e44cf7402c86a9113'),
+(13513, '2015-10-29 15:27:17', '2015-10-29 15:27:17', NULL, '82e53c9d1cea61178aa589f961d7b521'),
+(13514, '2015-10-29 15:31:31', '2015-10-29 15:31:31', NULL, '806a5b467c3453c8a93df22a7e08feb5'),
+(13515, '2015-10-29 15:49:50', '2015-10-29 15:49:50', NULL, 'f191478d5da1a81b077631b954f6b1e6'),
+(13516, '2015-10-29 15:55:29', '2015-10-29 15:55:29', NULL, 'ca851e39fb47fed126ab69a89c31b262'),
+(13517, '2015-10-29 15:56:36', '2015-10-29 15:56:36', NULL, '3c47ac72c215cc2c099ad484fbd14de1'),
+(13518, '2015-10-29 15:56:40', '2015-10-29 15:56:40', NULL, 'f945a94a3ea6026768a4c0587a405adc'),
+(13519, '2015-10-29 15:56:45', '2015-10-29 15:56:45', NULL, 'e93eeaea3bc11416579a06f4176a2639'),
+(13520, '2015-10-29 15:56:50', '2015-10-29 15:56:50', NULL, 'ff74cd4496e8e598ea5a465710128a8e'),
+(13521, '2015-10-29 15:56:54', '2015-10-29 15:56:54', NULL, 'bdbb9a8f84b90c9f443aac3fc29a0f8b'),
+(13522, '2015-10-29 15:56:58', '2015-10-29 15:56:58', NULL, '14c21100df1160740d66379e8a2fe368'),
+(13523, '2015-10-29 15:57:03', '2015-10-29 15:57:03', NULL, 'a357fb976d3aa75d10e6e1d93b823ecd'),
+(13524, '2015-10-29 15:57:06', '2015-10-29 15:57:06', NULL, '212d89c43d819a6e2801b95a314d1625'),
+(13525, '2015-10-29 15:57:10', '2015-10-29 15:57:10', NULL, 'cca829876b9a8437d6ec164ac6f1f730'),
+(13526, '2015-10-29 15:57:50', '2015-10-29 15:57:50', NULL, '7f50afc7df0766b08e8456b98a9b1889'),
+(13527, '2015-10-29 15:57:55', '2015-10-29 15:57:55', NULL, 'aee8c13cf4460f37f329aeb535e30719'),
+(13528, '2015-10-29 15:57:58', '2015-10-29 15:57:58', NULL, 'af7d178f43f108fc8933139a6f5fd60c'),
+(13529, '2015-10-29 15:58:04', '2015-10-29 15:58:04', NULL, 'efe5882d6a9ad8aad90fe5ee797d0046'),
+(13530, '2015-10-29 15:58:07', '2015-10-29 15:58:07', NULL, 'e430fa34beec21a74eb92c1d2ded42dd'),
+(13531, '2015-10-29 15:58:13', '2015-10-29 15:58:13', NULL, '05346edb7361581afcffc9d40c97138b'),
+(13532, '2015-10-29 15:58:39', '2015-10-29 15:58:39', NULL, '94257dba7e8fedcd8e3d74643fc4629e'),
+(13533, '2015-10-29 15:58:42', '2015-10-29 15:58:42', NULL, '3d9006af89077169aa847d2899c868c5'),
+(13534, '2015-10-29 15:58:47', '2015-10-29 15:58:47', NULL, 'b1c8e60e4ed5f77f41ad2def22334e9f'),
+(13535, '2015-10-29 15:58:52', '2015-10-29 15:58:52', NULL, '0375b1e5b2de44436f78cf59dd2a0615'),
+(13536, '2015-10-29 15:58:55', '2015-10-29 15:58:55', NULL, '8f2b5224901c848a4b1f90505849b9f0'),
+(13537, '2015-10-29 15:59:05', '2015-10-29 15:59:05', NULL, 'ff77ac78be6b1c2df7568c4ee3209ff5'),
+(13538, '2015-10-29 15:59:10', '2015-10-29 15:59:10', NULL, '43629e513ed704032c55afe18abe2a4e'),
+(13539, '2015-10-29 16:05:14', '2015-10-29 16:05:14', NULL, '1e295ec2198b85ae5e03b963d9b19832'),
+(13540, '2015-10-29 16:05:47', '2015-10-29 16:05:47', NULL, '486a987d8a145a8be5bcf2dac533fe10'),
+(13541, '2015-10-29 16:20:20', '2015-10-29 16:20:20', NULL, '071fe5ab5598f27fb575a0010a3c28b1'),
+(13542, '2015-10-29 16:35:14', '2015-10-29 16:35:14', NULL, '58960fec6e3f12278ba4113173f448d8'),
+(13543, '2015-10-29 16:37:45', '2015-10-29 16:37:45', NULL, 'c6d2dc799cebb566102e172d8d79c66b'),
+(13544, '2015-10-29 16:54:02', '2015-10-29 16:54:02', NULL, 'ac8c7fd822e272db12ff254ee6433145'),
+(13545, '2015-10-29 16:59:11', '2015-10-29 16:59:11', NULL, '6638274b307e70ecd9f7011c59eb82db'),
+(13546, '2015-10-29 17:00:30', '2015-10-29 17:00:30', NULL, '19867f02f293f88c5ad5f63ece8b75f0'),
+(13547, '2015-10-29 17:03:01', '2015-10-29 17:03:01', NULL, '79939b3712682d11ea9063d68c4b696e'),
+(13548, '2015-10-29 17:08:09', '2015-10-29 17:08:09', NULL, 'c3f05fed08f1ca2d8502387599d6f385'),
+(13549, '2015-10-29 17:19:31', '2015-10-29 17:19:31', NULL, '2603740d552fb9b5ddb501c2a1c2f0e9'),
+(13550, '2015-10-29 17:24:42', '2015-10-29 17:24:42', NULL, '94b6dbe437ac409c1c056ad966bf0fdb'),
+(13551, '2015-10-29 17:24:51', '2015-10-29 17:24:51', NULL, '7097be842fc6f2b3585e1678cfedcf7d'),
+(13552, '2015-10-29 17:26:24', '2015-10-29 17:26:24', NULL, '4e9ee3a0afdc4fae84c3f56e96c28e97'),
+(13553, '2015-10-29 17:35:11', '2015-10-29 17:35:11', NULL, '70a645efb91f47823e686f7bdc807242'),
+(13554, '2015-10-29 17:35:13', '2015-10-29 17:35:13', NULL, 'dfed47497f246cf14b065ccceb25cecb'),
+(13555, '2015-10-29 17:35:14', '2015-10-29 17:35:14', NULL, '0295ee1550dce2ec6db31870ebb4d03d'),
+(13556, '2015-10-29 17:35:16', '2015-10-29 17:35:16', NULL, '288f4dcd2b35a46532a8460ca9424ca6'),
+(13557, '2015-10-29 17:46:21', '2015-10-29 17:46:21', NULL, 'c5d5d86bcbae0a162fa9652aeb26ef74'),
+(13558, '2015-10-29 18:02:29', '2015-10-29 18:02:29', NULL, '24ef05df24e199cb2e31410e99875a92'),
+(13559, '2015-10-29 18:08:38', '2015-10-29 18:08:38', NULL, '060442b12201c964813de694a7d46dc9'),
+(13560, '2015-10-29 18:16:51', '2015-10-29 18:16:51', NULL, '43883646dff160b08783e10b2f15d8c4'),
+(13561, '2015-10-29 18:23:30', '2015-10-29 18:23:30', NULL, 'd5d70237419fdbb45de66e9672c8f1ba'),
+(13562, '2015-10-29 18:33:31', '2015-10-29 18:33:31', NULL, 'd3c59dcebeb73950aa48b9ef1ac3bf8e'),
+(13563, '2015-10-29 18:34:37', '2015-10-29 18:34:37', NULL, '4d70792afbd2977b715d7f2a51f9a6f0'),
+(13564, '2015-10-29 18:41:58', '2015-10-29 18:41:58', NULL, '09e15a46f463ea673186f9aba58b548b'),
+(13565, '2015-10-29 18:48:44', '2015-10-29 18:48:44', NULL, 'e3525b2c7da6277ba33cdd1066f0c62f'),
+(13566, '2015-10-29 18:58:01', '2015-10-29 18:58:01', NULL, '52503160acbb15a7a4dd704ea6ac1fbf'),
+(13567, '2015-10-29 18:58:09', '2015-10-29 18:58:09', NULL, '45385228e297410bbfed79e97a7ce23c'),
+(13568, '2015-10-29 19:02:26', '2015-10-29 19:02:26', NULL, 'b50eb6f1ec08127fc52aae0cfca32636'),
+(13569, '2015-10-29 19:02:48', '2015-10-29 19:02:48', NULL, 'b8a91e895f06cbfce94ba5dd97421922'),
+(13570, '2015-10-29 19:14:52', '2015-10-29 19:14:52', NULL, 'adb49a951dd2152f34ebd7335de17155'),
+(13571, '2015-10-29 19:19:32', '2015-10-29 19:19:32', NULL, '02d852a73d96e19e3775e21d314e23a5'),
+(13572, '2015-10-29 19:22:08', '2015-10-29 19:22:08', NULL, '9015861ed8c413edefb3875c0333f68a'),
+(13573, '2015-10-29 19:23:39', '2015-10-29 19:23:39', NULL, '1ba33fa480027ebe6da1a2fcf0589495'),
+(13574, '2015-10-29 19:26:28', '2015-10-29 19:26:28', NULL, '214199f268f430c01a06434ab508984b'),
+(13575, '2015-10-29 19:26:46', '2015-10-29 19:26:46', NULL, '020f89dbf914e19ad816cda19b434021'),
+(13576, '2015-10-29 19:41:15', '2015-10-29 19:41:15', NULL, '694df65a8d6c514cb8df06ea4049ab6e'),
+(13577, '2015-10-29 19:43:30', '2015-10-29 19:43:30', NULL, '62c822237fa064a2ebefccc341e3576e'),
+(13578, '2015-10-29 19:49:28', '2015-10-29 19:49:28', NULL, '88fb6172090948dede06e1b4db065550'),
+(13579, '2015-10-29 19:55:04', '2015-10-29 19:55:04', NULL, '5f7766cded4f0399684c0d4901bbcb18'),
+(13580, '2015-10-29 19:55:41', '2015-10-29 19:55:41', NULL, 'c30a075baea2f025c8a8970052445ef7'),
+(13581, '2015-10-29 19:56:52', '2015-10-29 19:56:52', NULL, '646caaa8b0d22d1f247df7e46a5ab02b'),
+(13582, '2015-10-29 19:58:13', '2015-10-29 19:58:13', NULL, 'ee2de36a97cbf00514e2665bcc2d47a7'),
+(13583, '2015-10-29 20:05:16', '2015-10-29 20:05:16', NULL, '5680061f8102a2ba7e8dbd32259fc867'),
+(13584, '2015-10-29 20:08:57', '2015-10-29 20:08:57', NULL, '10f1818391f34c54f0180cfa861df9a1'),
+(13585, '2015-10-29 20:11:35', '2015-10-29 20:11:35', NULL, 'd3094ccbef7474d85fc116fb4c2676e4'),
+(13586, '2015-10-29 20:19:07', '2015-10-29 20:19:07', NULL, 'b2773b85c17b9d9041ceb1395d86d3f7'),
+(13587, '2015-10-29 20:21:55', '2015-10-29 20:21:55', NULL, 'c77a42ded15d8629405fdd793845804d'),
+(13588, '2015-10-29 20:25:35', '2015-10-29 20:25:35', NULL, '373c7defc945663085b82f1e3fcd90a4'),
+(13589, '2015-10-29 20:26:21', '2015-10-29 20:26:21', NULL, 'afe5fdf6fc1f31691fc102bda96fd29b'),
+(13590, '2015-10-29 20:44:17', '2015-10-29 20:44:17', NULL, 'c2e6235d18c6ac1ba7f2ed01accf5966'),
+(13591, '2015-10-29 20:44:47', '2015-10-29 20:44:47', NULL, 'dd40c2844a5f12589b38d8fbdf84046d'),
+(13592, '2015-10-29 21:28:49', '2015-10-29 21:28:49', NULL, '6fe8456eea923f9e8a7e7e0775897e02'),
+(13593, '2015-10-29 21:29:48', '2015-10-29 21:29:48', NULL, '71bdc0993210cab4e94b92985e2ec916'),
+(13594, '2015-10-29 21:37:54', '2015-10-29 21:37:54', NULL, '1f15ec0d752ad82605ac9cc2bb58f1cc'),
+(13595, '2015-10-29 21:39:51', '2015-10-29 21:39:51', NULL, '027b3371b4d5c72f55fb6f0352fe1f4b'),
+(13596, '2015-10-29 21:59:08', '2015-10-29 21:59:08', NULL, '046b59dcc2a4763b7abe918f6666b5fa'),
+(13597, '2015-10-29 21:59:58', '2015-10-29 21:59:58', NULL, '039fc6682695f3a000e4b83f8797e7d4'),
+(13598, '2015-10-29 22:01:26', '2015-10-29 22:01:26', NULL, 'def15d8953b662edaff324fe3c9015d3'),
+(13599, '2015-10-29 22:16:13', '2015-10-29 22:16:13', NULL, 'be245f6e0801bdeaab02aa65c9f256d5'),
+(13600, '2015-10-29 22:16:52', '2015-10-29 22:16:52', NULL, 'b38d8bda26f4236b7ed6cef8f5032971'),
+(13601, '2015-10-29 22:21:41', '2015-10-29 22:21:41', NULL, '2c7a653f64fb474175302bf13aeff2fb'),
+(13602, '2015-10-29 22:21:42', '2015-10-29 22:21:42', NULL, '5dc1b1383a69f947931c7cfc1c164615'),
+(13603, '2015-10-29 22:22:14', '2015-10-29 22:22:14', NULL, '87e65a38b85c23c6b4e50b5382a74acb'),
+(13604, '2015-10-29 22:29:51', '2015-10-29 22:29:51', NULL, 'b74158bea5531afdf1d5a8e36d9ad537'),
+(13605, '2015-10-29 22:35:56', '2015-10-29 22:35:56', NULL, 'a78cd6d8ee71a8205c7b765dd91574e1'),
+(13606, '2015-10-29 22:54:07', '2015-10-29 22:54:07', NULL, '1c4ade2fd2dc870ec22b1210f1b801c5'),
+(13607, '2015-10-29 22:56:08', '2015-10-29 22:56:08', NULL, 'a351d2056cf030316f26ca805f01ef80'),
+(13608, '2015-10-29 22:56:41', '2015-10-29 22:56:41', NULL, '40cc28cc60a8526b6344f33ffed25920'),
+(13609, '2015-10-29 22:56:47', '2015-10-29 22:56:47', NULL, 'e13c490b32892192b6e9dd2572505559'),
+(13610, '2015-10-29 23:07:45', '2015-10-29 23:07:45', NULL, 'f147047dfac9c5a6963b4b701212c81d'),
+(13611, '2015-10-29 23:09:09', '2015-10-29 23:09:09', NULL, '80d1a83982fcce25dec6999cbcce8fc5'),
+(13612, '2015-10-29 23:11:53', '2015-10-29 23:11:53', NULL, 'c74f392e634198ab362961a9090ab72c'),
+(13613, '2015-10-29 23:12:16', '2015-10-29 23:12:16', NULL, '90d26a65828b8dad568d0787b40e797f'),
+(13614, '2015-10-29 23:14:58', '2015-10-29 23:14:58', NULL, '1b05aa29693ea7ca6aaf15b531d12c12'),
+(13615, '2015-10-29 23:21:55', '2015-10-29 23:21:55', NULL, '07daf0d7b15bb5204ac13241758572e2'),
+(13616, '2015-10-29 23:22:14', '2015-10-29 23:22:14', NULL, '5a2639e1d3e4861a61a32c2464d94012'),
+(13617, '2015-10-30 00:00:42', '2015-10-30 00:00:42', NULL, 'ad0665adb3501531bd5c2a78e8d0f8d1'),
+(13618, '2015-10-30 00:09:19', '2015-10-30 00:09:19', NULL, '6a4ba2f50c14fb31438a75b79023bedd'),
+(13619, '2015-10-30 00:09:51', '2015-10-30 00:09:51', NULL, '0d05d59584f9047576a64ead2f694194'),
+(13620, '2015-10-30 00:09:56', '2015-10-30 00:09:56', NULL, 'df21a1c83f9925f12ba37d6e25ddf905'),
+(13621, '2015-10-30 00:18:29', '2015-10-30 00:18:29', NULL, '604fa64a0141a6cd1e45aa54b3463449'),
+(13622, '2015-10-30 00:21:26', '2015-10-30 00:21:26', NULL, '8f8d7850987eb8c8c375501bce086d56'),
+(13623, '2015-10-30 00:26:40', '2015-10-30 00:26:40', NULL, '7a3885be69cccdeb91ee949f414e4d95'),
+(13624, '2015-10-30 00:37:36', '2015-10-30 00:37:36', NULL, '4a363598b24427ad594a9766897c956e'),
+(13625, '2015-10-30 00:56:19', '2015-10-30 00:56:19', NULL, 'bd5620ca51b11bfb39960aff2d4ad4e8'),
+(13626, '2015-10-30 01:06:05', '2015-10-30 01:06:05', NULL, '3e4d92bd4a40632d9ee10dd5d2accdb3'),
+(13627, '2015-10-30 01:08:33', '2015-10-30 01:08:33', NULL, '0f669e11fa387c88f6bd332af46af75b'),
+(13628, '2015-10-30 01:13:24', '2015-10-30 01:13:24', NULL, 'dbe55e4c68fd5a7c47da7e241fe0d254'),
+(13629, '2015-10-30 01:15:35', '2015-10-30 01:15:35', NULL, 'dbf5cf91c4d3ffce86365c805b824353'),
+(13630, '2015-10-30 01:15:36', '2015-10-30 01:15:36', NULL, '61c2d0a4c91797f6a9558b3e719d62f6'),
+(13631, '2015-10-30 01:17:13', '2015-10-30 01:17:13', NULL, '993a2e80967457bb7bbee24956296787'),
+(13632, '2015-10-30 01:23:50', '2015-10-30 01:23:50', NULL, '1dcedd41772b52f307a55299c44d378e'),
+(13633, '2015-10-30 01:24:04', '2015-10-30 01:24:04', NULL, '129c08461f6951a4aa47c42724a8fd99'),
+(13634, '2015-10-30 01:33:53', '2015-10-30 01:33:53', NULL, 'cf21e255c5e12b70d35406f8c2aa4616'),
+(13635, '2015-10-30 01:34:15', '2015-10-30 01:34:15', NULL, 'cd25dcccc77cc84f8ae4b88d6ba78fde'),
+(13636, '2015-10-30 01:41:10', '2015-10-30 01:41:10', NULL, '2d832c954a19ca57c147781d3fcf4c4c'),
+(13637, '2015-10-30 01:43:52', '2015-10-30 01:43:52', NULL, '82c08c3dd81b4e6bbfe921fc01968aa4'),
+(13638, '2015-10-30 01:45:36', '2015-10-30 01:45:36', NULL, 'd3c30d1512c07d5396d0d85ff86c1700'),
+(13639, '2015-10-30 01:50:54', '2015-10-30 01:50:54', NULL, 'e9f169dc072dc39af6fe455241fc13fa'),
+(13640, '2015-10-30 02:01:38', '2015-10-30 02:01:38', NULL, '53c75a185123074b5c108399f85668b3'),
+(13641, '2015-10-30 02:05:18', '2015-10-30 02:05:18', NULL, '953ecb959b9a6d0f7894daa16a445243'),
+(13642, '2015-10-30 02:08:23', '2015-10-30 02:08:23', NULL, 'ad13b71e6bdf48f4b0f33de37f4ea5f3'),
+(13643, '2015-10-30 02:20:11', '2015-10-30 02:20:11', NULL, 'e568eacad95169eb897c2955e314333a'),
+(13644, '2015-10-30 02:24:03', '2015-10-30 02:24:03', NULL, '896526c2ec6984125f87a62586164fdc'),
+(13645, '2015-10-30 02:29:23', '2015-10-30 02:29:23', NULL, 'b5b575218ba54a0a18f217b9a3ba2b1f'),
+(13646, '2015-10-30 02:34:37', '2015-10-30 02:34:37', NULL, '357f46d0cd00bad43ff13ab7826be990'),
+(13647, '2015-10-30 02:48:13', '2015-10-30 02:48:13', NULL, '8b7f0408d306c42a69256126664ff91e'),
+(13648, '2015-10-30 02:54:10', '2015-10-30 02:54:10', NULL, '3101f0dffed46435a13581bc1f7e8744'),
+(13649, '2015-10-30 03:18:16', '2015-10-30 03:18:16', NULL, '4d03eb4d0d4580cd9f99d243883ad5d0'),
+(13650, '2015-10-30 03:28:24', '2015-10-30 03:28:24', NULL, 'ddece0cc5d1740341abefec5f718d695'),
+(13651, '2015-10-30 03:29:00', '2015-10-30 03:29:00', NULL, '2f6e407cdb92d2954a9c65099f34f401'),
+(13652, '2015-10-30 03:32:23', '2015-10-30 03:32:23', NULL, '6d8e80b7fce9208d669fa323a097f73d'),
+(13653, '2015-10-30 03:37:28', '2015-10-30 03:37:28', NULL, '33e849ee0c6926d2c1f5668ee9d72bdc'),
+(13654, '2015-10-30 03:44:14', '2015-10-30 03:44:14', NULL, '41aa1fb4a1b409f4f118bbacaae66e33'),
+(13655, '2015-10-30 03:44:50', '2015-10-30 03:44:50', NULL, 'bcef26dd6e34ab43e5cbcb2cea0c6120'),
+(13656, '2015-10-30 03:46:55', '2015-10-30 03:46:55', NULL, '55132a3b426192e7a767e733e5d955bb'),
+(13657, '2015-10-30 03:56:40', '2015-10-30 03:56:40', NULL, 'e685afd4ba50e53b15e2897b22254f57'),
+(13658, '2015-10-30 04:09:06', '2015-10-30 04:09:06', NULL, '3858f3898c4f9addc02ef119d1c6ff94'),
+(13659, '2015-10-30 04:09:26', '2015-10-30 04:09:26', NULL, '8a34a1bd3a3168fbd1592bed6f9932c6'),
+(13660, '2015-10-30 04:09:26', '2015-10-30 04:09:26', NULL, '08634f571ab375cb2cd1ea51fc0bd0bc'),
+(13661, '2015-10-30 04:09:30', '2015-10-30 04:09:30', NULL, '8552a7b1ef894a65a47c8ef082cfdb56'),
+(13662, '2015-10-30 04:09:30', '2015-10-30 04:09:30', NULL, '062df06045c22bf3a55fe486f5fa7c14'),
+(13663, '2015-10-30 04:09:30', '2015-10-30 04:09:30', NULL, '8418661a24edd37df858e17d5c82cf16'),
+(13664, '2015-10-30 04:09:31', '2015-10-30 04:09:31', NULL, '06d7666b523a4d12ad48247f06b4a426'),
+(13665, '2015-10-30 04:09:31', '2015-10-30 04:09:31', NULL, 'd158faa990697f93f4a2d280a2aeeabd'),
+(13666, '2015-10-30 04:09:31', '2015-10-30 04:09:31', NULL, 'c901d7fef94f556dde8cb85c78a37c07'),
+(13667, '2015-10-30 04:09:31', '2015-10-30 04:09:31', NULL, '54727b45380c6f78add747266c3dcfc1'),
+(13668, '2015-10-30 04:09:32', '2015-10-30 04:09:32', NULL, 'a2af3095507713f7d35c90ae175a25d9'),
+(13669, '2015-10-30 04:09:32', '2015-10-30 04:09:32', NULL, 'd94d411edc6fa3326aea2b95c96d4569'),
+(13670, '2015-10-30 04:11:34', '2015-10-30 04:11:34', NULL, 'afe6ba5923d522d6c803dabff5933642'),
+(13671, '2015-10-30 04:11:45', '2015-10-30 04:11:45', NULL, 'b212a5f0d010ca58835703410b860fac'),
+(13672, '2015-10-30 04:12:02', '2015-10-30 04:12:02', NULL, 'd1016bdd392fb7b42e9816217c64dba3'),
+(13673, '2015-10-30 04:19:32', '2015-10-30 04:19:32', NULL, '1350f3f360553386c96cacad65b429e7'),
+(13674, '2015-10-30 04:20:10', '2015-10-30 04:20:10', NULL, '30972c05cab996317bd0f84e9f3578f6'),
+(13675, '2015-10-30 04:33:13', '2015-10-30 04:33:13', NULL, '854b072570991bdf2d7d27e392dc5943'),
+(13676, '2015-10-30 04:36:58', '2015-10-30 04:36:58', NULL, 'c6ec68bbf1ccc0c760d804c15cb2fcc4'),
+(13677, '2015-10-30 04:43:44', '2015-10-30 04:43:44', NULL, '16b501b21ad2cd5c33122707e2f7bbe7'),
+(13678, '2015-10-30 04:59:47', '2015-10-30 04:59:47', NULL, 'fe1dff17db15c0fc3a3b02302aa75894'),
+(13679, '2015-10-30 05:16:23', '2015-10-30 05:16:23', NULL, '39837495be72569a5c5621c1743f5bff'),
+(13680, '2015-10-30 05:34:40', '2015-10-30 05:34:40', NULL, '0022d8ccd7f40362328d5fc5191259b7'),
+(13681, '2015-10-30 05:34:44', '2015-10-30 05:34:44', NULL, '76723534b0641f365738b9d116173538'),
+(13682, '2015-10-30 05:44:52', '2015-10-30 05:44:52', NULL, 'ba513333e08d423e5ec066b1d2af3361'),
+(13683, '2015-10-30 05:45:14', '2015-10-30 05:45:14', NULL, 'e390fa41b7dce33df5a4d277a9c28405'),
+(13684, '2015-10-30 05:45:54', '2015-10-30 05:45:54', NULL, '75c919b5f593e48cb0d6abfc5e17bd36'),
+(13685, '2015-10-30 05:48:33', '2015-10-30 05:48:33', NULL, '06eab1f4df86c6769557d82ea50730fb'),
+(13686, '2015-10-30 05:52:20', '2015-10-30 05:52:20', NULL, '81263bae43ed686cef4575ac1cde90f6'),
+(13687, '2015-10-30 05:58:34', '2015-10-30 05:58:34', NULL, 'bc1cadf963e5520487cce9901d7eba6b'),
+(13688, '2015-10-30 06:08:56', '2015-10-30 06:08:56', NULL, 'e981e903c751d54672bcaac5dc53a775'),
+(13689, '2015-10-30 06:13:01', '2015-10-30 06:13:01', NULL, '48d5ad261efc4e53d68bf73c4d414bf7'),
+(13690, '2015-10-30 06:14:09', '2015-10-30 06:14:09', NULL, '92e46cab36b49f3dc9c8669877902daa'),
+(13691, '2015-10-30 06:14:12', '2015-10-30 06:14:12', NULL, '3ccd269f08c9a5db13b5fcbceaba995e'),
+(13692, '2015-10-30 06:34:20', '2015-10-30 06:34:20', NULL, 'b2955e32ba8fbf3411b0970f3151935b'),
+(13693, '2015-10-30 06:53:21', '2015-10-30 06:53:21', NULL, '377c1568db7ab8b42517a11e62974956'),
+(13694, '2015-10-30 06:55:33', '2015-10-30 06:55:33', NULL, '1443a46ed1aec88807c9953ca3df2902'),
+(13695, '2015-10-30 07:02:41', '2015-10-30 07:02:41', NULL, 'da423a8c6ad05bf3214cb61ce942b5a8'),
+(13696, '2015-10-30 07:17:01', '2015-10-30 07:17:01', NULL, '5edfaf66c1eec469da3f99d4584f6145'),
+(13697, '2015-10-30 07:22:40', '2015-10-30 07:22:40', NULL, '237fc25dcb4ea2eab42f1c8e7700dffe'),
+(13698, '2015-10-30 07:24:36', '2015-10-30 07:24:36', NULL, '878cf767a13b26411fe341620710e5d8'),
+(13699, '2015-10-30 07:39:48', '2015-10-30 07:39:48', NULL, 'e167709699d08cdaf6e6f2dd2a4c42e1'),
+(13700, '2015-10-30 07:57:11', '2015-10-30 07:57:11', NULL, 'e53f6df93a909f4d5e04844335873a74'),
+(13701, '2015-10-30 08:29:16', '2015-10-30 08:29:16', NULL, 'e35f0dad2c2f3471f115630a1ec81017'),
+(13702, '2015-10-30 08:30:05', '2015-10-30 08:30:05', NULL, 'aebd8b737ffd487073bb2aaa49c8b069'),
+(13703, '2015-10-30 08:30:05', '2015-10-30 08:30:05', NULL, '38a804a747dcb6127786331d00a08832'),
+(13704, '2015-10-30 08:30:08', '2015-10-30 08:30:08', NULL, '6f22317e6d35b94450d3e4ef3e2b294d'),
+(13705, '2015-10-30 08:30:11', '2015-10-30 08:30:11', NULL, 'e742b987b03ca9fdcf938546f471c98f'),
+(13706, '2015-10-30 08:30:13', '2015-10-30 08:30:13', NULL, '1dde3115cc17c71cb7e5dc0e7a7cdc97'),
+(13707, '2015-10-30 08:30:16', '2015-10-30 08:30:16', NULL, 'f4829c002fd66b9a1768e42c103442a3'),
+(13708, '2015-10-30 08:30:18', '2015-10-30 08:30:18', NULL, '4e33892ff319648f03536b2023d7a681'),
+(13709, '2015-10-30 08:30:21', '2015-10-30 08:30:21', NULL, 'd2160f97f9f77024abb3e51c7c69959d'),
+(13710, '2015-10-30 08:30:23', '2015-10-30 08:30:23', NULL, '69722babe898274de281156683636341'),
+(13711, '2015-10-30 08:30:25', '2015-10-30 08:30:25', NULL, '8f5b2b8bdbd4c27681269ce5cab7d60e'),
+(13712, '2015-10-30 08:30:27', '2015-10-30 08:30:27', NULL, '90bda4977122d84be6dcd0ee716ab20a'),
+(13713, '2015-10-30 08:30:30', '2015-10-30 08:30:30', NULL, '9cb35faba460c13965f371398566ee24'),
+(13714, '2015-10-30 08:30:32', '2015-10-30 08:30:32', NULL, 'ca38f60b5d5e65535a831777c33a8944'),
+(13715, '2015-10-30 08:30:34', '2015-10-30 08:30:34', NULL, '2f3d5034631427eb82c55d01fa90763e'),
+(13716, '2015-10-30 08:30:37', '2015-10-30 08:30:37', NULL, '84f08d1e090a5ce87673f725f9afe630'),
+(13717, '2015-10-30 08:30:39', '2015-10-30 08:30:39', NULL, 'cbfc683bbaddd1311b75b6b4a86d65fe'),
+(13718, '2015-10-30 08:30:41', '2015-10-30 08:30:41', NULL, '98eb2516410d80ae2d577658df1b9d9f'),
+(13719, '2015-10-30 08:30:43', '2015-10-30 08:30:43', NULL, '166e4623ba5237985f57dd488e68af21'),
+(13720, '2015-10-30 08:30:46', '2015-10-30 08:30:46', NULL, '4d25ca5281715b4d535fc09f911fbfa7'),
+(13721, '2015-10-30 08:30:49', '2015-10-30 08:30:49', NULL, 'b408ce186c3ca3da4efe92ab3f6ec621'),
+(13722, '2015-10-30 08:30:51', '2015-10-30 08:30:51', NULL, '1bc68e0fa6732b4f92c32f125984d301'),
+(13723, '2015-10-30 08:30:53', '2015-10-30 08:30:53', NULL, 'c78ee8f2036ab40154488e28eabe5c86'),
+(13724, '2015-10-30 08:30:55', '2015-10-30 08:30:55', NULL, '766f2224c2fcbbb3664435ee636c7b6f'),
+(13725, '2015-10-30 08:30:57', '2015-10-30 08:30:57', NULL, 'd2debef6159c8ac72a0bc83e8f16e9d0'),
+(13726, '2015-10-30 08:31:00', '2015-10-30 08:31:00', NULL, '16c9803e75a0edeba22a150101413978'),
+(13727, '2015-10-30 08:31:02', '2015-10-30 08:31:02', NULL, 'feb0b06063941a04d36d657054727dcc'),
+(13728, '2015-10-30 08:31:04', '2015-10-30 08:31:04', NULL, '142c87a07f62596dde3449cf5014cb0b'),
+(13729, '2015-10-30 08:31:06', '2015-10-30 08:31:06', NULL, 'd06d421be0d0abdcbf84535cdded7fe9'),
+(13730, '2015-10-30 08:31:08', '2015-10-30 08:31:08', NULL, 'fdc3b0ddbb4e28899ef33bbb6c25b1db'),
+(13731, '2015-10-30 08:31:08', '2015-10-30 08:31:08', NULL, '0a597a8e9b972a4e87a4dd9238d39de2'),
+(13732, '2015-10-30 08:31:11', '2015-10-30 08:31:11', NULL, '1aea50c238aac260aed265ffbf29e8ba'),
+(13733, '2015-10-30 08:31:13', '2015-10-30 08:31:13', NULL, '8bb73633f33eaa6e6534210852472b00'),
+(13734, '2015-10-30 08:31:16', '2015-10-30 08:31:16', NULL, '4fa4756d8702f13933222a1159708548'),
+(13735, '2015-10-30 08:31:18', '2015-10-30 08:31:18', NULL, 'ea6fc3dd0fe77db5a028cb8fad2349b3'),
+(13736, '2015-10-30 08:31:21', '2015-10-30 08:31:21', NULL, 'af4bee6582018199bbf72931d4372ea2'),
+(13737, '2015-10-30 08:31:23', '2015-10-30 08:31:23', NULL, '4dbca56ebd7536d77afeb3aa3184b7d8'),
+(13738, '2015-10-30 08:31:25', '2015-10-30 08:31:25', NULL, '2c350cfa83b37339ca56d3950febe261'),
+(13739, '2015-10-30 08:31:27', '2015-10-30 08:31:27', NULL, 'ecdacef1151bc57168e61fb7a3357c09'),
+(13740, '2015-10-30 08:31:29', '2015-10-30 08:31:29', NULL, '7941f6c3724a37afe4645eb72894d8e8'),
+(13741, '2015-10-30 08:31:32', '2015-10-30 08:31:32', NULL, 'ef1424cfe953e6c59c9158fa3213c69e'),
+(13742, '2015-10-30 08:31:34', '2015-10-30 08:31:34', NULL, 'e872d0265f1680f7b0debf1c178f6b58'),
+(13743, '2015-10-30 08:31:36', '2015-10-30 08:31:36', NULL, '4e70ef9d1e55bacba1de8545f0138a64'),
+(13744, '2015-10-30 08:31:39', '2015-10-30 08:31:39', NULL, '8c34cf141e5cd8d66fc04ada24c311b4'),
+(13745, '2015-10-30 08:31:41', '2015-10-30 08:31:41', NULL, '332429fce4e510c481e11df772357edb'),
+(13746, '2015-10-30 08:31:44', '2015-10-30 08:31:44', NULL, 'e5fec583447d92606909d206ebd356d7'),
+(13747, '2015-10-30 08:31:46', '2015-10-30 08:31:46', NULL, 'bc5aedd4a48136f87cd5eff7f23b2819'),
+(13748, '2015-10-30 08:31:48', '2015-10-30 08:31:48', NULL, '05216cc9cf391607dd8fb0c2f449868e'),
+(13749, '2015-10-30 08:31:51', '2015-10-30 08:31:51', NULL, '603bc50ae8506a424394ecb3eded865b'),
+(13750, '2015-10-30 08:31:53', '2015-10-30 08:31:53', NULL, '687f5e604c958dd038a52b5488338e79'),
+(13751, '2015-10-30 08:31:56', '2015-10-30 08:31:56', NULL, 'c8b644ea2a4224bfb7e3bf9c25a5cbd5'),
+(13752, '2015-10-30 08:31:58', '2015-10-30 08:31:58', NULL, '4cfb6927f325e1a38595228b2166a3cf'),
+(13753, '2015-10-30 08:32:00', '2015-10-30 08:32:00', NULL, '9446c0fab3379b8b5ce3683a1cf872a3'),
+(13754, '2015-10-30 08:32:03', '2015-10-30 08:32:03', NULL, '390faaf0f54848d9fcad24e6d25c6fb4'),
+(13755, '2015-10-30 08:32:05', '2015-10-30 08:32:05', NULL, 'd66b301a4d3b73beec7d1395b1d721de'),
+(13756, '2015-10-30 08:32:08', '2015-10-30 08:32:08', NULL, '1a41d09a1189a5d92edb8cb9006b9966'),
+(13757, '2015-10-30 08:32:10', '2015-10-30 08:32:10', NULL, '4264d08ef2b2f1ff949aff71a276f9b9'),
+(13758, '2015-10-30 08:32:13', '2015-10-30 08:32:13', NULL, '56613da9970d6360e0337a42444fac86'),
+(13759, '2015-10-30 08:32:15', '2015-10-30 08:32:15', NULL, 'ca169de7c95e33dd8c5f8622f1d4a2ec'),
+(13760, '2015-10-30 08:32:18', '2015-10-30 08:32:18', NULL, '64a665ff3b7d02ba3475aea3099a49b7'),
+(13761, '2015-10-30 08:32:21', '2015-10-30 08:32:21', NULL, '6c5c234773cdcc96dcd8d10583e5f5cf'),
+(13762, '2015-10-30 08:32:23', '2015-10-30 08:32:23', NULL, '909dd5f0cec6ec31fb047bd4ff38946f'),
+(13763, '2015-10-30 08:32:25', '2015-10-30 08:32:25', NULL, '5bab8291f900788da75c1c0b801e7c1f'),
+(13764, '2015-10-30 08:32:27', '2015-10-30 08:32:27', NULL, '022b08e7c1af656caf3e5150969aa7a2'),
+(13765, '2015-10-30 08:32:29', '2015-10-30 08:32:29', NULL, '6ded43ad8bf9e56c1ffa27dacdfb4f89'),
+(13766, '2015-10-30 08:32:32', '2015-10-30 08:32:32', NULL, 'da860cb5a2e9c6273262f41c00bc773f'),
+(13767, '2015-10-30 08:32:34', '2015-10-30 08:32:34', NULL, '710b8f31528821392e2f210626b25c3a'),
+(13768, '2015-10-30 08:32:36', '2015-10-30 08:32:36', NULL, 'c2941792005a122c7d43f5456681c4ce'),
+(13769, '2015-10-30 08:32:39', '2015-10-30 08:32:39', NULL, '433cc7c5391809f839bc4cc6bd97446a'),
+(13770, '2015-10-30 08:32:41', '2015-10-30 08:32:41', NULL, '8d1a73b3e6abbe7a669ed31458c4e536'),
+(13771, '2015-10-30 08:32:43', '2015-10-30 08:32:43', NULL, 'b7943a7bb07986a64e4b6530e61ab5a7'),
+(13772, '2015-10-30 08:32:45', '2015-10-30 08:32:45', NULL, '1355c4a0186b817f7f291338d0ca7799'),
+(13773, '2015-10-30 08:32:48', '2015-10-30 08:32:48', NULL, '0d28dd3d804b816fc7320b15c5b3c179'),
+(13774, '2015-10-30 08:32:54', '2015-10-30 08:32:54', NULL, 'e8e9abe5974831d2a84fd514ffd9d29d'),
+(13775, '2015-10-30 08:32:58', '2015-10-30 08:32:58', NULL, '7d06ef587c49203914b341fcb3230922'),
+(13776, '2015-10-30 08:33:01', '2015-10-30 08:33:01', NULL, 'ca2bbfba6ac81889ccfa143e5c06090b');
+INSERT INTO `b_sale_fuser` (`ID`, `DATE_INSERT`, `DATE_UPDATE`, `USER_ID`, `CODE`) VALUES
+(13777, '2015-10-30 08:33:03', '2015-10-30 08:33:03', NULL, 'f113d624ab751349970fc32a2f31828a'),
+(13778, '2015-10-30 08:33:06', '2015-10-30 08:33:06', NULL, '7bf24b8170fc94f7db066600ce8258ef'),
+(13779, '2015-10-30 08:33:08', '2015-10-30 08:33:08', NULL, '5062cbc1cff27da32b04235bffc1fa7a'),
+(13780, '2015-10-30 08:33:10', '2015-10-30 08:33:10', NULL, 'bd0d6520070eed73377787a99be90fbb'),
+(13781, '2015-10-30 08:33:15', '2015-10-30 08:33:15', NULL, '5cfb7507975a365d67218c84e6e8a70b'),
+(13782, '2015-10-30 08:33:17', '2015-10-30 08:33:17', NULL, '38f0f0303f87e48a2c235d7cf0717ce6'),
+(13783, '2015-10-30 08:33:19', '2015-10-30 08:33:19', NULL, 'eaeac5c956937270d84f66d4c36fcdc7'),
+(13784, '2015-10-30 08:33:21', '2015-10-30 08:33:21', NULL, 'cf43564f7a8430f01c8fff308cbb23ce'),
+(13785, '2015-10-30 08:33:24', '2015-10-30 08:33:24', NULL, 'd686deef0d25b4ee4ac251fe53a2a4d7'),
+(13786, '2015-10-30 08:33:26', '2015-10-30 08:33:26', NULL, '1ab704c08f74d4aba84e71848027747d'),
+(13787, '2015-10-30 08:33:31', '2015-10-30 08:33:31', NULL, '9a724d9760cbc3f2d5eae27166a46139'),
+(13788, '2015-10-30 08:33:32', '2015-10-30 08:33:32', NULL, 'a4bfe30b416673fe3ade0f3461cf4e33'),
+(13789, '2015-10-30 08:33:35', '2015-10-30 08:33:35', NULL, '47144d014de89c5e2fb5672f4bdbfcc0'),
+(13790, '2015-10-30 08:33:35', '2015-10-30 08:33:35', NULL, 'ba61a04afd3347b555ea8c7c1f6cadc9'),
+(13791, '2015-10-30 08:33:35', '2015-10-30 08:33:35', NULL, '6e4505527a88e63fa86f26157566c5ed'),
+(13792, '2015-10-30 08:33:35', '2015-10-30 08:33:35', NULL, '873e845a2691e2d0b18ffcd5c6495131'),
+(13793, '2015-10-30 08:33:36', '2015-10-30 08:33:36', NULL, '3601903661ae7626465da8fa143a4c82'),
+(13794, '2015-10-30 08:33:37', '2015-10-30 08:33:37', NULL, 'ac94211e173d3332cf7b03554c67609e'),
+(13795, '2015-10-30 08:33:37', '2015-10-30 08:33:37', NULL, '545bb2c34298dc252a5a74e4c416d705'),
+(13796, '2015-10-30 08:33:37', '2015-10-30 08:33:37', NULL, '11a9a8ec2de5eadece482402ede6ceb1'),
+(13797, '2015-10-30 08:33:37', '2015-10-30 08:33:37', NULL, '4045acaf730052c4d64b6983c9d3b2a4'),
+(13798, '2015-10-30 08:33:40', '2015-10-30 08:33:40', NULL, '1a618d46e8cfbdeead86161d8dd4d125'),
+(13799, '2015-10-30 08:33:42', '2015-10-30 08:33:42', NULL, '0994347bf19f91f5b1a96ddcb06a1c69'),
+(13800, '2015-10-30 08:33:44', '2015-10-30 08:33:44', NULL, 'e27c930d7f5f4eba4c45b0c8fb64dc70'),
+(13801, '2015-10-30 08:33:57', '2015-10-30 08:33:57', NULL, '80655a85cd11566d68e9c4f494ce3487'),
+(13802, '2015-10-30 08:34:05', '2015-10-30 08:34:05', NULL, '01e10942341aa06ce5ec7befbc002b8b'),
+(13803, '2015-10-30 08:34:05', '2015-10-30 08:34:05', NULL, '7b6114aa8c9b07a78ef106663a2aa303'),
+(13804, '2015-10-30 08:34:06', '2015-10-30 08:34:06', NULL, '16c9b7b2663683b6c0882705a55b7a8f'),
+(13805, '2015-10-30 08:34:06', '2015-10-30 08:34:06', NULL, 'a39bf16022f76d4d7af4f0c1414d4bc0'),
+(13806, '2015-10-30 08:34:06', '2015-10-30 08:34:06', NULL, '869852d1d162ff123d130168578fad9d'),
+(13807, '2015-10-30 08:34:06', '2015-10-30 08:34:06', NULL, '2dadb86497cbb9210792d6600c9ea46b'),
+(13808, '2015-10-30 08:34:07', '2015-10-30 08:34:07', NULL, '6b97a178a9467538d4ab8d5cb49c3392'),
+(13809, '2015-10-30 08:34:07', '2015-10-30 08:34:07', NULL, '12fe1fac6d899b3489a5638fa42cb49e'),
+(13810, '2015-10-30 08:34:07', '2015-10-30 08:34:07', NULL, '34891754bc046d3b9dbf46708c7f762b'),
+(13811, '2015-10-30 08:34:08', '2015-10-30 08:34:08', NULL, '4bc0f11d51242167c9f5409aa70245a9'),
+(13812, '2015-10-30 08:34:08', '2015-10-30 08:34:08', NULL, '78c097554b51a17dfdf192ba36c74bdd'),
+(13813, '2015-10-30 08:34:08', '2015-10-30 08:34:08', NULL, 'be44dd26e9f5bdb2508ff2e0fcdcbcc3'),
+(13814, '2015-10-30 08:34:10', '2015-10-30 08:34:10', NULL, '31cbcc5e4da340b7a3d8ce117022e18e'),
+(13815, '2015-10-30 08:34:10', '2015-10-30 08:34:10', NULL, '2e41e7845d407fb671c20bc52a7c77cb'),
+(13816, '2015-10-30 08:34:11', '2015-10-30 08:34:11', NULL, '0956fc3140bc5989e40ceb6da72d7caf'),
+(13817, '2015-10-30 08:36:00', '2015-10-30 08:36:00', NULL, '5fa45d98b52e71f2ff025ae051e78573'),
+(13818, '2015-10-30 08:36:13', '2015-10-30 08:36:13', NULL, 'c7ef8eb7b107a76860677e6dc40e2d4d'),
+(13819, '2015-10-30 08:46:52', '2015-10-30 08:46:52', NULL, 'e074970dc993224d6a2c857f36c78f85'),
+(13820, '2015-10-30 09:02:02', '2015-10-30 09:02:02', NULL, '0c780550bafbe41d1c1176dc48f2d236'),
+(13821, '2015-10-30 09:04:42', '2015-10-30 09:04:42', NULL, '48bada3ef0676cc3d15c61e39666497c'),
+(13822, '2015-10-30 09:06:17', '2015-10-30 09:06:17', NULL, 'b29070faa4a8dfa5f75134863139fbcf'),
+(13823, '2015-10-30 09:11:49', '2015-10-30 09:11:49', NULL, '90cb6d44592dca0781047608205aea26'),
+(13824, '2015-10-30 09:22:57', '2015-10-30 09:22:57', NULL, '3d24b9ebc87416e1bec563e52a3aa9eb'),
+(13825, '2015-10-30 09:28:27', '2015-10-30 09:28:27', NULL, '6cb8e6dc3eabca8bdb352a4b8ad29314'),
+(13826, '2015-10-30 09:30:59', '2015-10-30 09:30:59', NULL, '218fa7c92e65bcbc7247e81dc57cf493'),
+(13827, '2015-10-30 09:38:54', '2015-10-30 09:38:54', NULL, '1cb307ab3a2847e04e5ec44a749acb31'),
+(13828, '2015-10-30 09:38:54', '2015-10-30 09:38:54', NULL, 'fa4bdba851b4b621845b69f107544275'),
+(13829, '2015-10-30 09:39:11', '2015-10-30 09:39:11', NULL, 'cd0c0b7043fb42e88cf7712b45d93ccd'),
+(13830, '2015-10-30 09:39:40', '2015-10-30 09:39:40', NULL, '2aa92e479ddcd3ffc2fb5ffdf5bb2c89'),
+(13831, '2015-10-30 09:39:43', '2015-10-30 09:39:43', NULL, '3970941f45876d8a3c49145b8578dcb4'),
+(13832, '2015-10-30 09:55:40', '2015-10-30 09:55:40', NULL, '8fb114183460e134df529af3bc90448d'),
+(13833, '2015-10-30 09:56:03', '2015-10-30 09:56:03', NULL, '4a6aead514e4dae5e916c6e689e1312d'),
+(13834, '2015-10-30 10:01:39', '2015-10-30 10:01:39', NULL, 'fcd68c0f555d60eb2d186ee7e20b2c68'),
+(13835, '2015-10-30 10:19:17', '2015-10-30 10:19:17', NULL, 'c24d976d5e790b4dbd5b7b6a1e3836ba'),
+(13836, '2015-10-30 10:28:58', '2015-10-30 10:28:58', NULL, '05aac98854a72e8af483c554fe5c58db'),
+(13837, '2015-10-30 10:49:51', '2015-10-30 10:49:51', NULL, '7985be0dfc2246b872366d1b27012edf'),
+(13838, '2015-10-30 10:51:50', '2015-10-30 10:51:50', NULL, 'b95fe09e7203d6f26ccfbebf4bf1179a'),
+(13839, '2015-10-30 11:04:56', '2015-10-30 11:04:56', NULL, '92c15d8c7ecb527c6e06ab64d50dbcfd'),
+(13840, '2015-10-30 11:11:32', '2015-10-30 11:11:32', NULL, 'c7f5308ad2bb3facf36e5921d6c76f8a'),
+(13841, '2015-10-30 11:11:34', '2015-10-30 11:11:34', NULL, '364fc3aa47b7c8df4335da4378d5781f'),
+(13842, '2015-10-30 11:11:36', '2015-10-30 11:11:36', NULL, '9e1fb3e3d7cd804d95be4467b958864a'),
+(13843, '2015-10-30 11:11:38', '2015-10-30 11:11:38', NULL, '9760b42ff908044ab7bc9f9ca05ef389'),
+(13844, '2015-10-30 11:11:40', '2015-10-30 11:11:40', NULL, '0949bf308cee022ad612cc4d0f75bf59'),
+(13845, '2015-10-30 11:11:41', '2015-10-30 11:11:41', NULL, '26d1a8c6dabce105104e21d9c1df5e3e'),
+(13846, '2015-10-30 11:20:44', '2015-10-30 11:20:44', NULL, '7ac5811cc44783e1d75895fed6e4de38'),
+(13847, '2015-10-30 11:35:39', '2015-10-30 11:35:39', NULL, '92f7f6f3c8748e6353ca4102b061aff5'),
+(13848, '2015-10-30 11:37:31', '2015-10-30 11:37:31', NULL, '612f6ad94cdb0744a9520e2dead3c9e5'),
+(13849, '2015-10-30 11:39:48', '2015-10-30 11:39:48', NULL, 'f88041d92714fba3ef5945c1ef84fdc9'),
+(13850, '2015-10-30 11:42:48', '2015-10-30 11:42:48', NULL, '465250885582eea8169f56ba8bcc7c1f'),
+(13851, '2015-10-30 11:46:37', '2015-10-30 11:46:37', NULL, '6d0ca607f2a49ea412faa5ae0c641548'),
+(13852, '2015-10-30 11:48:57', '2015-10-30 11:48:57', NULL, 'e15b7ef3b16b848d930f212eb46b83ab'),
+(13853, '2015-10-30 11:49:48', '2015-10-30 11:49:48', NULL, '3154f3cce9467d23af2c1f9f347908dc'),
+(13854, '2015-10-30 12:02:29', '2015-10-30 12:02:29', NULL, '2bf001f3d91748f55ab1e16aeaa75710');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_sale_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_lang`;
@@ -21392,9 +22595,5457 @@ INSERT INTO `b_sale_lang` (`LID`, `CURRENCY`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `b_sale_loc_2site`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_2site`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_2site` (
+  `LOCATION_ID` int(11) NOT NULL,
+  `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `LOCATION_TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'L'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_sale_loc_def2site`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_def2site`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_def2site` (
+  `LOCATION_CODE` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `SORT` int(11) DEFAULT '100'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_sale_loc_ext`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_ext`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_ext` (
+  `ID` int(11) NOT NULL,
+  `SERVICE_ID` int(11) NOT NULL,
+  `LOCATION_ID` int(11) NOT NULL,
+  `XML_ID` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2118 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `b_sale_loc_ext`
+--
+
+INSERT INTO `b_sale_loc_ext` (`ID`, `SERVICE_ID`, `LOCATION_ID`, `XML_ID`) VALUES
+(1, 1, 1, '225'),
+(2, 1, 2, '3'),
+(3, 1, 3, '1'),
+(4, 1, 4, '10725'),
+(5, 1, 5, '21622'),
+(6, 1, 6, '10717'),
+(7, 2, 6, '140170'),
+(8, 1, 7, '20571'),
+(9, 1, 8, '215'),
+(10, 1, 9, '20728'),
+(11, 1, 10, '21623'),
+(12, 1, 11, '10729'),
+(13, 1, 12, '37147'),
+(14, 1, 13, '21621'),
+(15, 1, 14, '21647'),
+(16, 2, 14, '143090'),
+(17, 1, 15, '21641'),
+(18, 1, 16, '21630'),
+(19, 1, 17, '20576'),
+(20, 1, 18, '217'),
+(21, 2, 18, '142290'),
+(22, 1, 19, '21619'),
+(23, 1, 20, '20523'),
+(24, 1, 21, '100471'),
+(25, 1, 22, '21644'),
+(26, 1, 23, '10745'),
+(27, 1, 24, '21620'),
+(28, 1, 25, '21735'),
+(29, 1, 26, '10734'),
+(30, 1, 27, '10747'),
+(31, 1, 28, '214'),
+(32, 1, 29, '10758'),
+(33, 1, 30, '10754'),
+(34, 1, 31, '10716'),
+(35, 2, 32, '142432'),
+(36, 1, 33, '37120'),
+(37, 1, 34, '21651'),
+(38, 1, 35, '21635'),
+(39, 1, 37, '10721'),
+(40, 1, 39, '10722'),
+(41, 1, 41, '20735'),
+(42, 2, 41, '141840'),
+(43, 1, 42, '10723'),
+(44, 1, 44, '10727'),
+(45, 1, 46, '10728'),
+(46, 2, 46, '140600'),
+(47, 2, 47, '143500'),
+(48, 1, 48, '21627'),
+(49, 1, 49, '10731'),
+(50, 2, 50, '143501'),
+(51, 1, 53, '10732'),
+(52, 2, 54, '142908'),
+(53, 1, 55, '103818'),
+(54, 2, 56, '141601'),
+(55, 1, 57, '10733'),
+(56, 1, 58, '21648'),
+(57, 2, 58, '141650'),
+(58, 1, 61, '10735'),
+(59, 1, 63, '10719'),
+(60, 1, 66, '10737'),
+(61, 1, 68, '10738'),
+(62, 1, 70, '10739'),
+(63, 2, 70, '143200'),
+(64, 1, 72, '10740'),
+(65, 1, 74, '10741'),
+(66, 1, 75, '37160'),
+(67, 2, 75, '143330'),
+(68, 1, 76, '10715'),
+(69, 1, 78, '10742'),
+(70, 1, 79, '219'),
+(71, 1, 80, '21656'),
+(72, 1, 81, '21642'),
+(73, 1, 83, '21625'),
+(74, 1, 84, '21646'),
+(75, 1, 85, '10743'),
+(76, 1, 87, '21643'),
+(77, 2, 87, '142660'),
+(78, 1, 88, '37141'),
+(79, 1, 89, '37144'),
+(80, 1, 91, '10744'),
+(81, 1, 93, '10746'),
+(82, 1, 96, '10748'),
+(83, 1, 98, '10750'),
+(84, 1, 100, '10751'),
+(85, 1, 102, '103816'),
+(86, 2, 102, '141321'),
+(87, 1, 103, '10752'),
+(88, 1, 104, '21645'),
+(89, 1, 105, '103819'),
+(90, 2, 105, '141320'),
+(91, 2, 106, '141307'),
+(92, 1, 110, '10755'),
+(93, 2, 111, '141507'),
+(94, 2, 112, '141590'),
+(95, 2, 113, '141525'),
+(96, 2, 114, '141502'),
+(97, 1, 116, '10756'),
+(98, 1, 118, '10757'),
+(99, 2, 120, '142302'),
+(100, 1, 121, '10761'),
+(101, 2, 122, '142303'),
+(102, 2, 123, '142300'),
+(103, 1, 125, '10762'),
+(104, 2, 126, '141100'),
+(105, 1, 127, '10765'),
+(106, 1, 129, '213'),
+(107, 1, 130, '216'),
+(108, 1, 131, '20674'),
+(109, 1, 132, '21624'),
+(110, 1, 133, '103817'),
+(111, 2, 133, '142784'),
+(112, 1, 134, '10645'),
+(113, 1, 135, '4'),
+(114, 1, 136, '10649'),
+(115, 1, 137, '20196'),
+(116, 1, 139, '20192'),
+(117, 1, 140, '10646'),
+(118, 1, 142, '20193'),
+(119, 2, 144, '309650'),
+(120, 1, 147, '20194'),
+(121, 2, 147, '309372'),
+(122, 1, 151, '20195'),
+(123, 2, 151, '309210'),
+(124, 1, 154, '34323'),
+(125, 1, 157, '10647'),
+(126, 1, 165, '20587'),
+(127, 2, 165, '309070'),
+(128, 1, 167, '10687'),
+(129, 1, 168, '5'),
+(130, 1, 171, '10690'),
+(131, 1, 173, '20597'),
+(132, 2, 173, '155000'),
+(133, 1, 175, '37152'),
+(134, 1, 177, '10688'),
+(135, 1, 180, '10689'),
+(136, 1, 181, '37137'),
+(137, 1, 183, '20610'),
+(138, 2, 183, '155150'),
+(139, 2, 184, '155270'),
+(140, 2, 188, '155360'),
+(141, 1, 189, '20613'),
+(142, 2, 190, '155550'),
+(143, 1, 191, '37130'),
+(144, 2, 191, '155555'),
+(145, 1, 192, '37127'),
+(146, 1, 194, '20229'),
+(147, 2, 195, '155250'),
+(148, 1, 196, '20659'),
+(149, 2, 197, '155710'),
+(150, 1, 199, '10691'),
+(151, 1, 201, '20682'),
+(152, 1, 203, '10692'),
+(153, 1, 205, '20648'),
+(154, 2, 205, '155630'),
+(155, 1, 206, '10693'),
+(156, 1, 207, '6'),
+(157, 2, 208, '249210'),
+(158, 1, 209, '967'),
+(159, 1, 212, '20197'),
+(160, 2, 212, '249000'),
+(161, 1, 213, '10698'),
+(162, 1, 214, '37153'),
+(163, 2, 214, '249028'),
+(164, 2, 215, '249010'),
+(165, 1, 217, '20206'),
+(166, 1, 219, '10696'),
+(167, 2, 220, '249300'),
+(168, 1, 222, '37145'),
+(169, 2, 222, '249185'),
+(170, 1, 223, '20199'),
+(171, 1, 224, '37163'),
+(172, 2, 224, '249160'),
+(173, 2, 225, '249880'),
+(174, 1, 227, '20198'),
+(175, 2, 227, '249340'),
+(176, 1, 229, '20205'),
+(177, 1, 230, '10695'),
+(178, 2, 231, '249440'),
+(179, 1, 232, '20200'),
+(180, 1, 235, '10697'),
+(181, 1, 237, '20201'),
+(182, 1, 239, '20203'),
+(183, 2, 239, '249240'),
+(184, 1, 241, '20202'),
+(185, 2, 241, '249950'),
+(186, 1, 244, '20207'),
+(187, 2, 244, '249270'),
+(188, 1, 246, '20204'),
+(189, 2, 246, '249930'),
+(190, 2, 247, '249750'),
+(191, 1, 249, '20208'),
+(192, 2, 250, '249910'),
+(193, 1, 251, '20209'),
+(194, 2, 251, '249910'),
+(195, 2, 252, '249910'),
+(196, 2, 253, '249910'),
+(197, 2, 255, '249800'),
+(198, 1, 256, '10699'),
+(199, 1, 258, '7'),
+(200, 1, 259, '10701'),
+(201, 2, 259, '156901'),
+(202, 1, 262, '10700'),
+(203, 1, 264, '10703'),
+(204, 2, 265, '157760'),
+(205, 2, 266, '157980'),
+(206, 1, 268, '20217'),
+(207, 2, 269, '157940'),
+(208, 1, 271, '20216'),
+(209, 1, 273, '20215'),
+(210, 2, 273, '157440'),
+(211, 1, 276, '10702'),
+(212, 2, 277, '157331'),
+(213, 1, 278, '20621'),
+(214, 2, 280, '157780'),
+(215, 2, 282, '157170'),
+(216, 1, 283, '20218'),
+(217, 2, 283, '157170'),
+(218, 2, 286, '157580'),
+(219, 2, 287, '157860'),
+(220, 1, 289, '20219'),
+(221, 2, 289, '157130'),
+(222, 1, 292, '10704'),
+(223, 1, 293, '10705'),
+(224, 1, 294, '8'),
+(225, 1, 297, '20707'),
+(226, 1, 298, '10710'),
+(227, 1, 299, '20637'),
+(228, 1, 300, '20710'),
+(229, 2, 301, '307500'),
+(230, 1, 302, '10706'),
+(231, 2, 306, '307170'),
+(232, 2, 308, '307620'),
+(233, 2, 309, '307750'),
+(234, 2, 311, '307250'),
+(235, 1, 313, '10709'),
+(236, 2, 313, '306230'),
+(237, 1, 319, '10707'),
+(238, 2, 322, '306600'),
+(239, 1, 325, '10708'),
+(240, 2, 325, '307800'),
+(241, 1, 327, '10711'),
+(242, 2, 327, '307100'),
+(243, 2, 329, '307540'),
+(244, 2, 330, '306440'),
+(245, 2, 331, '306530'),
+(246, 1, 332, '10712'),
+(247, 1, 333, '9'),
+(248, 1, 335, '10713'),
+(249, 1, 337, '20210'),
+(250, 1, 339, '20211'),
+(251, 1, 345, '20212'),
+(252, 1, 349, '20213'),
+(253, 1, 354, '10714'),
+(254, 1, 356, '20214'),
+(255, 2, 356, '399373'),
+(256, 1, 359, '10772'),
+(257, 1, 360, '10'),
+(258, 1, 361, '10770'),
+(259, 1, 362, '10769'),
+(260, 1, 365, '10768'),
+(261, 1, 370, '20593'),
+(262, 2, 370, '303240'),
+(263, 1, 380, '34012'),
+(264, 2, 380, '303370'),
+(265, 1, 383, '10771'),
+(266, 2, 383, '303500'),
+(267, 1, 391, '10776'),
+(268, 2, 391, '390000'),
+(269, 1, 393, '11'),
+(270, 1, 394, '10777'),
+(271, 1, 395, '10778'),
+(272, 1, 396, '10773'),
+(273, 1, 403, '37146'),
+(274, 1, 405, '10779'),
+(275, 2, 405, '391030'),
+(276, 1, 407, '20631'),
+(277, 2, 408, '391621'),
+(278, 2, 409, '391240'),
+(279, 1, 411, '20589'),
+(280, 2, 411, '391160'),
+(281, 1, 413, '10774'),
+(282, 1, 415, '10775'),
+(283, 2, 416, '391480'),
+(284, 2, 417, '391430'),
+(285, 1, 422, '20608'),
+(286, 2, 422, '391050'),
+(287, 2, 425, '391550'),
+(288, 1, 426, '10780'),
+(289, 2, 426, '391550'),
+(290, 2, 427, '391421'),
+(291, 1, 429, '10795'),
+(292, 1, 430, '10785'),
+(293, 2, 430, '216400'),
+(294, 1, 431, '12'),
+(295, 1, 434, '10782'),
+(296, 1, 436, '10781'),
+(297, 1, 438, '10783'),
+(298, 2, 438, '215010'),
+(299, 1, 441, '10784'),
+(300, 2, 441, '216240'),
+(301, 1, 443, '10786'),
+(302, 2, 444, '216200'),
+(303, 1, 445, '10787'),
+(304, 2, 445, '216200'),
+(305, 1, 447, '10788'),
+(306, 2, 447, '216330'),
+(307, 2, 449, '216580'),
+(308, 2, 450, '215850'),
+(309, 2, 452, '216450'),
+(310, 1, 453, '10791'),
+(311, 2, 453, '216450'),
+(312, 2, 454, '216130'),
+(313, 1, 456, '10793'),
+(314, 2, 456, '216790'),
+(315, 2, 457, '216500'),
+(316, 1, 458, '10792'),
+(317, 1, 460, '10796'),
+(318, 2, 460, '215280'),
+(319, 1, 462, '10794'),
+(320, 2, 467, '215800'),
+(321, 1, 468, '10801'),
+(322, 2, 469, '216410'),
+(323, 1, 470, '10802'),
+(324, 2, 470, '392000'),
+(325, 1, 471, '20265'),
+(326, 2, 471, '393194'),
+(327, 1, 472, '20696'),
+(328, 1, 473, '13'),
+(329, 1, 474, '20700'),
+(330, 1, 475, '10803'),
+(331, 2, 476, '392500'),
+(332, 1, 477, '20663'),
+(333, 1, 478, '20701'),
+(334, 2, 479, '393230'),
+(335, 2, 480, '393160'),
+(336, 2, 481, '393670'),
+(337, 1, 482, '20661'),
+(338, 2, 483, '393310'),
+(339, 2, 484, '393190'),
+(340, 2, 485, '393760'),
+(341, 2, 486, '393360'),
+(342, 2, 487, '393600'),
+(343, 2, 488, '393950'),
+(344, 2, 489, '393000'),
+(345, 2, 490, '393760'),
+(346, 2, 491, '393070'),
+(347, 2, 492, '393700'),
+(348, 2, 493, '393250'),
+(349, 2, 494, '393230'),
+(350, 2, 495, '393000'),
+(351, 2, 496, '393000'),
+(352, 2, 497, '393840'),
+(353, 2, 498, '393800'),
+(354, 2, 499, '393460'),
+(355, 2, 500, '393550'),
+(356, 2, 501, '393130'),
+(357, 1, 502, '10819'),
+(358, 1, 503, '14'),
+(359, 1, 504, '10816'),
+(360, 1, 505, '10822'),
+(361, 1, 506, '10811'),
+(362, 1, 507, '10820'),
+(363, 1, 508, '10807'),
+(364, 1, 511, '26480'),
+(365, 1, 513, '10804'),
+(366, 1, 515, '20581'),
+(367, 2, 515, '172530'),
+(368, 1, 517, '10805'),
+(369, 1, 519, '10806'),
+(370, 1, 522, '10808'),
+(371, 1, 525, '20601'),
+(372, 1, 527, '10809'),
+(373, 1, 530, '10810'),
+(374, 1, 532, '10812'),
+(375, 1, 535, '10813'),
+(376, 1, 538, '20619'),
+(377, 1, 540, '10814'),
+(378, 2, 540, '171210'),
+(379, 1, 545, '10818'),
+(380, 1, 553, '10821'),
+(381, 2, 553, '171361'),
+(382, 1, 558, '10823'),
+(383, 2, 558, '172840'),
+(384, 1, 560, '10824'),
+(385, 1, 562, '10832'),
+(386, 1, 563, '15'),
+(387, 1, 564, '10827'),
+(388, 1, 566, '10825'),
+(389, 1, 569, '37164'),
+(390, 1, 571, '20667'),
+(391, 1, 573, '10826'),
+(392, 1, 576, '10828'),
+(393, 1, 580, '37140'),
+(394, 1, 581, '37162'),
+(395, 2, 581, '301280'),
+(396, 1, 582, '20649'),
+(397, 1, 584, '10829'),
+(398, 1, 589, '10830'),
+(399, 1, 591, '20662'),
+(400, 2, 591, '301470'),
+(401, 1, 594, '10831'),
+(402, 2, 594, '301430'),
+(403, 1, 595, '37118'),
+(404, 2, 595, '301414'),
+(405, 1, 598, '10833'),
+(406, 1, 601, '37124'),
+(407, 2, 601, '301205'),
+(408, 1, 602, '10834'),
+(409, 1, 604, '20697'),
+(410, 1, 605, '10841'),
+(411, 1, 606, '16'),
+(412, 1, 608, '10837'),
+(413, 1, 613, '20257'),
+(414, 1, 615, '10835'),
+(415, 1, 617, '20592'),
+(416, 2, 617, '152470'),
+(417, 1, 619, '10836'),
+(418, 2, 619, '152830'),
+(419, 1, 625, '10838'),
+(420, 1, 627, '20596'),
+(421, 2, 627, '152850'),
+(422, 1, 629, '10839'),
+(423, 1, 631, '21154'),
+(424, 1, 633, '10840'),
+(425, 1, 634, '10650'),
+(426, 1, 635, '191'),
+(427, 1, 636, '10653'),
+(428, 1, 637, '21701'),
+(429, 1, 639, '10654'),
+(430, 2, 639, '243020'),
+(431, 2, 640, '242300'),
+(432, 1, 645, '10651'),
+(433, 2, 645, '242600'),
+(434, 1, 646, '26899'),
+(435, 1, 649, '10652'),
+(436, 1, 651, '20184'),
+(437, 2, 651, '243600'),
+(438, 2, 652, '242500'),
+(439, 1, 653, '10655'),
+(440, 2, 653, '242500'),
+(441, 2, 654, '242821'),
+(442, 2, 656, '243650'),
+(443, 1, 660, '20185'),
+(444, 2, 660, '243220'),
+(445, 1, 665, '20186'),
+(446, 2, 665, '243400'),
+(447, 1, 668, '20187'),
+(448, 2, 668, '242440'),
+(449, 1, 670, '20188'),
+(450, 2, 670, '243240'),
+(451, 1, 673, '20189'),
+(452, 2, 673, '243500'),
+(453, 1, 675, '20190'),
+(454, 2, 675, '242220'),
+(455, 1, 677, '20191'),
+(456, 1, 678, '10672'),
+(457, 1, 679, '193'),
+(458, 1, 682, '10673'),
+(459, 2, 683, '394045'),
+(460, 1, 684, '20268'),
+(461, 1, 686, '10674'),
+(462, 1, 688, '10675'),
+(463, 1, 690, '10676'),
+(464, 1, 696, '10677'),
+(465, 1, 700, '10678'),
+(466, 1, 706, '10679'),
+(467, 1, 708, '34140'),
+(468, 1, 710, '10680'),
+(469, 1, 715, '20694'),
+(470, 1, 719, '10681'),
+(471, 1, 721, '10682'),
+(472, 1, 726, '10683'),
+(473, 1, 727, '10658'),
+(474, 1, 728, '192'),
+(475, 1, 729, '10661'),
+(476, 1, 730, '10664'),
+(477, 1, 731, '20678'),
+(478, 2, 731, '600910'),
+(479, 1, 733, '10656'),
+(480, 1, 734, '103814'),
+(481, 1, 735, '103813'),
+(482, 1, 736, '10668'),
+(483, 1, 738, '10659'),
+(484, 1, 740, '10660'),
+(485, 1, 742, '10662'),
+(486, 1, 744, '98547'),
+(487, 2, 744, '601570'),
+(488, 1, 746, '10663'),
+(489, 1, 749, '10665'),
+(490, 1, 751, '10667'),
+(491, 1, 754, '37129'),
+(492, 1, 755, '10669'),
+(493, 1, 756, '101395'),
+(494, 1, 759, '10670'),
+(495, 1, 760, '37143'),
+(496, 1, 762, '20629'),
+(497, 1, 764, '10671'),
+(498, 1, 766, '20757'),
+(499, 2, 766, '601800'),
+(500, 1, 767, '17'),
+(501, 1, 768, '10174'),
+(502, 1, 770, '10863'),
+(503, 2, 770, '188410'),
+(504, 1, 772, '10861'),
+(505, 2, 772, '187650'),
+(506, 1, 773, '10879'),
+(507, 1, 774, '10891'),
+(508, 1, 776, '10864'),
+(509, 1, 777, '22917'),
+(510, 2, 777, '187450'),
+(511, 1, 778, '22914'),
+(512, 2, 778, '187420'),
+(513, 1, 780, '10887'),
+(514, 1, 781, '10865'),
+(515, 1, 783, '969'),
+(516, 2, 783, '188800'),
+(517, 1, 784, '10869'),
+(518, 2, 784, '188950'),
+(519, 1, 785, '103815'),
+(520, 2, 785, '188909'),
+(521, 1, 786, '10882'),
+(522, 2, 786, '188910'),
+(523, 1, 787, '10886'),
+(524, 2, 787, '188992'),
+(525, 1, 789, '21666'),
+(526, 1, 790, '10867'),
+(527, 1, 792, '10868'),
+(528, 1, 793, '10870'),
+(529, 1, 795, '10871'),
+(530, 1, 797, '21795'),
+(531, 2, 797, '187320'),
+(532, 1, 798, '10872'),
+(533, 2, 798, '187340'),
+(534, 1, 799, '10878'),
+(535, 1, 801, '10874'),
+(536, 1, 803, '10876'),
+(537, 1, 806, '10881'),
+(538, 1, 808, '10883'),
+(539, 2, 808, '188760'),
+(540, 1, 810, '10888'),
+(541, 1, 812, '10892'),
+(542, 1, 814, '21023'),
+(543, 1, 815, '10877'),
+(544, 2, 815, '187026'),
+(545, 1, 816, '10893'),
+(546, 2, 816, '187000'),
+(547, 1, 817, '2'),
+(548, 2, 817, '190000'),
+(549, 1, 818, '37180'),
+(550, 1, 819, '21776'),
+(551, 1, 820, '109773'),
+(552, 1, 821, '26081'),
+(553, 1, 822, '102557'),
+(554, 1, 823, '10884'),
+(555, 1, 824, '114765'),
+(556, 1, 825, '98546'),
+(557, 1, 826, '10875'),
+(558, 1, 827, '10939'),
+(559, 1, 828, '19'),
+(560, 1, 829, '10940'),
+(561, 1, 830, '20133'),
+(562, 1, 831, '10943'),
+(563, 1, 832, '10942'),
+(564, 1, 833, '10944'),
+(565, 1, 834, '10941'),
+(566, 1, 835, '10945'),
+(567, 1, 838, '20134'),
+(568, 2, 838, '169200'),
+(569, 1, 847, '21695'),
+(570, 1, 850, '10933'),
+(571, 1, 851, '10935'),
+(572, 1, 852, '18'),
+(573, 2, 853, '186100'),
+(574, 1, 854, '10937'),
+(575, 2, 856, '186606'),
+(576, 1, 857, '20126'),
+(577, 1, 859, '10934'),
+(578, 1, 861, '20127'),
+(579, 2, 861, '186730'),
+(580, 2, 862, '186500'),
+(581, 1, 863, '10938'),
+(582, 2, 863, '186500'),
+(583, 2, 864, '186660'),
+(584, 1, 866, '20128'),
+(585, 2, 867, '186960'),
+(586, 2, 868, '186000'),
+(587, 1, 869, '20129'),
+(588, 2, 869, '186000'),
+(589, 1, 871, '20131'),
+(590, 2, 871, '186150'),
+(591, 1, 873, '20130'),
+(592, 2, 873, '186810'),
+(593, 2, 875, '186870'),
+(594, 1, 876, '20132'),
+(595, 2, 876, '186870'),
+(596, 2, 877, '186420'),
+(597, 1, 878, '10936'),
+(598, 1, 879, '10853'),
+(599, 1, 880, '968'),
+(600, 1, 881, '21'),
+(601, 2, 883, '161200'),
+(602, 1, 884, '20119'),
+(603, 2, 884, '161200'),
+(604, 1, 886, '20118'),
+(605, 2, 889, '162390'),
+(606, 1, 890, '10854'),
+(607, 1, 891, '22980'),
+(608, 2, 891, '162341'),
+(609, 2, 892, '162189'),
+(610, 1, 895, '20121'),
+(611, 2, 895, '162000'),
+(612, 1, 897, '20120'),
+(613, 2, 897, '162900'),
+(614, 1, 900, '20122'),
+(615, 2, 900, '161100'),
+(616, 2, 901, '161400'),
+(617, 2, 902, '161380'),
+(618, 2, 904, '161440'),
+(619, 1, 905, '20123'),
+(620, 2, 905, '161440'),
+(621, 1, 908, '37148'),
+(622, 1, 909, '20124'),
+(623, 2, 909, '162130'),
+(624, 2, 910, '161300'),
+(625, 1, 911, '10855'),
+(626, 2, 912, '161560'),
+(627, 1, 915, '10856'),
+(628, 2, 915, '162840'),
+(629, 1, 917, '20125'),
+(630, 2, 918, '162603'),
+(631, 1, 921, '10842'),
+(632, 1, 922, '20117'),
+(633, 1, 923, '10849'),
+(634, 1, 924, '20115'),
+(635, 2, 924, '164170'),
+(636, 1, 925, '20'),
+(637, 1, 926, '10845'),
+(638, 2, 926, '165650'),
+(639, 1, 929, '10843'),
+(640, 1, 933, '10844'),
+(641, 1, 937, '10846'),
+(642, 1, 938, '22884'),
+(643, 1, 941, '20114'),
+(644, 2, 941, '164750'),
+(645, 1, 945, '20602'),
+(646, 1, 947, '10847'),
+(647, 1, 953, '10851'),
+(648, 2, 953, '165160'),
+(649, 1, 955, '10897'),
+(650, 1, 956, '23'),
+(651, 1, 957, '10894'),
+(652, 1, 958, '20155'),
+(653, 1, 959, '20150'),
+(654, 2, 959, '184310'),
+(655, 1, 960, '22049'),
+(656, 2, 960, '184640'),
+(657, 1, 961, '20156'),
+(658, 1, 962, '20152'),
+(659, 1, 963, '10895'),
+(660, 1, 964, '10896'),
+(661, 2, 965, '184380'),
+(662, 1, 966, '20154'),
+(663, 2, 967, '184532'),
+(664, 2, 968, '184144'),
+(665, 1, 969, '20153'),
+(666, 2, 970, '184534'),
+(667, 1, 971, '10898'),
+(668, 2, 972, '184592'),
+(669, 2, 973, '184531'),
+(670, 2, 974, '184420'),
+(671, 1, 975, '20151'),
+(672, 2, 975, '184430'),
+(673, 1, 976, '21665'),
+(674, 1, 977, '20157'),
+(675, 1, 978, '10899'),
+(676, 2, 979, '184700'),
+(677, 1, 980, '10857'),
+(678, 1, 981, '22'),
+(679, 1, 982, '20144'),
+(680, 2, 982, '238590'),
+(681, 1, 983, '20603'),
+(682, 2, 983, '238450'),
+(683, 1, 985, '20136'),
+(684, 2, 985, '238210'),
+(685, 1, 986, '10860'),
+(686, 1, 988, '20135'),
+(687, 2, 988, '238420'),
+(688, 1, 989, '20580'),
+(689, 2, 989, '238460'),
+(690, 1, 990, '20147'),
+(691, 1, 992, '20137'),
+(692, 2, 992, '238300'),
+(693, 1, 994, '20141'),
+(694, 2, 994, '238710'),
+(695, 1, 996, '20139'),
+(696, 1, 998, '20140'),
+(697, 2, 998, '238730'),
+(698, 1, 1000, '20138'),
+(699, 1, 1002, '20143'),
+(700, 2, 1002, '238120'),
+(701, 1, 1004, '20142'),
+(702, 2, 1004, '238010'),
+(703, 1, 1006, '20146'),
+(704, 1, 1008, '20145'),
+(705, 2, 1008, '238630'),
+(706, 1, 1010, '20148'),
+(707, 2, 1010, '238600'),
+(708, 1, 1012, '20578'),
+(709, 2, 1012, '238510'),
+(710, 1, 1013, '10858'),
+(711, 1, 1015, '20149'),
+(712, 1, 1017, '10859'),
+(713, 1, 1018, '10926'),
+(714, 1, 1019, '25'),
+(715, 1, 1020, '10928'),
+(716, 2, 1021, '182100'),
+(717, 2, 1022, '182171'),
+(718, 2, 1023, '182840'),
+(719, 2, 1024, '182711'),
+(720, 2, 1025, '181600'),
+(721, 1, 1026, '20583'),
+(722, 2, 1027, '182900'),
+(723, 2, 1028, '182010'),
+(724, 2, 1029, '182370'),
+(725, 2, 1030, '182670'),
+(726, 1, 1031, '10929'),
+(727, 2, 1031, '182670'),
+(728, 2, 1032, '182500'),
+(729, 1, 1033, '20681'),
+(730, 2, 1034, '182200'),
+(731, 1, 1035, '10930'),
+(732, 2, 1035, '182200'),
+(733, 2, 1036, '181540'),
+(734, 1, 1037, '20582'),
+(735, 2, 1037, '182440'),
+(736, 2, 1038, '181353'),
+(737, 1, 1039, '20641'),
+(738, 2, 1040, '182333'),
+(739, 1, 1041, '20633'),
+(740, 2, 1042, '181270'),
+(741, 2, 1043, '181502'),
+(742, 1, 1044, '10931'),
+(743, 2, 1045, '181000'),
+(744, 2, 1046, '182620'),
+(745, 1, 1047, '20623'),
+(746, 2, 1047, '182620'),
+(747, 2, 1048, '182300'),
+(748, 1, 1049, '20585'),
+(749, 2, 1049, '182300'),
+(750, 2, 1050, '181370'),
+(751, 2, 1051, '181410'),
+(752, 1, 1052, '20584'),
+(753, 2, 1052, '181410'),
+(754, 2, 1053, '182250'),
+(755, 1, 1054, '10932'),
+(756, 2, 1055, '182570'),
+(757, 2, 1056, '181110'),
+(758, 1, 1058, '10904'),
+(759, 2, 1059, '173000'),
+(760, 1, 1060, '24'),
+(761, 1, 1063, '10906'),
+(762, 1, 1065, '10907'),
+(763, 2, 1067, '175310'),
+(764, 2, 1069, '174260'),
+(765, 1, 1070, '10909'),
+(766, 1, 1075, '10912'),
+(767, 1, 1078, '10920'),
+(768, 1, 1080, '10922'),
+(769, 2, 1081, '175042'),
+(770, 1, 1085, '10923'),
+(771, 2, 1086, '174210'),
+(772, 1, 1087, '10925'),
+(773, 2, 1088, '175207'),
+(774, 1, 1089, '10924'),
+(775, 2, 1090, '174100'),
+(776, 1, 1091, '10176'),
+(777, 2, 1091, '166000'),
+(778, 1, 1092, '10902'),
+(779, 2, 1092, '166000'),
+(780, 1, 1093, '26'),
+(781, 1, 1094, '10995'),
+(782, 1, 1095, '35'),
+(783, 1, 1096, '10990'),
+(784, 1, 1097, '10987'),
+(785, 1, 1098, '10991'),
+(786, 1, 1099, '970'),
+(787, 1, 1100, '239'),
+(788, 1, 1102, '20183'),
+(789, 2, 1102, '353320'),
+(790, 1, 1104, '1107'),
+(791, 2, 1105, '352690'),
+(792, 1, 1106, '10986'),
+(793, 1, 1107, '37016'),
+(794, 2, 1107, '352680'),
+(795, 1, 1110, '10988'),
+(796, 2, 1113, '352190'),
+(797, 1, 1114, '20675'),
+(798, 1, 1117, '10993'),
+(799, 1, 1119, '10996'),
+(800, 2, 1121, '353730'),
+(801, 1, 1123, '20688'),
+(802, 1, 1127, '10997'),
+(803, 1, 1129, '20702'),
+(804, 1, 1132, '21018'),
+(805, 1, 1136, '20231'),
+(806, 1, 1141, '11000'),
+(807, 1, 1144, '20704'),
+(808, 1, 1146, '20677'),
+(809, 1, 1150, '21141'),
+(810, 2, 1150, '352700'),
+(811, 1, 1152, '11002'),
+(812, 1, 1154, '1058'),
+(813, 2, 1154, '352800'),
+(814, 1, 1156, '20693'),
+(815, 1, 1159, '10950'),
+(816, 1, 1160, '38'),
+(817, 1, 1161, '10951'),
+(818, 1, 1162, '10959'),
+(819, 1, 1163, '10965'),
+(820, 1, 1164, '10981'),
+(821, 2, 1165, '403240'),
+(822, 1, 1167, '10982'),
+(823, 1, 1171, '10954'),
+(824, 2, 1171, '404002'),
+(825, 1, 1174, '10956'),
+(826, 1, 1177, '10958'),
+(827, 1, 1179, '10973'),
+(828, 2, 1179, '403840'),
+(829, 1, 1183, '10961'),
+(830, 1, 1185, '10962'),
+(831, 2, 1186, '403400'),
+(832, 1, 1188, '10964'),
+(833, 2, 1190, '403170'),
+(834, 1, 1192, '10967'),
+(835, 1, 1194, '10968'),
+(836, 1, 1198, '10972'),
+(837, 1, 1202, '10977'),
+(838, 2, 1202, '403441'),
+(839, 1, 1204, '34567'),
+(840, 2, 1205, '404211'),
+(841, 1, 1207, '10980'),
+(842, 2, 1209, '403900'),
+(843, 1, 1212, '11029'),
+(844, 1, 1213, '39'),
+(845, 1, 1214, '11036'),
+(846, 1, 1215, '11033'),
+(847, 1, 1216, '11037'),
+(848, 1, 1217, '100451'),
+(849, 1, 1218, '11043'),
+(850, 1, 1219, '11038'),
+(851, 1, 1220, '238'),
+(852, 1, 1221, '11049'),
+(853, 1, 1222, '11053'),
+(854, 1, 1223, '971'),
+(855, 1, 1225, '11030'),
+(856, 1, 1227, '11031'),
+(857, 2, 1227, '346720'),
+(858, 1, 1229, '11034'),
+(859, 2, 1231, '346250'),
+(860, 2, 1236, '347660'),
+(861, 1, 1239, '11040'),
+(862, 2, 1239, '347740'),
+(863, 1, 1245, '11045'),
+(864, 1, 1247, '11046'),
+(865, 1, 1252, '11047'),
+(866, 2, 1252, '346130'),
+(867, 1, 1255, '11048'),
+(868, 1, 1263, '20713'),
+(869, 1, 1267, '11051'),
+(870, 1, 1269, '20638'),
+(871, 2, 1269, '346630'),
+(872, 1, 1277, '11052'),
+(873, 1, 1279, '10946'),
+(874, 1, 1280, '37'),
+(875, 2, 1281, '414004'),
+(876, 1, 1282, '10947'),
+(877, 1, 1284, '20167'),
+(878, 2, 1285, '416507'),
+(879, 1, 1289, '20168'),
+(880, 1, 1294, '20169'),
+(881, 2, 1294, '416111'),
+(882, 1, 1297, '20170'),
+(883, 1, 1299, '11004'),
+(884, 2, 1299, '385000'),
+(885, 1, 1300, '1093'),
+(886, 1, 1301, '11005'),
+(887, 2, 1302, '385400'),
+(888, 2, 1303, '385730'),
+(889, 2, 1304, '385300'),
+(890, 2, 1305, '385100'),
+(891, 2, 1306, '385230'),
+(892, 2, 1307, '385440'),
+(893, 2, 1308, '385600'),
+(894, 1, 1309, '11015'),
+(895, 1, 1310, '1094'),
+(896, 1, 1313, '20177'),
+(897, 2, 1313, '359050'),
+(898, 1, 1316, '20178'),
+(899, 1, 1326, '102444'),
+(900, 1, 1327, '11010'),
+(901, 2, 1327, '368000'),
+(902, 1, 1328, '28'),
+(903, 2, 1329, '367912'),
+(904, 1, 1330, '11007'),
+(905, 1, 1331, '21519'),
+(906, 1, 1332, '21732'),
+(907, 1, 1333, '21521'),
+(908, 2, 1333, '368502'),
+(909, 1, 1334, '100450'),
+(910, 2, 1334, '368890'),
+(911, 1, 1335, '11009'),
+(912, 1, 1336, '11008'),
+(913, 2, 1337, '368930'),
+(914, 2, 1338, '368640'),
+(915, 2, 1339, '368250'),
+(916, 2, 1340, '368340'),
+(917, 2, 1341, '368970'),
+(918, 2, 1342, '368330'),
+(919, 2, 1343, '368730'),
+(920, 1, 1344, '11006'),
+(921, 2, 1345, '368600'),
+(922, 2, 1346, '368200'),
+(923, 2, 1347, '368990'),
+(924, 2, 1348, '368060'),
+(925, 2, 1349, '368710'),
+(926, 1, 1350, '11011'),
+(927, 2, 1351, '368630'),
+(928, 2, 1352, '368732'),
+(929, 2, 1353, '368530'),
+(930, 2, 1354, '368560'),
+(931, 2, 1355, '368100'),
+(932, 2, 1356, '368050'),
+(933, 2, 1357, '368040'),
+(934, 2, 1358, '368780'),
+(935, 2, 1359, '368360'),
+(936, 2, 1360, '368320'),
+(937, 2, 1361, '368220'),
+(938, 2, 1362, '368800'),
+(939, 2, 1363, '368370'),
+(940, 2, 1364, '368720'),
+(941, 2, 1365, '368830'),
+(942, 2, 1366, '368650'),
+(943, 2, 1367, '368850'),
+(944, 2, 1368, '368700'),
+(945, 2, 1369, '368510'),
+(946, 2, 1370, '368760'),
+(947, 2, 1371, '368440'),
+(948, 2, 1372, '368260'),
+(949, 2, 1373, '368000'),
+(950, 2, 1374, '368430'),
+(951, 2, 1375, '368420'),
+(952, 2, 1376, '368750'),
+(953, 2, 1377, '368420'),
+(954, 2, 1378, '368900'),
+(955, 2, 1379, '368410'),
+(956, 1, 1380, '11013'),
+(957, 1, 1381, '30'),
+(958, 1, 1384, '20172'),
+(959, 1, 1386, '20174'),
+(960, 1, 1387, '20171'),
+(961, 1, 1390, '20173'),
+(962, 1, 1392, '20175'),
+(963, 2, 1392, '361202'),
+(964, 1, 1394, '21524'),
+(965, 1, 1396, '20176'),
+(966, 2, 1396, '361624'),
+(967, 1, 1399, '11021'),
+(968, 1, 1401, '20591'),
+(969, 1, 1402, '33'),
+(970, 1, 1404, '20622'),
+(971, 2, 1404, '363410'),
+(972, 1, 1406, '11022'),
+(973, 1, 1408, '20665'),
+(974, 2, 1410, '363600'),
+(975, 1, 1413, '11023'),
+(976, 1, 1414, '11069'),
+(977, 1, 1415, '36'),
+(978, 1, 1416, '11057'),
+(979, 1, 1417, '11062'),
+(980, 1, 1418, '11058'),
+(981, 1, 1419, '11064'),
+(982, 1, 1420, '11067'),
+(983, 1, 1421, '20261'),
+(984, 1, 1422, '11056'),
+(985, 1, 1428, '11054'),
+(986, 2, 1428, '356420'),
+(987, 1, 1430, '11055'),
+(988, 2, 1430, '356800'),
+(989, 2, 1432, '356250'),
+(990, 1, 1434, '11061'),
+(991, 2, 1434, '356630'),
+(992, 1, 1436, '11060'),
+(993, 1, 1438, '11066'),
+(994, 1, 1444, '11063'),
+(995, 1, 1446, '20655'),
+(996, 1, 1448, '11065'),
+(997, 2, 1448, '356000'),
+(998, 1, 1452, '11068'),
+(999, 1, 1455, '11059'),
+(1000, 1, 1459, '101271'),
+(1001, 1, 1460, '11012'),
+(1002, 2, 1460, '386000'),
+(1003, 1, 1461, '20181'),
+(1004, 2, 1461, '386001'),
+(1005, 1, 1462, '1092'),
+(1006, 1, 1463, '20180'),
+(1007, 1, 1464, '20179'),
+(1008, 1, 1469, '11020'),
+(1009, 1, 1470, '1104'),
+(1010, 1, 1471, '11017'),
+(1011, 1, 1473, '11018'),
+(1012, 2, 1473, '369210'),
+(1013, 1, 1478, '11019'),
+(1014, 1, 1484, '11024'),
+(1015, 1, 1485, '1106'),
+(1016, 2, 1486, '366000'),
+(1017, 2, 1487, '366000'),
+(1018, 2, 1488, '366600'),
+(1019, 1, 1489, '11025'),
+(1020, 2, 1489, '366310'),
+(1021, 2, 1490, '366900'),
+(1022, 1, 1491, '11026'),
+(1023, 2, 1491, '366200'),
+(1024, 2, 1492, '366300'),
+(1025, 2, 1493, '366000'),
+(1026, 2, 1494, '366500'),
+(1027, 1, 1495, '20699'),
+(1028, 2, 1495, '366500'),
+(1029, 2, 1496, '366220'),
+(1030, 2, 1497, '366000'),
+(1031, 2, 1498, '366300'),
+(1032, 1, 1499, '20690'),
+(1033, 2, 1499, '366300'),
+(1034, 2, 1500, '366000'),
+(1035, 2, 1501, '366400'),
+(1036, 2, 1502, '366601'),
+(1037, 2, 1503, '366400'),
+(1038, 2, 1504, '366413'),
+(1039, 1, 1505, '40'),
+(1040, 1, 1506, '11117'),
+(1041, 1, 1507, '42'),
+(1042, 1, 1511, '20006'),
+(1043, 1, 1512, '20011'),
+(1044, 2, 1512, '431350'),
+(1045, 1, 1513, '20010'),
+(1046, 2, 1517, '431770'),
+(1047, 1, 1520, '20007'),
+(1048, 2, 1520, '431430'),
+(1049, 1, 1526, '20008'),
+(1050, 1, 1532, '20009'),
+(1051, 2, 1532, '431220'),
+(1052, 1, 1536, '11119'),
+(1053, 2, 1536, '420000'),
+(1054, 1, 1537, '43'),
+(1055, 1, 1538, '236'),
+(1056, 1, 1540, '20012'),
+(1057, 1, 1542, '11120'),
+(1058, 1, 1547, '11121'),
+(1059, 1, 1551, '100514'),
+(1060, 2, 1551, '422000'),
+(1061, 1, 1555, '20013'),
+(1062, 1, 1557, '11122'),
+(1063, 1, 1559, '20586'),
+(1064, 2, 1559, '422430'),
+(1065, 1, 1563, '11123'),
+(1066, 1, 1566, '11125'),
+(1067, 2, 1567, '423520'),
+(1068, 1, 1568, '11124'),
+(1069, 1, 1573, '20606'),
+(1070, 2, 1573, '422610'),
+(1071, 1, 1575, '11126'),
+(1072, 1, 1577, '20015'),
+(1073, 2, 1578, '423970'),
+(1074, 2, 1579, '423650'),
+(1075, 1, 1580, '20016'),
+(1076, 1, 1582, '20017'),
+(1077, 2, 1583, '423190'),
+(1078, 1, 1585, '11127'),
+(1079, 2, 1586, '423040'),
+(1080, 1, 1587, '11128'),
+(1081, 1, 1591, '20014'),
+(1082, 2, 1591, '422840'),
+(1083, 2, 1592, '423350'),
+(1084, 2, 1593, '422060'),
+(1085, 1, 1595, '20018'),
+(1086, 2, 1595, '422370'),
+(1087, 2, 1597, '422080'),
+(1088, 1, 1600, '11129'),
+(1089, 1, 1602, '11077'),
+(1090, 1, 1603, '41'),
+(1091, 1, 1604, '20630'),
+(1092, 2, 1604, '425350'),
+(1093, 1, 1606, '20721'),
+(1094, 2, 1606, '425000'),
+(1095, 1, 1609, '20627'),
+(1096, 1, 1621, '11070'),
+(1097, 2, 1621, '610000'),
+(1098, 1, 1622, '46'),
+(1099, 2, 1623, '612180'),
+(1100, 2, 1624, '613060'),
+(1101, 2, 1625, '612820'),
+(1102, 1, 1626, '20022'),
+(1103, 2, 1626, '612820'),
+(1104, 2, 1627, '613200'),
+(1105, 1, 1628, '20019'),
+(1106, 2, 1628, '613200'),
+(1107, 2, 1629, '612470'),
+(1108, 2, 1630, '612960'),
+(1109, 1, 1631, '20020'),
+(1110, 1, 1632, '37122'),
+(1111, 2, 1633, '612140'),
+(1112, 2, 1634, '613310'),
+(1113, 2, 1635, '612300'),
+(1114, 2, 1636, '612410'),
+(1115, 1, 1637, '20021'),
+(1116, 2, 1638, '613040'),
+(1117, 1, 1639, '11071'),
+(1118, 2, 1640, '613570'),
+(1119, 2, 1641, '612600'),
+(1120, 1, 1642, '20023'),
+(1121, 2, 1643, '613400'),
+(1122, 2, 1644, '612920'),
+(1123, 1, 1645, '20025'),
+(1124, 2, 1646, '613900'),
+(1125, 1, 1647, '20024'),
+(1126, 2, 1648, '613500'),
+(1127, 2, 1649, '613250'),
+(1128, 2, 1650, '613710'),
+(1129, 1, 1651, '20026'),
+(1130, 2, 1652, '613470'),
+(1131, 2, 1653, '612740'),
+(1132, 1, 1654, '20028'),
+(1133, 2, 1655, '613440'),
+(1134, 1, 1656, '20027'),
+(1135, 2, 1657, '613810'),
+(1136, 2, 1658, '612080'),
+(1137, 2, 1659, '613930'),
+(1138, 2, 1660, '612270'),
+(1139, 1, 1661, '20029'),
+(1140, 2, 1661, '612270'),
+(1141, 2, 1662, '613380'),
+(1142, 2, 1663, '612370'),
+(1143, 2, 1664, '612040'),
+(1144, 2, 1665, '613150'),
+(1145, 1, 1666, '11073'),
+(1146, 2, 1667, '612200'),
+(1147, 2, 1668, '612450'),
+(1148, 2, 1669, '613341'),
+(1149, 1, 1670, '11074'),
+(1150, 2, 1671, '612540'),
+(1151, 2, 1672, '613530'),
+(1152, 1, 1673, '20030'),
+(1153, 2, 1674, '612500'),
+(1154, 2, 1675, '612020'),
+(1155, 2, 1676, '613600'),
+(1156, 2, 1677, '612260'),
+(1157, 1, 1678, '11075'),
+(1158, 1, 1679, '11079'),
+(1159, 1, 1680, '47'),
+(1160, 1, 1681, '972'),
+(1161, 1, 1682, '20037'),
+(1162, 1, 1683, '11083'),
+(1163, 1, 1684, '11080'),
+(1164, 1, 1685, '20050'),
+(1165, 1, 1686, '20040'),
+(1166, 1, 1687, '20049'),
+(1167, 1, 1688, '20054'),
+(1168, 2, 1689, '607227'),
+(1169, 2, 1690, '607130'),
+(1170, 2, 1691, '606407'),
+(1171, 1, 1692, '20035'),
+(1172, 2, 1693, '607600'),
+(1173, 1, 1694, '20036'),
+(1174, 2, 1695, '606360'),
+(1175, 2, 1696, '606380'),
+(1176, 2, 1697, '607440'),
+(1177, 2, 1698, '607940'),
+(1178, 2, 1699, '606150'),
+(1179, 2, 1700, '606860'),
+(1180, 1, 1701, '20038'),
+(1181, 2, 1701, '606860'),
+(1182, 2, 1702, '606760'),
+(1183, 2, 1703, '606260'),
+(1184, 2, 1704, '606072'),
+(1185, 1, 1705, '20039'),
+(1186, 2, 1706, '607340'),
+(1187, 1, 1710, '20041'),
+(1188, 1, 1711, '20042'),
+(1189, 2, 1712, '606310'),
+(1190, 2, 1713, '606340'),
+(1191, 1, 1714, '20043'),
+(1192, 2, 1714, '606340'),
+(1193, 2, 1715, '606570'),
+(1194, 2, 1716, '607320'),
+(1195, 2, 1717, '606710'),
+(1196, 2, 1718, '607650'),
+(1197, 1, 1719, '20044'),
+(1198, 2, 1720, '607650'),
+(1199, 2, 1721, '607530'),
+(1200, 2, 1722, '607800'),
+(1201, 1, 1723, '20046'),
+(1202, 2, 1724, '607010'),
+(1203, 1, 1725, '20045'),
+(1204, 2, 1726, '606212'),
+(1205, 1, 1727, '20047'),
+(1206, 2, 1727, '606210'),
+(1207, 2, 1728, '606100'),
+(1208, 1, 1729, '11082'),
+(1209, 1, 1730, '37157'),
+(1210, 1, 1731, '37155'),
+(1211, 2, 1731, '606125'),
+(1212, 2, 1732, '607100'),
+(1213, 1, 1733, '20048'),
+(1214, 2, 1734, '607400'),
+(1215, 1, 1735, '20609'),
+(1216, 2, 1735, '607400'),
+(1217, 2, 1736, '607491'),
+(1218, 2, 1737, '607911'),
+(1219, 2, 1738, '607510'),
+(1220, 1, 1739, '20051'),
+(1221, 2, 1740, '606670'),
+(1222, 2, 1741, '607580'),
+(1223, 2, 1742, '606280'),
+(1224, 2, 1743, '606950'),
+(1225, 2, 1744, '606170'),
+(1226, 2, 1745, '606970'),
+(1227, 2, 1746, '606803'),
+(1228, 1, 1747, '20052'),
+(1229, 2, 1748, '606540'),
+(1230, 1, 1749, '20053'),
+(1231, 2, 1750, '606841'),
+(1232, 2, 1751, '607700'),
+(1233, 1, 1752, '11148'),
+(1234, 1, 1753, '44'),
+(1235, 1, 1754, '11152'),
+(1236, 1, 1755, '11149'),
+(1237, 1, 1756, '11150'),
+(1238, 1, 1758, '11151'),
+(1239, 1, 1768, '20072'),
+(1240, 1, 1784, '11156'),
+(1241, 1, 1785, '45'),
+(1242, 1, 1786, '20074'),
+(1243, 1, 1787, '20073'),
+(1244, 1, 1789, '20078'),
+(1245, 1, 1790, '37133'),
+(1246, 1, 1797, '20075'),
+(1247, 2, 1797, '429430'),
+(1248, 1, 1803, '20076'),
+(1249, 2, 1803, '429570'),
+(1250, 1, 1806, '20077'),
+(1251, 2, 1806, '429900'),
+(1252, 1, 1812, '20079'),
+(1253, 1, 1815, '11131'),
+(1254, 1, 1816, '51'),
+(1255, 1, 1817, '11132'),
+(1256, 1, 1818, '240'),
+(1257, 1, 1819, '11141'),
+(1258, 1, 1820, '11135'),
+(1259, 1, 1821, '11136'),
+(1260, 1, 1822, '11137'),
+(1261, 1, 1823, '11138'),
+(1262, 1, 1824, '11139'),
+(1263, 1, 1825, '11133'),
+(1264, 1, 1842, '11134'),
+(1265, 2, 1842, '446600'),
+(1266, 1, 1854, '11108'),
+(1267, 2, 1854, '614000'),
+(1268, 1, 1855, '50'),
+(1269, 1, 1856, '20237'),
+(1270, 1, 1857, '20626'),
+(1271, 1, 1858, '20653'),
+(1272, 1, 1859, '20248'),
+(1273, 1, 1860, '20236'),
+(1274, 1, 1861, '20635'),
+(1275, 1, 1862, '20244'),
+(1276, 1, 1863, '20250'),
+(1277, 1, 1864, '11110'),
+(1278, 1, 1865, '20243'),
+(1279, 1, 1866, '20712'),
+(1280, 1, 1867, '11076'),
+(1281, 2, 1867, '619000'),
+(1282, 1, 1871, '20634'),
+(1283, 1, 1874, '20909'),
+(1284, 2, 1874, '617040'),
+(1285, 1, 1877, '20628'),
+(1286, 2, 1877, '618820'),
+(1287, 1, 1883, '20249'),
+(1288, 2, 1884, '617000'),
+(1289, 1, 1885, '20251'),
+(1290, 2, 1885, '617000'),
+(1291, 1, 1888, '20246'),
+(1292, 1, 1891, '20607'),
+(1293, 2, 1891, '618100'),
+(1294, 1, 1893, '20247'),
+(1295, 1, 1898, '20590'),
+(1296, 1, 1903, '20588'),
+(1297, 2, 1903, '618601'),
+(1298, 1, 1905, '20679'),
+(1299, 1, 1913, '11109'),
+(1300, 2, 1913, '617060'),
+(1301, 1, 1914, '11095'),
+(1302, 1, 1915, '49'),
+(1303, 1, 1917, '37121'),
+(1304, 2, 1917, '442600'),
+(1305, 1, 1919, '11098'),
+(1306, 1, 1921, '11101'),
+(1307, 2, 1922, '442538'),
+(1308, 2, 1923, '442542'),
+(1309, 1, 1925, '11096'),
+(1310, 2, 1925, '442250'),
+(1311, 1, 1928, '29652'),
+(1312, 2, 1928, '442300'),
+(1313, 1, 1929, '20056'),
+(1314, 2, 1929, '442310'),
+(1315, 1, 1932, '11099'),
+(1316, 1, 1945, '11104'),
+(1317, 1, 1947, '11105'),
+(1318, 1, 1950, '11106'),
+(1319, 1, 1955, '11084'),
+(1320, 2, 1955, '460000'),
+(1321, 1, 1956, '48'),
+(1322, 1, 1957, '11090'),
+(1323, 1, 1958, '20032'),
+(1324, 1, 1959, '11086'),
+(1325, 1, 1960, '11085'),
+(1326, 1, 1961, '11091'),
+(1327, 1, 1962, '20033'),
+(1328, 1, 1963, '11088'),
+(1329, 1, 1964, '11087'),
+(1330, 2, 1965, '461551'),
+(1331, 2, 1966, '461633'),
+(1332, 2, 1967, '462635'),
+(1333, 2, 1968, '461420'),
+(1334, 2, 1969, '461702'),
+(1335, 2, 1970, '461900'),
+(1336, 2, 1971, '462011'),
+(1337, 2, 1972, '462780'),
+(1338, 1, 1973, '20034'),
+(1339, 2, 1973, '462781'),
+(1340, 2, 1974, '461045'),
+(1341, 2, 1975, '461980'),
+(1342, 2, 1976, '462800'),
+(1343, 2, 1977, '462202'),
+(1344, 2, 1978, '462100'),
+(1345, 2, 1979, '461504'),
+(1346, 1, 1980, '11094'),
+(1347, 2, 1981, '461131'),
+(1348, 2, 1982, '461670'),
+(1349, 2, 1983, '461060'),
+(1350, 2, 1984, '461100'),
+(1351, 2, 1985, '461200'),
+(1352, 2, 1986, '461800'),
+(1353, 2, 1987, '462740'),
+(1354, 2, 1988, '461880'),
+(1355, 2, 1989, '461233'),
+(1356, 2, 1990, '462800'),
+(1357, 2, 1991, '461781'),
+(1358, 2, 1992, '461830'),
+(1359, 2, 1993, '461330'),
+(1360, 2, 1994, '461350'),
+(1361, 2, 1995, '462734'),
+(1362, 2, 1996, '461150'),
+(1363, 2, 1997, '462860'),
+(1364, 2, 1998, '462030'),
+(1365, 2, 1999, '461170'),
+(1366, 2, 2000, '461450'),
+(1367, 2, 2001, '461743'),
+(1368, 1, 2002, '20031'),
+(1369, 1, 2003, '11111'),
+(1370, 2, 2003, '450000'),
+(1371, 1, 2004, '172'),
+(1372, 2, 2005, '450000'),
+(1373, 2, 2006, '450000'),
+(1374, 2, 2008, '450000'),
+(1375, 1, 2009, '37172'),
+(1376, 2, 2009, '452920'),
+(1377, 1, 2010, '20235'),
+(1378, 1, 2011, '11114'),
+(1379, 1, 2012, '20716'),
+(1380, 1, 2013, '11113'),
+(1381, 1, 2014, '11115'),
+(1382, 2, 2015, '450000'),
+(1383, 1, 2016, '37139'),
+(1384, 1, 2017, '11116'),
+(1385, 2, 2018, '452120'),
+(1386, 2, 2019, '453030'),
+(1387, 2, 2020, '452880'),
+(1388, 2, 2021, '453480'),
+(1389, 2, 2022, '453630'),
+(1390, 1, 2023, '20673'),
+(1391, 2, 2024, '452651'),
+(1392, 2, 2025, '452000'),
+(1393, 1, 2026, '20714'),
+(1394, 2, 2027, '452980'),
+(1395, 2, 2028, '453500'),
+(1396, 1, 2029, '20259'),
+(1397, 2, 2030, '452580'),
+(1398, 2, 2031, '452040'),
+(1399, 2, 2032, '452450'),
+(1400, 1, 2033, '20689'),
+(1401, 2, 2034, '452740'),
+(1402, 2, 2035, '453430'),
+(1403, 1, 2036, '11112'),
+(1404, 2, 2037, '452710'),
+(1405, 2, 2038, '452960'),
+(1406, 2, 2039, '453580'),
+(1407, 2, 2040, '453051'),
+(1408, 2, 2041, '452530'),
+(1409, 2, 2042, '452190'),
+(1410, 2, 2043, '453380'),
+(1411, 2, 2044, '453680'),
+(1412, 2, 2045, '452411'),
+(1413, 2, 2046, '452260'),
+(1414, 2, 2047, '453200'),
+(1415, 1, 2048, '20718'),
+(1416, 2, 2049, '452360'),
+(1417, 2, 2050, '452860'),
+(1418, 2, 2051, '453020'),
+(1419, 2, 2052, '452930'),
+(1420, 2, 2053, '452500'),
+(1421, 2, 2054, '453331'),
+(1422, 2, 2055, '452230'),
+(1423, 2, 2056, '453300'),
+(1424, 2, 2057, '453853'),
+(1425, 1, 2058, '20715'),
+(1426, 2, 2059, '452550'),
+(1427, 2, 2060, '452340'),
+(1428, 2, 2061, '452440'),
+(1429, 2, 2062, '452080'),
+(1430, 2, 2063, '452490'),
+(1431, 2, 2064, '453180'),
+(1432, 2, 2065, '453115'),
+(1433, 2, 2066, '452830'),
+(1434, 2, 2067, '452750'),
+(1435, 1, 2068, '20717'),
+(1436, 2, 2069, '453700'),
+(1437, 1, 2070, '20680'),
+(1438, 2, 2071, '453800'),
+(1439, 2, 2072, '453280'),
+(1440, 2, 2073, '452200'),
+(1441, 2, 2074, '452170'),
+(1442, 2, 2075, '452630'),
+(1443, 2, 2076, '452800'),
+(1444, 1, 2077, '20656'),
+(1445, 2, 2078, '453620'),
+(1446, 2, 2079, '453400'),
+(1447, 1, 2080, '20639'),
+(1448, 2, 2081, '452320'),
+(1449, 1, 2082, '20668'),
+(1450, 2, 2082, '452320'),
+(1451, 1, 2083, '11153'),
+(1452, 2, 2083, '433000'),
+(1453, 1, 2084, '195'),
+(1454, 1, 2085, '11155'),
+(1455, 1, 2086, '20070'),
+(1456, 2, 2087, '433310'),
+(1457, 2, 2088, '433701'),
+(1458, 1, 2089, '11154'),
+(1459, 2, 2090, '433750'),
+(1460, 2, 2091, '433100'),
+(1461, 2, 2092, '433210'),
+(1462, 2, 2093, '433000'),
+(1463, 1, 2094, '20069'),
+(1464, 2, 2095, '433130'),
+(1465, 2, 2096, '433760'),
+(1466, 2, 2097, '433501'),
+(1467, 2, 2098, '433810'),
+(1468, 2, 2099, '433560'),
+(1469, 2, 2100, '433871'),
+(1470, 2, 2101, '433910'),
+(1471, 2, 2102, '433380'),
+(1472, 1, 2103, '20071'),
+(1473, 2, 2103, '433380'),
+(1474, 2, 2104, '433970'),
+(1475, 2, 2105, '433460'),
+(1476, 2, 2106, '433240'),
+(1477, 2, 2107, '433940'),
+(1478, 2, 2108, '433360'),
+(1479, 2, 2109, '433400'),
+(1480, 2, 2110, '433610'),
+(1481, 1, 2111, '11146'),
+(1482, 2, 2111, '410000'),
+(1483, 1, 2112, '194'),
+(1484, 1, 2113, '11143'),
+(1485, 1, 2114, '34087'),
+(1486, 2, 2114, '412950'),
+(1487, 1, 2115, '20058'),
+(1488, 1, 2116, '20065'),
+(1489, 1, 2117, '20061'),
+(1490, 1, 2118, '20067'),
+(1491, 1, 2119, '11144'),
+(1492, 1, 2120, '11145'),
+(1493, 2, 2121, '412918'),
+(1494, 1, 2122, '20068'),
+(1495, 1, 2123, '20063'),
+(1496, 1, 2124, '20066'),
+(1497, 2, 2125, '413119'),
+(1498, 2, 2126, '413102'),
+(1499, 1, 2127, '11147'),
+(1500, 1, 2131, '20057'),
+(1501, 2, 2131, '412210'),
+(1502, 1, 2144, '20059'),
+(1503, 1, 2146, '20060'),
+(1504, 1, 2150, '20062'),
+(1505, 1, 2155, '20064'),
+(1506, 1, 2171, '52'),
+(1507, 1, 2172, '11176'),
+(1508, 1, 2173, '55'),
+(1509, 1, 2175, '11175'),
+(1510, 2, 2177, '627350'),
+(1511, 1, 2183, '20647'),
+(1512, 1, 2187, '11173'),
+(1513, 1, 2195, '11178'),
+(1514, 2, 2198, '626170'),
+(1515, 1, 2200, '11162'),
+(1516, 2, 2200, '620000'),
+(1517, 1, 2201, '54'),
+(1518, 1, 2202, '29397'),
+(1519, 1, 2203, '11160'),
+(1520, 1, 2204, '20720'),
+(1521, 1, 2205, '20669'),
+(1522, 1, 2206, '20657'),
+(1523, 1, 2207, '20703'),
+(1524, 1, 2208, '11165'),
+(1525, 1, 2209, '20604'),
+(1526, 1, 2210, '20234'),
+(1527, 1, 2211, '20660'),
+(1528, 1, 2212, '11167'),
+(1529, 1, 2213, '11166'),
+(1530, 1, 2214, '11170'),
+(1531, 1, 2215, '11169'),
+(1532, 1, 2216, '11171'),
+(1533, 1, 2217, '20672'),
+(1534, 1, 2218, '21726'),
+(1535, 1, 2219, '20224'),
+(1536, 1, 2220, '11168'),
+(1537, 1, 2221, '11164'),
+(1538, 1, 2222, '11163'),
+(1539, 1, 2223, '20691'),
+(1540, 2, 2223, '623300'),
+(1541, 1, 2224, '20695'),
+(1542, 1, 2225, '11172'),
+(1543, 1, 2226, '20664'),
+(1544, 2, 2226, '624860'),
+(1545, 1, 2227, '20687'),
+(1546, 1, 2228, '103820'),
+(1547, 1, 2229, '21725'),
+(1548, 1, 2230, '21370'),
+(1549, 1, 2231, '37154'),
+(1550, 1, 2232, '20685'),
+(1551, 2, 2232, '623950'),
+(1552, 1, 2233, '37159'),
+(1553, 2, 2234, '624600'),
+(1554, 2, 2235, '623780'),
+(1555, 1, 2236, '37168'),
+(1556, 2, 2237, '623230'),
+(1557, 2, 2238, '623340'),
+(1558, 2, 2239, '623870'),
+(1559, 2, 2240, '624030'),
+(1560, 2, 2241, '623530'),
+(1561, 1, 2242, '20233'),
+(1562, 2, 2242, '623530'),
+(1563, 2, 2243, '624760'),
+(1564, 1, 2244, '11161'),
+(1565, 2, 2245, '624380'),
+(1566, 1, 2246, '20605'),
+(1567, 2, 2247, '623850'),
+(1568, 2, 2248, '624910'),
+(1569, 2, 2249, '623400'),
+(1570, 2, 2250, '624860'),
+(1571, 2, 2251, '623300'),
+(1572, 2, 2252, '624190'),
+(1573, 1, 2253, '20654'),
+(1574, 2, 2254, '623090'),
+(1575, 2, 2255, '623093'),
+(1576, 1, 2256, '20624'),
+(1577, 2, 2256, '623090'),
+(1578, 1, 2257, '37138'),
+(1579, 2, 2257, '623080'),
+(1580, 2, 2258, '624400'),
+(1581, 1, 2259, '20636'),
+(1582, 2, 2259, '624400'),
+(1583, 2, 2260, '622000'),
+(1584, 2, 2261, '623550'),
+(1585, 2, 2262, '623750'),
+(1586, 1, 2263, '20684'),
+(1587, 2, 2264, '624980'),
+(1588, 2, 2265, '624800'),
+(1589, 1, 2266, '20256'),
+(1590, 2, 2267, '623930'),
+(1591, 2, 2268, '624020'),
+(1592, 1, 2269, '37169'),
+(1593, 2, 2269, '624002'),
+(1594, 1, 2270, '20595'),
+(1595, 2, 2270, '624021'),
+(1596, 2, 2271, '623990'),
+(1597, 2, 2272, '623950'),
+(1598, 2, 2273, '623640'),
+(1599, 1, 2274, '20225'),
+(1600, 2, 2274, '623640'),
+(1601, 2, 2275, '623650'),
+(1602, 2, 2276, '623900'),
+(1603, 1, 2277, '20705'),
+(1604, 2, 2278, '623030'),
+(1605, 1, 2279, '11158'),
+(1606, 2, 2279, '641000'),
+(1607, 1, 2280, '53'),
+(1608, 1, 2281, '11159'),
+(1609, 1, 2286, '20640'),
+(1610, 2, 2286, '641730'),
+(1611, 1, 2291, '20646'),
+(1612, 1, 2293, '20683'),
+(1613, 1, 2297, '20612'),
+(1614, 1, 2302, '20625'),
+(1615, 1, 2309, '20708'),
+(1616, 1, 2312, '20618'),
+(1617, 1, 2313, '11232'),
+(1618, 2, 2313, '629000'),
+(1619, 1, 2314, '23329'),
+(1620, 1, 2315, '58'),
+(1621, 1, 2316, '11228'),
+(1622, 2, 2316, '629830'),
+(1623, 1, 2317, '11229'),
+(1624, 1, 2318, '11174'),
+(1625, 1, 2321, '20255'),
+(1626, 2, 2321, '629850'),
+(1627, 1, 2322, '11230'),
+(1628, 1, 2323, '11231'),
+(1629, 2, 2328, '629350'),
+(1630, 1, 2329, '11193'),
+(1631, 1, 2330, '11180'),
+(1632, 1, 2331, '11181'),
+(1633, 1, 2332, '11182'),
+(1634, 1, 2333, '57'),
+(1635, 1, 2334, '11188'),
+(1636, 1, 2335, '11186'),
+(1637, 1, 2336, '11192'),
+(1638, 1, 2337, '973'),
+(1639, 1, 2338, '11187'),
+(1640, 2, 2338, '628661'),
+(1641, 1, 2339, '11179'),
+(1642, 1, 2340, '11177'),
+(1643, 1, 2341, '11184'),
+(1644, 1, 2342, '1091'),
+(1645, 1, 2343, '11189'),
+(1646, 2, 2347, '628634'),
+(1647, 2, 2348, '628300'),
+(1648, 1, 2351, '11190'),
+(1649, 1, 2353, '20676'),
+(1650, 2, 2353, '628449'),
+(1651, 1, 2355, '11225'),
+(1652, 2, 2355, '454000'),
+(1653, 1, 2356, '56'),
+(1654, 1, 2357, '11200'),
+(1655, 1, 2358, '11202'),
+(1656, 1, 2359, '20650'),
+(1657, 1, 2360, '11207'),
+(1658, 1, 2361, '11210'),
+(1659, 1, 2362, '235'),
+(1660, 1, 2363, '11212'),
+(1661, 1, 2364, '11214'),
+(1662, 1, 2365, '11223'),
+(1663, 1, 2366, '11219'),
+(1664, 1, 2367, '11218'),
+(1665, 1, 2368, '11227'),
+(1666, 2, 2369, '456081'),
+(1667, 1, 2370, '11220'),
+(1668, 2, 2370, '457100'),
+(1669, 1, 2371, '11224'),
+(1670, 2, 2372, '456015'),
+(1671, 1, 2373, '20617'),
+(1672, 2, 2373, '456007'),
+(1673, 1, 2374, '37125'),
+(1674, 2, 2374, '456022'),
+(1675, 1, 2375, '11196'),
+(1676, 2, 2376, '457353'),
+(1677, 1, 2377, '11203'),
+(1678, 2, 2378, '456110'),
+(1679, 1, 2379, '20759'),
+(1680, 2, 2379, '456120'),
+(1681, 1, 2380, '11205'),
+(1682, 2, 2380, '456110'),
+(1683, 2, 2381, '456833'),
+(1684, 1, 2382, '11204'),
+(1685, 2, 2383, '456913'),
+(1686, 1, 2384, '37166'),
+(1687, 1, 2385, '11217'),
+(1688, 2, 2386, '457400'),
+(1689, 2, 2387, '456880'),
+(1690, 2, 2388, '457200'),
+(1691, 2, 2389, '457310'),
+(1692, 2, 2390, '457670'),
+(1693, 1, 2391, '11199'),
+(1694, 2, 2391, '457670'),
+(1695, 2, 2392, '456560'),
+(1696, 2, 2393, '457610'),
+(1697, 2, 2394, '456660'),
+(1698, 2, 2395, '456730'),
+(1699, 2, 2396, '456940'),
+(1700, 1, 2397, '11209'),
+(1701, 2, 2397, '456940'),
+(1702, 2, 2398, '457662'),
+(1703, 2, 2399, '457170'),
+(1704, 2, 2400, '456971'),
+(1705, 1, 2401, '20632'),
+(1706, 2, 2401, '456970'),
+(1707, 2, 2402, '456510'),
+(1708, 2, 2403, '457113'),
+(1709, 2, 2404, '457000'),
+(1710, 2, 2405, '456470'),
+(1711, 2, 2406, '456446'),
+(1712, 2, 2407, '457221'),
+(1713, 2, 2408, '457020'),
+(1714, 1, 2409, '11216'),
+(1715, 2, 2410, '457375'),
+(1716, 1, 2411, '20666'),
+(1717, 2, 2412, '456550'),
+(1718, 1, 2413, '11208'),
+(1719, 2, 2413, '456550'),
+(1720, 1, 2414, '59'),
+(1721, 1, 2415, '11266'),
+(1722, 1, 2416, '11269'),
+(1723, 2, 2417, '664035'),
+(1724, 1, 2418, '11256'),
+(1725, 1, 2419, '63'),
+(1726, 1, 2420, '976'),
+(1727, 1, 2421, '11260'),
+(1728, 1, 2422, '11265'),
+(1729, 1, 2423, '11272'),
+(1730, 1, 2424, '11268'),
+(1731, 1, 2425, '11270'),
+(1732, 1, 2426, '11271'),
+(1733, 1, 2428, '20097'),
+(1734, 1, 2429, '11275'),
+(1735, 1, 2430, '30614'),
+(1736, 2, 2430, '665420'),
+(1737, 1, 2431, '11274'),
+(1738, 1, 2432, '11273'),
+(1739, 1, 2437, '11262'),
+(1740, 1, 2444, '11267'),
+(1741, 2, 2445, '666202'),
+(1742, 1, 2448, '11264'),
+(1743, 1, 2451, '37170'),
+(1744, 2, 2451, '665160'),
+(1745, 1, 2454, '20096'),
+(1746, 1, 2455, '11257'),
+(1747, 1, 2458, '11259'),
+(1748, 2, 2464, '665514'),
+(1749, 1, 2472, '11309'),
+(1750, 1, 2473, '62'),
+(1751, 1, 2474, '11303'),
+(1752, 1, 2475, '20086'),
+(1753, 1, 2476, '20085'),
+(1754, 1, 2477, '11311'),
+(1755, 1, 2478, '20090'),
+(1756, 1, 2479, '20088'),
+(1757, 1, 2480, '11302'),
+(1758, 1, 2481, '20084'),
+(1759, 1, 2482, '11310'),
+(1760, 1, 2483, '11304'),
+(1761, 1, 2484, '20670'),
+(1762, 1, 2485, '11307'),
+(1763, 1, 2487, '20094'),
+(1764, 1, 2488, '20091'),
+(1765, 1, 2501, '20089'),
+(1766, 2, 2507, '662850'),
+(1767, 1, 2509, '20643'),
+(1768, 1, 2513, '29772'),
+(1769, 2, 2513, '662951'),
+(1770, 1, 2522, '20087'),
+(1771, 1, 2528, '11305'),
+(1772, 2, 2528, '663200'),
+(1773, 1, 2532, '20092'),
+(1774, 1, 2534, '20093'),
+(1775, 2, 2537, '647000'),
+(1776, 1, 2538, '11344'),
+(1777, 1, 2540, '21949'),
+(1778, 1, 2541, '68'),
+(1779, 1, 2544, '30866'),
+(1780, 2, 2544, '673450'),
+(1781, 1, 2550, '11355'),
+(1782, 1, 2554, '11358'),
+(1783, 1, 2558, '11360'),
+(1784, 2, 2558, '673732'),
+(1785, 1, 2560, '11361'),
+(1786, 1, 2567, '11364'),
+(1787, 1, 2571, '11366'),
+(1788, 1, 2573, '11368'),
+(1789, 2, 2573, '673200'),
+(1790, 1, 2577, '11371'),
+(1791, 2, 2577, '673370'),
+(1792, 1, 2582, '11282'),
+(1793, 1, 2583, '11276'),
+(1794, 1, 2584, '11278'),
+(1795, 1, 2585, '11283'),
+(1796, 1, 2586, '21703'),
+(1797, 1, 2587, '11288'),
+(1798, 1, 2588, '11290'),
+(1799, 1, 2589, '64'),
+(1800, 1, 2590, '20645'),
+(1801, 1, 2591, '11285'),
+(1802, 1, 2592, '237'),
+(1803, 1, 2593, '11292'),
+(1804, 1, 2594, '11291'),
+(1805, 1, 2595, '11299'),
+(1806, 1, 2596, '11277'),
+(1807, 1, 2597, '11287'),
+(1808, 1, 2602, '11280'),
+(1809, 1, 2603, '11294'),
+(1810, 1, 2607, '11286'),
+(1811, 1, 2612, '11295'),
+(1812, 1, 2616, '11297'),
+(1813, 1, 2621, '11316'),
+(1814, 1, 2622, '65'),
+(1815, 1, 2623, '11317'),
+(1816, 1, 2624, '20098'),
+(1817, 1, 2625, '11314'),
+(1818, 1, 2627, '20103'),
+(1819, 1, 2628, '20100'),
+(1820, 1, 2629, '20105'),
+(1821, 1, 2632, '20099'),
+(1822, 1, 2639, '20101'),
+(1823, 1, 2641, '20102'),
+(1824, 1, 2648, '20104'),
+(1825, 1, 2657, '20106'),
+(1826, 1, 2662, '20107'),
+(1827, 1, 2664, '20108'),
+(1828, 2, 2665, '632553'),
+(1829, 1, 2667, '11318'),
+(1830, 1, 2668, '66'),
+(1831, 1, 2674, '20109'),
+(1832, 1, 2678, '20110'),
+(1833, 1, 2685, '20111'),
+(1834, 1, 2700, '20112'),
+(1835, 1, 2702, '20113'),
+(1836, 1, 2706, '11353'),
+(1837, 1, 2707, '67'),
+(1838, 1, 2708, '11348'),
+(1839, 1, 2709, '11351'),
+(1840, 1, 2712, '20658'),
+(1841, 1, 2714, '11352'),
+(1842, 1, 2720, '11349'),
+(1843, 1, 2729, '11235'),
+(1844, 1, 2730, '197'),
+(1845, 1, 2731, '11234'),
+(1846, 1, 2732, '975'),
+(1847, 1, 2733, '11236'),
+(1848, 2, 2733, '659900'),
+(1849, 1, 2734, '11251'),
+(1850, 1, 2735, '11246'),
+(1851, 1, 2736, '11242'),
+(1852, 1, 2737, '11252'),
+(1853, 1, 2738, '11240'),
+(1854, 2, 2738, '659100'),
+(1855, 1, 2740, '20080'),
+(1856, 2, 2741, '658510'),
+(1857, 1, 2754, '11241'),
+(1858, 1, 2767, '11239'),
+(1859, 2, 2799, '658170'),
+(1860, 1, 2801, '11330'),
+(1861, 2, 2801, '670000'),
+(1862, 1, 2802, '198'),
+(1863, 1, 2803, '11327'),
+(1864, 2, 2803, '671700'),
+(1865, 2, 2805, '671920'),
+(1866, 2, 2806, '671920'),
+(1867, 2, 2810, '671300'),
+(1868, 1, 2812, '20081'),
+(1869, 2, 2812, '671950'),
+(1870, 2, 2814, '671052'),
+(1871, 2, 2815, '671053'),
+(1872, 2, 2816, '671050'),
+(1873, 2, 2817, '671053'),
+(1874, 2, 2818, '671050'),
+(1875, 1, 2820, '30822'),
+(1876, 2, 2820, '671230'),
+(1877, 2, 2822, '671463'),
+(1878, 1, 2824, '20082'),
+(1879, 2, 2824, '671840'),
+(1880, 2, 2827, '671353'),
+(1881, 2, 2829, '671260'),
+(1882, 1, 2831, '11326'),
+(1883, 2, 2832, '671182'),
+(1884, 2, 2833, '671174'),
+(1885, 2, 2835, '671193'),
+(1886, 2, 2838, '671002'),
+(1887, 2, 2839, '671022'),
+(1888, 2, 2840, '671024'),
+(1889, 1, 2844, '11340'),
+(1890, 2, 2844, '655000'),
+(1891, 1, 2845, '1095'),
+(1892, 2, 2846, '655017'),
+(1893, 2, 2847, '655017'),
+(1894, 2, 2848, '655017'),
+(1895, 2, 2849, '655017'),
+(1896, 2, 2850, '655017'),
+(1897, 2, 2851, '655017'),
+(1898, 2, 2852, '655017'),
+(1899, 2, 2853, '655017'),
+(1900, 2, 2854, '655017'),
+(1901, 1, 2855, '11341'),
+(1902, 1, 2856, '11342'),
+(1903, 2, 2857, '655150'),
+(1904, 2, 2858, '655150'),
+(1905, 2, 2859, '655150'),
+(1906, 2, 2860, '655150'),
+(1907, 2, 2861, '655150'),
+(1908, 1, 2864, '11339'),
+(1909, 2, 2864, '655750'),
+(1910, 1, 2865, '20083'),
+(1911, 1, 2872, '10233'),
+(1912, 2, 2872, '660000'),
+(1913, 1, 2873, '36079'),
+(1914, 2, 2873, '668050'),
+(1915, 1, 2874, '11333'),
+(1916, 2, 2877, '667901'),
+(1917, 2, 2878, '668400'),
+(1918, 1, 2880, '11336'),
+(1919, 2, 2880, '668110'),
+(1920, 2, 2882, '668510'),
+(1921, 1, 2883, '11335'),
+(1922, 2, 2883, '668510'),
+(1923, 1, 2890, '11337'),
+(1924, 2, 2890, '668210'),
+(1925, 2, 2892, '668530'),
+(1926, 1, 2895, '10231'),
+(1927, 2, 2895, '649000'),
+(1928, 1, 2898, '11319'),
+(1929, 1, 2907, '73'),
+(1930, 1, 2908, '11457'),
+(1931, 1, 2909, '76'),
+(1932, 1, 2910, '11454'),
+(1933, 1, 2911, '11453'),
+(1934, 1, 2912, '11456'),
+(1935, 1, 2913, '20165'),
+(1936, 1, 2914, '11451'),
+(1937, 2, 2915, '682800'),
+(1938, 1, 2922, '20166'),
+(1939, 2, 2923, '681000'),
+(1940, 2, 2924, '682380'),
+(1941, 2, 2926, '682400'),
+(1942, 2, 2927, '682560'),
+(1943, 2, 2931, '682711'),
+(1944, 1, 2933, '11375'),
+(1945, 2, 2933, '675000'),
+(1946, 1, 2934, '77'),
+(1947, 1, 2935, '11392'),
+(1948, 1, 2936, '11387'),
+(1949, 2, 2936, '676450'),
+(1950, 1, 2937, '11385'),
+(1951, 1, 2938, '11374'),
+(1952, 1, 2940, '11379'),
+(1953, 1, 2941, '11391'),
+(1954, 1, 2948, '11378'),
+(1955, 2, 2948, '676870'),
+(1956, 1, 2957, '11389'),
+(1957, 2, 2957, '676014'),
+(1958, 1, 2963, '11398'),
+(1959, 2, 2964, '684500'),
+(1960, 1, 2966, '78'),
+(1961, 1, 2967, '11395'),
+(1962, 1, 2969, '11396'),
+(1963, 2, 2970, '688800'),
+(1964, 2, 2971, '688600'),
+(1965, 2, 2975, '688850'),
+(1966, 2, 2976, '688700'),
+(1967, 1, 2978, '11403'),
+(1968, 1, 2979, '79'),
+(1969, 1, 2985, '11404'),
+(1970, 2, 2985, '686314'),
+(1971, 1, 2989, '11443'),
+(1972, 1, 2990, '74'),
+(1973, 2, 2991, '678890'),
+(1974, 2, 2992, '678800'),
+(1975, 2, 2993, '678600'),
+(1976, 1, 2995, '11432'),
+(1977, 1, 2996, '31005'),
+(1978, 1, 2997, '11437'),
+(1979, 2, 2998, '678400'),
+(1980, 2, 2999, '678770'),
+(1981, 2, 3000, '678500'),
+(1982, 1, 3001, '11433'),
+(1983, 2, 3001, '678530'),
+(1984, 2, 3002, '678230'),
+(1985, 2, 3003, '678200'),
+(1986, 1, 3004, '11434'),
+(1987, 2, 3005, '678000'),
+(1988, 2, 3006, '678440'),
+(1989, 2, 3007, '678300'),
+(1990, 2, 3008, '678300'),
+(1991, 1, 3010, '11435'),
+(1992, 2, 3011, '678080'),
+(1993, 2, 3012, '678170'),
+(1994, 1, 3013, '11436'),
+(1995, 1, 3014, '24321'),
+(1996, 2, 3014, '678188'),
+(1997, 2, 3015, '678860'),
+(1998, 2, 3016, '678830'),
+(1999, 2, 3017, '678380'),
+(2000, 2, 3018, '678450'),
+(2001, 1, 3019, '20614'),
+(2002, 2, 3019, '678450'),
+(2003, 2, 3021, '678790'),
+(2004, 1, 3022, '25206'),
+(2005, 1, 3024, '24944'),
+(2006, 2, 3024, '678100'),
+(2007, 2, 3025, '678480'),
+(2008, 2, 3027, '678290'),
+(2009, 2, 3028, '678650'),
+(2010, 2, 3029, '678350'),
+(2011, 2, 3030, '678620'),
+(2012, 2, 3031, '678500'),
+(2013, 2, 3032, '678000'),
+(2014, 1, 3033, '20615'),
+(2015, 2, 3033, '678000'),
+(2016, 2, 3034, '678500'),
+(2017, 2, 3035, '678670'),
+(2018, 1, 3036, '11409'),
+(2019, 1, 3037, '75'),
+(2020, 1, 3038, '11405'),
+(2021, 1, 3039, '11406'),
+(2022, 1, 3040, '974'),
+(2023, 1, 3041, '11411'),
+(2024, 1, 3042, '11425'),
+(2025, 1, 3043, '11412'),
+(2026, 1, 3044, '11421'),
+(2027, 1, 3045, '100459'),
+(2028, 1, 3046, '11407'),
+(2029, 1, 3047, '11426'),
+(2030, 1, 3048, '11416'),
+(2031, 1, 3072, '11450'),
+(2032, 2, 3072, '693000'),
+(2033, 1, 3073, '80'),
+(2034, 2, 3074, '694020'),
+(2035, 1, 3075, '11445'),
+(2036, 2, 3075, '694020'),
+(2037, 2, 3076, '694530'),
+(2038, 1, 3077, '11446'),
+(2039, 2, 3077, '694530'),
+(2040, 2, 3078, '694030'),
+(2041, 1, 3079, '20158'),
+(2042, 2, 3079, '694030'),
+(2043, 2, 3080, '694140'),
+(2044, 1, 3081, '20598'),
+(2045, 2, 3081, '694140'),
+(2046, 2, 3082, '694050'),
+(2047, 1, 3083, '20159'),
+(2048, 2, 3083, '694051'),
+(2049, 2, 3084, '694550'),
+(2050, 1, 3085, '11448'),
+(2051, 2, 3085, '694550'),
+(2052, 2, 3086, '694240'),
+(2053, 1, 3087, '20161'),
+(2054, 2, 3087, '694240'),
+(2055, 2, 3088, '694350'),
+(2056, 2, 3089, '694452'),
+(2057, 2, 3090, '694740'),
+(2058, 1, 3091, '20160'),
+(2059, 2, 3092, '694490'),
+(2060, 1, 3093, '11447'),
+(2061, 2, 3093, '694490'),
+(2062, 2, 3094, '694620'),
+(2063, 1, 3095, '20164'),
+(2064, 2, 3096, '694820'),
+(2065, 1, 3097, '20162'),
+(2066, 2, 3097, '694820'),
+(2067, 2, 3098, '694400'),
+(2068, 2, 3099, '694920'),
+(2069, 1, 3100, '20163'),
+(2070, 2, 3100, '694920'),
+(2071, 1, 3101, '32087'),
+(2072, 2, 3102, '694420'),
+(2073, 1, 3103, '11444'),
+(2074, 2, 3103, '694420'),
+(2075, 2, 3104, '694500'),
+(2076, 1, 3105, '10243'),
+(2077, 1, 3106, '11393'),
+(2078, 2, 3107, '679000'),
+(2079, 2, 3108, '679100'),
+(2080, 1, 3109, '11394'),
+(2081, 2, 3109, '679100'),
+(2082, 2, 3110, '679230'),
+(2083, 2, 3111, '679370'),
+(2084, 2, 3112, '679150'),
+(2085, 1, 3113, '10251'),
+(2086, 1, 3115, '11460'),
+(2087, 1, 3118, '11459'),
+(2088, 2, 3118, '689450'),
+(2089, 1, 3119, '11458'),
+(2090, 2, 3119, '689000'),
+(2091, 1, 3123, '115092'),
+(2092, 1, 3124, '977'),
+(2093, 1, 3125, '11464'),
+(2094, 1, 3126, '11472'),
+(2095, 2, 3128, '296000'),
+(2096, 1, 3129, '28892'),
+(2097, 1, 3130, '146'),
+(2098, 1, 3131, '11470'),
+(2099, 1, 3132, '27061'),
+(2100, 1, 3133, '27555'),
+(2101, 2, 3133, '296100'),
+(2102, 1, 3134, '11463'),
+(2103, 1, 3135, '11469'),
+(2104, 1, 3137, '27217'),
+(2105, 1, 3138, '11471'),
+(2106, 1, 3140, '27085'),
+(2107, 2, 3140, '297600'),
+(2108, 1, 3143, '29002'),
+(2109, 2, 3143, '297345'),
+(2110, 1, 3146, '27693'),
+(2111, 2, 3146, '296000'),
+(2112, 1, 3150, '28786'),
+(2113, 2, 3150, '298213'),
+(2114, 1, 3154, '20556'),
+(2115, 2, 3154, '296500'),
+(2116, 1, 3156, '959'),
+(2117, 1, 3157, '27050');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_sale_loc_ext_srv`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_ext_srv`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_ext_srv` (
+  `ID` int(11) NOT NULL,
+  `CODE` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `b_sale_loc_ext_srv`
+--
+
+INSERT INTO `b_sale_loc_ext_srv` (`ID`, `CODE`) VALUES
+(1, 'YAMARKET'),
+(2, 'ZIP');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_sale_loc_name`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_name`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_name` (
+  `ID` int(11) NOT NULL,
+  `LANGUAGE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `LOCATION_ID` int(11) NOT NULL,
+  `NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `NAME_UPPER` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SHORT_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3160 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `b_sale_loc_name`
+--
+
+INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
+(1, 'ru', 1, 'Россия', 'РОССИЯ', NULL),
+(2, 'en', 1, 'Russian Federation', 'RUSSIAN FEDERATION', NULL),
+(3, 'ru', 2, 'Центр', 'ЦЕНТР', NULL),
+(4, 'ru', 3, 'Московская область', 'МОСКОВСКАЯ ОБЛАСТЬ', NULL),
+(5, 'ru', 4, 'Домодедово', 'ДОМОДЕДОВО', NULL),
+(6, 'ru', 5, 'Железнодорожный', 'ЖЕЛЕЗНОДОРОЖНЫЙ', NULL),
+(7, 'ru', 6, 'Бронницы', 'БРОННИЦЫ', NULL),
+(8, 'ru', 7, 'Жуковский', 'ЖУКОВСКИЙ', NULL),
+(9, 'ru', 8, 'Дубна', 'ДУБНА', NULL),
+(10, 'ru', 9, 'Королев', 'КОРОЛЕВ', NULL),
+(11, 'ru', 10, 'Ивантеевка', 'ИВАНТЕЕВКА', NULL),
+(12, 'ru', 11, 'Звенигород', 'ЗВЕНИГОРОД', NULL),
+(13, 'ru', 12, 'Климовск', 'КЛИМОВСК', NULL),
+(14, 'ru', 13, 'Реутов', 'РЕУТОВ', NULL),
+(15, 'ru', 14, 'Краснознаменск', 'КРАСНОЗНАМЕНСК', NULL),
+(16, 'ru', 15, 'Лобня', 'ЛОБНЯ', NULL),
+(17, 'ru', 16, 'Лыткарино', 'ЛЫТКАРИНО', NULL),
+(18, 'ru', 17, 'Протвино', 'ПРОТВИНО', NULL),
+(19, 'ru', 18, 'Пущино', 'ПУЩИНО', NULL),
+(20, 'ru', 19, 'Фрязино', 'ФРЯЗИНО', NULL),
+(21, 'ru', 20, 'Электросталь', 'ЭЛЕКТРОСТАЛЬ', NULL),
+(22, 'ru', 21, 'Красноармейск', 'КРАСНОАРМЕЙСК', NULL),
+(23, 'ru', 22, 'Рошаль', 'РОШАЛЬ', NULL),
+(24, 'ru', 23, 'Орехово-Зуево', 'ОРЕХОВО-ЗУЕВО', NULL),
+(25, 'ru', 24, 'Юбилейный', 'ЮБИЛЕЙНЫЙ', NULL),
+(26, 'ru', 25, 'Дзержинский', 'ДЗЕРЖИНСКИЙ', NULL),
+(27, 'ru', 26, 'Коломна', 'КОЛОМНА', NULL),
+(28, 'ru', 27, 'Подольск', 'ПОДОЛЬСК', NULL),
+(29, 'ru', 28, 'Долгопрудный', 'ДОЛГОПРУДНЫЙ', NULL),
+(30, 'ru', 29, 'Химки', 'ХИМКИ', NULL),
+(31, 'ru', 30, 'Серпухов', 'СЕРПУХОВ', NULL),
+(32, 'ru', 31, 'Балашиха', 'БАЛАШИХА', NULL),
+(33, 'ru', 32, 'Городской округ Черноголовка', 'ГОРОДСКОЙ ОКРУГ ЧЕРНОГОЛОВКА', NULL),
+(34, 'ru', 33, 'Электрогорск', 'ЭЛЕКТРОГОРСК', NULL),
+(35, 'ru', 34, 'Котельники', 'КОТЕЛЬНИКИ', NULL),
+(36, 'ru', 35, 'Лосино-Петровский', 'ЛОСИНО-ПЕТРОВСКИЙ', NULL),
+(37, 'ru', 36, 'Волоколамский район', 'ВОЛОКОЛАМСКИЙ РАЙОН', NULL),
+(38, 'ru', 37, 'Волоколамск', 'ВОЛОКОЛАМСК', NULL),
+(39, 'ru', 38, 'Воскресенский район', 'ВОСКРЕСЕНСКИЙ РАЙОН', NULL),
+(40, 'ru', 39, 'Воскресенск', 'ВОСКРЕСЕНСК', NULL),
+(41, 'ru', 40, 'Дмитровский район', 'ДМИТРОВСКИЙ РАЙОН', NULL),
+(42, 'ru', 41, 'Яхрома', 'ЯХРОМА', NULL),
+(43, 'ru', 42, 'Дмитров', 'ДМИТРОВ', NULL),
+(44, 'ru', 43, 'Егорьевский район', 'ЕГОРЬЕВСКИЙ РАЙОН', NULL),
+(45, 'ru', 44, 'Егорьевск', 'ЕГОРЬЕВСК', NULL),
+(46, 'ru', 45, 'Зарайский район', 'ЗАРАЙСКИЙ РАЙОН', NULL),
+(47, 'ru', 46, 'Зарайск', 'ЗАРАЙСК', NULL),
+(48, 'ru', 47, 'Истринский район', 'ИСТРИНСКИЙ РАЙОН', NULL),
+(49, 'ru', 48, 'Дедовск', 'ДЕДОВСК', NULL),
+(50, 'ru', 49, 'Истра', 'ИСТРА', NULL),
+(51, 'ru', 50, 'Истра-1', 'ИСТРА-1', NULL),
+(52, 'ru', 51, 'Снегири', 'СНЕГИРИ', NULL),
+(53, 'ru', 52, 'Каширский район', 'КАШИРСКИЙ РАЙОН', NULL),
+(54, 'ru', 53, 'Кашира', 'КАШИРА', NULL),
+(55, 'ru', 54, 'Кашира-8', 'КАШИРА-8', NULL),
+(56, 'ru', 55, 'Ожерелье', 'ОЖЕРЕЛЬЕ', NULL),
+(57, 'ru', 56, 'Клинский район', 'КЛИНСКИЙ РАЙОН', NULL),
+(58, 'ru', 57, 'Клин', 'КЛИН', NULL),
+(59, 'ru', 58, 'Высоковск', 'ВЫСОКОВСК', NULL),
+(60, 'ru', 59, 'Коломенский район', 'КОЛОМЕНСКИЙ РАЙОН', NULL),
+(61, 'ru', 60, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
+(62, 'ru', 61, 'Красногорск', 'КРАСНОГОРСК', NULL),
+(63, 'ru', 62, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
+(64, 'ru', 63, 'Видное', 'ВИДНОЕ', NULL),
+(65, 'ru', 64, 'Лотошинский район', 'ЛОТОШИНСКИЙ РАЙОН', NULL),
+(66, 'ru', 65, 'Луховицкий район', 'ЛУХОВИЦКИЙ РАЙОН', NULL),
+(67, 'ru', 66, 'Луховицы', 'ЛУХОВИЦЫ', NULL),
+(68, 'ru', 67, 'Люберецкий район', 'ЛЮБЕРЕЦКИЙ РАЙОН', NULL),
+(69, 'ru', 68, 'Люберцы', 'ЛЮБЕРЦЫ', NULL),
+(70, 'ru', 69, 'Можайский район', 'МОЖАЙСКИЙ РАЙОН', NULL),
+(71, 'ru', 70, 'Можайск', 'МОЖАЙСК', NULL),
+(72, 'ru', 71, 'Мытищинский район', 'МЫТИЩИНСКИЙ РАЙОН', NULL),
+(73, 'ru', 72, 'Мытищи', 'МЫТИЩИ', NULL),
+(74, 'ru', 73, 'Наро-Фоминский район', 'НАРО-ФОМИНСКИЙ РАЙОН', NULL),
+(75, 'ru', 74, 'Наро-Фоминск', 'НАРО-ФОМИНСК', NULL),
+(76, 'ru', 75, 'Верея', 'ВЕРЕЯ', NULL),
+(77, 'ru', 76, 'Апрелевка', 'АПРЕЛЕВКА', NULL),
+(78, 'ru', 77, 'Ногинский район', 'НОГИНСКИЙ РАЙОН', NULL),
+(79, 'ru', 78, 'Ногинск', 'НОГИНСК', NULL),
+(80, 'ru', 79, 'Черноголовка', 'ЧЕРНОГОЛОВКА', NULL),
+(81, 'ru', 80, 'Старая Купавна', 'СТАРАЯ КУПАВНА', NULL),
+(82, 'ru', 81, 'Электроугли', 'ЭЛЕКТРОУГЛИ', NULL),
+(83, 'ru', 82, 'Одинцовский район', 'ОДИНЦОВСКИЙ РАЙОН', NULL),
+(84, 'ru', 83, 'Кубинка', 'КУБИНКА', NULL),
+(85, 'ru', 84, 'Голицыно', 'ГОЛИЦЫНО', NULL),
+(86, 'ru', 85, 'Одинцово', 'ОДИНЦОВО', NULL),
+(87, 'ru', 86, 'Орехово-Зуевский район', 'ОРЕХОВО-ЗУЕВСКИЙ РАЙОН', NULL),
+(88, 'ru', 87, 'Дрезна', 'ДРЕЗНА', NULL),
+(89, 'ru', 88, 'Ликино-Дулево', 'ЛИКИНО-ДУЛЕВО', NULL),
+(90, 'ru', 89, 'Куровское', 'КУРОВСКОЕ', NULL),
+(91, 'ru', 90, 'Озерский район', 'ОЗЕРСКИЙ РАЙОН', NULL),
+(92, 'ru', 91, 'Озеры', 'ОЗЕРЫ', NULL),
+(93, 'ru', 92, 'Павлово-Посадский район', 'ПАВЛОВО-ПОСАДСКИЙ РАЙОН', NULL),
+(94, 'ru', 93, 'Павловский Посад', 'ПАВЛОВСКИЙ ПОСАД', NULL),
+(95, 'ru', 94, 'Подольский район', 'ПОДОЛЬСКИЙ РАЙОН', NULL),
+(96, 'ru', 95, 'Пушкинский район', 'ПУШКИНСКИЙ РАЙОН', NULL),
+(97, 'ru', 96, 'Пушкино', 'ПУШКИНО', NULL),
+(98, 'ru', 97, 'Раменский район', 'РАМЕНСКИЙ РАЙОН', NULL),
+(99, 'ru', 98, 'Раменское', 'РАМЕНСКОЕ', NULL),
+(100, 'ru', 99, 'Рузский район', 'РУЗСКИЙ РАЙОН', NULL),
+(101, 'ru', 100, 'Руза', 'РУЗА', NULL),
+(102, 'ru', 101, 'Сергиево-Посадский район', 'СЕРГИЕВО-ПОСАДСКИЙ РАЙОН', NULL),
+(103, 'ru', 102, 'Краснозаводск', 'КРАСНОЗАВОДСК', NULL),
+(104, 'ru', 103, 'Сергиев Посад', 'СЕРГИЕВ ПОСАД', NULL),
+(105, 'ru', 104, 'Хотьково', 'ХОТЬКОВО', NULL),
+(106, 'ru', 105, 'Пересвет', 'ПЕРЕСВЕТ', NULL),
+(107, 'ru', 106, 'Сергиев Посад-7', 'СЕРГИЕВ ПОСАД-7', NULL),
+(108, 'ru', 107, 'Серебряно-Прудский район', 'СЕРЕБРЯНО-ПРУДСКИЙ РАЙОН', NULL),
+(109, 'ru', 108, 'Серпуховский район', 'СЕРПУХОВСКИЙ РАЙОН', NULL),
+(110, 'ru', 109, 'Солнечногорский район', 'СОЛНЕЧНОГОРСКИЙ РАЙОН', NULL),
+(111, 'ru', 110, 'Солнечногорск', 'СОЛНЕЧНОГОРСК', NULL),
+(112, 'ru', 111, 'Солнечногорск-7', 'СОЛНЕЧНОГОРСК-7', NULL),
+(113, 'ru', 112, 'Солнечногорск-30', 'СОЛНЕЧНОГОРСК-30', NULL),
+(114, 'ru', 113, 'Солнечногорск-25', 'СОЛНЕЧНОГОРСК-25', NULL),
+(115, 'ru', 114, 'Солнечногорск-2', 'СОЛНЕЧНОГОРСК-2', NULL),
+(116, 'ru', 115, 'Ступинский район', 'СТУПИНСКИЙ РАЙОН', NULL),
+(117, 'ru', 116, 'Ступино', 'СТУПИНО', NULL),
+(118, 'ru', 117, 'Талдомский район', 'ТАЛДОМСКИЙ РАЙОН', NULL),
+(119, 'ru', 118, 'Талдом', 'ТАЛДОМ', NULL),
+(120, 'ru', 119, 'Чеховский район', 'ЧЕХОВСКИЙ РАЙОН', NULL),
+(121, 'ru', 120, 'Чехов-2', 'ЧЕХОВ-2', NULL),
+(122, 'ru', 121, 'Чехов', 'ЧЕХОВ', NULL),
+(123, 'ru', 122, 'Чехов-3', 'ЧЕХОВ-3', NULL),
+(124, 'ru', 123, 'Чехов-8', 'ЧЕХОВ-8', NULL),
+(125, 'ru', 124, 'Шатурский район', 'ШАТУРСКИЙ РАЙОН', NULL),
+(126, 'ru', 125, 'Шатура', 'ШАТУРА', NULL),
+(127, 'ru', 126, 'Щелковский район', 'ЩЕЛКОВСКИЙ РАЙОН', NULL),
+(128, 'ru', 127, 'Щелково', 'ЩЕЛКОВО', NULL),
+(129, 'ru', 128, 'Шаховской район', 'ШАХОВСКОЙ РАЙОН', NULL),
+(130, 'ru', 129, 'Москва', 'МОСКВА', NULL),
+(131, 'ru', 130, 'Зеленоград', 'ЗЕЛЕНОГРАД', NULL),
+(132, 'ru', 131, 'Троицк', 'ТРОИЦК', NULL),
+(133, 'ru', 132, 'Щербинка', 'ЩЕРБИНКА', NULL),
+(134, 'ru', 133, 'Московский', 'МОСКОВСКИЙ', NULL),
+(135, 'ru', 134, 'Белгородская область', 'БЕЛГОРОДСКАЯ ОБЛАСТЬ', NULL),
+(136, 'ru', 135, 'Белгород', 'БЕЛГОРОД', NULL),
+(137, 'ru', 136, 'Старый Оскол', 'СТАРЫЙ ОСКОЛ', NULL),
+(138, 'ru', 137, 'Шебекино', 'ШЕБЕКИНО', NULL),
+(139, 'ru', 138, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
+(140, 'ru', 139, 'Алексеевка', 'АЛЕКСЕЕВКА', NULL),
+(141, 'ru', 140, 'Губкин', 'ГУБКИН', NULL),
+(142, 'ru', 141, 'Валуйский район', 'ВАЛУЙСКИЙ РАЙОН', NULL),
+(143, 'ru', 142, 'Валуйки', 'ВАЛУЙКИ', NULL),
+(144, 'ru', 143, 'Борисовский район', 'БОРИСОВСКИЙ РАЙОН', NULL),
+(145, 'ru', 144, 'Волоконовский район', 'ВОЛОКОНОВСКИЙ РАЙОН', NULL),
+(146, 'ru', 145, 'Вейделевский район', 'ВЕЙДЕЛЕВСКИЙ РАЙОН', NULL),
+(147, 'ru', 146, 'Грайворонский район', 'ГРАЙВОРОНСКИЙ РАЙОН', NULL),
+(148, 'ru', 147, 'Грайворон', 'ГРАЙВОРОН', NULL),
+(149, 'ru', 148, 'Губкинский район', 'ГУБКИНСКИЙ РАЙОН', NULL),
+(150, 'ru', 149, 'Ивнянский район', 'ИВНЯНСКИЙ РАЙОН', NULL),
+(151, 'ru', 150, 'Корочанский район', 'КОРОЧАНСКИЙ РАЙОН', NULL),
+(152, 'ru', 151, 'Короча', 'КОРОЧА', NULL),
+(153, 'ru', 152, 'Красненский район', 'КРАСНЕНСКИЙ РАЙОН', NULL),
+(154, 'ru', 153, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
+(155, 'ru', 154, 'Бирюч', 'БИРЮЧ', NULL),
+(156, 'ru', 155, 'Краснояружский район', 'КРАСНОЯРУЖСКИЙ РАЙОН', NULL),
+(157, 'ru', 156, 'Новооскольский район', 'НОВООСКОЛЬСКИЙ РАЙОН', NULL),
+(158, 'ru', 157, 'Новый Оскол', 'НОВЫЙ ОСКОЛ', NULL),
+(159, 'ru', 158, 'Прохоровский район', 'ПРОХОРОВСКИЙ РАЙОН', NULL),
+(160, 'ru', 159, 'Ракитянский район', 'РАКИТЯНСКИЙ РАЙОН', NULL),
+(161, 'ru', 160, 'Ровеньский район', 'РОВЕНЬСКИЙ РАЙОН', NULL),
+(162, 'ru', 161, 'Старооскольский район', 'СТАРООСКОЛЬСКИЙ РАЙОН', NULL),
+(163, 'ru', 162, 'Чернянский район', 'ЧЕРНЯНСКИЙ РАЙОН', NULL),
+(164, 'ru', 163, 'Шебекинский район', 'ШЕБЕКИНСКИЙ РАЙОН', NULL),
+(165, 'ru', 164, 'Яковлевский район', 'ЯКОВЛЕВСКИЙ РАЙОН', NULL),
+(166, 'ru', 165, 'Строитель', 'СТРОИТЕЛЬ', NULL),
+(167, 'ru', 166, 'Белгородский район', 'БЕЛГОРОДСКИЙ РАЙОН', NULL),
+(168, 'ru', 167, 'Ивановская область', 'ИВАНОВСКАЯ ОБЛАСТЬ', NULL),
+(169, 'ru', 168, 'Иваново', 'ИВАНОВО', NULL),
+(170, 'ru', 169, 'Верхнеландеховский район', 'ВЕРХНЕЛАНДЕХОВСКИЙ РАЙОН', NULL),
+(171, 'ru', 170, 'Ивановский район', 'ИВАНОВСКИЙ РАЙОН', NULL),
+(172, 'ru', 171, 'Кохма', 'КОХМА', NULL),
+(173, 'ru', 172, 'Гаврилово-Посадский район', 'ГАВРИЛОВО-ПОСАДСКИЙ РАЙОН', NULL),
+(174, 'ru', 173, 'Гаврилов Посад', 'ГАВРИЛОВ ПОСАД', NULL),
+(175, 'ru', 174, 'Заволжский район', 'ЗАВОЛЖСКИЙ РАЙОН', NULL),
+(176, 'ru', 175, 'Заволжск', 'ЗАВОЛЖСК', NULL),
+(177, 'ru', 176, 'Вичугский район', 'ВИЧУГСКИЙ РАЙОН', NULL),
+(178, 'ru', 177, 'Вичуга', 'ВИЧУГА', NULL),
+(179, 'ru', 178, 'Ильинский район', 'ИЛЬИНСКИЙ РАЙОН', NULL),
+(180, 'ru', 179, 'Кинешемский район', 'КИНЕШЕМСКИЙ РАЙОН', NULL),
+(181, 'ru', 180, 'Кинешма', 'КИНЕШМА', NULL),
+(182, 'ru', 181, 'Наволоки', 'НАВОЛОКИ', NULL),
+(183, 'ru', 182, 'Комсомольский район', 'КОМСОМОЛЬСКИЙ РАЙОН', NULL),
+(184, 'ru', 183, 'Комсомольск', 'КОМСОМОЛЬСК', NULL),
+(185, 'ru', 184, 'Лухский район', 'ЛУХСКИЙ РАЙОН', NULL),
+(186, 'ru', 185, 'Лежневский район', 'ЛЕЖНЕВСКИЙ РАЙОН', NULL),
+(187, 'ru', 186, 'Палехский район', 'ПАЛЕХСКИЙ РАЙОН', NULL),
+(188, 'ru', 187, 'Пестяковский район', 'ПЕСТЯКОВСКИЙ РАЙОН', NULL),
+(189, 'ru', 188, 'Пучежский район', 'ПУЧЕЖСКИЙ РАЙОН', NULL),
+(190, 'ru', 189, 'Пучеж', 'ПУЧЕЖ', NULL),
+(191, 'ru', 190, 'Приволжский район', 'ПРИВОЛЖСКИЙ РАЙОН', NULL),
+(192, 'ru', 191, 'Плес', 'ПЛЕС', NULL),
+(193, 'ru', 192, 'Приволжск', 'ПРИВОЛЖСК', NULL),
+(194, 'ru', 193, 'Тейковский район', 'ТЕЙКОВСКИЙ РАЙОН', NULL),
+(195, 'ru', 194, 'Тейково', 'ТЕЙКОВО', NULL),
+(196, 'ru', 195, 'Родниковский район', 'РОДНИКОВСКИЙ РАЙОН', NULL),
+(197, 'ru', 196, 'Родники', 'РОДНИКИ', NULL),
+(198, 'ru', 197, 'Савинский район', 'САВИНСКИЙ РАЙОН', NULL),
+(199, 'ru', 198, 'Шуйский район', 'ШУЙСКИЙ РАЙОН', NULL),
+(200, 'ru', 199, 'Шуя', 'ШУЯ', NULL),
+(201, 'ru', 200, 'Фурмановский район', 'ФУРМАНОВСКИЙ РАЙОН', NULL),
+(202, 'ru', 201, 'Фурманов', 'ФУРМАНОВ', NULL),
+(203, 'ru', 202, 'Юрьевецкий район', 'ЮРЬЕВЕЦКИЙ РАЙОН', NULL),
+(204, 'ru', 203, 'Юрьевец', 'ЮРЬЕВЕЦ', NULL),
+(205, 'ru', 204, 'Южский район', 'ЮЖСКИЙ РАЙОН', NULL),
+(206, 'ru', 205, 'Южа', 'ЮЖА', NULL),
+(207, 'ru', 206, 'Калужская область', 'КАЛУЖСКАЯ ОБЛАСТЬ', NULL),
+(208, 'ru', 207, 'Калуга', 'КАЛУГА', NULL),
+(209, 'ru', 208, 'Бабынинский район', 'БАБЫНИНСКИЙ РАЙОН', NULL),
+(210, 'ru', 209, 'Обнинск', 'ОБНИНСК', NULL),
+(211, 'ru', 210, 'Барятинский район', 'БАРЯТИНСКИЙ РАЙОН', NULL),
+(212, 'ru', 211, 'Боровский район', 'БОРОВСКИЙ РАЙОН', NULL),
+(213, 'ru', 212, 'Балабаново', 'БАЛАБАНОВО', NULL),
+(214, 'ru', 213, 'Боровск', 'БОРОВСК', NULL),
+(215, 'ru', 214, 'Ермолино', 'ЕРМОЛИНО', NULL),
+(216, 'ru', 215, 'Боровск-1', 'БОРОВСК-1', NULL),
+(217, 'ru', 216, 'Спас-Деменский район', 'СПАС-ДЕМЕНСКИЙ РАЙОН', NULL),
+(218, 'ru', 217, 'Спас-Деменск', 'СПАС-ДЕМЕНСК', NULL),
+(219, 'ru', 218, 'Дзержинский район', 'ДЗЕРЖИНСКИЙ РАЙОН', NULL),
+(220, 'ru', 219, 'Кондрово', 'КОНДРОВО', NULL),
+(221, 'ru', 220, 'Думиничский район', 'ДУМИНИЧСКИЙ РАЙОН', NULL),
+(222, 'ru', 221, 'Жуковский район', 'ЖУКОВСКИЙ РАЙОН', NULL),
+(223, 'ru', 222, 'Кременки', 'КРЕМЕНКИ', NULL),
+(224, 'ru', 223, 'Жуков', 'ЖУКОВ', NULL),
+(225, 'ru', 224, 'Белоусово', 'БЕЛОУСОВО', NULL),
+(226, 'ru', 225, 'Износковский район', 'ИЗНОСКОВСКИЙ РАЙОН', NULL),
+(227, 'ru', 226, 'Жиздринский район', 'ЖИЗДРИНСКИЙ РАЙОН', NULL),
+(228, 'ru', 227, 'Жиздра', 'ЖИЗДРА', NULL),
+(229, 'ru', 228, 'Козельский район', 'КОЗЕЛЬСКИЙ РАЙОН', NULL),
+(230, 'ru', 229, 'Сосенский', 'СОСЕНСКИЙ', NULL),
+(231, 'ru', 230, 'Козельск', 'КОЗЕЛЬСК', NULL),
+(232, 'ru', 231, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(233, 'ru', 232, 'Киров', 'КИРОВ', NULL),
+(234, 'ru', 233, 'Куйбышевский район', 'КУЙБЫШЕВСКИЙ РАЙОН', NULL),
+(235, 'ru', 234, 'Малоярославецкий район', 'МАЛОЯРОСЛАВЕЦКИЙ РАЙОН', NULL),
+(236, 'ru', 235, 'Малоярославец', 'МАЛОЯРОСЛАВЕЦ', NULL),
+(237, 'ru', 236, 'Людиновский район', 'ЛЮДИНОВСКИЙ РАЙОН', NULL),
+(238, 'ru', 237, 'Людиново', 'ЛЮДИНОВО', NULL),
+(239, 'ru', 238, 'Мещовский район', 'МЕЩОВСКИЙ РАЙОН', NULL),
+(240, 'ru', 239, 'Мещовск', 'МЕЩОВСК', NULL),
+(241, 'ru', 240, 'Медынский район', 'МЕДЫНСКИЙ РАЙОН', NULL),
+(242, 'ru', 241, 'Медынь', 'МЕДЫНЬ', NULL),
+(243, 'ru', 242, 'Перемышльский район', 'ПЕРЕМЫШЛЬСКИЙ РАЙОН', NULL),
+(244, 'ru', 243, 'Сухиничский район', 'СУХИНИЧСКИЙ РАЙОН', NULL),
+(245, 'ru', 244, 'Сухиничи', 'СУХИНИЧИ', NULL),
+(246, 'ru', 245, 'Мосальский район', 'МОСАЛЬСКИЙ РАЙОН', NULL),
+(247, 'ru', 246, 'Мосальск', 'МОСАЛЬСК', NULL),
+(248, 'ru', 247, 'Ульяновский район', 'УЛЬЯНОВСКИЙ РАЙОН', NULL),
+(249, 'ru', 248, 'Тарусский район', 'ТАРУССКИЙ РАЙОН', NULL),
+(250, 'ru', 249, 'Таруса', 'ТАРУСА', NULL),
+(251, 'ru', 250, 'Юхновский район', 'ЮХНОВСКИЙ РАЙОН', NULL),
+(252, 'ru', 251, 'Юхнов', 'ЮХНОВ', NULL),
+(253, 'ru', 252, 'Юхнов-1', 'ЮХНОВ-1', NULL),
+(254, 'ru', 253, 'Юхнов-2', 'ЮХНОВ-2', NULL),
+(255, 'ru', 254, 'Хвастовичский район', 'ХВАСТОВИЧСКИЙ РАЙОН', NULL),
+(256, 'ru', 255, 'Ферзиковский район', 'ФЕРЗИКОВСКИЙ РАЙОН', NULL),
+(257, 'ru', 256, 'Костромская область', 'КОСТРОМСКАЯ ОБЛАСТЬ', NULL),
+(258, 'ru', 257, 'Костромской район', 'КОСТРОМСКОЙ РАЙОН', NULL),
+(259, 'ru', 258, 'Кострома', 'КОСТРОМА', NULL),
+(260, 'ru', 259, 'Волгореченск', 'ВОЛГОРЕЧЕНСК', NULL),
+(261, 'ru', 260, 'Антроповский район', 'АНТРОПОВСКИЙ РАЙОН', NULL),
+(262, 'ru', 261, 'Буйский район', 'БУЙСКИЙ РАЙОН', NULL),
+(263, 'ru', 262, 'Буй', 'БУЙ', NULL),
+(264, 'ru', 263, 'Галичский район', 'ГАЛИЧСКИЙ РАЙОН', NULL),
+(265, 'ru', 264, 'Галич', 'ГАЛИЧ', NULL),
+(266, 'ru', 265, 'Вохомский район', 'ВОХОМСКИЙ РАЙОН', NULL),
+(267, 'ru', 266, 'Кадыйский район', 'КАДЫЙСКИЙ РАЙОН', NULL),
+(268, 'ru', 267, 'Мантуровский район', 'МАНТУРОВСКИЙ РАЙОН', NULL),
+(269, 'ru', 268, 'Мантурово', 'МАНТУРОВО', NULL),
+(270, 'ru', 269, 'Красносельский район', 'КРАСНОСЕЛЬСКИЙ РАЙОН', NULL),
+(271, 'ru', 270, 'Макарьевский район', 'МАКАРЬЕВСКИЙ РАЙОН', NULL),
+(272, 'ru', 271, 'Макарьев', 'МАКАРЬЕВ', NULL),
+(273, 'ru', 272, 'Кологривский район', 'КОЛОГРИВСКИЙ РАЙОН', NULL),
+(274, 'ru', 273, 'Кологрив', 'КОЛОГРИВ', NULL),
+(275, 'ru', 274, 'Межевской район', 'МЕЖЕВСКОЙ РАЙОН', NULL),
+(276, 'ru', 275, 'Нерехтский район', 'НЕРЕХТСКИЙ РАЙОН', NULL),
+(277, 'ru', 276, 'Нерехта', 'НЕРЕХТА', NULL),
+(278, 'ru', 277, 'Нейский район', 'НЕЙСКИЙ РАЙОН', NULL),
+(279, 'ru', 278, 'Нея', 'НЕЯ', NULL),
+(280, 'ru', 279, 'Островский район', 'ОСТРОВСКИЙ РАЙОН', NULL),
+(281, 'ru', 280, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(282, 'ru', 281, 'Павинский район', 'ПАВИНСКИЙ РАЙОН', NULL),
+(283, 'ru', 282, 'Солигаличский район', 'СОЛИГАЛИЧСКИЙ РАЙОН', NULL),
+(284, 'ru', 283, 'Солигалич', 'СОЛИГАЛИЧ', NULL),
+(285, 'ru', 284, 'Пыщугский район', 'ПЫЩУГСКИЙ РАЙОН', NULL),
+(286, 'ru', 285, 'Парфеньевский район', 'ПАРФЕНЬЕВСКИЙ РАЙОН', NULL),
+(287, 'ru', 286, 'Поназыревский район', 'ПОНАЗЫРЕВСКИЙ РАЙОН', NULL),
+(288, 'ru', 287, 'Судиславский район', 'СУДИСЛАВСКИЙ РАЙОН', NULL),
+(289, 'ru', 288, 'Чухломский район', 'ЧУХЛОМСКИЙ РАЙОН', NULL),
+(290, 'ru', 289, 'Чухлома', 'ЧУХЛОМА', NULL),
+(291, 'ru', 290, 'Сусанинский район', 'СУСАНИНСКИЙ РАЙОН', NULL),
+(292, 'ru', 291, 'Шарьинский район', 'ШАРЬИНСКИЙ РАЙОН', NULL),
+(293, 'ru', 292, 'Шарья', 'ШАРЬЯ', NULL),
+(294, 'ru', 293, 'Курская область', 'КУРСКАЯ ОБЛАСТЬ', NULL),
+(295, 'ru', 294, 'Курск', 'КУРСК', NULL),
+(296, 'ru', 295, 'Большесолдатский район', 'БОЛЬШЕСОЛДАТСКИЙ РАЙОН', NULL),
+(297, 'ru', 296, 'Беловский район', 'БЕЛОВСКИЙ РАЙОН', NULL),
+(298, 'ru', 297, 'Курчатов', 'КУРЧАТОВ', NULL),
+(299, 'ru', 298, 'Железногорск', 'ЖЕЛЕЗНОГОРСК', NULL),
+(300, 'ru', 299, 'Льгов', 'ЛЬГОВ', NULL),
+(301, 'ru', 300, 'Щигры', 'ЩИГРЫ', NULL),
+(302, 'ru', 301, 'Дмитриевский район', 'ДМИТРИЕВСКИЙ РАЙОН', NULL),
+(303, 'ru', 302, 'Дмитриев', 'ДМИТРИЕВ', NULL),
+(304, 'ru', 303, 'Глушковский район', 'ГЛУШКОВСКИЙ РАЙОН', NULL),
+(305, 'ru', 304, 'Горшеченский район', 'ГОРШЕЧЕНСКИЙ РАЙОН', NULL),
+(306, 'ru', 305, 'Золотухинский район', 'ЗОЛОТУХИНСКИЙ РАЙОН', NULL),
+(307, 'ru', 306, 'Железногорский район', 'ЖЕЛЕЗНОГОРСКИЙ РАЙОН', NULL),
+(308, 'ru', 307, 'Касторенский район', 'КАСТОРЕНСКИЙ РАЙОН', NULL),
+(309, 'ru', 308, 'Конышевский район', 'КОНЫШЕВСКИЙ РАЙОН', NULL),
+(310, 'ru', 309, 'Льговский район', 'ЛЬГОВСКИЙ РАЙОН', NULL),
+(311, 'ru', 310, 'Кореневский район', 'КОРЕНЕВСКИЙ РАЙОН', NULL),
+(312, 'ru', 311, 'Курчатовский район', 'КУРЧАТОВСКИЙ РАЙОН', NULL),
+(313, 'ru', 312, 'Обоянский район', 'ОБОЯНСКИЙ РАЙОН', NULL),
+(314, 'ru', 313, 'Обоянь', 'ОБОЯНЬ', NULL),
+(315, 'ru', 314, 'Мантуровский район', 'МАНТУРОВСКИЙ РАЙОН', NULL),
+(316, 'ru', 315, 'Медвенский район', 'МЕДВЕНСКИЙ РАЙОН', NULL),
+(317, 'ru', 316, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(318, 'ru', 317, 'Поныровский район', 'ПОНЫРОВСКИЙ РАЙОН', NULL),
+(319, 'ru', 318, 'Рыльский район', 'РЫЛЬСКИЙ РАЙОН', NULL),
+(320, 'ru', 319, 'Рыльск', 'РЫЛЬСК', NULL),
+(321, 'ru', 320, 'Пристенский район', 'ПРИСТЕНСКИЙ РАЙОН', NULL),
+(322, 'ru', 321, 'Солнцевский район', 'СОЛНЦЕВСКИЙ РАЙОН', NULL),
+(323, 'ru', 322, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(324, 'ru', 323, 'Тимский район', 'ТИМСКИЙ РАЙОН', NULL),
+(325, 'ru', 324, 'Суджанский район', 'СУДЖАНСКИЙ РАЙОН', NULL),
+(326, 'ru', 325, 'Суджа', 'СУДЖА', NULL),
+(327, 'ru', 326, 'Фатежский район', 'ФАТЕЖСКИЙ РАЙОН', NULL),
+(328, 'ru', 327, 'Фатеж', 'ФАТЕЖ', NULL),
+(329, 'ru', 328, 'Курский район', 'КУРСКИЙ РАЙОН', NULL),
+(330, 'ru', 329, 'Хомутовский район', 'ХОМУТОВСКИЙ РАЙОН', NULL),
+(331, 'ru', 330, 'Черемисиновский район', 'ЧЕРЕМИСИНОВСКИЙ РАЙОН', NULL),
+(332, 'ru', 331, 'Щигровский район', 'ЩИГРОВСКИЙ РАЙОН', NULL),
+(333, 'ru', 332, 'Липецкая область', 'ЛИПЕЦКАЯ ОБЛАСТЬ', NULL),
+(334, 'ru', 333, 'Липецк', 'ЛИПЕЦК', NULL),
+(335, 'ru', 334, 'Воловский район', 'ВОЛОВСКИЙ РАЙОН', NULL),
+(336, 'ru', 335, 'Елец', 'ЕЛЕЦ', NULL),
+(337, 'ru', 336, 'Грязинский район', 'ГРЯЗИНСКИЙ РАЙОН', NULL),
+(338, 'ru', 337, 'Грязи', 'ГРЯЗИ', NULL),
+(339, 'ru', 338, 'Данковский район', 'ДАНКОВСКИЙ РАЙОН', NULL),
+(340, 'ru', 339, 'Данков', 'ДАНКОВ', NULL),
+(341, 'ru', 340, 'Добровский район', 'ДОБРОВСКИЙ РАЙОН', NULL),
+(342, 'ru', 341, 'Добринский район', 'ДОБРИНСКИЙ РАЙОН', NULL),
+(343, 'ru', 342, 'Долгоруковский район', 'ДОЛГОРУКОВСКИЙ РАЙОН', NULL),
+(344, 'ru', 343, 'Елецкий район', 'ЕЛЕЦКИЙ РАЙОН', NULL),
+(345, 'ru', 344, 'Задонский район', 'ЗАДОНСКИЙ РАЙОН', NULL),
+(346, 'ru', 345, 'Задонск', 'ЗАДОНСК', NULL),
+(347, 'ru', 346, 'Краснинский район', 'КРАСНИНСКИЙ РАЙОН', NULL),
+(348, 'ru', 347, 'Измалковский район', 'ИЗМАЛКОВСКИЙ РАЙОН', NULL),
+(349, 'ru', 348, 'Лебедянский район', 'ЛЕБЕДЯНСКИЙ РАЙОН', NULL),
+(350, 'ru', 349, 'Лебедянь', 'ЛЕБЕДЯНЬ', NULL),
+(351, 'ru', 350, 'Лев-Толстовский район', 'ЛЕВ-ТОЛСТОВСКИЙ РАЙОН', NULL),
+(352, 'ru', 351, 'Становлянский район', 'СТАНОВЛЯНСКИЙ РАЙОН', NULL),
+(353, 'ru', 352, 'Тербунский район', 'ТЕРБУНСКИЙ РАЙОН', NULL),
+(354, 'ru', 353, 'Чаплыгинский район', 'ЧАПЛЫГИНСКИЙ РАЙОН', NULL),
+(355, 'ru', 354, 'Чаплыгин', 'ЧАПЛЫГИН', NULL),
+(356, 'ru', 355, 'Усманский район', 'УСМАНСКИЙ РАЙОН', NULL),
+(357, 'ru', 356, 'Усмань', 'УСМАНЬ', NULL),
+(358, 'ru', 357, 'Хлевенский район', 'ХЛЕВЕНСКИЙ РАЙОН', NULL),
+(359, 'ru', 358, 'Липецкий район', 'ЛИПЕЦКИЙ РАЙОН', NULL),
+(360, 'ru', 359, 'Орловская область', 'ОРЛОВСКАЯ ОБЛАСТЬ', NULL),
+(361, 'ru', 360, 'Орёл', 'ОРЁЛ', NULL),
+(362, 'ru', 361, 'Мценск', 'МЦЕНСК', NULL),
+(363, 'ru', 362, 'Ливны', 'ЛИВНЫ', NULL),
+(364, 'ru', 363, 'Орловский район', 'ОРЛОВСКИЙ РАЙОН', NULL),
+(365, 'ru', 364, 'Болховский район', 'БОЛХОВСКИЙ РАЙОН', NULL),
+(366, 'ru', 365, 'Болхов', 'БОЛХОВ', NULL),
+(367, 'ru', 366, 'Верховский район', 'ВЕРХОВСКИЙ РАЙОН', NULL),
+(368, 'ru', 367, 'Должанский район', 'ДОЛЖАНСКИЙ РАЙОН', NULL),
+(369, 'ru', 368, 'Глазуновский район', 'ГЛАЗУНОВСКИЙ РАЙОН', NULL),
+(370, 'ru', 369, 'Дмитровский район', 'ДМИТРОВСКИЙ РАЙОН', NULL),
+(371, 'ru', 370, 'Дмитровск', 'ДМИТРОВСК', NULL),
+(372, 'ru', 371, 'Залегощенский район', 'ЗАЛЕГОЩЕНСКИЙ РАЙОН', NULL),
+(373, 'ru', 372, 'Колпнянский район', 'КОЛПНЯНСКИЙ РАЙОН', NULL),
+(374, 'ru', 373, 'Знаменский район', 'ЗНАМЕНСКИЙ РАЙОН', NULL),
+(375, 'ru', 374, 'Ливенский район', 'ЛИВЕНСКИЙ РАЙОН', NULL),
+(376, 'ru', 375, 'Корсаковский район', 'КОРСАКОВСКИЙ РАЙОН', NULL),
+(377, 'ru', 376, 'Краснозоренский район', 'КРАСНОЗОРЕНСКИЙ РАЙОН', NULL),
+(378, 'ru', 377, 'Кромской район', 'КРОМСКОЙ РАЙОН', NULL),
+(379, 'ru', 378, 'Мценский район', 'МЦЕНСКИЙ РАЙОН', NULL),
+(380, 'ru', 379, 'Малоархангельский район', 'МАЛОАРХАНГЕЛЬСКИЙ РАЙОН', NULL),
+(381, 'ru', 380, 'Малоархангельск', 'МАЛОАРХАНГЕЛЬСК', NULL),
+(382, 'ru', 381, 'Новодеревеньковский район', 'НОВОДЕРЕВЕНЬКОВСКИЙ РАЙОН', NULL),
+(383, 'ru', 382, 'Новосильский район', 'НОВОСИЛЬСКИЙ РАЙОН', NULL),
+(384, 'ru', 383, 'Новосиль', 'НОВОСИЛЬ', NULL),
+(385, 'ru', 384, 'Покровский район', 'ПОКРОВСКИЙ РАЙОН', NULL),
+(386, 'ru', 385, 'Свердловский район', 'СВЕРДЛОВСКИЙ РАЙОН', NULL),
+(387, 'ru', 386, 'Троснянский район', 'ТРОСНЯНСКИЙ РАЙОН', NULL),
+(388, 'ru', 387, 'Урицкий район', 'УРИЦКИЙ РАЙОН', NULL),
+(389, 'ru', 388, 'Сосковский район', 'СОСКОВСКИЙ РАЙОН', NULL),
+(390, 'ru', 389, 'Хотынецкий район', 'ХОТЫНЕЦКИЙ РАЙОН', NULL),
+(391, 'ru', 390, 'Шаблыкинский район', 'ШАБЛЫКИНСКИЙ РАЙОН', NULL),
+(392, 'ru', 391, 'Рязанская область', 'РЯЗАНСКАЯ ОБЛАСТЬ', NULL),
+(393, 'ru', 392, 'Рязанский район', 'РЯЗАНСКИЙ РАЙОН', NULL),
+(394, 'ru', 393, 'Рязань', 'РЯЗАНЬ', NULL),
+(395, 'ru', 394, 'Сасово', 'САСОВО', NULL),
+(396, 'ru', 395, 'Скопин', 'СКОПИН', NULL),
+(397, 'ru', 396, 'Касимов', 'КАСИМОВ', NULL),
+(398, 'ru', 397, 'Ермишинский район', 'ЕРМИШИНСКИЙ РАЙОН', NULL),
+(399, 'ru', 398, 'Захаровский район', 'ЗАХАРОВСКИЙ РАЙОН', NULL),
+(400, 'ru', 399, 'Касимовский район', 'КАСИМОВСКИЙ РАЙОН', NULL),
+(401, 'ru', 400, 'Кадомский район', 'КАДОМСКИЙ РАЙОН', NULL),
+(402, 'ru', 401, 'Милославский район', 'МИЛОСЛАВСКИЙ РАЙОН', NULL),
+(403, 'ru', 402, 'Кораблинский район', 'КОРАБЛИНСКИЙ РАЙОН', NULL),
+(404, 'ru', 403, 'Кораблино', 'КОРАБЛИНО', NULL),
+(405, 'ru', 404, 'Клепиковский район', 'КЛЕПИКОВСКИЙ РАЙОН', NULL),
+(406, 'ru', 405, 'Спас-Клепики', 'СПАС-КЛЕПИКИ', NULL),
+(407, 'ru', 406, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
+(408, 'ru', 407, 'Михайлов', 'МИХАЙЛОВ', NULL),
+(409, 'ru', 408, 'Пителинский район', 'ПИТЕЛИНСКИЙ РАЙОН', NULL),
+(410, 'ru', 409, 'Александро-Невский район', 'АЛЕКСАНДРО-НЕВСКИЙ РАЙОН', NULL),
+(411, 'ru', 410, 'Пронский район', 'ПРОНСКИЙ РАЙОН', NULL),
+(412, 'ru', 411, 'Новомичуринск', 'НОВОМИЧУРИНСК', NULL),
+(413, 'ru', 412, 'Рыбновский район', 'РЫБНОВСКИЙ РАЙОН', NULL),
+(414, 'ru', 413, 'Рыбное', 'РЫБНОЕ', NULL),
+(415, 'ru', 414, 'Ряжский район', 'РЯЖСКИЙ РАЙОН', NULL),
+(416, 'ru', 415, 'Ряжск', 'РЯЖСК', NULL),
+(417, 'ru', 416, 'Путятинский район', 'ПУТЯТИНСКИЙ РАЙОН', NULL),
+(418, 'ru', 417, 'Сасовский район', 'САСОВСКИЙ РАЙОН', NULL),
+(419, 'ru', 418, 'Сараевский район', 'САРАЕВСКИЙ РАЙОН', NULL),
+(420, 'ru', 419, 'Сапожковский район', 'САПОЖКОВСКИЙ РАЙОН', NULL),
+(421, 'ru', 420, 'Скопинский район', 'СКОПИНСКИЙ РАЙОН', NULL),
+(422, 'ru', 421, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
+(423, 'ru', 422, 'Спасск-Рязанский', 'СПАССК-РЯЗАНСКИЙ', NULL),
+(424, 'ru', 423, 'Старожиловский район', 'СТАРОЖИЛОВСКИЙ РАЙОН', NULL),
+(425, 'ru', 424, 'Ухоловский район', 'УХОЛОВСКИЙ РАЙОН', NULL),
+(426, 'ru', 425, 'Шацкий район', 'ШАЦКИЙ РАЙОН', NULL),
+(427, 'ru', 426, 'Шацк', 'ШАЦК', NULL),
+(428, 'ru', 427, 'Чучковский район', 'ЧУЧКОВСКИЙ РАЙОН', NULL),
+(429, 'ru', 428, 'Шиловский район', 'ШИЛОВСКИЙ РАЙОН', NULL),
+(430, 'ru', 429, 'Смоленская область', 'СМОЛЕНСКАЯ ОБЛАСТЬ', NULL),
+(431, 'ru', 430, 'Десногорск', 'ДЕСНОГОРСК', NULL),
+(432, 'ru', 431, 'Смоленск', 'СМОЛЕНСК', NULL),
+(433, 'ru', 432, 'Смоленский район', 'СМОЛЕНСКИЙ РАЙОН', NULL),
+(434, 'ru', 433, 'Вяземский район', 'ВЯЗЕМСКИЙ РАЙОН', NULL),
+(435, 'ru', 434, 'Вязьма', 'ВЯЗЬМА', NULL),
+(436, 'ru', 435, 'Велижский район', 'ВЕЛИЖСКИЙ РАЙОН', NULL),
+(437, 'ru', 436, 'Велиж', 'ВЕЛИЖ', NULL),
+(438, 'ru', 437, 'Гагаринский район', 'ГАГАРИНСКИЙ РАЙОН', NULL),
+(439, 'ru', 438, 'Гагарин', 'ГАГАРИН', NULL),
+(440, 'ru', 439, 'Глинковский район', 'ГЛИНКОВСКИЙ РАЙОН', NULL),
+(441, 'ru', 440, 'Демидовский район', 'ДЕМИДОВСКИЙ РАЙОН', NULL),
+(442, 'ru', 441, 'Демидов', 'ДЕМИДОВ', NULL),
+(443, 'ru', 442, 'Дорогобужский район', 'ДОРОГОБУЖСКИЙ РАЙОН', NULL),
+(444, 'ru', 443, 'Дорогобуж', 'ДОРОГОБУЖ', NULL),
+(445, 'ru', 444, 'Духовщинский район', 'ДУХОВЩИНСКИЙ РАЙОН', NULL),
+(446, 'ru', 445, 'Духовщина', 'ДУХОВЩИНА', NULL),
+(447, 'ru', 446, 'Ельнинский район', 'ЕЛЬНИНСКИЙ РАЙОН', NULL),
+(448, 'ru', 447, 'Ельня', 'ЕЛЬНЯ', NULL),
+(449, 'ru', 448, 'Краснинский район', 'КРАСНИНСКИЙ РАЙОН', NULL),
+(450, 'ru', 449, 'Ершичский район', 'ЕРШИЧСКИЙ РАЙОН', NULL),
+(451, 'ru', 450, 'Кардымовский район', 'КАРДЫМОВСКИЙ РАЙОН', NULL),
+(452, 'ru', 451, 'Новодугинский район', 'НОВОДУГИНСКИЙ РАЙОН', NULL),
+(453, 'ru', 452, 'Починковский район', 'ПОЧИНКОВСКИЙ РАЙОН', NULL),
+(454, 'ru', 453, 'Починок', 'ПОЧИНОК', NULL),
+(455, 'ru', 454, 'Монастырщинский район', 'МОНАСТЫРЩИНСКИЙ РАЙОН', NULL),
+(456, 'ru', 455, 'Руднянский район', 'РУДНЯНСКИЙ РАЙОН', NULL),
+(457, 'ru', 456, 'Рудня', 'РУДНЯ', NULL),
+(458, 'ru', 457, 'Рославльский район', 'РОСЛАВЛЬСКИЙ РАЙОН', NULL),
+(459, 'ru', 458, 'Рославль', 'РОСЛАВЛЬ', NULL),
+(460, 'ru', 459, 'Сычевский район', 'СЫЧЕВСКИЙ РАЙОН', NULL),
+(461, 'ru', 460, 'Сычевка', 'СЫЧЕВКА', NULL),
+(462, 'ru', 461, 'Сафоновский район', 'САФОНОВСКИЙ РАЙОН', NULL),
+(463, 'ru', 462, 'Сафоново', 'САФОНОВО', NULL),
+(464, 'ru', 463, 'Хиславичский район', 'ХИСЛАВИЧСКИЙ РАЙОН', NULL),
+(465, 'ru', 464, 'Угранский район', 'УГРАНСКИЙ РАЙОН', NULL),
+(466, 'ru', 465, 'Холм-Жирковский район', 'ХОЛМ-ЖИРКОВСКИЙ РАЙОН', NULL),
+(467, 'ru', 466, 'Темкинский район', 'ТЕМКИНСКИЙ РАЙОН', NULL),
+(468, 'ru', 467, 'Ярцевский район', 'ЯРЦЕВСКИЙ РАЙОН', NULL),
+(469, 'ru', 468, 'Ярцево', 'ЯРЦЕВО', NULL),
+(470, 'ru', 469, 'Шумячский район', 'ШУМЯЧСКИЙ РАЙОН', NULL),
+(471, 'ru', 470, 'Тамбовская область', 'ТАМБОВСКАЯ ОБЛАСТЬ', NULL),
+(472, 'ru', 471, 'Котовск', 'КОТОВСК', NULL),
+(473, 'ru', 472, 'Моршанск', 'МОРШАНСК', NULL),
+(474, 'ru', 473, 'Тамбов', 'ТАМБОВ', NULL),
+(475, 'ru', 474, 'Кирсанов', 'КИРСАНОВ', NULL),
+(476, 'ru', 475, 'Мичуринск', 'МИЧУРИНСК', NULL),
+(477, 'ru', 476, 'Тамбовский район', 'ТАМБОВСКИЙ РАЙОН', NULL),
+(478, 'ru', 477, 'Уварово', 'УВАРОВО', NULL),
+(479, 'ru', 478, 'Рассказово', 'РАССКАЗОВО', NULL),
+(480, 'ru', 479, 'Бондарский район', 'БОНДАРСКИЙ РАЙОН', NULL),
+(481, 'ru', 480, 'Гавриловский район', 'ГАВРИЛОВСКИЙ РАЙОН', NULL),
+(482, 'ru', 481, 'Жердевский район', 'ЖЕРДЕВСКИЙ РАЙОН', NULL),
+(483, 'ru', 482, 'Жердевка', 'ЖЕРДЕВКА', NULL),
+(484, 'ru', 483, 'Инжавинский район', 'ИНЖАВИНСКИЙ РАЙОН', NULL),
+(485, 'ru', 484, 'Знаменский район', 'ЗНАМЕНСКИЙ РАЙОН', NULL),
+(486, 'ru', 485, 'Мичуринский район', 'МИЧУРИНСКИЙ РАЙОН', NULL),
+(487, 'ru', 486, 'Кирсановский район', 'КИРСАНОВСКИЙ РАЙОН', NULL),
+(488, 'ru', 487, 'Мордовский район', 'МОРДОВСКИЙ РАЙОН', NULL),
+(489, 'ru', 488, 'Моршанский район', 'МОРШАНСКИЙ РАЙОН', NULL),
+(490, 'ru', 489, 'Мучкапский район', 'МУЧКАПСКИЙ РАЙОН', NULL),
+(491, 'ru', 490, 'Никифоровский район', 'НИКИФОРОВСКИЙ РАЙОН', NULL),
+(492, 'ru', 491, 'Петровский район', 'ПЕТРОВСКИЙ РАЙОН', NULL),
+(493, 'ru', 492, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
+(494, 'ru', 493, 'Рассказовский район', 'РАССКАЗОВСКИЙ РАЙОН', NULL),
+(495, 'ru', 494, 'Пичаевский район', 'ПИЧАЕВСКИЙ РАЙОН', NULL),
+(496, 'ru', 495, 'Сампурский район', 'САМПУРСКИЙ РАЙОН', NULL),
+(497, 'ru', 496, 'Ржаксинский район', 'РЖАКСИНСКИЙ РАЙОН', NULL),
+(498, 'ru', 497, 'Сосновский район', 'СОСНОВСКИЙ РАЙОН', NULL),
+(499, 'ru', 498, 'Староюрьевский район', 'СТАРОЮРЬЕВСКИЙ РАЙОН', NULL),
+(500, 'ru', 499, 'Уваровский район', 'УВАРОВСКИЙ РАЙОН', NULL),
+(501, 'ru', 500, 'Токаревский район', 'ТОКАРЕВСКИЙ РАЙОН', NULL),
+(502, 'ru', 501, 'Уметский район', 'УМЕТСКИЙ РАЙОН', NULL),
+(503, 'ru', 502, 'Тверская область', 'ТВЕРСКАЯ ОБЛАСТЬ', NULL),
+(504, 'ru', 503, 'Тверь', 'ТВЕРЬ', NULL),
+(505, 'ru', 504, 'Нелидово', 'НЕЛИДОВО', NULL),
+(506, 'ru', 505, 'Торжок', 'ТОРЖОК', NULL),
+(507, 'ru', 506, 'Кимры', 'КИМРЫ', NULL),
+(508, 'ru', 507, 'Ржев', 'РЖЕВ', NULL),
+(509, 'ru', 508, 'Вышний Волочек', 'ВЫШНИЙ ВОЛОЧЕК', NULL),
+(510, 'ru', 509, 'Калининский район', 'КАЛИНИНСКИЙ РАЙОН', NULL),
+(511, 'ru', 510, 'Андреапольский район', 'АНДРЕАПОЛЬСКИЙ РАЙОН', NULL),
+(512, 'ru', 511, 'Андреаполь', 'АНДРЕАПОЛЬ', NULL),
+(513, 'ru', 512, 'Бежецкий район', 'БЕЖЕЦКИЙ РАЙОН', NULL),
+(514, 'ru', 513, 'Бежецк', 'БЕЖЕЦК', NULL),
+(515, 'ru', 514, 'Бельский район', 'БЕЛЬСКИЙ РАЙОН', NULL),
+(516, 'ru', 515, 'Белый', 'БЕЛЫЙ', NULL),
+(517, 'ru', 516, 'Бологовский район', 'БОЛОГОВСКИЙ РАЙОН', NULL),
+(518, 'ru', 517, 'Бологое', 'БОЛОГОЕ', NULL),
+(519, 'ru', 518, 'Весьегонский район', 'ВЕСЬЕГОНСКИЙ РАЙОН', NULL),
+(520, 'ru', 519, 'Весьегонск', 'ВЕСЬЕГОНСК', NULL),
+(521, 'ru', 520, 'Вышневолоцкий район', 'ВЫШНЕВОЛОЦКИЙ РАЙОН', NULL),
+(522, 'ru', 521, 'Западнодвинский район', 'ЗАПАДНОДВИНСКИЙ РАЙОН', NULL),
+(523, 'ru', 522, 'Западная Двина', 'ЗАПАДНАЯ ДВИНА', NULL),
+(524, 'ru', 523, 'Жарковский район', 'ЖАРКОВСКИЙ РАЙОН', NULL),
+(525, 'ru', 524, 'Зубцовский район', 'ЗУБЦОВСКИЙ РАЙОН', NULL),
+(526, 'ru', 525, 'Зубцов', 'ЗУБЦОВ', NULL),
+(527, 'ru', 526, 'Калязинский район', 'КАЛЯЗИНСКИЙ РАЙОН', NULL),
+(528, 'ru', 527, 'Калязин', 'КАЛЯЗИН', NULL),
+(529, 'ru', 528, 'Кесовогорский район', 'КЕСОВОГОРСКИЙ РАЙОН', NULL),
+(530, 'ru', 529, 'Кашинский район', 'КАШИНСКИЙ РАЙОН', NULL),
+(531, 'ru', 530, 'Кашин', 'КАШИН', NULL),
+(532, 'ru', 531, 'Конаковский район', 'КОНАКОВСКИЙ РАЙОН', NULL),
+(533, 'ru', 532, 'Конаково', 'КОНАКОВО', NULL),
+(534, 'ru', 533, 'Кимрский район', 'КИМРСКИЙ РАЙОН', NULL),
+(535, 'ru', 534, 'Краснохолмский район', 'КРАСНОХОЛМСКИЙ РАЙОН', NULL),
+(536, 'ru', 535, 'Красный Холм', 'КРАСНЫЙ ХОЛМ', NULL),
+(537, 'ru', 536, 'Лесной район', 'ЛЕСНОЙ РАЙОН', NULL),
+(538, 'ru', 537, 'Кувшиновский район', 'КУВШИНОВСКИЙ РАЙОН', NULL),
+(539, 'ru', 538, 'Кувшиново', 'КУВШИНОВО', NULL),
+(540, 'ru', 539, 'Лихославльский район', 'ЛИХОСЛАВЛЬСКИЙ РАЙОН', NULL),
+(541, 'ru', 540, 'Лихославль', 'ЛИХОСЛАВЛЬ', NULL),
+(542, 'ru', 541, 'Максатихинский район', 'МАКСАТИХИНСКИЙ РАЙОН', NULL),
+(543, 'ru', 542, 'Молоковский район', 'МОЛОКОВСКИЙ РАЙОН', NULL),
+(544, 'ru', 543, 'Нелидовский район', 'НЕЛИДОВСКИЙ РАЙОН', NULL),
+(545, 'ru', 544, 'Осташковский район', 'ОСТАШКОВСКИЙ РАЙОН', NULL),
+(546, 'ru', 545, 'Осташков', 'ОСТАШКОВ', NULL),
+(547, 'ru', 546, 'Пеновский район', 'ПЕНОВСКИЙ РАЙОН', NULL),
+(548, 'ru', 547, 'Оленинский район', 'ОЛЕНИНСКИЙ РАЙОН', NULL),
+(549, 'ru', 548, 'Рамешковский район', 'РАМЕШКОВСКИЙ РАЙОН', NULL),
+(550, 'ru', 549, 'Ржевский район', 'РЖЕВСКИЙ РАЙОН', NULL),
+(551, 'ru', 550, 'Сандовский район', 'САНДОВСКИЙ РАЙОН', NULL),
+(552, 'ru', 551, 'Селижаровский район', 'СЕЛИЖАРОВСКИЙ РАЙОН', NULL),
+(553, 'ru', 552, 'Старицкий район', 'СТАРИЦКИЙ РАЙОН', NULL),
+(554, 'ru', 553, 'Старица', 'СТАРИЦА', NULL),
+(555, 'ru', 554, 'Сонковский район', 'СОНКОВСКИЙ РАЙОН', NULL),
+(556, 'ru', 555, 'Спировский район', 'СПИРОВСКИЙ РАЙОН', NULL),
+(557, 'ru', 556, 'Торжокский район', 'ТОРЖОКСКИЙ РАЙОН', NULL),
+(558, 'ru', 557, 'Торопецкий район', 'ТОРОПЕЦКИЙ РАЙОН', NULL),
+(559, 'ru', 558, 'Торопец', 'ТОРОПЕЦ', NULL),
+(560, 'ru', 559, 'Удомельский район', 'УДОМЕЛЬСКИЙ РАЙОН', NULL),
+(561, 'ru', 560, 'Удомля', 'УДОМЛЯ', NULL),
+(562, 'ru', 561, 'Фировский район', 'ФИРОВСКИЙ РАЙОН', NULL),
+(563, 'ru', 562, 'Тульская область', 'ТУЛЬСКАЯ ОБЛАСТЬ', NULL),
+(564, 'ru', 563, 'Тула', 'ТУЛА', NULL),
+(565, 'ru', 564, 'Донской', 'ДОНСКОЙ', NULL),
+(566, 'ru', 565, 'Алексинский район', 'АЛЕКСИНСКИЙ РАЙОН', NULL),
+(567, 'ru', 566, 'Алексин', 'АЛЕКСИН', NULL),
+(568, 'ru', 567, 'Арсеньевский район', 'АРСЕНЬЕВСКИЙ РАЙОН', NULL),
+(569, 'ru', 568, 'Белевский район', 'БЕЛЕВСКИЙ РАЙОН', NULL),
+(570, 'ru', 569, 'Белев', 'БЕЛЕВ', NULL),
+(571, 'ru', 570, 'Богородицкий район', 'БОГОРОДИЦКИЙ РАЙОН', NULL),
+(572, 'ru', 571, 'Богородицк', 'БОГОРОДИЦК', NULL),
+(573, 'ru', 572, 'Веневский район', 'ВЕНЕВСКИЙ РАЙОН', NULL),
+(574, 'ru', 573, 'Венев', 'ВЕНЕВ', NULL),
+(575, 'ru', 574, 'Воловский район', 'ВОЛОВСКИЙ РАЙОН', NULL),
+(576, 'ru', 575, 'Ефремовский район', 'ЕФРЕМОВСКИЙ РАЙОН', NULL),
+(577, 'ru', 576, 'Ефремов', 'ЕФРЕМОВ', NULL),
+(578, 'ru', 577, 'Дубенский район', 'ДУБЕНСКИЙ РАЙОН', NULL),
+(579, 'ru', 578, 'Заокский район', 'ЗАОКСКИЙ РАЙОН', NULL),
+(580, 'ru', 579, 'Киреевский район', 'КИРЕЕВСКИЙ РАЙОН', NULL),
+(581, 'ru', 580, 'Липки', 'ЛИПКИ', NULL),
+(582, 'ru', 581, 'Болохово', 'БОЛОХОВО', NULL),
+(583, 'ru', 582, 'Киреевск', 'КИРЕЕВСК', NULL),
+(584, 'ru', 583, 'Кимовский район', 'КИМОВСКИЙ РАЙОН', NULL),
+(585, 'ru', 584, 'Кимовск', 'КИМОВСК', NULL),
+(586, 'ru', 585, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
+(587, 'ru', 586, 'Куркинский район', 'КУРКИНСКИЙ РАЙОН', NULL),
+(588, 'ru', 587, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
+(589, 'ru', 588, 'Новомосковский район', 'НОВОМОСКОВСКИЙ РАЙОН', NULL),
+(590, 'ru', 589, 'Новомосковск', 'НОВОМОСКОВСК', NULL),
+(591, 'ru', 590, 'Плавский район', 'ПЛАВСКИЙ РАЙОН', NULL),
+(592, 'ru', 591, 'Плавск', 'ПЛАВСК', NULL),
+(593, 'ru', 592, 'Одоевский район', 'ОДОЕВСКИЙ РАЙОН', NULL),
+(594, 'ru', 593, 'Суворовский район', 'СУВОРОВСКИЙ РАЙОН', NULL),
+(595, 'ru', 594, 'Суворов', 'СУВОРОВ', NULL),
+(596, 'ru', 595, 'Чекалин', 'ЧЕКАЛИН', NULL),
+(597, 'ru', 596, 'Тепло-Огаревский район', 'ТЕПЛО-ОГАРЕВСКИЙ РАЙОН', NULL),
+(598, 'ru', 597, 'Узловский район', 'УЗЛОВСКИЙ РАЙОН', NULL),
+(599, 'ru', 598, 'Узловая', 'УЗЛОВАЯ', NULL),
+(600, 'ru', 599, 'Чернский район', 'ЧЕРНСКИЙ РАЙОН', NULL),
+(601, 'ru', 600, 'Щекинский район', 'ЩЕКИНСКИЙ РАЙОН', NULL),
+(602, 'ru', 601, 'Советск', 'СОВЕТСК', NULL),
+(603, 'ru', 602, 'Щекино', 'ЩЕКИНО', NULL),
+(604, 'ru', 603, 'Ясногорский район', 'ЯСНОГОРСКИЙ РАЙОН', NULL),
+(605, 'ru', 604, 'Ясногорск', 'ЯСНОГОРСК', NULL),
+(606, 'ru', 605, 'Ярославская область', 'ЯРОСЛАВСКАЯ ОБЛАСТЬ', NULL),
+(607, 'ru', 606, 'Ярославль', 'ЯРОСЛАВЛЬ', NULL),
+(608, 'ru', 607, 'Ярославский район', 'ЯРОСЛАВСКИЙ РАЙОН', NULL),
+(609, 'ru', 608, 'Переславль-Залесский', 'ПЕРЕСЛАВЛЬ-ЗАЛЕССКИЙ', NULL),
+(610, 'ru', 609, 'Большесельский район', 'БОЛЬШЕСЕЛЬСКИЙ РАЙОН', NULL),
+(611, 'ru', 610, 'Брейтовский район', 'БРЕЙТОВСКИЙ РАЙОН', NULL),
+(612, 'ru', 611, 'Борисоглебский район', 'БОРИСОГЛЕБСКИЙ РАЙОН', NULL),
+(613, 'ru', 612, 'Гаврилов-Ямский район', 'ГАВРИЛОВ-ЯМСКИЙ РАЙОН', NULL),
+(614, 'ru', 613, 'Гаврилов-Ям', 'ГАВРИЛОВ-ЯМ', NULL),
+(615, 'ru', 614, 'Даниловский район', 'ДАНИЛОВСКИЙ РАЙОН', NULL),
+(616, 'ru', 615, 'Данилов', 'ДАНИЛОВ', NULL),
+(617, 'ru', 616, 'Любимский район', 'ЛЮБИМСКИЙ РАЙОН', NULL),
+(618, 'ru', 617, 'Любим', 'ЛЮБИМ', NULL),
+(619, 'ru', 618, 'Мышкинский район', 'МЫШКИНСКИЙ РАЙОН', NULL),
+(620, 'ru', 619, 'Мышкин', 'МЫШКИН', NULL),
+(621, 'ru', 620, 'Некоузский район', 'НЕКОУЗСКИЙ РАЙОН', NULL),
+(622, 'ru', 621, 'Некрасовский район', 'НЕКРАСОВСКИЙ РАЙОН', NULL),
+(623, 'ru', 622, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
+(624, 'ru', 623, 'Переславский район', 'ПЕРЕСЛАВСКИЙ РАЙОН', NULL),
+(625, 'ru', 624, 'Ростовский район', 'РОСТОВСКИЙ РАЙОН', NULL),
+(626, 'ru', 625, 'Ростов', 'РОСТОВ', NULL),
+(627, 'ru', 626, 'Пошехонский район', 'ПОШЕХОНСКИЙ РАЙОН', NULL),
+(628, 'ru', 627, 'Пошехонье', 'ПОШЕХОНЬЕ', NULL),
+(629, 'ru', 628, 'Рыбинский район', 'РЫБИНСКИЙ РАЙОН', NULL),
+(630, 'ru', 629, 'Рыбинск', 'РЫБИНСК', NULL),
+(631, 'ru', 630, 'Тутаевский район', 'ТУТАЕВСКИЙ РАЙОН', NULL),
+(632, 'ru', 631, 'Тутаев', 'ТУТАЕВ', NULL),
+(633, 'ru', 632, 'Угличский район', 'УГЛИЧСКИЙ РАЙОН', NULL),
+(634, 'ru', 633, 'Углич', 'УГЛИЧ', NULL),
+(635, 'ru', 634, 'Брянская область', 'БРЯНСКАЯ ОБЛАСТЬ', NULL),
+(636, 'ru', 635, 'Брянск', 'БРЯНСК', NULL),
+(637, 'ru', 636, 'Клинцы', 'КЛИНЦЫ', NULL),
+(638, 'ru', 637, 'Сельцо', 'СЕЛЬЦО', NULL),
+(639, 'ru', 638, 'Брянский район', 'БРЯНСКИЙ РАЙОН', NULL),
+(640, 'ru', 639, 'Новозыбков', 'НОВОЗЫБКОВ', NULL),
+(641, 'ru', 640, 'Брасовский район', 'БРАСОВСКИЙ РАЙОН', NULL),
+(642, 'ru', 641, 'Выгоничский район', 'ВЫГОНИЧСКИЙ РАЙОН', NULL),
+(643, 'ru', 642, 'Гордеевский район', 'ГОРДЕЕВСКИЙ РАЙОН', NULL),
+(644, 'ru', 643, 'Дубровский район', 'ДУБРОВСКИЙ РАЙОН', NULL),
+(645, 'ru', 644, 'Дятьковский район', 'ДЯТЬКОВСКИЙ РАЙОН', NULL),
+(646, 'ru', 645, 'Дятьково', 'ДЯТЬКОВО', NULL),
+(647, 'ru', 646, 'Фокино', 'ФОКИНО', NULL),
+(648, 'ru', 647, 'Жирятинский район', 'ЖИРЯТИНСКИЙ РАЙОН', NULL),
+(649, 'ru', 648, 'Жуковский район', 'ЖУКОВСКИЙ РАЙОН', NULL),
+(650, 'ru', 649, 'Жуковка', 'ЖУКОВКА', NULL),
+(651, 'ru', 650, 'Злынковский район', 'ЗЛЫНКОВСКИЙ РАЙОН', NULL),
+(652, 'ru', 651, 'Злынка', 'ЗЛЫНКА', NULL),
+(653, 'ru', 652, 'Карачевский район', 'КАРАЧЕВСКИЙ РАЙОН', NULL),
+(654, 'ru', 653, 'Карачев', 'КАРАЧЕВ', NULL),
+(655, 'ru', 654, 'Клетнянский район', 'КЛЕТНЯНСКИЙ РАЙОН', NULL),
+(656, 'ru', 655, 'Климовский район', 'КЛИМОВСКИЙ РАЙОН', NULL),
+(657, 'ru', 656, 'Клинцовский район', 'КЛИНЦОВСКИЙ РАЙОН', NULL),
+(658, 'ru', 657, 'Комаричский район', 'КОМАРИЧСКИЙ РАЙОН', NULL),
+(659, 'ru', 658, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
+(660, 'ru', 659, 'Мглинский район', 'МГЛИНСКИЙ РАЙОН', NULL),
+(661, 'ru', 660, 'Мглин', 'МГЛИН', NULL),
+(662, 'ru', 661, 'Навлинский район', 'НАВЛИНСКИЙ РАЙОН', NULL),
+(663, 'ru', 662, 'Новозыбковский район', 'НОВОЗЫБКОВСКИЙ РАЙОН', NULL),
+(664, 'ru', 663, 'Погарский район', 'ПОГАРСКИЙ РАЙОН', NULL),
+(665, 'ru', 664, 'Почепский район', 'ПОЧЕПСКИЙ РАЙОН', NULL),
+(666, 'ru', 665, 'Почеп', 'ПОЧЕП', NULL),
+(667, 'ru', 666, 'Рогнединский район', 'РОГНЕДИНСКИЙ РАЙОН', NULL),
+(668, 'ru', 667, 'Севский район', 'СЕВСКИЙ РАЙОН', NULL),
+(669, 'ru', 668, 'Севск', 'СЕВСК', NULL),
+(670, 'ru', 669, 'Стародубский район', 'СТАРОДУБСКИЙ РАЙОН', NULL),
+(671, 'ru', 670, 'Стародуб', 'СТАРОДУБ', NULL),
+(672, 'ru', 671, 'Суземский район', 'СУЗЕМСКИЙ РАЙОН', NULL),
+(673, 'ru', 672, 'Суражский район', 'СУРАЖСКИЙ РАЙОН', NULL),
+(674, 'ru', 673, 'Сураж', 'СУРАЖ', NULL),
+(675, 'ru', 674, 'Трубчевский район', 'ТРУБЧЕВСКИЙ РАЙОН', NULL),
+(676, 'ru', 675, 'Трубчевск', 'ТРУБЧЕВСК', NULL),
+(677, 'ru', 676, 'Унечский район', 'УНЕЧСКИЙ РАЙОН', NULL),
+(678, 'ru', 677, 'Унеча', 'УНЕЧА', NULL),
+(679, 'ru', 678, 'Воронежская область', 'ВОРОНЕЖСКАЯ ОБЛАСТЬ', NULL),
+(680, 'ru', 679, 'Воронеж', 'ВОРОНЕЖ', NULL),
+(681, 'ru', 680, 'Аннинский район', 'АННИНСКИЙ РАЙОН', NULL),
+(682, 'ru', 681, 'Бобровский район', 'БОБРОВСКИЙ РАЙОН', NULL),
+(683, 'ru', 682, 'Бобров', 'БОБРОВ', NULL),
+(684, 'ru', 683, 'Воронеж-45', 'ВОРОНЕЖ-45', NULL),
+(685, 'ru', 684, 'Нововоронеж', 'НОВОВОРОНЕЖ', NULL),
+(686, 'ru', 685, 'Богучарский район', 'БОГУЧАРСКИЙ РАЙОН', NULL),
+(687, 'ru', 686, 'Богучар', 'БОГУЧАР', NULL),
+(688, 'ru', 687, 'Борисоглебский район', 'БОРИСОГЛЕБСКИЙ РАЙОН', NULL),
+(689, 'ru', 688, 'Борисоглебск', 'БОРИСОГЛЕБСК', NULL),
+(690, 'ru', 689, 'Бутурлиновский район', 'БУТУРЛИНОВСКИЙ РАЙОН', NULL),
+(691, 'ru', 690, 'Бутурлиновка', 'БУТУРЛИНОВКА', NULL),
+(692, 'ru', 691, 'Верхнемамонский район', 'ВЕРХНЕМАМОНСКИЙ РАЙОН', NULL),
+(693, 'ru', 692, 'Верхнехавский район', 'ВЕРХНЕХАВСКИЙ РАЙОН', NULL),
+(694, 'ru', 693, 'Воробьевский район', 'ВОРОБЬЕВСКИЙ РАЙОН', NULL),
+(695, 'ru', 694, 'Грибановский район', 'ГРИБАНОВСКИЙ РАЙОН', NULL),
+(696, 'ru', 695, 'Калачеевский район', 'КАЛАЧЕЕВСКИЙ РАЙОН', NULL),
+(697, 'ru', 696, 'Калач', 'КАЛАЧ', NULL),
+(698, 'ru', 697, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
+(699, 'ru', 698, 'Кантемировский район', 'КАНТЕМИРОВСКИЙ РАЙОН', NULL),
+(700, 'ru', 699, 'Лискинский район', 'ЛИСКИНСКИЙ РАЙОН', NULL),
+(701, 'ru', 700, 'Лиски', 'ЛИСКИ', NULL),
+(702, 'ru', 701, 'Каширский район', 'КАШИРСКИЙ РАЙОН', NULL),
+(703, 'ru', 702, 'Нижнедевицкий район', 'НИЖНЕДЕВИЦКИЙ РАЙОН', NULL),
+(704, 'ru', 703, 'Новоусманский район', 'НОВОУСМАНСКИЙ РАЙОН', NULL),
+(705, 'ru', 704, 'Ольховатский район', 'ОЛЬХОВАТСКИЙ РАЙОН', NULL),
+(706, 'ru', 705, 'Острогожский район', 'ОСТРОГОЖСКИЙ РАЙОН', NULL),
+(707, 'ru', 706, 'Острогожск', 'ОСТРОГОЖСК', NULL),
+(708, 'ru', 707, 'Новохоперский район', 'НОВОХОПЕРСКИЙ РАЙОН', NULL),
+(709, 'ru', 708, 'Новохоперск', 'НОВОХОПЕРСК', NULL),
+(710, 'ru', 709, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
+(711, 'ru', 710, 'Павловск', 'ПАВЛОВСК', NULL),
+(712, 'ru', 711, 'Панинский район', 'ПАНИНСКИЙ РАЙОН', NULL),
+(713, 'ru', 712, 'Петропавловский район', 'ПЕТРОПАВЛОВСКИЙ РАЙОН', NULL),
+(714, 'ru', 713, 'Рамонский район', 'РАМОНСКИЙ РАЙОН', NULL),
+(715, 'ru', 714, 'Поворинский район', 'ПОВОРИНСКИЙ РАЙОН', NULL),
+(716, 'ru', 715, 'Поворино', 'ПОВОРИНО', NULL),
+(717, 'ru', 716, 'Подгоренский район', 'ПОДГОРЕНСКИЙ РАЙОН', NULL),
+(718, 'ru', 717, 'Репьевский район', 'РЕПЬЕВСКИЙ РАЙОН', NULL),
+(719, 'ru', 718, 'Россошанский район', 'РОССОШАНСКИЙ РАЙОН', NULL),
+(720, 'ru', 719, 'Россошь', 'РОССОШЬ', NULL),
+(721, 'ru', 720, 'Семилукский район', 'СЕМИЛУКСКИЙ РАЙОН', NULL),
+(722, 'ru', 721, 'Семилуки', 'СЕМИЛУКИ', NULL),
+(723, 'ru', 722, 'Хохольский район', 'ХОХОЛЬСКИЙ РАЙОН', NULL),
+(724, 'ru', 723, 'Таловский район', 'ТАЛОВСКИЙ РАЙОН', NULL),
+(725, 'ru', 724, 'Терновский район', 'ТЕРНОВСКИЙ РАЙОН', NULL),
+(726, 'ru', 725, 'Эртильский район', 'ЭРТИЛЬСКИЙ РАЙОН', NULL),
+(727, 'ru', 726, 'Эртиль', 'ЭРТИЛЬ', NULL),
+(728, 'ru', 727, 'Владимирская область', 'ВЛАДИМИРСКАЯ ОБЛАСТЬ', NULL),
+(729, 'ru', 728, 'Владимир', 'ВЛАДИМИР', NULL),
+(730, 'ru', 729, 'Гусь-Хрустальный', 'ГУСЬ-ХРУСТАЛЬНЫЙ', NULL),
+(731, 'ru', 730, 'Ковров', 'КОВРОВ', NULL),
+(732, 'ru', 731, 'Радужный', 'РАДУЖНЫЙ', NULL),
+(733, 'ru', 732, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
+(734, 'ru', 733, 'Александров', 'АЛЕКСАНДРОВ', NULL),
+(735, 'ru', 734, 'Струнино', 'СТРУНИНО', NULL),
+(736, 'ru', 735, 'Карабаново', 'КАРАБАНОВО', NULL),
+(737, 'ru', 736, 'Муром', 'МУРОМ', NULL),
+(738, 'ru', 737, 'Вязниковский район', 'ВЯЗНИКОВСКИЙ РАЙОН', NULL),
+(739, 'ru', 738, 'Вязники', 'ВЯЗНИКИ', NULL),
+(740, 'ru', 739, 'Гороховецкий район', 'ГОРОХОВЕЦКИЙ РАЙОН', NULL),
+(741, 'ru', 740, 'Гороховец', 'ГОРОХОВЕЦ', NULL),
+(742, 'ru', 741, 'Камешковский район', 'КАМЕШКОВСКИЙ РАЙОН', NULL),
+(743, 'ru', 742, 'Камешково', 'КАМЕШКОВО', NULL),
+(744, 'ru', 743, 'Гусь-Хрустальный район', 'ГУСЬ-ХРУСТАЛЬНЫЙ РАЙОН', NULL),
+(745, 'ru', 744, 'Курлово', 'КУРЛОВО', NULL),
+(746, 'ru', 745, 'Киржачский район', 'КИРЖАЧСКИЙ РАЙОН', NULL),
+(747, 'ru', 746, 'Киржач', 'КИРЖАЧ', NULL),
+(748, 'ru', 747, 'Ковровский район', 'КОВРОВСКИЙ РАЙОН', NULL),
+(749, 'ru', 748, 'Кольчугинский район', 'КОЛЬЧУГИНСКИЙ РАЙОН', NULL),
+(750, 'ru', 749, 'Кольчугино', 'КОЛЬЧУГИНО', NULL),
+(751, 'ru', 750, 'Меленковский район', 'МЕЛЕНКОВСКИЙ РАЙОН', NULL),
+(752, 'ru', 751, 'Меленки', 'МЕЛЕНКИ', NULL),
+(753, 'ru', 752, 'Муромский район', 'МУРОМСКИЙ РАЙОН', NULL),
+(754, 'ru', 753, 'Петушинский район', 'ПЕТУШИНСКИЙ РАЙОН', NULL),
+(755, 'ru', 754, 'Покров', 'ПОКРОВ', NULL),
+(756, 'ru', 755, 'Петушки', 'ПЕТУШКИ', NULL),
+(757, 'ru', 756, 'Костерево', 'КОСТЕРЕВО', NULL),
+(758, 'ru', 757, 'Селивановский район', 'СЕЛИВАНОВСКИЙ РАЙОН', NULL),
+(759, 'ru', 758, 'Собинский район', 'СОБИНСКИЙ РАЙОН', NULL),
+(760, 'ru', 759, 'Собинка', 'СОБИНКА', NULL),
+(761, 'ru', 760, 'Лакинск', 'ЛАКИНСК', NULL),
+(762, 'ru', 761, 'Судогодский район', 'СУДОГОДСКИЙ РАЙОН', NULL),
+(763, 'ru', 762, 'Судогда', 'СУДОГДА', NULL),
+(764, 'ru', 763, 'Суздальский район', 'СУЗДАЛЬСКИЙ РАЙОН', NULL),
+(765, 'ru', 764, 'Суздаль', 'СУЗДАЛЬ', NULL),
+(766, 'ru', 765, 'Юрьев-Польский район', 'ЮРЬЕВ-ПОЛЬСКИЙ РАЙОН', NULL),
+(767, 'ru', 766, 'Юрьев-Польский', 'ЮРЬЕВ-ПОЛЬСКИЙ', NULL),
+(768, 'ru', 767, 'Северо-Запад', 'СЕВЕРО-ЗАПАД', NULL),
+(769, 'ru', 768, 'Ленинградская область', 'ЛЕНИНГРАДСКАЯ ОБЛАСТЬ', NULL),
+(770, 'ru', 769, 'Волосовский район', 'ВОЛОСОВСКИЙ РАЙОН', NULL),
+(771, 'ru', 770, 'Волосово', 'ВОЛОСОВО', NULL),
+(772, 'ru', 771, 'Бокситогорский район', 'БОКСИТОГОРСКИЙ РАЙОН', NULL),
+(773, 'ru', 772, 'Бокситогорск', 'БОКСИТОГОРСК', NULL),
+(774, 'ru', 773, 'Пикалево', 'ПИКАЛЕВО', NULL),
+(775, 'ru', 774, 'Сосновый Бор', 'СОСНОВЫЙ БОР', NULL),
+(776, 'ru', 775, 'Волховский район', 'ВОЛХОВСКИЙ РАЙОН', NULL),
+(777, 'ru', 776, 'Волхов', 'ВОЛХОВ', NULL),
+(778, 'ru', 777, 'Новая Ладога', 'НОВАЯ ЛАДОГА', NULL),
+(779, 'ru', 778, 'Сясьстрой', 'СЯСЬСТРОЙ', NULL),
+(780, 'ru', 779, 'Всеволожский район', 'ВСЕВОЛОЖСКИЙ РАЙОН', NULL),
+(781, 'ru', 780, 'Сертолово', 'СЕРТОЛОВО', NULL),
+(782, 'ru', 781, 'Всеволожск', 'ВСЕВОЛОЖСК', NULL),
+(783, 'ru', 782, 'Выборгский район', 'ВЫБОРГСКИЙ РАЙОН', NULL),
+(784, 'ru', 783, 'Выборг', 'ВЫБОРГ', NULL),
+(785, 'ru', 784, 'Каменногорск', 'КАМЕННОГОРСК', NULL),
+(786, 'ru', 785, 'Высоцк', 'ВЫСОЦК', NULL),
+(787, 'ru', 786, 'Приморск', 'ПРИМОРСК', NULL),
+(788, 'ru', 787, 'Светогорск', 'СВЕТОГОРСК', NULL),
+(789, 'ru', 788, 'Гатчинский район', 'ГАТЧИНСКИЙ РАЙОН', NULL),
+(790, 'ru', 789, 'Коммунар', 'КОММУНАР', NULL),
+(791, 'ru', 790, 'Гатчина', 'ГАТЧИНА', NULL),
+(792, 'ru', 791, 'Кингисеппский район', 'КИНГИСЕППСКИЙ РАЙОН', NULL),
+(793, 'ru', 792, 'Ивангород', 'ИВАНГОРОД', NULL),
+(794, 'ru', 793, 'Кингисепп', 'КИНГИСЕПП', NULL),
+(795, 'ru', 794, 'Киришский район', 'КИРИШСКИЙ РАЙОН', NULL),
+(796, 'ru', 795, 'Кириши', 'КИРИШИ', NULL),
+(797, 'ru', 796, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(798, 'ru', 797, 'Шлиссельбург', 'ШЛИССЕЛЬБУРГ', NULL),
+(799, 'ru', 798, 'Кировск', 'КИРОВСК', NULL),
+(800, 'ru', 799, 'Отрадное', 'ОТРАДНОЕ', NULL),
+(801, 'ru', 800, 'Лодейнопольский район', 'ЛОДЕЙНОПОЛЬСКИЙ РАЙОН', NULL),
+(802, 'ru', 801, 'Лодейное Поле', 'ЛОДЕЙНОЕ ПОЛЕ', NULL),
+(803, 'ru', 802, 'Лужский район', 'ЛУЖСКИЙ РАЙОН', NULL),
+(804, 'ru', 803, 'Луга', 'ЛУГА', NULL),
+(805, 'ru', 804, 'Ломоносовский район', 'ЛОМОНОСОВСКИЙ РАЙОН', NULL),
+(806, 'ru', 805, 'Подпорожский район', 'ПОДПОРОЖСКИЙ РАЙОН', NULL),
+(807, 'ru', 806, 'Подпорожье', 'ПОДПОРОЖЬЕ', NULL),
+(808, 'ru', 807, 'Приозерский район', 'ПРИОЗЕРСКИЙ РАЙОН', NULL),
+(809, 'ru', 808, 'Приозерск', 'ПРИОЗЕРСК', NULL),
+(810, 'ru', 809, 'Сланцевский район', 'СЛАНЦЕВСКИЙ РАЙОН', NULL),
+(811, 'ru', 810, 'Сланцы', 'СЛАНЦЫ', NULL),
+(812, 'ru', 811, 'Тихвинский район', 'ТИХВИНСКИЙ РАЙОН', NULL),
+(813, 'ru', 812, 'Тихвин', 'ТИХВИН', NULL),
+(814, 'ru', 813, 'Тосненский район', 'ТОСНЕНСКИЙ РАЙОН', NULL),
+(815, 'ru', 814, 'Любань', 'ЛЮБАНЬ', NULL),
+(816, 'ru', 815, 'Никольское', 'НИКОЛЬСКОЕ', NULL),
+(817, 'ru', 816, 'Тосно', 'ТОСНО', NULL),
+(818, 'ru', 817, 'Санкт-Петербург', 'САНКТ-ПЕТЕРБУРГ', NULL),
+(819, 'ru', 818, 'Зеленогорск', 'ЗЕЛЕНОГОРСК', NULL),
+(820, 'ru', 819, 'Кронштадт', 'КРОНШТАДТ', NULL),
+(821, 'ru', 820, 'Красное Село', 'КРАСНОЕ СЕЛО', NULL),
+(822, 'ru', 821, 'Колпино', 'КОЛПИНО', NULL),
+(823, 'ru', 822, 'Сестрорецк', 'СЕСТРОРЕЦК', NULL),
+(824, 'ru', 823, 'Пушкин', 'ПУШКИН', NULL),
+(825, 'ru', 824, 'Павловск', 'ПАВЛОВСК', NULL),
+(826, 'ru', 825, 'Петергоф', 'ПЕТЕРГОФ', NULL),
+(827, 'ru', 826, 'Ломоносов', 'ЛОМОНОСОВ', NULL),
+(828, 'ru', 827, 'Республика Коми', 'РЕСПУБЛИКА КОМИ', NULL),
+(829, 'ru', 828, 'Сыктывкар', 'СЫКТЫВКАР', NULL),
+(830, 'ru', 829, 'Воркута', 'ВОРКУТА', NULL),
+(831, 'ru', 830, 'Вуктыл', 'ВУКТЫЛ', NULL),
+(832, 'ru', 831, 'Сосногорск', 'СОСНОГОРСК', NULL),
+(833, 'ru', 832, 'Печора', 'ПЕЧОРА', NULL),
+(834, 'ru', 833, 'Усинск', 'УСИНСК', NULL),
+(835, 'ru', 834, 'Инта', 'ИНТА', NULL),
+(836, 'ru', 835, 'Ухта', 'УХТА', NULL),
+(837, 'ru', 836, 'Ижемский район', 'ИЖЕМСКИЙ РАЙОН', NULL),
+(838, 'ru', 837, 'Княжпогостский район', 'КНЯЖПОГОСТСКИЙ РАЙОН', NULL),
+(839, 'ru', 838, 'Емва', 'ЕМВА', NULL),
+(840, 'ru', 839, 'Койгородский район', 'КОЙГОРОДСКИЙ РАЙОН', NULL),
+(841, 'ru', 840, 'Корткеросский район', 'КОРТКЕРОССКИЙ РАЙОН', NULL),
+(842, 'ru', 841, 'Сысольский район', 'СЫСОЛЬСКИЙ РАЙОН', NULL),
+(843, 'ru', 842, 'Сыктывдинский район', 'СЫКТЫВДИНСКИЙ РАЙОН', NULL),
+(844, 'ru', 843, 'Прилузский район', 'ПРИЛУЗСКИЙ РАЙОН', NULL),
+(845, 'ru', 844, 'Троицко-Печорский район', 'ТРОИЦКО-ПЕЧОРСКИЙ РАЙОН', NULL),
+(846, 'ru', 845, 'Удорский район', 'УДОРСКИЙ РАЙОН', NULL),
+(847, 'ru', 846, 'Усть-Вымский район', 'УСТЬ-ВЫМСКИЙ РАЙОН', NULL),
+(848, 'ru', 847, 'Микунь', 'МИКУНЬ', NULL),
+(849, 'ru', 848, 'Усть-Цилемский район', 'УСТЬ-ЦИЛЕМСКИЙ РАЙОН', NULL),
+(850, 'ru', 849, 'Усть-Куломский район', 'УСТЬ-КУЛОМСКИЙ РАЙОН', NULL),
+(851, 'ru', 850, 'Республика Карелия', 'РЕСПУБЛИКА КАРЕЛИЯ', NULL),
+(852, 'ru', 851, 'Костомукша', 'КОСТОМУКША', NULL),
+(853, 'ru', 852, 'Петрозаводск', 'ПЕТРОЗАВОДСК', NULL),
+(854, 'ru', 853, 'Прионежский район', 'ПРИОНЕЖСКИЙ РАЙОН', NULL),
+(855, 'ru', 854, 'Сортавала', 'СОРТАВАЛА', NULL),
+(856, 'ru', 855, 'Калевальский район', 'КАЛЕВАЛЬСКИЙ РАЙОН', NULL),
+(857, 'ru', 856, 'Кемский район', 'КЕМСКИЙ РАЙОН', NULL),
+(858, 'ru', 857, 'Кемь', 'КЕМЬ', NULL),
+(859, 'ru', 858, 'Кондопожский район', 'КОНДОПОЖСКИЙ РАЙОН', NULL),
+(860, 'ru', 859, 'Кондопога', 'КОНДОПОГА', NULL),
+(861, 'ru', 860, 'Лахденпохский район', 'ЛАХДЕНПОХСКИЙ РАЙОН', NULL),
+(862, 'ru', 861, 'Лахденпохья', 'ЛАХДЕНПОХЬЯ', NULL),
+(863, 'ru', 862, 'Беломорский район', 'БЕЛОМОРСКИЙ РАЙОН', NULL),
+(864, 'ru', 863, 'Беломорск', 'БЕЛОМОРСК', NULL),
+(865, 'ru', 864, 'Лоухский район', 'ЛОУХСКИЙ РАЙОН', NULL),
+(866, 'ru', 865, 'Медвежьегорский район', 'МЕДВЕЖЬЕГОРСКИЙ РАЙОН', NULL),
+(867, 'ru', 866, 'Медвежьегорск', 'МЕДВЕЖЬЕГОРСК', NULL),
+(868, 'ru', 867, 'Муезерский район', 'МУЕЗЕРСКИЙ РАЙОН', NULL),
+(869, 'ru', 868, 'Олонецкий район', 'ОЛОНЕЦКИЙ РАЙОН', NULL),
+(870, 'ru', 869, 'Олонец', 'ОЛОНЕЦ', NULL),
+(871, 'ru', 870, 'Пудожский район', 'ПУДОЖСКИЙ РАЙОН', NULL),
+(872, 'ru', 871, 'Пудож', 'ПУДОЖ', NULL),
+(873, 'ru', 872, 'Питкярантский район', 'ПИТКЯРАНТСКИЙ РАЙОН', NULL),
+(874, 'ru', 873, 'Питкяранта', 'ПИТКЯРАНТА', NULL),
+(875, 'ru', 874, 'Пряжинский район', 'ПРЯЖИНСКИЙ РАЙОН', NULL),
+(876, 'ru', 875, 'Суоярвский район', 'СУОЯРВСКИЙ РАЙОН', NULL),
+(877, 'ru', 876, 'Суоярви', 'СУОЯРВИ', NULL),
+(878, 'ru', 877, 'Сегежский район', 'СЕГЕЖСКИЙ РАЙОН', NULL),
+(879, 'ru', 878, 'Сегежа', 'СЕГЕЖА', NULL),
+(880, 'ru', 879, 'Вологодская область', 'ВОЛОГОДСКАЯ ОБЛАСТЬ', NULL),
+(881, 'ru', 880, 'Череповец', 'ЧЕРЕПОВЕЦ', NULL),
+(882, 'ru', 881, 'Вологда', 'ВОЛОГДА', NULL),
+(883, 'ru', 882, 'Вологодский район', 'ВОЛОГОДСКИЙ РАЙОН', NULL),
+(884, 'ru', 883, 'Белозерский район', 'БЕЛОЗЕРСКИЙ РАЙОН', NULL),
+(885, 'ru', 884, 'Белозерск', 'БЕЛОЗЕРСК', NULL),
+(886, 'ru', 885, 'Бабаевский район', 'БАБАЕВСКИЙ РАЙОН', NULL),
+(887, 'ru', 886, 'Бабаево', 'БАБАЕВО', NULL),
+(888, 'ru', 887, 'Бабушкинский район', 'БАБУШКИНСКИЙ РАЙОН', NULL),
+(889, 'ru', 888, 'Вашкинский район', 'ВАШКИНСКИЙ РАЙОН', NULL),
+(890, 'ru', 889, 'Великоустюгский район', 'ВЕЛИКОУСТЮГСКИЙ РАЙОН', NULL),
+(891, 'ru', 890, 'Великий Устюг', 'ВЕЛИКИЙ УСТЮГ', NULL),
+(892, 'ru', 891, 'Красавино', 'КРАСАВИНО', NULL),
+(893, 'ru', 892, 'Вожегодский район', 'ВОЖЕГОДСКИЙ РАЙОН', NULL),
+(894, 'ru', 893, 'Верховажский район', 'ВЕРХОВАЖСКИЙ РАЙОН', NULL),
+(895, 'ru', 894, 'Грязовецкий район', 'ГРЯЗОВЕЦКИЙ РАЙОН', NULL);
+INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
+(896, 'ru', 895, 'Грязовец', 'ГРЯЗОВЕЦ', NULL),
+(897, 'ru', 896, 'Вытегорский район', 'ВЫТЕГОРСКИЙ РАЙОН', NULL),
+(898, 'ru', 897, 'Вытегра', 'ВЫТЕГРА', NULL),
+(899, 'ru', 898, 'Кадуйский район', 'КАДУЙСКИЙ РАЙОН', NULL),
+(900, 'ru', 899, 'Кирилловский район', 'КИРИЛЛОВСКИЙ РАЙОН', NULL),
+(901, 'ru', 900, 'Кириллов', 'КИРИЛЛОВ', NULL),
+(902, 'ru', 901, 'Кичменгско-Городецкий район', 'КИЧМЕНГСКО-ГОРОДЕЦКИЙ РАЙОН', NULL),
+(903, 'ru', 902, 'Нюксенский район', 'НЮКСЕНСКИЙ РАЙОН', NULL),
+(904, 'ru', 903, 'Междуреченский район', 'МЕЖДУРЕЧЕНСКИЙ РАЙОН', NULL),
+(905, 'ru', 904, 'Никольский район', 'НИКОЛЬСКИЙ РАЙОН', NULL),
+(906, 'ru', 905, 'Никольск', 'НИКОЛЬСК', NULL),
+(907, 'ru', 906, 'Сямженский район', 'СЯМЖЕНСКИЙ РАЙОН', NULL),
+(908, 'ru', 907, 'Сокольский район', 'СОКОЛЬСКИЙ РАЙОН', NULL),
+(909, 'ru', 908, 'Кадников', 'КАДНИКОВ', NULL),
+(910, 'ru', 909, 'Сокол', 'СОКОЛ', NULL),
+(911, 'ru', 910, 'Тотемский район', 'ТОТЕМСКИЙ РАЙОН', NULL),
+(912, 'ru', 911, 'Тотьма', 'ТОТЬМА', NULL),
+(913, 'ru', 912, 'Тарногский район', 'ТАРНОГСКИЙ РАЙОН', NULL),
+(914, 'ru', 913, 'Усть-Кубинский район', 'УСТЬ-КУБИНСКИЙ РАЙОН', NULL),
+(915, 'ru', 914, 'Устюженский район', 'УСТЮЖЕНСКИЙ РАЙОН', NULL),
+(916, 'ru', 915, 'Устюжна', 'УСТЮЖНА', NULL),
+(917, 'ru', 916, 'Харовский район', 'ХАРОВСКИЙ РАЙОН', NULL),
+(918, 'ru', 917, 'Харовск', 'ХАРОВСК', NULL),
+(919, 'ru', 918, 'Череповецкий район', 'ЧЕРЕПОВЕЦКИЙ РАЙОН', NULL),
+(920, 'ru', 919, 'Чагодощенский район', 'ЧАГОДОЩЕНСКИЙ РАЙОН', NULL),
+(921, 'ru', 920, 'Шекснинский район', 'ШЕКСНИНСКИЙ РАЙОН', NULL),
+(922, 'ru', 921, 'Архангельская область', 'АРХАНГЕЛЬСКАЯ ОБЛАСТЬ', NULL),
+(923, 'ru', 922, 'Новодвинск', 'НОВОДВИНСК', NULL),
+(924, 'ru', 923, 'Северодвинск', 'СЕВЕРОДВИНСК', NULL),
+(925, 'ru', 924, 'Мирный', 'МИРНЫЙ', NULL),
+(926, 'ru', 925, 'Архангельск', 'АРХАНГЕЛЬСК', NULL),
+(927, 'ru', 926, 'Коряжма', 'КОРЯЖМА', NULL),
+(928, 'ru', 927, 'Приморский район', 'ПРИМОРСКИЙ РАЙОН', NULL),
+(929, 'ru', 928, 'Вельский район', 'ВЕЛЬСКИЙ РАЙОН', NULL),
+(930, 'ru', 929, 'Вельск', 'ВЕЛЬСК', NULL),
+(931, 'ru', 930, 'Верхнетоемский район', 'ВЕРХНЕТОЕМСКИЙ РАЙОН', NULL),
+(932, 'ru', 931, 'Виноградовский район', 'ВИНОГРАДОВСКИЙ РАЙОН', NULL),
+(933, 'ru', 932, 'Каргопольский район', 'КАРГОПОЛЬСКИЙ РАЙОН', NULL),
+(934, 'ru', 933, 'Каргополь', 'КАРГОПОЛЬ', NULL),
+(935, 'ru', 934, 'Вилегодский район', 'ВИЛЕГОДСКИЙ РАЙОН', NULL),
+(936, 'ru', 935, 'Коношский район', 'КОНОШСКИЙ РАЙОН', NULL),
+(937, 'ru', 936, 'Котласский район', 'КОТЛАССКИЙ РАЙОН', NULL),
+(938, 'ru', 937, 'Котлас', 'КОТЛАС', NULL),
+(939, 'ru', 938, 'Сольвычегодск', 'СОЛЬВЫЧЕГОДСК', NULL),
+(940, 'ru', 939, 'Красноборский район', 'КРАСНОБОРСКИЙ РАЙОН', NULL),
+(941, 'ru', 940, 'Мезенский район', 'МЕЗЕНСКИЙ РАЙОН', NULL),
+(942, 'ru', 941, 'Мезень', 'МЕЗЕНЬ', NULL),
+(943, 'ru', 942, 'Ленский район', 'ЛЕНСКИЙ РАЙОН', NULL),
+(944, 'ru', 943, 'Лешуконский район', 'ЛЕШУКОНСКИЙ РАЙОН', NULL),
+(945, 'ru', 944, 'Няндомский район', 'НЯНДОМСКИЙ РАЙОН', NULL),
+(946, 'ru', 945, 'Няндома', 'НЯНДОМА', NULL),
+(947, 'ru', 946, 'Онежский район', 'ОНЕЖСКИЙ РАЙОН', NULL),
+(948, 'ru', 947, 'Онега', 'ОНЕГА', NULL),
+(949, 'ru', 948, 'Плесецкий район', 'ПЛЕСЕЦКИЙ РАЙОН', NULL),
+(950, 'ru', 949, 'Пинежский район', 'ПИНЕЖСКИЙ РАЙОН', NULL),
+(951, 'ru', 950, 'Устьянский район', 'УСТЬЯНСКИЙ РАЙОН', NULL),
+(952, 'ru', 951, 'Холмогорский район', 'ХОЛМОГОРСКИЙ РАЙОН', NULL),
+(953, 'ru', 952, 'Шенкурский район', 'ШЕНКУРСКИЙ РАЙОН', NULL),
+(954, 'ru', 953, 'Шенкурск', 'ШЕНКУРСК', NULL),
+(955, 'ru', 954, 'Соловецкий район', 'СОЛОВЕЦКИЙ РАЙОН', NULL),
+(956, 'ru', 955, 'Мурманская область', 'МУРМАНСКАЯ ОБЛАСТЬ', NULL),
+(957, 'ru', 956, 'Мурманск', 'МУРМАНСК', NULL),
+(958, 'ru', 957, 'Апатиты', 'АПАТИТЫ', NULL),
+(959, 'ru', 958, 'Оленегорск', 'ОЛЕНЕГОРСК', NULL),
+(960, 'ru', 959, 'Заозерск', 'ЗАОЗЕРСК', NULL),
+(961, 'ru', 960, 'Островной', 'ОСТРОВНОЙ', NULL),
+(962, 'ru', 961, 'Полярные Зори', 'ПОЛЯРНЫЕ ЗОРИ', NULL),
+(963, 'ru', 962, 'Кировск', 'КИРОВСК', NULL),
+(964, 'ru', 963, 'Кандалакша', 'КАНДАЛАКША', NULL),
+(965, 'ru', 964, 'Мончегорск', 'МОНЧЕГОРСК', NULL),
+(966, 'ru', 965, 'Кольский район', 'КОЛЬСКИЙ РАЙОН', NULL),
+(967, 'ru', 966, 'Кола', 'КОЛА', NULL),
+(968, 'ru', 967, 'Оленегорск-2', 'ОЛЕНЕГОРСК-2', NULL),
+(969, 'ru', 968, 'Ковдорский район', 'КОВДОРСКИЙ РАЙОН', NULL),
+(970, 'ru', 969, 'Ковдор', 'КОВДОР', NULL),
+(971, 'ru', 970, 'Оленегорск-4', 'ОЛЕНЕГОРСК-4', NULL),
+(972, 'ru', 971, 'Североморск', 'СЕВЕРОМОРСК', NULL),
+(973, 'ru', 972, 'Ловозерский район', 'ЛОВОЗЕРСКИЙ РАЙОН', NULL),
+(974, 'ru', 973, 'Оленегорск-1', 'ОЛЕНЕГОРСК-1', NULL),
+(975, 'ru', 974, 'Печенгский район', 'ПЕЧЕНГСКИЙ РАЙОН', NULL),
+(976, 'ru', 975, 'Заполярный', 'ЗАПОЛЯРНЫЙ', NULL),
+(977, 'ru', 976, 'Гаджиево', 'ГАДЖИЕВО', NULL),
+(978, 'ru', 977, 'Полярный', 'ПОЛЯРНЫЙ', NULL),
+(979, 'ru', 978, 'Снежногорск', 'СНЕЖНОГОРСК', NULL),
+(980, 'ru', 979, 'Терский район', 'ТЕРСКИЙ РАЙОН', NULL),
+(981, 'ru', 980, 'Калининградская область', 'КАЛИНИНГРАДСКАЯ ОБЛАСТЬ', NULL),
+(982, 'ru', 981, 'Калининград', 'КАЛИНИНГРАД', NULL),
+(983, 'ru', 982, 'Пионерский', 'ПИОНЕРСКИЙ', NULL),
+(984, 'ru', 983, 'Мамоново', 'МАМОНОВО', NULL),
+(985, 'ru', 984, 'Гвардейский район', 'ГВАРДЕЙСКИЙ РАЙОН', NULL),
+(986, 'ru', 985, 'Гвардейск', 'ГВАРДЕЙСК', NULL),
+(987, 'ru', 986, 'Советск', 'СОВЕТСК', NULL),
+(988, 'ru', 987, 'Багратионовский район', 'БАГРАТИОНОВСКИЙ РАЙОН', NULL),
+(989, 'ru', 988, 'Багратионовск', 'БАГРАТИОНОВСК', NULL),
+(990, 'ru', 989, 'Ладушкин', 'ЛАДУШКИН', NULL),
+(991, 'ru', 990, 'Светлый', 'СВЕТЛЫЙ', NULL),
+(992, 'ru', 991, 'Гурьевский район', 'ГУРЬЕВСКИЙ РАЙОН', NULL),
+(993, 'ru', 992, 'Гурьевск', 'ГУРЬЕВСК', NULL),
+(994, 'ru', 993, 'Неманский район', 'НЕМАНСКИЙ РАЙОН', NULL),
+(995, 'ru', 994, 'Неман', 'НЕМАН', NULL),
+(996, 'ru', 995, 'Зеленоградский район', 'ЗЕЛЕНОГРАДСКИЙ РАЙОН', NULL),
+(997, 'ru', 996, 'Зеленоградск', 'ЗЕЛЕНОГРАДСК', NULL),
+(998, 'ru', 997, 'Краснознаменский район', 'КРАСНОЗНАМЕНСКИЙ РАЙОН', NULL),
+(999, 'ru', 998, 'Краснознаменск', 'КРАСНОЗНАМЕНСК', NULL),
+(1000, 'ru', 999, 'Гусевский район', 'ГУСЕВСКИЙ РАЙОН', NULL),
+(1001, 'ru', 1000, 'Гусев', 'ГУСЕВ', NULL),
+(1002, 'ru', 1001, 'Озерский район', 'ОЗЕРСКИЙ РАЙОН', NULL),
+(1003, 'ru', 1002, 'Озерск', 'ОЗЕРСК', NULL),
+(1004, 'ru', 1003, 'Нестеровский район', 'НЕСТЕРОВСКИЙ РАЙОН', NULL),
+(1005, 'ru', 1004, 'Нестеров', 'НЕСТЕРОВ', NULL),
+(1006, 'ru', 1005, 'Правдинский район', 'ПРАВДИНСКИЙ РАЙОН', NULL),
+(1007, 'ru', 1006, 'Правдинск', 'ПРАВДИНСК', NULL),
+(1008, 'ru', 1007, 'Полесский район', 'ПОЛЕССКИЙ РАЙОН', NULL),
+(1009, 'ru', 1008, 'Полесск', 'ПОЛЕССК', NULL),
+(1010, 'ru', 1009, 'Славский район', 'СЛАВСКИЙ РАЙОН', NULL),
+(1011, 'ru', 1010, 'Славск', 'СЛАВСК', NULL),
+(1012, 'ru', 1011, 'Балтийский район', 'БАЛТИЙСКИЙ РАЙОН', NULL),
+(1013, 'ru', 1012, 'Приморск', 'ПРИМОРСК', NULL),
+(1014, 'ru', 1013, 'Балтийск', 'БАЛТИЙСК', NULL),
+(1015, 'ru', 1014, 'Черняховский район', 'ЧЕРНЯХОВСКИЙ РАЙОН', NULL),
+(1016, 'ru', 1015, 'Черняховск', 'ЧЕРНЯХОВСК', NULL),
+(1017, 'ru', 1016, 'Светлогорский район', 'СВЕТЛОГОРСКИЙ РАЙОН', NULL),
+(1018, 'ru', 1017, 'Светлогорск', 'СВЕТЛОГОРСК', NULL),
+(1019, 'ru', 1018, 'Псковская область', 'ПСКОВСКАЯ ОБЛАСТЬ', NULL),
+(1020, 'ru', 1019, 'Псков', 'ПСКОВ', NULL),
+(1021, 'ru', 1020, 'Великие Луки', 'ВЕЛИКИЕ ЛУКИ', NULL),
+(1022, 'ru', 1021, 'Великолукский район', 'ВЕЛИКОЛУКСКИЙ РАЙОН', NULL),
+(1023, 'ru', 1022, 'Великие Луки-1', 'ВЕЛИКИЕ ЛУКИ-1', NULL),
+(1024, 'ru', 1023, 'Бежаницкий район', 'БЕЖАНИЦКИЙ РАЙОН', NULL),
+(1025, 'ru', 1024, 'Дедовичский район', 'ДЕДОВИЧСКИЙ РАЙОН', NULL),
+(1026, 'ru', 1025, 'Гдовский район', 'ГДОВСКИЙ РАЙОН', NULL),
+(1027, 'ru', 1026, 'Гдов', 'ГДОВ', NULL),
+(1028, 'ru', 1027, 'Локнянский район', 'ЛОКНЯНСКИЙ РАЙОН', NULL),
+(1029, 'ru', 1028, 'Куньинский район', 'КУНЬИНСКИЙ РАЙОН', NULL),
+(1030, 'ru', 1029, 'Красногородский район', 'КРАСНОГОРОДСКИЙ РАЙОН', NULL),
+(1031, 'ru', 1030, 'Дновский район', 'ДНОВСКИЙ РАЙОН', NULL),
+(1032, 'ru', 1031, 'Дно', 'ДНО', NULL),
+(1033, 'ru', 1032, 'Невельский район', 'НЕВЕЛЬСКИЙ РАЙОН', NULL),
+(1034, 'ru', 1033, 'Невель', 'НЕВЕЛЬ', NULL),
+(1035, 'ru', 1034, 'Новосокольнический район', 'НОВОСОКОЛЬНИЧЕСКИЙ РАЙОН', NULL),
+(1036, 'ru', 1035, 'Новосокольники', 'НОВОСОКОЛЬНИКИ', NULL),
+(1037, 'ru', 1036, 'Новоржевский район', 'НОВОРЖЕВСКИЙ РАЙОН', NULL),
+(1038, 'ru', 1037, 'Новоржев', 'НОВОРЖЕВ', NULL),
+(1039, 'ru', 1038, 'Островский район', 'ОСТРОВСКИЙ РАЙОН', NULL),
+(1040, 'ru', 1039, 'Остров', 'ОСТРОВ', NULL),
+(1041, 'ru', 1040, 'Опочецкий район', 'ОПОЧЕЦКИЙ РАЙОН', NULL),
+(1042, 'ru', 1041, 'Опочка', 'ОПОЧКА', NULL),
+(1043, 'ru', 1042, 'Палкинский район', 'ПАЛКИНСКИЙ РАЙОН', NULL),
+(1044, 'ru', 1043, 'Печорский район', 'ПЕЧОРСКИЙ РАЙОН', NULL),
+(1045, 'ru', 1044, 'Печоры', 'ПЕЧОРЫ', NULL),
+(1046, 'ru', 1045, 'Плюсский район', 'ПЛЮССКИЙ РАЙОН', NULL),
+(1047, 'ru', 1046, 'Порховский район', 'ПОРХОВСКИЙ РАЙОН', NULL),
+(1048, 'ru', 1047, 'Порхов', 'ПОРХОВ', NULL),
+(1049, 'ru', 1048, 'Пустошкинский район', 'ПУСТОШКИНСКИЙ РАЙОН', NULL),
+(1050, 'ru', 1049, 'Пустошка', 'ПУСТОШКА', NULL),
+(1051, 'ru', 1050, 'Пушкиногорский район', 'ПУШКИНОГОРСКИЙ РАЙОН', NULL),
+(1052, 'ru', 1051, 'Пыталовский район', 'ПЫТАЛОВСКИЙ РАЙОН', NULL),
+(1053, 'ru', 1052, 'Пыталово', 'ПЫТАЛОВО', NULL),
+(1054, 'ru', 1053, 'Себежский район', 'СЕБЕЖСКИЙ РАЙОН', NULL),
+(1055, 'ru', 1054, 'Себеж', 'СЕБЕЖ', NULL),
+(1056, 'ru', 1055, 'Усвятский район', 'УСВЯТСКИЙ РАЙОН', NULL),
+(1057, 'ru', 1056, 'Струго-Красненский район', 'СТРУГО-КРАСНЕНСКИЙ РАЙОН', NULL),
+(1058, 'ru', 1057, 'Псковский район', 'ПСКОВСКИЙ РАЙОН', NULL),
+(1059, 'ru', 1058, 'Новгородская область', 'НОВГОРОДСКАЯ ОБЛАСТЬ', NULL),
+(1060, 'ru', 1059, 'Новгородский район', 'НОВГОРОДСКИЙ РАЙОН', NULL),
+(1061, 'ru', 1060, 'Великий Новгород', 'ВЕЛИКИЙ НОВГОРОД', NULL),
+(1062, 'ru', 1061, 'Батецкий район', 'БАТЕЦКИЙ РАЙОН', NULL),
+(1063, 'ru', 1062, 'Боровичский район', 'БОРОВИЧСКИЙ РАЙОН', NULL),
+(1064, 'ru', 1063, 'Боровичи', 'БОРОВИЧИ', NULL),
+(1065, 'ru', 1064, 'Валдайский район', 'ВАЛДАЙСКИЙ РАЙОН', NULL),
+(1066, 'ru', 1065, 'Валдай', 'ВАЛДАЙ', NULL),
+(1067, 'ru', 1066, 'Волотовский район', 'ВОЛОТОВСКИЙ РАЙОН', NULL),
+(1068, 'ru', 1067, 'Демянский район', 'ДЕМЯНСКИЙ РАЙОН', NULL),
+(1069, 'ru', 1068, 'Любытинский район', 'ЛЮБЫТИНСКИЙ РАЙОН', NULL),
+(1070, 'ru', 1069, 'Маловишерский район', 'МАЛОВИШЕРСКИЙ РАЙОН', NULL),
+(1071, 'ru', 1070, 'Малая Вишера', 'МАЛАЯ ВИШЕРА', NULL),
+(1072, 'ru', 1071, 'Крестецкий район', 'КРЕСТЕЦКИЙ РАЙОН', NULL),
+(1073, 'ru', 1072, 'Мошенской район', 'МОШЕНСКОЙ РАЙОН', NULL),
+(1074, 'ru', 1073, 'Марёвский район', 'МАРЁВСКИЙ РАЙОН', NULL),
+(1075, 'ru', 1074, 'Окуловский район', 'ОКУЛОВСКИЙ РАЙОН', NULL),
+(1076, 'ru', 1075, 'Окуловка', 'ОКУЛОВКА', NULL),
+(1077, 'ru', 1076, 'Парфинский район', 'ПАРФИНСКИЙ РАЙОН', NULL),
+(1078, 'ru', 1077, 'Пестовский район', 'ПЕСТОВСКИЙ РАЙОН', NULL),
+(1079, 'ru', 1078, 'Пестово', 'ПЕСТОВО', NULL),
+(1080, 'ru', 1079, 'Солецкий район', 'СОЛЕЦКИЙ РАЙОН', NULL),
+(1081, 'ru', 1080, 'Сольцы', 'СОЛЬЦЫ', NULL),
+(1082, 'ru', 1081, 'Сольцы 2', 'СОЛЬЦЫ 2', NULL),
+(1083, 'ru', 1082, 'Поддорский район', 'ПОДДОРСКИЙ РАЙОН', NULL),
+(1084, 'ru', 1083, 'Хвойнинский район', 'ХВОЙНИНСКИЙ РАЙОН', NULL),
+(1085, 'ru', 1084, 'Старорусский район', 'СТАРОРУССКИЙ РАЙОН', NULL),
+(1086, 'ru', 1085, 'Старая Русса', 'СТАРАЯ РУССА', NULL),
+(1087, 'ru', 1086, 'Чудовский район', 'ЧУДОВСКИЙ РАЙОН', NULL),
+(1088, 'ru', 1087, 'Чудово', 'ЧУДОВО', NULL),
+(1089, 'ru', 1088, 'Холмский район', 'ХОЛМСКИЙ РАЙОН', NULL),
+(1090, 'ru', 1089, 'Холм', 'ХОЛМ', NULL),
+(1091, 'ru', 1090, 'Шимский район', 'ШИМСКИЙ РАЙОН', NULL),
+(1092, 'ru', 1091, 'Ненецкий автономный округ', 'НЕНЕЦКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
+(1093, 'ru', 1092, 'Нарьян-Мар', 'НАРЬЯН-МАР', NULL),
+(1094, 'ru', 1093, 'Юг', 'ЮГ', NULL),
+(1095, 'ru', 1094, 'Краснодарский край', 'КРАСНОДАРСКИЙ КРАЙ', NULL),
+(1096, 'ru', 1095, 'Краснодар', 'КРАСНОДАР', NULL),
+(1097, 'ru', 1096, 'Геленджик', 'ГЕЛЕНДЖИК', NULL),
+(1098, 'ru', 1097, 'Армавир', 'АРМАВИР', NULL),
+(1099, 'ru', 1098, 'Горячий Ключ', 'ГОРЯЧИЙ КЛЮЧ', NULL),
+(1100, 'ru', 1099, 'Новороссийск', 'НОВОРОССИЙСК', NULL),
+(1101, 'ru', 1100, 'Сочи', 'СОЧИ', NULL),
+(1102, 'ru', 1101, 'Абинский район', 'АБИНСКИЙ РАЙОН', NULL),
+(1103, 'ru', 1102, 'Абинск', 'АБИНСК', NULL),
+(1104, 'ru', 1103, 'Анапский район', 'АНАПСКИЙ РАЙОН', NULL),
+(1105, 'ru', 1104, 'Анапа', 'АНАПА', NULL),
+(1106, 'ru', 1105, 'Апшеронский район', 'АПШЕРОНСКИЙ РАЙОН', NULL),
+(1107, 'ru', 1106, 'Апшеронск', 'АПШЕРОНСК', NULL),
+(1108, 'ru', 1107, 'Хадыженск', 'ХАДЫЖЕНСК', NULL),
+(1109, 'ru', 1108, 'Белоглинский район', 'БЕЛОГЛИНСКИЙ РАЙОН', NULL),
+(1110, 'ru', 1109, 'Белореченский район', 'БЕЛОРЕЧЕНСКИЙ РАЙОН', NULL),
+(1111, 'ru', 1110, 'Белореченск', 'БЕЛОРЕЧЕНСК', NULL),
+(1112, 'ru', 1111, 'Брюховецкий район', 'БРЮХОВЕЦКИЙ РАЙОН', NULL),
+(1113, 'ru', 1112, 'Выселковский район', 'ВЫСЕЛКОВСКИЙ РАЙОН', NULL),
+(1114, 'ru', 1113, 'Гулькевичский район', 'ГУЛЬКЕВИЧСКИЙ РАЙОН', NULL),
+(1115, 'ru', 1114, 'Гулькевичи', 'ГУЛЬКЕВИЧИ', NULL),
+(1116, 'ru', 1115, 'Динской район', 'ДИНСКОЙ РАЙОН', NULL),
+(1117, 'ru', 1116, 'Ейский район', 'ЕЙСКИЙ РАЙОН', NULL),
+(1118, 'ru', 1117, 'Ейск', 'ЕЙСК', NULL),
+(1119, 'ru', 1118, 'Кавказский район', 'КАВКАЗСКИЙ РАЙОН', NULL),
+(1120, 'ru', 1119, 'Кропоткин', 'КРОПОТКИН', NULL),
+(1121, 'ru', 1120, 'Калининский район', 'КАЛИНИНСКИЙ РАЙОН', NULL),
+(1122, 'ru', 1121, 'Каневской район', 'КАНЕВСКОЙ РАЙОН', NULL),
+(1123, 'ru', 1122, 'Кореновский район', 'КОРЕНОВСКИЙ РАЙОН', NULL),
+(1124, 'ru', 1123, 'Кореновск', 'КОРЕНОВСК', NULL),
+(1125, 'ru', 1124, 'Крыловский район', 'КРЫЛОВСКИЙ РАЙОН', NULL),
+(1126, 'ru', 1125, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
+(1127, 'ru', 1126, 'Крымский район', 'КРЫМСКИЙ РАЙОН', NULL),
+(1128, 'ru', 1127, 'Крымск', 'КРЫМСК', NULL),
+(1129, 'ru', 1128, 'Курганинский район', 'КУРГАНИНСКИЙ РАЙОН', NULL),
+(1130, 'ru', 1129, 'Курганинск', 'КУРГАНИНСК', NULL),
+(1131, 'ru', 1130, 'Кущевский район', 'КУЩЕВСКИЙ РАЙОН', NULL),
+(1132, 'ru', 1131, 'Лабинский район', 'ЛАБИНСКИЙ РАЙОН', NULL),
+(1133, 'ru', 1132, 'Лабинск', 'ЛАБИНСК', NULL),
+(1134, 'ru', 1133, 'Ленинградский район', 'ЛЕНИНГРАДСКИЙ РАЙОН', NULL),
+(1135, 'ru', 1134, 'Мостовский район', 'МОСТОВСКИЙ РАЙОН', NULL),
+(1136, 'ru', 1135, 'Новокубанский район', 'НОВОКУБАНСКИЙ РАЙОН', NULL),
+(1137, 'ru', 1136, 'Новокубанск', 'НОВОКУБАНСК', NULL),
+(1138, 'ru', 1137, 'Новопокровский район', 'НОВОПОКРОВСКИЙ РАЙОН', NULL),
+(1139, 'ru', 1138, 'Отрадненский район', 'ОТРАДНЕНСКИЙ РАЙОН', NULL),
+(1140, 'ru', 1139, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
+(1141, 'ru', 1140, 'Приморско-Ахтарский район', 'ПРИМОРСКО-АХТАРСКИЙ РАЙОН', NULL),
+(1142, 'ru', 1141, 'Приморско-Ахтарск', 'ПРИМОРСКО-АХТАРСК', NULL),
+(1143, 'ru', 1142, 'Северский район', 'СЕВЕРСКИЙ РАЙОН', NULL),
+(1144, 'ru', 1143, 'Славянский район', 'СЛАВЯНСКИЙ РАЙОН', NULL),
+(1145, 'ru', 1144, 'Славянск-на-Кубани', 'СЛАВЯНСК-НА-КУБАНИ', NULL),
+(1146, 'ru', 1145, 'Темрюкский район', 'ТЕМРЮКСКИЙ РАЙОН', NULL),
+(1147, 'ru', 1146, 'Темрюк', 'ТЕМРЮК', NULL),
+(1148, 'ru', 1147, 'Тбилисский район', 'ТБИЛИССКИЙ РАЙОН', NULL),
+(1149, 'ru', 1148, 'Староминский район', 'СТАРОМИНСКИЙ РАЙОН', NULL),
+(1150, 'ru', 1149, 'Тимашевский район', 'ТИМАШЕВСКИЙ РАЙОН', NULL),
+(1151, 'ru', 1150, 'Тимашевск', 'ТИМАШЕВСК', NULL),
+(1152, 'ru', 1151, 'Тихорецкий район', 'ТИХОРЕЦКИЙ РАЙОН', NULL),
+(1153, 'ru', 1152, 'Тихорецк', 'ТИХОРЕЦК', NULL),
+(1154, 'ru', 1153, 'Туапсинский район', 'ТУАПСИНСКИЙ РАЙОН', NULL),
+(1155, 'ru', 1154, 'Туапсе', 'ТУАПСЕ', NULL),
+(1156, 'ru', 1155, 'Усть-Лабинский район', 'УСТЬ-ЛАБИНСКИЙ РАЙОН', NULL),
+(1157, 'ru', 1156, 'Усть-Лабинск', 'УСТЬ-ЛАБИНСК', NULL),
+(1158, 'ru', 1157, 'Успенский район', 'УСПЕНСКИЙ РАЙОН', NULL),
+(1159, 'ru', 1158, 'Щербиновский район', 'ЩЕРБИНОВСКИЙ РАЙОН', NULL),
+(1160, 'ru', 1159, 'Волгоградская область', 'ВОЛГОГРАДСКАЯ ОБЛАСТЬ', NULL),
+(1161, 'ru', 1160, 'Волгоград', 'ВОЛГОГРАД', NULL),
+(1162, 'ru', 1161, 'Волжский', 'ВОЛЖСКИЙ', NULL),
+(1163, 'ru', 1162, 'Камышин', 'КАМЫШИН', NULL),
+(1164, 'ru', 1163, 'Михайловка', 'МИХАЙЛОВКА', NULL),
+(1165, 'ru', 1164, 'Урюпинск', 'УРЮПИНСК', NULL),
+(1166, 'ru', 1165, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
+(1167, 'ru', 1166, 'Быковский район', 'БЫКОВСКИЙ РАЙОН', NULL),
+(1168, 'ru', 1167, 'Фролово', 'ФРОЛОВО', NULL),
+(1169, 'ru', 1168, 'Городищенский район', 'ГОРОДИЩЕНСКИЙ РАЙОН', NULL),
+(1170, 'ru', 1169, 'Даниловский район', 'ДАНИЛОВСКИЙ РАЙОН', NULL),
+(1171, 'ru', 1170, 'Дубовский район', 'ДУБОВСКИЙ РАЙОН', NULL),
+(1172, 'ru', 1171, 'Дубовка', 'ДУБОВКА', NULL),
+(1173, 'ru', 1172, 'Еланский район', 'ЕЛАНСКИЙ РАЙОН', NULL),
+(1174, 'ru', 1173, 'Жирновский район', 'ЖИРНОВСКИЙ РАЙОН', NULL),
+(1175, 'ru', 1174, 'Жирновск', 'ЖИРНОВСК', NULL),
+(1176, 'ru', 1175, 'Иловлинский район', 'ИЛОВЛИНСКИЙ РАЙОН', NULL),
+(1177, 'ru', 1176, 'Калачевский район', 'КАЛАЧЕВСКИЙ РАЙОН', NULL),
+(1178, 'ru', 1177, 'Калач-на-Дону', 'КАЛАЧ-НА-ДОНУ', NULL),
+(1179, 'ru', 1178, 'Камышинский район', 'КАМЫШИНСКИЙ РАЙОН', NULL),
+(1180, 'ru', 1179, 'Петров Вал', 'ПЕТРОВ ВАЛ', NULL),
+(1181, 'ru', 1180, 'Киквидзенский район', 'КИКВИДЗЕНСКИЙ РАЙОН', NULL),
+(1182, 'ru', 1181, 'Клетский район', 'КЛЕТСКИЙ РАЙОН', NULL),
+(1183, 'ru', 1182, 'Котельниковский район', 'КОТЕЛЬНИКОВСКИЙ РАЙОН', NULL),
+(1184, 'ru', 1183, 'Котельниково', 'КОТЕЛЬНИКОВО', NULL),
+(1185, 'ru', 1184, 'Котовский район', 'КОТОВСКИЙ РАЙОН', NULL),
+(1186, 'ru', 1185, 'Котово', 'КОТОВО', NULL),
+(1187, 'ru', 1186, 'Кумылженский район', 'КУМЫЛЖЕНСКИЙ РАЙОН', NULL),
+(1188, 'ru', 1187, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
+(1189, 'ru', 1188, 'Ленинск', 'ЛЕНИНСК', NULL),
+(1190, 'ru', 1189, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
+(1191, 'ru', 1190, 'Нехаевский район', 'НЕХАЕВСКИЙ РАЙОН', NULL),
+(1192, 'ru', 1191, 'Николаевский район', 'НИКОЛАЕВСКИЙ РАЙОН', NULL),
+(1193, 'ru', 1192, 'Николаевск', 'НИКОЛАЕВСК', NULL),
+(1194, 'ru', 1193, 'Новоаннинский район', 'НОВОАННИНСКИЙ РАЙОН', NULL),
+(1195, 'ru', 1194, 'Новоаннинский', 'НОВОАННИНСКИЙ', NULL),
+(1196, 'ru', 1195, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(1197, 'ru', 1196, 'Ольховский район', 'ОЛЬХОВСКИЙ РАЙОН', NULL),
+(1198, 'ru', 1197, 'Палласовский район', 'ПАЛЛАСОВСКИЙ РАЙОН', NULL),
+(1199, 'ru', 1198, 'Палласовка', 'ПАЛЛАСОВКА', NULL),
+(1200, 'ru', 1199, 'Руднянский район', 'РУДНЯНСКИЙ РАЙОН', NULL),
+(1201, 'ru', 1200, 'Светлоярский район', 'СВЕТЛОЯРСКИЙ РАЙОН', NULL),
+(1202, 'ru', 1201, 'Серафимовичский район', 'СЕРАФИМОВИЧСКИЙ РАЙОН', NULL),
+(1203, 'ru', 1202, 'Серафимович', 'СЕРАФИМОВИЧ', NULL),
+(1204, 'ru', 1203, 'Среднеахтубинский район', 'СРЕДНЕАХТУБИНСКИЙ РАЙОН', NULL),
+(1205, 'ru', 1204, 'Краснослободск', 'КРАСНОСЛОБОДСК', NULL),
+(1206, 'ru', 1205, 'Старополтавский район', 'СТАРОПОЛТАВСКИЙ РАЙОН', NULL),
+(1207, 'ru', 1206, 'Суровикинский район', 'СУРОВИКИНСКИЙ РАЙОН', NULL),
+(1208, 'ru', 1207, 'Суровикино', 'СУРОВИКИНО', NULL),
+(1209, 'ru', 1208, 'Урюпинский район', 'УРЮПИНСКИЙ РАЙОН', NULL),
+(1210, 'ru', 1209, 'Новониколаевский район', 'НОВОНИКОЛАЕВСКИЙ РАЙОН', NULL),
+(1211, 'ru', 1210, 'Фроловский район', 'ФРОЛОВСКИЙ РАЙОН', NULL),
+(1212, 'ru', 1211, 'Чернышковский район', 'ЧЕРНЫШКОВСКИЙ РАЙОН', NULL),
+(1213, 'ru', 1212, 'Ростовская область', 'РОСТОВСКАЯ ОБЛАСТЬ', NULL),
+(1214, 'ru', 1213, 'Ростов-на-Дону', 'РОСТОВ-НА-ДОНУ', NULL),
+(1215, 'ru', 1214, 'Волгодонск', 'ВОЛГОДОНСК', NULL),
+(1216, 'ru', 1215, 'Батайск', 'БАТАЙСК', NULL),
+(1217, 'ru', 1216, 'Гуково', 'ГУКОВО', NULL),
+(1218, 'ru', 1217, 'Зверево', 'ЗВЕРЕВО', NULL),
+(1219, 'ru', 1218, 'Каменск-Шахтинский', 'КАМЕНСК-ШАХТИНСКИЙ', NULL),
+(1220, 'ru', 1219, 'Донецк', 'ДОНЕЦК', NULL),
+(1221, 'ru', 1220, 'Новочеркасск', 'НОВОЧЕРКАССК', NULL),
+(1222, 'ru', 1221, 'Новошахтинск', 'НОВОШАХТИНСК', NULL),
+(1223, 'ru', 1222, 'Шахты', 'ШАХТЫ', NULL),
+(1224, 'ru', 1223, 'Таганрог', 'ТАГАНРОГ', NULL),
+(1225, 'ru', 1224, 'Азовский район', 'АЗОВСКИЙ РАЙОН', NULL),
+(1226, 'ru', 1225, 'Азов', 'АЗОВ', NULL),
+(1227, 'ru', 1226, 'Аксайский район', 'АКСАЙСКИЙ РАЙОН', NULL),
+(1228, 'ru', 1227, 'Аксай', 'АКСАЙ', NULL),
+(1229, 'ru', 1228, 'Белокалитвинский район', 'БЕЛОКАЛИТВИНСКИЙ РАЙОН', NULL),
+(1230, 'ru', 1229, 'Белая Калитва', 'БЕЛАЯ КАЛИТВА', NULL),
+(1231, 'ru', 1230, 'Багаевский район', 'БАГАЕВСКИЙ РАЙОН', NULL),
+(1232, 'ru', 1231, 'Боковский район', 'БОКОВСКИЙ РАЙОН', NULL),
+(1233, 'ru', 1232, 'Верхнедонской район', 'ВЕРХНЕДОНСКОЙ РАЙОН', NULL),
+(1234, 'ru', 1233, 'Веселовский район', 'ВЕСЕЛОВСКИЙ РАЙОН', NULL),
+(1235, 'ru', 1234, 'Дубовский район', 'ДУБОВСКИЙ РАЙОН', NULL),
+(1236, 'ru', 1235, 'Волгодонской район', 'ВОЛГОДОНСКОЙ РАЙОН', NULL),
+(1237, 'ru', 1236, 'Егорлыкский район', 'ЕГОРЛЫКСКИЙ РАЙОН', NULL),
+(1238, 'ru', 1237, 'Заветинский район', 'ЗАВЕТИНСКИЙ РАЙОН', NULL),
+(1239, 'ru', 1238, 'Зерноградский район', 'ЗЕРНОГРАДСКИЙ РАЙОН', NULL),
+(1240, 'ru', 1239, 'Зерноград', 'ЗЕРНОГРАД', NULL),
+(1241, 'ru', 1240, 'Зимовниковский район', 'ЗИМОВНИКОВСКИЙ РАЙОН', NULL),
+(1242, 'ru', 1241, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
+(1243, 'ru', 1242, 'Кагальницкий район', 'КАГАЛЬНИЦКИЙ РАЙОН', NULL),
+(1244, 'ru', 1243, 'Кашарский район', 'КАШАРСКИЙ РАЙОН', NULL),
+(1245, 'ru', 1244, 'Красносулинский район', 'КРАСНОСУЛИНСКИЙ РАЙОН', NULL),
+(1246, 'ru', 1245, 'Красный Сулин', 'КРАСНЫЙ СУЛИН', NULL),
+(1247, 'ru', 1246, 'Константиновский район', 'КОНСТАНТИНОВСКИЙ РАЙОН', NULL),
+(1248, 'ru', 1247, 'Константиновск', 'КОНСТАНТИНОВСК', NULL),
+(1249, 'ru', 1248, 'Куйбышевский район', 'КУЙБЫШЕВСКИЙ РАЙОН', NULL),
+(1250, 'ru', 1249, 'Мартыновский район', 'МАРТЫНОВСКИЙ РАЙОН', NULL),
+(1251, 'ru', 1250, 'Матвеево-Курганский район', 'МАТВЕЕВО-КУРГАНСКИЙ РАЙОН', NULL),
+(1252, 'ru', 1251, 'Миллеровский район', 'МИЛЛЕРОВСКИЙ РАЙОН', NULL),
+(1253, 'ru', 1252, 'Миллерово', 'МИЛЛЕРОВО', NULL),
+(1254, 'ru', 1253, 'Милютинский район', 'МИЛЮТИНСКИЙ РАЙОН', NULL),
+(1255, 'ru', 1254, 'Морозовский район', 'МОРОЗОВСКИЙ РАЙОН', NULL),
+(1256, 'ru', 1255, 'Морозовск', 'МОРОЗОВСК', NULL),
+(1257, 'ru', 1256, 'Мясниковский район', 'МЯСНИКОВСКИЙ РАЙОН', NULL),
+(1258, 'ru', 1257, 'Неклиновский район', 'НЕКЛИНОВСКИЙ РАЙОН', NULL),
+(1259, 'ru', 1258, 'Обливский район', 'ОБЛИВСКИЙ РАЙОН', NULL),
+(1260, 'ru', 1259, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(1261, 'ru', 1260, 'Орловский район', 'ОРЛОВСКИЙ РАЙОН', NULL),
+(1262, 'ru', 1261, 'Песчанокопский район', 'ПЕСЧАНОКОПСКИЙ РАЙОН', NULL),
+(1263, 'ru', 1262, 'Пролетарский район', 'ПРОЛЕТАРСКИЙ РАЙОН', NULL),
+(1264, 'ru', 1263, 'Пролетарск', 'ПРОЛЕТАРСК', NULL),
+(1265, 'ru', 1264, 'Ремонтненский район', 'РЕМОНТНЕНСКИЙ РАЙОН', NULL),
+(1266, 'ru', 1265, 'Родионово-Несветайский район', 'РОДИОНОВО-НЕСВЕТАЙСКИЙ РАЙОН', NULL),
+(1267, 'ru', 1266, 'Сальский район', 'САЛЬСКИЙ РАЙОН', NULL),
+(1268, 'ru', 1267, 'Сальск', 'САЛЬСК', NULL),
+(1269, 'ru', 1268, 'Семикаракорский район', 'СЕМИКАРАКОРСКИЙ РАЙОН', NULL),
+(1270, 'ru', 1269, 'Семикаракорск', 'СЕМИКАРАКОРСК', NULL),
+(1271, 'ru', 1270, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(1272, 'ru', 1271, 'Тарасовский район', 'ТАРАСОВСКИЙ РАЙОН', NULL),
+(1273, 'ru', 1272, 'Тацинский район', 'ТАЦИНСКИЙ РАЙОН', NULL),
+(1274, 'ru', 1273, 'Усть-Донецкий район', 'УСТЬ-ДОНЕЦКИЙ РАЙОН', NULL),
+(1275, 'ru', 1274, 'Целинский район', 'ЦЕЛИНСКИЙ РАЙОН', NULL),
+(1276, 'ru', 1275, 'Чертковский район', 'ЧЕРТКОВСКИЙ РАЙОН', NULL),
+(1277, 'ru', 1276, 'Цимлянский район', 'ЦИМЛЯНСКИЙ РАЙОН', NULL),
+(1278, 'ru', 1277, 'Цимлянск', 'ЦИМЛЯНСК', NULL),
+(1279, 'ru', 1278, 'Шолоховский район', 'ШОЛОХОВСКИЙ РАЙОН', NULL),
+(1280, 'ru', 1279, 'Астраханская область', 'АСТРАХАНСКАЯ ОБЛАСТЬ', NULL),
+(1281, 'ru', 1280, 'Астрахань', 'АСТРАХАНЬ', NULL),
+(1282, 'ru', 1281, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(1283, 'ru', 1282, 'Знаменск', 'ЗНАМЕНСК', NULL),
+(1284, 'ru', 1283, 'Ахтубинский район', 'АХТУБИНСКИЙ РАЙОН', NULL),
+(1285, 'ru', 1284, 'Ахтубинск', 'АХТУБИНСК', NULL),
+(1286, 'ru', 1285, 'Ахтубинск-7', 'АХТУБИНСК-7', NULL),
+(1287, 'ru', 1286, 'Енотаевский район', 'ЕНОТАЕВСКИЙ РАЙОН', NULL),
+(1288, 'ru', 1287, 'Володарский район', 'ВОЛОДАРСКИЙ РАЙОН', NULL),
+(1289, 'ru', 1288, 'Камызякский район', 'КАМЫЗЯКСКИЙ РАЙОН', NULL),
+(1290, 'ru', 1289, 'Камызяк', 'КАМЫЗЯК', NULL),
+(1291, 'ru', 1290, 'Икрянинский район', 'ИКРЯНИНСКИЙ РАЙОН', NULL),
+(1292, 'ru', 1291, 'Лиманский район', 'ЛИМАНСКИЙ РАЙОН', NULL),
+(1293, 'ru', 1292, 'Красноярский район', 'КРАСНОЯРСКИЙ РАЙОН', NULL),
+(1294, 'ru', 1293, 'Наримановский район', 'НАРИМАНОВСКИЙ РАЙОН', NULL),
+(1295, 'ru', 1294, 'Нариманов', 'НАРИМАНОВ', NULL),
+(1296, 'ru', 1295, 'Приволжский район', 'ПРИВОЛЖСКИЙ РАЙОН', NULL),
+(1297, 'ru', 1296, 'Харабалинский район', 'ХАРАБАЛИНСКИЙ РАЙОН', NULL),
+(1298, 'ru', 1297, 'Харабали', 'ХАРАБАЛИ', NULL),
+(1299, 'ru', 1298, 'Черноярский район', 'ЧЕРНОЯРСКИЙ РАЙОН', NULL),
+(1300, 'ru', 1299, 'Республика Адыгея', 'РЕСПУБЛИКА АДЫГЕЯ', NULL),
+(1301, 'ru', 1300, 'Майкоп', 'МАЙКОП', NULL),
+(1302, 'ru', 1301, 'Адыгейск', 'АДЫГЕЙСК', NULL),
+(1303, 'ru', 1302, 'Кошехабльский район', 'КОШЕХАБЛЬСКИЙ РАЙОН', NULL),
+(1304, 'ru', 1303, 'Майкопский район', 'МАЙКОПСКИЙ РАЙОН', NULL),
+(1305, 'ru', 1304, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
+(1306, 'ru', 1305, 'Тахтамукайский район', 'ТАХТАМУКАЙСКИЙ РАЙОН', NULL),
+(1307, 'ru', 1306, 'Теучежский район', 'ТЕУЧЕЖСКИЙ РАЙОН', NULL),
+(1308, 'ru', 1307, 'Шовгеновский район', 'ШОВГЕНОВСКИЙ РАЙОН', NULL),
+(1309, 'ru', 1308, 'Гиагинский район', 'ГИАГИНСКИЙ РАЙОН', NULL),
+(1310, 'ru', 1309, 'Республика Калмыкия', 'РЕСПУБЛИКА КАЛМЫКИЯ', NULL),
+(1311, 'ru', 1310, 'Элиста', 'ЭЛИСТА', NULL),
+(1312, 'ru', 1311, 'Ики-Бурульский район', 'ИКИ-БУРУЛЬСКИЙ РАЙОН', NULL),
+(1313, 'ru', 1312, 'Городовиковский район', 'ГОРОДОВИКОВСКИЙ РАЙОН', NULL),
+(1314, 'ru', 1313, 'Городовиковск', 'ГОРОДОВИКОВСК', NULL),
+(1315, 'ru', 1314, 'Малодербетовский район', 'МАЛОДЕРБЕТОВСКИЙ РАЙОН', NULL),
+(1316, 'ru', 1315, 'Лаганский район', 'ЛАГАНСКИЙ РАЙОН', NULL),
+(1317, 'ru', 1316, 'Лагань', 'ЛАГАНЬ', NULL),
+(1318, 'ru', 1317, 'Кетченеровский район', 'КЕТЧЕНЕРОВСКИЙ РАЙОН', NULL),
+(1319, 'ru', 1318, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(1320, 'ru', 1319, 'Черноземельский район', 'ЧЕРНОЗЕМЕЛЬСКИЙ РАЙОН', NULL),
+(1321, 'ru', 1320, 'Юстинский район', 'ЮСТИНСКИЙ РАЙОН', NULL),
+(1322, 'ru', 1321, 'Приютненский район', 'ПРИЮТНЕНСКИЙ РАЙОН', NULL),
+(1323, 'ru', 1322, 'Сарпинский район', 'САРПИНСКИЙ РАЙОН', NULL),
+(1324, 'ru', 1323, 'Целинный район', 'ЦЕЛИННЫЙ РАЙОН', NULL),
+(1325, 'ru', 1324, 'Яшкульский район', 'ЯШКУЛЬСКИЙ РАЙОН', NULL),
+(1326, 'ru', 1325, 'Яшалтинский район', 'ЯШАЛТИНСКИЙ РАЙОН', NULL),
+(1327, 'ru', 1326, 'Северный Кавказ', 'СЕВЕРНЫЙ КАВКАЗ', NULL),
+(1328, 'ru', 1327, 'Республика Дагестан', 'РЕСПУБЛИКА ДАГЕСТАН', NULL),
+(1329, 'ru', 1328, 'Махачкала', 'МАХАЧКАЛА', NULL),
+(1330, 'ru', 1329, 'Кировский район район', 'КИРОВСКИЙ РАЙОН РАЙОН', NULL),
+(1331, 'ru', 1330, 'Дербент', 'ДЕРБЕНТ', NULL),
+(1332, 'ru', 1331, 'Кизилюрт', 'КИЗИЛЮРТ', NULL),
+(1333, 'ru', 1332, 'Дагестанские Огни', 'ДАГЕСТАНСКИЕ ОГНИ', NULL),
+(1334, 'ru', 1333, 'Избербаш', 'ИЗБЕРБАШ', NULL),
+(1335, 'ru', 1334, 'Южно-Сухокумск', 'ЮЖНО-СУХОКУМСК', NULL),
+(1336, 'ru', 1335, 'Кизляр', 'КИЗЛЯР', NULL),
+(1337, 'ru', 1336, 'Каспийск', 'КАСПИЙСК', NULL),
+(1338, 'ru', 1337, 'Гумбетовский район', 'ГУМБЕТОВСКИЙ РАЙОН', NULL),
+(1339, 'ru', 1338, 'Дахадаевский район', 'ДАХАДАЕВСКИЙ РАЙОН', NULL),
+(1340, 'ru', 1339, 'Гергебильский район', 'ГЕРГЕБИЛЬСКИЙ РАЙОН', NULL),
+(1341, 'ru', 1340, 'Гунибский район', 'ГУНИБСКИЙ РАЙОН', NULL),
+(1342, 'ru', 1341, 'Ботлихский район', 'БОТЛИХСКИЙ РАЙОН', NULL),
+(1343, 'ru', 1342, 'Акушинский район', 'АКУШИНСКИЙ РАЙОН', NULL),
+(1344, 'ru', 1343, 'Ахтынский район', 'АХТЫНСКИЙ РАЙОН', NULL),
+(1345, 'ru', 1344, 'Буйнакск', 'БУЙНАКСК', NULL),
+(1346, 'ru', 1345, 'Дербентский район', 'ДЕРБЕНТСКИЙ РАЙОН', NULL),
+(1347, 'ru', 1346, 'Буйнакский район', 'БУЙНАКСКИЙ РАЙОН', NULL),
+(1348, 'ru', 1347, 'Ахвахский район', 'АХВАХСКИЙ РАЙОН', NULL),
+(1349, 'ru', 1348, 'Бабаюртовский район', 'БАБАЮРТОВСКИЙ РАЙОН', NULL),
+(1350, 'ru', 1349, 'Агульский район', 'АГУЛЬСКИЙ РАЙОН', NULL),
+(1351, 'ru', 1350, 'Хасавюрт', 'ХАСАВЮРТ', NULL),
+(1352, 'ru', 1351, 'Кайтагский район', 'КАЙТАГСКИЙ РАЙОН', NULL),
+(1353, 'ru', 1352, 'Докузпаринский район', 'ДОКУЗПАРИНСКИЙ РАЙОН', NULL),
+(1354, 'ru', 1353, 'Карабудахкентский район', 'КАРАБУДАХКЕНТСКИЙ РАЙОН', NULL),
+(1355, 'ru', 1354, 'Каякентский район', 'КАЯКЕНТСКИЙ РАЙОН', NULL),
+(1356, 'ru', 1355, 'Кизилюртовский район', 'КИЗИЛЮРТОВСКИЙ РАЙОН', NULL),
+(1357, 'ru', 1356, 'Казбековский район', 'КАЗБЕКОВСКИЙ РАЙОН', NULL),
+(1358, 'ru', 1357, 'Новолакский район', 'НОВОЛАКСКИЙ РАЙОН', NULL),
+(1359, 'ru', 1358, 'Магарамкентский район', 'МАГАРАМКЕНТСКИЙ РАЙОН', NULL),
+(1360, 'ru', 1359, 'Лакский район', 'ЛАКСКИЙ РАЙОН', NULL),
+(1361, 'ru', 1360, 'Левашинский район', 'ЛЕВАШИНСКИЙ РАЙОН', NULL),
+(1362, 'ru', 1361, 'Кумторкалинский район', 'КУМТОРКАЛИНСКИЙ РАЙОН', NULL),
+(1363, 'ru', 1362, 'Кизлярский район', 'КИЗЛЯРСКИЙ РАЙОН', NULL),
+(1364, 'ru', 1363, 'Кулинский район', 'КУЛИНСКИЙ РАЙОН', NULL),
+(1365, 'ru', 1364, 'Курахский район', 'КУРАХСКИЙ РАЙОН', NULL),
+(1366, 'ru', 1365, 'Тарумовский район', 'ТАРУМОВСКИЙ РАЙОН', NULL),
+(1367, 'ru', 1366, 'Табасаранский район', 'ТАБАСАРАНСКИЙ РАЙОН', NULL),
+(1368, 'ru', 1367, 'Ногайский район', 'НОГАЙСКИЙ РАЙОН', NULL),
+(1369, 'ru', 1368, 'Рутульский район', 'РУТУЛЬСКИЙ РАЙОН', NULL),
+(1370, 'ru', 1369, 'Сергокалинский район', 'СЕРГОКАЛИНСКИЙ РАЙОН', NULL),
+(1371, 'ru', 1370, 'Сулейман-Стальский район', 'СУЛЕЙМАН-СТАЛЬСКИЙ РАЙОН', NULL),
+(1372, 'ru', 1371, 'Чародинский район', 'ЧАРОДИНСКИЙ РАЙОН', NULL),
+(1373, 'ru', 1372, 'Хунзахский район', 'ХУНЗАХСКИЙ РАЙОН', NULL),
+(1374, 'ru', 1373, 'Хасавюртовский район', 'ХАСАВЮРТОВСКИЙ РАЙОН', NULL),
+(1375, 'ru', 1374, 'Шамильский район', 'ШАМИЛЬСКИЙ РАЙОН', NULL),
+(1376, 'ru', 1375, 'Унцукульский район', 'УНЦУКУЛЬСКИЙ РАЙОН', NULL),
+(1377, 'ru', 1376, 'Хивский район', 'ХИВСКИЙ РАЙОН', NULL),
+(1378, 'ru', 1377, 'Тляратинский район', 'ТЛЯРАТИНСКИЙ РАЙОН', NULL),
+(1379, 'ru', 1378, 'Цумадинский район', 'ЦУМАДИНСКИЙ РАЙОН', NULL),
+(1380, 'ru', 1379, 'Цунтинский район', 'ЦУНТИНСКИЙ РАЙОН', NULL),
+(1381, 'ru', 1380, 'Кабардино-Балкарская Республика', 'КАБАРДИНО-БАЛКАРСКАЯ РЕСПУБЛИКА', NULL),
+(1382, 'ru', 1381, 'Нальчик', 'НАЛЬЧИК', NULL),
+(1383, 'ru', 1382, 'Баксанский район', 'БАКСАНСКИЙ РАЙОН', NULL),
+(1384, 'ru', 1383, 'Майский район', 'МАЙСКИЙ РАЙОН', NULL),
+(1385, 'ru', 1384, 'Майский', 'МАЙСКИЙ', NULL),
+(1386, 'ru', 1385, 'Зольский район', 'ЗОЛЬСКИЙ РАЙОН', NULL),
+(1387, 'ru', 1386, 'Прохладный', 'ПРОХЛАДНЫЙ', NULL),
+(1388, 'ru', 1387, 'Баксан', 'БАКСАН', NULL),
+(1389, 'ru', 1388, 'Прохладненский район', 'ПРОХЛАДНЕНСКИЙ РАЙОН', NULL),
+(1390, 'ru', 1389, 'Урванский район', 'УРВАНСКИЙ РАЙОН', NULL),
+(1391, 'ru', 1390, 'Нарткала', 'НАРТКАЛА', NULL),
+(1392, 'ru', 1391, 'Терский район', 'ТЕРСКИЙ РАЙОН', NULL),
+(1393, 'ru', 1392, 'Терек', 'ТЕРЕК', NULL),
+(1394, 'ru', 1393, 'Чегемский район', 'ЧЕГЕМСКИЙ РАЙОН', NULL),
+(1395, 'ru', 1394, 'Чегем', 'ЧЕГЕМ', NULL),
+(1396, 'ru', 1395, 'Эльбрусский район', 'ЭЛЬБРУССКИЙ РАЙОН', NULL),
+(1397, 'ru', 1396, 'Тырныауз', 'ТЫРНЫАУЗ', NULL),
+(1398, 'ru', 1397, 'Лескенский район', 'ЛЕСКЕНСКИЙ РАЙОН', NULL),
+(1399, 'ru', 1398, 'Черекский район', 'ЧЕРЕКСКИЙ РАЙОН', NULL),
+(1400, 'ru', 1399, 'Республика Северная Осетия-Алания', 'РЕСПУБЛИКА СЕВЕРНАЯ ОСЕТИЯ-АЛАНИЯ', NULL),
+(1401, 'ru', 1400, 'Алагирский район', 'АЛАГИРСКИЙ РАЙОН', NULL),
+(1402, 'ru', 1401, 'Алагир', 'АЛАГИР', NULL),
+(1403, 'ru', 1402, 'Владикавказ', 'ВЛАДИКАВКАЗ', NULL),
+(1404, 'ru', 1403, 'Дигорский район', 'ДИГОРСКИЙ РАЙОН', NULL),
+(1405, 'ru', 1404, 'Дигора', 'ДИГОРА', NULL),
+(1406, 'ru', 1405, 'Моздокский район', 'МОЗДОКСКИЙ РАЙОН', NULL),
+(1407, 'ru', 1406, 'Моздок', 'МОЗДОК', NULL),
+(1408, 'ru', 1407, 'Ардонский район', 'АРДОНСКИЙ РАЙОН', NULL),
+(1409, 'ru', 1408, 'Ардон', 'АРДОН', NULL),
+(1410, 'ru', 1409, 'Ирафский район', 'ИРАФСКИЙ РАЙОН', NULL),
+(1411, 'ru', 1410, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(1412, 'ru', 1411, 'Пригородный район', 'ПРИГОРОДНЫЙ РАЙОН', NULL),
+(1413, 'ru', 1412, 'Правобережный район', 'ПРАВОБЕРЕЖНЫЙ РАЙОН', NULL),
+(1414, 'ru', 1413, 'Беслан', 'БЕСЛАН', NULL),
+(1415, 'ru', 1414, 'Ставропольский край', 'СТАВРОПОЛЬСКИЙ КРАЙ', NULL),
+(1416, 'ru', 1415, 'Ставрополь', 'СТАВРОПОЛЬ', NULL),
+(1417, 'ru', 1416, 'Ессентуки', 'ЕССЕНТУКИ', NULL),
+(1418, 'ru', 1417, 'Кисловодск', 'КИСЛОВОДСК', NULL),
+(1419, 'ru', 1418, 'Железноводск', 'ЖЕЛЕЗНОВОДСК', NULL),
+(1420, 'ru', 1419, 'Невинномысск', 'НЕВИННОМЫССК', NULL),
+(1421, 'ru', 1420, 'Пятигорск', 'ПЯТИГОРСК', NULL),
+(1422, 'ru', 1421, 'Лермонтов', 'ЛЕРМОНТОВ', NULL),
+(1423, 'ru', 1422, 'Георгиевск', 'ГЕОРГИЕВСК', NULL),
+(1424, 'ru', 1423, 'Андроповский район', 'АНДРОПОВСКИЙ РАЙОН', NULL),
+(1425, 'ru', 1424, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
+(1426, 'ru', 1425, 'Апанасенковский район', 'АПАНАСЕНКОВСКИЙ РАЙОН', NULL),
+(1427, 'ru', 1426, 'Арзгирский район', 'АРЗГИРСКИЙ РАЙОН', NULL),
+(1428, 'ru', 1427, 'Благодарненский район', 'БЛАГОДАРНЕНСКИЙ РАЙОН', NULL),
+(1429, 'ru', 1428, 'Благодарный', 'БЛАГОДАРНЫЙ', NULL),
+(1430, 'ru', 1429, 'Буденновский район', 'БУДЕННОВСКИЙ РАЙОН', NULL),
+(1431, 'ru', 1430, 'Буденновск', 'БУДЕННОВСК', NULL),
+(1432, 'ru', 1431, 'Георгиевский район', 'ГЕОРГИЕВСКИЙ РАЙОН', NULL),
+(1433, 'ru', 1432, 'Грачевский район', 'ГРАЧЕВСКИЙ РАЙОН', NULL),
+(1434, 'ru', 1433, 'Ипатовский район', 'ИПАТОВСКИЙ РАЙОН', NULL),
+(1435, 'ru', 1434, 'Ипатово', 'ИПАТОВО', NULL),
+(1436, 'ru', 1435, 'Изобильненский район', 'ИЗОБИЛЬНЕНСКИЙ РАЙОН', NULL),
+(1437, 'ru', 1436, 'Изобильный', 'ИЗОБИЛЬНЫЙ', NULL),
+(1438, 'ru', 1437, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(1439, 'ru', 1438, 'Новопавловск', 'НОВОПАВЛОВСК', NULL),
+(1440, 'ru', 1439, 'Кочубеевский район', 'КОЧУБЕЕВСКИЙ РАЙОН', NULL),
+(1441, 'ru', 1440, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
+(1442, 'ru', 1441, 'Курский район', 'КУРСКИЙ РАЙОН', NULL),
+(1443, 'ru', 1442, 'Левокумский район', 'ЛЕВОКУМСКИЙ РАЙОН', NULL),
+(1444, 'ru', 1443, 'Минераловодский район', 'МИНЕРАЛОВОДСКИЙ РАЙОН', NULL),
+(1445, 'ru', 1444, 'Минеральные Воды', 'МИНЕРАЛЬНЫЕ ВОДЫ', NULL),
+(1446, 'ru', 1445, 'Нефтекумский район', 'НЕФТЕКУМСКИЙ РАЙОН', NULL),
+(1447, 'ru', 1446, 'Нефтекумск', 'НЕФТЕКУМСК', NULL),
+(1448, 'ru', 1447, 'Новоалександровский район', 'НОВОАЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
+(1449, 'ru', 1448, 'Новоалександровск', 'НОВОАЛЕКСАНДРОВСК', NULL),
+(1450, 'ru', 1449, 'Новоселицкий район', 'НОВОСЕЛИЦКИЙ РАЙОН', NULL),
+(1451, 'ru', 1450, 'Предгорный район', 'ПРЕДГОРНЫЙ РАЙОН', NULL),
+(1452, 'ru', 1451, 'Петровский район', 'ПЕТРОВСКИЙ РАЙОН', NULL),
+(1453, 'ru', 1452, 'Светлоград', 'СВЕТЛОГРАД', NULL),
+(1454, 'ru', 1453, 'Труновский район', 'ТРУНОВСКИЙ РАЙОН', NULL),
+(1455, 'ru', 1454, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(1456, 'ru', 1455, 'Зеленокумск', 'ЗЕЛЕНОКУМСК', NULL),
+(1457, 'ru', 1456, 'Степновский район', 'СТЕПНОВСКИЙ РАЙОН', NULL),
+(1458, 'ru', 1457, 'Туркменский район', 'ТУРКМЕНСКИЙ РАЙОН', NULL),
+(1459, 'ru', 1458, 'Шпаковский район', 'ШПАКОВСКИЙ РАЙОН', NULL),
+(1460, 'ru', 1459, 'Михайловск', 'МИХАЙЛОВСК', NULL),
+(1461, 'ru', 1460, 'Республика Ингушетия', 'РЕСПУБЛИКА ИНГУШЕТИЯ', NULL),
+(1462, 'ru', 1461, 'Магас', 'МАГАС', NULL),
+(1463, 'ru', 1462, 'Назрань', 'НАЗРАНЬ', NULL),
+(1464, 'ru', 1463, 'Карабулак', 'КАРАБУЛАК', NULL),
+(1465, 'ru', 1464, 'Малгобек', 'МАЛГОБЕК', NULL),
+(1466, 'ru', 1465, 'Джейрахский район', 'ДЖЕЙРАХСКИЙ РАЙОН', NULL),
+(1467, 'ru', 1466, 'Назрановский район', 'НАЗРАНОВСКИЙ РАЙОН', NULL),
+(1468, 'ru', 1467, 'Сунженский район', 'СУНЖЕНСКИЙ РАЙОН', NULL),
+(1469, 'ru', 1468, 'Малгобекский район', 'МАЛГОБЕКСКИЙ РАЙОН', NULL),
+(1470, 'ru', 1469, 'Карачаево-Черкесская Республика', 'КАРАЧАЕВО-ЧЕРКЕССКАЯ РЕСПУБЛИКА', NULL),
+(1471, 'ru', 1470, 'Черкесск', 'ЧЕРКЕССК', NULL),
+(1472, 'ru', 1471, 'Карачаевск', 'КАРАЧАЕВСК', NULL),
+(1473, 'ru', 1472, 'Адыге-Хабльский район', 'АДЫГЕ-ХАБЛЬСКИЙ РАЙОН', NULL),
+(1474, 'ru', 1473, 'Теберда', 'ТЕБЕРДА', NULL),
+(1475, 'ru', 1474, 'Карачаевский район', 'КАРАЧАЕВСКИЙ РАЙОН', NULL),
+(1476, 'ru', 1475, 'Зеленчукский район', 'ЗЕЛЕНЧУКСКИЙ РАЙОН', NULL),
+(1477, 'ru', 1476, 'Малокарачаевский район', 'МАЛОКАРАЧАЕВСКИЙ РАЙОН', NULL),
+(1478, 'ru', 1477, 'Усть-Джегутинский район', 'УСТЬ-ДЖЕГУТИНСКИЙ РАЙОН', NULL),
+(1479, 'ru', 1478, 'Усть-Джегута', 'УСТЬ-ДЖЕГУТА', NULL),
+(1480, 'ru', 1479, 'Хабезский район', 'ХАБЕЗСКИЙ РАЙОН', NULL),
+(1481, 'ru', 1480, 'Прикубанский район', 'ПРИКУБАНСКИЙ РАЙОН', NULL),
+(1482, 'ru', 1481, 'Урупский район', 'УРУПСКИЙ РАЙОН', NULL),
+(1483, 'ru', 1482, 'Ногайский район', 'НОГАЙСКИЙ РАЙОН', NULL),
+(1484, 'ru', 1483, 'Абазинский район', 'АБАЗИНСКИЙ РАЙОН', NULL),
+(1485, 'ru', 1484, 'Чеченская Республика', 'ЧЕЧЕНСКАЯ РЕСПУБЛИКА', NULL),
+(1486, 'ru', 1485, 'Грозный', 'ГРОЗНЫЙ', NULL),
+(1487, 'ru', 1486, 'Веденский район', 'ВЕДЕНСКИЙ РАЙОН', NULL),
+(1488, 'ru', 1487, 'Грозненский район', 'ГРОЗНЕНСКИЙ РАЙОН', NULL),
+(1489, 'ru', 1488, 'Ачхой-Мартановский район', 'АЧХОЙ-МАРТАНОВСКИЙ РАЙОН', NULL),
+(1490, 'ru', 1489, 'Аргун', 'АРГУН', NULL),
+(1491, 'ru', 1490, 'Гудермесский район', 'ГУДЕРМЕССКИЙ РАЙОН', NULL),
+(1492, 'ru', 1491, 'Гудермес', 'ГУДЕРМЕС', NULL),
+(1493, 'ru', 1492, 'Курчалоевский район', 'КУРЧАЛОЕВСКИЙ РАЙОН', NULL),
+(1494, 'ru', 1493, 'Надтеречный район', 'НАДТЕРЕЧНЫЙ РАЙОН', NULL),
+(1495, 'ru', 1494, 'Урус-Мартановский район', 'УРУС-МАРТАНОВСКИЙ РАЙОН', NULL),
+(1496, 'ru', 1495, 'Урус-Мартан', 'УРУС-МАРТАН', NULL),
+(1497, 'ru', 1496, 'Ножай-Юртовский район', 'НОЖАЙ-ЮРТОВСКИЙ РАЙОН', NULL),
+(1498, 'ru', 1497, 'Наурский район', 'НАУРСКИЙ РАЙОН', NULL),
+(1499, 'ru', 1498, 'Шалинский район', 'ШАЛИНСКИЙ РАЙОН', NULL),
+(1500, 'ru', 1499, 'Шали', 'ШАЛИ', NULL),
+(1501, 'ru', 1500, 'Шелковской район', 'ШЕЛКОВСКОЙ РАЙОН', NULL),
+(1502, 'ru', 1501, 'Итум-Калинский район', 'ИТУМ-КАЛИНСКИЙ РАЙОН', NULL),
+(1503, 'ru', 1502, 'Сунженский район', 'СУНЖЕНСКИЙ РАЙОН', NULL),
+(1504, 'ru', 1503, 'Шатойский район', 'ШАТОЙСКИЙ РАЙОН', NULL),
+(1505, 'ru', 1504, 'Шаройский район', 'ШАРОЙСКИЙ РАЙОН', NULL),
+(1506, 'ru', 1505, 'Поволжье', 'ПОВОЛЖЬЕ', NULL),
+(1507, 'ru', 1506, 'Республика Мордовия', 'РЕСПУБЛИКА МОРДОВИЯ', NULL),
+(1508, 'ru', 1507, 'Саранск', 'САРАНСК', NULL),
+(1509, 'ru', 1508, 'Атюрьевский район', 'АТЮРЬЕВСКИЙ РАЙОН', NULL),
+(1510, 'ru', 1509, 'Атяшевский район', 'АТЯШЕВСКИЙ РАЙОН', NULL),
+(1511, 'ru', 1510, 'Ардатовский район', 'АРДАТОВСКИЙ РАЙОН', NULL),
+(1512, 'ru', 1511, 'Ардатов', 'АРДАТОВ', NULL),
+(1513, 'ru', 1512, 'Ковылкино', 'КОВЫЛКИНО', NULL),
+(1514, 'ru', 1513, 'Рузаевка', 'РУЗАЕВКА', NULL),
+(1515, 'ru', 1514, 'Большеигнатовский район', 'БОЛЬШЕИГНАТОВСКИЙ РАЙОН', NULL),
+(1516, 'ru', 1515, 'Ельниковский район', 'ЕЛЬНИКОВСКИЙ РАЙОН', NULL),
+(1517, 'ru', 1516, 'Большеберезниковский район', 'БОЛЬШЕБЕРЕЗНИКОВСКИЙ РАЙОН', NULL),
+(1518, 'ru', 1517, 'Дубенский район', 'ДУБЕНСКИЙ РАЙОН', NULL),
+(1519, 'ru', 1518, 'Ичалковский район', 'ИЧАЛКОВСКИЙ РАЙОН', NULL),
+(1520, 'ru', 1519, 'Инсарский район', 'ИНСАРСКИЙ РАЙОН', NULL),
+(1521, 'ru', 1520, 'Инсар', 'ИНСАР', NULL),
+(1522, 'ru', 1521, 'Зубово-Полянский район', 'ЗУБОВО-ПОЛЯНСКИЙ РАЙОН', NULL),
+(1523, 'ru', 1522, 'Кочкуровский район', 'КОЧКУРОВСКИЙ РАЙОН', NULL),
+(1524, 'ru', 1523, 'Кадошкинский район', 'КАДОШКИНСКИЙ РАЙОН', NULL),
+(1525, 'ru', 1524, 'Ковылкинский район', 'КОВЫЛКИНСКИЙ РАЙОН', NULL),
+(1526, 'ru', 1525, 'Краснослободский район', 'КРАСНОСЛОБОДСКИЙ РАЙОН', NULL),
+(1527, 'ru', 1526, 'Краснослободск', 'КРАСНОСЛОБОДСК', NULL),
+(1528, 'ru', 1527, 'Лямбирский район', 'ЛЯМБИРСКИЙ РАЙОН', NULL),
+(1529, 'ru', 1528, 'Рузаевский район', 'РУЗАЕВСКИЙ РАЙОН', NULL),
+(1530, 'ru', 1529, 'Ромодановский район', 'РОМОДАНОВСКИЙ РАЙОН', NULL),
+(1531, 'ru', 1530, 'Торбеевский район', 'ТОРБЕЕВСКИЙ РАЙОН', NULL),
+(1532, 'ru', 1531, 'Темниковский район', 'ТЕМНИКОВСКИЙ РАЙОН', NULL),
+(1533, 'ru', 1532, 'Темников', 'ТЕМНИКОВ', NULL),
+(1534, 'ru', 1533, 'Теньгушевский район', 'ТЕНЬГУШЕВСКИЙ РАЙОН', NULL),
+(1535, 'ru', 1534, 'Старошайговский район', 'СТАРОШАЙГОВСКИЙ РАЙОН', NULL),
+(1536, 'ru', 1535, 'Чамзинский район', 'ЧАМЗИНСКИЙ РАЙОН', NULL),
+(1537, 'ru', 1536, 'Республика Татарстан', 'РЕСПУБЛИКА ТАТАРСТАН', NULL),
+(1538, 'ru', 1537, 'Казань', 'КАЗАНЬ', NULL),
+(1539, 'ru', 1538, 'Набережные Челны', 'НАБЕРЕЖНЫЕ ЧЕЛНЫ', NULL),
+(1540, 'ru', 1539, 'Агрызский район', 'АГРЫЗСКИЙ РАЙОН', NULL),
+(1541, 'ru', 1540, 'Агрыз', 'АГРЫЗ', NULL),
+(1542, 'ru', 1541, 'Азнакаевский район', 'АЗНАКАЕВСКИЙ РАЙОН', NULL),
+(1543, 'ru', 1542, 'Азнакаево', 'АЗНАКАЕВО', NULL),
+(1544, 'ru', 1543, 'Актанышский район', 'АКТАНЫШСКИЙ РАЙОН', NULL),
+(1545, 'ru', 1544, 'Аксубаевский район', 'АКСУБАЕВСКИЙ РАЙОН', NULL),
+(1546, 'ru', 1545, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
+(1547, 'ru', 1546, 'Альметьевский район', 'АЛЬМЕТЬЕВСКИЙ РАЙОН', NULL),
+(1548, 'ru', 1547, 'Альметьевск', 'АЛЬМЕТЬЕВСК', NULL),
+(1549, 'ru', 1548, 'Алькеевский район', 'АЛЬКЕЕВСКИЙ РАЙОН', NULL),
+(1550, 'ru', 1549, 'Апастовский район', 'АПАСТОВСКИЙ РАЙОН', NULL),
+(1551, 'ru', 1550, 'Арский район', 'АРСКИЙ РАЙОН', NULL),
+(1552, 'ru', 1551, 'Арск', 'АРСК', NULL),
+(1553, 'ru', 1552, 'Атнинский район', 'АТНИНСКИЙ РАЙОН', NULL),
+(1554, 'ru', 1553, 'Балтасинский район', 'БАЛТАСИНСКИЙ РАЙОН', NULL),
+(1555, 'ru', 1554, 'Бавлинский район', 'БАВЛИНСКИЙ РАЙОН', NULL),
+(1556, 'ru', 1555, 'Бавлы', 'БАВЛЫ', NULL),
+(1557, 'ru', 1556, 'Бугульминский район', 'БУГУЛЬМИНСКИЙ РАЙОН', NULL),
+(1558, 'ru', 1557, 'Бугульма', 'БУГУЛЬМА', NULL),
+(1559, 'ru', 1558, 'Буинский район', 'БУИНСКИЙ РАЙОН', NULL),
+(1560, 'ru', 1559, 'Буинск', 'БУИНСК', NULL),
+(1561, 'ru', 1560, 'Верхнеуслонский район', 'ВЕРХНЕУСЛОНСКИЙ РАЙОН', NULL),
+(1562, 'ru', 1561, 'Высокогорский район', 'ВЫСОКОГОРСКИЙ РАЙОН', NULL),
+(1563, 'ru', 1562, 'Елабужский район', 'ЕЛАБУЖСКИЙ РАЙОН', NULL),
+(1564, 'ru', 1563, 'Елабуга', 'ЕЛАБУГА', NULL),
+(1565, 'ru', 1564, 'Дрожжановский район', 'ДРОЖЖАНОВСКИЙ РАЙОН', NULL),
+(1566, 'ru', 1565, 'Зеленодольский район', 'ЗЕЛЕНОДОЛЬСКИЙ РАЙОН', NULL),
+(1567, 'ru', 1566, 'Зеленодольск', 'ЗЕЛЕНОДОЛЬСК', NULL),
+(1568, 'ru', 1567, 'Заинский район', 'ЗАИНСКИЙ РАЙОН', NULL),
+(1569, 'ru', 1568, 'Заинск', 'ЗАИНСК', NULL),
+(1570, 'ru', 1569, 'Кайбицкий район', 'КАЙБИЦКИЙ РАЙОН', NULL),
+(1571, 'ru', 1570, 'Камско-Устьинский район', 'КАМСКО-УСТЬИНСКИЙ РАЙОН', NULL),
+(1572, 'ru', 1571, 'Кукморский район', 'КУКМОРСКИЙ РАЙОН', NULL),
+(1573, 'ru', 1572, 'Лаишевский район', 'ЛАИШЕВСКИЙ РАЙОН', NULL),
+(1574, 'ru', 1573, 'Лаишево', 'ЛАИШЕВО', NULL),
+(1575, 'ru', 1574, 'Лениногорский район', 'ЛЕНИНОГОРСКИЙ РАЙОН', NULL),
+(1576, 'ru', 1575, 'Лениногорск', 'ЛЕНИНОГОРСК', NULL),
+(1577, 'ru', 1576, 'Мамадышский район', 'МАМАДЫШСКИЙ РАЙОН', NULL),
+(1578, 'ru', 1577, 'Мамадыш', 'МАМАДЫШ', NULL),
+(1579, 'ru', 1578, 'Муслюмовский район', 'МУСЛЮМОВСКИЙ РАЙОН', NULL),
+(1580, 'ru', 1579, 'Менделеевский район', 'МЕНДЕЛЕЕВСКИЙ РАЙОН', NULL),
+(1581, 'ru', 1580, 'Менделеевск', 'МЕНДЕЛЕЕВСК', NULL),
+(1582, 'ru', 1581, 'Мензелинский район', 'МЕНЗЕЛИНСКИЙ РАЙОН', NULL),
+(1583, 'ru', 1582, 'Мензелинск', 'МЕНЗЕЛИНСК', NULL),
+(1584, 'ru', 1583, 'Новошешминский район', 'НОВОШЕШМИНСКИЙ РАЙОН', NULL),
+(1585, 'ru', 1584, 'Нижнекамский район', 'НИЖНЕКАМСКИЙ РАЙОН', NULL),
+(1586, 'ru', 1585, 'Нижнекамск', 'НИЖНЕКАМСК', NULL),
+(1587, 'ru', 1586, 'Нурлатский район', 'НУРЛАТСКИЙ РАЙОН', NULL),
+(1588, 'ru', 1587, 'Нурлат', 'НУРЛАТ', NULL),
+(1589, 'ru', 1588, 'Пестречинский район', 'ПЕСТРЕЧИНСКИЙ РАЙОН', NULL),
+(1590, 'ru', 1589, 'Рыбно-Слободский район', 'РЫБНО-СЛОБОДСКИЙ РАЙОН', NULL),
+(1591, 'ru', 1590, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
+(1592, 'ru', 1591, 'Болгар', 'БОЛГАР', NULL),
+(1593, 'ru', 1592, 'Сармановский район', 'САРМАНОВСКИЙ РАЙОН', NULL),
+(1594, 'ru', 1593, 'Сабинский район', 'САБИНСКИЙ РАЙОН', NULL),
+(1595, 'ru', 1594, 'Тетюшский район', 'ТЕТЮШСКИЙ РАЙОН', NULL),
+(1596, 'ru', 1595, 'Тетюши', 'ТЕТЮШИ', NULL),
+(1597, 'ru', 1596, 'Тукаевский район', 'ТУКАЕВСКИЙ РАЙОН', NULL),
+(1598, 'ru', 1597, 'Тюлячинский район', 'ТЮЛЯЧИНСКИЙ РАЙОН', NULL),
+(1599, 'ru', 1598, 'Черемшанский район', 'ЧЕРЕМШАНСКИЙ РАЙОН', NULL),
+(1600, 'ru', 1599, 'Чистопольский район', 'ЧИСТОПОЛЬСКИЙ РАЙОН', NULL),
+(1601, 'ru', 1600, 'Чистополь', 'ЧИСТОПОЛЬ', NULL),
+(1602, 'ru', 1601, 'Ютазинский район', 'ЮТАЗИНСКИЙ РАЙОН', NULL),
+(1603, 'ru', 1602, 'Республика Марий Эл', 'РЕСПУБЛИКА МАРИЙ ЭЛ', NULL),
+(1604, 'ru', 1603, 'Йошкар-Ола', 'ЙОШКАР-ОЛА', NULL),
+(1605, 'ru', 1604, 'Козьмодемьянск', 'КОЗЬМОДЕМЬЯНСК', NULL),
+(1606, 'ru', 1605, 'Волжский район', 'ВОЛЖСКИЙ РАЙОН', NULL),
+(1607, 'ru', 1606, 'Волжск', 'ВОЛЖСК', NULL),
+(1608, 'ru', 1607, 'Горномарийский район', 'ГОРНОМАРИЙСКИЙ РАЙОН', NULL),
+(1609, 'ru', 1608, 'Звениговский район', 'ЗВЕНИГОВСКИЙ РАЙОН', NULL),
+(1610, 'ru', 1609, 'Звенигово', 'ЗВЕНИГОВО', NULL),
+(1611, 'ru', 1610, 'Куженерский район', 'КУЖЕНЕРСКИЙ РАЙОН', NULL),
+(1612, 'ru', 1611, 'Килемарский район', 'КИЛЕМАРСКИЙ РАЙОН', NULL),
+(1613, 'ru', 1612, 'Мари-Турекский район', 'МАРИ-ТУРЕКСКИЙ РАЙОН', NULL),
+(1614, 'ru', 1613, 'Медведевский район', 'МЕДВЕДЕВСКИЙ РАЙОН', NULL),
+(1615, 'ru', 1614, 'Моркинский район', 'МОРКИНСКИЙ РАЙОН', NULL),
+(1616, 'ru', 1615, 'Новоторъяльский район', 'НОВОТОРЪЯЛЬСКИЙ РАЙОН', NULL),
+(1617, 'ru', 1616, 'Сернурский район', 'СЕРНУРСКИЙ РАЙОН', NULL),
+(1618, 'ru', 1617, 'Параньгинский район', 'ПАРАНЬГИНСКИЙ РАЙОН', NULL),
+(1619, 'ru', 1618, 'Оршанский район', 'ОРШАНСКИЙ РАЙОН', NULL),
+(1620, 'ru', 1619, 'Юринский район', 'ЮРИНСКИЙ РАЙОН', NULL),
+(1621, 'ru', 1620, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(1622, 'ru', 1621, 'Кировская область', 'КИРОВСКАЯ ОБЛАСТЬ', NULL),
+(1623, 'ru', 1622, 'Киров', 'КИРОВ', NULL),
+(1624, 'ru', 1623, 'Арбажский район', 'АРБАЖСКИЙ РАЙОН', NULL),
+(1625, 'ru', 1624, 'Афанасьевский район', 'АФАНАСЬЕВСКИЙ РАЙОН', NULL),
+(1626, 'ru', 1625, 'Верхнекамский район', 'ВЕРХНЕКАМСКИЙ РАЙОН', NULL),
+(1627, 'ru', 1626, 'Кирс', 'КИРС', NULL),
+(1628, 'ru', 1627, 'Белохолуницкий район', 'БЕЛОХОЛУНИЦКИЙ РАЙОН', NULL),
+(1629, 'ru', 1628, 'Белая Холуница', 'БЕЛАЯ ХОЛУНИЦА', NULL),
+(1630, 'ru', 1629, 'Богородский район', 'БОГОРОДСКИЙ РАЙОН', NULL),
+(1631, 'ru', 1630, 'Вятскополянский район', 'ВЯТСКОПОЛЯНСКИЙ РАЙОН', NULL),
+(1632, 'ru', 1631, 'Вятские Поляны', 'ВЯТСКИЕ ПОЛЯНЫ', NULL),
+(1633, 'ru', 1632, 'Сосновка', 'СОСНОВКА', NULL),
+(1634, 'ru', 1633, 'Даровской район', 'ДАРОВСКОЙ РАЙОН', NULL),
+(1635, 'ru', 1634, 'Верхошижемский район', 'ВЕРХОШИЖЕМСКИЙ РАЙОН', NULL),
+(1636, 'ru', 1635, 'Кикнурский район', 'КИКНУРСКИЙ РАЙОН', NULL),
+(1637, 'ru', 1636, 'Зуевский район', 'ЗУЕВСКИЙ РАЙОН', NULL),
+(1638, 'ru', 1637, 'Зуевка', 'ЗУЕВКА', NULL),
+(1639, 'ru', 1638, 'Кирово-Чепецкий район', 'КИРОВО-ЧЕПЕЦКИЙ РАЙОН', NULL),
+(1640, 'ru', 1639, 'Кирово-Чепецк', 'КИРОВО-ЧЕПЕЦК', NULL),
+(1641, 'ru', 1640, 'Кильмезский район', 'КИЛЬМЕЗСКИЙ РАЙОН', NULL),
+(1642, 'ru', 1641, 'Котельничский район', 'КОТЕЛЬНИЧСКИЙ РАЙОН', NULL),
+(1643, 'ru', 1642, 'Котельнич', 'КОТЕЛЬНИЧ', NULL),
+(1644, 'ru', 1643, 'Куменский район', 'КУМЕНСКИЙ РАЙОН', NULL),
+(1645, 'ru', 1644, 'Малмыжский район', 'МАЛМЫЖСКИЙ РАЙОН', NULL),
+(1646, 'ru', 1645, 'Малмыж', 'МАЛМЫЖ', NULL),
+(1647, 'ru', 1646, 'Лузский район', 'ЛУЗСКИЙ РАЙОН', NULL),
+(1648, 'ru', 1647, 'Луза', 'ЛУЗА', NULL),
+(1649, 'ru', 1648, 'Лебяжский район', 'ЛЕБЯЖСКИЙ РАЙОН', NULL),
+(1650, 'ru', 1649, 'Нагорский район', 'НАГОРСКИЙ РАЙОН', NULL),
+(1651, 'ru', 1650, 'Мурашинский район', 'МУРАШИНСКИЙ РАЙОН', NULL),
+(1652, 'ru', 1651, 'Мураши', 'МУРАШИ', NULL),
+(1653, 'ru', 1652, 'Немский район', 'НЕМСКИЙ РАЙОН', NULL),
+(1654, 'ru', 1653, 'Омутнинский район', 'ОМУТНИНСКИЙ РАЙОН', NULL),
+(1655, 'ru', 1654, 'Омутнинск', 'ОМУТНИНСК', NULL),
+(1656, 'ru', 1655, 'Нолинский район', 'НОЛИНСКИЙ РАЙОН', NULL),
+(1657, 'ru', 1656, 'Нолинск', 'НОЛИНСК', NULL),
+(1658, 'ru', 1657, 'Опаринский район', 'ОПАРИНСКИЙ РАЙОН', NULL),
+(1659, 'ru', 1658, 'Оричевский район', 'ОРИЧЕВСКИЙ РАЙОН', NULL),
+(1660, 'ru', 1659, 'Подосиновский район', 'ПОДОСИНОВСКИЙ РАЙОН', NULL),
+(1661, 'ru', 1660, 'Орловский район', 'ОРЛОВСКИЙ РАЙОН', NULL),
+(1662, 'ru', 1661, 'Орлов', 'ОРЛОВ', NULL),
+(1663, 'ru', 1662, 'Пижанский район', 'ПИЖАНСКИЙ РАЙОН', NULL),
+(1664, 'ru', 1663, 'Санчурский район', 'САНЧУРСКИЙ РАЙОН', NULL),
+(1665, 'ru', 1664, 'Свечинский район', 'СВЕЧИНСКИЙ РАЙОН', NULL),
+(1666, 'ru', 1665, 'Слободской район', 'СЛОБОДСКОЙ РАЙОН', NULL),
+(1667, 'ru', 1666, 'Слободской', 'СЛОБОДСКОЙ', NULL),
+(1668, 'ru', 1667, 'Тужинский район', 'ТУЖИНСКИЙ РАЙОН', NULL),
+(1669, 'ru', 1668, 'Сунский район', 'СУНСКИЙ РАЙОН', NULL),
+(1670, 'ru', 1669, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(1671, 'ru', 1670, 'Советск', 'СОВЕТСК', NULL),
+(1672, 'ru', 1671, 'Унинский район', 'УНИНСКИЙ РАЙОН', NULL),
+(1673, 'ru', 1672, 'Уржумский район', 'УРЖУМСКИЙ РАЙОН', NULL),
+(1674, 'ru', 1673, 'Уржум', 'УРЖУМ', NULL),
+(1675, 'ru', 1674, 'Фаленский район', 'ФАЛЕНСКИЙ РАЙОН', NULL),
+(1676, 'ru', 1675, 'Шабалинский район', 'ШАБАЛИНСКИЙ РАЙОН', NULL),
+(1677, 'ru', 1676, 'Юрьянский район', 'ЮРЬЯНСКИЙ РАЙОН', NULL),
+(1678, 'ru', 1677, 'Яранский район', 'ЯРАНСКИЙ РАЙОН', NULL),
+(1679, 'ru', 1678, 'Яранск', 'ЯРАНСК', NULL),
+(1680, 'ru', 1679, 'Нижегородская область', 'НИЖЕГОРОДСКАЯ ОБЛАСТЬ', NULL),
+(1681, 'ru', 1680, 'Нижний Новгород', 'НИЖНИЙ НОВГОРОД', NULL),
+(1682, 'ru', 1681, 'Дзержинск', 'ДЗЕРЖИНСК', NULL),
+(1683, 'ru', 1682, 'Бор', 'БОР', NULL),
+(1684, 'ru', 1683, 'Саров', 'САРОВ', NULL),
+(1685, 'ru', 1684, 'Арзамас', 'АРЗАМАС', NULL),
+(1686, 'ru', 1685, 'Семенов', 'СЕМЕНОВ', NULL),
+(1687, 'ru', 1686, 'Выкса', 'ВЫКСА', NULL),
+(1688, 'ru', 1687, 'Первомайск', 'ПЕРВОМАЙСК', NULL),
+(1689, 'ru', 1688, 'Шахунья', 'ШАХУНЬЯ', NULL),
+(1690, 'ru', 1689, 'Арзамасский район', 'АРЗАМАССКИЙ РАЙОН', NULL),
+(1691, 'ru', 1690, 'Ардатовский район', 'АРДАТОВСКИЙ РАЙОН', NULL),
+(1692, 'ru', 1691, 'Балахнинский район', 'БАЛАХНИНСКИЙ РАЙОН', NULL),
+(1693, 'ru', 1692, 'Балахна', 'БАЛАХНА', NULL),
+(1694, 'ru', 1693, 'Богородский район', 'БОГОРОДСКИЙ РАЙОН', NULL),
+(1695, 'ru', 1694, 'Богородск', 'БОГОРОДСК', NULL),
+(1696, 'ru', 1695, 'Большемурашкинский район', 'БОЛЬШЕМУРАШКИНСКИЙ РАЙОН', NULL),
+(1697, 'ru', 1696, 'Вадский район', 'ВАДСКИЙ РАЙОН', NULL),
+(1698, 'ru', 1697, 'Бутурлинский район', 'БУТУРЛИНСКИЙ РАЙОН', NULL),
+(1699, 'ru', 1698, 'Большеболдинский район', 'БОЛЬШЕБОЛДИНСКИЙ РАЙОН', NULL),
+(1700, 'ru', 1699, 'Вачский район', 'ВАЧСКИЙ РАЙОН', NULL),
+(1701, 'ru', 1700, 'Ветлужский район', 'ВЕТЛУЖСКИЙ РАЙОН', NULL),
+(1702, 'ru', 1701, 'Ветлуга', 'ВЕТЛУГА', NULL),
+(1703, 'ru', 1702, 'Варнавинский район', 'ВАРНАВИНСКИЙ РАЙОН', NULL),
+(1704, 'ru', 1703, 'Воротынский район', 'ВОРОТЫНСКИЙ РАЙОН', NULL),
+(1705, 'ru', 1704, 'Володарский район', 'ВОЛОДАРСКИЙ РАЙОН', NULL),
+(1706, 'ru', 1705, 'Володарск', 'ВОЛОДАРСК', NULL),
+(1707, 'ru', 1706, 'Вознесенский район', 'ВОЗНЕСЕНСКИЙ РАЙОН', NULL),
+(1708, 'ru', 1707, 'Воскресенский район', 'ВОСКРЕСЕНСКИЙ РАЙОН', NULL),
+(1709, 'ru', 1708, 'Гагинский район', 'ГАГИНСКИЙ РАЙОН', NULL),
+(1710, 'ru', 1709, 'Городецкий район', 'ГОРОДЕЦКИЙ РАЙОН', NULL),
+(1711, 'ru', 1710, 'Городец', 'ГОРОДЕЦ', NULL),
+(1712, 'ru', 1711, 'Заволжье', 'ЗАВОЛЖЬЕ', NULL),
+(1713, 'ru', 1712, 'Дальнеконстантиновский район', 'ДАЛЬНЕКОНСТАНТИНОВСКИЙ РАЙОН', NULL),
+(1714, 'ru', 1713, 'Княгининский район', 'КНЯГИНИНСКИЙ РАЙОН', NULL),
+(1715, 'ru', 1714, 'Княгинино', 'КНЯГИНИНО', NULL),
+(1716, 'ru', 1715, 'Ковернинский район', 'КОВЕРНИНСКИЙ РАЙОН', NULL),
+(1717, 'ru', 1716, 'Дивеевский район', 'ДИВЕЕВСКИЙ РАЙОН', NULL),
+(1718, 'ru', 1717, 'Краснобаковский район', 'КРАСНОБАКОВСКИЙ РАЙОН', NULL),
+(1719, 'ru', 1718, 'Кстовский район', 'КСТОВСКИЙ РАЙОН', NULL),
+(1720, 'ru', 1719, 'Кстово', 'КСТОВО', NULL),
+(1721, 'ru', 1720, 'Промышленный район', 'ПРОМЫШЛЕННЫЙ РАЙОН', NULL),
+(1722, 'ru', 1721, 'Краснооктябрьский район', 'КРАСНООКТЯБРЬСКИЙ РАЙОН', NULL),
+(1723, 'ru', 1722, 'Лукояновский район', 'ЛУКОЯНОВСКИЙ РАЙОН', NULL);
+INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
+(1724, 'ru', 1723, 'Лукоянов', 'ЛУКОЯНОВ', NULL),
+(1725, 'ru', 1724, 'Кулебакский район', 'КУЛЕБАКСКИЙ РАЙОН', NULL),
+(1726, 'ru', 1725, 'Кулебаки', 'КУЛЕБАКИ', NULL),
+(1727, 'ru', 1726, 'Лысковский район', 'ЛЫСКОВСКИЙ РАЙОН', NULL),
+(1728, 'ru', 1727, 'Лысково', 'ЛЫСКОВО', NULL),
+(1729, 'ru', 1728, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
+(1730, 'ru', 1729, 'Павлово', 'ПАВЛОВО', NULL),
+(1731, 'ru', 1730, 'Ворсма', 'ВОРСМА', NULL),
+(1732, 'ru', 1731, 'Горбатов', 'ГОРБАТОВ', NULL),
+(1733, 'ru', 1732, 'Навашинский район', 'НАВАШИНСКИЙ РАЙОН', NULL),
+(1734, 'ru', 1733, 'Навашино', 'НАВАШИНО', NULL),
+(1735, 'ru', 1734, 'Перевозский район', 'ПЕРЕВОЗСКИЙ РАЙОН', NULL),
+(1736, 'ru', 1735, 'Перевоз', 'ПЕРЕВОЗ', NULL),
+(1737, 'ru', 1736, 'Пильнинский район', 'ПИЛЬНИНСКИЙ РАЙОН', NULL),
+(1738, 'ru', 1737, 'Починковский район', 'ПОЧИНКОВСКИЙ РАЙОН', NULL),
+(1739, 'ru', 1738, 'Сергачский район', 'СЕРГАЧСКИЙ РАЙОН', NULL),
+(1740, 'ru', 1739, 'Сергач', 'СЕРГАЧ', NULL),
+(1741, 'ru', 1740, 'Сокольский район', 'СОКОЛЬСКИЙ РАЙОН', NULL),
+(1742, 'ru', 1741, 'Сеченовский район', 'СЕЧЕНОВСКИЙ РАЙОН', NULL),
+(1743, 'ru', 1742, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
+(1744, 'ru', 1743, 'Тоншаевский район', 'ТОНШАЕВСКИЙ РАЙОН', NULL),
+(1745, 'ru', 1744, 'Сосновский район', 'СОСНОВСКИЙ РАЙОН', NULL),
+(1746, 'ru', 1745, 'Тонкинский район', 'ТОНКИНСКИЙ РАЙОН', NULL),
+(1747, 'ru', 1746, 'Уренский район', 'УРЕНСКИЙ РАЙОН', NULL),
+(1748, 'ru', 1747, 'Урень', 'УРЕНЬ', NULL),
+(1749, 'ru', 1748, 'Чкаловский район', 'ЧКАЛОВСКИЙ РАЙОН', NULL),
+(1750, 'ru', 1749, 'Чкаловск', 'ЧКАЛОВСК', NULL),
+(1751, 'ru', 1750, 'Шарангский район', 'ШАРАНГСКИЙ РАЙОН', NULL),
+(1752, 'ru', 1751, 'Шатковский район', 'ШАТКОВСКИЙ РАЙОН', NULL),
+(1753, 'ru', 1752, 'Удмуртская Республика', 'УДМУРТСКАЯ РЕСПУБЛИКА', NULL),
+(1754, 'ru', 1753, 'Ижевск', 'ИЖЕВСК', NULL),
+(1755, 'ru', 1754, 'Сарапул', 'САРАПУЛ', NULL),
+(1756, 'ru', 1755, 'Воткинск', 'ВОТКИНСК', NULL),
+(1757, 'ru', 1756, 'Глазов', 'ГЛАЗОВ', NULL),
+(1758, 'ru', 1757, 'Алнашский район', 'АЛНАШСКИЙ РАЙОН', NULL),
+(1759, 'ru', 1758, 'Можга', 'МОЖГА', NULL),
+(1760, 'ru', 1759, 'Вавожский район', 'ВАВОЖСКИЙ РАЙОН', NULL),
+(1761, 'ru', 1760, 'Балезинский район', 'БАЛЕЗИНСКИЙ РАЙОН', NULL),
+(1762, 'ru', 1761, 'Воткинский район', 'ВОТКИНСКИЙ РАЙОН', NULL),
+(1763, 'ru', 1762, 'Глазовский район', 'ГЛАЗОВСКИЙ РАЙОН', NULL),
+(1764, 'ru', 1763, 'Завьяловский район', 'ЗАВЬЯЛОВСКИЙ РАЙОН', NULL),
+(1765, 'ru', 1764, 'Граховский район', 'ГРАХОВСКИЙ РАЙОН', NULL),
+(1766, 'ru', 1765, 'Дебесский район', 'ДЕБЕССКИЙ РАЙОН', NULL),
+(1767, 'ru', 1766, 'Игринский район', 'ИГРИНСКИЙ РАЙОН', NULL),
+(1768, 'ru', 1767, 'Камбарский район', 'КАМБАРСКИЙ РАЙОН', NULL),
+(1769, 'ru', 1768, 'Камбарка', 'КАМБАРКА', NULL),
+(1770, 'ru', 1769, 'Каракулинский район', 'КАРАКУЛИНСКИЙ РАЙОН', NULL),
+(1771, 'ru', 1770, 'Кезский район', 'КЕЗСКИЙ РАЙОН', NULL),
+(1772, 'ru', 1771, 'Кизнерский район', 'КИЗНЕРСКИЙ РАЙОН', NULL),
+(1773, 'ru', 1772, 'Киясовский район', 'КИЯСОВСКИЙ РАЙОН', NULL),
+(1774, 'ru', 1773, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
+(1775, 'ru', 1774, 'Можгинский район', 'МОЖГИНСКИЙ РАЙОН', NULL),
+(1776, 'ru', 1775, 'Малопургинский район', 'МАЛОПУРГИНСКИЙ РАЙОН', NULL),
+(1777, 'ru', 1776, 'Сарапульский район', 'САРАПУЛЬСКИЙ РАЙОН', NULL),
+(1778, 'ru', 1777, 'Увинский район', 'УВИНСКИЙ РАЙОН', NULL),
+(1779, 'ru', 1778, 'Сюмсинский район', 'СЮМСИНСКИЙ РАЙОН', NULL),
+(1780, 'ru', 1779, 'Селтинский район', 'СЕЛТИНСКИЙ РАЙОН', NULL),
+(1781, 'ru', 1780, 'Юкаменский район', 'ЮКАМЕНСКИЙ РАЙОН', NULL),
+(1782, 'ru', 1781, 'Шарканский район', 'ШАРКАНСКИЙ РАЙОН', NULL),
+(1783, 'ru', 1782, 'Якшур-Бодьинский район', 'ЯКШУР-БОДЬИНСКИЙ РАЙОН', NULL),
+(1784, 'ru', 1783, 'Ярский район', 'ЯРСКИЙ РАЙОН', NULL),
+(1785, 'ru', 1784, 'Чувашская Республика', 'ЧУВАШСКАЯ РЕСПУБЛИКА', NULL),
+(1786, 'ru', 1785, 'Чебоксары', 'ЧЕБОКСАРЫ', NULL),
+(1787, 'ru', 1786, 'Канаш', 'КАНАШ', NULL),
+(1788, 'ru', 1787, 'Алатырь', 'АЛАТЫРЬ', NULL),
+(1789, 'ru', 1788, 'Алатырский район', 'АЛАТЫРСКИЙ РАЙОН', NULL),
+(1790, 'ru', 1789, 'Шумерля', 'ШУМЕРЛЯ', NULL),
+(1791, 'ru', 1790, 'Новочебоксарск', 'НОВОЧЕБОКСАРСК', NULL),
+(1792, 'ru', 1791, 'Аликовский район', 'АЛИКОВСКИЙ РАЙОН', NULL),
+(1793, 'ru', 1792, 'Батыревский район', 'БАТЫРЕВСКИЙ РАЙОН', NULL),
+(1794, 'ru', 1793, 'Вурнарский район', 'ВУРНАРСКИЙ РАЙОН', NULL),
+(1795, 'ru', 1794, 'Канашский район', 'КАНАШСКИЙ РАЙОН', NULL),
+(1796, 'ru', 1795, 'Ибресинский район', 'ИБРЕСИНСКИЙ РАЙОН', NULL),
+(1797, 'ru', 1796, 'Козловский район', 'КОЗЛОВСКИЙ РАЙОН', NULL),
+(1798, 'ru', 1797, 'Козловка', 'КОЗЛОВКА', NULL),
+(1799, 'ru', 1798, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
+(1800, 'ru', 1799, 'Красночетайский район', 'КРАСНОЧЕТАЙСКИЙ РАЙОН', NULL),
+(1801, 'ru', 1800, 'Комсомольский район', 'КОМСОМОЛЬСКИЙ РАЙОН', NULL),
+(1802, 'ru', 1801, 'Моргаушский район', 'МОРГАУШСКИЙ РАЙОН', NULL),
+(1803, 'ru', 1802, 'Мариинско-Посадский район', 'МАРИИНСКО-ПОСАДСКИЙ РАЙОН', NULL),
+(1804, 'ru', 1803, 'Мариинский Посад', 'МАРИИНСКИЙ ПОСАД', NULL),
+(1805, 'ru', 1804, 'Порецкий район', 'ПОРЕЦКИЙ РАЙОН', NULL),
+(1806, 'ru', 1805, 'Цивильский район', 'ЦИВИЛЬСКИЙ РАЙОН', NULL),
+(1807, 'ru', 1806, 'Цивильск', 'ЦИВИЛЬСК', NULL),
+(1808, 'ru', 1807, 'Урмарский район', 'УРМАРСКИЙ РАЙОН', NULL),
+(1809, 'ru', 1808, 'Чебоксарский район', 'ЧЕБОКСАРСКИЙ РАЙОН', NULL),
+(1810, 'ru', 1809, 'Шемуршинский район', 'ШЕМУРШИНСКИЙ РАЙОН', NULL),
+(1811, 'ru', 1810, 'Шумерлинский район', 'ШУМЕРЛИНСКИЙ РАЙОН', NULL),
+(1812, 'ru', 1811, 'Ядринский район', 'ЯДРИНСКИЙ РАЙОН', NULL),
+(1813, 'ru', 1812, 'Ядрин', 'ЯДРИН', NULL),
+(1814, 'ru', 1813, 'Янтиковский район', 'ЯНТИКОВСКИЙ РАЙОН', NULL),
+(1815, 'ru', 1814, 'Яльчикский район', 'ЯЛЬЧИКСКИЙ РАЙОН', NULL),
+(1816, 'ru', 1815, 'Самарская область', 'САМАРСКАЯ ОБЛАСТЬ', NULL),
+(1817, 'ru', 1816, 'Самара', 'САМАРА', NULL),
+(1818, 'ru', 1817, 'Жигулевск', 'ЖИГУЛЕВСК', NULL),
+(1819, 'ru', 1818, 'Тольятти', 'ТОЛЬЯТТИ', NULL),
+(1820, 'ru', 1819, 'Чапаевск', 'ЧАПАЕВСК', NULL),
+(1821, 'ru', 1820, 'Новокуйбышевск', 'НОВОКУЙБЫШЕВСК', NULL),
+(1822, 'ru', 1821, 'Октябрьск', 'ОКТЯБРЬСК', NULL),
+(1823, 'ru', 1822, 'Отрадный', 'ОТРАДНЫЙ', NULL),
+(1824, 'ru', 1823, 'Похвистнево', 'ПОХВИСТНЕВО', NULL),
+(1825, 'ru', 1824, 'Сызрань', 'СЫЗРАНЬ', NULL),
+(1826, 'ru', 1825, 'Кинель', 'КИНЕЛЬ', NULL),
+(1827, 'ru', 1826, 'Безенчукский район', 'БЕЗЕНЧУКСКИЙ РАЙОН', NULL),
+(1828, 'ru', 1827, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
+(1829, 'ru', 1828, 'Богатовский район', 'БОГАТОВСКИЙ РАЙОН', NULL),
+(1830, 'ru', 1829, 'Борский район', 'БОРСКИЙ РАЙОН', NULL),
+(1831, 'ru', 1830, 'Большеглушицкий район', 'БОЛЬШЕГЛУШИЦКИЙ РАЙОН', NULL),
+(1832, 'ru', 1831, 'Большечерниговский район', 'БОЛЬШЕЧЕРНИГОВСКИЙ РАЙОН', NULL),
+(1833, 'ru', 1832, 'Елховский район', 'ЕЛХОВСКИЙ РАЙОН', NULL),
+(1834, 'ru', 1833, 'Камышлинский район', 'КАМЫШЛИНСКИЙ РАЙОН', NULL),
+(1835, 'ru', 1834, 'Кинель-Черкасский район', 'КИНЕЛЬ-ЧЕРКАССКИЙ РАЙОН', NULL),
+(1836, 'ru', 1835, 'Исаклинский район', 'ИСАКЛИНСКИЙ РАЙОН', NULL),
+(1837, 'ru', 1836, 'Кинельский район', 'КИНЕЛЬСКИЙ РАЙОН', NULL),
+(1838, 'ru', 1837, 'Клявлинский район', 'КЛЯВЛИНСКИЙ РАЙОН', NULL),
+(1839, 'ru', 1838, 'Красноярский район', 'КРАСНОЯРСКИЙ РАЙОН', NULL),
+(1840, 'ru', 1839, 'Кошкинский район', 'КОШКИНСКИЙ РАЙОН', NULL),
+(1841, 'ru', 1840, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
+(1842, 'ru', 1841, 'Нефтегорский район', 'НЕФТЕГОРСКИЙ РАЙОН', NULL),
+(1843, 'ru', 1842, 'Нефтегорск', 'НЕФТЕГОРСК', NULL),
+(1844, 'ru', 1843, 'Приволжский район', 'ПРИВОЛЖСКИЙ РАЙОН', NULL),
+(1845, 'ru', 1844, 'Пестравский район', 'ПЕСТРАВСКИЙ РАЙОН', NULL),
+(1846, 'ru', 1845, 'Похвистневский район', 'ПОХВИСТНЕВСКИЙ РАЙОН', NULL),
+(1847, 'ru', 1846, 'Ставропольский район', 'СТАВРОПОЛЬСКИЙ РАЙОН', NULL),
+(1848, 'ru', 1847, 'Сергиевский район', 'СЕРГИЕВСКИЙ РАЙОН', NULL),
+(1849, 'ru', 1848, 'Сызранский район', 'СЫЗРАНСКИЙ РАЙОН', NULL),
+(1850, 'ru', 1849, 'Хворостянский район', 'ХВОРОСТЯНСКИЙ РАЙОН', NULL),
+(1851, 'ru', 1850, 'Челно-Вершинский район', 'ЧЕЛНО-ВЕРШИНСКИЙ РАЙОН', NULL),
+(1852, 'ru', 1851, 'Шенталинский район', 'ШЕНТАЛИНСКИЙ РАЙОН', NULL),
+(1853, 'ru', 1852, 'Волжский район', 'ВОЛЖСКИЙ РАЙОН', NULL),
+(1854, 'ru', 1853, 'Шигонский район', 'ШИГОНСКИЙ РАЙОН', NULL),
+(1855, 'ru', 1854, 'Пермский край', 'ПЕРМСКИЙ КРАЙ', NULL),
+(1856, 'ru', 1855, 'Пермь', 'ПЕРМЬ', NULL),
+(1857, 'ru', 1856, 'Березники', 'БЕРЕЗНИКИ', NULL),
+(1858, 'ru', 1857, 'Гремячинск', 'ГРЕМЯЧИНСК', NULL),
+(1859, 'ru', 1858, 'Александровск', 'АЛЕКСАНДРОВСК', NULL),
+(1860, 'ru', 1859, 'Губаха', 'ГУБАХА', NULL),
+(1861, 'ru', 1860, 'Добрянка', 'ДОБРЯНКА', NULL),
+(1862, 'ru', 1861, 'Кизел', 'КИЗЕЛ', NULL),
+(1863, 'ru', 1862, 'Лысьва', 'ЛЫСЬВА', NULL),
+(1864, 'ru', 1863, 'Кунгур', 'КУНГУР', NULL),
+(1865, 'ru', 1864, 'Соликамск', 'СОЛИКАМСК', NULL),
+(1866, 'ru', 1865, 'Чайковский', 'ЧАЙКОВСКИЙ', NULL),
+(1867, 'ru', 1866, 'Чусовой', 'ЧУСОВОЙ', NULL),
+(1868, 'ru', 1867, 'Кудымкар', 'КУДЫМКАР', NULL),
+(1869, 'ru', 1868, 'Березовский район', 'БЕРЕЗОВСКИЙ РАЙОН', NULL),
+(1870, 'ru', 1869, 'Бардымский район', 'БАРДЫМСКИЙ РАЙОН', NULL),
+(1871, 'ru', 1870, 'Верещагинский район', 'ВЕРЕЩАГИНСКИЙ РАЙОН', NULL),
+(1872, 'ru', 1871, 'Верещагино', 'ВЕРЕЩАГИНО', NULL),
+(1873, 'ru', 1872, 'Большесосновский район', 'БОЛЬШЕСОСНОВСКИЙ РАЙОН', NULL),
+(1874, 'ru', 1873, 'Ильинский район', 'ИЛЬИНСКИЙ РАЙОН', NULL),
+(1875, 'ru', 1874, 'Чермоз', 'ЧЕРМОЗ', NULL),
+(1876, 'ru', 1875, 'Еловский район', 'ЕЛОВСКИЙ РАЙОН', NULL),
+(1877, 'ru', 1876, 'Горнозаводский район', 'ГОРНОЗАВОДСКИЙ РАЙОН', NULL),
+(1878, 'ru', 1877, 'Горнозаводск', 'ГОРНОЗАВОДСК', NULL),
+(1879, 'ru', 1878, 'Карагайский район', 'КАРАГАЙСКИЙ РАЙОН', NULL),
+(1880, 'ru', 1879, 'Кишертский район', 'КИШЕРТСКИЙ РАЙОН', NULL),
+(1881, 'ru', 1880, 'Куединский район', 'КУЕДИНСКИЙ РАЙОН', NULL),
+(1882, 'ru', 1881, 'Кунгурский район', 'КУНГУРСКИЙ РАЙОН', NULL),
+(1883, 'ru', 1882, 'Красновишерский район', 'КРАСНОВИШЕРСКИЙ РАЙОН', NULL),
+(1884, 'ru', 1883, 'Красновишерск', 'КРАСНОВИШЕРСК', NULL),
+(1885, 'ru', 1884, 'Нытвенский район', 'НЫТВЕНСКИЙ РАЙОН', NULL),
+(1886, 'ru', 1885, 'Нытва', 'НЫТВА', NULL),
+(1887, 'ru', 1886, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(1888, 'ru', 1887, 'Осинский район', 'ОСИНСКИЙ РАЙОН', NULL),
+(1889, 'ru', 1888, 'Оса', 'ОСА', NULL),
+(1890, 'ru', 1889, 'Ординский район', 'ОРДИНСКИЙ РАЙОН', NULL),
+(1891, 'ru', 1890, 'Оханский район', 'ОХАНСКИЙ РАЙОН', NULL),
+(1892, 'ru', 1891, 'Оханск', 'ОХАНСК', NULL),
+(1893, 'ru', 1892, 'Очерский район', 'ОЧЕРСКИЙ РАЙОН', NULL),
+(1894, 'ru', 1893, 'Очер', 'ОЧЕР', NULL),
+(1895, 'ru', 1894, 'Пермский район', 'ПЕРМСКИЙ РАЙОН', NULL),
+(1896, 'ru', 1895, 'Сивинский район', 'СИВИНСКИЙ РАЙОН', NULL),
+(1897, 'ru', 1896, 'Соликамский район', 'СОЛИКАМСКИЙ РАЙОН', NULL),
+(1898, 'ru', 1897, 'Усольский район', 'УСОЛЬСКИЙ РАЙОН', NULL),
+(1899, 'ru', 1898, 'Усолье', 'УСОЛЬЕ', NULL),
+(1900, 'ru', 1899, 'Суксунский район', 'СУКСУНСКИЙ РАЙОН', NULL),
+(1901, 'ru', 1900, 'Уинский район', 'УИНСКИЙ РАЙОН', NULL),
+(1902, 'ru', 1901, 'Частинский район', 'ЧАСТИНСКИЙ РАЙОН', NULL),
+(1903, 'ru', 1902, 'Чердынский район', 'ЧЕРДЫНСКИЙ РАЙОН', NULL),
+(1904, 'ru', 1903, 'Чердынь', 'ЧЕРДЫНЬ', NULL),
+(1905, 'ru', 1904, 'Чернушинский район', 'ЧЕРНУШИНСКИЙ РАЙОН', NULL),
+(1906, 'ru', 1905, 'Чернушка', 'ЧЕРНУШКА', NULL),
+(1907, 'ru', 1906, 'Гайнский район', 'ГАЙНСКИЙ РАЙОН', NULL),
+(1908, 'ru', 1907, 'Кочевский район', 'КОЧЕВСКИЙ РАЙОН', NULL),
+(1909, 'ru', 1908, 'Кудымкарский район', 'КУДЫМКАРСКИЙ РАЙОН', NULL),
+(1910, 'ru', 1909, 'Косинский район', 'КОСИНСКИЙ РАЙОН', NULL),
+(1911, 'ru', 1910, 'Юрлинский район', 'ЮРЛИНСКИЙ РАЙОН', NULL),
+(1912, 'ru', 1911, 'Юсьвинский район', 'ЮСЬВИНСКИЙ РАЙОН', NULL),
+(1913, 'ru', 1912, 'Краснокамский район', 'КРАСНОКАМСКИЙ РАЙОН', NULL),
+(1914, 'ru', 1913, 'Краснокамск', 'КРАСНОКАМСК', NULL),
+(1915, 'ru', 1914, 'Пензенская область', 'ПЕНЗЕНСКАЯ ОБЛАСТЬ', NULL),
+(1916, 'ru', 1915, 'Пенза', 'ПЕНЗА', NULL),
+(1917, 'ru', 1916, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
+(1918, 'ru', 1917, 'Спасск', 'СПАССК', NULL),
+(1919, 'ru', 1918, 'Башмаковский район', 'БАШМАКОВСКИЙ РАЙОН', NULL),
+(1920, 'ru', 1919, 'Заречный', 'ЗАРЕЧНЫЙ', NULL),
+(1921, 'ru', 1920, 'Бековский район', 'БЕКОВСКИЙ РАЙОН', NULL),
+(1922, 'ru', 1921, 'Кузнецк', 'КУЗНЕЦК', NULL),
+(1923, 'ru', 1922, 'Кузнецк-8', 'КУЗНЕЦК-8', NULL),
+(1924, 'ru', 1923, 'Кузнецк-12', 'КУЗНЕЦК-12', NULL),
+(1925, 'ru', 1924, 'Белинский район', 'БЕЛИНСКИЙ РАЙОН', NULL),
+(1926, 'ru', 1925, 'Белинский', 'БЕЛИНСКИЙ', NULL),
+(1927, 'ru', 1926, 'Бессоновский район', 'БЕССОНОВСКИЙ РАЙОН', NULL),
+(1928, 'ru', 1927, 'Городищенский район', 'ГОРОДИЩЕНСКИЙ РАЙОН', NULL),
+(1929, 'ru', 1928, 'Сурск', 'СУРСК', NULL),
+(1930, 'ru', 1929, 'Городище', 'ГОРОДИЩЕ', NULL),
+(1931, 'ru', 1930, 'Вадинский район', 'ВАДИНСКИЙ РАЙОН', NULL),
+(1932, 'ru', 1931, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
+(1933, 'ru', 1932, 'Каменка', 'КАМЕНКА', NULL),
+(1934, 'ru', 1933, 'Иссинский район', 'ИССИНСКИЙ РАЙОН', NULL),
+(1935, 'ru', 1934, 'Земетчинский район', 'ЗЕМЕТЧИНСКИЙ РАЙОН', NULL),
+(1936, 'ru', 1935, 'Камешкирский район', 'КАМЕШКИРСКИЙ РАЙОН', NULL),
+(1937, 'ru', 1936, 'Колышлейский район', 'КОЛЫШЛЕЙСКИЙ РАЙОН', NULL),
+(1938, 'ru', 1937, 'Кузнецкий район', 'КУЗНЕЦКИЙ РАЙОН', NULL),
+(1939, 'ru', 1938, 'Лунинский район', 'ЛУНИНСКИЙ РАЙОН', NULL),
+(1940, 'ru', 1939, 'Лопатинский район', 'ЛОПАТИНСКИЙ РАЙОН', NULL),
+(1941, 'ru', 1940, 'Малосердобинский район', 'МАЛОСЕРДОБИНСКИЙ РАЙОН', NULL),
+(1942, 'ru', 1941, 'Неверкинский район', 'НЕВЕРКИНСКИЙ РАЙОН', NULL),
+(1943, 'ru', 1942, 'Наровчатский район', 'НАРОВЧАТСКИЙ РАЙОН', NULL),
+(1944, 'ru', 1943, 'Мокшанский район', 'МОКШАНСКИЙ РАЙОН', NULL),
+(1945, 'ru', 1944, 'Нижнеломовский район', 'НИЖНЕЛОМОВСКИЙ РАЙОН', NULL),
+(1946, 'ru', 1945, 'Нижний Ломов', 'НИЖНИЙ ЛОМОВ', NULL),
+(1947, 'ru', 1946, 'Никольский район', 'НИКОЛЬСКИЙ РАЙОН', NULL),
+(1948, 'ru', 1947, 'Никольск', 'НИКОЛЬСК', NULL),
+(1949, 'ru', 1948, 'Пачелмский район', 'ПАЧЕЛМСКИЙ РАЙОН', NULL),
+(1950, 'ru', 1949, 'Сердобский район', 'СЕРДОБСКИЙ РАЙОН', NULL),
+(1951, 'ru', 1950, 'Сердобск', 'СЕРДОБСК', NULL),
+(1952, 'ru', 1951, 'Шемышейский район', 'ШЕМЫШЕЙСКИЙ РАЙОН', NULL),
+(1953, 'ru', 1952, 'Сосновоборский район', 'СОСНОВОБОРСКИЙ РАЙОН', NULL),
+(1954, 'ru', 1953, 'Тамалинский район', 'ТАМАЛИНСКИЙ РАЙОН', NULL),
+(1955, 'ru', 1954, 'Пензенский район', 'ПЕНЗЕНСКИЙ РАЙОН', NULL),
+(1956, 'ru', 1955, 'Оренбургская область', 'ОРЕНБУРГСКАЯ ОБЛАСТЬ', NULL),
+(1957, 'ru', 1956, 'Оренбург', 'ОРЕНБУРГ', NULL),
+(1958, 'ru', 1957, 'Новотроицк', 'НОВОТРОИЦК', NULL),
+(1959, 'ru', 1958, 'Медногорск', 'МЕДНОГОРСК', NULL),
+(1960, 'ru', 1959, 'Бузулук', 'БУЗУЛУК', NULL),
+(1961, 'ru', 1960, 'Бугуруслан', 'БУГУРУСЛАН', NULL),
+(1962, 'ru', 1961, 'Орск', 'ОРСК', NULL),
+(1963, 'ru', 1962, 'Сорочинск', 'СОРОЧИНСК', NULL),
+(1964, 'ru', 1963, 'Кувандык', 'КУВАНДЫК', NULL),
+(1965, 'ru', 1964, 'Гай', 'ГАЙ', NULL),
+(1966, 'ru', 1965, 'Акбулакский район', 'АКБУЛАКСКИЙ РАЙОН', NULL),
+(1967, 'ru', 1966, 'Бугурусланский район', 'БУГУРУСЛАНСКИЙ РАЙОН', NULL),
+(1968, 'ru', 1967, 'Гайский район', 'ГАЙСКИЙ РАЙОН', NULL),
+(1969, 'ru', 1968, 'Сакмарский район', 'САКМАРСКИЙ РАЙОН', NULL),
+(1970, 'ru', 1969, 'Асекеевский район', 'АСЕКЕЕВСКИЙ РАЙОН', NULL),
+(1971, 'ru', 1970, 'Сорочинский район', 'СОРОЧИНСКИЙ РАЙОН', NULL),
+(1972, 'ru', 1971, 'Тюльганский район', 'ТЮЛЬГАНСКИЙ РАЙОН', NULL),
+(1973, 'ru', 1972, 'Ясненский район', 'ЯСНЕНСКИЙ РАЙОН', NULL),
+(1974, 'ru', 1973, 'Ясный', 'ЯСНЫЙ', NULL),
+(1975, 'ru', 1974, 'Бузулукский район', 'БУЗУЛУКСКИЙ РАЙОН', NULL),
+(1976, 'ru', 1975, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
+(1977, 'ru', 1976, 'Новоорский район', 'НОВООРСКИЙ РАЙОН', NULL),
+(1978, 'ru', 1977, 'Кувандыкский район', 'КУВАНДЫКСКИЙ РАЙОН', NULL),
+(1979, 'ru', 1978, 'Саракташский район', 'САРАКТАШСКИЙ РАЙОН', NULL),
+(1980, 'ru', 1979, 'Соль-Илецкий район', 'СОЛЬ-ИЛЕЦКИЙ РАЙОН', NULL),
+(1981, 'ru', 1980, 'Соль-Илецк', 'СОЛЬ-ИЛЕЦК', NULL),
+(1982, 'ru', 1981, 'Тоцкий район', 'ТОЦКИЙ РАЙОН', NULL),
+(1983, 'ru', 1982, 'Северный район', 'СЕВЕРНЫЙ РАЙОН', NULL),
+(1984, 'ru', 1983, 'Курманаевский район', 'КУРМАНАЕВСКИЙ РАЙОН', NULL),
+(1985, 'ru', 1984, 'Оренбургский район', 'ОРЕНБУРГСКИЙ РАЙОН', NULL),
+(1986, 'ru', 1985, 'Новосергиевский район', 'НОВОСЕРГИЕВСКИЙ РАЙОН', NULL),
+(1987, 'ru', 1986, 'Грачевский район', 'ГРАЧЕВСКИЙ РАЙОН', NULL),
+(1988, 'ru', 1987, 'Светлинский район', 'СВЕТЛИНСКИЙ РАЙОН', NULL),
+(1989, 'ru', 1988, 'Матвеевский район', 'МАТВЕЕВСКИЙ РАЙОН', NULL),
+(1990, 'ru', 1989, 'Переволоцкий район', 'ПЕРЕВОЛОЦКИЙ РАЙОН', NULL),
+(1991, 'ru', 1990, 'Адамовский район', 'АДАМОВСКИЙ РАЙОН', NULL),
+(1992, 'ru', 1991, 'Пономаревский район', 'ПОНОМАРЕВСКИЙ РАЙОН', NULL),
+(1993, 'ru', 1992, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
+(1994, 'ru', 1993, 'Беляевский район', 'БЕЛЯЕВСКИЙ РАЙОН', NULL),
+(1995, 'ru', 1994, 'Илекский район', 'ИЛЕКСКИЙ РАЙОН', NULL),
+(1996, 'ru', 1995, 'Домбаровский район', 'ДОМБАРОВСКИЙ РАЙОН', NULL),
+(1997, 'ru', 1996, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
+(1998, 'ru', 1997, 'Кваркенский район', 'КВАРКЕНСКИЙ РАЙОН', NULL),
+(1999, 'ru', 1998, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(2000, 'ru', 1999, 'Ташлинский район', 'ТАШЛИНСКИЙ РАЙОН', NULL),
+(2001, 'ru', 2000, 'Шарлыкский район', 'ШАРЛЫКСКИЙ РАЙОН', NULL),
+(2002, 'ru', 2001, 'Абдулинский район', 'АБДУЛИНСКИЙ РАЙОН', NULL),
+(2003, 'ru', 2002, 'Абдулино', 'АБДУЛИНО', NULL),
+(2004, 'ru', 2003, 'Республика Башкортостан', 'РЕСПУБЛИКА БАШКОРТОСТАН', NULL),
+(2005, 'ru', 2004, 'Уфа', 'УФА', NULL),
+(2006, 'ru', 2005, 'Демский район', 'ДЕМСКИЙ РАЙОН', NULL),
+(2007, 'ru', 2006, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(2008, 'ru', 2007, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
+(2009, 'ru', 2008, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(2010, 'ru', 2009, 'Агидель', 'АГИДЕЛЬ', NULL),
+(2011, 'ru', 2010, 'Октябрьский', 'ОКТЯБРЬСКИЙ', NULL),
+(2012, 'ru', 2011, 'Нефтекамск', 'НЕФТЕКАМСК', NULL),
+(2013, 'ru', 2012, 'Сибай', 'СИБАЙ', NULL),
+(2014, 'ru', 2013, 'Кумертау', 'КУМЕРТАУ', NULL),
+(2015, 'ru', 2014, 'Салават', 'САЛАВАТ', NULL),
+(2016, 'ru', 2015, 'Уфимский район', 'УФИМСКИЙ РАЙОН', NULL),
+(2017, 'ru', 2016, 'Межгорье', 'МЕЖГОРЬЕ', NULL),
+(2018, 'ru', 2017, 'Стерлитамак', 'СТЕРЛИТАМАК', NULL),
+(2019, 'ru', 2018, 'Альшеевский район', 'АЛЬШЕЕВСКИЙ РАЙОН', NULL),
+(2020, 'ru', 2019, 'Архангельский район', 'АРХАНГЕЛЬСКИЙ РАЙОН', NULL),
+(2021, 'ru', 2020, 'Аскинский район', 'АСКИНСКИЙ РАЙОН', NULL),
+(2022, 'ru', 2021, 'Аургазинский район', 'АУРГАЗИНСКИЙ РАЙОН', NULL),
+(2023, 'ru', 2022, 'Баймакский район', 'БАЙМАКСКИЙ РАЙОН', NULL),
+(2024, 'ru', 2023, 'Баймак', 'БАЙМАК', NULL),
+(2025, 'ru', 2024, 'Бакалинский район', 'БАКАЛИНСКИЙ РАЙОН', NULL),
+(2026, 'ru', 2025, 'Белебеевский район', 'БЕЛЕБЕЕВСКИЙ РАЙОН', NULL),
+(2027, 'ru', 2026, 'Белебей', 'БЕЛЕБЕЙ', NULL),
+(2028, 'ru', 2027, 'Балтачевский район', 'БАЛТАЧЕВСКИЙ РАЙОН', NULL),
+(2029, 'ru', 2028, 'Белорецкий район', 'БЕЛОРЕЦКИЙ РАЙОН', NULL),
+(2030, 'ru', 2029, 'Белорецк', 'БЕЛОРЕЦК', NULL),
+(2031, 'ru', 2030, 'Белокатайский район', 'БЕЛОКАТАЙСКИЙ РАЙОН', NULL),
+(2032, 'ru', 2031, 'Бижбулякский район', 'БИЖБУЛЯКСКИЙ РАЙОН', NULL),
+(2033, 'ru', 2032, 'Бирский район', 'БИРСКИЙ РАЙОН', NULL),
+(2034, 'ru', 2033, 'Бирск', 'БИРСК', NULL),
+(2035, 'ru', 2034, 'Благоварский район', 'БЛАГОВАРСКИЙ РАЙОН', NULL),
+(2036, 'ru', 2035, 'Благовещенский район', 'БЛАГОВЕЩЕНСКИЙ РАЙОН', NULL),
+(2037, 'ru', 2036, 'Благовещенск', 'БЛАГОВЕЩЕНСК', NULL),
+(2038, 'ru', 2037, 'Буздякский район', 'БУЗДЯКСКИЙ РАЙОН', NULL),
+(2039, 'ru', 2038, 'Бураевский район', 'БУРАЕВСКИЙ РАЙОН', NULL),
+(2040, 'ru', 2039, 'Бурзянский район', 'БУРЗЯНСКИЙ РАЙОН', NULL),
+(2041, 'ru', 2040, 'Гафурийский район', 'ГАФУРИЙСКИЙ РАЙОН', NULL),
+(2042, 'ru', 2041, 'Дуванский район', 'ДУВАНСКИЙ РАЙОН', NULL),
+(2043, 'ru', 2042, 'Ермекеевский район', 'ЕРМЕКЕЕВСКИЙ РАЙОН', NULL),
+(2044, 'ru', 2043, 'Зианчуринский район', 'ЗИАНЧУРИНСКИЙ РАЙОН', NULL),
+(2045, 'ru', 2044, 'Зилаирский район', 'ЗИЛАИРСКИЙ РАЙОН', NULL),
+(2046, 'ru', 2045, 'Иглинский район', 'ИГЛИНСКИЙ РАЙОН', NULL),
+(2047, 'ru', 2046, 'Илишевский район', 'ИЛИШЕВСКИЙ РАЙОН', NULL),
+(2048, 'ru', 2047, 'Ишимбайский район', 'ИШИМБАЙСКИЙ РАЙОН', NULL),
+(2049, 'ru', 2048, 'Ишимбай', 'ИШИМБАЙ', NULL),
+(2050, 'ru', 2049, 'Караидельский район', 'КАРАИДЕЛЬСКИЙ РАЙОН', NULL),
+(2051, 'ru', 2050, 'Калтасинский район', 'КАЛТАСИНСКИЙ РАЙОН', NULL),
+(2052, 'ru', 2051, 'Кармаскалинский район', 'КАРМАСКАЛИНСКИЙ РАЙОН', NULL),
+(2053, 'ru', 2052, 'Краснокамский район', 'КРАСНОКАМСКИЙ РАЙОН', NULL),
+(2054, 'ru', 2053, 'Кигинский район', 'КИГИНСКИЙ РАЙОН', NULL),
+(2055, 'ru', 2054, 'Кугарчинский район', 'КУГАРЧИНСКИЙ РАЙОН', NULL),
+(2056, 'ru', 2055, 'Кушнаренковский район', 'КУШНАРЕНКОВСКИЙ РАЙОН', NULL),
+(2057, 'ru', 2056, 'Куюргазинский район', 'КУЮРГАЗИНСКИЙ РАЙОН', NULL),
+(2058, 'ru', 2057, 'Мелеузовский район', 'МЕЛЕУЗОВСКИЙ РАЙОН', NULL),
+(2059, 'ru', 2058, 'Мелеуз', 'МЕЛЕУЗ', NULL),
+(2060, 'ru', 2059, 'Мечетлинский район', 'МЕЧЕТЛИНСКИЙ РАЙОН', NULL),
+(2061, 'ru', 2060, 'Мишкинский район', 'МИШКИНСКИЙ РАЙОН', NULL),
+(2062, 'ru', 2061, 'Нуримановский район', 'НУРИМАНОВСКИЙ РАЙОН', NULL),
+(2063, 'ru', 2062, 'Миякинский район', 'МИЯКИНСКИЙ РАЙОН', NULL),
+(2064, 'ru', 2063, 'Салаватский район', 'САЛАВАТСКИЙ РАЙОН', NULL),
+(2065, 'ru', 2064, 'Стерлибашевский район', 'СТЕРЛИБАШЕВСКИЙ РАЙОН', NULL),
+(2066, 'ru', 2065, 'Стерлитамакский район', 'СТЕРЛИТАМАКСКИЙ РАЙОН', NULL),
+(2067, 'ru', 2066, 'Татышлинский район', 'ТАТЫШЛИНСКИЙ РАЙОН', NULL),
+(2068, 'ru', 2067, 'Туймазинский район', 'ТУЙМАЗИНСКИЙ РАЙОН', NULL),
+(2069, 'ru', 2068, 'Туймазы', 'ТУЙМАЗЫ', NULL),
+(2070, 'ru', 2069, 'Учалинский район', 'УЧАЛИНСКИЙ РАЙОН', NULL),
+(2071, 'ru', 2070, 'Учалы', 'УЧАЛЫ', NULL),
+(2072, 'ru', 2071, 'Хайбуллинский район', 'ХАЙБУЛЛИНСКИЙ РАЙОН', NULL),
+(2073, 'ru', 2072, 'Федоровский район', 'ФЕДОРОВСКИЙ РАЙОН', NULL),
+(2074, 'ru', 2073, 'Чекмагушевский район', 'ЧЕКМАГУШЕВСКИЙ РАЙОН', NULL),
+(2075, 'ru', 2074, 'Чишминский район', 'ЧИШМИНСКИЙ РАЙОН', NULL),
+(2076, 'ru', 2075, 'Шаранский район', 'ШАРАНСКИЙ РАЙОН', NULL),
+(2077, 'ru', 2076, 'Янаульский район', 'ЯНАУЛЬСКИЙ РАЙОН', NULL),
+(2078, 'ru', 2077, 'Янаул', 'ЯНАУЛ', NULL),
+(2079, 'ru', 2078, 'Абзелиловский район', 'АБЗЕЛИЛОВСКИЙ РАЙОН', NULL),
+(2080, 'ru', 2079, 'Давлекановский район', 'ДАВЛЕКАНОВСКИЙ РАЙОН', NULL),
+(2081, 'ru', 2080, 'Давлеканово', 'ДАВЛЕКАНОВО', NULL),
+(2082, 'ru', 2081, 'Дюртюлинский район', 'ДЮРТЮЛИНСКИЙ РАЙОН', NULL),
+(2083, 'ru', 2082, 'Дюртюли', 'ДЮРТЮЛИ', NULL),
+(2084, 'ru', 2083, 'Ульяновская область', 'УЛЬЯНОВСКАЯ ОБЛАСТЬ', NULL),
+(2085, 'ru', 2084, 'Ульяновск', 'УЛЬЯНОВСК', NULL),
+(2086, 'ru', 2085, 'Димитровград', 'ДИМИТРОВГРАД', NULL),
+(2087, 'ru', 2086, 'Новоульяновск', 'НОВОУЛЬЯНОВСК', NULL),
+(2088, 'ru', 2087, 'Ульяновский район', 'УЛЬЯНОВСКИЙ РАЙОН', NULL),
+(2089, 'ru', 2088, 'Базарносызганский район', 'БАЗАРНОСЫЗГАНСКИЙ РАЙОН', NULL),
+(2090, 'ru', 2089, 'Барыш', 'БАРЫШ', NULL),
+(2091, 'ru', 2090, 'Барышский район', 'БАРЫШСКИЙ РАЙОН', NULL),
+(2092, 'ru', 2091, 'Вешкаймский район', 'ВЕШКАЙМСКИЙ РАЙОН', NULL),
+(2093, 'ru', 2092, 'Карсунский район', 'КАРСУНСКИЙ РАЙОН', NULL),
+(2094, 'ru', 2093, 'Инзенский район', 'ИНЗЕНСКИЙ РАЙОН', NULL),
+(2095, 'ru', 2094, 'Инза', 'ИНЗА', NULL),
+(2096, 'ru', 2095, 'Майнский район', 'МАЙНСКИЙ РАЙОН', NULL),
+(2097, 'ru', 2096, 'Кузоватовский район', 'КУЗОВАТОВСКИЙ РАЙОН', NULL),
+(2098, 'ru', 2097, 'Мелекесский район', 'МЕЛЕКЕССКИЙ РАЙОН', NULL),
+(2099, 'ru', 2098, 'Николаевский район', 'НИКОЛАЕВСКИЙ РАЙОН', NULL),
+(2100, 'ru', 2099, 'Новомалыклинский район', 'НОВОМАЛЫКЛИНСКИЙ РАЙОН', NULL),
+(2101, 'ru', 2100, 'Новоспасский район', 'НОВОСПАССКИЙ РАЙОН', NULL),
+(2102, 'ru', 2101, 'Радищевский район', 'РАДИЩЕВСКИЙ РАЙОН', NULL),
+(2103, 'ru', 2102, 'Сенгилеевский район', 'СЕНГИЛЕЕВСКИЙ РАЙОН', NULL),
+(2104, 'ru', 2103, 'Сенгилей', 'СЕНГИЛЕЙ', NULL),
+(2105, 'ru', 2104, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
+(2106, 'ru', 2105, 'Старомайнский район', 'СТАРОМАЙНСКИЙ РАЙОН', NULL),
+(2107, 'ru', 2106, 'Сурский район', 'СУРСКИЙ РАЙОН', NULL),
+(2108, 'ru', 2107, 'Старокулаткинский район', 'СТАРОКУЛАТКИНСКИЙ РАЙОН', NULL),
+(2109, 'ru', 2108, 'Тереньгульский район', 'ТЕРЕНЬГУЛЬСКИЙ РАЙОН', NULL),
+(2110, 'ru', 2109, 'Чердаклинский район', 'ЧЕРДАКЛИНСКИЙ РАЙОН', NULL),
+(2111, 'ru', 2110, 'Цильнинский район', 'ЦИЛЬНИНСКИЙ РАЙОН', NULL),
+(2112, 'ru', 2111, 'Саратовская область', 'САРАТОВСКАЯ ОБЛАСТЬ', NULL),
+(2113, 'ru', 2112, 'Саратов', 'САРАТОВ', NULL),
+(2114, 'ru', 2113, 'Балаково', 'БАЛАКОВО', NULL),
+(2115, 'ru', 2114, 'Шиханы', 'ШИХАНЫ', NULL),
+(2116, 'ru', 2115, 'Аткарск', 'АТКАРСК', NULL),
+(2117, 'ru', 2116, 'Петровск', 'ПЕТРОВСК', NULL),
+(2118, 'ru', 2117, 'Красноармейск', 'КРАСНОАРМЕЙСК', NULL),
+(2119, 'ru', 2118, 'Ртищево', 'РТИЩЕВО', NULL),
+(2120, 'ru', 2119, 'Балашов', 'БАЛАШОВ', NULL),
+(2121, 'ru', 2120, 'Вольск', 'ВОЛЬСК', NULL),
+(2122, 'ru', 2121, 'Вольск-18', 'ВОЛЬСК-18', NULL),
+(2123, 'ru', 2122, 'Хвалынск', 'ХВАЛЫНСК', NULL),
+(2124, 'ru', 2123, 'Маркс', 'МАРКС', NULL),
+(2125, 'ru', 2124, 'Пугачев', 'ПУГАЧЕВ', NULL),
+(2126, 'ru', 2125, 'Энгельс-19', 'ЭНГЕЛЬС-19', NULL),
+(2127, 'ru', 2126, 'Энгельс-2', 'ЭНГЕЛЬС-2', NULL),
+(2128, 'ru', 2127, 'Энгельс', 'ЭНГЕЛЬС', NULL),
+(2129, 'ru', 2128, 'Саратовский район', 'САРАТОВСКИЙ РАЙОН', NULL),
+(2130, 'ru', 2129, 'Александрово-Гайский район', 'АЛЕКСАНДРОВО-ГАЙСКИЙ РАЙОН', NULL),
+(2131, 'ru', 2130, 'Аркадакский район', 'АРКАДАКСКИЙ РАЙОН', NULL),
+(2132, 'ru', 2131, 'Аркадак', 'АРКАДАК', NULL),
+(2133, 'ru', 2132, 'Базарно-Карабулакский район', 'БАЗАРНО-КАРАБУЛАКСКИЙ РАЙОН', NULL),
+(2134, 'ru', 2133, 'Аткарский район', 'АТКАРСКИЙ РАЙОН', NULL),
+(2135, 'ru', 2134, 'Вольский район', 'ВОЛЬСКИЙ РАЙОН', NULL),
+(2136, 'ru', 2135, 'Балашовский район', 'БАЛАШОВСКИЙ РАЙОН', NULL),
+(2137, 'ru', 2136, 'Балаковский район', 'БАЛАКОВСКИЙ РАЙОН', NULL),
+(2138, 'ru', 2137, 'Балтайский район', 'БАЛТАЙСКИЙ РАЙОН', NULL),
+(2139, 'ru', 2138, 'Екатериновский район', 'ЕКАТЕРИНОВСКИЙ РАЙОН', NULL),
+(2140, 'ru', 2139, 'Воскресенский район', 'ВОСКРЕСЕНСКИЙ РАЙОН', NULL),
+(2141, 'ru', 2140, 'Дергачевский район', 'ДЕРГАЧЕВСКИЙ РАЙОН', NULL),
+(2142, 'ru', 2141, 'Духовницкий район', 'ДУХОВНИЦКИЙ РАЙОН', NULL),
+(2143, 'ru', 2142, 'Ивантеевский район', 'ИВАНТЕЕВСКИЙ РАЙОН', NULL),
+(2144, 'ru', 2143, 'Ершовский район', 'ЕРШОВСКИЙ РАЙОН', NULL),
+(2145, 'ru', 2144, 'Ершов', 'ЕРШОВ', NULL),
+(2146, 'ru', 2145, 'Калининский район', 'КАЛИНИНСКИЙ РАЙОН', NULL),
+(2147, 'ru', 2146, 'Калининск', 'КАЛИНИНСК', NULL),
+(2148, 'ru', 2147, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
+(2149, 'ru', 2148, 'Краснопартизанский район', 'КРАСНОПАРТИЗАНСКИЙ РАЙОН', NULL),
+(2150, 'ru', 2149, 'Краснокутский район', 'КРАСНОКУТСКИЙ РАЙОН', NULL),
+(2151, 'ru', 2150, 'Красный Кут', 'КРАСНЫЙ КУТ', NULL),
+(2152, 'ru', 2151, 'Лысогорский район', 'ЛЫСОГОРСКИЙ РАЙОН', NULL),
+(2153, 'ru', 2152, 'Марксовский район', 'МАРКСОВСКИЙ РАЙОН', NULL),
+(2154, 'ru', 2153, 'Новобурасский район', 'НОВОБУРАССКИЙ РАЙОН', NULL),
+(2155, 'ru', 2154, 'Новоузенский район', 'НОВОУЗЕНСКИЙ РАЙОН', NULL),
+(2156, 'ru', 2155, 'Новоузенск', 'НОВОУЗЕНСК', NULL),
+(2157, 'ru', 2156, 'Петровский район', 'ПЕТРОВСКИЙ РАЙОН', NULL),
+(2158, 'ru', 2157, 'Озинский район', 'ОЗИНСКИЙ РАЙОН', NULL),
+(2159, 'ru', 2158, 'Перелюбский район', 'ПЕРЕЛЮБСКИЙ РАЙОН', NULL),
+(2160, 'ru', 2159, 'Питерский район', 'ПИТЕРСКИЙ РАЙОН', NULL),
+(2161, 'ru', 2160, 'Пугачевский район', 'ПУГАЧЕВСКИЙ РАЙОН', NULL),
+(2162, 'ru', 2161, 'Романовский район', 'РОМАНОВСКИЙ РАЙОН', NULL),
+(2163, 'ru', 2162, 'Ровенский район', 'РОВЕНСКИЙ РАЙОН', NULL),
+(2164, 'ru', 2163, 'Самойловский район', 'САМОЙЛОВСКИЙ РАЙОН', NULL),
+(2165, 'ru', 2164, 'Ртищевский район', 'РТИЩЕВСКИЙ РАЙОН', NULL),
+(2166, 'ru', 2165, 'Татищевский район', 'ТАТИЩЕВСКИЙ РАЙОН', NULL),
+(2167, 'ru', 2166, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(2168, 'ru', 2167, 'Турковский район', 'ТУРКОВСКИЙ РАЙОН', NULL),
+(2169, 'ru', 2168, 'Хвалынский район', 'ХВАЛЫНСКИЙ РАЙОН', NULL),
+(2170, 'ru', 2169, 'Федоровский район', 'ФЕДОРОВСКИЙ РАЙОН', NULL),
+(2171, 'ru', 2170, 'Энгельсский район', 'ЭНГЕЛЬССКИЙ РАЙОН', NULL),
+(2172, 'ru', 2171, 'Урал', 'УРАЛ', NULL),
+(2173, 'ru', 2172, 'Тюменская область', 'ТЮМЕНСКАЯ ОБЛАСТЬ', NULL),
+(2174, 'ru', 2173, 'Тюмень', 'ТЮМЕНЬ', NULL),
+(2175, 'ru', 2174, 'Тюменский район', 'ТЮМЕНСКИЙ РАЙОН', NULL),
+(2176, 'ru', 2175, 'Тобольск', 'ТОБОЛЬСК', NULL),
+(2177, 'ru', 2176, 'Армизонский район', 'АРМИЗОНСКИЙ РАЙОН', NULL),
+(2178, 'ru', 2177, 'Аромашевский район', 'АРОМАШЕВСКИЙ РАЙОН', NULL),
+(2179, 'ru', 2178, 'Абатский район', 'АБАТСКИЙ РАЙОН', NULL),
+(2180, 'ru', 2179, 'Бердюжский район', 'БЕРДЮЖСКИЙ РАЙОН', NULL),
+(2181, 'ru', 2180, 'Вагайский район', 'ВАГАЙСКИЙ РАЙОН', NULL),
+(2182, 'ru', 2181, 'Голышмановский район', 'ГОЛЫШМАНОВСКИЙ РАЙОН', NULL),
+(2183, 'ru', 2182, 'Заводоуковский район', 'ЗАВОДОУКОВСКИЙ РАЙОН', NULL),
+(2184, 'ru', 2183, 'Заводоуковск', 'ЗАВОДОУКОВСК', NULL),
+(2185, 'ru', 2184, 'Викуловский район', 'ВИКУЛОВСКИЙ РАЙОН', NULL),
+(2186, 'ru', 2185, 'Исетский район', 'ИСЕТСКИЙ РАЙОН', NULL),
+(2187, 'ru', 2186, 'Ишимский район', 'ИШИМСКИЙ РАЙОН', NULL),
+(2188, 'ru', 2187, 'Ишим', 'ИШИМ', NULL),
+(2189, 'ru', 2188, 'Нижнетавдинский район', 'НИЖНЕТАВДИНСКИЙ РАЙОН', NULL),
+(2190, 'ru', 2189, 'Казанский район', 'КАЗАНСКИЙ РАЙОН', NULL),
+(2191, 'ru', 2190, 'Омутинский район', 'ОМУТИНСКИЙ РАЙОН', NULL),
+(2192, 'ru', 2191, 'Сладковский район', 'СЛАДКОВСКИЙ РАЙОН', NULL),
+(2193, 'ru', 2192, 'Тобольский район', 'ТОБОЛЬСКИЙ РАЙОН', NULL),
+(2194, 'ru', 2193, 'Сорокинский район', 'СОРОКИНСКИЙ РАЙОН', NULL),
+(2195, 'ru', 2194, 'Ялуторовский район', 'ЯЛУТОРОВСКИЙ РАЙОН', NULL),
+(2196, 'ru', 2195, 'Ялуторовск', 'ЯЛУТОРОВСК', NULL),
+(2197, 'ru', 2196, 'Упоровский район', 'УПОРОВСКИЙ РАЙОН', NULL),
+(2198, 'ru', 2197, 'Юргинский район', 'ЮРГИНСКИЙ РАЙОН', NULL),
+(2199, 'ru', 2198, 'Уватский район', 'УВАТСКИЙ РАЙОН', NULL),
+(2200, 'ru', 2199, 'Ярковский район', 'ЯРКОВСКИЙ РАЙОН', NULL),
+(2201, 'ru', 2200, 'Свердловская область', 'СВЕРДЛОВСКАЯ ОБЛАСТЬ', NULL),
+(2202, 'ru', 2201, 'Екатеринбург', 'ЕКАТЕРИНБУРГ', NULL),
+(2203, 'ru', 2202, 'Березовский', 'БЕРЕЗОВСКИЙ', NULL),
+(2204, 'ru', 2203, 'Асбест', 'АСБЕСТ', NULL),
+(2205, 'ru', 2204, 'Верхняя Пышма', 'ВЕРХНЯЯ ПЫШМА', NULL),
+(2206, 'ru', 2205, 'Карпинск', 'КАРПИНСК', NULL),
+(2207, 'ru', 2206, 'Заречный', 'ЗАРЕЧНЫЙ', NULL),
+(2208, 'ru', 2207, 'Ивдель', 'ИВДЕЛЬ', NULL),
+(2209, 'ru', 2208, 'Краснотурьинск', 'КРАСНОТУРЬИНСК', NULL),
+(2210, 'ru', 2209, 'Кировград', 'КИРОВГРАД', NULL),
+(2211, 'ru', 2210, 'Качканар', 'КАЧКАНАР', NULL),
+(2212, 'ru', 2211, 'Красноуральск', 'КРАСНОУРАЛЬСК', NULL),
+(2213, 'ru', 2212, 'Лесной', 'ЛЕСНОЙ', NULL),
+(2214, 'ru', 2213, 'Кушва', 'КУШВА', NULL),
+(2215, 'ru', 2214, 'Новоуральск', 'НОВОУРАЛЬСК', NULL),
+(2216, 'ru', 2215, 'Нижняя Тура', 'НИЖНЯЯ ТУРА', NULL),
+(2217, 'ru', 2216, 'Первоуральск', 'ПЕРВОУРАЛЬСК', NULL),
+(2218, 'ru', 2217, 'Североуральск', 'СЕВЕРОУРАЛЬСК', NULL),
+(2219, 'ru', 2218, 'Полевской', 'ПОЛЕВСКОЙ', NULL),
+(2220, 'ru', 2219, 'Ревда', 'РЕВДА', NULL),
+(2221, 'ru', 2220, 'Нижний Тагил', 'НИЖНИЙ ТАГИЛ', NULL),
+(2222, 'ru', 2221, 'Каменск-Уральский', 'КАМЕНСК-УРАЛЬСКИЙ', NULL),
+(2223, 'ru', 2222, 'Ирбит', 'ИРБИТ', NULL),
+(2224, 'ru', 2223, 'Красноуфимск', 'КРАСНОУФИМСК', NULL),
+(2225, 'ru', 2224, 'Алапаевск', 'АЛАПАЕВСК', NULL),
+(2226, 'ru', 2225, 'Серов', 'СЕРОВ', NULL),
+(2227, 'ru', 2226, 'Камышлов', 'КАМЫШЛОВ', NULL),
+(2228, 'ru', 2227, 'Нижняя Салда', 'НИЖНЯЯ САЛДА', NULL),
+(2229, 'ru', 2228, 'Волчанск', 'ВОЛЧАНСК', NULL),
+(2230, 'ru', 2229, 'Среднеуральск', 'СРЕДНЕУРАЛЬСК', NULL),
+(2231, 'ru', 2230, 'Верхний Тагил', 'ВЕРХНИЙ ТАГИЛ', NULL),
+(2232, 'ru', 2231, 'Дегтярск', 'ДЕГТЯРСК', NULL),
+(2233, 'ru', 2232, 'Тавда', 'ТАВДА', NULL),
+(2234, 'ru', 2233, 'Верхняя Тура', 'ВЕРХНЯЯ ТУРА', NULL),
+(2235, 'ru', 2234, 'Алапаевский район', 'АЛАПАЕВСКИЙ РАЙОН', NULL),
+(2236, 'ru', 2235, 'Артемовский район', 'АРТЕМОВСКИЙ РАЙОН', NULL),
+(2237, 'ru', 2236, 'Артемовский', 'АРТЕМОВСКИЙ', NULL),
+(2238, 'ru', 2237, 'Ачитский район', 'АЧИТСКИЙ РАЙОН', NULL),
+(2239, 'ru', 2238, 'Артинский район', 'АРТИНСКИЙ РАЙОН', NULL),
+(2240, 'ru', 2239, 'Байкаловский район', 'БАЙКАЛОВСКИЙ РАЙОН', NULL),
+(2241, 'ru', 2240, 'Белоярский район', 'БЕЛОЯРСКИЙ РАЙОН', NULL),
+(2242, 'ru', 2241, 'Богдановичский район', 'БОГДАНОВИЧСКИЙ РАЙОН', NULL),
+(2243, 'ru', 2242, 'Богданович', 'БОГДАНОВИЧ', NULL),
+(2244, 'ru', 2243, 'Верхнесалдинский район', 'ВЕРХНЕСАЛДИНСКИЙ РАЙОН', NULL),
+(2245, 'ru', 2244, 'Верхняя Салда', 'ВЕРХНЯЯ САЛДА', NULL),
+(2246, 'ru', 2245, 'Верхотурский район', 'ВЕРХОТУРСКИЙ РАЙОН', NULL),
+(2247, 'ru', 2246, 'Верхотурье', 'ВЕРХОТУРЬЕ', NULL),
+(2248, 'ru', 2247, 'Ирбитский район', 'ИРБИТСКИЙ РАЙОН', NULL),
+(2249, 'ru', 2248, 'Гаринский район', 'ГАРИНСКИЙ РАЙОН', NULL),
+(2250, 'ru', 2249, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
+(2251, 'ru', 2250, 'Камышловский район', 'КАМЫШЛОВСКИЙ РАЙОН', NULL),
+(2252, 'ru', 2251, 'Красноуфимский район', 'КРАСНОУФИМСКИЙ РАЙОН', NULL),
+(2253, 'ru', 2252, 'Невьянский район', 'НЕВЬЯНСКИЙ РАЙОН', NULL),
+(2254, 'ru', 2253, 'Невьянск', 'НЕВЬЯНСК', NULL),
+(2255, 'ru', 2254, 'Нижнесергинский район', 'НИЖНЕСЕРГИНСКИЙ РАЙОН', NULL),
+(2256, 'ru', 2255, 'Нижние Серги-3', 'НИЖНИЕ СЕРГИ-3', NULL),
+(2257, 'ru', 2256, 'Нижние Серги', 'НИЖНИЕ СЕРГИ', NULL),
+(2258, 'ru', 2257, 'Михайловск', 'МИХАЙЛОВСК', NULL),
+(2259, 'ru', 2258, 'Новолялинский район', 'НОВОЛЯЛИНСКИЙ РАЙОН', NULL),
+(2260, 'ru', 2259, 'Новая Ляля', 'НОВАЯ ЛЯЛЯ', NULL),
+(2261, 'ru', 2260, 'Пригородный район', 'ПРИГОРОДНЫЙ РАЙОН', NULL),
+(2262, 'ru', 2261, 'Пышминский район', 'ПЫШМИНСКИЙ РАЙОН', NULL),
+(2263, 'ru', 2262, 'Режевской район', 'РЕЖЕВСКОЙ РАЙОН', NULL),
+(2264, 'ru', 2263, 'Реж', 'РЕЖ', NULL),
+(2265, 'ru', 2264, 'Серовский район', 'СЕРОВСКИЙ РАЙОН', NULL),
+(2266, 'ru', 2265, 'Сухоложский район', 'СУХОЛОЖСКИЙ РАЙОН', NULL),
+(2267, 'ru', 2266, 'Сухой Лог', 'СУХОЙ ЛОГ', NULL),
+(2268, 'ru', 2267, 'Слободо-Туринский район', 'СЛОБОДО-ТУРИНСКИЙ РАЙОН', NULL),
+(2269, 'ru', 2268, 'Сысертский район', 'СЫСЕРТСКИЙ РАЙОН', NULL),
+(2270, 'ru', 2269, 'Арамиль', 'АРАМИЛЬ', NULL),
+(2271, 'ru', 2270, 'Сысерть', 'СЫСЕРТЬ', NULL),
+(2272, 'ru', 2271, 'Таборинский район', 'ТАБОРИНСКИЙ РАЙОН', NULL),
+(2273, 'ru', 2272, 'Тавдинский район', 'ТАВДИНСКИЙ РАЙОН', NULL),
+(2274, 'ru', 2273, 'Талицкий район', 'ТАЛИЦКИЙ РАЙОН', NULL),
+(2275, 'ru', 2274, 'Талица', 'ТАЛИЦА', NULL),
+(2276, 'ru', 2275, 'Тугулымский район', 'ТУГУЛЫМСКИЙ РАЙОН', NULL),
+(2277, 'ru', 2276, 'Туринский район', 'ТУРИНСКИЙ РАЙОН', NULL),
+(2278, 'ru', 2277, 'Туринск', 'ТУРИНСК', NULL),
+(2279, 'ru', 2278, 'Шалинский район', 'ШАЛИНСКИЙ РАЙОН', NULL),
+(2280, 'ru', 2279, 'Курганская область', 'КУРГАНСКАЯ ОБЛАСТЬ', NULL),
+(2281, 'ru', 2280, 'Курган', 'КУРГАН', NULL),
+(2282, 'ru', 2281, 'Шадринск', 'ШАДРИНСК', NULL),
+(2283, 'ru', 2282, 'Альменевский район', 'АЛЬМЕНЕВСКИЙ РАЙОН', NULL),
+(2284, 'ru', 2283, 'Белозерский район', 'БЕЛОЗЕРСКИЙ РАЙОН', NULL),
+(2285, 'ru', 2284, 'Варгашинский район', 'ВАРГАШИНСКИЙ РАЙОН', NULL),
+(2286, 'ru', 2285, 'Далматовский район', 'ДАЛМАТОВСКИЙ РАЙОН', NULL),
+(2287, 'ru', 2286, 'Далматово', 'ДАЛМАТОВО', NULL),
+(2288, 'ru', 2287, 'Каргапольский район', 'КАРГАПОЛЬСКИЙ РАЙОН', NULL),
+(2289, 'ru', 2288, 'Звериноголовский район', 'ЗВЕРИНОГОЛОВСКИЙ РАЙОН', NULL),
+(2290, 'ru', 2289, 'Кетовский район', 'КЕТОВСКИЙ РАЙОН', NULL),
+(2291, 'ru', 2290, 'Катайский район', 'КАТАЙСКИЙ РАЙОН', NULL),
+(2292, 'ru', 2291, 'Катайск', 'КАТАЙСК', NULL),
+(2293, 'ru', 2292, 'Куртамышский район', 'КУРТАМЫШСКИЙ РАЙОН', NULL),
+(2294, 'ru', 2293, 'Куртамыш', 'КУРТАМЫШ', NULL),
+(2295, 'ru', 2294, 'Лебяжьевский район', 'ЛЕБЯЖЬЕВСКИЙ РАЙОН', NULL),
+(2296, 'ru', 2295, 'Мокроусовский район', 'МОКРОУСОВСКИЙ РАЙОН', NULL),
+(2297, 'ru', 2296, 'Макушинский район', 'МАКУШИНСКИЙ РАЙОН', NULL),
+(2298, 'ru', 2297, 'Макушино', 'МАКУШИНО', NULL),
+(2299, 'ru', 2298, 'Мишкинский район', 'МИШКИНСКИЙ РАЙОН', NULL),
+(2300, 'ru', 2299, 'Притобольный район', 'ПРИТОБОЛЬНЫЙ РАЙОН', NULL),
+(2301, 'ru', 2300, 'Половинский район', 'ПОЛОВИНСКИЙ РАЙОН', NULL),
+(2302, 'ru', 2301, 'Петуховский район', 'ПЕТУХОВСКИЙ РАЙОН', NULL),
+(2303, 'ru', 2302, 'Петухово', 'ПЕТУХОВО', NULL),
+(2304, 'ru', 2303, 'Сафакулевский район', 'САФАКУЛЕВСКИЙ РАЙОН', NULL),
+(2305, 'ru', 2304, 'Частоозерский район', 'ЧАСТООЗЕРСКИЙ РАЙОН', NULL),
+(2306, 'ru', 2305, 'Шадринский район', 'ШАДРИНСКИЙ РАЙОН', NULL),
+(2307, 'ru', 2306, 'Целинный район', 'ЦЕЛИННЫЙ РАЙОН', NULL),
+(2308, 'ru', 2307, 'Шатровский район', 'ШАТРОВСКИЙ РАЙОН', NULL),
+(2309, 'ru', 2308, 'Шумихинский район', 'ШУМИХИНСКИЙ РАЙОН', NULL),
+(2310, 'ru', 2309, 'Шумиха', 'ШУМИХА', NULL),
+(2311, 'ru', 2310, 'Юргамышский район', 'ЮРГАМЫШСКИЙ РАЙОН', NULL),
+(2312, 'ru', 2311, 'Щучанский район', 'ЩУЧАНСКИЙ РАЙОН', NULL),
+(2313, 'ru', 2312, 'Щучье', 'ЩУЧЬЕ', NULL),
+(2314, 'ru', 2313, 'Ямало-Ненецкий автономный округ', 'ЯМАЛО-НЕНЕЦКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
+(2315, 'ru', 2314, 'Лабытнанги', 'ЛАБЫТНАНГИ', NULL),
+(2316, 'ru', 2315, 'Салехард', 'САЛЕХАРД', NULL),
+(2317, 'ru', 2316, 'Губкинский', 'ГУБКИНСКИЙ', NULL),
+(2318, 'ru', 2317, 'Надым', 'НАДЫМ', NULL),
+(2319, 'ru', 2318, 'Муравленко', 'МУРАВЛЕНКО', NULL),
+(2320, 'ru', 2319, 'Красноселькупский район', 'КРАСНОСЕЛЬКУПСКИЙ РАЙОН', NULL),
+(2321, 'ru', 2320, 'Пуровский район', 'ПУРОВСКИЙ РАЙОН', NULL),
+(2322, 'ru', 2321, 'Тарко-Сале', 'ТАРКО-САЛЕ', NULL),
+(2323, 'ru', 2322, 'Новый Уренгой', 'НОВЫЙ УРЕНГОЙ', NULL),
+(2324, 'ru', 2323, 'Ноябрьск', 'НОЯБРЬСК', NULL),
+(2325, 'ru', 2324, 'Надымский район', 'НАДЫМСКИЙ РАЙОН', NULL),
+(2326, 'ru', 2325, 'Ямальский район', 'ЯМАЛЬСКИЙ РАЙОН', NULL),
+(2327, 'ru', 2326, 'Приуральский район', 'ПРИУРАЛЬСКИЙ РАЙОН', NULL),
+(2328, 'ru', 2327, 'Шурышкарский район', 'ШУРЫШКАРСКИЙ РАЙОН', NULL),
+(2329, 'ru', 2328, 'Тазовский район', 'ТАЗОВСКИЙ РАЙОН', NULL),
+(2330, 'ru', 2329, 'Ханты-Мансийский автономный округ', 'ХАНТЫ-МАНСИЙСКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
+(2331, 'ru', 2330, 'Когалым', 'КОГАЛЫМ', NULL),
+(2332, 'ru', 2331, 'Лангепас', 'ЛАНГЕПАС', NULL),
+(2333, 'ru', 2332, 'Мегион', 'МЕГИОН', NULL),
+(2334, 'ru', 2333, 'Ханты-Мансийск', 'ХАНТЫ-МАНСИЙСК', NULL),
+(2335, 'ru', 2334, 'Пыть-Ях', 'ПЫТЬ-ЯХ', NULL),
+(2336, 'ru', 2335, 'Нягань', 'НЯГАНЬ', NULL),
+(2337, 'ru', 2336, 'Урай', 'УРАЙ', NULL),
+(2338, 'ru', 2337, 'Сургут', 'СУРГУТ', NULL),
+(2339, 'ru', 2338, 'Покачи', 'ПОКАЧИ', NULL),
+(2340, 'ru', 2339, 'Белоярский', 'БЕЛОЯРСКИЙ', NULL),
+(2341, 'ru', 2340, 'Югорск', 'ЮГОРСК', NULL),
+(2342, 'ru', 2341, 'Нефтеюганск', 'НЕФТЕЮГАНСК', NULL),
+(2343, 'ru', 2342, 'Нижневартовск', 'НИЖНЕВАРТОВСК', NULL),
+(2344, 'ru', 2343, 'Радужный', 'РАДУЖНЫЙ', NULL),
+(2345, 'ru', 2344, 'Кондинский район', 'КОНДИНСКИЙ РАЙОН', NULL),
+(2346, 'ru', 2345, 'Белоярский район', 'БЕЛОЯРСКИЙ РАЙОН', NULL),
+(2347, 'ru', 2346, 'Березовский район', 'БЕРЕЗОВСКИЙ РАЙОН', NULL),
+(2348, 'ru', 2347, 'Нижневартовский район', 'НИЖНЕВАРТОВСКИЙ РАЙОН', NULL),
+(2349, 'ru', 2348, 'Нефтеюганский район', 'НЕФТЕЮГАНСКИЙ РАЙОН', NULL),
+(2350, 'ru', 2349, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(2351, 'ru', 2350, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(2352, 'ru', 2351, 'Советский', 'СОВЕТСКИЙ', NULL),
+(2353, 'ru', 2352, 'Сургутский район', 'СУРГУТСКИЙ РАЙОН', NULL),
+(2354, 'ru', 2353, 'Лянтор', 'ЛЯНТОР', NULL),
+(2355, 'ru', 2354, 'Ханты-Мансийский район', 'ХАНТЫ-МАНСИЙСКИЙ РАЙОН', NULL),
+(2356, 'ru', 2355, 'Челябинская область', 'ЧЕЛЯБИНСКАЯ ОБЛАСТЬ', NULL),
+(2357, 'ru', 2356, 'Челябинск', 'ЧЕЛЯБИНСК', NULL),
+(2358, 'ru', 2357, 'Верхний Уфалей', 'ВЕРХНИЙ УФАЛЕЙ', NULL),
+(2359, 'ru', 2358, 'Златоуст', 'ЗЛАТОУСТ', NULL),
+(2360, 'ru', 2359, 'Карабаш', 'КАРАБАШ', NULL),
+(2361, 'ru', 2360, 'Копейск', 'КОПЕЙСК', NULL),
+(2362, 'ru', 2361, 'Кыштым', 'КЫШТЫМ', NULL),
+(2363, 'ru', 2362, 'Магнитогорск', 'МАГНИТОГОРСК', NULL),
+(2364, 'ru', 2363, 'Миасс', 'МИАСС', NULL),
+(2365, 'ru', 2364, 'Озерск', 'ОЗЕРСК', NULL),
+(2366, 'ru', 2365, 'Усть-Катав', 'УСТЬ-КАТАВ', NULL),
+(2367, 'ru', 2366, 'Трехгорный', 'ТРЕХГОРНЫЙ', NULL),
+(2368, 'ru', 2367, 'Снежинск', 'СНЕЖИНСК', NULL),
+(2369, 'ru', 2368, 'Южноуральск', 'ЮЖНОУРАЛЬСК', NULL),
+(2370, 'ru', 2369, 'Трехгорный-1', 'ТРЕХГОРНЫЙ-1', NULL),
+(2371, 'ru', 2370, 'Троицк', 'ТРОИЦК', NULL),
+(2372, 'ru', 2371, 'Чебаркуль', 'ЧЕБАРКУЛЬ', NULL),
+(2373, 'ru', 2372, 'Ашинский район', 'АШИНСКИЙ РАЙОН', NULL),
+(2374, 'ru', 2373, 'Миньяр', 'МИНЬЯР', NULL),
+(2375, 'ru', 2374, 'Сим', 'СИМ', NULL),
+(2376, 'ru', 2375, 'Аша', 'АША', NULL),
+(2377, 'ru', 2376, 'Карталинский район', 'КАРТАЛИНСКИЙ РАЙОН', NULL),
+(2378, 'ru', 2377, 'Карталы', 'КАРТАЛЫ', NULL),
+(2379, 'ru', 2378, 'Катав-Ивановский район', 'КАТАВ-ИВАНОВСКИЙ РАЙОН', NULL),
+(2380, 'ru', 2379, 'Юрюзань', 'ЮРЮЗАНЬ', NULL),
+(2381, 'ru', 2380, 'Катав-Ивановск', 'КАТАВ-ИВАНОВСК', NULL),
+(2382, 'ru', 2381, 'Каслинский район', 'КАСЛИНСКИЙ РАЙОН', NULL),
+(2383, 'ru', 2382, 'Касли', 'КАСЛИ', NULL),
+(2384, 'ru', 2383, 'Саткинский район', 'САТКИНСКИЙ РАЙОН', NULL),
+(2385, 'ru', 2384, 'Бакал', 'БАКАЛ', NULL),
+(2386, 'ru', 2385, 'Сатка', 'САТКА', NULL),
+(2387, 'ru', 2386, 'Агаповский район', 'АГАПОВСКИЙ РАЙОН', NULL),
+(2388, 'ru', 2387, 'Аргаяшский район', 'АРГАЯШСКИЙ РАЙОН', NULL),
+(2389, 'ru', 2388, 'Варненский район', 'ВАРНЕНСКИЙ РАЙОН', NULL),
+(2390, 'ru', 2389, 'Брединский район', 'БРЕДИНСКИЙ РАЙОН', NULL),
+(2391, 'ru', 2390, 'Верхнеуральский район', 'ВЕРХНЕУРАЛЬСКИЙ РАЙОН', NULL),
+(2392, 'ru', 2391, 'Верхнеуральск', 'ВЕРХНЕУРАЛЬСК', NULL),
+(2393, 'ru', 2392, 'Еткульский район', 'ЕТКУЛЬСКИЙ РАЙОН', NULL),
+(2394, 'ru', 2393, 'Кизильский район', 'КИЗИЛЬСКИЙ РАЙОН', NULL),
+(2395, 'ru', 2394, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
+(2396, 'ru', 2395, 'Кунашакский район', 'КУНАШАКСКИЙ РАЙОН', NULL),
+(2397, 'ru', 2396, 'Кусинский район', 'КУСИНСКИЙ РАЙОН', NULL),
+(2398, 'ru', 2397, 'Куса', 'КУСА', NULL),
+(2399, 'ru', 2398, 'Нагайбакский район', 'НАГАЙБАКСКИЙ РАЙОН', NULL),
+(2400, 'ru', 2399, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(2401, 'ru', 2400, 'Нязепетровский район', 'НЯЗЕПЕТРОВСКИЙ РАЙОН', NULL),
+(2402, 'ru', 2401, 'Нязепетровск', 'НЯЗЕПЕТРОВСК', NULL),
+(2403, 'ru', 2402, 'Сосновский район', 'СОСНОВСКИЙ РАЙОН', NULL),
+(2404, 'ru', 2403, 'Троицкий район', 'ТРОИЦКИЙ РАЙОН', NULL),
+(2405, 'ru', 2404, 'Увельский район', 'УВЕЛЬСКИЙ РАЙОН', NULL),
+(2406, 'ru', 2405, 'Уйский район', 'УЙСКИЙ РАЙОН', NULL),
+(2407, 'ru', 2406, 'Чебаркульский район', 'ЧЕБАРКУЛЬСКИЙ РАЙОН', NULL),
+(2408, 'ru', 2407, 'Чесменский район', 'ЧЕСМЕНСКИЙ РАЙОН', NULL),
+(2409, 'ru', 2408, 'Пластовский район', 'ПЛАСТОВСКИЙ РАЙОН', NULL),
+(2410, 'ru', 2409, 'Пласт', 'ПЛАСТ', NULL),
+(2411, 'ru', 2410, 'Еманжелинский район', 'ЕМАНЖЕЛИНСКИЙ РАЙОН', NULL),
+(2412, 'ru', 2411, 'Еманжелинск', 'ЕМАНЖЕЛИНСК', NULL),
+(2413, 'ru', 2412, 'Коркинский район', 'КОРКИНСКИЙ РАЙОН', NULL),
+(2414, 'ru', 2413, 'Коркино', 'КОРКИНО', NULL),
+(2415, 'ru', 2414, 'Сибирь', 'СИБИРЬ', NULL),
+(2416, 'ru', 2415, 'Иркутская область', 'ИРКУТСКАЯ ОБЛАСТЬ', NULL),
+(2417, 'ru', 2416, 'Саянск', 'САЯНСК', NULL),
+(2418, 'ru', 2417, 'Иркутск-45', 'ИРКУТСК-45', NULL),
+(2419, 'ru', 2418, 'Ангарск', 'АНГАРСК', NULL),
+(2420, 'ru', 2419, 'Иркутск', 'ИРКУТСК', NULL),
+(2421, 'ru', 2420, 'Братск', 'БРАТСК', NULL),
+(2422, 'ru', 2421, 'Бодайбо', 'БОДАЙБО', NULL),
+(2423, 'ru', 2422, 'Зима', 'ЗИМА', NULL),
+(2424, 'ru', 2423, 'Усолье-Сибирское', 'УСОЛЬЕ-СИБИРСКОЕ', NULL),
+(2425, 'ru', 2424, 'Нижнеудинск', 'НИЖНЕУДИНСК', NULL),
+(2426, 'ru', 2425, 'Тайшет', 'ТАЙШЕТ', NULL),
+(2427, 'ru', 2426, 'Тулун', 'ТУЛУН', NULL),
+(2428, 'ru', 2427, 'Иркутский район', 'ИРКУТСКИЙ РАЙОН', NULL),
+(2429, 'ru', 2428, 'Усть-Кут', 'УСТЬ-КУТ', NULL),
+(2430, 'ru', 2429, 'Шелехов', 'ШЕЛЕХОВ', NULL),
+(2431, 'ru', 2430, 'Свирск', 'СВИРСК', NULL),
+(2432, 'ru', 2431, 'Черемхово', 'ЧЕРЕМХОВО', NULL),
+(2433, 'ru', 2432, 'Усть-Илимск', 'УСТЬ-ИЛИМСК', NULL),
+(2434, 'ru', 2433, 'Ангарский район', 'АНГАРСКИЙ РАЙОН', NULL),
+(2435, 'ru', 2434, 'Балаганский район', 'БАЛАГАНСКИЙ РАЙОН', NULL),
+(2436, 'ru', 2435, 'Бодайбинский район', 'БОДАЙБИНСКИЙ РАЙОН', NULL),
+(2437, 'ru', 2436, 'Братский район', 'БРАТСКИЙ РАЙОН', NULL),
+(2438, 'ru', 2437, 'Вихоревка', 'ВИХОРЕВКА', NULL),
+(2439, 'ru', 2438, 'Заларинский район', 'ЗАЛАРИНСКИЙ РАЙОН', NULL),
+(2440, 'ru', 2439, 'Жигаловский район', 'ЖИГАЛОВСКИЙ РАЙОН', NULL),
+(2441, 'ru', 2440, 'Казачинско-Ленский район', 'КАЗАЧИНСКО-ЛЕНСКИЙ РАЙОН', NULL),
+(2442, 'ru', 2441, 'Зиминский район', 'ЗИМИНСКИЙ РАЙОН', NULL),
+(2443, 'ru', 2442, 'Катангский район', 'КАТАНГСКИЙ РАЙОН', NULL),
+(2444, 'ru', 2443, 'Киренский район', 'КИРЕНСКИЙ РАЙОН', NULL),
+(2445, 'ru', 2444, 'Киренск', 'КИРЕНСК', NULL),
+(2446, 'ru', 2445, 'Качугский район', 'КАЧУГСКИЙ РАЙОН', NULL),
+(2447, 'ru', 2446, 'Мамско-Чуйский район', 'МАМСКО-ЧУЙСКИЙ РАЙОН', NULL),
+(2448, 'ru', 2447, 'Нижнеилимский район', 'НИЖНЕИЛИМСКИЙ РАЙОН', NULL),
+(2449, 'ru', 2448, 'Железногорск-Илимский', 'ЖЕЛЕЗНОГОРСК-ИЛИМСКИЙ', NULL),
+(2450, 'ru', 2449, 'Куйтунский район', 'КУЙТУНСКИЙ РАЙОН', NULL),
+(2451, 'ru', 2450, 'Нижнеудинский район', 'НИЖНЕУДИНСКИЙ РАЙОН', NULL),
+(2452, 'ru', 2451, 'Алзамай', 'АЛЗАМАЙ', NULL),
+(2453, 'ru', 2452, 'Ольхонский район', 'ОЛЬХОНСКИЙ РАЙОН', NULL),
+(2454, 'ru', 2453, 'Слюдянский район', 'СЛЮДЯНСКИЙ РАЙОН', NULL),
+(2455, 'ru', 2454, 'Слюдянка', 'СЛЮДЯНКА', NULL),
+(2456, 'ru', 2455, 'Байкальск', 'БАЙКАЛЬСК', NULL),
+(2457, 'ru', 2456, 'Тулунский район', 'ТУЛУНСКИЙ РАЙОН', NULL),
+(2458, 'ru', 2457, 'Тайшетский район', 'ТАЙШЕТСКИЙ РАЙОН', NULL),
+(2459, 'ru', 2458, 'Бирюсинск', 'БИРЮСИНСК', NULL),
+(2460, 'ru', 2459, 'Усольский район', 'УСОЛЬСКИЙ РАЙОН', NULL),
+(2461, 'ru', 2460, 'Усть-Кутский район', 'УСТЬ-КУТСКИЙ РАЙОН', NULL),
+(2462, 'ru', 2461, 'Черемховский район', 'ЧЕРЕМХОВСКИЙ РАЙОН', NULL),
+(2463, 'ru', 2462, 'Усть-Удинский район', 'УСТЬ-УДИНСКИЙ РАЙОН', NULL),
+(2464, 'ru', 2463, 'Усть-Илимский район', 'УСТЬ-ИЛИМСКИЙ РАЙОН', NULL),
+(2465, 'ru', 2464, 'Чунский район', 'ЧУНСКИЙ РАЙОН', NULL),
+(2466, 'ru', 2465, 'Аларский район', 'АЛАРСКИЙ РАЙОН', NULL),
+(2467, 'ru', 2466, 'Шелеховский район', 'ШЕЛЕХОВСКИЙ РАЙОН', NULL),
+(2468, 'ru', 2467, 'Баяндаевский район', 'БАЯНДАЕВСКИЙ РАЙОН', NULL),
+(2469, 'ru', 2468, 'Боханский район', 'БОХАНСКИЙ РАЙОН', NULL),
+(2470, 'ru', 2469, 'Нукутский район', 'НУКУТСКИЙ РАЙОН', NULL),
+(2471, 'ru', 2470, 'Эхирит-Булагатский район', 'ЭХИРИТ-БУЛАГАТСКИЙ РАЙОН', NULL),
+(2472, 'ru', 2471, 'Осинский район', 'ОСИНСКИЙ РАЙОН', NULL),
+(2473, 'ru', 2472, 'Красноярский край', 'КРАСНОЯРСКИЙ КРАЙ', NULL),
+(2474, 'ru', 2473, 'Красноярск', 'КРАСНОЯРСК', NULL),
+(2475, 'ru', 2474, 'Дивногорск', 'ДИВНОГОРСК', NULL),
+(2476, 'ru', 2475, 'Железногорск', 'ЖЕЛЕЗНОГОРСК', NULL),
+(2477, 'ru', 2476, 'Бородино', 'БОРОДИНО', NULL),
+(2478, 'ru', 2477, 'Норильск', 'НОРИЛЬСК', NULL),
+(2479, 'ru', 2478, 'Лесосибирск', 'ЛЕСОСИБИРСК', NULL),
+(2480, 'ru', 2479, 'Зеленогорск', 'ЗЕЛЕНОГОРСК', NULL),
+(2481, 'ru', 2480, 'Ачинск', 'АЧИНСК', NULL),
+(2482, 'ru', 2481, 'Боготол', 'БОГОТОЛ', NULL),
+(2483, 'ru', 2482, 'Минусинск', 'МИНУСИНСК', NULL),
+(2484, 'ru', 2483, 'Енисейск', 'ЕНИСЕЙСК', NULL),
+(2485, 'ru', 2484, 'Сосновоборск', 'СОСНОВОБОРСК', NULL),
+(2486, 'ru', 2485, 'Канск', 'КАНСК', NULL),
+(2487, 'ru', 2486, 'Абанский район', 'АБАНСКИЙ РАЙОН', NULL),
+(2488, 'ru', 2487, 'Шарыпово', 'ШАРЫПОВО', NULL),
+(2489, 'ru', 2488, 'Назарово', 'НАЗАРОВО', NULL),
+(2490, 'ru', 2489, 'Ачинский район', 'АЧИНСКИЙ РАЙОН', NULL),
+(2491, 'ru', 2490, 'Балахтинский район', 'БАЛАХТИНСКИЙ РАЙОН', NULL),
+(2492, 'ru', 2491, 'Березовский район', 'БЕРЕЗОВСКИЙ РАЙОН', NULL),
+(2493, 'ru', 2492, 'Бирилюсский район', 'БИРИЛЮССКИЙ РАЙОН', NULL),
+(2494, 'ru', 2493, 'Богучанский район', 'БОГУЧАНСКИЙ РАЙОН', NULL),
+(2495, 'ru', 2494, 'Боготольский район', 'БОГОТОЛЬСКИЙ РАЙОН', NULL),
+(2496, 'ru', 2495, 'Большемуртинский район', 'БОЛЬШЕМУРТИНСКИЙ РАЙОН', NULL),
+(2497, 'ru', 2496, 'Большеулуйский район', 'БОЛЬШЕУЛУЙСКИЙ РАЙОН', NULL),
+(2498, 'ru', 2497, 'Дзержинский район', 'ДЗЕРЖИНСКИЙ РАЙОН', NULL),
+(2499, 'ru', 2498, 'Емельяновский район', 'ЕМЕЛЬЯНОВСКИЙ РАЙОН', NULL),
+(2500, 'ru', 2499, 'Енисейский район', 'ЕНИСЕЙСКИЙ РАЙОН', NULL),
+(2501, 'ru', 2500, 'Иланский район', 'ИЛАНСКИЙ РАЙОН', NULL),
+(2502, 'ru', 2501, 'Иланский', 'ИЛАНСКИЙ', NULL),
+(2503, 'ru', 2502, 'Ермаковский район', 'ЕРМАКОВСКИЙ РАЙОН', NULL),
+(2504, 'ru', 2503, 'Идринский район', 'ИДРИНСКИЙ РАЙОН', NULL),
+(2505, 'ru', 2504, 'Канский район', 'КАНСКИЙ РАЙОН', NULL),
+(2506, 'ru', 2505, 'Ирбейский район', 'ИРБЕЙСКИЙ РАЙОН', NULL),
+(2507, 'ru', 2506, 'Казачинский район', 'КАЗАЧИНСКИЙ РАЙОН', NULL),
+(2508, 'ru', 2507, 'Каратузский район', 'КАРАТУЗСКИЙ РАЙОН', NULL),
+(2509, 'ru', 2508, 'Кежемский район', 'КЕЖЕМСКИЙ РАЙОН', NULL),
+(2510, 'ru', 2509, 'Кодинск', 'КОДИНСК', NULL),
+(2511, 'ru', 2510, 'Козульский район', 'КОЗУЛЬСКИЙ РАЙОН', NULL),
+(2512, 'ru', 2511, 'Краснотуранский район', 'КРАСНОТУРАНСКИЙ РАЙОН', NULL),
+(2513, 'ru', 2512, 'Курагинский район', 'КУРАГИНСКИЙ РАЙОН', NULL),
+(2514, 'ru', 2513, 'Артемовск', 'АРТЕМОВСК', NULL),
+(2515, 'ru', 2514, 'Манский район', 'МАНСКИЙ РАЙОН', NULL),
+(2516, 'ru', 2515, 'Минусинский район', 'МИНУСИНСКИЙ РАЙОН', NULL),
+(2517, 'ru', 2516, 'Назаровский район', 'НАЗАРОВСКИЙ РАЙОН', NULL),
+(2518, 'ru', 2517, 'Мотыгинский район', 'МОТЫГИНСКИЙ РАЙОН', NULL),
+(2519, 'ru', 2518, 'Партизанский район', 'ПАРТИЗАНСКИЙ РАЙОН', NULL),
+(2520, 'ru', 2519, 'Нижнеингашский район', 'НИЖНЕИНГАШСКИЙ РАЙОН', NULL),
+(2521, 'ru', 2520, 'Новоселовский район', 'НОВОСЕЛОВСКИЙ РАЙОН', NULL),
+(2522, 'ru', 2521, 'Рыбинский район', 'РЫБИНСКИЙ РАЙОН', NULL),
+(2523, 'ru', 2522, 'Заозерный', 'ЗАОЗЕРНЫЙ', NULL),
+(2524, 'ru', 2523, 'Саянский район', 'САЯНСКИЙ РАЙОН', NULL),
+(2525, 'ru', 2524, 'Пировский район', 'ПИРОВСКИЙ РАЙОН', NULL),
+(2526, 'ru', 2525, 'Сухобузимский район', 'СУХОБУЗИМСКИЙ РАЙОН', NULL),
+(2527, 'ru', 2526, 'Тасеевский район', 'ТАСЕЕВСКИЙ РАЙОН', NULL),
+(2528, 'ru', 2527, 'Туруханский район', 'ТУРУХАНСКИЙ РАЙОН', NULL),
+(2529, 'ru', 2528, 'Игарка', 'ИГАРКА', NULL),
+(2530, 'ru', 2529, 'Северо-Енисейский район', 'СЕВЕРО-ЕНИСЕЙСКИЙ РАЙОН', NULL),
+(2531, 'ru', 2530, 'Тюхтетский район', 'ТЮХТЕТСКИЙ РАЙОН', NULL),
+(2532, 'ru', 2531, 'Ужурский район', 'УЖУРСКИЙ РАЙОН', NULL),
+(2533, 'ru', 2532, 'Ужур', 'УЖУР', NULL),
+(2534, 'ru', 2533, 'Уярский район', 'УЯРСКИЙ РАЙОН', NULL),
+(2535, 'ru', 2534, 'Уяр', 'УЯР', NULL),
+(2536, 'ru', 2535, 'Шарыповский район', 'ШАРЫПОВСКИЙ РАЙОН', NULL),
+(2537, 'ru', 2536, 'Шушенский район', 'ШУШЕНСКИЙ РАЙОН', NULL),
+(2538, 'ru', 2537, 'Таймырский Долгано-Ненецкий район', 'ТАЙМЫРСКИЙ ДОЛГАНО-НЕНЕЦКИЙ РАЙОН', NULL),
+(2539, 'ru', 2538, 'Дудинка', 'ДУДИНКА', NULL),
+(2540, 'ru', 2539, 'Эвенкийский район', 'ЭВЕНКИЙСКИЙ РАЙОН', NULL),
+(2541, 'ru', 2540, 'Забайкальский край', 'ЗАБАЙКАЛЬСКИЙ КРАЙ', NULL),
+(2542, 'ru', 2541, 'Чита', 'ЧИТА', NULL),
+(2543, 'ru', 2542, 'Читинский район', 'ЧИТИНСКИЙ РАЙОН', NULL),
+(2544, 'ru', 2543, 'Балейский район', 'БАЛЕЙСКИЙ РАЙОН', NULL),
+(2545, 'ru', 2544, 'Балей', 'БАЛЕЙ', NULL),
+(2546, 'ru', 2545, 'Александрово-Заводский район', 'АЛЕКСАНДРОВО-ЗАВОДСКИЙ РАЙОН', NULL),
+(2547, 'ru', 2546, 'Акшинский район', 'АКШИНСКИЙ РАЙОН', NULL),
+(2548, 'ru', 2547, 'Забайкальский район', 'ЗАБАЙКАЛЬСКИЙ РАЙОН', NULL),
+(2549, 'ru', 2548, 'Каларский район', 'КАЛАРСКИЙ РАЙОН', NULL),
+(2550, 'ru', 2549, 'Борзинский район', 'БОРЗИНСКИЙ РАЙОН', NULL),
+(2551, 'ru', 2550, 'Борзя', 'БОРЗЯ', NULL),
+(2552, 'ru', 2551, 'Газимуро-Заводский район', 'ГАЗИМУРО-ЗАВОДСКИЙ РАЙОН', NULL),
+(2553, 'ru', 2552, 'Карымский район', 'КАРЫМСКИЙ РАЙОН', NULL),
+(2554, 'ru', 2553, 'Краснокаменский район', 'КРАСНОКАМЕНСКИЙ РАЙОН', NULL),
+(2555, 'ru', 2554, 'Краснокаменск', 'КРАСНОКАМЕНСК', NULL),
+(2556, 'ru', 2555, 'Красночикойский район', 'КРАСНОЧИКОЙСКИЙ РАЙОН', NULL),
+(2557, 'ru', 2556, 'Калганский район', 'КАЛГАНСКИЙ РАЙОН', NULL);
+INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
+(2558, 'ru', 2557, 'Могочинский район', 'МОГОЧИНСКИЙ РАЙОН', NULL),
+(2559, 'ru', 2558, 'Могоча', 'МОГОЧА', NULL),
+(2560, 'ru', 2559, 'Нерчинский район', 'НЕРЧИНСКИЙ РАЙОН', NULL),
+(2561, 'ru', 2560, 'Нерчинск', 'НЕРЧИНСК', NULL),
+(2562, 'ru', 2561, 'Кыринский район', 'КЫРИНСКИЙ РАЙОН', NULL),
+(2563, 'ru', 2562, 'Нерчинско-Заводский район', 'НЕРЧИНСКО-ЗАВОДСКИЙ РАЙОН', NULL),
+(2564, 'ru', 2563, 'Оловяннинский район', 'ОЛОВЯННИНСКИЙ РАЙОН', NULL),
+(2565, 'ru', 2564, 'Ононский район', 'ОНОНСКИЙ РАЙОН', NULL),
+(2566, 'ru', 2565, 'Приаргунский район', 'ПРИАРГУНСКИЙ РАЙОН', NULL),
+(2567, 'ru', 2566, 'Петровск-Забайкальский район', 'ПЕТРОВСК-ЗАБАЙКАЛЬСКИЙ РАЙОН', NULL),
+(2568, 'ru', 2567, 'Петровск-Забайкальский', 'ПЕТРОВСК-ЗАБАЙКАЛЬСКИЙ', NULL),
+(2569, 'ru', 2568, 'Тунгиро-Олекминский район', 'ТУНГИРО-ОЛЕКМИНСКИЙ РАЙОН', NULL),
+(2570, 'ru', 2569, 'Улетовский район', 'УЛЕТОВСКИЙ РАЙОН', NULL),
+(2571, 'ru', 2570, 'Сретенский район', 'СРЕТЕНСКИЙ РАЙОН', NULL),
+(2572, 'ru', 2571, 'Сретенск', 'СРЕТЕНСК', NULL),
+(2573, 'ru', 2572, 'Хилокский район', 'ХИЛОКСКИЙ РАЙОН', NULL),
+(2574, 'ru', 2573, 'Хилок', 'ХИЛОК', NULL),
+(2575, 'ru', 2574, 'Тунгокоченский район', 'ТУНГОКОЧЕНСКИЙ РАЙОН', NULL),
+(2576, 'ru', 2575, 'Шелопугинский район', 'ШЕЛОПУГИНСКИЙ РАЙОН', NULL),
+(2577, 'ru', 2576, 'Шилкинский район', 'ШИЛКИНСКИЙ РАЙОН', NULL),
+(2578, 'ru', 2577, 'Шилка', 'ШИЛКА', NULL),
+(2579, 'ru', 2578, 'Чернышевский район', 'ЧЕРНЫШЕВСКИЙ РАЙОН', NULL),
+(2580, 'ru', 2579, 'Агинский район', 'АГИНСКИЙ РАЙОН', NULL),
+(2581, 'ru', 2580, 'Дульдургинский район', 'ДУЛЬДУРГИНСКИЙ РАЙОН', NULL),
+(2582, 'ru', 2581, 'Могойтуйский район', 'МОГОЙТУЙСКИЙ РАЙОН', NULL),
+(2583, 'ru', 2582, 'Кемеровская область', 'КЕМЕРОВСКАЯ ОБЛАСТЬ', NULL),
+(2584, 'ru', 2583, 'Анжеро-Судженск', 'АНЖЕРО-СУДЖЕНСК', NULL),
+(2585, 'ru', 2584, 'Березовский', 'БЕРЕЗОВСКИЙ', NULL),
+(2586, 'ru', 2585, 'Киселевск', 'КИСЕЛЕВСК', NULL),
+(2587, 'ru', 2586, 'Калтан', 'КАЛТАН', NULL),
+(2588, 'ru', 2587, 'Мыски', 'МЫСКИ', NULL),
+(2589, 'ru', 2588, 'Осинники', 'ОСИННИКИ', NULL),
+(2590, 'ru', 2589, 'Кемерово', 'КЕМЕРОВО', NULL),
+(2591, 'ru', 2590, 'Тайга', 'ТАЙГА', NULL),
+(2592, 'ru', 2591, 'Ленинск-Кузнецкий', 'ЛЕНИНСК-КУЗНЕЦКИЙ', NULL),
+(2593, 'ru', 2592, 'Новокузнецк', 'НОВОКУЗНЕЦК', NULL),
+(2594, 'ru', 2593, 'Полысаево', 'ПОЛЫСАЕВО', NULL),
+(2595, 'ru', 2594, 'Прокопьевск', 'ПРОКОПЬЕВСК', NULL),
+(2596, 'ru', 2595, 'Юрга', 'ЮРГА', NULL),
+(2597, 'ru', 2596, 'Белово', 'БЕЛОВО', NULL),
+(2598, 'ru', 2597, 'Междуреченск', 'МЕЖДУРЕЧЕНСК', NULL),
+(2599, 'ru', 2598, 'Кемеровский район', 'КЕМЕРОВСКИЙ РАЙОН', NULL),
+(2600, 'ru', 2599, 'Беловский район', 'БЕЛОВСКИЙ РАЙОН', NULL),
+(2601, 'ru', 2600, 'Ижморский район', 'ИЖМОРСКИЙ РАЙОН', NULL),
+(2602, 'ru', 2601, 'Гурьевский район', 'ГУРЬЕВСКИЙ РАЙОН', NULL),
+(2603, 'ru', 2602, 'Гурьевск', 'ГУРЬЕВСК', NULL),
+(2604, 'ru', 2603, 'Салаир', 'САЛАИР', NULL),
+(2605, 'ru', 2604, 'Ленинск-Кузнецкий район', 'ЛЕНИНСК-КУЗНЕЦКИЙ РАЙОН', NULL),
+(2606, 'ru', 2605, 'Крапивинский район', 'КРАПИВИНСКИЙ РАЙОН', NULL),
+(2607, 'ru', 2606, 'Мариинский район', 'МАРИИНСКИЙ РАЙОН', NULL),
+(2608, 'ru', 2607, 'Мариинск', 'МАРИИНСК', NULL),
+(2609, 'ru', 2608, 'Новокузнецкий район', 'НОВОКУЗНЕЦКИЙ РАЙОН', NULL),
+(2610, 'ru', 2609, 'Прокопьевский район', 'ПРОКОПЬЕВСКИЙ РАЙОН', NULL),
+(2611, 'ru', 2610, 'Промышленновский район', 'ПРОМЫШЛЕННОВСКИЙ РАЙОН', NULL),
+(2612, 'ru', 2611, 'Таштагольский район', 'ТАШТАГОЛЬСКИЙ РАЙОН', NULL),
+(2613, 'ru', 2612, 'Таштагол', 'ТАШТАГОЛ', NULL),
+(2614, 'ru', 2613, 'Тисульский район', 'ТИСУЛЬСКИЙ РАЙОН', NULL),
+(2615, 'ru', 2614, 'Тяжинский район', 'ТЯЖИНСКИЙ РАЙОН', NULL),
+(2616, 'ru', 2615, 'Топкинский район', 'ТОПКИНСКИЙ РАЙОН', NULL),
+(2617, 'ru', 2616, 'Топки', 'ТОПКИ', NULL),
+(2618, 'ru', 2617, 'Юргинский район', 'ЮРГИНСКИЙ РАЙОН', NULL),
+(2619, 'ru', 2618, 'Яйский район', 'ЯЙСКИЙ РАЙОН', NULL),
+(2620, 'ru', 2619, 'Чебулинский район', 'ЧЕБУЛИНСКИЙ РАЙОН', NULL),
+(2621, 'ru', 2620, 'Яшкинский район', 'ЯШКИНСКИЙ РАЙОН', NULL),
+(2622, 'ru', 2621, 'Новосибирская область', 'НОВОСИБИРСКАЯ ОБЛАСТЬ', NULL),
+(2623, 'ru', 2622, 'Новосибирск', 'НОВОСИБИРСК', NULL),
+(2624, 'ru', 2623, 'Обь', 'ОБЬ', NULL),
+(2625, 'ru', 2624, 'Барабинск', 'БАРАБИНСК', NULL),
+(2626, 'ru', 2625, 'Бердск', 'БЕРДСК', NULL),
+(2627, 'ru', 2626, 'Новосибирский район', 'НОВОСИБИРСКИЙ РАЙОН', NULL),
+(2628, 'ru', 2627, 'Куйбышев', 'КУЙБЫШЕВ', NULL),
+(2629, 'ru', 2628, 'Искитим', 'ИСКИТИМ', NULL),
+(2630, 'ru', 2629, 'Татарск', 'ТАТАРСК', NULL),
+(2631, 'ru', 2630, 'Баганский район', 'БАГАНСКИЙ РАЙОН', NULL),
+(2632, 'ru', 2631, 'Болотнинский район', 'БОЛОТНИНСКИЙ РАЙОН', NULL),
+(2633, 'ru', 2632, 'Болотное', 'БОЛОТНОЕ', NULL),
+(2634, 'ru', 2633, 'Барабинский район', 'БАРАБИНСКИЙ РАЙОН', NULL),
+(2635, 'ru', 2634, 'Венгеровский район', 'ВЕНГЕРОВСКИЙ РАЙОН', NULL),
+(2636, 'ru', 2635, 'Доволенский район', 'ДОВОЛЕНСКИЙ РАЙОН', NULL),
+(2637, 'ru', 2636, 'Здвинский район', 'ЗДВИНСКИЙ РАЙОН', NULL),
+(2638, 'ru', 2637, 'Искитимский район', 'ИСКИТИМСКИЙ РАЙОН', NULL),
+(2639, 'ru', 2638, 'Карасукский район', 'КАРАСУКСКИЙ РАЙОН', NULL),
+(2640, 'ru', 2639, 'Карасук', 'КАРАСУК', NULL),
+(2641, 'ru', 2640, 'Каргатский район', 'КАРГАТСКИЙ РАЙОН', NULL),
+(2642, 'ru', 2641, 'Каргат', 'КАРГАТ', NULL),
+(2643, 'ru', 2642, 'Колыванский район', 'КОЛЫВАНСКИЙ РАЙОН', NULL),
+(2644, 'ru', 2643, 'Коченевский район', 'КОЧЕНЕВСКИЙ РАЙОН', NULL),
+(2645, 'ru', 2644, 'Куйбышевский район', 'КУЙБЫШЕВСКИЙ РАЙОН', NULL),
+(2646, 'ru', 2645, 'Краснозерский район', 'КРАСНОЗЕРСКИЙ РАЙОН', NULL),
+(2647, 'ru', 2646, 'Кочковский район', 'КОЧКОВСКИЙ РАЙОН', NULL),
+(2648, 'ru', 2647, 'Купинский район', 'КУПИНСКИЙ РАЙОН', NULL),
+(2649, 'ru', 2648, 'Купино', 'КУПИНО', NULL),
+(2650, 'ru', 2649, 'Маслянинский район', 'МАСЛЯНИНСКИЙ РАЙОН', NULL),
+(2651, 'ru', 2650, 'Кыштовский район', 'КЫШТОВСКИЙ РАЙОН', NULL),
+(2652, 'ru', 2651, 'Ордынский район', 'ОРДЫНСКИЙ РАЙОН', NULL),
+(2653, 'ru', 2652, 'Мошковский район', 'МОШКОВСКИЙ РАЙОН', NULL),
+(2654, 'ru', 2653, 'Сузунский район', 'СУЗУНСКИЙ РАЙОН', NULL),
+(2655, 'ru', 2654, 'Северный район', 'СЕВЕРНЫЙ РАЙОН', NULL),
+(2656, 'ru', 2655, 'Татарский район', 'ТАТАРСКИЙ РАЙОН', NULL),
+(2657, 'ru', 2656, 'Тогучинский район', 'ТОГУЧИНСКИЙ РАЙОН', NULL),
+(2658, 'ru', 2657, 'Тогучин', 'ТОГУЧИН', NULL),
+(2659, 'ru', 2658, 'Убинский район', 'УБИНСКИЙ РАЙОН', NULL),
+(2660, 'ru', 2659, 'Усть-Таркский район', 'УСТЬ-ТАРКСКИЙ РАЙОН', NULL),
+(2661, 'ru', 2660, 'Чановский район', 'ЧАНОВСКИЙ РАЙОН', NULL),
+(2662, 'ru', 2661, 'Черепановский район', 'ЧЕРЕПАНОВСКИЙ РАЙОН', NULL),
+(2663, 'ru', 2662, 'Черепаново', 'ЧЕРЕПАНОВО', NULL),
+(2664, 'ru', 2663, 'Чулымский район', 'ЧУЛЫМСКИЙ РАЙОН', NULL),
+(2665, 'ru', 2664, 'Чулым', 'ЧУЛЫМ', NULL),
+(2666, 'ru', 2665, 'Чулым-3', 'ЧУЛЫМ-3', NULL),
+(2667, 'ru', 2666, 'Чистоозерный район', 'ЧИСТООЗЕРНЫЙ РАЙОН', NULL),
+(2668, 'ru', 2667, 'Омская область', 'ОМСКАЯ ОБЛАСТЬ', NULL),
+(2669, 'ru', 2668, 'Омск', 'ОМСК', NULL),
+(2670, 'ru', 2669, 'Азовский немецкий национальный район', 'АЗОВСКИЙ НЕМЕЦКИЙ НАЦИОНАЛЬНЫЙ РАЙОН', NULL),
+(2671, 'ru', 2670, 'Большеуковский район', 'БОЛЬШЕУКОВСКИЙ РАЙОН', NULL),
+(2672, 'ru', 2671, 'Большереченский район', 'БОЛЬШЕРЕЧЕНСКИЙ РАЙОН', NULL),
+(2673, 'ru', 2672, 'Горьковский район', 'ГОРЬКОВСКИЙ РАЙОН', NULL),
+(2674, 'ru', 2673, 'Исилькульский район', 'ИСИЛЬКУЛЬСКИЙ РАЙОН', NULL),
+(2675, 'ru', 2674, 'Исилькуль', 'ИСИЛЬКУЛЬ', NULL),
+(2676, 'ru', 2675, 'Знаменский район', 'ЗНАМЕНСКИЙ РАЙОН', NULL),
+(2677, 'ru', 2676, 'Колосовский район', 'КОЛОСОВСКИЙ РАЙОН', NULL),
+(2678, 'ru', 2677, 'Калачинский район', 'КАЛАЧИНСКИЙ РАЙОН', NULL),
+(2679, 'ru', 2678, 'Калачинск', 'КАЛАЧИНСК', NULL),
+(2680, 'ru', 2679, 'Кормиловский район', 'КОРМИЛОВСКИЙ РАЙОН', NULL),
+(2681, 'ru', 2680, 'Крутинский район', 'КРУТИНСКИЙ РАЙОН', NULL),
+(2682, 'ru', 2681, 'Любинский район', 'ЛЮБИНСКИЙ РАЙОН', NULL),
+(2683, 'ru', 2682, 'Марьяновский район', 'МАРЬЯНОВСКИЙ РАЙОН', NULL),
+(2684, 'ru', 2683, 'Москаленский район', 'МОСКАЛЕНСКИЙ РАЙОН', NULL),
+(2685, 'ru', 2684, 'Называевский район', 'НАЗЫВАЕВСКИЙ РАЙОН', NULL),
+(2686, 'ru', 2685, 'Называевск', 'НАЗЫВАЕВСК', NULL),
+(2687, 'ru', 2686, 'Муромцевский район', 'МУРОМЦЕВСКИЙ РАЙОН', NULL),
+(2688, 'ru', 2687, 'Одесский район', 'ОДЕССКИЙ РАЙОН', NULL),
+(2689, 'ru', 2688, 'Нижнеомский район', 'НИЖНЕОМСКИЙ РАЙОН', NULL),
+(2690, 'ru', 2689, 'Оконешниковский район', 'ОКОНЕШНИКОВСКИЙ РАЙОН', NULL),
+(2691, 'ru', 2690, 'Нововаршавский район', 'НОВОВАРШАВСКИЙ РАЙОН', NULL),
+(2692, 'ru', 2691, 'Омский район', 'ОМСКИЙ РАЙОН', NULL),
+(2693, 'ru', 2692, 'Павлоградский район', 'ПАВЛОГРАДСКИЙ РАЙОН', NULL),
+(2694, 'ru', 2693, 'Русско-Полянский район', 'РУССКО-ПОЛЯНСКИЙ РАЙОН', NULL),
+(2695, 'ru', 2694, 'Полтавский район', 'ПОЛТАВСКИЙ РАЙОН', NULL),
+(2696, 'ru', 2695, 'Таврический район', 'ТАВРИЧЕСКИЙ РАЙОН', NULL),
+(2697, 'ru', 2696, 'Саргатский район', 'САРГАТСКИЙ РАЙОН', NULL),
+(2698, 'ru', 2697, 'Седельниковский район', 'СЕДЕЛЬНИКОВСКИЙ РАЙОН', NULL),
+(2699, 'ru', 2698, 'Тевризский район', 'ТЕВРИЗСКИЙ РАЙОН', NULL),
+(2700, 'ru', 2699, 'Тарский район', 'ТАРСКИЙ РАЙОН', NULL),
+(2701, 'ru', 2700, 'Тара', 'ТАРА', NULL),
+(2702, 'ru', 2701, 'Тюкалинский район', 'ТЮКАЛИНСКИЙ РАЙОН', NULL),
+(2703, 'ru', 2702, 'Тюкалинск', 'ТЮКАЛИНСК', NULL),
+(2704, 'ru', 2703, 'Усть-Ишимский район', 'УСТЬ-ИШИМСКИЙ РАЙОН', NULL),
+(2705, 'ru', 2704, 'Черлакский район', 'ЧЕРЛАКСКИЙ РАЙОН', NULL),
+(2706, 'ru', 2705, 'Шербакульский район', 'ШЕРБАКУЛЬСКИЙ РАЙОН', NULL),
+(2707, 'ru', 2706, 'Томская область', 'ТОМСКАЯ ОБЛАСТЬ', NULL),
+(2708, 'ru', 2707, 'Томск', 'ТОМСК', NULL),
+(2709, 'ru', 2708, 'Кедровый', 'КЕДРОВЫЙ', NULL),
+(2710, 'ru', 2709, 'Северск', 'СЕВЕРСК', NULL),
+(2711, 'ru', 2710, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
+(2712, 'ru', 2711, 'Асиновский район', 'АСИНОВСКИЙ РАЙОН', NULL),
+(2713, 'ru', 2712, 'Асино', 'АСИНО', NULL),
+(2714, 'ru', 2713, 'Бакчарский район', 'БАКЧАРСКИЙ РАЙОН', NULL),
+(2715, 'ru', 2714, 'Стрежевой', 'СТРЕЖЕВОЙ', NULL),
+(2716, 'ru', 2715, 'Верхнекетский район', 'ВЕРХНЕКЕТСКИЙ РАЙОН', NULL),
+(2717, 'ru', 2716, 'Каргасокский район', 'КАРГАСОКСКИЙ РАЙОН', NULL),
+(2718, 'ru', 2717, 'Кожевниковский район', 'КОЖЕВНИКОВСКИЙ РАЙОН', NULL),
+(2719, 'ru', 2718, 'Зырянский район', 'ЗЫРЯНСКИЙ РАЙОН', NULL),
+(2720, 'ru', 2719, 'Колпашевский район', 'КОЛПАШЕВСКИЙ РАЙОН', NULL),
+(2721, 'ru', 2720, 'Колпашево', 'КОЛПАШЕВО', NULL),
+(2722, 'ru', 2721, 'Молчановский район', 'МОЛЧАНОВСКИЙ РАЙОН', NULL),
+(2723, 'ru', 2722, 'Кривошеинский район', 'КРИВОШЕИНСКИЙ РАЙОН', NULL),
+(2724, 'ru', 2723, 'Тегульдетский район', 'ТЕГУЛЬДЕТСКИЙ РАЙОН', NULL),
+(2725, 'ru', 2724, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
+(2726, 'ru', 2725, 'Парабельский район', 'ПАРАБЕЛЬСКИЙ РАЙОН', NULL),
+(2727, 'ru', 2726, 'Шегарский район', 'ШЕГАРСКИЙ РАЙОН', NULL),
+(2728, 'ru', 2727, 'Томский район', 'ТОМСКИЙ РАЙОН', NULL),
+(2729, 'ru', 2728, 'Чаинский район', 'ЧАИНСКИЙ РАЙОН', NULL),
+(2730, 'ru', 2729, 'Алтайский край', 'АЛТАЙСКИЙ КРАЙ', NULL),
+(2731, 'ru', 2730, 'Барнаул', 'БАРНАУЛ', NULL),
+(2732, 'ru', 2731, 'Алейск', 'АЛЕЙСК', NULL),
+(2733, 'ru', 2732, 'Бийск', 'БИЙСК', NULL),
+(2734, 'ru', 2733, 'Белокуриха', 'БЕЛОКУРИХА', NULL),
+(2735, 'ru', 2734, 'Рубцовск', 'РУБЦОВСК', NULL),
+(2736, 'ru', 2735, 'Новоалтайск', 'НОВОАЛТАЙСК', NULL),
+(2737, 'ru', 2736, 'Камень-на-Оби', 'КАМЕНЬ-НА-ОБИ', NULL),
+(2738, 'ru', 2737, 'Славгород', 'СЛАВГОРОД', NULL),
+(2739, 'ru', 2738, 'Заринск', 'ЗАРИНСК', NULL),
+(2740, 'ru', 2739, 'Алейский район', 'АЛЕЙСКИЙ РАЙОН', NULL),
+(2741, 'ru', 2740, 'Яровое', 'ЯРОВОЕ', NULL),
+(2742, 'ru', 2741, 'Баевский район', 'БАЕВСКИЙ РАЙОН', NULL),
+(2743, 'ru', 2742, 'Алтайский район', 'АЛТАЙСКИЙ РАЙОН', NULL),
+(2744, 'ru', 2743, 'Бийский район', 'БИЙСКИЙ РАЙОН', NULL),
+(2745, 'ru', 2744, 'Бурлинский район', 'БУРЛИНСКИЙ РАЙОН', NULL),
+(2746, 'ru', 2745, 'Волчихинский район', 'ВОЛЧИХИНСКИЙ РАЙОН', NULL),
+(2747, 'ru', 2746, 'Благовещенский район', 'БЛАГОВЕЩЕНСКИЙ РАЙОН', NULL),
+(2748, 'ru', 2747, 'Быстроистокский район', 'БЫСТРОИСТОКСКИЙ РАЙОН', NULL),
+(2749, 'ru', 2748, 'Ельцовский район', 'ЕЛЬЦОВСКИЙ РАЙОН', NULL),
+(2750, 'ru', 2749, 'Егорьевский район', 'ЕГОРЬЕВСКИЙ РАЙОН', NULL),
+(2751, 'ru', 2750, 'Завьяловский район', 'ЗАВЬЯЛОВСКИЙ РАЙОН', NULL),
+(2752, 'ru', 2751, 'Заринский район', 'ЗАРИНСКИЙ РАЙОН', NULL),
+(2753, 'ru', 2752, 'Залесовский район', 'ЗАЛЕСОВСКИЙ РАЙОН', NULL),
+(2754, 'ru', 2753, 'Змеиногорский район', 'ЗМЕИНОГОРСКИЙ РАЙОН', NULL),
+(2755, 'ru', 2754, 'Змеиногорск', 'ЗМЕИНОГОРСК', NULL),
+(2756, 'ru', 2755, 'Зональный район', 'ЗОНАЛЬНЫЙ РАЙОН', NULL),
+(2757, 'ru', 2756, 'Косихинский район', 'КОСИХИНСКИЙ РАЙОН', NULL),
+(2758, 'ru', 2757, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
+(2759, 'ru', 2758, 'Ключевский район', 'КЛЮЧЕВСКИЙ РАЙОН', NULL),
+(2760, 'ru', 2759, 'Калманский район', 'КАЛМАНСКИЙ РАЙОН', NULL),
+(2761, 'ru', 2760, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
+(2762, 'ru', 2761, 'Крутихинский район', 'КРУТИХИНСКИЙ РАЙОН', NULL),
+(2763, 'ru', 2762, 'Кулундинский район', 'КУЛУНДИНСКИЙ РАЙОН', NULL),
+(2764, 'ru', 2763, 'Краснощёковский район', 'КРАСНОЩЁКОВСКИЙ РАЙОН', NULL),
+(2765, 'ru', 2764, 'Курьинский район', 'КУРЬИНСКИЙ РАЙОН', NULL),
+(2766, 'ru', 2765, 'Кытмановский район', 'КЫТМАНОВСКИЙ РАЙОН', NULL),
+(2767, 'ru', 2766, 'Локтевский район', 'ЛОКТЕВСКИЙ РАЙОН', NULL),
+(2768, 'ru', 2767, 'Горняк', 'ГОРНЯК', NULL),
+(2769, 'ru', 2768, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
+(2770, 'ru', 2769, 'Немецкий Национальный район', 'НЕМЕЦКИЙ НАЦИОНАЛЬНЫЙ РАЙОН', NULL),
+(2771, 'ru', 2770, 'Мамонтовский район', 'МАМОНТОВСКИЙ РАЙОН', NULL),
+(2772, 'ru', 2771, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
+(2773, 'ru', 2772, 'Новичихинский район', 'НОВИЧИХИНСКИЙ РАЙОН', NULL),
+(2774, 'ru', 2773, 'Панкрушихинский район', 'ПАНКРУШИХИНСКИЙ РАЙОН', NULL),
+(2775, 'ru', 2774, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
+(2776, 'ru', 2775, 'Петропавловский район', 'ПЕТРОПАВЛОВСКИЙ РАЙОН', NULL),
+(2777, 'ru', 2776, 'Поспелихинский район', 'ПОСПЕЛИХИНСКИЙ РАЙОН', NULL),
+(2778, 'ru', 2777, 'Рубцовский район', 'РУБЦОВСКИЙ РАЙОН', NULL),
+(2779, 'ru', 2778, 'Родинский район', 'РОДИНСКИЙ РАЙОН', NULL),
+(2780, 'ru', 2779, 'Ребрихинский район', 'РЕБРИХИНСКИЙ РАЙОН', NULL),
+(2781, 'ru', 2780, 'Романовский район', 'РОМАНОВСКИЙ РАЙОН', NULL),
+(2782, 'ru', 2781, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(2783, 'ru', 2782, 'Смоленский район', 'СМОЛЕНСКИЙ РАЙОН', NULL),
+(2784, 'ru', 2783, 'Табунский район', 'ТАБУНСКИЙ РАЙОН', NULL),
+(2785, 'ru', 2784, 'Солтонский район', 'СОЛТОНСКИЙ РАЙОН', NULL),
+(2786, 'ru', 2785, 'Суетский район', 'СУЕТСКИЙ РАЙОН', NULL),
+(2787, 'ru', 2786, 'Тальменский район', 'ТАЛЬМЕНСКИЙ РАЙОН', NULL),
+(2788, 'ru', 2787, 'Солонешенский район', 'СОЛОНЕШЕНСКИЙ РАЙОН', NULL),
+(2789, 'ru', 2788, 'Топчихинский район', 'ТОПЧИХИНСКИЙ РАЙОН', NULL),
+(2790, 'ru', 2789, 'Тогульский район', 'ТОГУЛЬСКИЙ РАЙОН', NULL),
+(2791, 'ru', 2790, 'Третьяковский район', 'ТРЕТЬЯКОВСКИЙ РАЙОН', NULL),
+(2792, 'ru', 2791, 'Троицкий район', 'ТРОИЦКИЙ РАЙОН', NULL),
+(2793, 'ru', 2792, 'Тюменцевский район', 'ТЮМЕНЦЕВСКИЙ РАЙОН', NULL),
+(2794, 'ru', 2793, 'Угловский район', 'УГЛОВСКИЙ РАЙОН', NULL),
+(2795, 'ru', 2794, 'Усть-Калманский район', 'УСТЬ-КАЛМАНСКИЙ РАЙОН', NULL),
+(2796, 'ru', 2795, 'Хабарский район', 'ХАБАРСКИЙ РАЙОН', NULL),
+(2797, 'ru', 2796, 'Целинный район', 'ЦЕЛИННЫЙ РАЙОН', NULL),
+(2798, 'ru', 2797, 'Усть-Пристанский район', 'УСТЬ-ПРИСТАНСКИЙ РАЙОН', NULL),
+(2799, 'ru', 2798, 'Шелаболихинский район', 'ШЕЛАБОЛИХИНСКИЙ РАЙОН', NULL),
+(2800, 'ru', 2799, 'Чарышский район', 'ЧАРЫШСКИЙ РАЙОН', NULL),
+(2801, 'ru', 2800, 'Шипуновский район', 'ШИПУНОВСКИЙ РАЙОН', NULL),
+(2802, 'ru', 2801, 'Республика Бурятия', 'РЕСПУБЛИКА БУРЯТИЯ', NULL),
+(2803, 'ru', 2802, 'Улан-Удэ', 'УЛАН-УДЭ', NULL),
+(2804, 'ru', 2803, 'Северобайкальск', 'СЕВЕРОБАЙКАЛЬСК', NULL),
+(2805, 'ru', 2804, 'Джидинский район', 'ДЖИДИНСКИЙ РАЙОН', NULL),
+(2806, 'ru', 2805, 'Дэдэ-Ичетуй улус', 'ДЭДЭ-ИЧЕТУЙ УЛУС', NULL),
+(2807, 'ru', 2806, 'Верхний Бургалтай улус', 'ВЕРХНИЙ БУРГАЛТАЙ УЛУС', NULL),
+(2808, 'ru', 2807, 'Баунтовский эвенкийский район', 'БАУНТОВСКИЙ ЭВЕНКИЙСКИЙ РАЙОН', NULL),
+(2809, 'ru', 2808, 'Еравнинский район', 'ЕРАВНИНСКИЙ РАЙОН', NULL),
+(2810, 'ru', 2809, 'Бичурский район', 'БИЧУРСКИЙ РАЙОН', NULL),
+(2811, 'ru', 2810, 'Заиграевский район', 'ЗАИГРАЕВСКИЙ РАЙОН', NULL),
+(2812, 'ru', 2811, 'Закаменский район', 'ЗАКАМЕНСКИЙ РАЙОН', NULL),
+(2813, 'ru', 2812, 'Закаменск', 'ЗАКАМЕНСК', NULL),
+(2814, 'ru', 2813, 'Иволгинский район', 'ИВОЛГИНСКИЙ РАЙОН', NULL),
+(2815, 'ru', 2814, 'Оронгой улус', 'ОРОНГОЙ УЛУС', NULL),
+(2816, 'ru', 2815, 'Гильбира улус', 'ГИЛЬБИРА УЛУС', NULL),
+(2817, 'ru', 2816, 'Нур-Селение улус', 'НУР-СЕЛЕНИЕ УЛУС', NULL),
+(2818, 'ru', 2817, 'Хурамша улус', 'ХУРАМША УЛУС', NULL),
+(2819, 'ru', 2818, 'Хойтобэе улус', 'ХОЙТОБЭЕ УЛУС', NULL),
+(2820, 'ru', 2819, 'Кабанский район', 'КАБАНСКИЙ РАЙОН', NULL),
+(2821, 'ru', 2820, 'Бабушкин', 'БАБУШКИН', NULL),
+(2822, 'ru', 2821, 'Кижингинский район', 'КИЖИНГИНСКИЙ РАЙОН', NULL),
+(2823, 'ru', 2822, 'Загустай улус', 'ЗАГУСТАЙ УЛУС', NULL),
+(2824, 'ru', 2823, 'Кяхтинский район', 'КЯХТИНСКИЙ РАЙОН', NULL),
+(2825, 'ru', 2824, 'Кяхта', 'КЯХТА', NULL),
+(2826, 'ru', 2825, 'Курумканский район', 'КУРУМКАНСКИЙ РАЙОН', NULL),
+(2827, 'ru', 2826, 'Муйский район', 'МУЙСКИЙ РАЙОН', NULL),
+(2828, 'ru', 2827, 'Мухоршибирский район', 'МУХОРШИБИРСКИЙ РАЙОН', NULL),
+(2829, 'ru', 2828, 'Окинский район', 'ОКИНСКИЙ РАЙОН', NULL),
+(2830, 'ru', 2829, 'Прибайкальский район', 'ПРИБАЙКАЛЬСКИЙ РАЙОН', NULL),
+(2831, 'ru', 2830, 'Селенгинский район', 'СЕЛЕНГИНСКИЙ РАЙОН', NULL),
+(2832, 'ru', 2831, 'Гусиноозерск', 'ГУСИНООЗЕРСК', NULL),
+(2833, 'ru', 2832, 'Тохой улус', 'ТОХОЙ УЛУС', NULL),
+(2834, 'ru', 2833, 'Харгана улус', 'ХАРГАНА УЛУС', NULL),
+(2835, 'ru', 2834, 'Удунга улус', 'УДУНГА УЛУС', NULL),
+(2836, 'ru', 2835, 'Енхор улус', 'ЕНХОР УЛУС', NULL),
+(2837, 'ru', 2836, 'Тарбагатайский район', 'ТАРБАГАТАЙСКИЙ РАЙОН', NULL),
+(2838, 'ru', 2837, 'Тункинский район', 'ТУНКИНСКИЙ РАЙОН', NULL),
+(2839, 'ru', 2838, 'Хужиры улус', 'ХУЖИРЫ УЛУС', NULL),
+(2840, 'ru', 2839, 'Улбугай улус', 'УЛБУГАЙ УЛУС', NULL),
+(2841, 'ru', 2840, 'Шанай улус', 'ШАНАЙ УЛУС', NULL),
+(2842, 'ru', 2841, 'Северо-Байкальский район', 'СЕВЕРО-БАЙКАЛЬСКИЙ РАЙОН', NULL),
+(2843, 'ru', 2842, 'Баргузинский район', 'БАРГУЗИНСКИЙ РАЙОН', NULL),
+(2844, 'ru', 2843, 'Хоринский район', 'ХОРИНСКИЙ РАЙОН', NULL),
+(2845, 'ru', 2844, 'Республика Хакасия', 'РЕСПУБЛИКА ХАКАСИЯ', NULL),
+(2846, 'ru', 2845, 'Абакан', 'АБАКАН', NULL),
+(2847, 'ru', 2846, 'Аскизский тракт район', 'АСКИЗСКИЙ ТРАКТ РАЙОН', NULL),
+(2848, 'ru', 2847, 'Койбалы район', 'КОЙБАЛЫ РАЙОН', NULL),
+(2849, 'ru', 2848, 'Колягинские холмы район', 'КОЛЯГИНСКИЕ ХОЛМЫ РАЙОН', NULL),
+(2850, 'ru', 2849, 'Нижняя Согра район', 'НИЖНЯЯ СОГРА РАЙОН', NULL),
+(2851, 'ru', 2850, 'Облепиховый сад район', 'ОБЛЕПИХОВЫЙ САД РАЙОН', NULL),
+(2852, 'ru', 2851, 'Орбита район', 'ОРБИТА РАЙОН', NULL),
+(2853, 'ru', 2852, 'Подсинее район', 'ПОДСИНЕЕ РАЙОН', NULL),
+(2854, 'ru', 2853, 'Река Ташеба район', 'РЕКА ТАШЕБА РАЙОН', NULL),
+(2855, 'ru', 2854, 'Самохвал район', 'САМОХВАЛ РАЙОН', NULL),
+(2856, 'ru', 2855, 'Саяногорск', 'САЯНОГОРСК', NULL),
+(2857, 'ru', 2856, 'Черногорск', 'ЧЕРНОГОРСК', NULL),
+(2858, 'ru', 2857, 'деревня Мохово район', 'ДЕРЕВНЯ МОХОВО РАЙОН', NULL),
+(2859, 'ru', 2858, 'Мохово район', 'МОХОВО РАЙОН', NULL),
+(2860, 'ru', 2859, 'Опытное поле район', 'ОПЫТНОЕ ПОЛЕ РАЙОН', NULL),
+(2861, 'ru', 2860, 'Промзона ПКСО район', 'ПРОМЗОНА ПКСО РАЙОН', NULL),
+(2862, 'ru', 2861, 'Шахтные поля район', 'ШАХТНЫЕ ПОЛЯ РАЙОН', NULL),
+(2863, 'ru', 2862, 'Аскизский район', 'АСКИЗСКИЙ РАЙОН', NULL),
+(2864, 'ru', 2863, 'Алтайский район', 'АЛТАЙСКИЙ РАЙОН', NULL),
+(2865, 'ru', 2864, 'Абаза', 'АБАЗА', NULL),
+(2866, 'ru', 2865, 'Сорск', 'СОРСК', NULL),
+(2867, 'ru', 2866, 'Бейский район', 'БЕЙСКИЙ РАЙОН', NULL),
+(2868, 'ru', 2867, 'Боградский район', 'БОГРАДСКИЙ РАЙОН', NULL),
+(2869, 'ru', 2868, 'Таштыпский район', 'ТАШТЫПСКИЙ РАЙОН', NULL),
+(2870, 'ru', 2869, 'Усть-Абаканский район', 'УСТЬ-АБАКАНСКИЙ РАЙОН', NULL),
+(2871, 'ru', 2870, 'Орджоникидзевский район', 'ОРДЖОНИКИДЗЕВСКИЙ РАЙОН', NULL),
+(2872, 'ru', 2871, 'Ширинский район', 'ШИРИНСКИЙ РАЙОН', NULL),
+(2873, 'ru', 2872, 'Республика Тыва', 'РЕСПУБЛИКА ТЫВА', NULL),
+(2874, 'ru', 2873, 'Ак-Довурак', 'АК-ДОВУРАК', NULL),
+(2875, 'ru', 2874, 'Кызыл', 'КЫЗЫЛ', NULL),
+(2876, 'ru', 2875, 'Бай-Тайгинский район', 'БАЙ-ТАЙГИНСКИЙ РАЙОН', NULL),
+(2877, 'ru', 2876, 'Барун-Хемчикский район', 'БАРУН-ХЕМЧИКСКИЙ РАЙОН', NULL),
+(2878, 'ru', 2877, 'Кызылский район', 'КЫЗЫЛСКИЙ РАЙОН', NULL),
+(2879, 'ru', 2878, 'Каа-Хемский район', 'КАА-ХЕМСКИЙ РАЙОН', NULL),
+(2880, 'ru', 2879, 'Дзун-Хемчикский район', 'ДЗУН-ХЕМЧИКСКИЙ РАЙОН', NULL),
+(2881, 'ru', 2880, 'Чадан', 'ЧАДАН', NULL),
+(2882, 'ru', 2881, 'Монгун-Тайгинский район', 'МОНГУН-ТАЙГИНСКИЙ РАЙОН', NULL),
+(2883, 'ru', 2882, 'Пий-Хемский район', 'ПИЙ-ХЕМСКИЙ РАЙОН', NULL),
+(2884, 'ru', 2883, 'Туран', 'ТУРАН', NULL),
+(2885, 'ru', 2884, 'Тандинский район', 'ТАНДИНСКИЙ РАЙОН', NULL),
+(2886, 'ru', 2885, 'Тес-Хемский район', 'ТЕС-ХЕМСКИЙ РАЙОН', NULL),
+(2887, 'ru', 2886, 'Овюрский район', 'ОВЮРСКИЙ РАЙОН', NULL),
+(2888, 'ru', 2887, 'Сут-Хольский район', 'СУТ-ХОЛЬСКИЙ РАЙОН', NULL),
+(2889, 'ru', 2888, 'Чеди-Хольский район', 'ЧЕДИ-ХОЛЬСКИЙ РАЙОН', NULL),
+(2890, 'ru', 2889, 'Улуг-Хемский район', 'УЛУГ-ХЕМСКИЙ РАЙОН', NULL),
+(2891, 'ru', 2890, 'Шагонар', 'ШАГОНАР', NULL),
+(2892, 'ru', 2891, 'Чаа-Хольский район', 'ЧАА-ХОЛЬСКИЙ РАЙОН', NULL),
+(2893, 'ru', 2892, 'Тоджинский район', 'ТОДЖИНСКИЙ РАЙОН', NULL),
+(2894, 'ru', 2893, 'Эрзинский район', 'ЭРЗИНСКИЙ РАЙОН', NULL),
+(2895, 'ru', 2894, 'Тере-Хольский район', 'ТЕРЕ-ХОЛЬСКИЙ РАЙОН', NULL),
+(2896, 'ru', 2895, 'Республика Алтай', 'РЕСПУБЛИКА АЛТАЙ', NULL),
+(2897, 'ru', 2896, 'Кош-Агачский район', 'КОШ-АГАЧСКИЙ РАЙОН', NULL),
+(2898, 'ru', 2897, 'Майминский район', 'МАЙМИНСКИЙ РАЙОН', NULL),
+(2899, 'ru', 2898, 'Горно-Алтайск', 'ГОРНО-АЛТАЙСК', NULL),
+(2900, 'ru', 2899, 'Онгудайский район', 'ОНГУДАЙСКИЙ РАЙОН', NULL),
+(2901, 'ru', 2900, 'Турочакский район', 'ТУРОЧАКСКИЙ РАЙОН', NULL),
+(2902, 'ru', 2901, 'Улаганский район', 'УЛАГАНСКИЙ РАЙОН', NULL),
+(2903, 'ru', 2902, 'Чемальский район', 'ЧЕМАЛЬСКИЙ РАЙОН', NULL),
+(2904, 'ru', 2903, 'Усть-Коксинский район', 'УСТЬ-КОКСИНСКИЙ РАЙОН', NULL),
+(2905, 'ru', 2904, 'Усть-Канский район', 'УСТЬ-КАНСКИЙ РАЙОН', NULL),
+(2906, 'ru', 2905, 'Чойский район', 'ЧОЙСКИЙ РАЙОН', NULL),
+(2907, 'ru', 2906, 'Шебалинский район', 'ШЕБАЛИНСКИЙ РАЙОН', NULL),
+(2908, 'ru', 2907, 'Дальний Восток', 'ДАЛЬНИЙ ВОСТОК', NULL),
+(2909, 'ru', 2908, 'Хабаровский край', 'ХАБАРОВСКИЙ КРАЙ', NULL),
+(2910, 'ru', 2909, 'Хабаровск', 'ХАБАРОВСК', NULL),
+(2911, 'ru', 2910, 'Николаевск-на-Амуре', 'НИКОЛАЕВСК-НА-АМУРЕ', NULL),
+(2912, 'ru', 2911, 'Комсомольск-на-Амуре', 'КОМСОМОЛЬСК-НА-АМУРЕ', NULL),
+(2913, 'ru', 2912, 'Советская Гавань', 'СОВЕТСКАЯ ГАВАНЬ', NULL),
+(2914, 'ru', 2913, 'Бикин', 'БИКИН', NULL),
+(2915, 'ru', 2914, 'Амурск', 'АМУРСК', NULL),
+(2916, 'ru', 2915, 'Ванинский район', 'ВАНИНСКИЙ РАЙОН', NULL),
+(2917, 'ru', 2916, 'Амурский район', 'АМУРСКИЙ РАЙОН', NULL),
+(2918, 'ru', 2917, 'Аяно-Майский район', 'АЯНО-МАЙСКИЙ РАЙОН', NULL),
+(2919, 'ru', 2918, 'Бикинский район', 'БИКИНСКИЙ РАЙОН', NULL),
+(2920, 'ru', 2919, 'Верхнебуреинский район', 'ВЕРХНЕБУРЕИНСКИЙ РАЙОН', NULL),
+(2921, 'ru', 2920, 'Имени Лазо район', 'ИМЕНИ ЛАЗО РАЙОН', NULL),
+(2922, 'ru', 2921, 'Вяземский район', 'ВЯЗЕМСКИЙ РАЙОН', NULL),
+(2923, 'ru', 2922, 'Вяземский', 'ВЯЗЕМСКИЙ', NULL),
+(2924, 'ru', 2923, 'Комсомольский район', 'КОМСОМОЛЬСКИЙ РАЙОН', NULL),
+(2925, 'ru', 2924, 'Имени Полины Осипенко район', 'ИМЕНИ ПОЛИНЫ ОСИПЕНКО РАЙОН', NULL),
+(2926, 'ru', 2925, 'Нанайский район', 'НАНАЙСКИЙ РАЙОН', NULL),
+(2927, 'ru', 2926, 'Николаевский район', 'НИКОЛАЕВСКИЙ РАЙОН', NULL),
+(2928, 'ru', 2927, 'Тугуро-Чумиканский район', 'ТУГУРО-ЧУМИКАНСКИЙ РАЙОН', NULL),
+(2929, 'ru', 2928, 'Советско-Гаванский район', 'СОВЕТСКО-ГАВАНСКИЙ РАЙОН', NULL),
+(2930, 'ru', 2929, 'Ульчский район', 'УЛЬЧСКИЙ РАЙОН', NULL),
+(2931, 'ru', 2930, 'Охотский район', 'ОХОТСКИЙ РАЙОН', NULL),
+(2932, 'ru', 2931, 'Солнечный район', 'СОЛНЕЧНЫЙ РАЙОН', NULL),
+(2933, 'ru', 2932, 'Хабаровский район', 'ХАБАРОВСКИЙ РАЙОН', NULL),
+(2934, 'ru', 2933, 'Амурская область', 'АМУРСКАЯ ОБЛАСТЬ', NULL),
+(2935, 'ru', 2934, 'Благовещенск', 'БЛАГОВЕЩЕНСК', NULL),
+(2936, 'ru', 2935, 'Шимановск', 'ШИМАНОВСК', NULL),
+(2937, 'ru', 2936, 'Свободный', 'СВОБОДНЫЙ', NULL),
+(2938, 'ru', 2937, 'Райчихинск', 'РАЙЧИХИНСК', NULL),
+(2939, 'ru', 2938, 'Белогорск', 'БЕЛОГОРСК', NULL),
+(2940, 'ru', 2939, 'Благовещенский район', 'БЛАГОВЕЩЕНСКИЙ РАЙОН', NULL),
+(2941, 'ru', 2940, 'Зея', 'ЗЕЯ', NULL),
+(2942, 'ru', 2941, 'Тында', 'ТЫНДА', NULL),
+(2943, 'ru', 2942, 'Белогорский район', 'БЕЛОГОРСКИЙ РАЙОН', NULL),
+(2944, 'ru', 2943, 'Бурейский район', 'БУРЕЙСКИЙ РАЙОН', NULL),
+(2945, 'ru', 2944, 'Архаринский район', 'АРХАРИНСКИЙ РАЙОН', NULL),
+(2946, 'ru', 2945, 'Ивановский район', 'ИВАНОВСКИЙ РАЙОН', NULL),
+(2947, 'ru', 2946, 'Константиновский район', 'КОНСТАНТИНОВСКИЙ РАЙОН', NULL),
+(2948, 'ru', 2947, 'Завитинский район', 'ЗАВИТИНСКИЙ РАЙОН', NULL),
+(2949, 'ru', 2948, 'Завитинск', 'ЗАВИТИНСК', NULL),
+(2950, 'ru', 2949, 'Зейский район', 'ЗЕЙСКИЙ РАЙОН', NULL),
+(2951, 'ru', 2950, 'Магдагачинский район', 'МАГДАГАЧИНСКИЙ РАЙОН', NULL),
+(2952, 'ru', 2951, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
+(2953, 'ru', 2952, 'Мазановский район', 'МАЗАНОВСКИЙ РАЙОН', NULL),
+(2954, 'ru', 2953, 'Свободненский район', 'СВОБОДНЕНСКИЙ РАЙОН', NULL),
+(2955, 'ru', 2954, 'Ромненский район', 'РОМНЕНСКИЙ РАЙОН', NULL),
+(2956, 'ru', 2955, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(2957, 'ru', 2956, 'Сковородинский район', 'СКОВОРОДИНСКИЙ РАЙОН', NULL),
+(2958, 'ru', 2957, 'Сковородино', 'СКОВОРОДИНО', NULL),
+(2959, 'ru', 2958, 'Тамбовский район', 'ТАМБОВСКИЙ РАЙОН', NULL),
+(2960, 'ru', 2959, 'Селемджинский район', 'СЕЛЕМДЖИНСКИЙ РАЙОН', NULL),
+(2961, 'ru', 2960, 'Серышевский район', 'СЕРЫШЕВСКИЙ РАЙОН', NULL),
+(2962, 'ru', 2961, 'Шимановский район', 'ШИМАНОВСКИЙ РАЙОН', NULL),
+(2963, 'ru', 2962, 'Тындинский район', 'ТЫНДИНСКИЙ РАЙОН', NULL),
+(2964, 'ru', 2963, 'Камчатский край', 'КАМЧАТСКИЙ КРАЙ', NULL),
+(2965, 'ru', 2964, 'Алеутский район', 'АЛЕУТСКИЙ РАЙОН', NULL),
+(2966, 'ru', 2965, 'Быстринский район', 'БЫСТРИНСКИЙ РАЙОН', NULL),
+(2967, 'ru', 2966, 'Петропавловск-Камчатский', 'ПЕТРОПАВЛОВСК-КАМЧАТСКИЙ', NULL),
+(2968, 'ru', 2967, 'Вилючинск', 'ВИЛЮЧИНСК', NULL),
+(2969, 'ru', 2968, 'Елизовский район', 'ЕЛИЗОВСКИЙ РАЙОН', NULL),
+(2970, 'ru', 2969, 'Елизово', 'ЕЛИЗОВО', NULL),
+(2971, 'ru', 2970, 'Олюторский район', 'ОЛЮТОРСКИЙ РАЙОН', NULL),
+(2972, 'ru', 2971, 'Тигильский район', 'ТИГИЛЬСКИЙ РАЙОН', NULL),
+(2973, 'ru', 2972, 'Усть-Большерецкий район', 'УСТЬ-БОЛЬШЕРЕЦКИЙ РАЙОН', NULL),
+(2974, 'ru', 2973, 'Усть-Камчатский район', 'УСТЬ-КАМЧАТСКИЙ РАЙОН', NULL),
+(2975, 'ru', 2974, 'Мильковский район', 'МИЛЬКОВСКИЙ РАЙОН', NULL),
+(2976, 'ru', 2975, 'Пенжинский район', 'ПЕНЖИНСКИЙ РАЙОН', NULL),
+(2977, 'ru', 2976, 'Карагинский район', 'КАРАГИНСКИЙ РАЙОН', NULL),
+(2978, 'ru', 2977, 'Соболевский район', 'СОБОЛЕВСКИЙ РАЙОН', NULL),
+(2979, 'ru', 2978, 'Магаданская область', 'МАГАДАНСКАЯ ОБЛАСТЬ', NULL),
+(2980, 'ru', 2979, 'Магадан', 'МАГАДАН', NULL),
+(2981, 'ru', 2980, 'Ольский район', 'ОЛЬСКИЙ РАЙОН', NULL),
+(2982, 'ru', 2981, 'Омсукчанский район', 'ОМСУКЧАНСКИЙ РАЙОН', NULL),
+(2983, 'ru', 2982, 'Среднеканский район', 'СРЕДНЕКАНСКИЙ РАЙОН', NULL),
+(2984, 'ru', 2983, 'Северо-Эвенский район', 'СЕВЕРО-ЭВЕНСКИЙ РАЙОН', NULL),
+(2985, 'ru', 2984, 'Сусуманский район', 'СУСУМАНСКИЙ РАЙОН', NULL),
+(2986, 'ru', 2985, 'Сусуман', 'СУСУМАН', NULL),
+(2987, 'ru', 2986, 'Тенькинский район', 'ТЕНЬКИНСКИЙ РАЙОН', NULL),
+(2988, 'ru', 2987, 'Хасынский район', 'ХАСЫНСКИЙ РАЙОН', NULL),
+(2989, 'ru', 2988, 'Ягоднинский район', 'ЯГОДНИНСКИЙ РАЙОН', NULL),
+(2990, 'ru', 2989, 'Республика Саха (Якутия)', 'РЕСПУБЛИКА САХА (ЯКУТИЯ)', NULL),
+(2991, 'ru', 2990, 'Якутск', 'ЯКУТСК', NULL),
+(2992, 'ru', 2991, 'Абыйский улус', 'АБЫЙСКИЙ УЛУС', NULL),
+(2993, 'ru', 2992, 'Аллаиховский улус', 'АЛЛАИХОВСКИЙ УЛУС', NULL),
+(2994, 'ru', 2993, 'Амгинский улус', 'АМГИНСКИЙ УЛУС', NULL),
+(2995, 'ru', 2994, 'Алданский улус', 'АЛДАНСКИЙ УЛУС', NULL),
+(2996, 'ru', 2995, 'Алдан', 'АЛДАН', NULL),
+(2997, 'ru', 2996, 'Томмот', 'ТОММОТ', NULL),
+(2998, 'ru', 2997, 'Нерюнгри', 'НЕРЮНГРИ', NULL),
+(2999, 'ru', 2998, 'Булунский улус', 'БУЛУНСКИЙ УЛУС', NULL),
+(3000, 'ru', 2999, 'Верхнеколымский улус', 'ВЕРХНЕКОЛЫМСКИЙ УЛУС', NULL),
+(3001, 'ru', 3000, 'Верхоянский улус', 'ВЕРХОЯНСКИЙ УЛУС', NULL),
+(3002, 'ru', 3001, 'Верхоянск', 'ВЕРХОЯНСК', NULL),
+(3003, 'ru', 3002, 'Верхневилюйский улус', 'ВЕРХНЕВИЛЮЙСКИЙ УЛУС', NULL),
+(3004, 'ru', 3003, 'Вилюйский улус', 'ВИЛЮЙСКИЙ УЛУС', NULL),
+(3005, 'ru', 3004, 'Вилюйск', 'ВИЛЮЙСК', NULL),
+(3006, 'ru', 3005, 'Горный улус', 'ГОРНЫЙ УЛУС', NULL),
+(3007, 'ru', 3006, 'Анабарский улус', 'АНАБАРСКИЙ УЛУС', NULL),
+(3008, 'ru', 3007, 'Жиганский улус', 'ЖИГАНСКИЙ УЛУС', NULL),
+(3009, 'ru', 3008, 'Кобяйский улус', 'КОБЯЙСКИЙ УЛУС', NULL),
+(3010, 'ru', 3009, 'Ленский улус', 'ЛЕНСКИЙ УЛУС', NULL),
+(3011, 'ru', 3010, 'Ленск', 'ЛЕНСК', NULL),
+(3012, 'ru', 3011, 'Мегино-Кангаласский улус', 'МЕГИНО-КАНГАЛАССКИЙ УЛУС', NULL),
+(3013, 'ru', 3012, 'Мирнинский улус', 'МИРНИНСКИЙ УЛУС', NULL),
+(3014, 'ru', 3013, 'Мирный', 'МИРНЫЙ', NULL),
+(3015, 'ru', 3014, 'Удачный', 'УДАЧНЫЙ', NULL),
+(3016, 'ru', 3015, 'Момский улус', 'МОМСКИЙ УЛУС', NULL),
+(3017, 'ru', 3016, 'Нижнеколымский улус', 'НИЖНЕКОЛЫМСКИЙ УЛУС', NULL),
+(3018, 'ru', 3017, 'Намский улус', 'НАМСКИЙ УЛУС', NULL),
+(3019, 'ru', 3018, 'Нюрбинский улус', 'НЮРБИНСКИЙ УЛУС', NULL),
+(3020, 'ru', 3019, 'Нюрба', 'НЮРБА', NULL),
+(3021, 'ru', 3020, 'Оймяконский улус', 'ОЙМЯКОНСКИЙ УЛУС', NULL),
+(3022, 'ru', 3021, 'Среднеколымский улус', 'СРЕДНЕКОЛЫМСКИЙ УЛУС', NULL),
+(3023, 'ru', 3022, 'Среднеколымск', 'СРЕДНЕКОЛЫМСК', NULL),
+(3024, 'ru', 3023, 'Олекминский улус', 'ОЛЕКМИНСКИЙ УЛУС', NULL),
+(3025, 'ru', 3024, 'Олекминск', 'ОЛЕКМИНСК', NULL),
+(3026, 'ru', 3025, 'Оленекский эвенкийский национальный улус', 'ОЛЕНЕКСКИЙ ЭВЕНКИЙСКИЙ НАЦИОНАЛЬНЫЙ УЛУС', NULL),
+(3027, 'ru', 3026, 'Томпонский улус', 'ТОМПОНСКИЙ УЛУС', NULL),
+(3028, 'ru', 3027, 'Сунтарский улус', 'СУНТАРСКИЙ УЛУС', NULL),
+(3029, 'ru', 3028, 'Таттинский улус', 'ТАТТИНСКИЙ УЛУС', NULL),
+(3030, 'ru', 3029, 'Усть-Алданский улус', 'УСТЬ-АЛДАНСКИЙ УЛУС', NULL),
+(3031, 'ru', 3030, 'Усть-Майский улус', 'УСТЬ-МАЙСКИЙ УЛУС', NULL),
+(3032, 'ru', 3031, 'Усть-Янский улус', 'УСТЬ-ЯНСКИЙ УЛУС', NULL),
+(3033, 'ru', 3032, 'Хангаласский улус', 'ХАНГАЛАССКИЙ УЛУС', NULL),
+(3034, 'ru', 3033, 'Покровск', 'ПОКРОВСК', NULL),
+(3035, 'ru', 3034, 'Эвено-Бытантайский Национальный улус', 'ЭВЕНО-БЫТАНТАЙСКИЙ НАЦИОНАЛЬНЫЙ УЛУС', NULL),
+(3036, 'ru', 3035, 'Чурапчинский улус', 'ЧУРАПЧИНСКИЙ УЛУС', NULL),
+(3037, 'ru', 3036, 'Приморский край', 'ПРИМОРСКИЙ КРАЙ', NULL),
+(3038, 'ru', 3037, 'Владивосток', 'ВЛАДИВОСТОК', NULL),
+(3039, 'ru', 3038, 'Арсеньев', 'АРСЕНЬЕВ', NULL),
+(3040, 'ru', 3039, 'Артем', 'АРТЕМ', NULL),
+(3041, 'ru', 3040, 'Находка', 'НАХОДКА', NULL),
+(3042, 'ru', 3041, 'Дальнегорск', 'ДАЛЬНЕГОРСК', NULL),
+(3043, 'ru', 3042, 'Спасск-Дальний', 'СПАССК-ДАЛЬНИЙ', NULL),
+(3044, 'ru', 3043, 'Дальнереченск', 'ДАЛЬНЕРЕЧЕНСК', NULL),
+(3045, 'ru', 3044, 'Партизанск', 'ПАРТИЗАНСК', NULL),
+(3046, 'ru', 3045, 'Фокино', 'ФОКИНО', NULL),
+(3047, 'ru', 3046, 'Большой Камень', 'БОЛЬШОЙ КАМЕНЬ', NULL),
+(3048, 'ru', 3047, 'Уссурийск', 'УССУРИЙСК', NULL),
+(3049, 'ru', 3048, 'Лесозаводск', 'ЛЕСОЗАВОДСК', NULL),
+(3050, 'ru', 3049, 'Дальнегорский район', 'ДАЛЬНЕГОРСКИЙ РАЙОН', NULL),
+(3051, 'ru', 3050, 'Кавалеровский район', 'КАВАЛЕРОВСКИЙ РАЙОН', NULL),
+(3052, 'ru', 3051, 'Дальнереченский район', 'ДАЛЬНЕРЕЧЕНСКИЙ РАЙОН', NULL),
+(3053, 'ru', 3052, 'Анучинский район', 'АНУЧИНСКИЙ РАЙОН', NULL),
+(3054, 'ru', 3053, 'Лазовский район', 'ЛАЗОВСКИЙ РАЙОН', NULL),
+(3055, 'ru', 3054, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
+(3056, 'ru', 3055, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(3057, 'ru', 3056, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
+(3058, 'ru', 3057, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(3059, 'ru', 3058, 'Надеждинский район', 'НАДЕЖДИНСКИЙ РАЙОН', NULL),
+(3060, 'ru', 3059, 'Партизанский район', 'ПАРТИЗАНСКИЙ РАЙОН', NULL),
+(3061, 'ru', 3060, 'Пограничный район', 'ПОГРАНИЧНЫЙ РАЙОН', NULL),
+(3062, 'ru', 3061, 'Ольгинский район', 'ОЛЬГИНСКИЙ РАЙОН', NULL),
+(3063, 'ru', 3062, 'Тернейский район', 'ТЕРНЕЙСКИЙ РАЙОН', NULL),
+(3064, 'ru', 3063, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
+(3065, 'ru', 3064, 'Пожарский район', 'ПОЖАРСКИЙ РАЙОН', NULL),
+(3066, 'ru', 3065, 'Хорольский район', 'ХОРОЛЬСКИЙ РАЙОН', NULL),
+(3067, 'ru', 3066, 'Черниговский район', 'ЧЕРНИГОВСКИЙ РАЙОН', NULL),
+(3068, 'ru', 3067, 'Хасанский район', 'ХАСАНСКИЙ РАЙОН', NULL),
+(3069, 'ru', 3068, 'Ханкайский район', 'ХАНКАЙСКИЙ РАЙОН', NULL),
+(3070, 'ru', 3069, 'Шкотовский район', 'ШКОТОВСКИЙ РАЙОН', NULL),
+(3071, 'ru', 3070, 'Чугуевский район', 'ЧУГУЕВСКИЙ РАЙОН', NULL),
+(3072, 'ru', 3071, 'Яковлевский район', 'ЯКОВЛЕВСКИЙ РАЙОН', NULL),
+(3073, 'ru', 3072, 'Сахалинская область', 'САХАЛИНСКАЯ ОБЛАСТЬ', NULL),
+(3074, 'ru', 3073, 'Южно-Сахалинск', 'ЮЖНО-САХАЛИНСК', NULL),
+(3075, 'ru', 3074, 'Корсаковский район', 'КОРСАКОВСКИЙ РАЙОН', NULL),
+(3076, 'ru', 3075, 'Корсаков', 'КОРСАКОВ', NULL),
+(3077, 'ru', 3076, 'Курильский район', 'КУРИЛЬСКИЙ РАЙОН', NULL),
+(3078, 'ru', 3077, 'Курильск', 'КУРИЛЬСК', NULL),
+(3079, 'ru', 3078, 'Анивский район', 'АНИВСКИЙ РАЙОН', NULL),
+(3080, 'ru', 3079, 'Анива', 'АНИВА', NULL),
+(3081, 'ru', 3080, 'Макаровский район', 'МАКАРОВСКИЙ РАЙОН', NULL),
+(3082, 'ru', 3081, 'Макаров', 'МАКАРОВ', NULL),
+(3083, 'ru', 3082, 'Долинский район', 'ДОЛИНСКИЙ РАЙОН', NULL),
+(3084, 'ru', 3083, 'Долинск', 'ДОЛИНСК', NULL),
+(3085, 'ru', 3084, 'Северо-Курильский район', 'СЕВЕРО-КУРИЛЬСКИЙ РАЙОН', NULL),
+(3086, 'ru', 3085, 'Северо-Курильск', 'СЕВЕРО-КУРИЛЬСК', NULL),
+(3087, 'ru', 3086, 'Поронайский район', 'ПОРОНАЙСКИЙ РАЙОН', NULL),
+(3088, 'ru', 3087, 'Поронайск', 'ПОРОНАЙСК', NULL),
+(3089, 'ru', 3088, 'Смирныховский район', 'СМИРНЫХОВСКИЙ РАЙОН', NULL),
+(3090, 'ru', 3089, 'Ногликский район', 'НОГЛИКСКИЙ РАЙОН', NULL),
+(3091, 'ru', 3090, 'Невельский район', 'НЕВЕЛЬСКИЙ РАЙОН', NULL),
+(3092, 'ru', 3091, 'Невельск', 'НЕВЕЛЬСК', NULL),
+(3093, 'ru', 3092, 'Охинский район', 'ОХИНСКИЙ РАЙОН', NULL),
+(3094, 'ru', 3093, 'Оха', 'ОХА', NULL),
+(3095, 'ru', 3094, 'Холмский район', 'ХОЛМСКИЙ РАЙОН', NULL),
+(3096, 'ru', 3095, 'Холмск', 'ХОЛМСК', NULL),
+(3097, 'ru', 3096, 'Томаринский район', 'ТОМАРИНСКИЙ РАЙОН', NULL),
+(3098, 'ru', 3097, 'Томари', 'ТОМАРИ', NULL),
+(3099, 'ru', 3098, 'Тымовский район', 'ТЫМОВСКИЙ РАЙОН', NULL),
+(3100, 'ru', 3099, 'Углегорский район', 'УГЛЕГОРСКИЙ РАЙОН', NULL),
+(3101, 'ru', 3100, 'Углегорск', 'УГЛЕГОРСК', NULL),
+(3102, 'ru', 3101, 'Шахтерск', 'ШАХТЕРСК', NULL),
+(3103, 'ru', 3102, 'Александровск-Сахалинский район', 'АЛЕКСАНДРОВСК-САХАЛИНСКИЙ РАЙОН', NULL),
+(3104, 'ru', 3103, 'Александровск-Сахалинский', 'АЛЕКСАНДРОВСК-САХАЛИНСКИЙ', NULL),
+(3105, 'ru', 3104, 'Южно-Курильский район', 'ЮЖНО-КУРИЛЬСКИЙ РАЙОН', NULL),
+(3106, 'ru', 3105, 'Еврейская автономная область', 'ЕВРЕЙСКАЯ АВТОНОМНАЯ ОБЛАСТЬ', NULL),
+(3107, 'ru', 3106, 'Биробиджан', 'БИРОБИДЖАН', NULL),
+(3108, 'ru', 3107, 'Биробиджанский район', 'БИРОБИДЖАНСКИЙ РАЙОН', NULL),
+(3109, 'ru', 3108, 'Облученский район', 'ОБЛУЧЕНСКИЙ РАЙОН', NULL),
+(3110, 'ru', 3109, 'Облучье', 'ОБЛУЧЬЕ', NULL),
+(3111, 'ru', 3110, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
+(3112, 'ru', 3111, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
+(3113, 'ru', 3112, 'Смидовичский район', 'СМИДОВИЧСКИЙ РАЙОН', NULL),
+(3114, 'ru', 3113, 'Чукотский автономный округ', 'ЧУКОТСКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
+(3115, 'ru', 3114, 'Чаунский район', 'ЧАУНСКИЙ РАЙОН', NULL),
+(3116, 'ru', 3115, 'Певек', 'ПЕВЕК', NULL),
+(3117, 'ru', 3116, 'Чукотский район', 'ЧУКОТСКИЙ РАЙОН', NULL),
+(3118, 'ru', 3117, 'Билибинский район', 'БИЛИБИНСКИЙ РАЙОН', NULL),
+(3119, 'ru', 3118, 'Билибино', 'БИЛИБИНО', NULL),
+(3120, 'ru', 3119, 'Анадырь', 'АНАДЫРЬ', NULL),
+(3121, 'ru', 3120, 'Провиденский район', 'ПРОВИДЕНСКИЙ РАЙОН', NULL),
+(3122, 'ru', 3121, 'Анадырский район', 'АНАДЫРСКИЙ РАЙОН', NULL),
+(3123, 'ru', 3122, 'Иультинский район', 'ИУЛЬТИНСКИЙ РАЙОН', NULL),
+(3124, 'ru', 3123, 'Крымский федеральный округ', 'КРЫМСКИЙ ФЕДЕРАЛЬНЫЙ ОКРУГ', NULL),
+(3125, 'ru', 3124, 'Крым', 'КРЫМ', NULL),
+(3126, 'ru', 3125, 'Керчь', 'КЕРЧЬ', NULL),
+(3127, 'ru', 3126, 'Судак', 'СУДАК', NULL),
+(3128, 'ru', 3127, 'Саки', 'САКИ', NULL),
+(3129, 'ru', 3128, 'Красноперекопск', 'КРАСНОПЕРЕКОПСК', NULL),
+(3130, 'ru', 3129, 'Армянск', 'АРМЯНСК', NULL),
+(3131, 'ru', 3130, 'Симферополь', 'СИМФЕРОПОЛЬ', NULL),
+(3132, 'ru', 3131, 'Ялта', 'ЯЛТА', NULL),
+(3133, 'ru', 3132, 'Алупка', 'АЛУПКА', NULL),
+(3134, 'ru', 3133, 'Джанкой', 'ДЖАНКОЙ', NULL),
+(3135, 'ru', 3134, 'Евпатория', 'ЕВПАТОРИЯ', NULL),
+(3136, 'ru', 3135, 'Феодосия', 'ФЕОДОСИЯ', NULL),
+(3137, 'ru', 3136, 'Бахчисарайский район', 'БАХЧИСАРАЙСКИЙ РАЙОН', NULL),
+(3138, 'ru', 3137, 'Бахчисарай', 'БАХЧИСАРАЙ', NULL),
+(3139, 'ru', 3138, 'Алушта', 'АЛУШТА', NULL),
+(3140, 'ru', 3139, 'Белогорский район', 'БЕЛОГОРСКИЙ РАЙОН', NULL),
+(3141, 'ru', 3140, 'Белогорск', 'БЕЛОГОРСК', NULL),
+(3142, 'ru', 3141, 'Джанкойский район', 'ДЖАНКОЙСКИЙ РАЙОН', NULL),
+(3143, 'ru', 3142, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
+(3144, 'ru', 3143, 'Старый Крым', 'СТАРЫЙ КРЫМ', NULL),
+(3145, 'ru', 3144, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
+(3146, 'ru', 3145, 'Красноперекопский район', 'КРАСНОПЕРЕКОПСКИЙ РАЙОН', NULL),
+(3147, 'ru', 3146, 'Красноперекопск', 'КРАСНОПЕРЕКОПСК', NULL),
+(3148, 'ru', 3147, 'Нижнегорский район', 'НИЖНЕГОРСКИЙ РАЙОН', NULL),
+(3149, 'ru', 3148, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
+(3150, 'ru', 3149, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
+(3151, 'ru', 3150, 'Щелкино', 'ЩЕЛКИНО', NULL),
+(3152, 'ru', 3151, 'Симферопольский район', 'СИМФЕРОПОЛЬСКИЙ РАЙОН', NULL),
+(3153, 'ru', 3152, 'Раздольненский район', 'РАЗДОЛЬНЕНСКИЙ РАЙОН', NULL),
+(3154, 'ru', 3153, 'Сакский район', 'САКСКИЙ РАЙОН', NULL),
+(3155, 'ru', 3154, 'Саки', 'САКИ', NULL),
+(3156, 'ru', 3155, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
+(3157, 'ru', 3156, 'Севастополь', 'СЕВАСТОПОЛЬ', NULL),
+(3158, 'ru', 3157, 'Инкерман', 'ИНКЕРМАН', NULL),
+(3159, 'ru', 3158, 'Черноморский район', 'ЧЕРНОМОРСКИЙ РАЙОН', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_sale_loc_type`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_type`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_type` (
+  `ID` int(11) NOT NULL,
+  `CODE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `SORT` int(11) DEFAULT '100'
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `b_sale_loc_type`
+--
+
+INSERT INTO `b_sale_loc_type` (`ID`, `CODE`, `SORT`) VALUES
+(1, 'COUNTRY', 100),
+(2, 'COUNTRY_DISTRICT', 200),
+(3, 'REGION', 300),
+(4, 'SUBREGION', 500),
+(5, 'CITY', 600),
+(6, 'VILLAGE', 700),
+(7, 'STREET', 1000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `b_sale_loc_type_name`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_sale_loc_type_name`;
+CREATE TABLE IF NOT EXISTS `b_sale_loc_type_name` (
+  `ID` int(11) NOT NULL,
+  `LANGUAGE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `TYPE_ID` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `b_sale_loc_type_name`
+--
+
+INSERT INTO `b_sale_loc_type_name` (`ID`, `LANGUAGE_ID`, `NAME`, `TYPE_ID`) VALUES
+(1, 'ru', 'Страна', 1),
+(2, 'en', 'Country', 1),
+(3, 'de', 'Land', 1),
+(4, 'ru', 'Округ', 2),
+(5, 'en', 'District', 2),
+(6, 'de', 'Bundesland', 2),
+(7, 'ru', 'Область', 3),
+(8, 'en', 'Region', 3),
+(9, 'de', 'Landkreis', 3),
+(10, 'ru', 'Район области', 4),
+(11, 'en', 'Area', 4),
+(12, 'de', 'Region', 4),
+(13, 'ru', 'Город', 5),
+(14, 'en', 'City', 5),
+(15, 'de', 'Stadt', 5),
+(16, 'ru', 'Село', 6),
+(17, 'en', 'Town', 6),
+(18, 'de', 'Gemeinde', 6),
+(19, 'ru', 'Улица', 7),
+(20, 'en', 'Street', 7),
+(21, 'de', 'Straße', 7);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `b_sale_location`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location`;
@@ -24589,7 +31240,7 @@ INSERT INTO `b_sale_location` (`ID`, `SORT`, `CODE`, `LEFT_MARGIN`, `RIGHT_MARGI
 --
 -- Table structure for table `b_sale_location2location_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location2location_group`;
@@ -24603,7 +31254,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location2location_group` (
 --
 -- Table structure for table `b_sale_location_city`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_city`;
@@ -24619,7 +31270,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_city` (
 --
 -- Table structure for table `b_sale_location_city_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_city_lang`;
@@ -24636,7 +31287,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_city_lang` (
 --
 -- Table structure for table `b_sale_location_country`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_country`;
@@ -24651,7 +31302,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_country` (
 --
 -- Table structure for table `b_sale_location_country_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_country_lang`;
@@ -24668,7 +31319,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_country_lang` (
 --
 -- Table structure for table `b_sale_location_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_group`;
@@ -24683,7 +31334,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_group` (
 --
 -- Table structure for table `b_sale_location_group_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_group_lang`;
@@ -24699,7 +31350,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_group_lang` (
 --
 -- Table structure for table `b_sale_location_region`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_region`;
@@ -24714,7 +31365,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_region` (
 --
 -- Table structure for table `b_sale_location_region_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_region_lang`;
@@ -24731,7 +31382,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_region_lang` (
 --
 -- Table structure for table `b_sale_location_zip`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_location_zip`;
@@ -24744,5457 +31395,9 @@ CREATE TABLE IF NOT EXISTS `b_sale_location_zip` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `b_sale_loc_2site`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_2site`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_2site` (
-  `LOCATION_ID` int(11) NOT NULL,
-  `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `LOCATION_TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'L'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_sale_loc_def2site`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_def2site`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_def2site` (
-  `LOCATION_CODE` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `SORT` int(11) DEFAULT '100'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_sale_loc_ext`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_ext`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_ext` (
-  `ID` int(11) NOT NULL,
-  `SERVICE_ID` int(11) NOT NULL,
-  `LOCATION_ID` int(11) NOT NULL,
-  `XML_ID` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2118 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `b_sale_loc_ext`
---
-
-INSERT INTO `b_sale_loc_ext` (`ID`, `SERVICE_ID`, `LOCATION_ID`, `XML_ID`) VALUES
-(1, 1, 1, '225'),
-(2, 1, 2, '3'),
-(3, 1, 3, '1'),
-(4, 1, 4, '10725'),
-(5, 1, 5, '21622'),
-(6, 1, 6, '10717'),
-(7, 2, 6, '140170'),
-(8, 1, 7, '20571'),
-(9, 1, 8, '215'),
-(10, 1, 9, '20728'),
-(11, 1, 10, '21623'),
-(12, 1, 11, '10729'),
-(13, 1, 12, '37147'),
-(14, 1, 13, '21621'),
-(15, 1, 14, '21647'),
-(16, 2, 14, '143090'),
-(17, 1, 15, '21641'),
-(18, 1, 16, '21630'),
-(19, 1, 17, '20576'),
-(20, 1, 18, '217'),
-(21, 2, 18, '142290'),
-(22, 1, 19, '21619'),
-(23, 1, 20, '20523'),
-(24, 1, 21, '100471'),
-(25, 1, 22, '21644'),
-(26, 1, 23, '10745'),
-(27, 1, 24, '21620'),
-(28, 1, 25, '21735'),
-(29, 1, 26, '10734'),
-(30, 1, 27, '10747'),
-(31, 1, 28, '214'),
-(32, 1, 29, '10758'),
-(33, 1, 30, '10754'),
-(34, 1, 31, '10716'),
-(35, 2, 32, '142432'),
-(36, 1, 33, '37120'),
-(37, 1, 34, '21651'),
-(38, 1, 35, '21635'),
-(39, 1, 37, '10721'),
-(40, 1, 39, '10722'),
-(41, 1, 41, '20735'),
-(42, 2, 41, '141840'),
-(43, 1, 42, '10723'),
-(44, 1, 44, '10727'),
-(45, 1, 46, '10728'),
-(46, 2, 46, '140600'),
-(47, 2, 47, '143500'),
-(48, 1, 48, '21627'),
-(49, 1, 49, '10731'),
-(50, 2, 50, '143501'),
-(51, 1, 53, '10732'),
-(52, 2, 54, '142908'),
-(53, 1, 55, '103818'),
-(54, 2, 56, '141601'),
-(55, 1, 57, '10733'),
-(56, 1, 58, '21648'),
-(57, 2, 58, '141650'),
-(58, 1, 61, '10735'),
-(59, 1, 63, '10719'),
-(60, 1, 66, '10737'),
-(61, 1, 68, '10738'),
-(62, 1, 70, '10739'),
-(63, 2, 70, '143200'),
-(64, 1, 72, '10740'),
-(65, 1, 74, '10741'),
-(66, 1, 75, '37160'),
-(67, 2, 75, '143330'),
-(68, 1, 76, '10715'),
-(69, 1, 78, '10742'),
-(70, 1, 79, '219'),
-(71, 1, 80, '21656'),
-(72, 1, 81, '21642'),
-(73, 1, 83, '21625'),
-(74, 1, 84, '21646'),
-(75, 1, 85, '10743'),
-(76, 1, 87, '21643'),
-(77, 2, 87, '142660'),
-(78, 1, 88, '37141'),
-(79, 1, 89, '37144'),
-(80, 1, 91, '10744'),
-(81, 1, 93, '10746'),
-(82, 1, 96, '10748'),
-(83, 1, 98, '10750'),
-(84, 1, 100, '10751'),
-(85, 1, 102, '103816'),
-(86, 2, 102, '141321'),
-(87, 1, 103, '10752'),
-(88, 1, 104, '21645'),
-(89, 1, 105, '103819'),
-(90, 2, 105, '141320'),
-(91, 2, 106, '141307'),
-(92, 1, 110, '10755'),
-(93, 2, 111, '141507'),
-(94, 2, 112, '141590'),
-(95, 2, 113, '141525'),
-(96, 2, 114, '141502'),
-(97, 1, 116, '10756'),
-(98, 1, 118, '10757'),
-(99, 2, 120, '142302'),
-(100, 1, 121, '10761'),
-(101, 2, 122, '142303'),
-(102, 2, 123, '142300'),
-(103, 1, 125, '10762'),
-(104, 2, 126, '141100'),
-(105, 1, 127, '10765'),
-(106, 1, 129, '213'),
-(107, 1, 130, '216'),
-(108, 1, 131, '20674'),
-(109, 1, 132, '21624'),
-(110, 1, 133, '103817'),
-(111, 2, 133, '142784'),
-(112, 1, 134, '10645'),
-(113, 1, 135, '4'),
-(114, 1, 136, '10649'),
-(115, 1, 137, '20196'),
-(116, 1, 139, '20192'),
-(117, 1, 140, '10646'),
-(118, 1, 142, '20193'),
-(119, 2, 144, '309650'),
-(120, 1, 147, '20194'),
-(121, 2, 147, '309372'),
-(122, 1, 151, '20195'),
-(123, 2, 151, '309210'),
-(124, 1, 154, '34323'),
-(125, 1, 157, '10647'),
-(126, 1, 165, '20587'),
-(127, 2, 165, '309070'),
-(128, 1, 167, '10687'),
-(129, 1, 168, '5'),
-(130, 1, 171, '10690'),
-(131, 1, 173, '20597'),
-(132, 2, 173, '155000'),
-(133, 1, 175, '37152'),
-(134, 1, 177, '10688'),
-(135, 1, 180, '10689'),
-(136, 1, 181, '37137'),
-(137, 1, 183, '20610'),
-(138, 2, 183, '155150'),
-(139, 2, 184, '155270'),
-(140, 2, 188, '155360'),
-(141, 1, 189, '20613'),
-(142, 2, 190, '155550'),
-(143, 1, 191, '37130'),
-(144, 2, 191, '155555'),
-(145, 1, 192, '37127'),
-(146, 1, 194, '20229'),
-(147, 2, 195, '155250'),
-(148, 1, 196, '20659'),
-(149, 2, 197, '155710'),
-(150, 1, 199, '10691'),
-(151, 1, 201, '20682'),
-(152, 1, 203, '10692'),
-(153, 1, 205, '20648'),
-(154, 2, 205, '155630'),
-(155, 1, 206, '10693'),
-(156, 1, 207, '6'),
-(157, 2, 208, '249210'),
-(158, 1, 209, '967'),
-(159, 1, 212, '20197'),
-(160, 2, 212, '249000'),
-(161, 1, 213, '10698'),
-(162, 1, 214, '37153'),
-(163, 2, 214, '249028'),
-(164, 2, 215, '249010'),
-(165, 1, 217, '20206'),
-(166, 1, 219, '10696'),
-(167, 2, 220, '249300'),
-(168, 1, 222, '37145'),
-(169, 2, 222, '249185'),
-(170, 1, 223, '20199'),
-(171, 1, 224, '37163'),
-(172, 2, 224, '249160'),
-(173, 2, 225, '249880'),
-(174, 1, 227, '20198'),
-(175, 2, 227, '249340'),
-(176, 1, 229, '20205'),
-(177, 1, 230, '10695'),
-(178, 2, 231, '249440'),
-(179, 1, 232, '20200'),
-(180, 1, 235, '10697'),
-(181, 1, 237, '20201'),
-(182, 1, 239, '20203'),
-(183, 2, 239, '249240'),
-(184, 1, 241, '20202'),
-(185, 2, 241, '249950'),
-(186, 1, 244, '20207'),
-(187, 2, 244, '249270'),
-(188, 1, 246, '20204'),
-(189, 2, 246, '249930'),
-(190, 2, 247, '249750'),
-(191, 1, 249, '20208'),
-(192, 2, 250, '249910'),
-(193, 1, 251, '20209'),
-(194, 2, 251, '249910'),
-(195, 2, 252, '249910'),
-(196, 2, 253, '249910'),
-(197, 2, 255, '249800'),
-(198, 1, 256, '10699'),
-(199, 1, 258, '7'),
-(200, 1, 259, '10701'),
-(201, 2, 259, '156901'),
-(202, 1, 262, '10700'),
-(203, 1, 264, '10703'),
-(204, 2, 265, '157760'),
-(205, 2, 266, '157980'),
-(206, 1, 268, '20217'),
-(207, 2, 269, '157940'),
-(208, 1, 271, '20216'),
-(209, 1, 273, '20215'),
-(210, 2, 273, '157440'),
-(211, 1, 276, '10702'),
-(212, 2, 277, '157331'),
-(213, 1, 278, '20621'),
-(214, 2, 280, '157780'),
-(215, 2, 282, '157170'),
-(216, 1, 283, '20218'),
-(217, 2, 283, '157170'),
-(218, 2, 286, '157580'),
-(219, 2, 287, '157860'),
-(220, 1, 289, '20219'),
-(221, 2, 289, '157130'),
-(222, 1, 292, '10704'),
-(223, 1, 293, '10705'),
-(224, 1, 294, '8'),
-(225, 1, 297, '20707'),
-(226, 1, 298, '10710'),
-(227, 1, 299, '20637'),
-(228, 1, 300, '20710'),
-(229, 2, 301, '307500'),
-(230, 1, 302, '10706'),
-(231, 2, 306, '307170'),
-(232, 2, 308, '307620'),
-(233, 2, 309, '307750'),
-(234, 2, 311, '307250'),
-(235, 1, 313, '10709'),
-(236, 2, 313, '306230'),
-(237, 1, 319, '10707'),
-(238, 2, 322, '306600'),
-(239, 1, 325, '10708'),
-(240, 2, 325, '307800'),
-(241, 1, 327, '10711'),
-(242, 2, 327, '307100'),
-(243, 2, 329, '307540'),
-(244, 2, 330, '306440'),
-(245, 2, 331, '306530'),
-(246, 1, 332, '10712'),
-(247, 1, 333, '9'),
-(248, 1, 335, '10713'),
-(249, 1, 337, '20210'),
-(250, 1, 339, '20211'),
-(251, 1, 345, '20212'),
-(252, 1, 349, '20213'),
-(253, 1, 354, '10714'),
-(254, 1, 356, '20214'),
-(255, 2, 356, '399373'),
-(256, 1, 359, '10772'),
-(257, 1, 360, '10'),
-(258, 1, 361, '10770'),
-(259, 1, 362, '10769'),
-(260, 1, 365, '10768'),
-(261, 1, 370, '20593'),
-(262, 2, 370, '303240'),
-(263, 1, 380, '34012'),
-(264, 2, 380, '303370'),
-(265, 1, 383, '10771'),
-(266, 2, 383, '303500'),
-(267, 1, 391, '10776'),
-(268, 2, 391, '390000'),
-(269, 1, 393, '11'),
-(270, 1, 394, '10777'),
-(271, 1, 395, '10778'),
-(272, 1, 396, '10773'),
-(273, 1, 403, '37146'),
-(274, 1, 405, '10779'),
-(275, 2, 405, '391030'),
-(276, 1, 407, '20631'),
-(277, 2, 408, '391621'),
-(278, 2, 409, '391240'),
-(279, 1, 411, '20589'),
-(280, 2, 411, '391160'),
-(281, 1, 413, '10774'),
-(282, 1, 415, '10775'),
-(283, 2, 416, '391480'),
-(284, 2, 417, '391430'),
-(285, 1, 422, '20608'),
-(286, 2, 422, '391050'),
-(287, 2, 425, '391550'),
-(288, 1, 426, '10780'),
-(289, 2, 426, '391550'),
-(290, 2, 427, '391421'),
-(291, 1, 429, '10795'),
-(292, 1, 430, '10785'),
-(293, 2, 430, '216400'),
-(294, 1, 431, '12'),
-(295, 1, 434, '10782'),
-(296, 1, 436, '10781'),
-(297, 1, 438, '10783'),
-(298, 2, 438, '215010'),
-(299, 1, 441, '10784'),
-(300, 2, 441, '216240'),
-(301, 1, 443, '10786'),
-(302, 2, 444, '216200'),
-(303, 1, 445, '10787'),
-(304, 2, 445, '216200'),
-(305, 1, 447, '10788'),
-(306, 2, 447, '216330'),
-(307, 2, 449, '216580'),
-(308, 2, 450, '215850'),
-(309, 2, 452, '216450'),
-(310, 1, 453, '10791'),
-(311, 2, 453, '216450'),
-(312, 2, 454, '216130'),
-(313, 1, 456, '10793'),
-(314, 2, 456, '216790'),
-(315, 2, 457, '216500'),
-(316, 1, 458, '10792'),
-(317, 1, 460, '10796'),
-(318, 2, 460, '215280'),
-(319, 1, 462, '10794'),
-(320, 2, 467, '215800'),
-(321, 1, 468, '10801'),
-(322, 2, 469, '216410'),
-(323, 1, 470, '10802'),
-(324, 2, 470, '392000'),
-(325, 1, 471, '20265'),
-(326, 2, 471, '393194'),
-(327, 1, 472, '20696'),
-(328, 1, 473, '13'),
-(329, 1, 474, '20700'),
-(330, 1, 475, '10803'),
-(331, 2, 476, '392500'),
-(332, 1, 477, '20663'),
-(333, 1, 478, '20701'),
-(334, 2, 479, '393230'),
-(335, 2, 480, '393160'),
-(336, 2, 481, '393670'),
-(337, 1, 482, '20661'),
-(338, 2, 483, '393310'),
-(339, 2, 484, '393190'),
-(340, 2, 485, '393760'),
-(341, 2, 486, '393360'),
-(342, 2, 487, '393600'),
-(343, 2, 488, '393950'),
-(344, 2, 489, '393000'),
-(345, 2, 490, '393760'),
-(346, 2, 491, '393070'),
-(347, 2, 492, '393700'),
-(348, 2, 493, '393250'),
-(349, 2, 494, '393230'),
-(350, 2, 495, '393000'),
-(351, 2, 496, '393000'),
-(352, 2, 497, '393840'),
-(353, 2, 498, '393800'),
-(354, 2, 499, '393460'),
-(355, 2, 500, '393550'),
-(356, 2, 501, '393130'),
-(357, 1, 502, '10819'),
-(358, 1, 503, '14'),
-(359, 1, 504, '10816'),
-(360, 1, 505, '10822'),
-(361, 1, 506, '10811'),
-(362, 1, 507, '10820'),
-(363, 1, 508, '10807'),
-(364, 1, 511, '26480'),
-(365, 1, 513, '10804'),
-(366, 1, 515, '20581'),
-(367, 2, 515, '172530'),
-(368, 1, 517, '10805'),
-(369, 1, 519, '10806'),
-(370, 1, 522, '10808'),
-(371, 1, 525, '20601'),
-(372, 1, 527, '10809'),
-(373, 1, 530, '10810'),
-(374, 1, 532, '10812'),
-(375, 1, 535, '10813'),
-(376, 1, 538, '20619'),
-(377, 1, 540, '10814'),
-(378, 2, 540, '171210'),
-(379, 1, 545, '10818'),
-(380, 1, 553, '10821'),
-(381, 2, 553, '171361'),
-(382, 1, 558, '10823'),
-(383, 2, 558, '172840'),
-(384, 1, 560, '10824'),
-(385, 1, 562, '10832'),
-(386, 1, 563, '15'),
-(387, 1, 564, '10827'),
-(388, 1, 566, '10825'),
-(389, 1, 569, '37164'),
-(390, 1, 571, '20667'),
-(391, 1, 573, '10826'),
-(392, 1, 576, '10828'),
-(393, 1, 580, '37140'),
-(394, 1, 581, '37162'),
-(395, 2, 581, '301280'),
-(396, 1, 582, '20649'),
-(397, 1, 584, '10829'),
-(398, 1, 589, '10830'),
-(399, 1, 591, '20662'),
-(400, 2, 591, '301470'),
-(401, 1, 594, '10831'),
-(402, 2, 594, '301430'),
-(403, 1, 595, '37118'),
-(404, 2, 595, '301414'),
-(405, 1, 598, '10833'),
-(406, 1, 601, '37124'),
-(407, 2, 601, '301205'),
-(408, 1, 602, '10834'),
-(409, 1, 604, '20697'),
-(410, 1, 605, '10841'),
-(411, 1, 606, '16'),
-(412, 1, 608, '10837'),
-(413, 1, 613, '20257'),
-(414, 1, 615, '10835'),
-(415, 1, 617, '20592'),
-(416, 2, 617, '152470'),
-(417, 1, 619, '10836'),
-(418, 2, 619, '152830'),
-(419, 1, 625, '10838'),
-(420, 1, 627, '20596'),
-(421, 2, 627, '152850'),
-(422, 1, 629, '10839'),
-(423, 1, 631, '21154'),
-(424, 1, 633, '10840'),
-(425, 1, 634, '10650'),
-(426, 1, 635, '191'),
-(427, 1, 636, '10653'),
-(428, 1, 637, '21701'),
-(429, 1, 639, '10654'),
-(430, 2, 639, '243020'),
-(431, 2, 640, '242300'),
-(432, 1, 645, '10651'),
-(433, 2, 645, '242600'),
-(434, 1, 646, '26899'),
-(435, 1, 649, '10652'),
-(436, 1, 651, '20184'),
-(437, 2, 651, '243600'),
-(438, 2, 652, '242500'),
-(439, 1, 653, '10655'),
-(440, 2, 653, '242500'),
-(441, 2, 654, '242821'),
-(442, 2, 656, '243650'),
-(443, 1, 660, '20185'),
-(444, 2, 660, '243220'),
-(445, 1, 665, '20186'),
-(446, 2, 665, '243400'),
-(447, 1, 668, '20187'),
-(448, 2, 668, '242440'),
-(449, 1, 670, '20188'),
-(450, 2, 670, '243240'),
-(451, 1, 673, '20189'),
-(452, 2, 673, '243500'),
-(453, 1, 675, '20190'),
-(454, 2, 675, '242220'),
-(455, 1, 677, '20191'),
-(456, 1, 678, '10672'),
-(457, 1, 679, '193'),
-(458, 1, 682, '10673'),
-(459, 2, 683, '394045'),
-(460, 1, 684, '20268'),
-(461, 1, 686, '10674'),
-(462, 1, 688, '10675'),
-(463, 1, 690, '10676'),
-(464, 1, 696, '10677'),
-(465, 1, 700, '10678'),
-(466, 1, 706, '10679'),
-(467, 1, 708, '34140'),
-(468, 1, 710, '10680'),
-(469, 1, 715, '20694'),
-(470, 1, 719, '10681'),
-(471, 1, 721, '10682'),
-(472, 1, 726, '10683'),
-(473, 1, 727, '10658'),
-(474, 1, 728, '192'),
-(475, 1, 729, '10661'),
-(476, 1, 730, '10664'),
-(477, 1, 731, '20678'),
-(478, 2, 731, '600910'),
-(479, 1, 733, '10656'),
-(480, 1, 734, '103814'),
-(481, 1, 735, '103813'),
-(482, 1, 736, '10668'),
-(483, 1, 738, '10659'),
-(484, 1, 740, '10660'),
-(485, 1, 742, '10662'),
-(486, 1, 744, '98547'),
-(487, 2, 744, '601570'),
-(488, 1, 746, '10663'),
-(489, 1, 749, '10665'),
-(490, 1, 751, '10667'),
-(491, 1, 754, '37129'),
-(492, 1, 755, '10669'),
-(493, 1, 756, '101395'),
-(494, 1, 759, '10670'),
-(495, 1, 760, '37143'),
-(496, 1, 762, '20629'),
-(497, 1, 764, '10671'),
-(498, 1, 766, '20757'),
-(499, 2, 766, '601800'),
-(500, 1, 767, '17'),
-(501, 1, 768, '10174'),
-(502, 1, 770, '10863'),
-(503, 2, 770, '188410'),
-(504, 1, 772, '10861'),
-(505, 2, 772, '187650'),
-(506, 1, 773, '10879'),
-(507, 1, 774, '10891'),
-(508, 1, 776, '10864'),
-(509, 1, 777, '22917'),
-(510, 2, 777, '187450'),
-(511, 1, 778, '22914'),
-(512, 2, 778, '187420'),
-(513, 1, 780, '10887'),
-(514, 1, 781, '10865'),
-(515, 1, 783, '969'),
-(516, 2, 783, '188800'),
-(517, 1, 784, '10869'),
-(518, 2, 784, '188950'),
-(519, 1, 785, '103815'),
-(520, 2, 785, '188909'),
-(521, 1, 786, '10882'),
-(522, 2, 786, '188910'),
-(523, 1, 787, '10886'),
-(524, 2, 787, '188992'),
-(525, 1, 789, '21666'),
-(526, 1, 790, '10867'),
-(527, 1, 792, '10868'),
-(528, 1, 793, '10870'),
-(529, 1, 795, '10871'),
-(530, 1, 797, '21795'),
-(531, 2, 797, '187320'),
-(532, 1, 798, '10872'),
-(533, 2, 798, '187340'),
-(534, 1, 799, '10878'),
-(535, 1, 801, '10874'),
-(536, 1, 803, '10876'),
-(537, 1, 806, '10881'),
-(538, 1, 808, '10883'),
-(539, 2, 808, '188760'),
-(540, 1, 810, '10888'),
-(541, 1, 812, '10892'),
-(542, 1, 814, '21023'),
-(543, 1, 815, '10877'),
-(544, 2, 815, '187026'),
-(545, 1, 816, '10893'),
-(546, 2, 816, '187000'),
-(547, 1, 817, '2'),
-(548, 2, 817, '190000'),
-(549, 1, 818, '37180'),
-(550, 1, 819, '21776'),
-(551, 1, 820, '109773'),
-(552, 1, 821, '26081'),
-(553, 1, 822, '102557'),
-(554, 1, 823, '10884'),
-(555, 1, 824, '114765'),
-(556, 1, 825, '98546'),
-(557, 1, 826, '10875'),
-(558, 1, 827, '10939'),
-(559, 1, 828, '19'),
-(560, 1, 829, '10940'),
-(561, 1, 830, '20133'),
-(562, 1, 831, '10943'),
-(563, 1, 832, '10942'),
-(564, 1, 833, '10944'),
-(565, 1, 834, '10941'),
-(566, 1, 835, '10945'),
-(567, 1, 838, '20134'),
-(568, 2, 838, '169200'),
-(569, 1, 847, '21695'),
-(570, 1, 850, '10933'),
-(571, 1, 851, '10935'),
-(572, 1, 852, '18'),
-(573, 2, 853, '186100'),
-(574, 1, 854, '10937'),
-(575, 2, 856, '186606'),
-(576, 1, 857, '20126'),
-(577, 1, 859, '10934'),
-(578, 1, 861, '20127'),
-(579, 2, 861, '186730'),
-(580, 2, 862, '186500'),
-(581, 1, 863, '10938'),
-(582, 2, 863, '186500'),
-(583, 2, 864, '186660'),
-(584, 1, 866, '20128'),
-(585, 2, 867, '186960'),
-(586, 2, 868, '186000'),
-(587, 1, 869, '20129'),
-(588, 2, 869, '186000'),
-(589, 1, 871, '20131'),
-(590, 2, 871, '186150'),
-(591, 1, 873, '20130'),
-(592, 2, 873, '186810'),
-(593, 2, 875, '186870'),
-(594, 1, 876, '20132'),
-(595, 2, 876, '186870'),
-(596, 2, 877, '186420'),
-(597, 1, 878, '10936'),
-(598, 1, 879, '10853'),
-(599, 1, 880, '968'),
-(600, 1, 881, '21'),
-(601, 2, 883, '161200'),
-(602, 1, 884, '20119'),
-(603, 2, 884, '161200'),
-(604, 1, 886, '20118'),
-(605, 2, 889, '162390'),
-(606, 1, 890, '10854'),
-(607, 1, 891, '22980'),
-(608, 2, 891, '162341'),
-(609, 2, 892, '162189'),
-(610, 1, 895, '20121'),
-(611, 2, 895, '162000'),
-(612, 1, 897, '20120'),
-(613, 2, 897, '162900'),
-(614, 1, 900, '20122'),
-(615, 2, 900, '161100'),
-(616, 2, 901, '161400'),
-(617, 2, 902, '161380'),
-(618, 2, 904, '161440'),
-(619, 1, 905, '20123'),
-(620, 2, 905, '161440'),
-(621, 1, 908, '37148'),
-(622, 1, 909, '20124'),
-(623, 2, 909, '162130'),
-(624, 2, 910, '161300'),
-(625, 1, 911, '10855'),
-(626, 2, 912, '161560'),
-(627, 1, 915, '10856'),
-(628, 2, 915, '162840'),
-(629, 1, 917, '20125'),
-(630, 2, 918, '162603'),
-(631, 1, 921, '10842'),
-(632, 1, 922, '20117'),
-(633, 1, 923, '10849'),
-(634, 1, 924, '20115'),
-(635, 2, 924, '164170'),
-(636, 1, 925, '20'),
-(637, 1, 926, '10845'),
-(638, 2, 926, '165650'),
-(639, 1, 929, '10843'),
-(640, 1, 933, '10844'),
-(641, 1, 937, '10846'),
-(642, 1, 938, '22884'),
-(643, 1, 941, '20114'),
-(644, 2, 941, '164750'),
-(645, 1, 945, '20602'),
-(646, 1, 947, '10847'),
-(647, 1, 953, '10851'),
-(648, 2, 953, '165160'),
-(649, 1, 955, '10897'),
-(650, 1, 956, '23'),
-(651, 1, 957, '10894'),
-(652, 1, 958, '20155'),
-(653, 1, 959, '20150'),
-(654, 2, 959, '184310'),
-(655, 1, 960, '22049'),
-(656, 2, 960, '184640'),
-(657, 1, 961, '20156'),
-(658, 1, 962, '20152'),
-(659, 1, 963, '10895'),
-(660, 1, 964, '10896'),
-(661, 2, 965, '184380'),
-(662, 1, 966, '20154'),
-(663, 2, 967, '184532'),
-(664, 2, 968, '184144'),
-(665, 1, 969, '20153'),
-(666, 2, 970, '184534'),
-(667, 1, 971, '10898'),
-(668, 2, 972, '184592'),
-(669, 2, 973, '184531'),
-(670, 2, 974, '184420'),
-(671, 1, 975, '20151'),
-(672, 2, 975, '184430'),
-(673, 1, 976, '21665'),
-(674, 1, 977, '20157'),
-(675, 1, 978, '10899'),
-(676, 2, 979, '184700'),
-(677, 1, 980, '10857'),
-(678, 1, 981, '22'),
-(679, 1, 982, '20144'),
-(680, 2, 982, '238590'),
-(681, 1, 983, '20603'),
-(682, 2, 983, '238450'),
-(683, 1, 985, '20136'),
-(684, 2, 985, '238210'),
-(685, 1, 986, '10860'),
-(686, 1, 988, '20135'),
-(687, 2, 988, '238420'),
-(688, 1, 989, '20580'),
-(689, 2, 989, '238460'),
-(690, 1, 990, '20147'),
-(691, 1, 992, '20137'),
-(692, 2, 992, '238300'),
-(693, 1, 994, '20141'),
-(694, 2, 994, '238710'),
-(695, 1, 996, '20139'),
-(696, 1, 998, '20140'),
-(697, 2, 998, '238730'),
-(698, 1, 1000, '20138'),
-(699, 1, 1002, '20143'),
-(700, 2, 1002, '238120'),
-(701, 1, 1004, '20142'),
-(702, 2, 1004, '238010'),
-(703, 1, 1006, '20146'),
-(704, 1, 1008, '20145'),
-(705, 2, 1008, '238630'),
-(706, 1, 1010, '20148'),
-(707, 2, 1010, '238600'),
-(708, 1, 1012, '20578'),
-(709, 2, 1012, '238510'),
-(710, 1, 1013, '10858'),
-(711, 1, 1015, '20149'),
-(712, 1, 1017, '10859'),
-(713, 1, 1018, '10926'),
-(714, 1, 1019, '25'),
-(715, 1, 1020, '10928'),
-(716, 2, 1021, '182100'),
-(717, 2, 1022, '182171'),
-(718, 2, 1023, '182840'),
-(719, 2, 1024, '182711'),
-(720, 2, 1025, '181600'),
-(721, 1, 1026, '20583'),
-(722, 2, 1027, '182900'),
-(723, 2, 1028, '182010'),
-(724, 2, 1029, '182370'),
-(725, 2, 1030, '182670'),
-(726, 1, 1031, '10929'),
-(727, 2, 1031, '182670'),
-(728, 2, 1032, '182500'),
-(729, 1, 1033, '20681'),
-(730, 2, 1034, '182200'),
-(731, 1, 1035, '10930'),
-(732, 2, 1035, '182200'),
-(733, 2, 1036, '181540'),
-(734, 1, 1037, '20582'),
-(735, 2, 1037, '182440'),
-(736, 2, 1038, '181353'),
-(737, 1, 1039, '20641'),
-(738, 2, 1040, '182333'),
-(739, 1, 1041, '20633'),
-(740, 2, 1042, '181270'),
-(741, 2, 1043, '181502'),
-(742, 1, 1044, '10931'),
-(743, 2, 1045, '181000'),
-(744, 2, 1046, '182620'),
-(745, 1, 1047, '20623'),
-(746, 2, 1047, '182620'),
-(747, 2, 1048, '182300'),
-(748, 1, 1049, '20585'),
-(749, 2, 1049, '182300'),
-(750, 2, 1050, '181370'),
-(751, 2, 1051, '181410'),
-(752, 1, 1052, '20584'),
-(753, 2, 1052, '181410'),
-(754, 2, 1053, '182250'),
-(755, 1, 1054, '10932'),
-(756, 2, 1055, '182570'),
-(757, 2, 1056, '181110'),
-(758, 1, 1058, '10904'),
-(759, 2, 1059, '173000'),
-(760, 1, 1060, '24'),
-(761, 1, 1063, '10906'),
-(762, 1, 1065, '10907'),
-(763, 2, 1067, '175310'),
-(764, 2, 1069, '174260'),
-(765, 1, 1070, '10909'),
-(766, 1, 1075, '10912'),
-(767, 1, 1078, '10920'),
-(768, 1, 1080, '10922'),
-(769, 2, 1081, '175042'),
-(770, 1, 1085, '10923'),
-(771, 2, 1086, '174210'),
-(772, 1, 1087, '10925'),
-(773, 2, 1088, '175207'),
-(774, 1, 1089, '10924'),
-(775, 2, 1090, '174100'),
-(776, 1, 1091, '10176'),
-(777, 2, 1091, '166000'),
-(778, 1, 1092, '10902'),
-(779, 2, 1092, '166000'),
-(780, 1, 1093, '26'),
-(781, 1, 1094, '10995'),
-(782, 1, 1095, '35'),
-(783, 1, 1096, '10990'),
-(784, 1, 1097, '10987'),
-(785, 1, 1098, '10991'),
-(786, 1, 1099, '970'),
-(787, 1, 1100, '239'),
-(788, 1, 1102, '20183'),
-(789, 2, 1102, '353320'),
-(790, 1, 1104, '1107'),
-(791, 2, 1105, '352690'),
-(792, 1, 1106, '10986'),
-(793, 1, 1107, '37016'),
-(794, 2, 1107, '352680'),
-(795, 1, 1110, '10988'),
-(796, 2, 1113, '352190'),
-(797, 1, 1114, '20675'),
-(798, 1, 1117, '10993'),
-(799, 1, 1119, '10996'),
-(800, 2, 1121, '353730'),
-(801, 1, 1123, '20688'),
-(802, 1, 1127, '10997'),
-(803, 1, 1129, '20702'),
-(804, 1, 1132, '21018'),
-(805, 1, 1136, '20231'),
-(806, 1, 1141, '11000'),
-(807, 1, 1144, '20704'),
-(808, 1, 1146, '20677'),
-(809, 1, 1150, '21141'),
-(810, 2, 1150, '352700'),
-(811, 1, 1152, '11002'),
-(812, 1, 1154, '1058'),
-(813, 2, 1154, '352800'),
-(814, 1, 1156, '20693'),
-(815, 1, 1159, '10950'),
-(816, 1, 1160, '38'),
-(817, 1, 1161, '10951'),
-(818, 1, 1162, '10959'),
-(819, 1, 1163, '10965'),
-(820, 1, 1164, '10981'),
-(821, 2, 1165, '403240'),
-(822, 1, 1167, '10982'),
-(823, 1, 1171, '10954'),
-(824, 2, 1171, '404002'),
-(825, 1, 1174, '10956'),
-(826, 1, 1177, '10958'),
-(827, 1, 1179, '10973'),
-(828, 2, 1179, '403840'),
-(829, 1, 1183, '10961'),
-(830, 1, 1185, '10962'),
-(831, 2, 1186, '403400'),
-(832, 1, 1188, '10964'),
-(833, 2, 1190, '403170'),
-(834, 1, 1192, '10967'),
-(835, 1, 1194, '10968'),
-(836, 1, 1198, '10972'),
-(837, 1, 1202, '10977'),
-(838, 2, 1202, '403441'),
-(839, 1, 1204, '34567'),
-(840, 2, 1205, '404211'),
-(841, 1, 1207, '10980'),
-(842, 2, 1209, '403900'),
-(843, 1, 1212, '11029'),
-(844, 1, 1213, '39'),
-(845, 1, 1214, '11036'),
-(846, 1, 1215, '11033'),
-(847, 1, 1216, '11037'),
-(848, 1, 1217, '100451'),
-(849, 1, 1218, '11043'),
-(850, 1, 1219, '11038'),
-(851, 1, 1220, '238'),
-(852, 1, 1221, '11049'),
-(853, 1, 1222, '11053'),
-(854, 1, 1223, '971'),
-(855, 1, 1225, '11030'),
-(856, 1, 1227, '11031'),
-(857, 2, 1227, '346720'),
-(858, 1, 1229, '11034'),
-(859, 2, 1231, '346250'),
-(860, 2, 1236, '347660'),
-(861, 1, 1239, '11040'),
-(862, 2, 1239, '347740'),
-(863, 1, 1245, '11045'),
-(864, 1, 1247, '11046'),
-(865, 1, 1252, '11047'),
-(866, 2, 1252, '346130'),
-(867, 1, 1255, '11048'),
-(868, 1, 1263, '20713'),
-(869, 1, 1267, '11051'),
-(870, 1, 1269, '20638'),
-(871, 2, 1269, '346630'),
-(872, 1, 1277, '11052'),
-(873, 1, 1279, '10946'),
-(874, 1, 1280, '37'),
-(875, 2, 1281, '414004'),
-(876, 1, 1282, '10947'),
-(877, 1, 1284, '20167'),
-(878, 2, 1285, '416507'),
-(879, 1, 1289, '20168'),
-(880, 1, 1294, '20169'),
-(881, 2, 1294, '416111'),
-(882, 1, 1297, '20170'),
-(883, 1, 1299, '11004'),
-(884, 2, 1299, '385000'),
-(885, 1, 1300, '1093'),
-(886, 1, 1301, '11005'),
-(887, 2, 1302, '385400'),
-(888, 2, 1303, '385730'),
-(889, 2, 1304, '385300'),
-(890, 2, 1305, '385100'),
-(891, 2, 1306, '385230'),
-(892, 2, 1307, '385440'),
-(893, 2, 1308, '385600'),
-(894, 1, 1309, '11015'),
-(895, 1, 1310, '1094'),
-(896, 1, 1313, '20177'),
-(897, 2, 1313, '359050'),
-(898, 1, 1316, '20178'),
-(899, 1, 1326, '102444'),
-(900, 1, 1327, '11010'),
-(901, 2, 1327, '368000'),
-(902, 1, 1328, '28'),
-(903, 2, 1329, '367912'),
-(904, 1, 1330, '11007'),
-(905, 1, 1331, '21519'),
-(906, 1, 1332, '21732'),
-(907, 1, 1333, '21521'),
-(908, 2, 1333, '368502'),
-(909, 1, 1334, '100450'),
-(910, 2, 1334, '368890'),
-(911, 1, 1335, '11009'),
-(912, 1, 1336, '11008'),
-(913, 2, 1337, '368930'),
-(914, 2, 1338, '368640'),
-(915, 2, 1339, '368250'),
-(916, 2, 1340, '368340'),
-(917, 2, 1341, '368970'),
-(918, 2, 1342, '368330'),
-(919, 2, 1343, '368730'),
-(920, 1, 1344, '11006'),
-(921, 2, 1345, '368600'),
-(922, 2, 1346, '368200'),
-(923, 2, 1347, '368990'),
-(924, 2, 1348, '368060'),
-(925, 2, 1349, '368710'),
-(926, 1, 1350, '11011'),
-(927, 2, 1351, '368630'),
-(928, 2, 1352, '368732'),
-(929, 2, 1353, '368530'),
-(930, 2, 1354, '368560'),
-(931, 2, 1355, '368100'),
-(932, 2, 1356, '368050'),
-(933, 2, 1357, '368040'),
-(934, 2, 1358, '368780'),
-(935, 2, 1359, '368360'),
-(936, 2, 1360, '368320'),
-(937, 2, 1361, '368220'),
-(938, 2, 1362, '368800'),
-(939, 2, 1363, '368370'),
-(940, 2, 1364, '368720'),
-(941, 2, 1365, '368830'),
-(942, 2, 1366, '368650'),
-(943, 2, 1367, '368850'),
-(944, 2, 1368, '368700'),
-(945, 2, 1369, '368510'),
-(946, 2, 1370, '368760'),
-(947, 2, 1371, '368440'),
-(948, 2, 1372, '368260'),
-(949, 2, 1373, '368000'),
-(950, 2, 1374, '368430'),
-(951, 2, 1375, '368420'),
-(952, 2, 1376, '368750'),
-(953, 2, 1377, '368420'),
-(954, 2, 1378, '368900'),
-(955, 2, 1379, '368410'),
-(956, 1, 1380, '11013'),
-(957, 1, 1381, '30'),
-(958, 1, 1384, '20172'),
-(959, 1, 1386, '20174'),
-(960, 1, 1387, '20171'),
-(961, 1, 1390, '20173'),
-(962, 1, 1392, '20175'),
-(963, 2, 1392, '361202'),
-(964, 1, 1394, '21524'),
-(965, 1, 1396, '20176'),
-(966, 2, 1396, '361624'),
-(967, 1, 1399, '11021'),
-(968, 1, 1401, '20591'),
-(969, 1, 1402, '33'),
-(970, 1, 1404, '20622'),
-(971, 2, 1404, '363410'),
-(972, 1, 1406, '11022'),
-(973, 1, 1408, '20665'),
-(974, 2, 1410, '363600'),
-(975, 1, 1413, '11023'),
-(976, 1, 1414, '11069'),
-(977, 1, 1415, '36'),
-(978, 1, 1416, '11057'),
-(979, 1, 1417, '11062'),
-(980, 1, 1418, '11058'),
-(981, 1, 1419, '11064'),
-(982, 1, 1420, '11067'),
-(983, 1, 1421, '20261'),
-(984, 1, 1422, '11056'),
-(985, 1, 1428, '11054'),
-(986, 2, 1428, '356420'),
-(987, 1, 1430, '11055'),
-(988, 2, 1430, '356800'),
-(989, 2, 1432, '356250'),
-(990, 1, 1434, '11061'),
-(991, 2, 1434, '356630'),
-(992, 1, 1436, '11060'),
-(993, 1, 1438, '11066'),
-(994, 1, 1444, '11063'),
-(995, 1, 1446, '20655'),
-(996, 1, 1448, '11065'),
-(997, 2, 1448, '356000'),
-(998, 1, 1452, '11068'),
-(999, 1, 1455, '11059'),
-(1000, 1, 1459, '101271'),
-(1001, 1, 1460, '11012'),
-(1002, 2, 1460, '386000'),
-(1003, 1, 1461, '20181'),
-(1004, 2, 1461, '386001'),
-(1005, 1, 1462, '1092'),
-(1006, 1, 1463, '20180'),
-(1007, 1, 1464, '20179'),
-(1008, 1, 1469, '11020'),
-(1009, 1, 1470, '1104'),
-(1010, 1, 1471, '11017'),
-(1011, 1, 1473, '11018'),
-(1012, 2, 1473, '369210'),
-(1013, 1, 1478, '11019'),
-(1014, 1, 1484, '11024'),
-(1015, 1, 1485, '1106'),
-(1016, 2, 1486, '366000'),
-(1017, 2, 1487, '366000'),
-(1018, 2, 1488, '366600'),
-(1019, 1, 1489, '11025'),
-(1020, 2, 1489, '366310'),
-(1021, 2, 1490, '366900'),
-(1022, 1, 1491, '11026'),
-(1023, 2, 1491, '366200'),
-(1024, 2, 1492, '366300'),
-(1025, 2, 1493, '366000'),
-(1026, 2, 1494, '366500'),
-(1027, 1, 1495, '20699'),
-(1028, 2, 1495, '366500'),
-(1029, 2, 1496, '366220'),
-(1030, 2, 1497, '366000'),
-(1031, 2, 1498, '366300'),
-(1032, 1, 1499, '20690'),
-(1033, 2, 1499, '366300'),
-(1034, 2, 1500, '366000'),
-(1035, 2, 1501, '366400'),
-(1036, 2, 1502, '366601'),
-(1037, 2, 1503, '366400'),
-(1038, 2, 1504, '366413'),
-(1039, 1, 1505, '40'),
-(1040, 1, 1506, '11117'),
-(1041, 1, 1507, '42'),
-(1042, 1, 1511, '20006'),
-(1043, 1, 1512, '20011'),
-(1044, 2, 1512, '431350'),
-(1045, 1, 1513, '20010'),
-(1046, 2, 1517, '431770'),
-(1047, 1, 1520, '20007'),
-(1048, 2, 1520, '431430'),
-(1049, 1, 1526, '20008'),
-(1050, 1, 1532, '20009'),
-(1051, 2, 1532, '431220'),
-(1052, 1, 1536, '11119'),
-(1053, 2, 1536, '420000'),
-(1054, 1, 1537, '43'),
-(1055, 1, 1538, '236'),
-(1056, 1, 1540, '20012'),
-(1057, 1, 1542, '11120'),
-(1058, 1, 1547, '11121'),
-(1059, 1, 1551, '100514'),
-(1060, 2, 1551, '422000'),
-(1061, 1, 1555, '20013'),
-(1062, 1, 1557, '11122'),
-(1063, 1, 1559, '20586'),
-(1064, 2, 1559, '422430'),
-(1065, 1, 1563, '11123'),
-(1066, 1, 1566, '11125'),
-(1067, 2, 1567, '423520'),
-(1068, 1, 1568, '11124'),
-(1069, 1, 1573, '20606'),
-(1070, 2, 1573, '422610'),
-(1071, 1, 1575, '11126'),
-(1072, 1, 1577, '20015'),
-(1073, 2, 1578, '423970'),
-(1074, 2, 1579, '423650'),
-(1075, 1, 1580, '20016'),
-(1076, 1, 1582, '20017'),
-(1077, 2, 1583, '423190'),
-(1078, 1, 1585, '11127'),
-(1079, 2, 1586, '423040'),
-(1080, 1, 1587, '11128'),
-(1081, 1, 1591, '20014'),
-(1082, 2, 1591, '422840'),
-(1083, 2, 1592, '423350'),
-(1084, 2, 1593, '422060'),
-(1085, 1, 1595, '20018'),
-(1086, 2, 1595, '422370'),
-(1087, 2, 1597, '422080'),
-(1088, 1, 1600, '11129'),
-(1089, 1, 1602, '11077'),
-(1090, 1, 1603, '41'),
-(1091, 1, 1604, '20630'),
-(1092, 2, 1604, '425350'),
-(1093, 1, 1606, '20721'),
-(1094, 2, 1606, '425000'),
-(1095, 1, 1609, '20627'),
-(1096, 1, 1621, '11070'),
-(1097, 2, 1621, '610000'),
-(1098, 1, 1622, '46'),
-(1099, 2, 1623, '612180'),
-(1100, 2, 1624, '613060'),
-(1101, 2, 1625, '612820'),
-(1102, 1, 1626, '20022'),
-(1103, 2, 1626, '612820'),
-(1104, 2, 1627, '613200'),
-(1105, 1, 1628, '20019'),
-(1106, 2, 1628, '613200'),
-(1107, 2, 1629, '612470'),
-(1108, 2, 1630, '612960'),
-(1109, 1, 1631, '20020'),
-(1110, 1, 1632, '37122'),
-(1111, 2, 1633, '612140'),
-(1112, 2, 1634, '613310'),
-(1113, 2, 1635, '612300'),
-(1114, 2, 1636, '612410'),
-(1115, 1, 1637, '20021'),
-(1116, 2, 1638, '613040'),
-(1117, 1, 1639, '11071'),
-(1118, 2, 1640, '613570'),
-(1119, 2, 1641, '612600'),
-(1120, 1, 1642, '20023'),
-(1121, 2, 1643, '613400'),
-(1122, 2, 1644, '612920'),
-(1123, 1, 1645, '20025'),
-(1124, 2, 1646, '613900'),
-(1125, 1, 1647, '20024'),
-(1126, 2, 1648, '613500'),
-(1127, 2, 1649, '613250'),
-(1128, 2, 1650, '613710'),
-(1129, 1, 1651, '20026'),
-(1130, 2, 1652, '613470'),
-(1131, 2, 1653, '612740'),
-(1132, 1, 1654, '20028'),
-(1133, 2, 1655, '613440'),
-(1134, 1, 1656, '20027'),
-(1135, 2, 1657, '613810'),
-(1136, 2, 1658, '612080'),
-(1137, 2, 1659, '613930'),
-(1138, 2, 1660, '612270'),
-(1139, 1, 1661, '20029'),
-(1140, 2, 1661, '612270'),
-(1141, 2, 1662, '613380'),
-(1142, 2, 1663, '612370'),
-(1143, 2, 1664, '612040'),
-(1144, 2, 1665, '613150'),
-(1145, 1, 1666, '11073'),
-(1146, 2, 1667, '612200'),
-(1147, 2, 1668, '612450'),
-(1148, 2, 1669, '613341'),
-(1149, 1, 1670, '11074'),
-(1150, 2, 1671, '612540'),
-(1151, 2, 1672, '613530'),
-(1152, 1, 1673, '20030'),
-(1153, 2, 1674, '612500'),
-(1154, 2, 1675, '612020'),
-(1155, 2, 1676, '613600'),
-(1156, 2, 1677, '612260'),
-(1157, 1, 1678, '11075'),
-(1158, 1, 1679, '11079'),
-(1159, 1, 1680, '47'),
-(1160, 1, 1681, '972'),
-(1161, 1, 1682, '20037'),
-(1162, 1, 1683, '11083'),
-(1163, 1, 1684, '11080'),
-(1164, 1, 1685, '20050'),
-(1165, 1, 1686, '20040'),
-(1166, 1, 1687, '20049'),
-(1167, 1, 1688, '20054'),
-(1168, 2, 1689, '607227'),
-(1169, 2, 1690, '607130'),
-(1170, 2, 1691, '606407'),
-(1171, 1, 1692, '20035'),
-(1172, 2, 1693, '607600'),
-(1173, 1, 1694, '20036'),
-(1174, 2, 1695, '606360'),
-(1175, 2, 1696, '606380'),
-(1176, 2, 1697, '607440'),
-(1177, 2, 1698, '607940'),
-(1178, 2, 1699, '606150'),
-(1179, 2, 1700, '606860'),
-(1180, 1, 1701, '20038'),
-(1181, 2, 1701, '606860'),
-(1182, 2, 1702, '606760'),
-(1183, 2, 1703, '606260'),
-(1184, 2, 1704, '606072'),
-(1185, 1, 1705, '20039'),
-(1186, 2, 1706, '607340'),
-(1187, 1, 1710, '20041'),
-(1188, 1, 1711, '20042'),
-(1189, 2, 1712, '606310'),
-(1190, 2, 1713, '606340'),
-(1191, 1, 1714, '20043'),
-(1192, 2, 1714, '606340'),
-(1193, 2, 1715, '606570'),
-(1194, 2, 1716, '607320'),
-(1195, 2, 1717, '606710'),
-(1196, 2, 1718, '607650'),
-(1197, 1, 1719, '20044'),
-(1198, 2, 1720, '607650'),
-(1199, 2, 1721, '607530'),
-(1200, 2, 1722, '607800'),
-(1201, 1, 1723, '20046'),
-(1202, 2, 1724, '607010'),
-(1203, 1, 1725, '20045'),
-(1204, 2, 1726, '606212'),
-(1205, 1, 1727, '20047'),
-(1206, 2, 1727, '606210'),
-(1207, 2, 1728, '606100'),
-(1208, 1, 1729, '11082'),
-(1209, 1, 1730, '37157'),
-(1210, 1, 1731, '37155'),
-(1211, 2, 1731, '606125'),
-(1212, 2, 1732, '607100'),
-(1213, 1, 1733, '20048'),
-(1214, 2, 1734, '607400'),
-(1215, 1, 1735, '20609'),
-(1216, 2, 1735, '607400'),
-(1217, 2, 1736, '607491'),
-(1218, 2, 1737, '607911'),
-(1219, 2, 1738, '607510'),
-(1220, 1, 1739, '20051'),
-(1221, 2, 1740, '606670'),
-(1222, 2, 1741, '607580'),
-(1223, 2, 1742, '606280'),
-(1224, 2, 1743, '606950'),
-(1225, 2, 1744, '606170'),
-(1226, 2, 1745, '606970'),
-(1227, 2, 1746, '606803'),
-(1228, 1, 1747, '20052'),
-(1229, 2, 1748, '606540'),
-(1230, 1, 1749, '20053'),
-(1231, 2, 1750, '606841'),
-(1232, 2, 1751, '607700'),
-(1233, 1, 1752, '11148'),
-(1234, 1, 1753, '44'),
-(1235, 1, 1754, '11152'),
-(1236, 1, 1755, '11149'),
-(1237, 1, 1756, '11150'),
-(1238, 1, 1758, '11151'),
-(1239, 1, 1768, '20072'),
-(1240, 1, 1784, '11156'),
-(1241, 1, 1785, '45'),
-(1242, 1, 1786, '20074'),
-(1243, 1, 1787, '20073'),
-(1244, 1, 1789, '20078'),
-(1245, 1, 1790, '37133'),
-(1246, 1, 1797, '20075'),
-(1247, 2, 1797, '429430'),
-(1248, 1, 1803, '20076'),
-(1249, 2, 1803, '429570'),
-(1250, 1, 1806, '20077'),
-(1251, 2, 1806, '429900'),
-(1252, 1, 1812, '20079'),
-(1253, 1, 1815, '11131'),
-(1254, 1, 1816, '51'),
-(1255, 1, 1817, '11132'),
-(1256, 1, 1818, '240'),
-(1257, 1, 1819, '11141'),
-(1258, 1, 1820, '11135'),
-(1259, 1, 1821, '11136'),
-(1260, 1, 1822, '11137'),
-(1261, 1, 1823, '11138'),
-(1262, 1, 1824, '11139'),
-(1263, 1, 1825, '11133'),
-(1264, 1, 1842, '11134'),
-(1265, 2, 1842, '446600'),
-(1266, 1, 1854, '11108'),
-(1267, 2, 1854, '614000'),
-(1268, 1, 1855, '50'),
-(1269, 1, 1856, '20237'),
-(1270, 1, 1857, '20626'),
-(1271, 1, 1858, '20653'),
-(1272, 1, 1859, '20248'),
-(1273, 1, 1860, '20236'),
-(1274, 1, 1861, '20635'),
-(1275, 1, 1862, '20244'),
-(1276, 1, 1863, '20250'),
-(1277, 1, 1864, '11110'),
-(1278, 1, 1865, '20243'),
-(1279, 1, 1866, '20712'),
-(1280, 1, 1867, '11076'),
-(1281, 2, 1867, '619000'),
-(1282, 1, 1871, '20634'),
-(1283, 1, 1874, '20909'),
-(1284, 2, 1874, '617040'),
-(1285, 1, 1877, '20628'),
-(1286, 2, 1877, '618820'),
-(1287, 1, 1883, '20249'),
-(1288, 2, 1884, '617000'),
-(1289, 1, 1885, '20251'),
-(1290, 2, 1885, '617000'),
-(1291, 1, 1888, '20246'),
-(1292, 1, 1891, '20607'),
-(1293, 2, 1891, '618100'),
-(1294, 1, 1893, '20247'),
-(1295, 1, 1898, '20590'),
-(1296, 1, 1903, '20588'),
-(1297, 2, 1903, '618601'),
-(1298, 1, 1905, '20679'),
-(1299, 1, 1913, '11109'),
-(1300, 2, 1913, '617060'),
-(1301, 1, 1914, '11095'),
-(1302, 1, 1915, '49'),
-(1303, 1, 1917, '37121'),
-(1304, 2, 1917, '442600'),
-(1305, 1, 1919, '11098'),
-(1306, 1, 1921, '11101'),
-(1307, 2, 1922, '442538'),
-(1308, 2, 1923, '442542'),
-(1309, 1, 1925, '11096'),
-(1310, 2, 1925, '442250'),
-(1311, 1, 1928, '29652'),
-(1312, 2, 1928, '442300'),
-(1313, 1, 1929, '20056'),
-(1314, 2, 1929, '442310'),
-(1315, 1, 1932, '11099'),
-(1316, 1, 1945, '11104'),
-(1317, 1, 1947, '11105'),
-(1318, 1, 1950, '11106'),
-(1319, 1, 1955, '11084'),
-(1320, 2, 1955, '460000'),
-(1321, 1, 1956, '48'),
-(1322, 1, 1957, '11090'),
-(1323, 1, 1958, '20032'),
-(1324, 1, 1959, '11086'),
-(1325, 1, 1960, '11085'),
-(1326, 1, 1961, '11091'),
-(1327, 1, 1962, '20033'),
-(1328, 1, 1963, '11088'),
-(1329, 1, 1964, '11087'),
-(1330, 2, 1965, '461551'),
-(1331, 2, 1966, '461633'),
-(1332, 2, 1967, '462635'),
-(1333, 2, 1968, '461420'),
-(1334, 2, 1969, '461702'),
-(1335, 2, 1970, '461900'),
-(1336, 2, 1971, '462011'),
-(1337, 2, 1972, '462780'),
-(1338, 1, 1973, '20034'),
-(1339, 2, 1973, '462781'),
-(1340, 2, 1974, '461045'),
-(1341, 2, 1975, '461980'),
-(1342, 2, 1976, '462800'),
-(1343, 2, 1977, '462202'),
-(1344, 2, 1978, '462100'),
-(1345, 2, 1979, '461504'),
-(1346, 1, 1980, '11094'),
-(1347, 2, 1981, '461131'),
-(1348, 2, 1982, '461670'),
-(1349, 2, 1983, '461060'),
-(1350, 2, 1984, '461100'),
-(1351, 2, 1985, '461200'),
-(1352, 2, 1986, '461800'),
-(1353, 2, 1987, '462740'),
-(1354, 2, 1988, '461880'),
-(1355, 2, 1989, '461233'),
-(1356, 2, 1990, '462800'),
-(1357, 2, 1991, '461781'),
-(1358, 2, 1992, '461830'),
-(1359, 2, 1993, '461330'),
-(1360, 2, 1994, '461350'),
-(1361, 2, 1995, '462734'),
-(1362, 2, 1996, '461150'),
-(1363, 2, 1997, '462860'),
-(1364, 2, 1998, '462030'),
-(1365, 2, 1999, '461170'),
-(1366, 2, 2000, '461450'),
-(1367, 2, 2001, '461743'),
-(1368, 1, 2002, '20031'),
-(1369, 1, 2003, '11111'),
-(1370, 2, 2003, '450000'),
-(1371, 1, 2004, '172'),
-(1372, 2, 2005, '450000'),
-(1373, 2, 2006, '450000'),
-(1374, 2, 2008, '450000'),
-(1375, 1, 2009, '37172'),
-(1376, 2, 2009, '452920'),
-(1377, 1, 2010, '20235'),
-(1378, 1, 2011, '11114'),
-(1379, 1, 2012, '20716'),
-(1380, 1, 2013, '11113'),
-(1381, 1, 2014, '11115'),
-(1382, 2, 2015, '450000'),
-(1383, 1, 2016, '37139'),
-(1384, 1, 2017, '11116'),
-(1385, 2, 2018, '452120'),
-(1386, 2, 2019, '453030'),
-(1387, 2, 2020, '452880'),
-(1388, 2, 2021, '453480'),
-(1389, 2, 2022, '453630'),
-(1390, 1, 2023, '20673'),
-(1391, 2, 2024, '452651'),
-(1392, 2, 2025, '452000'),
-(1393, 1, 2026, '20714'),
-(1394, 2, 2027, '452980'),
-(1395, 2, 2028, '453500'),
-(1396, 1, 2029, '20259'),
-(1397, 2, 2030, '452580'),
-(1398, 2, 2031, '452040'),
-(1399, 2, 2032, '452450'),
-(1400, 1, 2033, '20689'),
-(1401, 2, 2034, '452740'),
-(1402, 2, 2035, '453430'),
-(1403, 1, 2036, '11112'),
-(1404, 2, 2037, '452710'),
-(1405, 2, 2038, '452960'),
-(1406, 2, 2039, '453580'),
-(1407, 2, 2040, '453051'),
-(1408, 2, 2041, '452530'),
-(1409, 2, 2042, '452190'),
-(1410, 2, 2043, '453380'),
-(1411, 2, 2044, '453680'),
-(1412, 2, 2045, '452411'),
-(1413, 2, 2046, '452260'),
-(1414, 2, 2047, '453200'),
-(1415, 1, 2048, '20718'),
-(1416, 2, 2049, '452360'),
-(1417, 2, 2050, '452860'),
-(1418, 2, 2051, '453020'),
-(1419, 2, 2052, '452930'),
-(1420, 2, 2053, '452500'),
-(1421, 2, 2054, '453331'),
-(1422, 2, 2055, '452230'),
-(1423, 2, 2056, '453300'),
-(1424, 2, 2057, '453853'),
-(1425, 1, 2058, '20715'),
-(1426, 2, 2059, '452550'),
-(1427, 2, 2060, '452340'),
-(1428, 2, 2061, '452440'),
-(1429, 2, 2062, '452080'),
-(1430, 2, 2063, '452490'),
-(1431, 2, 2064, '453180'),
-(1432, 2, 2065, '453115'),
-(1433, 2, 2066, '452830'),
-(1434, 2, 2067, '452750'),
-(1435, 1, 2068, '20717'),
-(1436, 2, 2069, '453700'),
-(1437, 1, 2070, '20680'),
-(1438, 2, 2071, '453800'),
-(1439, 2, 2072, '453280'),
-(1440, 2, 2073, '452200'),
-(1441, 2, 2074, '452170'),
-(1442, 2, 2075, '452630'),
-(1443, 2, 2076, '452800'),
-(1444, 1, 2077, '20656'),
-(1445, 2, 2078, '453620'),
-(1446, 2, 2079, '453400'),
-(1447, 1, 2080, '20639'),
-(1448, 2, 2081, '452320'),
-(1449, 1, 2082, '20668'),
-(1450, 2, 2082, '452320'),
-(1451, 1, 2083, '11153'),
-(1452, 2, 2083, '433000'),
-(1453, 1, 2084, '195'),
-(1454, 1, 2085, '11155'),
-(1455, 1, 2086, '20070'),
-(1456, 2, 2087, '433310'),
-(1457, 2, 2088, '433701'),
-(1458, 1, 2089, '11154'),
-(1459, 2, 2090, '433750'),
-(1460, 2, 2091, '433100'),
-(1461, 2, 2092, '433210'),
-(1462, 2, 2093, '433000'),
-(1463, 1, 2094, '20069'),
-(1464, 2, 2095, '433130'),
-(1465, 2, 2096, '433760'),
-(1466, 2, 2097, '433501'),
-(1467, 2, 2098, '433810'),
-(1468, 2, 2099, '433560'),
-(1469, 2, 2100, '433871'),
-(1470, 2, 2101, '433910'),
-(1471, 2, 2102, '433380'),
-(1472, 1, 2103, '20071'),
-(1473, 2, 2103, '433380'),
-(1474, 2, 2104, '433970'),
-(1475, 2, 2105, '433460'),
-(1476, 2, 2106, '433240'),
-(1477, 2, 2107, '433940'),
-(1478, 2, 2108, '433360'),
-(1479, 2, 2109, '433400'),
-(1480, 2, 2110, '433610'),
-(1481, 1, 2111, '11146'),
-(1482, 2, 2111, '410000'),
-(1483, 1, 2112, '194'),
-(1484, 1, 2113, '11143'),
-(1485, 1, 2114, '34087'),
-(1486, 2, 2114, '412950'),
-(1487, 1, 2115, '20058'),
-(1488, 1, 2116, '20065'),
-(1489, 1, 2117, '20061'),
-(1490, 1, 2118, '20067'),
-(1491, 1, 2119, '11144'),
-(1492, 1, 2120, '11145'),
-(1493, 2, 2121, '412918'),
-(1494, 1, 2122, '20068'),
-(1495, 1, 2123, '20063'),
-(1496, 1, 2124, '20066'),
-(1497, 2, 2125, '413119'),
-(1498, 2, 2126, '413102'),
-(1499, 1, 2127, '11147'),
-(1500, 1, 2131, '20057'),
-(1501, 2, 2131, '412210'),
-(1502, 1, 2144, '20059'),
-(1503, 1, 2146, '20060'),
-(1504, 1, 2150, '20062'),
-(1505, 1, 2155, '20064'),
-(1506, 1, 2171, '52'),
-(1507, 1, 2172, '11176'),
-(1508, 1, 2173, '55'),
-(1509, 1, 2175, '11175'),
-(1510, 2, 2177, '627350'),
-(1511, 1, 2183, '20647'),
-(1512, 1, 2187, '11173'),
-(1513, 1, 2195, '11178'),
-(1514, 2, 2198, '626170'),
-(1515, 1, 2200, '11162'),
-(1516, 2, 2200, '620000'),
-(1517, 1, 2201, '54'),
-(1518, 1, 2202, '29397'),
-(1519, 1, 2203, '11160'),
-(1520, 1, 2204, '20720'),
-(1521, 1, 2205, '20669'),
-(1522, 1, 2206, '20657'),
-(1523, 1, 2207, '20703'),
-(1524, 1, 2208, '11165'),
-(1525, 1, 2209, '20604'),
-(1526, 1, 2210, '20234'),
-(1527, 1, 2211, '20660'),
-(1528, 1, 2212, '11167'),
-(1529, 1, 2213, '11166'),
-(1530, 1, 2214, '11170'),
-(1531, 1, 2215, '11169'),
-(1532, 1, 2216, '11171'),
-(1533, 1, 2217, '20672'),
-(1534, 1, 2218, '21726'),
-(1535, 1, 2219, '20224'),
-(1536, 1, 2220, '11168'),
-(1537, 1, 2221, '11164'),
-(1538, 1, 2222, '11163'),
-(1539, 1, 2223, '20691'),
-(1540, 2, 2223, '623300'),
-(1541, 1, 2224, '20695'),
-(1542, 1, 2225, '11172'),
-(1543, 1, 2226, '20664'),
-(1544, 2, 2226, '624860'),
-(1545, 1, 2227, '20687'),
-(1546, 1, 2228, '103820'),
-(1547, 1, 2229, '21725'),
-(1548, 1, 2230, '21370'),
-(1549, 1, 2231, '37154'),
-(1550, 1, 2232, '20685'),
-(1551, 2, 2232, '623950'),
-(1552, 1, 2233, '37159'),
-(1553, 2, 2234, '624600'),
-(1554, 2, 2235, '623780'),
-(1555, 1, 2236, '37168'),
-(1556, 2, 2237, '623230'),
-(1557, 2, 2238, '623340'),
-(1558, 2, 2239, '623870'),
-(1559, 2, 2240, '624030'),
-(1560, 2, 2241, '623530'),
-(1561, 1, 2242, '20233'),
-(1562, 2, 2242, '623530'),
-(1563, 2, 2243, '624760'),
-(1564, 1, 2244, '11161'),
-(1565, 2, 2245, '624380'),
-(1566, 1, 2246, '20605'),
-(1567, 2, 2247, '623850'),
-(1568, 2, 2248, '624910'),
-(1569, 2, 2249, '623400'),
-(1570, 2, 2250, '624860'),
-(1571, 2, 2251, '623300'),
-(1572, 2, 2252, '624190'),
-(1573, 1, 2253, '20654'),
-(1574, 2, 2254, '623090'),
-(1575, 2, 2255, '623093'),
-(1576, 1, 2256, '20624'),
-(1577, 2, 2256, '623090'),
-(1578, 1, 2257, '37138'),
-(1579, 2, 2257, '623080'),
-(1580, 2, 2258, '624400'),
-(1581, 1, 2259, '20636'),
-(1582, 2, 2259, '624400'),
-(1583, 2, 2260, '622000'),
-(1584, 2, 2261, '623550'),
-(1585, 2, 2262, '623750'),
-(1586, 1, 2263, '20684'),
-(1587, 2, 2264, '624980'),
-(1588, 2, 2265, '624800'),
-(1589, 1, 2266, '20256'),
-(1590, 2, 2267, '623930'),
-(1591, 2, 2268, '624020'),
-(1592, 1, 2269, '37169'),
-(1593, 2, 2269, '624002'),
-(1594, 1, 2270, '20595'),
-(1595, 2, 2270, '624021'),
-(1596, 2, 2271, '623990'),
-(1597, 2, 2272, '623950'),
-(1598, 2, 2273, '623640'),
-(1599, 1, 2274, '20225'),
-(1600, 2, 2274, '623640'),
-(1601, 2, 2275, '623650'),
-(1602, 2, 2276, '623900'),
-(1603, 1, 2277, '20705'),
-(1604, 2, 2278, '623030'),
-(1605, 1, 2279, '11158'),
-(1606, 2, 2279, '641000'),
-(1607, 1, 2280, '53'),
-(1608, 1, 2281, '11159'),
-(1609, 1, 2286, '20640'),
-(1610, 2, 2286, '641730'),
-(1611, 1, 2291, '20646'),
-(1612, 1, 2293, '20683'),
-(1613, 1, 2297, '20612'),
-(1614, 1, 2302, '20625'),
-(1615, 1, 2309, '20708'),
-(1616, 1, 2312, '20618'),
-(1617, 1, 2313, '11232'),
-(1618, 2, 2313, '629000'),
-(1619, 1, 2314, '23329'),
-(1620, 1, 2315, '58'),
-(1621, 1, 2316, '11228'),
-(1622, 2, 2316, '629830'),
-(1623, 1, 2317, '11229'),
-(1624, 1, 2318, '11174'),
-(1625, 1, 2321, '20255'),
-(1626, 2, 2321, '629850'),
-(1627, 1, 2322, '11230'),
-(1628, 1, 2323, '11231'),
-(1629, 2, 2328, '629350'),
-(1630, 1, 2329, '11193'),
-(1631, 1, 2330, '11180'),
-(1632, 1, 2331, '11181'),
-(1633, 1, 2332, '11182'),
-(1634, 1, 2333, '57'),
-(1635, 1, 2334, '11188'),
-(1636, 1, 2335, '11186'),
-(1637, 1, 2336, '11192'),
-(1638, 1, 2337, '973'),
-(1639, 1, 2338, '11187'),
-(1640, 2, 2338, '628661'),
-(1641, 1, 2339, '11179'),
-(1642, 1, 2340, '11177'),
-(1643, 1, 2341, '11184'),
-(1644, 1, 2342, '1091'),
-(1645, 1, 2343, '11189'),
-(1646, 2, 2347, '628634'),
-(1647, 2, 2348, '628300'),
-(1648, 1, 2351, '11190'),
-(1649, 1, 2353, '20676'),
-(1650, 2, 2353, '628449'),
-(1651, 1, 2355, '11225'),
-(1652, 2, 2355, '454000'),
-(1653, 1, 2356, '56'),
-(1654, 1, 2357, '11200'),
-(1655, 1, 2358, '11202'),
-(1656, 1, 2359, '20650'),
-(1657, 1, 2360, '11207'),
-(1658, 1, 2361, '11210'),
-(1659, 1, 2362, '235'),
-(1660, 1, 2363, '11212'),
-(1661, 1, 2364, '11214'),
-(1662, 1, 2365, '11223'),
-(1663, 1, 2366, '11219'),
-(1664, 1, 2367, '11218'),
-(1665, 1, 2368, '11227'),
-(1666, 2, 2369, '456081'),
-(1667, 1, 2370, '11220'),
-(1668, 2, 2370, '457100'),
-(1669, 1, 2371, '11224'),
-(1670, 2, 2372, '456015'),
-(1671, 1, 2373, '20617'),
-(1672, 2, 2373, '456007'),
-(1673, 1, 2374, '37125'),
-(1674, 2, 2374, '456022'),
-(1675, 1, 2375, '11196'),
-(1676, 2, 2376, '457353'),
-(1677, 1, 2377, '11203'),
-(1678, 2, 2378, '456110'),
-(1679, 1, 2379, '20759'),
-(1680, 2, 2379, '456120'),
-(1681, 1, 2380, '11205'),
-(1682, 2, 2380, '456110'),
-(1683, 2, 2381, '456833'),
-(1684, 1, 2382, '11204'),
-(1685, 2, 2383, '456913'),
-(1686, 1, 2384, '37166'),
-(1687, 1, 2385, '11217'),
-(1688, 2, 2386, '457400'),
-(1689, 2, 2387, '456880'),
-(1690, 2, 2388, '457200'),
-(1691, 2, 2389, '457310'),
-(1692, 2, 2390, '457670'),
-(1693, 1, 2391, '11199'),
-(1694, 2, 2391, '457670'),
-(1695, 2, 2392, '456560'),
-(1696, 2, 2393, '457610'),
-(1697, 2, 2394, '456660'),
-(1698, 2, 2395, '456730'),
-(1699, 2, 2396, '456940'),
-(1700, 1, 2397, '11209'),
-(1701, 2, 2397, '456940'),
-(1702, 2, 2398, '457662'),
-(1703, 2, 2399, '457170'),
-(1704, 2, 2400, '456971'),
-(1705, 1, 2401, '20632'),
-(1706, 2, 2401, '456970'),
-(1707, 2, 2402, '456510'),
-(1708, 2, 2403, '457113'),
-(1709, 2, 2404, '457000'),
-(1710, 2, 2405, '456470'),
-(1711, 2, 2406, '456446'),
-(1712, 2, 2407, '457221'),
-(1713, 2, 2408, '457020'),
-(1714, 1, 2409, '11216'),
-(1715, 2, 2410, '457375'),
-(1716, 1, 2411, '20666'),
-(1717, 2, 2412, '456550'),
-(1718, 1, 2413, '11208'),
-(1719, 2, 2413, '456550'),
-(1720, 1, 2414, '59'),
-(1721, 1, 2415, '11266'),
-(1722, 1, 2416, '11269'),
-(1723, 2, 2417, '664035'),
-(1724, 1, 2418, '11256'),
-(1725, 1, 2419, '63'),
-(1726, 1, 2420, '976'),
-(1727, 1, 2421, '11260'),
-(1728, 1, 2422, '11265'),
-(1729, 1, 2423, '11272'),
-(1730, 1, 2424, '11268'),
-(1731, 1, 2425, '11270'),
-(1732, 1, 2426, '11271'),
-(1733, 1, 2428, '20097'),
-(1734, 1, 2429, '11275'),
-(1735, 1, 2430, '30614'),
-(1736, 2, 2430, '665420'),
-(1737, 1, 2431, '11274'),
-(1738, 1, 2432, '11273'),
-(1739, 1, 2437, '11262'),
-(1740, 1, 2444, '11267'),
-(1741, 2, 2445, '666202'),
-(1742, 1, 2448, '11264'),
-(1743, 1, 2451, '37170'),
-(1744, 2, 2451, '665160'),
-(1745, 1, 2454, '20096'),
-(1746, 1, 2455, '11257'),
-(1747, 1, 2458, '11259'),
-(1748, 2, 2464, '665514'),
-(1749, 1, 2472, '11309'),
-(1750, 1, 2473, '62'),
-(1751, 1, 2474, '11303'),
-(1752, 1, 2475, '20086'),
-(1753, 1, 2476, '20085'),
-(1754, 1, 2477, '11311'),
-(1755, 1, 2478, '20090'),
-(1756, 1, 2479, '20088'),
-(1757, 1, 2480, '11302'),
-(1758, 1, 2481, '20084'),
-(1759, 1, 2482, '11310'),
-(1760, 1, 2483, '11304'),
-(1761, 1, 2484, '20670'),
-(1762, 1, 2485, '11307'),
-(1763, 1, 2487, '20094'),
-(1764, 1, 2488, '20091'),
-(1765, 1, 2501, '20089'),
-(1766, 2, 2507, '662850'),
-(1767, 1, 2509, '20643'),
-(1768, 1, 2513, '29772'),
-(1769, 2, 2513, '662951'),
-(1770, 1, 2522, '20087'),
-(1771, 1, 2528, '11305'),
-(1772, 2, 2528, '663200'),
-(1773, 1, 2532, '20092'),
-(1774, 1, 2534, '20093'),
-(1775, 2, 2537, '647000'),
-(1776, 1, 2538, '11344'),
-(1777, 1, 2540, '21949'),
-(1778, 1, 2541, '68'),
-(1779, 1, 2544, '30866'),
-(1780, 2, 2544, '673450'),
-(1781, 1, 2550, '11355'),
-(1782, 1, 2554, '11358'),
-(1783, 1, 2558, '11360'),
-(1784, 2, 2558, '673732'),
-(1785, 1, 2560, '11361'),
-(1786, 1, 2567, '11364'),
-(1787, 1, 2571, '11366'),
-(1788, 1, 2573, '11368'),
-(1789, 2, 2573, '673200'),
-(1790, 1, 2577, '11371'),
-(1791, 2, 2577, '673370'),
-(1792, 1, 2582, '11282'),
-(1793, 1, 2583, '11276'),
-(1794, 1, 2584, '11278'),
-(1795, 1, 2585, '11283'),
-(1796, 1, 2586, '21703'),
-(1797, 1, 2587, '11288'),
-(1798, 1, 2588, '11290'),
-(1799, 1, 2589, '64'),
-(1800, 1, 2590, '20645'),
-(1801, 1, 2591, '11285'),
-(1802, 1, 2592, '237'),
-(1803, 1, 2593, '11292'),
-(1804, 1, 2594, '11291'),
-(1805, 1, 2595, '11299'),
-(1806, 1, 2596, '11277'),
-(1807, 1, 2597, '11287'),
-(1808, 1, 2602, '11280'),
-(1809, 1, 2603, '11294'),
-(1810, 1, 2607, '11286'),
-(1811, 1, 2612, '11295'),
-(1812, 1, 2616, '11297'),
-(1813, 1, 2621, '11316'),
-(1814, 1, 2622, '65'),
-(1815, 1, 2623, '11317'),
-(1816, 1, 2624, '20098'),
-(1817, 1, 2625, '11314'),
-(1818, 1, 2627, '20103'),
-(1819, 1, 2628, '20100'),
-(1820, 1, 2629, '20105'),
-(1821, 1, 2632, '20099'),
-(1822, 1, 2639, '20101'),
-(1823, 1, 2641, '20102'),
-(1824, 1, 2648, '20104'),
-(1825, 1, 2657, '20106'),
-(1826, 1, 2662, '20107'),
-(1827, 1, 2664, '20108'),
-(1828, 2, 2665, '632553'),
-(1829, 1, 2667, '11318'),
-(1830, 1, 2668, '66'),
-(1831, 1, 2674, '20109'),
-(1832, 1, 2678, '20110'),
-(1833, 1, 2685, '20111'),
-(1834, 1, 2700, '20112'),
-(1835, 1, 2702, '20113'),
-(1836, 1, 2706, '11353'),
-(1837, 1, 2707, '67'),
-(1838, 1, 2708, '11348'),
-(1839, 1, 2709, '11351'),
-(1840, 1, 2712, '20658'),
-(1841, 1, 2714, '11352'),
-(1842, 1, 2720, '11349'),
-(1843, 1, 2729, '11235'),
-(1844, 1, 2730, '197'),
-(1845, 1, 2731, '11234'),
-(1846, 1, 2732, '975'),
-(1847, 1, 2733, '11236'),
-(1848, 2, 2733, '659900'),
-(1849, 1, 2734, '11251'),
-(1850, 1, 2735, '11246'),
-(1851, 1, 2736, '11242'),
-(1852, 1, 2737, '11252'),
-(1853, 1, 2738, '11240'),
-(1854, 2, 2738, '659100'),
-(1855, 1, 2740, '20080'),
-(1856, 2, 2741, '658510'),
-(1857, 1, 2754, '11241'),
-(1858, 1, 2767, '11239'),
-(1859, 2, 2799, '658170'),
-(1860, 1, 2801, '11330'),
-(1861, 2, 2801, '670000'),
-(1862, 1, 2802, '198'),
-(1863, 1, 2803, '11327'),
-(1864, 2, 2803, '671700'),
-(1865, 2, 2805, '671920'),
-(1866, 2, 2806, '671920'),
-(1867, 2, 2810, '671300'),
-(1868, 1, 2812, '20081'),
-(1869, 2, 2812, '671950'),
-(1870, 2, 2814, '671052'),
-(1871, 2, 2815, '671053'),
-(1872, 2, 2816, '671050'),
-(1873, 2, 2817, '671053'),
-(1874, 2, 2818, '671050'),
-(1875, 1, 2820, '30822'),
-(1876, 2, 2820, '671230'),
-(1877, 2, 2822, '671463'),
-(1878, 1, 2824, '20082'),
-(1879, 2, 2824, '671840'),
-(1880, 2, 2827, '671353'),
-(1881, 2, 2829, '671260'),
-(1882, 1, 2831, '11326'),
-(1883, 2, 2832, '671182'),
-(1884, 2, 2833, '671174'),
-(1885, 2, 2835, '671193'),
-(1886, 2, 2838, '671002'),
-(1887, 2, 2839, '671022'),
-(1888, 2, 2840, '671024'),
-(1889, 1, 2844, '11340'),
-(1890, 2, 2844, '655000'),
-(1891, 1, 2845, '1095'),
-(1892, 2, 2846, '655017'),
-(1893, 2, 2847, '655017'),
-(1894, 2, 2848, '655017'),
-(1895, 2, 2849, '655017'),
-(1896, 2, 2850, '655017'),
-(1897, 2, 2851, '655017'),
-(1898, 2, 2852, '655017'),
-(1899, 2, 2853, '655017'),
-(1900, 2, 2854, '655017'),
-(1901, 1, 2855, '11341'),
-(1902, 1, 2856, '11342'),
-(1903, 2, 2857, '655150'),
-(1904, 2, 2858, '655150'),
-(1905, 2, 2859, '655150'),
-(1906, 2, 2860, '655150'),
-(1907, 2, 2861, '655150'),
-(1908, 1, 2864, '11339'),
-(1909, 2, 2864, '655750'),
-(1910, 1, 2865, '20083'),
-(1911, 1, 2872, '10233'),
-(1912, 2, 2872, '660000'),
-(1913, 1, 2873, '36079'),
-(1914, 2, 2873, '668050'),
-(1915, 1, 2874, '11333'),
-(1916, 2, 2877, '667901'),
-(1917, 2, 2878, '668400'),
-(1918, 1, 2880, '11336'),
-(1919, 2, 2880, '668110'),
-(1920, 2, 2882, '668510'),
-(1921, 1, 2883, '11335'),
-(1922, 2, 2883, '668510'),
-(1923, 1, 2890, '11337'),
-(1924, 2, 2890, '668210'),
-(1925, 2, 2892, '668530'),
-(1926, 1, 2895, '10231'),
-(1927, 2, 2895, '649000'),
-(1928, 1, 2898, '11319'),
-(1929, 1, 2907, '73'),
-(1930, 1, 2908, '11457'),
-(1931, 1, 2909, '76'),
-(1932, 1, 2910, '11454'),
-(1933, 1, 2911, '11453'),
-(1934, 1, 2912, '11456'),
-(1935, 1, 2913, '20165'),
-(1936, 1, 2914, '11451'),
-(1937, 2, 2915, '682800'),
-(1938, 1, 2922, '20166'),
-(1939, 2, 2923, '681000'),
-(1940, 2, 2924, '682380'),
-(1941, 2, 2926, '682400'),
-(1942, 2, 2927, '682560'),
-(1943, 2, 2931, '682711'),
-(1944, 1, 2933, '11375'),
-(1945, 2, 2933, '675000'),
-(1946, 1, 2934, '77'),
-(1947, 1, 2935, '11392'),
-(1948, 1, 2936, '11387'),
-(1949, 2, 2936, '676450'),
-(1950, 1, 2937, '11385'),
-(1951, 1, 2938, '11374'),
-(1952, 1, 2940, '11379'),
-(1953, 1, 2941, '11391'),
-(1954, 1, 2948, '11378'),
-(1955, 2, 2948, '676870'),
-(1956, 1, 2957, '11389'),
-(1957, 2, 2957, '676014'),
-(1958, 1, 2963, '11398'),
-(1959, 2, 2964, '684500'),
-(1960, 1, 2966, '78'),
-(1961, 1, 2967, '11395'),
-(1962, 1, 2969, '11396'),
-(1963, 2, 2970, '688800'),
-(1964, 2, 2971, '688600'),
-(1965, 2, 2975, '688850'),
-(1966, 2, 2976, '688700'),
-(1967, 1, 2978, '11403'),
-(1968, 1, 2979, '79'),
-(1969, 1, 2985, '11404'),
-(1970, 2, 2985, '686314'),
-(1971, 1, 2989, '11443'),
-(1972, 1, 2990, '74'),
-(1973, 2, 2991, '678890'),
-(1974, 2, 2992, '678800'),
-(1975, 2, 2993, '678600'),
-(1976, 1, 2995, '11432'),
-(1977, 1, 2996, '31005'),
-(1978, 1, 2997, '11437'),
-(1979, 2, 2998, '678400'),
-(1980, 2, 2999, '678770'),
-(1981, 2, 3000, '678500'),
-(1982, 1, 3001, '11433'),
-(1983, 2, 3001, '678530'),
-(1984, 2, 3002, '678230'),
-(1985, 2, 3003, '678200'),
-(1986, 1, 3004, '11434'),
-(1987, 2, 3005, '678000'),
-(1988, 2, 3006, '678440'),
-(1989, 2, 3007, '678300'),
-(1990, 2, 3008, '678300'),
-(1991, 1, 3010, '11435'),
-(1992, 2, 3011, '678080'),
-(1993, 2, 3012, '678170'),
-(1994, 1, 3013, '11436'),
-(1995, 1, 3014, '24321'),
-(1996, 2, 3014, '678188'),
-(1997, 2, 3015, '678860'),
-(1998, 2, 3016, '678830'),
-(1999, 2, 3017, '678380'),
-(2000, 2, 3018, '678450'),
-(2001, 1, 3019, '20614'),
-(2002, 2, 3019, '678450'),
-(2003, 2, 3021, '678790'),
-(2004, 1, 3022, '25206'),
-(2005, 1, 3024, '24944'),
-(2006, 2, 3024, '678100'),
-(2007, 2, 3025, '678480'),
-(2008, 2, 3027, '678290'),
-(2009, 2, 3028, '678650'),
-(2010, 2, 3029, '678350'),
-(2011, 2, 3030, '678620'),
-(2012, 2, 3031, '678500'),
-(2013, 2, 3032, '678000'),
-(2014, 1, 3033, '20615'),
-(2015, 2, 3033, '678000'),
-(2016, 2, 3034, '678500'),
-(2017, 2, 3035, '678670'),
-(2018, 1, 3036, '11409'),
-(2019, 1, 3037, '75'),
-(2020, 1, 3038, '11405'),
-(2021, 1, 3039, '11406'),
-(2022, 1, 3040, '974'),
-(2023, 1, 3041, '11411'),
-(2024, 1, 3042, '11425'),
-(2025, 1, 3043, '11412'),
-(2026, 1, 3044, '11421'),
-(2027, 1, 3045, '100459'),
-(2028, 1, 3046, '11407'),
-(2029, 1, 3047, '11426'),
-(2030, 1, 3048, '11416'),
-(2031, 1, 3072, '11450'),
-(2032, 2, 3072, '693000'),
-(2033, 1, 3073, '80'),
-(2034, 2, 3074, '694020'),
-(2035, 1, 3075, '11445'),
-(2036, 2, 3075, '694020'),
-(2037, 2, 3076, '694530'),
-(2038, 1, 3077, '11446'),
-(2039, 2, 3077, '694530'),
-(2040, 2, 3078, '694030'),
-(2041, 1, 3079, '20158'),
-(2042, 2, 3079, '694030'),
-(2043, 2, 3080, '694140'),
-(2044, 1, 3081, '20598'),
-(2045, 2, 3081, '694140'),
-(2046, 2, 3082, '694050'),
-(2047, 1, 3083, '20159'),
-(2048, 2, 3083, '694051'),
-(2049, 2, 3084, '694550'),
-(2050, 1, 3085, '11448'),
-(2051, 2, 3085, '694550'),
-(2052, 2, 3086, '694240'),
-(2053, 1, 3087, '20161'),
-(2054, 2, 3087, '694240'),
-(2055, 2, 3088, '694350'),
-(2056, 2, 3089, '694452'),
-(2057, 2, 3090, '694740'),
-(2058, 1, 3091, '20160'),
-(2059, 2, 3092, '694490'),
-(2060, 1, 3093, '11447'),
-(2061, 2, 3093, '694490'),
-(2062, 2, 3094, '694620'),
-(2063, 1, 3095, '20164'),
-(2064, 2, 3096, '694820'),
-(2065, 1, 3097, '20162'),
-(2066, 2, 3097, '694820'),
-(2067, 2, 3098, '694400'),
-(2068, 2, 3099, '694920'),
-(2069, 1, 3100, '20163'),
-(2070, 2, 3100, '694920'),
-(2071, 1, 3101, '32087'),
-(2072, 2, 3102, '694420'),
-(2073, 1, 3103, '11444'),
-(2074, 2, 3103, '694420'),
-(2075, 2, 3104, '694500'),
-(2076, 1, 3105, '10243'),
-(2077, 1, 3106, '11393'),
-(2078, 2, 3107, '679000'),
-(2079, 2, 3108, '679100'),
-(2080, 1, 3109, '11394'),
-(2081, 2, 3109, '679100'),
-(2082, 2, 3110, '679230'),
-(2083, 2, 3111, '679370'),
-(2084, 2, 3112, '679150'),
-(2085, 1, 3113, '10251'),
-(2086, 1, 3115, '11460'),
-(2087, 1, 3118, '11459'),
-(2088, 2, 3118, '689450'),
-(2089, 1, 3119, '11458'),
-(2090, 2, 3119, '689000'),
-(2091, 1, 3123, '115092'),
-(2092, 1, 3124, '977'),
-(2093, 1, 3125, '11464'),
-(2094, 1, 3126, '11472'),
-(2095, 2, 3128, '296000'),
-(2096, 1, 3129, '28892'),
-(2097, 1, 3130, '146'),
-(2098, 1, 3131, '11470'),
-(2099, 1, 3132, '27061'),
-(2100, 1, 3133, '27555'),
-(2101, 2, 3133, '296100'),
-(2102, 1, 3134, '11463'),
-(2103, 1, 3135, '11469'),
-(2104, 1, 3137, '27217'),
-(2105, 1, 3138, '11471'),
-(2106, 1, 3140, '27085'),
-(2107, 2, 3140, '297600'),
-(2108, 1, 3143, '29002'),
-(2109, 2, 3143, '297345'),
-(2110, 1, 3146, '27693'),
-(2111, 2, 3146, '296000'),
-(2112, 1, 3150, '28786'),
-(2113, 2, 3150, '298213'),
-(2114, 1, 3154, '20556'),
-(2115, 2, 3154, '296500'),
-(2116, 1, 3156, '959'),
-(2117, 1, 3157, '27050');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_sale_loc_ext_srv`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_ext_srv`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_ext_srv` (
-  `ID` int(11) NOT NULL,
-  `CODE` varchar(100) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `b_sale_loc_ext_srv`
---
-
-INSERT INTO `b_sale_loc_ext_srv` (`ID`, `CODE`) VALUES
-(1, 'YAMARKET'),
-(2, 'ZIP');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_sale_loc_name`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_name`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_name` (
-  `ID` int(11) NOT NULL,
-  `LANGUAGE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `LOCATION_ID` int(11) NOT NULL,
-  `NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `NAME_UPPER` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SHORT_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3160 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `b_sale_loc_name`
---
-
-INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
-(1, 'ru', 1, 'Россия', 'РОССИЯ', NULL),
-(2, 'en', 1, 'Russian Federation', 'RUSSIAN FEDERATION', NULL),
-(3, 'ru', 2, 'Центр', 'ЦЕНТР', NULL),
-(4, 'ru', 3, 'Московская область', 'МОСКОВСКАЯ ОБЛАСТЬ', NULL),
-(5, 'ru', 4, 'Домодедово', 'ДОМОДЕДОВО', NULL),
-(6, 'ru', 5, 'Железнодорожный', 'ЖЕЛЕЗНОДОРОЖНЫЙ', NULL),
-(7, 'ru', 6, 'Бронницы', 'БРОННИЦЫ', NULL),
-(8, 'ru', 7, 'Жуковский', 'ЖУКОВСКИЙ', NULL),
-(9, 'ru', 8, 'Дубна', 'ДУБНА', NULL),
-(10, 'ru', 9, 'Королев', 'КОРОЛЕВ', NULL),
-(11, 'ru', 10, 'Ивантеевка', 'ИВАНТЕЕВКА', NULL),
-(12, 'ru', 11, 'Звенигород', 'ЗВЕНИГОРОД', NULL),
-(13, 'ru', 12, 'Климовск', 'КЛИМОВСК', NULL),
-(14, 'ru', 13, 'Реутов', 'РЕУТОВ', NULL),
-(15, 'ru', 14, 'Краснознаменск', 'КРАСНОЗНАМЕНСК', NULL),
-(16, 'ru', 15, 'Лобня', 'ЛОБНЯ', NULL),
-(17, 'ru', 16, 'Лыткарино', 'ЛЫТКАРИНО', NULL),
-(18, 'ru', 17, 'Протвино', 'ПРОТВИНО', NULL),
-(19, 'ru', 18, 'Пущино', 'ПУЩИНО', NULL),
-(20, 'ru', 19, 'Фрязино', 'ФРЯЗИНО', NULL),
-(21, 'ru', 20, 'Электросталь', 'ЭЛЕКТРОСТАЛЬ', NULL),
-(22, 'ru', 21, 'Красноармейск', 'КРАСНОАРМЕЙСК', NULL),
-(23, 'ru', 22, 'Рошаль', 'РОШАЛЬ', NULL),
-(24, 'ru', 23, 'Орехово-Зуево', 'ОРЕХОВО-ЗУЕВО', NULL),
-(25, 'ru', 24, 'Юбилейный', 'ЮБИЛЕЙНЫЙ', NULL),
-(26, 'ru', 25, 'Дзержинский', 'ДЗЕРЖИНСКИЙ', NULL),
-(27, 'ru', 26, 'Коломна', 'КОЛОМНА', NULL),
-(28, 'ru', 27, 'Подольск', 'ПОДОЛЬСК', NULL),
-(29, 'ru', 28, 'Долгопрудный', 'ДОЛГОПРУДНЫЙ', NULL),
-(30, 'ru', 29, 'Химки', 'ХИМКИ', NULL),
-(31, 'ru', 30, 'Серпухов', 'СЕРПУХОВ', NULL),
-(32, 'ru', 31, 'Балашиха', 'БАЛАШИХА', NULL),
-(33, 'ru', 32, 'Городской округ Черноголовка', 'ГОРОДСКОЙ ОКРУГ ЧЕРНОГОЛОВКА', NULL),
-(34, 'ru', 33, 'Электрогорск', 'ЭЛЕКТРОГОРСК', NULL),
-(35, 'ru', 34, 'Котельники', 'КОТЕЛЬНИКИ', NULL),
-(36, 'ru', 35, 'Лосино-Петровский', 'ЛОСИНО-ПЕТРОВСКИЙ', NULL),
-(37, 'ru', 36, 'Волоколамский район', 'ВОЛОКОЛАМСКИЙ РАЙОН', NULL),
-(38, 'ru', 37, 'Волоколамск', 'ВОЛОКОЛАМСК', NULL),
-(39, 'ru', 38, 'Воскресенский район', 'ВОСКРЕСЕНСКИЙ РАЙОН', NULL),
-(40, 'ru', 39, 'Воскресенск', 'ВОСКРЕСЕНСК', NULL),
-(41, 'ru', 40, 'Дмитровский район', 'ДМИТРОВСКИЙ РАЙОН', NULL),
-(42, 'ru', 41, 'Яхрома', 'ЯХРОМА', NULL),
-(43, 'ru', 42, 'Дмитров', 'ДМИТРОВ', NULL),
-(44, 'ru', 43, 'Егорьевский район', 'ЕГОРЬЕВСКИЙ РАЙОН', NULL),
-(45, 'ru', 44, 'Егорьевск', 'ЕГОРЬЕВСК', NULL),
-(46, 'ru', 45, 'Зарайский район', 'ЗАРАЙСКИЙ РАЙОН', NULL),
-(47, 'ru', 46, 'Зарайск', 'ЗАРАЙСК', NULL),
-(48, 'ru', 47, 'Истринский район', 'ИСТРИНСКИЙ РАЙОН', NULL),
-(49, 'ru', 48, 'Дедовск', 'ДЕДОВСК', NULL),
-(50, 'ru', 49, 'Истра', 'ИСТРА', NULL),
-(51, 'ru', 50, 'Истра-1', 'ИСТРА-1', NULL),
-(52, 'ru', 51, 'Снегири', 'СНЕГИРИ', NULL),
-(53, 'ru', 52, 'Каширский район', 'КАШИРСКИЙ РАЙОН', NULL),
-(54, 'ru', 53, 'Кашира', 'КАШИРА', NULL),
-(55, 'ru', 54, 'Кашира-8', 'КАШИРА-8', NULL),
-(56, 'ru', 55, 'Ожерелье', 'ОЖЕРЕЛЬЕ', NULL),
-(57, 'ru', 56, 'Клинский район', 'КЛИНСКИЙ РАЙОН', NULL),
-(58, 'ru', 57, 'Клин', 'КЛИН', NULL),
-(59, 'ru', 58, 'Высоковск', 'ВЫСОКОВСК', NULL),
-(60, 'ru', 59, 'Коломенский район', 'КОЛОМЕНСКИЙ РАЙОН', NULL),
-(61, 'ru', 60, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
-(62, 'ru', 61, 'Красногорск', 'КРАСНОГОРСК', NULL),
-(63, 'ru', 62, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
-(64, 'ru', 63, 'Видное', 'ВИДНОЕ', NULL),
-(65, 'ru', 64, 'Лотошинский район', 'ЛОТОШИНСКИЙ РАЙОН', NULL),
-(66, 'ru', 65, 'Луховицкий район', 'ЛУХОВИЦКИЙ РАЙОН', NULL),
-(67, 'ru', 66, 'Луховицы', 'ЛУХОВИЦЫ', NULL),
-(68, 'ru', 67, 'Люберецкий район', 'ЛЮБЕРЕЦКИЙ РАЙОН', NULL),
-(69, 'ru', 68, 'Люберцы', 'ЛЮБЕРЦЫ', NULL),
-(70, 'ru', 69, 'Можайский район', 'МОЖАЙСКИЙ РАЙОН', NULL),
-(71, 'ru', 70, 'Можайск', 'МОЖАЙСК', NULL),
-(72, 'ru', 71, 'Мытищинский район', 'МЫТИЩИНСКИЙ РАЙОН', NULL),
-(73, 'ru', 72, 'Мытищи', 'МЫТИЩИ', NULL),
-(74, 'ru', 73, 'Наро-Фоминский район', 'НАРО-ФОМИНСКИЙ РАЙОН', NULL),
-(75, 'ru', 74, 'Наро-Фоминск', 'НАРО-ФОМИНСК', NULL),
-(76, 'ru', 75, 'Верея', 'ВЕРЕЯ', NULL),
-(77, 'ru', 76, 'Апрелевка', 'АПРЕЛЕВКА', NULL),
-(78, 'ru', 77, 'Ногинский район', 'НОГИНСКИЙ РАЙОН', NULL),
-(79, 'ru', 78, 'Ногинск', 'НОГИНСК', NULL),
-(80, 'ru', 79, 'Черноголовка', 'ЧЕРНОГОЛОВКА', NULL),
-(81, 'ru', 80, 'Старая Купавна', 'СТАРАЯ КУПАВНА', NULL),
-(82, 'ru', 81, 'Электроугли', 'ЭЛЕКТРОУГЛИ', NULL),
-(83, 'ru', 82, 'Одинцовский район', 'ОДИНЦОВСКИЙ РАЙОН', NULL),
-(84, 'ru', 83, 'Кубинка', 'КУБИНКА', NULL),
-(85, 'ru', 84, 'Голицыно', 'ГОЛИЦЫНО', NULL),
-(86, 'ru', 85, 'Одинцово', 'ОДИНЦОВО', NULL),
-(87, 'ru', 86, 'Орехово-Зуевский район', 'ОРЕХОВО-ЗУЕВСКИЙ РАЙОН', NULL),
-(88, 'ru', 87, 'Дрезна', 'ДРЕЗНА', NULL),
-(89, 'ru', 88, 'Ликино-Дулево', 'ЛИКИНО-ДУЛЕВО', NULL),
-(90, 'ru', 89, 'Куровское', 'КУРОВСКОЕ', NULL),
-(91, 'ru', 90, 'Озерский район', 'ОЗЕРСКИЙ РАЙОН', NULL),
-(92, 'ru', 91, 'Озеры', 'ОЗЕРЫ', NULL),
-(93, 'ru', 92, 'Павлово-Посадский район', 'ПАВЛОВО-ПОСАДСКИЙ РАЙОН', NULL),
-(94, 'ru', 93, 'Павловский Посад', 'ПАВЛОВСКИЙ ПОСАД', NULL),
-(95, 'ru', 94, 'Подольский район', 'ПОДОЛЬСКИЙ РАЙОН', NULL),
-(96, 'ru', 95, 'Пушкинский район', 'ПУШКИНСКИЙ РАЙОН', NULL),
-(97, 'ru', 96, 'Пушкино', 'ПУШКИНО', NULL),
-(98, 'ru', 97, 'Раменский район', 'РАМЕНСКИЙ РАЙОН', NULL),
-(99, 'ru', 98, 'Раменское', 'РАМЕНСКОЕ', NULL),
-(100, 'ru', 99, 'Рузский район', 'РУЗСКИЙ РАЙОН', NULL),
-(101, 'ru', 100, 'Руза', 'РУЗА', NULL),
-(102, 'ru', 101, 'Сергиево-Посадский район', 'СЕРГИЕВО-ПОСАДСКИЙ РАЙОН', NULL),
-(103, 'ru', 102, 'Краснозаводск', 'КРАСНОЗАВОДСК', NULL),
-(104, 'ru', 103, 'Сергиев Посад', 'СЕРГИЕВ ПОСАД', NULL),
-(105, 'ru', 104, 'Хотьково', 'ХОТЬКОВО', NULL),
-(106, 'ru', 105, 'Пересвет', 'ПЕРЕСВЕТ', NULL),
-(107, 'ru', 106, 'Сергиев Посад-7', 'СЕРГИЕВ ПОСАД-7', NULL),
-(108, 'ru', 107, 'Серебряно-Прудский район', 'СЕРЕБРЯНО-ПРУДСКИЙ РАЙОН', NULL),
-(109, 'ru', 108, 'Серпуховский район', 'СЕРПУХОВСКИЙ РАЙОН', NULL),
-(110, 'ru', 109, 'Солнечногорский район', 'СОЛНЕЧНОГОРСКИЙ РАЙОН', NULL),
-(111, 'ru', 110, 'Солнечногорск', 'СОЛНЕЧНОГОРСК', NULL),
-(112, 'ru', 111, 'Солнечногорск-7', 'СОЛНЕЧНОГОРСК-7', NULL),
-(113, 'ru', 112, 'Солнечногорск-30', 'СОЛНЕЧНОГОРСК-30', NULL),
-(114, 'ru', 113, 'Солнечногорск-25', 'СОЛНЕЧНОГОРСК-25', NULL),
-(115, 'ru', 114, 'Солнечногорск-2', 'СОЛНЕЧНОГОРСК-2', NULL),
-(116, 'ru', 115, 'Ступинский район', 'СТУПИНСКИЙ РАЙОН', NULL),
-(117, 'ru', 116, 'Ступино', 'СТУПИНО', NULL),
-(118, 'ru', 117, 'Талдомский район', 'ТАЛДОМСКИЙ РАЙОН', NULL),
-(119, 'ru', 118, 'Талдом', 'ТАЛДОМ', NULL),
-(120, 'ru', 119, 'Чеховский район', 'ЧЕХОВСКИЙ РАЙОН', NULL),
-(121, 'ru', 120, 'Чехов-2', 'ЧЕХОВ-2', NULL),
-(122, 'ru', 121, 'Чехов', 'ЧЕХОВ', NULL),
-(123, 'ru', 122, 'Чехов-3', 'ЧЕХОВ-3', NULL),
-(124, 'ru', 123, 'Чехов-8', 'ЧЕХОВ-8', NULL),
-(125, 'ru', 124, 'Шатурский район', 'ШАТУРСКИЙ РАЙОН', NULL),
-(126, 'ru', 125, 'Шатура', 'ШАТУРА', NULL),
-(127, 'ru', 126, 'Щелковский район', 'ЩЕЛКОВСКИЙ РАЙОН', NULL),
-(128, 'ru', 127, 'Щелково', 'ЩЕЛКОВО', NULL),
-(129, 'ru', 128, 'Шаховской район', 'ШАХОВСКОЙ РАЙОН', NULL),
-(130, 'ru', 129, 'Москва', 'МОСКВА', NULL),
-(131, 'ru', 130, 'Зеленоград', 'ЗЕЛЕНОГРАД', NULL),
-(132, 'ru', 131, 'Троицк', 'ТРОИЦК', NULL),
-(133, 'ru', 132, 'Щербинка', 'ЩЕРБИНКА', NULL),
-(134, 'ru', 133, 'Московский', 'МОСКОВСКИЙ', NULL),
-(135, 'ru', 134, 'Белгородская область', 'БЕЛГОРОДСКАЯ ОБЛАСТЬ', NULL),
-(136, 'ru', 135, 'Белгород', 'БЕЛГОРОД', NULL),
-(137, 'ru', 136, 'Старый Оскол', 'СТАРЫЙ ОСКОЛ', NULL),
-(138, 'ru', 137, 'Шебекино', 'ШЕБЕКИНО', NULL),
-(139, 'ru', 138, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
-(140, 'ru', 139, 'Алексеевка', 'АЛЕКСЕЕВКА', NULL),
-(141, 'ru', 140, 'Губкин', 'ГУБКИН', NULL),
-(142, 'ru', 141, 'Валуйский район', 'ВАЛУЙСКИЙ РАЙОН', NULL),
-(143, 'ru', 142, 'Валуйки', 'ВАЛУЙКИ', NULL),
-(144, 'ru', 143, 'Борисовский район', 'БОРИСОВСКИЙ РАЙОН', NULL),
-(145, 'ru', 144, 'Волоконовский район', 'ВОЛОКОНОВСКИЙ РАЙОН', NULL),
-(146, 'ru', 145, 'Вейделевский район', 'ВЕЙДЕЛЕВСКИЙ РАЙОН', NULL),
-(147, 'ru', 146, 'Грайворонский район', 'ГРАЙВОРОНСКИЙ РАЙОН', NULL),
-(148, 'ru', 147, 'Грайворон', 'ГРАЙВОРОН', NULL),
-(149, 'ru', 148, 'Губкинский район', 'ГУБКИНСКИЙ РАЙОН', NULL),
-(150, 'ru', 149, 'Ивнянский район', 'ИВНЯНСКИЙ РАЙОН', NULL),
-(151, 'ru', 150, 'Корочанский район', 'КОРОЧАНСКИЙ РАЙОН', NULL),
-(152, 'ru', 151, 'Короча', 'КОРОЧА', NULL),
-(153, 'ru', 152, 'Красненский район', 'КРАСНЕНСКИЙ РАЙОН', NULL),
-(154, 'ru', 153, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
-(155, 'ru', 154, 'Бирюч', 'БИРЮЧ', NULL),
-(156, 'ru', 155, 'Краснояружский район', 'КРАСНОЯРУЖСКИЙ РАЙОН', NULL),
-(157, 'ru', 156, 'Новооскольский район', 'НОВООСКОЛЬСКИЙ РАЙОН', NULL),
-(158, 'ru', 157, 'Новый Оскол', 'НОВЫЙ ОСКОЛ', NULL),
-(159, 'ru', 158, 'Прохоровский район', 'ПРОХОРОВСКИЙ РАЙОН', NULL),
-(160, 'ru', 159, 'Ракитянский район', 'РАКИТЯНСКИЙ РАЙОН', NULL),
-(161, 'ru', 160, 'Ровеньский район', 'РОВЕНЬСКИЙ РАЙОН', NULL),
-(162, 'ru', 161, 'Старооскольский район', 'СТАРООСКОЛЬСКИЙ РАЙОН', NULL),
-(163, 'ru', 162, 'Чернянский район', 'ЧЕРНЯНСКИЙ РАЙОН', NULL),
-(164, 'ru', 163, 'Шебекинский район', 'ШЕБЕКИНСКИЙ РАЙОН', NULL),
-(165, 'ru', 164, 'Яковлевский район', 'ЯКОВЛЕВСКИЙ РАЙОН', NULL),
-(166, 'ru', 165, 'Строитель', 'СТРОИТЕЛЬ', NULL),
-(167, 'ru', 166, 'Белгородский район', 'БЕЛГОРОДСКИЙ РАЙОН', NULL),
-(168, 'ru', 167, 'Ивановская область', 'ИВАНОВСКАЯ ОБЛАСТЬ', NULL),
-(169, 'ru', 168, 'Иваново', 'ИВАНОВО', NULL),
-(170, 'ru', 169, 'Верхнеландеховский район', 'ВЕРХНЕЛАНДЕХОВСКИЙ РАЙОН', NULL),
-(171, 'ru', 170, 'Ивановский район', 'ИВАНОВСКИЙ РАЙОН', NULL),
-(172, 'ru', 171, 'Кохма', 'КОХМА', NULL),
-(173, 'ru', 172, 'Гаврилово-Посадский район', 'ГАВРИЛОВО-ПОСАДСКИЙ РАЙОН', NULL),
-(174, 'ru', 173, 'Гаврилов Посад', 'ГАВРИЛОВ ПОСАД', NULL),
-(175, 'ru', 174, 'Заволжский район', 'ЗАВОЛЖСКИЙ РАЙОН', NULL),
-(176, 'ru', 175, 'Заволжск', 'ЗАВОЛЖСК', NULL),
-(177, 'ru', 176, 'Вичугский район', 'ВИЧУГСКИЙ РАЙОН', NULL),
-(178, 'ru', 177, 'Вичуга', 'ВИЧУГА', NULL),
-(179, 'ru', 178, 'Ильинский район', 'ИЛЬИНСКИЙ РАЙОН', NULL),
-(180, 'ru', 179, 'Кинешемский район', 'КИНЕШЕМСКИЙ РАЙОН', NULL),
-(181, 'ru', 180, 'Кинешма', 'КИНЕШМА', NULL),
-(182, 'ru', 181, 'Наволоки', 'НАВОЛОКИ', NULL),
-(183, 'ru', 182, 'Комсомольский район', 'КОМСОМОЛЬСКИЙ РАЙОН', NULL),
-(184, 'ru', 183, 'Комсомольск', 'КОМСОМОЛЬСК', NULL),
-(185, 'ru', 184, 'Лухский район', 'ЛУХСКИЙ РАЙОН', NULL),
-(186, 'ru', 185, 'Лежневский район', 'ЛЕЖНЕВСКИЙ РАЙОН', NULL),
-(187, 'ru', 186, 'Палехский район', 'ПАЛЕХСКИЙ РАЙОН', NULL),
-(188, 'ru', 187, 'Пестяковский район', 'ПЕСТЯКОВСКИЙ РАЙОН', NULL),
-(189, 'ru', 188, 'Пучежский район', 'ПУЧЕЖСКИЙ РАЙОН', NULL),
-(190, 'ru', 189, 'Пучеж', 'ПУЧЕЖ', NULL),
-(191, 'ru', 190, 'Приволжский район', 'ПРИВОЛЖСКИЙ РАЙОН', NULL),
-(192, 'ru', 191, 'Плес', 'ПЛЕС', NULL),
-(193, 'ru', 192, 'Приволжск', 'ПРИВОЛЖСК', NULL),
-(194, 'ru', 193, 'Тейковский район', 'ТЕЙКОВСКИЙ РАЙОН', NULL),
-(195, 'ru', 194, 'Тейково', 'ТЕЙКОВО', NULL),
-(196, 'ru', 195, 'Родниковский район', 'РОДНИКОВСКИЙ РАЙОН', NULL),
-(197, 'ru', 196, 'Родники', 'РОДНИКИ', NULL),
-(198, 'ru', 197, 'Савинский район', 'САВИНСКИЙ РАЙОН', NULL),
-(199, 'ru', 198, 'Шуйский район', 'ШУЙСКИЙ РАЙОН', NULL),
-(200, 'ru', 199, 'Шуя', 'ШУЯ', NULL),
-(201, 'ru', 200, 'Фурмановский район', 'ФУРМАНОВСКИЙ РАЙОН', NULL),
-(202, 'ru', 201, 'Фурманов', 'ФУРМАНОВ', NULL),
-(203, 'ru', 202, 'Юрьевецкий район', 'ЮРЬЕВЕЦКИЙ РАЙОН', NULL),
-(204, 'ru', 203, 'Юрьевец', 'ЮРЬЕВЕЦ', NULL),
-(205, 'ru', 204, 'Южский район', 'ЮЖСКИЙ РАЙОН', NULL),
-(206, 'ru', 205, 'Южа', 'ЮЖА', NULL),
-(207, 'ru', 206, 'Калужская область', 'КАЛУЖСКАЯ ОБЛАСТЬ', NULL),
-(208, 'ru', 207, 'Калуга', 'КАЛУГА', NULL),
-(209, 'ru', 208, 'Бабынинский район', 'БАБЫНИНСКИЙ РАЙОН', NULL),
-(210, 'ru', 209, 'Обнинск', 'ОБНИНСК', NULL),
-(211, 'ru', 210, 'Барятинский район', 'БАРЯТИНСКИЙ РАЙОН', NULL),
-(212, 'ru', 211, 'Боровский район', 'БОРОВСКИЙ РАЙОН', NULL),
-(213, 'ru', 212, 'Балабаново', 'БАЛАБАНОВО', NULL),
-(214, 'ru', 213, 'Боровск', 'БОРОВСК', NULL),
-(215, 'ru', 214, 'Ермолино', 'ЕРМОЛИНО', NULL),
-(216, 'ru', 215, 'Боровск-1', 'БОРОВСК-1', NULL),
-(217, 'ru', 216, 'Спас-Деменский район', 'СПАС-ДЕМЕНСКИЙ РАЙОН', NULL),
-(218, 'ru', 217, 'Спас-Деменск', 'СПАС-ДЕМЕНСК', NULL),
-(219, 'ru', 218, 'Дзержинский район', 'ДЗЕРЖИНСКИЙ РАЙОН', NULL),
-(220, 'ru', 219, 'Кондрово', 'КОНДРОВО', NULL),
-(221, 'ru', 220, 'Думиничский район', 'ДУМИНИЧСКИЙ РАЙОН', NULL),
-(222, 'ru', 221, 'Жуковский район', 'ЖУКОВСКИЙ РАЙОН', NULL),
-(223, 'ru', 222, 'Кременки', 'КРЕМЕНКИ', NULL),
-(224, 'ru', 223, 'Жуков', 'ЖУКОВ', NULL),
-(225, 'ru', 224, 'Белоусово', 'БЕЛОУСОВО', NULL),
-(226, 'ru', 225, 'Износковский район', 'ИЗНОСКОВСКИЙ РАЙОН', NULL),
-(227, 'ru', 226, 'Жиздринский район', 'ЖИЗДРИНСКИЙ РАЙОН', NULL),
-(228, 'ru', 227, 'Жиздра', 'ЖИЗДРА', NULL),
-(229, 'ru', 228, 'Козельский район', 'КОЗЕЛЬСКИЙ РАЙОН', NULL),
-(230, 'ru', 229, 'Сосенский', 'СОСЕНСКИЙ', NULL),
-(231, 'ru', 230, 'Козельск', 'КОЗЕЛЬСК', NULL),
-(232, 'ru', 231, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(233, 'ru', 232, 'Киров', 'КИРОВ', NULL),
-(234, 'ru', 233, 'Куйбышевский район', 'КУЙБЫШЕВСКИЙ РАЙОН', NULL),
-(235, 'ru', 234, 'Малоярославецкий район', 'МАЛОЯРОСЛАВЕЦКИЙ РАЙОН', NULL),
-(236, 'ru', 235, 'Малоярославец', 'МАЛОЯРОСЛАВЕЦ', NULL),
-(237, 'ru', 236, 'Людиновский район', 'ЛЮДИНОВСКИЙ РАЙОН', NULL),
-(238, 'ru', 237, 'Людиново', 'ЛЮДИНОВО', NULL),
-(239, 'ru', 238, 'Мещовский район', 'МЕЩОВСКИЙ РАЙОН', NULL),
-(240, 'ru', 239, 'Мещовск', 'МЕЩОВСК', NULL),
-(241, 'ru', 240, 'Медынский район', 'МЕДЫНСКИЙ РАЙОН', NULL),
-(242, 'ru', 241, 'Медынь', 'МЕДЫНЬ', NULL),
-(243, 'ru', 242, 'Перемышльский район', 'ПЕРЕМЫШЛЬСКИЙ РАЙОН', NULL),
-(244, 'ru', 243, 'Сухиничский район', 'СУХИНИЧСКИЙ РАЙОН', NULL),
-(245, 'ru', 244, 'Сухиничи', 'СУХИНИЧИ', NULL),
-(246, 'ru', 245, 'Мосальский район', 'МОСАЛЬСКИЙ РАЙОН', NULL),
-(247, 'ru', 246, 'Мосальск', 'МОСАЛЬСК', NULL),
-(248, 'ru', 247, 'Ульяновский район', 'УЛЬЯНОВСКИЙ РАЙОН', NULL),
-(249, 'ru', 248, 'Тарусский район', 'ТАРУССКИЙ РАЙОН', NULL),
-(250, 'ru', 249, 'Таруса', 'ТАРУСА', NULL),
-(251, 'ru', 250, 'Юхновский район', 'ЮХНОВСКИЙ РАЙОН', NULL),
-(252, 'ru', 251, 'Юхнов', 'ЮХНОВ', NULL),
-(253, 'ru', 252, 'Юхнов-1', 'ЮХНОВ-1', NULL),
-(254, 'ru', 253, 'Юхнов-2', 'ЮХНОВ-2', NULL),
-(255, 'ru', 254, 'Хвастовичский район', 'ХВАСТОВИЧСКИЙ РАЙОН', NULL),
-(256, 'ru', 255, 'Ферзиковский район', 'ФЕРЗИКОВСКИЙ РАЙОН', NULL),
-(257, 'ru', 256, 'Костромская область', 'КОСТРОМСКАЯ ОБЛАСТЬ', NULL),
-(258, 'ru', 257, 'Костромской район', 'КОСТРОМСКОЙ РАЙОН', NULL),
-(259, 'ru', 258, 'Кострома', 'КОСТРОМА', NULL),
-(260, 'ru', 259, 'Волгореченск', 'ВОЛГОРЕЧЕНСК', NULL),
-(261, 'ru', 260, 'Антроповский район', 'АНТРОПОВСКИЙ РАЙОН', NULL),
-(262, 'ru', 261, 'Буйский район', 'БУЙСКИЙ РАЙОН', NULL),
-(263, 'ru', 262, 'Буй', 'БУЙ', NULL),
-(264, 'ru', 263, 'Галичский район', 'ГАЛИЧСКИЙ РАЙОН', NULL),
-(265, 'ru', 264, 'Галич', 'ГАЛИЧ', NULL),
-(266, 'ru', 265, 'Вохомский район', 'ВОХОМСКИЙ РАЙОН', NULL),
-(267, 'ru', 266, 'Кадыйский район', 'КАДЫЙСКИЙ РАЙОН', NULL),
-(268, 'ru', 267, 'Мантуровский район', 'МАНТУРОВСКИЙ РАЙОН', NULL),
-(269, 'ru', 268, 'Мантурово', 'МАНТУРОВО', NULL),
-(270, 'ru', 269, 'Красносельский район', 'КРАСНОСЕЛЬСКИЙ РАЙОН', NULL),
-(271, 'ru', 270, 'Макарьевский район', 'МАКАРЬЕВСКИЙ РАЙОН', NULL),
-(272, 'ru', 271, 'Макарьев', 'МАКАРЬЕВ', NULL),
-(273, 'ru', 272, 'Кологривский район', 'КОЛОГРИВСКИЙ РАЙОН', NULL),
-(274, 'ru', 273, 'Кологрив', 'КОЛОГРИВ', NULL),
-(275, 'ru', 274, 'Межевской район', 'МЕЖЕВСКОЙ РАЙОН', NULL),
-(276, 'ru', 275, 'Нерехтский район', 'НЕРЕХТСКИЙ РАЙОН', NULL),
-(277, 'ru', 276, 'Нерехта', 'НЕРЕХТА', NULL),
-(278, 'ru', 277, 'Нейский район', 'НЕЙСКИЙ РАЙОН', NULL),
-(279, 'ru', 278, 'Нея', 'НЕЯ', NULL),
-(280, 'ru', 279, 'Островский район', 'ОСТРОВСКИЙ РАЙОН', NULL),
-(281, 'ru', 280, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(282, 'ru', 281, 'Павинский район', 'ПАВИНСКИЙ РАЙОН', NULL),
-(283, 'ru', 282, 'Солигаличский район', 'СОЛИГАЛИЧСКИЙ РАЙОН', NULL),
-(284, 'ru', 283, 'Солигалич', 'СОЛИГАЛИЧ', NULL),
-(285, 'ru', 284, 'Пыщугский район', 'ПЫЩУГСКИЙ РАЙОН', NULL),
-(286, 'ru', 285, 'Парфеньевский район', 'ПАРФЕНЬЕВСКИЙ РАЙОН', NULL),
-(287, 'ru', 286, 'Поназыревский район', 'ПОНАЗЫРЕВСКИЙ РАЙОН', NULL),
-(288, 'ru', 287, 'Судиславский район', 'СУДИСЛАВСКИЙ РАЙОН', NULL),
-(289, 'ru', 288, 'Чухломский район', 'ЧУХЛОМСКИЙ РАЙОН', NULL),
-(290, 'ru', 289, 'Чухлома', 'ЧУХЛОМА', NULL),
-(291, 'ru', 290, 'Сусанинский район', 'СУСАНИНСКИЙ РАЙОН', NULL),
-(292, 'ru', 291, 'Шарьинский район', 'ШАРЬИНСКИЙ РАЙОН', NULL),
-(293, 'ru', 292, 'Шарья', 'ШАРЬЯ', NULL),
-(294, 'ru', 293, 'Курская область', 'КУРСКАЯ ОБЛАСТЬ', NULL),
-(295, 'ru', 294, 'Курск', 'КУРСК', NULL),
-(296, 'ru', 295, 'Большесолдатский район', 'БОЛЬШЕСОЛДАТСКИЙ РАЙОН', NULL),
-(297, 'ru', 296, 'Беловский район', 'БЕЛОВСКИЙ РАЙОН', NULL),
-(298, 'ru', 297, 'Курчатов', 'КУРЧАТОВ', NULL),
-(299, 'ru', 298, 'Железногорск', 'ЖЕЛЕЗНОГОРСК', NULL),
-(300, 'ru', 299, 'Льгов', 'ЛЬГОВ', NULL),
-(301, 'ru', 300, 'Щигры', 'ЩИГРЫ', NULL),
-(302, 'ru', 301, 'Дмитриевский район', 'ДМИТРИЕВСКИЙ РАЙОН', NULL),
-(303, 'ru', 302, 'Дмитриев', 'ДМИТРИЕВ', NULL),
-(304, 'ru', 303, 'Глушковский район', 'ГЛУШКОВСКИЙ РАЙОН', NULL),
-(305, 'ru', 304, 'Горшеченский район', 'ГОРШЕЧЕНСКИЙ РАЙОН', NULL),
-(306, 'ru', 305, 'Золотухинский район', 'ЗОЛОТУХИНСКИЙ РАЙОН', NULL),
-(307, 'ru', 306, 'Железногорский район', 'ЖЕЛЕЗНОГОРСКИЙ РАЙОН', NULL),
-(308, 'ru', 307, 'Касторенский район', 'КАСТОРЕНСКИЙ РАЙОН', NULL),
-(309, 'ru', 308, 'Конышевский район', 'КОНЫШЕВСКИЙ РАЙОН', NULL),
-(310, 'ru', 309, 'Льговский район', 'ЛЬГОВСКИЙ РАЙОН', NULL),
-(311, 'ru', 310, 'Кореневский район', 'КОРЕНЕВСКИЙ РАЙОН', NULL),
-(312, 'ru', 311, 'Курчатовский район', 'КУРЧАТОВСКИЙ РАЙОН', NULL),
-(313, 'ru', 312, 'Обоянский район', 'ОБОЯНСКИЙ РАЙОН', NULL),
-(314, 'ru', 313, 'Обоянь', 'ОБОЯНЬ', NULL),
-(315, 'ru', 314, 'Мантуровский район', 'МАНТУРОВСКИЙ РАЙОН', NULL),
-(316, 'ru', 315, 'Медвенский район', 'МЕДВЕНСКИЙ РАЙОН', NULL),
-(317, 'ru', 316, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(318, 'ru', 317, 'Поныровский район', 'ПОНЫРОВСКИЙ РАЙОН', NULL),
-(319, 'ru', 318, 'Рыльский район', 'РЫЛЬСКИЙ РАЙОН', NULL),
-(320, 'ru', 319, 'Рыльск', 'РЫЛЬСК', NULL),
-(321, 'ru', 320, 'Пристенский район', 'ПРИСТЕНСКИЙ РАЙОН', NULL),
-(322, 'ru', 321, 'Солнцевский район', 'СОЛНЦЕВСКИЙ РАЙОН', NULL),
-(323, 'ru', 322, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(324, 'ru', 323, 'Тимский район', 'ТИМСКИЙ РАЙОН', NULL),
-(325, 'ru', 324, 'Суджанский район', 'СУДЖАНСКИЙ РАЙОН', NULL),
-(326, 'ru', 325, 'Суджа', 'СУДЖА', NULL),
-(327, 'ru', 326, 'Фатежский район', 'ФАТЕЖСКИЙ РАЙОН', NULL),
-(328, 'ru', 327, 'Фатеж', 'ФАТЕЖ', NULL),
-(329, 'ru', 328, 'Курский район', 'КУРСКИЙ РАЙОН', NULL),
-(330, 'ru', 329, 'Хомутовский район', 'ХОМУТОВСКИЙ РАЙОН', NULL),
-(331, 'ru', 330, 'Черемисиновский район', 'ЧЕРЕМИСИНОВСКИЙ РАЙОН', NULL),
-(332, 'ru', 331, 'Щигровский район', 'ЩИГРОВСКИЙ РАЙОН', NULL),
-(333, 'ru', 332, 'Липецкая область', 'ЛИПЕЦКАЯ ОБЛАСТЬ', NULL),
-(334, 'ru', 333, 'Липецк', 'ЛИПЕЦК', NULL),
-(335, 'ru', 334, 'Воловский район', 'ВОЛОВСКИЙ РАЙОН', NULL),
-(336, 'ru', 335, 'Елец', 'ЕЛЕЦ', NULL),
-(337, 'ru', 336, 'Грязинский район', 'ГРЯЗИНСКИЙ РАЙОН', NULL),
-(338, 'ru', 337, 'Грязи', 'ГРЯЗИ', NULL),
-(339, 'ru', 338, 'Данковский район', 'ДАНКОВСКИЙ РАЙОН', NULL),
-(340, 'ru', 339, 'Данков', 'ДАНКОВ', NULL),
-(341, 'ru', 340, 'Добровский район', 'ДОБРОВСКИЙ РАЙОН', NULL),
-(342, 'ru', 341, 'Добринский район', 'ДОБРИНСКИЙ РАЙОН', NULL),
-(343, 'ru', 342, 'Долгоруковский район', 'ДОЛГОРУКОВСКИЙ РАЙОН', NULL),
-(344, 'ru', 343, 'Елецкий район', 'ЕЛЕЦКИЙ РАЙОН', NULL),
-(345, 'ru', 344, 'Задонский район', 'ЗАДОНСКИЙ РАЙОН', NULL),
-(346, 'ru', 345, 'Задонск', 'ЗАДОНСК', NULL),
-(347, 'ru', 346, 'Краснинский район', 'КРАСНИНСКИЙ РАЙОН', NULL),
-(348, 'ru', 347, 'Измалковский район', 'ИЗМАЛКОВСКИЙ РАЙОН', NULL),
-(349, 'ru', 348, 'Лебедянский район', 'ЛЕБЕДЯНСКИЙ РАЙОН', NULL),
-(350, 'ru', 349, 'Лебедянь', 'ЛЕБЕДЯНЬ', NULL),
-(351, 'ru', 350, 'Лев-Толстовский район', 'ЛЕВ-ТОЛСТОВСКИЙ РАЙОН', NULL),
-(352, 'ru', 351, 'Становлянский район', 'СТАНОВЛЯНСКИЙ РАЙОН', NULL),
-(353, 'ru', 352, 'Тербунский район', 'ТЕРБУНСКИЙ РАЙОН', NULL),
-(354, 'ru', 353, 'Чаплыгинский район', 'ЧАПЛЫГИНСКИЙ РАЙОН', NULL),
-(355, 'ru', 354, 'Чаплыгин', 'ЧАПЛЫГИН', NULL),
-(356, 'ru', 355, 'Усманский район', 'УСМАНСКИЙ РАЙОН', NULL),
-(357, 'ru', 356, 'Усмань', 'УСМАНЬ', NULL),
-(358, 'ru', 357, 'Хлевенский район', 'ХЛЕВЕНСКИЙ РАЙОН', NULL),
-(359, 'ru', 358, 'Липецкий район', 'ЛИПЕЦКИЙ РАЙОН', NULL),
-(360, 'ru', 359, 'Орловская область', 'ОРЛОВСКАЯ ОБЛАСТЬ', NULL),
-(361, 'ru', 360, 'Орёл', 'ОРЁЛ', NULL),
-(362, 'ru', 361, 'Мценск', 'МЦЕНСК', NULL),
-(363, 'ru', 362, 'Ливны', 'ЛИВНЫ', NULL),
-(364, 'ru', 363, 'Орловский район', 'ОРЛОВСКИЙ РАЙОН', NULL),
-(365, 'ru', 364, 'Болховский район', 'БОЛХОВСКИЙ РАЙОН', NULL),
-(366, 'ru', 365, 'Болхов', 'БОЛХОВ', NULL),
-(367, 'ru', 366, 'Верховский район', 'ВЕРХОВСКИЙ РАЙОН', NULL),
-(368, 'ru', 367, 'Должанский район', 'ДОЛЖАНСКИЙ РАЙОН', NULL),
-(369, 'ru', 368, 'Глазуновский район', 'ГЛАЗУНОВСКИЙ РАЙОН', NULL),
-(370, 'ru', 369, 'Дмитровский район', 'ДМИТРОВСКИЙ РАЙОН', NULL),
-(371, 'ru', 370, 'Дмитровск', 'ДМИТРОВСК', NULL),
-(372, 'ru', 371, 'Залегощенский район', 'ЗАЛЕГОЩЕНСКИЙ РАЙОН', NULL),
-(373, 'ru', 372, 'Колпнянский район', 'КОЛПНЯНСКИЙ РАЙОН', NULL),
-(374, 'ru', 373, 'Знаменский район', 'ЗНАМЕНСКИЙ РАЙОН', NULL),
-(375, 'ru', 374, 'Ливенский район', 'ЛИВЕНСКИЙ РАЙОН', NULL),
-(376, 'ru', 375, 'Корсаковский район', 'КОРСАКОВСКИЙ РАЙОН', NULL),
-(377, 'ru', 376, 'Краснозоренский район', 'КРАСНОЗОРЕНСКИЙ РАЙОН', NULL),
-(378, 'ru', 377, 'Кромской район', 'КРОМСКОЙ РАЙОН', NULL),
-(379, 'ru', 378, 'Мценский район', 'МЦЕНСКИЙ РАЙОН', NULL),
-(380, 'ru', 379, 'Малоархангельский район', 'МАЛОАРХАНГЕЛЬСКИЙ РАЙОН', NULL),
-(381, 'ru', 380, 'Малоархангельск', 'МАЛОАРХАНГЕЛЬСК', NULL),
-(382, 'ru', 381, 'Новодеревеньковский район', 'НОВОДЕРЕВЕНЬКОВСКИЙ РАЙОН', NULL),
-(383, 'ru', 382, 'Новосильский район', 'НОВОСИЛЬСКИЙ РАЙОН', NULL),
-(384, 'ru', 383, 'Новосиль', 'НОВОСИЛЬ', NULL),
-(385, 'ru', 384, 'Покровский район', 'ПОКРОВСКИЙ РАЙОН', NULL),
-(386, 'ru', 385, 'Свердловский район', 'СВЕРДЛОВСКИЙ РАЙОН', NULL),
-(387, 'ru', 386, 'Троснянский район', 'ТРОСНЯНСКИЙ РАЙОН', NULL),
-(388, 'ru', 387, 'Урицкий район', 'УРИЦКИЙ РАЙОН', NULL),
-(389, 'ru', 388, 'Сосковский район', 'СОСКОВСКИЙ РАЙОН', NULL),
-(390, 'ru', 389, 'Хотынецкий район', 'ХОТЫНЕЦКИЙ РАЙОН', NULL),
-(391, 'ru', 390, 'Шаблыкинский район', 'ШАБЛЫКИНСКИЙ РАЙОН', NULL),
-(392, 'ru', 391, 'Рязанская область', 'РЯЗАНСКАЯ ОБЛАСТЬ', NULL),
-(393, 'ru', 392, 'Рязанский район', 'РЯЗАНСКИЙ РАЙОН', NULL),
-(394, 'ru', 393, 'Рязань', 'РЯЗАНЬ', NULL),
-(395, 'ru', 394, 'Сасово', 'САСОВО', NULL),
-(396, 'ru', 395, 'Скопин', 'СКОПИН', NULL),
-(397, 'ru', 396, 'Касимов', 'КАСИМОВ', NULL),
-(398, 'ru', 397, 'Ермишинский район', 'ЕРМИШИНСКИЙ РАЙОН', NULL),
-(399, 'ru', 398, 'Захаровский район', 'ЗАХАРОВСКИЙ РАЙОН', NULL),
-(400, 'ru', 399, 'Касимовский район', 'КАСИМОВСКИЙ РАЙОН', NULL),
-(401, 'ru', 400, 'Кадомский район', 'КАДОМСКИЙ РАЙОН', NULL),
-(402, 'ru', 401, 'Милославский район', 'МИЛОСЛАВСКИЙ РАЙОН', NULL),
-(403, 'ru', 402, 'Кораблинский район', 'КОРАБЛИНСКИЙ РАЙОН', NULL),
-(404, 'ru', 403, 'Кораблино', 'КОРАБЛИНО', NULL),
-(405, 'ru', 404, 'Клепиковский район', 'КЛЕПИКОВСКИЙ РАЙОН', NULL),
-(406, 'ru', 405, 'Спас-Клепики', 'СПАС-КЛЕПИКИ', NULL),
-(407, 'ru', 406, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
-(408, 'ru', 407, 'Михайлов', 'МИХАЙЛОВ', NULL),
-(409, 'ru', 408, 'Пителинский район', 'ПИТЕЛИНСКИЙ РАЙОН', NULL),
-(410, 'ru', 409, 'Александро-Невский район', 'АЛЕКСАНДРО-НЕВСКИЙ РАЙОН', NULL),
-(411, 'ru', 410, 'Пронский район', 'ПРОНСКИЙ РАЙОН', NULL),
-(412, 'ru', 411, 'Новомичуринск', 'НОВОМИЧУРИНСК', NULL),
-(413, 'ru', 412, 'Рыбновский район', 'РЫБНОВСКИЙ РАЙОН', NULL),
-(414, 'ru', 413, 'Рыбное', 'РЫБНОЕ', NULL),
-(415, 'ru', 414, 'Ряжский район', 'РЯЖСКИЙ РАЙОН', NULL),
-(416, 'ru', 415, 'Ряжск', 'РЯЖСК', NULL),
-(417, 'ru', 416, 'Путятинский район', 'ПУТЯТИНСКИЙ РАЙОН', NULL),
-(418, 'ru', 417, 'Сасовский район', 'САСОВСКИЙ РАЙОН', NULL),
-(419, 'ru', 418, 'Сараевский район', 'САРАЕВСКИЙ РАЙОН', NULL),
-(420, 'ru', 419, 'Сапожковский район', 'САПОЖКОВСКИЙ РАЙОН', NULL),
-(421, 'ru', 420, 'Скопинский район', 'СКОПИНСКИЙ РАЙОН', NULL),
-(422, 'ru', 421, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
-(423, 'ru', 422, 'Спасск-Рязанский', 'СПАССК-РЯЗАНСКИЙ', NULL),
-(424, 'ru', 423, 'Старожиловский район', 'СТАРОЖИЛОВСКИЙ РАЙОН', NULL),
-(425, 'ru', 424, 'Ухоловский район', 'УХОЛОВСКИЙ РАЙОН', NULL),
-(426, 'ru', 425, 'Шацкий район', 'ШАЦКИЙ РАЙОН', NULL),
-(427, 'ru', 426, 'Шацк', 'ШАЦК', NULL),
-(428, 'ru', 427, 'Чучковский район', 'ЧУЧКОВСКИЙ РАЙОН', NULL),
-(429, 'ru', 428, 'Шиловский район', 'ШИЛОВСКИЙ РАЙОН', NULL),
-(430, 'ru', 429, 'Смоленская область', 'СМОЛЕНСКАЯ ОБЛАСТЬ', NULL),
-(431, 'ru', 430, 'Десногорск', 'ДЕСНОГОРСК', NULL),
-(432, 'ru', 431, 'Смоленск', 'СМОЛЕНСК', NULL),
-(433, 'ru', 432, 'Смоленский район', 'СМОЛЕНСКИЙ РАЙОН', NULL),
-(434, 'ru', 433, 'Вяземский район', 'ВЯЗЕМСКИЙ РАЙОН', NULL),
-(435, 'ru', 434, 'Вязьма', 'ВЯЗЬМА', NULL),
-(436, 'ru', 435, 'Велижский район', 'ВЕЛИЖСКИЙ РАЙОН', NULL),
-(437, 'ru', 436, 'Велиж', 'ВЕЛИЖ', NULL),
-(438, 'ru', 437, 'Гагаринский район', 'ГАГАРИНСКИЙ РАЙОН', NULL),
-(439, 'ru', 438, 'Гагарин', 'ГАГАРИН', NULL),
-(440, 'ru', 439, 'Глинковский район', 'ГЛИНКОВСКИЙ РАЙОН', NULL),
-(441, 'ru', 440, 'Демидовский район', 'ДЕМИДОВСКИЙ РАЙОН', NULL),
-(442, 'ru', 441, 'Демидов', 'ДЕМИДОВ', NULL),
-(443, 'ru', 442, 'Дорогобужский район', 'ДОРОГОБУЖСКИЙ РАЙОН', NULL),
-(444, 'ru', 443, 'Дорогобуж', 'ДОРОГОБУЖ', NULL),
-(445, 'ru', 444, 'Духовщинский район', 'ДУХОВЩИНСКИЙ РАЙОН', NULL),
-(446, 'ru', 445, 'Духовщина', 'ДУХОВЩИНА', NULL),
-(447, 'ru', 446, 'Ельнинский район', 'ЕЛЬНИНСКИЙ РАЙОН', NULL),
-(448, 'ru', 447, 'Ельня', 'ЕЛЬНЯ', NULL),
-(449, 'ru', 448, 'Краснинский район', 'КРАСНИНСКИЙ РАЙОН', NULL),
-(450, 'ru', 449, 'Ершичский район', 'ЕРШИЧСКИЙ РАЙОН', NULL),
-(451, 'ru', 450, 'Кардымовский район', 'КАРДЫМОВСКИЙ РАЙОН', NULL),
-(452, 'ru', 451, 'Новодугинский район', 'НОВОДУГИНСКИЙ РАЙОН', NULL),
-(453, 'ru', 452, 'Починковский район', 'ПОЧИНКОВСКИЙ РАЙОН', NULL),
-(454, 'ru', 453, 'Починок', 'ПОЧИНОК', NULL),
-(455, 'ru', 454, 'Монастырщинский район', 'МОНАСТЫРЩИНСКИЙ РАЙОН', NULL),
-(456, 'ru', 455, 'Руднянский район', 'РУДНЯНСКИЙ РАЙОН', NULL),
-(457, 'ru', 456, 'Рудня', 'РУДНЯ', NULL),
-(458, 'ru', 457, 'Рославльский район', 'РОСЛАВЛЬСКИЙ РАЙОН', NULL),
-(459, 'ru', 458, 'Рославль', 'РОСЛАВЛЬ', NULL),
-(460, 'ru', 459, 'Сычевский район', 'СЫЧЕВСКИЙ РАЙОН', NULL),
-(461, 'ru', 460, 'Сычевка', 'СЫЧЕВКА', NULL),
-(462, 'ru', 461, 'Сафоновский район', 'САФОНОВСКИЙ РАЙОН', NULL),
-(463, 'ru', 462, 'Сафоново', 'САФОНОВО', NULL),
-(464, 'ru', 463, 'Хиславичский район', 'ХИСЛАВИЧСКИЙ РАЙОН', NULL),
-(465, 'ru', 464, 'Угранский район', 'УГРАНСКИЙ РАЙОН', NULL),
-(466, 'ru', 465, 'Холм-Жирковский район', 'ХОЛМ-ЖИРКОВСКИЙ РАЙОН', NULL),
-(467, 'ru', 466, 'Темкинский район', 'ТЕМКИНСКИЙ РАЙОН', NULL),
-(468, 'ru', 467, 'Ярцевский район', 'ЯРЦЕВСКИЙ РАЙОН', NULL),
-(469, 'ru', 468, 'Ярцево', 'ЯРЦЕВО', NULL),
-(470, 'ru', 469, 'Шумячский район', 'ШУМЯЧСКИЙ РАЙОН', NULL),
-(471, 'ru', 470, 'Тамбовская область', 'ТАМБОВСКАЯ ОБЛАСТЬ', NULL),
-(472, 'ru', 471, 'Котовск', 'КОТОВСК', NULL),
-(473, 'ru', 472, 'Моршанск', 'МОРШАНСК', NULL),
-(474, 'ru', 473, 'Тамбов', 'ТАМБОВ', NULL),
-(475, 'ru', 474, 'Кирсанов', 'КИРСАНОВ', NULL),
-(476, 'ru', 475, 'Мичуринск', 'МИЧУРИНСК', NULL),
-(477, 'ru', 476, 'Тамбовский район', 'ТАМБОВСКИЙ РАЙОН', NULL),
-(478, 'ru', 477, 'Уварово', 'УВАРОВО', NULL),
-(479, 'ru', 478, 'Рассказово', 'РАССКАЗОВО', NULL),
-(480, 'ru', 479, 'Бондарский район', 'БОНДАРСКИЙ РАЙОН', NULL),
-(481, 'ru', 480, 'Гавриловский район', 'ГАВРИЛОВСКИЙ РАЙОН', NULL),
-(482, 'ru', 481, 'Жердевский район', 'ЖЕРДЕВСКИЙ РАЙОН', NULL),
-(483, 'ru', 482, 'Жердевка', 'ЖЕРДЕВКА', NULL),
-(484, 'ru', 483, 'Инжавинский район', 'ИНЖАВИНСКИЙ РАЙОН', NULL),
-(485, 'ru', 484, 'Знаменский район', 'ЗНАМЕНСКИЙ РАЙОН', NULL),
-(486, 'ru', 485, 'Мичуринский район', 'МИЧУРИНСКИЙ РАЙОН', NULL),
-(487, 'ru', 486, 'Кирсановский район', 'КИРСАНОВСКИЙ РАЙОН', NULL),
-(488, 'ru', 487, 'Мордовский район', 'МОРДОВСКИЙ РАЙОН', NULL),
-(489, 'ru', 488, 'Моршанский район', 'МОРШАНСКИЙ РАЙОН', NULL),
-(490, 'ru', 489, 'Мучкапский район', 'МУЧКАПСКИЙ РАЙОН', NULL),
-(491, 'ru', 490, 'Никифоровский район', 'НИКИФОРОВСКИЙ РАЙОН', NULL),
-(492, 'ru', 491, 'Петровский район', 'ПЕТРОВСКИЙ РАЙОН', NULL),
-(493, 'ru', 492, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
-(494, 'ru', 493, 'Рассказовский район', 'РАССКАЗОВСКИЙ РАЙОН', NULL),
-(495, 'ru', 494, 'Пичаевский район', 'ПИЧАЕВСКИЙ РАЙОН', NULL),
-(496, 'ru', 495, 'Сампурский район', 'САМПУРСКИЙ РАЙОН', NULL),
-(497, 'ru', 496, 'Ржаксинский район', 'РЖАКСИНСКИЙ РАЙОН', NULL),
-(498, 'ru', 497, 'Сосновский район', 'СОСНОВСКИЙ РАЙОН', NULL),
-(499, 'ru', 498, 'Староюрьевский район', 'СТАРОЮРЬЕВСКИЙ РАЙОН', NULL),
-(500, 'ru', 499, 'Уваровский район', 'УВАРОВСКИЙ РАЙОН', NULL),
-(501, 'ru', 500, 'Токаревский район', 'ТОКАРЕВСКИЙ РАЙОН', NULL),
-(502, 'ru', 501, 'Уметский район', 'УМЕТСКИЙ РАЙОН', NULL),
-(503, 'ru', 502, 'Тверская область', 'ТВЕРСКАЯ ОБЛАСТЬ', NULL),
-(504, 'ru', 503, 'Тверь', 'ТВЕРЬ', NULL),
-(505, 'ru', 504, 'Нелидово', 'НЕЛИДОВО', NULL),
-(506, 'ru', 505, 'Торжок', 'ТОРЖОК', NULL),
-(507, 'ru', 506, 'Кимры', 'КИМРЫ', NULL),
-(508, 'ru', 507, 'Ржев', 'РЖЕВ', NULL),
-(509, 'ru', 508, 'Вышний Волочек', 'ВЫШНИЙ ВОЛОЧЕК', NULL),
-(510, 'ru', 509, 'Калининский район', 'КАЛИНИНСКИЙ РАЙОН', NULL),
-(511, 'ru', 510, 'Андреапольский район', 'АНДРЕАПОЛЬСКИЙ РАЙОН', NULL),
-(512, 'ru', 511, 'Андреаполь', 'АНДРЕАПОЛЬ', NULL),
-(513, 'ru', 512, 'Бежецкий район', 'БЕЖЕЦКИЙ РАЙОН', NULL),
-(514, 'ru', 513, 'Бежецк', 'БЕЖЕЦК', NULL),
-(515, 'ru', 514, 'Бельский район', 'БЕЛЬСКИЙ РАЙОН', NULL),
-(516, 'ru', 515, 'Белый', 'БЕЛЫЙ', NULL),
-(517, 'ru', 516, 'Бологовский район', 'БОЛОГОВСКИЙ РАЙОН', NULL),
-(518, 'ru', 517, 'Бологое', 'БОЛОГОЕ', NULL),
-(519, 'ru', 518, 'Весьегонский район', 'ВЕСЬЕГОНСКИЙ РАЙОН', NULL),
-(520, 'ru', 519, 'Весьегонск', 'ВЕСЬЕГОНСК', NULL),
-(521, 'ru', 520, 'Вышневолоцкий район', 'ВЫШНЕВОЛОЦКИЙ РАЙОН', NULL),
-(522, 'ru', 521, 'Западнодвинский район', 'ЗАПАДНОДВИНСКИЙ РАЙОН', NULL),
-(523, 'ru', 522, 'Западная Двина', 'ЗАПАДНАЯ ДВИНА', NULL),
-(524, 'ru', 523, 'Жарковский район', 'ЖАРКОВСКИЙ РАЙОН', NULL),
-(525, 'ru', 524, 'Зубцовский район', 'ЗУБЦОВСКИЙ РАЙОН', NULL),
-(526, 'ru', 525, 'Зубцов', 'ЗУБЦОВ', NULL),
-(527, 'ru', 526, 'Калязинский район', 'КАЛЯЗИНСКИЙ РАЙОН', NULL),
-(528, 'ru', 527, 'Калязин', 'КАЛЯЗИН', NULL),
-(529, 'ru', 528, 'Кесовогорский район', 'КЕСОВОГОРСКИЙ РАЙОН', NULL),
-(530, 'ru', 529, 'Кашинский район', 'КАШИНСКИЙ РАЙОН', NULL),
-(531, 'ru', 530, 'Кашин', 'КАШИН', NULL),
-(532, 'ru', 531, 'Конаковский район', 'КОНАКОВСКИЙ РАЙОН', NULL),
-(533, 'ru', 532, 'Конаково', 'КОНАКОВО', NULL),
-(534, 'ru', 533, 'Кимрский район', 'КИМРСКИЙ РАЙОН', NULL),
-(535, 'ru', 534, 'Краснохолмский район', 'КРАСНОХОЛМСКИЙ РАЙОН', NULL),
-(536, 'ru', 535, 'Красный Холм', 'КРАСНЫЙ ХОЛМ', NULL),
-(537, 'ru', 536, 'Лесной район', 'ЛЕСНОЙ РАЙОН', NULL),
-(538, 'ru', 537, 'Кувшиновский район', 'КУВШИНОВСКИЙ РАЙОН', NULL),
-(539, 'ru', 538, 'Кувшиново', 'КУВШИНОВО', NULL),
-(540, 'ru', 539, 'Лихославльский район', 'ЛИХОСЛАВЛЬСКИЙ РАЙОН', NULL),
-(541, 'ru', 540, 'Лихославль', 'ЛИХОСЛАВЛЬ', NULL),
-(542, 'ru', 541, 'Максатихинский район', 'МАКСАТИХИНСКИЙ РАЙОН', NULL),
-(543, 'ru', 542, 'Молоковский район', 'МОЛОКОВСКИЙ РАЙОН', NULL),
-(544, 'ru', 543, 'Нелидовский район', 'НЕЛИДОВСКИЙ РАЙОН', NULL),
-(545, 'ru', 544, 'Осташковский район', 'ОСТАШКОВСКИЙ РАЙОН', NULL),
-(546, 'ru', 545, 'Осташков', 'ОСТАШКОВ', NULL),
-(547, 'ru', 546, 'Пеновский район', 'ПЕНОВСКИЙ РАЙОН', NULL),
-(548, 'ru', 547, 'Оленинский район', 'ОЛЕНИНСКИЙ РАЙОН', NULL),
-(549, 'ru', 548, 'Рамешковский район', 'РАМЕШКОВСКИЙ РАЙОН', NULL),
-(550, 'ru', 549, 'Ржевский район', 'РЖЕВСКИЙ РАЙОН', NULL),
-(551, 'ru', 550, 'Сандовский район', 'САНДОВСКИЙ РАЙОН', NULL),
-(552, 'ru', 551, 'Селижаровский район', 'СЕЛИЖАРОВСКИЙ РАЙОН', NULL),
-(553, 'ru', 552, 'Старицкий район', 'СТАРИЦКИЙ РАЙОН', NULL),
-(554, 'ru', 553, 'Старица', 'СТАРИЦА', NULL),
-(555, 'ru', 554, 'Сонковский район', 'СОНКОВСКИЙ РАЙОН', NULL),
-(556, 'ru', 555, 'Спировский район', 'СПИРОВСКИЙ РАЙОН', NULL),
-(557, 'ru', 556, 'Торжокский район', 'ТОРЖОКСКИЙ РАЙОН', NULL),
-(558, 'ru', 557, 'Торопецкий район', 'ТОРОПЕЦКИЙ РАЙОН', NULL),
-(559, 'ru', 558, 'Торопец', 'ТОРОПЕЦ', NULL),
-(560, 'ru', 559, 'Удомельский район', 'УДОМЕЛЬСКИЙ РАЙОН', NULL),
-(561, 'ru', 560, 'Удомля', 'УДОМЛЯ', NULL),
-(562, 'ru', 561, 'Фировский район', 'ФИРОВСКИЙ РАЙОН', NULL),
-(563, 'ru', 562, 'Тульская область', 'ТУЛЬСКАЯ ОБЛАСТЬ', NULL),
-(564, 'ru', 563, 'Тула', 'ТУЛА', NULL),
-(565, 'ru', 564, 'Донской', 'ДОНСКОЙ', NULL),
-(566, 'ru', 565, 'Алексинский район', 'АЛЕКСИНСКИЙ РАЙОН', NULL),
-(567, 'ru', 566, 'Алексин', 'АЛЕКСИН', NULL),
-(568, 'ru', 567, 'Арсеньевский район', 'АРСЕНЬЕВСКИЙ РАЙОН', NULL),
-(569, 'ru', 568, 'Белевский район', 'БЕЛЕВСКИЙ РАЙОН', NULL),
-(570, 'ru', 569, 'Белев', 'БЕЛЕВ', NULL),
-(571, 'ru', 570, 'Богородицкий район', 'БОГОРОДИЦКИЙ РАЙОН', NULL),
-(572, 'ru', 571, 'Богородицк', 'БОГОРОДИЦК', NULL),
-(573, 'ru', 572, 'Веневский район', 'ВЕНЕВСКИЙ РАЙОН', NULL),
-(574, 'ru', 573, 'Венев', 'ВЕНЕВ', NULL),
-(575, 'ru', 574, 'Воловский район', 'ВОЛОВСКИЙ РАЙОН', NULL),
-(576, 'ru', 575, 'Ефремовский район', 'ЕФРЕМОВСКИЙ РАЙОН', NULL),
-(577, 'ru', 576, 'Ефремов', 'ЕФРЕМОВ', NULL),
-(578, 'ru', 577, 'Дубенский район', 'ДУБЕНСКИЙ РАЙОН', NULL),
-(579, 'ru', 578, 'Заокский район', 'ЗАОКСКИЙ РАЙОН', NULL),
-(580, 'ru', 579, 'Киреевский район', 'КИРЕЕВСКИЙ РАЙОН', NULL),
-(581, 'ru', 580, 'Липки', 'ЛИПКИ', NULL),
-(582, 'ru', 581, 'Болохово', 'БОЛОХОВО', NULL),
-(583, 'ru', 582, 'Киреевск', 'КИРЕЕВСК', NULL),
-(584, 'ru', 583, 'Кимовский район', 'КИМОВСКИЙ РАЙОН', NULL),
-(585, 'ru', 584, 'Кимовск', 'КИМОВСК', NULL),
-(586, 'ru', 585, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
-(587, 'ru', 586, 'Куркинский район', 'КУРКИНСКИЙ РАЙОН', NULL),
-(588, 'ru', 587, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
-(589, 'ru', 588, 'Новомосковский район', 'НОВОМОСКОВСКИЙ РАЙОН', NULL),
-(590, 'ru', 589, 'Новомосковск', 'НОВОМОСКОВСК', NULL),
-(591, 'ru', 590, 'Плавский район', 'ПЛАВСКИЙ РАЙОН', NULL),
-(592, 'ru', 591, 'Плавск', 'ПЛАВСК', NULL),
-(593, 'ru', 592, 'Одоевский район', 'ОДОЕВСКИЙ РАЙОН', NULL),
-(594, 'ru', 593, 'Суворовский район', 'СУВОРОВСКИЙ РАЙОН', NULL),
-(595, 'ru', 594, 'Суворов', 'СУВОРОВ', NULL),
-(596, 'ru', 595, 'Чекалин', 'ЧЕКАЛИН', NULL),
-(597, 'ru', 596, 'Тепло-Огаревский район', 'ТЕПЛО-ОГАРЕВСКИЙ РАЙОН', NULL),
-(598, 'ru', 597, 'Узловский район', 'УЗЛОВСКИЙ РАЙОН', NULL),
-(599, 'ru', 598, 'Узловая', 'УЗЛОВАЯ', NULL),
-(600, 'ru', 599, 'Чернский район', 'ЧЕРНСКИЙ РАЙОН', NULL),
-(601, 'ru', 600, 'Щекинский район', 'ЩЕКИНСКИЙ РАЙОН', NULL),
-(602, 'ru', 601, 'Советск', 'СОВЕТСК', NULL),
-(603, 'ru', 602, 'Щекино', 'ЩЕКИНО', NULL),
-(604, 'ru', 603, 'Ясногорский район', 'ЯСНОГОРСКИЙ РАЙОН', NULL),
-(605, 'ru', 604, 'Ясногорск', 'ЯСНОГОРСК', NULL),
-(606, 'ru', 605, 'Ярославская область', 'ЯРОСЛАВСКАЯ ОБЛАСТЬ', NULL),
-(607, 'ru', 606, 'Ярославль', 'ЯРОСЛАВЛЬ', NULL),
-(608, 'ru', 607, 'Ярославский район', 'ЯРОСЛАВСКИЙ РАЙОН', NULL),
-(609, 'ru', 608, 'Переславль-Залесский', 'ПЕРЕСЛАВЛЬ-ЗАЛЕССКИЙ', NULL),
-(610, 'ru', 609, 'Большесельский район', 'БОЛЬШЕСЕЛЬСКИЙ РАЙОН', NULL),
-(611, 'ru', 610, 'Брейтовский район', 'БРЕЙТОВСКИЙ РАЙОН', NULL),
-(612, 'ru', 611, 'Борисоглебский район', 'БОРИСОГЛЕБСКИЙ РАЙОН', NULL),
-(613, 'ru', 612, 'Гаврилов-Ямский район', 'ГАВРИЛОВ-ЯМСКИЙ РАЙОН', NULL),
-(614, 'ru', 613, 'Гаврилов-Ям', 'ГАВРИЛОВ-ЯМ', NULL),
-(615, 'ru', 614, 'Даниловский район', 'ДАНИЛОВСКИЙ РАЙОН', NULL),
-(616, 'ru', 615, 'Данилов', 'ДАНИЛОВ', NULL),
-(617, 'ru', 616, 'Любимский район', 'ЛЮБИМСКИЙ РАЙОН', NULL),
-(618, 'ru', 617, 'Любим', 'ЛЮБИМ', NULL),
-(619, 'ru', 618, 'Мышкинский район', 'МЫШКИНСКИЙ РАЙОН', NULL),
-(620, 'ru', 619, 'Мышкин', 'МЫШКИН', NULL),
-(621, 'ru', 620, 'Некоузский район', 'НЕКОУЗСКИЙ РАЙОН', NULL),
-(622, 'ru', 621, 'Некрасовский район', 'НЕКРАСОВСКИЙ РАЙОН', NULL),
-(623, 'ru', 622, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
-(624, 'ru', 623, 'Переславский район', 'ПЕРЕСЛАВСКИЙ РАЙОН', NULL),
-(625, 'ru', 624, 'Ростовский район', 'РОСТОВСКИЙ РАЙОН', NULL),
-(626, 'ru', 625, 'Ростов', 'РОСТОВ', NULL),
-(627, 'ru', 626, 'Пошехонский район', 'ПОШЕХОНСКИЙ РАЙОН', NULL),
-(628, 'ru', 627, 'Пошехонье', 'ПОШЕХОНЬЕ', NULL),
-(629, 'ru', 628, 'Рыбинский район', 'РЫБИНСКИЙ РАЙОН', NULL),
-(630, 'ru', 629, 'Рыбинск', 'РЫБИНСК', NULL),
-(631, 'ru', 630, 'Тутаевский район', 'ТУТАЕВСКИЙ РАЙОН', NULL),
-(632, 'ru', 631, 'Тутаев', 'ТУТАЕВ', NULL),
-(633, 'ru', 632, 'Угличский район', 'УГЛИЧСКИЙ РАЙОН', NULL),
-(634, 'ru', 633, 'Углич', 'УГЛИЧ', NULL),
-(635, 'ru', 634, 'Брянская область', 'БРЯНСКАЯ ОБЛАСТЬ', NULL),
-(636, 'ru', 635, 'Брянск', 'БРЯНСК', NULL),
-(637, 'ru', 636, 'Клинцы', 'КЛИНЦЫ', NULL),
-(638, 'ru', 637, 'Сельцо', 'СЕЛЬЦО', NULL),
-(639, 'ru', 638, 'Брянский район', 'БРЯНСКИЙ РАЙОН', NULL),
-(640, 'ru', 639, 'Новозыбков', 'НОВОЗЫБКОВ', NULL),
-(641, 'ru', 640, 'Брасовский район', 'БРАСОВСКИЙ РАЙОН', NULL),
-(642, 'ru', 641, 'Выгоничский район', 'ВЫГОНИЧСКИЙ РАЙОН', NULL),
-(643, 'ru', 642, 'Гордеевский район', 'ГОРДЕЕВСКИЙ РАЙОН', NULL),
-(644, 'ru', 643, 'Дубровский район', 'ДУБРОВСКИЙ РАЙОН', NULL),
-(645, 'ru', 644, 'Дятьковский район', 'ДЯТЬКОВСКИЙ РАЙОН', NULL),
-(646, 'ru', 645, 'Дятьково', 'ДЯТЬКОВО', NULL),
-(647, 'ru', 646, 'Фокино', 'ФОКИНО', NULL),
-(648, 'ru', 647, 'Жирятинский район', 'ЖИРЯТИНСКИЙ РАЙОН', NULL),
-(649, 'ru', 648, 'Жуковский район', 'ЖУКОВСКИЙ РАЙОН', NULL),
-(650, 'ru', 649, 'Жуковка', 'ЖУКОВКА', NULL),
-(651, 'ru', 650, 'Злынковский район', 'ЗЛЫНКОВСКИЙ РАЙОН', NULL),
-(652, 'ru', 651, 'Злынка', 'ЗЛЫНКА', NULL),
-(653, 'ru', 652, 'Карачевский район', 'КАРАЧЕВСКИЙ РАЙОН', NULL),
-(654, 'ru', 653, 'Карачев', 'КАРАЧЕВ', NULL),
-(655, 'ru', 654, 'Клетнянский район', 'КЛЕТНЯНСКИЙ РАЙОН', NULL),
-(656, 'ru', 655, 'Климовский район', 'КЛИМОВСКИЙ РАЙОН', NULL),
-(657, 'ru', 656, 'Клинцовский район', 'КЛИНЦОВСКИЙ РАЙОН', NULL),
-(658, 'ru', 657, 'Комаричский район', 'КОМАРИЧСКИЙ РАЙОН', NULL),
-(659, 'ru', 658, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
-(660, 'ru', 659, 'Мглинский район', 'МГЛИНСКИЙ РАЙОН', NULL),
-(661, 'ru', 660, 'Мглин', 'МГЛИН', NULL),
-(662, 'ru', 661, 'Навлинский район', 'НАВЛИНСКИЙ РАЙОН', NULL),
-(663, 'ru', 662, 'Новозыбковский район', 'НОВОЗЫБКОВСКИЙ РАЙОН', NULL),
-(664, 'ru', 663, 'Погарский район', 'ПОГАРСКИЙ РАЙОН', NULL),
-(665, 'ru', 664, 'Почепский район', 'ПОЧЕПСКИЙ РАЙОН', NULL),
-(666, 'ru', 665, 'Почеп', 'ПОЧЕП', NULL),
-(667, 'ru', 666, 'Рогнединский район', 'РОГНЕДИНСКИЙ РАЙОН', NULL),
-(668, 'ru', 667, 'Севский район', 'СЕВСКИЙ РАЙОН', NULL),
-(669, 'ru', 668, 'Севск', 'СЕВСК', NULL),
-(670, 'ru', 669, 'Стародубский район', 'СТАРОДУБСКИЙ РАЙОН', NULL),
-(671, 'ru', 670, 'Стародуб', 'СТАРОДУБ', NULL),
-(672, 'ru', 671, 'Суземский район', 'СУЗЕМСКИЙ РАЙОН', NULL),
-(673, 'ru', 672, 'Суражский район', 'СУРАЖСКИЙ РАЙОН', NULL),
-(674, 'ru', 673, 'Сураж', 'СУРАЖ', NULL),
-(675, 'ru', 674, 'Трубчевский район', 'ТРУБЧЕВСКИЙ РАЙОН', NULL),
-(676, 'ru', 675, 'Трубчевск', 'ТРУБЧЕВСК', NULL),
-(677, 'ru', 676, 'Унечский район', 'УНЕЧСКИЙ РАЙОН', NULL),
-(678, 'ru', 677, 'Унеча', 'УНЕЧА', NULL),
-(679, 'ru', 678, 'Воронежская область', 'ВОРОНЕЖСКАЯ ОБЛАСТЬ', NULL),
-(680, 'ru', 679, 'Воронеж', 'ВОРОНЕЖ', NULL),
-(681, 'ru', 680, 'Аннинский район', 'АННИНСКИЙ РАЙОН', NULL),
-(682, 'ru', 681, 'Бобровский район', 'БОБРОВСКИЙ РАЙОН', NULL),
-(683, 'ru', 682, 'Бобров', 'БОБРОВ', NULL),
-(684, 'ru', 683, 'Воронеж-45', 'ВОРОНЕЖ-45', NULL),
-(685, 'ru', 684, 'Нововоронеж', 'НОВОВОРОНЕЖ', NULL),
-(686, 'ru', 685, 'Богучарский район', 'БОГУЧАРСКИЙ РАЙОН', NULL),
-(687, 'ru', 686, 'Богучар', 'БОГУЧАР', NULL),
-(688, 'ru', 687, 'Борисоглебский район', 'БОРИСОГЛЕБСКИЙ РАЙОН', NULL),
-(689, 'ru', 688, 'Борисоглебск', 'БОРИСОГЛЕБСК', NULL),
-(690, 'ru', 689, 'Бутурлиновский район', 'БУТУРЛИНОВСКИЙ РАЙОН', NULL),
-(691, 'ru', 690, 'Бутурлиновка', 'БУТУРЛИНОВКА', NULL),
-(692, 'ru', 691, 'Верхнемамонский район', 'ВЕРХНЕМАМОНСКИЙ РАЙОН', NULL),
-(693, 'ru', 692, 'Верхнехавский район', 'ВЕРХНЕХАВСКИЙ РАЙОН', NULL),
-(694, 'ru', 693, 'Воробьевский район', 'ВОРОБЬЕВСКИЙ РАЙОН', NULL),
-(695, 'ru', 694, 'Грибановский район', 'ГРИБАНОВСКИЙ РАЙОН', NULL),
-(696, 'ru', 695, 'Калачеевский район', 'КАЛАЧЕЕВСКИЙ РАЙОН', NULL),
-(697, 'ru', 696, 'Калач', 'КАЛАЧ', NULL),
-(698, 'ru', 697, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
-(699, 'ru', 698, 'Кантемировский район', 'КАНТЕМИРОВСКИЙ РАЙОН', NULL),
-(700, 'ru', 699, 'Лискинский район', 'ЛИСКИНСКИЙ РАЙОН', NULL),
-(701, 'ru', 700, 'Лиски', 'ЛИСКИ', NULL),
-(702, 'ru', 701, 'Каширский район', 'КАШИРСКИЙ РАЙОН', NULL),
-(703, 'ru', 702, 'Нижнедевицкий район', 'НИЖНЕДЕВИЦКИЙ РАЙОН', NULL),
-(704, 'ru', 703, 'Новоусманский район', 'НОВОУСМАНСКИЙ РАЙОН', NULL),
-(705, 'ru', 704, 'Ольховатский район', 'ОЛЬХОВАТСКИЙ РАЙОН', NULL),
-(706, 'ru', 705, 'Острогожский район', 'ОСТРОГОЖСКИЙ РАЙОН', NULL),
-(707, 'ru', 706, 'Острогожск', 'ОСТРОГОЖСК', NULL),
-(708, 'ru', 707, 'Новохоперский район', 'НОВОХОПЕРСКИЙ РАЙОН', NULL),
-(709, 'ru', 708, 'Новохоперск', 'НОВОХОПЕРСК', NULL),
-(710, 'ru', 709, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
-(711, 'ru', 710, 'Павловск', 'ПАВЛОВСК', NULL),
-(712, 'ru', 711, 'Панинский район', 'ПАНИНСКИЙ РАЙОН', NULL),
-(713, 'ru', 712, 'Петропавловский район', 'ПЕТРОПАВЛОВСКИЙ РАЙОН', NULL),
-(714, 'ru', 713, 'Рамонский район', 'РАМОНСКИЙ РАЙОН', NULL),
-(715, 'ru', 714, 'Поворинский район', 'ПОВОРИНСКИЙ РАЙОН', NULL),
-(716, 'ru', 715, 'Поворино', 'ПОВОРИНО', NULL),
-(717, 'ru', 716, 'Подгоренский район', 'ПОДГОРЕНСКИЙ РАЙОН', NULL),
-(718, 'ru', 717, 'Репьевский район', 'РЕПЬЕВСКИЙ РАЙОН', NULL),
-(719, 'ru', 718, 'Россошанский район', 'РОССОШАНСКИЙ РАЙОН', NULL),
-(720, 'ru', 719, 'Россошь', 'РОССОШЬ', NULL),
-(721, 'ru', 720, 'Семилукский район', 'СЕМИЛУКСКИЙ РАЙОН', NULL),
-(722, 'ru', 721, 'Семилуки', 'СЕМИЛУКИ', NULL),
-(723, 'ru', 722, 'Хохольский район', 'ХОХОЛЬСКИЙ РАЙОН', NULL),
-(724, 'ru', 723, 'Таловский район', 'ТАЛОВСКИЙ РАЙОН', NULL),
-(725, 'ru', 724, 'Терновский район', 'ТЕРНОВСКИЙ РАЙОН', NULL),
-(726, 'ru', 725, 'Эртильский район', 'ЭРТИЛЬСКИЙ РАЙОН', NULL),
-(727, 'ru', 726, 'Эртиль', 'ЭРТИЛЬ', NULL),
-(728, 'ru', 727, 'Владимирская область', 'ВЛАДИМИРСКАЯ ОБЛАСТЬ', NULL),
-(729, 'ru', 728, 'Владимир', 'ВЛАДИМИР', NULL),
-(730, 'ru', 729, 'Гусь-Хрустальный', 'ГУСЬ-ХРУСТАЛЬНЫЙ', NULL),
-(731, 'ru', 730, 'Ковров', 'КОВРОВ', NULL),
-(732, 'ru', 731, 'Радужный', 'РАДУЖНЫЙ', NULL),
-(733, 'ru', 732, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
-(734, 'ru', 733, 'Александров', 'АЛЕКСАНДРОВ', NULL),
-(735, 'ru', 734, 'Струнино', 'СТРУНИНО', NULL),
-(736, 'ru', 735, 'Карабаново', 'КАРАБАНОВО', NULL),
-(737, 'ru', 736, 'Муром', 'МУРОМ', NULL),
-(738, 'ru', 737, 'Вязниковский район', 'ВЯЗНИКОВСКИЙ РАЙОН', NULL),
-(739, 'ru', 738, 'Вязники', 'ВЯЗНИКИ', NULL),
-(740, 'ru', 739, 'Гороховецкий район', 'ГОРОХОВЕЦКИЙ РАЙОН', NULL),
-(741, 'ru', 740, 'Гороховец', 'ГОРОХОВЕЦ', NULL),
-(742, 'ru', 741, 'Камешковский район', 'КАМЕШКОВСКИЙ РАЙОН', NULL),
-(743, 'ru', 742, 'Камешково', 'КАМЕШКОВО', NULL),
-(744, 'ru', 743, 'Гусь-Хрустальный район', 'ГУСЬ-ХРУСТАЛЬНЫЙ РАЙОН', NULL),
-(745, 'ru', 744, 'Курлово', 'КУРЛОВО', NULL),
-(746, 'ru', 745, 'Киржачский район', 'КИРЖАЧСКИЙ РАЙОН', NULL),
-(747, 'ru', 746, 'Киржач', 'КИРЖАЧ', NULL),
-(748, 'ru', 747, 'Ковровский район', 'КОВРОВСКИЙ РАЙОН', NULL),
-(749, 'ru', 748, 'Кольчугинский район', 'КОЛЬЧУГИНСКИЙ РАЙОН', NULL),
-(750, 'ru', 749, 'Кольчугино', 'КОЛЬЧУГИНО', NULL),
-(751, 'ru', 750, 'Меленковский район', 'МЕЛЕНКОВСКИЙ РАЙОН', NULL),
-(752, 'ru', 751, 'Меленки', 'МЕЛЕНКИ', NULL),
-(753, 'ru', 752, 'Муромский район', 'МУРОМСКИЙ РАЙОН', NULL),
-(754, 'ru', 753, 'Петушинский район', 'ПЕТУШИНСКИЙ РАЙОН', NULL),
-(755, 'ru', 754, 'Покров', 'ПОКРОВ', NULL),
-(756, 'ru', 755, 'Петушки', 'ПЕТУШКИ', NULL),
-(757, 'ru', 756, 'Костерево', 'КОСТЕРЕВО', NULL),
-(758, 'ru', 757, 'Селивановский район', 'СЕЛИВАНОВСКИЙ РАЙОН', NULL),
-(759, 'ru', 758, 'Собинский район', 'СОБИНСКИЙ РАЙОН', NULL),
-(760, 'ru', 759, 'Собинка', 'СОБИНКА', NULL),
-(761, 'ru', 760, 'Лакинск', 'ЛАКИНСК', NULL),
-(762, 'ru', 761, 'Судогодский район', 'СУДОГОДСКИЙ РАЙОН', NULL),
-(763, 'ru', 762, 'Судогда', 'СУДОГДА', NULL),
-(764, 'ru', 763, 'Суздальский район', 'СУЗДАЛЬСКИЙ РАЙОН', NULL),
-(765, 'ru', 764, 'Суздаль', 'СУЗДАЛЬ', NULL),
-(766, 'ru', 765, 'Юрьев-Польский район', 'ЮРЬЕВ-ПОЛЬСКИЙ РАЙОН', NULL),
-(767, 'ru', 766, 'Юрьев-Польский', 'ЮРЬЕВ-ПОЛЬСКИЙ', NULL),
-(768, 'ru', 767, 'Северо-Запад', 'СЕВЕРО-ЗАПАД', NULL),
-(769, 'ru', 768, 'Ленинградская область', 'ЛЕНИНГРАДСКАЯ ОБЛАСТЬ', NULL),
-(770, 'ru', 769, 'Волосовский район', 'ВОЛОСОВСКИЙ РАЙОН', NULL),
-(771, 'ru', 770, 'Волосово', 'ВОЛОСОВО', NULL),
-(772, 'ru', 771, 'Бокситогорский район', 'БОКСИТОГОРСКИЙ РАЙОН', NULL),
-(773, 'ru', 772, 'Бокситогорск', 'БОКСИТОГОРСК', NULL),
-(774, 'ru', 773, 'Пикалево', 'ПИКАЛЕВО', NULL),
-(775, 'ru', 774, 'Сосновый Бор', 'СОСНОВЫЙ БОР', NULL),
-(776, 'ru', 775, 'Волховский район', 'ВОЛХОВСКИЙ РАЙОН', NULL),
-(777, 'ru', 776, 'Волхов', 'ВОЛХОВ', NULL),
-(778, 'ru', 777, 'Новая Ладога', 'НОВАЯ ЛАДОГА', NULL),
-(779, 'ru', 778, 'Сясьстрой', 'СЯСЬСТРОЙ', NULL),
-(780, 'ru', 779, 'Всеволожский район', 'ВСЕВОЛОЖСКИЙ РАЙОН', NULL),
-(781, 'ru', 780, 'Сертолово', 'СЕРТОЛОВО', NULL),
-(782, 'ru', 781, 'Всеволожск', 'ВСЕВОЛОЖСК', NULL),
-(783, 'ru', 782, 'Выборгский район', 'ВЫБОРГСКИЙ РАЙОН', NULL),
-(784, 'ru', 783, 'Выборг', 'ВЫБОРГ', NULL),
-(785, 'ru', 784, 'Каменногорск', 'КАМЕННОГОРСК', NULL),
-(786, 'ru', 785, 'Высоцк', 'ВЫСОЦК', NULL),
-(787, 'ru', 786, 'Приморск', 'ПРИМОРСК', NULL),
-(788, 'ru', 787, 'Светогорск', 'СВЕТОГОРСК', NULL),
-(789, 'ru', 788, 'Гатчинский район', 'ГАТЧИНСКИЙ РАЙОН', NULL),
-(790, 'ru', 789, 'Коммунар', 'КОММУНАР', NULL),
-(791, 'ru', 790, 'Гатчина', 'ГАТЧИНА', NULL),
-(792, 'ru', 791, 'Кингисеппский район', 'КИНГИСЕППСКИЙ РАЙОН', NULL),
-(793, 'ru', 792, 'Ивангород', 'ИВАНГОРОД', NULL),
-(794, 'ru', 793, 'Кингисепп', 'КИНГИСЕПП', NULL),
-(795, 'ru', 794, 'Киришский район', 'КИРИШСКИЙ РАЙОН', NULL),
-(796, 'ru', 795, 'Кириши', 'КИРИШИ', NULL),
-(797, 'ru', 796, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(798, 'ru', 797, 'Шлиссельбург', 'ШЛИССЕЛЬБУРГ', NULL),
-(799, 'ru', 798, 'Кировск', 'КИРОВСК', NULL),
-(800, 'ru', 799, 'Отрадное', 'ОТРАДНОЕ', NULL),
-(801, 'ru', 800, 'Лодейнопольский район', 'ЛОДЕЙНОПОЛЬСКИЙ РАЙОН', NULL),
-(802, 'ru', 801, 'Лодейное Поле', 'ЛОДЕЙНОЕ ПОЛЕ', NULL),
-(803, 'ru', 802, 'Лужский район', 'ЛУЖСКИЙ РАЙОН', NULL),
-(804, 'ru', 803, 'Луга', 'ЛУГА', NULL),
-(805, 'ru', 804, 'Ломоносовский район', 'ЛОМОНОСОВСКИЙ РАЙОН', NULL),
-(806, 'ru', 805, 'Подпорожский район', 'ПОДПОРОЖСКИЙ РАЙОН', NULL),
-(807, 'ru', 806, 'Подпорожье', 'ПОДПОРОЖЬЕ', NULL),
-(808, 'ru', 807, 'Приозерский район', 'ПРИОЗЕРСКИЙ РАЙОН', NULL),
-(809, 'ru', 808, 'Приозерск', 'ПРИОЗЕРСК', NULL),
-(810, 'ru', 809, 'Сланцевский район', 'СЛАНЦЕВСКИЙ РАЙОН', NULL),
-(811, 'ru', 810, 'Сланцы', 'СЛАНЦЫ', NULL),
-(812, 'ru', 811, 'Тихвинский район', 'ТИХВИНСКИЙ РАЙОН', NULL),
-(813, 'ru', 812, 'Тихвин', 'ТИХВИН', NULL),
-(814, 'ru', 813, 'Тосненский район', 'ТОСНЕНСКИЙ РАЙОН', NULL),
-(815, 'ru', 814, 'Любань', 'ЛЮБАНЬ', NULL),
-(816, 'ru', 815, 'Никольское', 'НИКОЛЬСКОЕ', NULL),
-(817, 'ru', 816, 'Тосно', 'ТОСНО', NULL),
-(818, 'ru', 817, 'Санкт-Петербург', 'САНКТ-ПЕТЕРБУРГ', NULL),
-(819, 'ru', 818, 'Зеленогорск', 'ЗЕЛЕНОГОРСК', NULL),
-(820, 'ru', 819, 'Кронштадт', 'КРОНШТАДТ', NULL),
-(821, 'ru', 820, 'Красное Село', 'КРАСНОЕ СЕЛО', NULL),
-(822, 'ru', 821, 'Колпино', 'КОЛПИНО', NULL),
-(823, 'ru', 822, 'Сестрорецк', 'СЕСТРОРЕЦК', NULL),
-(824, 'ru', 823, 'Пушкин', 'ПУШКИН', NULL),
-(825, 'ru', 824, 'Павловск', 'ПАВЛОВСК', NULL),
-(826, 'ru', 825, 'Петергоф', 'ПЕТЕРГОФ', NULL),
-(827, 'ru', 826, 'Ломоносов', 'ЛОМОНОСОВ', NULL),
-(828, 'ru', 827, 'Республика Коми', 'РЕСПУБЛИКА КОМИ', NULL),
-(829, 'ru', 828, 'Сыктывкар', 'СЫКТЫВКАР', NULL),
-(830, 'ru', 829, 'Воркута', 'ВОРКУТА', NULL),
-(831, 'ru', 830, 'Вуктыл', 'ВУКТЫЛ', NULL),
-(832, 'ru', 831, 'Сосногорск', 'СОСНОГОРСК', NULL),
-(833, 'ru', 832, 'Печора', 'ПЕЧОРА', NULL),
-(834, 'ru', 833, 'Усинск', 'УСИНСК', NULL),
-(835, 'ru', 834, 'Инта', 'ИНТА', NULL),
-(836, 'ru', 835, 'Ухта', 'УХТА', NULL),
-(837, 'ru', 836, 'Ижемский район', 'ИЖЕМСКИЙ РАЙОН', NULL),
-(838, 'ru', 837, 'Княжпогостский район', 'КНЯЖПОГОСТСКИЙ РАЙОН', NULL),
-(839, 'ru', 838, 'Емва', 'ЕМВА', NULL),
-(840, 'ru', 839, 'Койгородский район', 'КОЙГОРОДСКИЙ РАЙОН', NULL),
-(841, 'ru', 840, 'Корткеросский район', 'КОРТКЕРОССКИЙ РАЙОН', NULL),
-(842, 'ru', 841, 'Сысольский район', 'СЫСОЛЬСКИЙ РАЙОН', NULL),
-(843, 'ru', 842, 'Сыктывдинский район', 'СЫКТЫВДИНСКИЙ РАЙОН', NULL),
-(844, 'ru', 843, 'Прилузский район', 'ПРИЛУЗСКИЙ РАЙОН', NULL),
-(845, 'ru', 844, 'Троицко-Печорский район', 'ТРОИЦКО-ПЕЧОРСКИЙ РАЙОН', NULL),
-(846, 'ru', 845, 'Удорский район', 'УДОРСКИЙ РАЙОН', NULL),
-(847, 'ru', 846, 'Усть-Вымский район', 'УСТЬ-ВЫМСКИЙ РАЙОН', NULL),
-(848, 'ru', 847, 'Микунь', 'МИКУНЬ', NULL),
-(849, 'ru', 848, 'Усть-Цилемский район', 'УСТЬ-ЦИЛЕМСКИЙ РАЙОН', NULL),
-(850, 'ru', 849, 'Усть-Куломский район', 'УСТЬ-КУЛОМСКИЙ РАЙОН', NULL),
-(851, 'ru', 850, 'Республика Карелия', 'РЕСПУБЛИКА КАРЕЛИЯ', NULL),
-(852, 'ru', 851, 'Костомукша', 'КОСТОМУКША', NULL),
-(853, 'ru', 852, 'Петрозаводск', 'ПЕТРОЗАВОДСК', NULL),
-(854, 'ru', 853, 'Прионежский район', 'ПРИОНЕЖСКИЙ РАЙОН', NULL),
-(855, 'ru', 854, 'Сортавала', 'СОРТАВАЛА', NULL),
-(856, 'ru', 855, 'Калевальский район', 'КАЛЕВАЛЬСКИЙ РАЙОН', NULL),
-(857, 'ru', 856, 'Кемский район', 'КЕМСКИЙ РАЙОН', NULL),
-(858, 'ru', 857, 'Кемь', 'КЕМЬ', NULL),
-(859, 'ru', 858, 'Кондопожский район', 'КОНДОПОЖСКИЙ РАЙОН', NULL),
-(860, 'ru', 859, 'Кондопога', 'КОНДОПОГА', NULL),
-(861, 'ru', 860, 'Лахденпохский район', 'ЛАХДЕНПОХСКИЙ РАЙОН', NULL),
-(862, 'ru', 861, 'Лахденпохья', 'ЛАХДЕНПОХЬЯ', NULL),
-(863, 'ru', 862, 'Беломорский район', 'БЕЛОМОРСКИЙ РАЙОН', NULL),
-(864, 'ru', 863, 'Беломорск', 'БЕЛОМОРСК', NULL),
-(865, 'ru', 864, 'Лоухский район', 'ЛОУХСКИЙ РАЙОН', NULL),
-(866, 'ru', 865, 'Медвежьегорский район', 'МЕДВЕЖЬЕГОРСКИЙ РАЙОН', NULL),
-(867, 'ru', 866, 'Медвежьегорск', 'МЕДВЕЖЬЕГОРСК', NULL),
-(868, 'ru', 867, 'Муезерский район', 'МУЕЗЕРСКИЙ РАЙОН', NULL),
-(869, 'ru', 868, 'Олонецкий район', 'ОЛОНЕЦКИЙ РАЙОН', NULL),
-(870, 'ru', 869, 'Олонец', 'ОЛОНЕЦ', NULL),
-(871, 'ru', 870, 'Пудожский район', 'ПУДОЖСКИЙ РАЙОН', NULL),
-(872, 'ru', 871, 'Пудож', 'ПУДОЖ', NULL),
-(873, 'ru', 872, 'Питкярантский район', 'ПИТКЯРАНТСКИЙ РАЙОН', NULL),
-(874, 'ru', 873, 'Питкяранта', 'ПИТКЯРАНТА', NULL),
-(875, 'ru', 874, 'Пряжинский район', 'ПРЯЖИНСКИЙ РАЙОН', NULL),
-(876, 'ru', 875, 'Суоярвский район', 'СУОЯРВСКИЙ РАЙОН', NULL),
-(877, 'ru', 876, 'Суоярви', 'СУОЯРВИ', NULL),
-(878, 'ru', 877, 'Сегежский район', 'СЕГЕЖСКИЙ РАЙОН', NULL),
-(879, 'ru', 878, 'Сегежа', 'СЕГЕЖА', NULL),
-(880, 'ru', 879, 'Вологодская область', 'ВОЛОГОДСКАЯ ОБЛАСТЬ', NULL),
-(881, 'ru', 880, 'Череповец', 'ЧЕРЕПОВЕЦ', NULL),
-(882, 'ru', 881, 'Вологда', 'ВОЛОГДА', NULL),
-(883, 'ru', 882, 'Вологодский район', 'ВОЛОГОДСКИЙ РАЙОН', NULL),
-(884, 'ru', 883, 'Белозерский район', 'БЕЛОЗЕРСКИЙ РАЙОН', NULL),
-(885, 'ru', 884, 'Белозерск', 'БЕЛОЗЕРСК', NULL),
-(886, 'ru', 885, 'Бабаевский район', 'БАБАЕВСКИЙ РАЙОН', NULL),
-(887, 'ru', 886, 'Бабаево', 'БАБАЕВО', NULL),
-(888, 'ru', 887, 'Бабушкинский район', 'БАБУШКИНСКИЙ РАЙОН', NULL),
-(889, 'ru', 888, 'Вашкинский район', 'ВАШКИНСКИЙ РАЙОН', NULL),
-(890, 'ru', 889, 'Великоустюгский район', 'ВЕЛИКОУСТЮГСКИЙ РАЙОН', NULL),
-(891, 'ru', 890, 'Великий Устюг', 'ВЕЛИКИЙ УСТЮГ', NULL),
-(892, 'ru', 891, 'Красавино', 'КРАСАВИНО', NULL),
-(893, 'ru', 892, 'Вожегодский район', 'ВОЖЕГОДСКИЙ РАЙОН', NULL),
-(894, 'ru', 893, 'Верховажский район', 'ВЕРХОВАЖСКИЙ РАЙОН', NULL),
-(895, 'ru', 894, 'Грязовецкий район', 'ГРЯЗОВЕЦКИЙ РАЙОН', NULL);
-INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
-(896, 'ru', 895, 'Грязовец', 'ГРЯЗОВЕЦ', NULL),
-(897, 'ru', 896, 'Вытегорский район', 'ВЫТЕГОРСКИЙ РАЙОН', NULL),
-(898, 'ru', 897, 'Вытегра', 'ВЫТЕГРА', NULL),
-(899, 'ru', 898, 'Кадуйский район', 'КАДУЙСКИЙ РАЙОН', NULL),
-(900, 'ru', 899, 'Кирилловский район', 'КИРИЛЛОВСКИЙ РАЙОН', NULL),
-(901, 'ru', 900, 'Кириллов', 'КИРИЛЛОВ', NULL),
-(902, 'ru', 901, 'Кичменгско-Городецкий район', 'КИЧМЕНГСКО-ГОРОДЕЦКИЙ РАЙОН', NULL),
-(903, 'ru', 902, 'Нюксенский район', 'НЮКСЕНСКИЙ РАЙОН', NULL),
-(904, 'ru', 903, 'Междуреченский район', 'МЕЖДУРЕЧЕНСКИЙ РАЙОН', NULL),
-(905, 'ru', 904, 'Никольский район', 'НИКОЛЬСКИЙ РАЙОН', NULL),
-(906, 'ru', 905, 'Никольск', 'НИКОЛЬСК', NULL),
-(907, 'ru', 906, 'Сямженский район', 'СЯМЖЕНСКИЙ РАЙОН', NULL),
-(908, 'ru', 907, 'Сокольский район', 'СОКОЛЬСКИЙ РАЙОН', NULL),
-(909, 'ru', 908, 'Кадников', 'КАДНИКОВ', NULL),
-(910, 'ru', 909, 'Сокол', 'СОКОЛ', NULL),
-(911, 'ru', 910, 'Тотемский район', 'ТОТЕМСКИЙ РАЙОН', NULL),
-(912, 'ru', 911, 'Тотьма', 'ТОТЬМА', NULL),
-(913, 'ru', 912, 'Тарногский район', 'ТАРНОГСКИЙ РАЙОН', NULL),
-(914, 'ru', 913, 'Усть-Кубинский район', 'УСТЬ-КУБИНСКИЙ РАЙОН', NULL),
-(915, 'ru', 914, 'Устюженский район', 'УСТЮЖЕНСКИЙ РАЙОН', NULL),
-(916, 'ru', 915, 'Устюжна', 'УСТЮЖНА', NULL),
-(917, 'ru', 916, 'Харовский район', 'ХАРОВСКИЙ РАЙОН', NULL),
-(918, 'ru', 917, 'Харовск', 'ХАРОВСК', NULL),
-(919, 'ru', 918, 'Череповецкий район', 'ЧЕРЕПОВЕЦКИЙ РАЙОН', NULL),
-(920, 'ru', 919, 'Чагодощенский район', 'ЧАГОДОЩЕНСКИЙ РАЙОН', NULL),
-(921, 'ru', 920, 'Шекснинский район', 'ШЕКСНИНСКИЙ РАЙОН', NULL),
-(922, 'ru', 921, 'Архангельская область', 'АРХАНГЕЛЬСКАЯ ОБЛАСТЬ', NULL),
-(923, 'ru', 922, 'Новодвинск', 'НОВОДВИНСК', NULL),
-(924, 'ru', 923, 'Северодвинск', 'СЕВЕРОДВИНСК', NULL),
-(925, 'ru', 924, 'Мирный', 'МИРНЫЙ', NULL),
-(926, 'ru', 925, 'Архангельск', 'АРХАНГЕЛЬСК', NULL),
-(927, 'ru', 926, 'Коряжма', 'КОРЯЖМА', NULL),
-(928, 'ru', 927, 'Приморский район', 'ПРИМОРСКИЙ РАЙОН', NULL),
-(929, 'ru', 928, 'Вельский район', 'ВЕЛЬСКИЙ РАЙОН', NULL),
-(930, 'ru', 929, 'Вельск', 'ВЕЛЬСК', NULL),
-(931, 'ru', 930, 'Верхнетоемский район', 'ВЕРХНЕТОЕМСКИЙ РАЙОН', NULL),
-(932, 'ru', 931, 'Виноградовский район', 'ВИНОГРАДОВСКИЙ РАЙОН', NULL),
-(933, 'ru', 932, 'Каргопольский район', 'КАРГОПОЛЬСКИЙ РАЙОН', NULL),
-(934, 'ru', 933, 'Каргополь', 'КАРГОПОЛЬ', NULL),
-(935, 'ru', 934, 'Вилегодский район', 'ВИЛЕГОДСКИЙ РАЙОН', NULL),
-(936, 'ru', 935, 'Коношский район', 'КОНОШСКИЙ РАЙОН', NULL),
-(937, 'ru', 936, 'Котласский район', 'КОТЛАССКИЙ РАЙОН', NULL),
-(938, 'ru', 937, 'Котлас', 'КОТЛАС', NULL),
-(939, 'ru', 938, 'Сольвычегодск', 'СОЛЬВЫЧЕГОДСК', NULL),
-(940, 'ru', 939, 'Красноборский район', 'КРАСНОБОРСКИЙ РАЙОН', NULL),
-(941, 'ru', 940, 'Мезенский район', 'МЕЗЕНСКИЙ РАЙОН', NULL),
-(942, 'ru', 941, 'Мезень', 'МЕЗЕНЬ', NULL),
-(943, 'ru', 942, 'Ленский район', 'ЛЕНСКИЙ РАЙОН', NULL),
-(944, 'ru', 943, 'Лешуконский район', 'ЛЕШУКОНСКИЙ РАЙОН', NULL),
-(945, 'ru', 944, 'Няндомский район', 'НЯНДОМСКИЙ РАЙОН', NULL),
-(946, 'ru', 945, 'Няндома', 'НЯНДОМА', NULL),
-(947, 'ru', 946, 'Онежский район', 'ОНЕЖСКИЙ РАЙОН', NULL),
-(948, 'ru', 947, 'Онега', 'ОНЕГА', NULL),
-(949, 'ru', 948, 'Плесецкий район', 'ПЛЕСЕЦКИЙ РАЙОН', NULL),
-(950, 'ru', 949, 'Пинежский район', 'ПИНЕЖСКИЙ РАЙОН', NULL),
-(951, 'ru', 950, 'Устьянский район', 'УСТЬЯНСКИЙ РАЙОН', NULL),
-(952, 'ru', 951, 'Холмогорский район', 'ХОЛМОГОРСКИЙ РАЙОН', NULL),
-(953, 'ru', 952, 'Шенкурский район', 'ШЕНКУРСКИЙ РАЙОН', NULL),
-(954, 'ru', 953, 'Шенкурск', 'ШЕНКУРСК', NULL),
-(955, 'ru', 954, 'Соловецкий район', 'СОЛОВЕЦКИЙ РАЙОН', NULL),
-(956, 'ru', 955, 'Мурманская область', 'МУРМАНСКАЯ ОБЛАСТЬ', NULL),
-(957, 'ru', 956, 'Мурманск', 'МУРМАНСК', NULL),
-(958, 'ru', 957, 'Апатиты', 'АПАТИТЫ', NULL),
-(959, 'ru', 958, 'Оленегорск', 'ОЛЕНЕГОРСК', NULL),
-(960, 'ru', 959, 'Заозерск', 'ЗАОЗЕРСК', NULL),
-(961, 'ru', 960, 'Островной', 'ОСТРОВНОЙ', NULL),
-(962, 'ru', 961, 'Полярные Зори', 'ПОЛЯРНЫЕ ЗОРИ', NULL),
-(963, 'ru', 962, 'Кировск', 'КИРОВСК', NULL),
-(964, 'ru', 963, 'Кандалакша', 'КАНДАЛАКША', NULL),
-(965, 'ru', 964, 'Мончегорск', 'МОНЧЕГОРСК', NULL),
-(966, 'ru', 965, 'Кольский район', 'КОЛЬСКИЙ РАЙОН', NULL),
-(967, 'ru', 966, 'Кола', 'КОЛА', NULL),
-(968, 'ru', 967, 'Оленегорск-2', 'ОЛЕНЕГОРСК-2', NULL),
-(969, 'ru', 968, 'Ковдорский район', 'КОВДОРСКИЙ РАЙОН', NULL),
-(970, 'ru', 969, 'Ковдор', 'КОВДОР', NULL),
-(971, 'ru', 970, 'Оленегорск-4', 'ОЛЕНЕГОРСК-4', NULL),
-(972, 'ru', 971, 'Североморск', 'СЕВЕРОМОРСК', NULL),
-(973, 'ru', 972, 'Ловозерский район', 'ЛОВОЗЕРСКИЙ РАЙОН', NULL),
-(974, 'ru', 973, 'Оленегорск-1', 'ОЛЕНЕГОРСК-1', NULL),
-(975, 'ru', 974, 'Печенгский район', 'ПЕЧЕНГСКИЙ РАЙОН', NULL),
-(976, 'ru', 975, 'Заполярный', 'ЗАПОЛЯРНЫЙ', NULL),
-(977, 'ru', 976, 'Гаджиево', 'ГАДЖИЕВО', NULL),
-(978, 'ru', 977, 'Полярный', 'ПОЛЯРНЫЙ', NULL),
-(979, 'ru', 978, 'Снежногорск', 'СНЕЖНОГОРСК', NULL),
-(980, 'ru', 979, 'Терский район', 'ТЕРСКИЙ РАЙОН', NULL),
-(981, 'ru', 980, 'Калининградская область', 'КАЛИНИНГРАДСКАЯ ОБЛАСТЬ', NULL),
-(982, 'ru', 981, 'Калининград', 'КАЛИНИНГРАД', NULL),
-(983, 'ru', 982, 'Пионерский', 'ПИОНЕРСКИЙ', NULL),
-(984, 'ru', 983, 'Мамоново', 'МАМОНОВО', NULL),
-(985, 'ru', 984, 'Гвардейский район', 'ГВАРДЕЙСКИЙ РАЙОН', NULL),
-(986, 'ru', 985, 'Гвардейск', 'ГВАРДЕЙСК', NULL),
-(987, 'ru', 986, 'Советск', 'СОВЕТСК', NULL),
-(988, 'ru', 987, 'Багратионовский район', 'БАГРАТИОНОВСКИЙ РАЙОН', NULL),
-(989, 'ru', 988, 'Багратионовск', 'БАГРАТИОНОВСК', NULL),
-(990, 'ru', 989, 'Ладушкин', 'ЛАДУШКИН', NULL),
-(991, 'ru', 990, 'Светлый', 'СВЕТЛЫЙ', NULL),
-(992, 'ru', 991, 'Гурьевский район', 'ГУРЬЕВСКИЙ РАЙОН', NULL),
-(993, 'ru', 992, 'Гурьевск', 'ГУРЬЕВСК', NULL),
-(994, 'ru', 993, 'Неманский район', 'НЕМАНСКИЙ РАЙОН', NULL),
-(995, 'ru', 994, 'Неман', 'НЕМАН', NULL),
-(996, 'ru', 995, 'Зеленоградский район', 'ЗЕЛЕНОГРАДСКИЙ РАЙОН', NULL),
-(997, 'ru', 996, 'Зеленоградск', 'ЗЕЛЕНОГРАДСК', NULL),
-(998, 'ru', 997, 'Краснознаменский район', 'КРАСНОЗНАМЕНСКИЙ РАЙОН', NULL),
-(999, 'ru', 998, 'Краснознаменск', 'КРАСНОЗНАМЕНСК', NULL),
-(1000, 'ru', 999, 'Гусевский район', 'ГУСЕВСКИЙ РАЙОН', NULL),
-(1001, 'ru', 1000, 'Гусев', 'ГУСЕВ', NULL),
-(1002, 'ru', 1001, 'Озерский район', 'ОЗЕРСКИЙ РАЙОН', NULL),
-(1003, 'ru', 1002, 'Озерск', 'ОЗЕРСК', NULL),
-(1004, 'ru', 1003, 'Нестеровский район', 'НЕСТЕРОВСКИЙ РАЙОН', NULL),
-(1005, 'ru', 1004, 'Нестеров', 'НЕСТЕРОВ', NULL),
-(1006, 'ru', 1005, 'Правдинский район', 'ПРАВДИНСКИЙ РАЙОН', NULL),
-(1007, 'ru', 1006, 'Правдинск', 'ПРАВДИНСК', NULL),
-(1008, 'ru', 1007, 'Полесский район', 'ПОЛЕССКИЙ РАЙОН', NULL),
-(1009, 'ru', 1008, 'Полесск', 'ПОЛЕССК', NULL),
-(1010, 'ru', 1009, 'Славский район', 'СЛАВСКИЙ РАЙОН', NULL),
-(1011, 'ru', 1010, 'Славск', 'СЛАВСК', NULL),
-(1012, 'ru', 1011, 'Балтийский район', 'БАЛТИЙСКИЙ РАЙОН', NULL),
-(1013, 'ru', 1012, 'Приморск', 'ПРИМОРСК', NULL),
-(1014, 'ru', 1013, 'Балтийск', 'БАЛТИЙСК', NULL),
-(1015, 'ru', 1014, 'Черняховский район', 'ЧЕРНЯХОВСКИЙ РАЙОН', NULL),
-(1016, 'ru', 1015, 'Черняховск', 'ЧЕРНЯХОВСК', NULL),
-(1017, 'ru', 1016, 'Светлогорский район', 'СВЕТЛОГОРСКИЙ РАЙОН', NULL),
-(1018, 'ru', 1017, 'Светлогорск', 'СВЕТЛОГОРСК', NULL),
-(1019, 'ru', 1018, 'Псковская область', 'ПСКОВСКАЯ ОБЛАСТЬ', NULL),
-(1020, 'ru', 1019, 'Псков', 'ПСКОВ', NULL),
-(1021, 'ru', 1020, 'Великие Луки', 'ВЕЛИКИЕ ЛУКИ', NULL),
-(1022, 'ru', 1021, 'Великолукский район', 'ВЕЛИКОЛУКСКИЙ РАЙОН', NULL),
-(1023, 'ru', 1022, 'Великие Луки-1', 'ВЕЛИКИЕ ЛУКИ-1', NULL),
-(1024, 'ru', 1023, 'Бежаницкий район', 'БЕЖАНИЦКИЙ РАЙОН', NULL),
-(1025, 'ru', 1024, 'Дедовичский район', 'ДЕДОВИЧСКИЙ РАЙОН', NULL),
-(1026, 'ru', 1025, 'Гдовский район', 'ГДОВСКИЙ РАЙОН', NULL),
-(1027, 'ru', 1026, 'Гдов', 'ГДОВ', NULL),
-(1028, 'ru', 1027, 'Локнянский район', 'ЛОКНЯНСКИЙ РАЙОН', NULL),
-(1029, 'ru', 1028, 'Куньинский район', 'КУНЬИНСКИЙ РАЙОН', NULL),
-(1030, 'ru', 1029, 'Красногородский район', 'КРАСНОГОРОДСКИЙ РАЙОН', NULL),
-(1031, 'ru', 1030, 'Дновский район', 'ДНОВСКИЙ РАЙОН', NULL),
-(1032, 'ru', 1031, 'Дно', 'ДНО', NULL),
-(1033, 'ru', 1032, 'Невельский район', 'НЕВЕЛЬСКИЙ РАЙОН', NULL),
-(1034, 'ru', 1033, 'Невель', 'НЕВЕЛЬ', NULL),
-(1035, 'ru', 1034, 'Новосокольнический район', 'НОВОСОКОЛЬНИЧЕСКИЙ РАЙОН', NULL),
-(1036, 'ru', 1035, 'Новосокольники', 'НОВОСОКОЛЬНИКИ', NULL),
-(1037, 'ru', 1036, 'Новоржевский район', 'НОВОРЖЕВСКИЙ РАЙОН', NULL),
-(1038, 'ru', 1037, 'Новоржев', 'НОВОРЖЕВ', NULL),
-(1039, 'ru', 1038, 'Островский район', 'ОСТРОВСКИЙ РАЙОН', NULL),
-(1040, 'ru', 1039, 'Остров', 'ОСТРОВ', NULL),
-(1041, 'ru', 1040, 'Опочецкий район', 'ОПОЧЕЦКИЙ РАЙОН', NULL),
-(1042, 'ru', 1041, 'Опочка', 'ОПОЧКА', NULL),
-(1043, 'ru', 1042, 'Палкинский район', 'ПАЛКИНСКИЙ РАЙОН', NULL),
-(1044, 'ru', 1043, 'Печорский район', 'ПЕЧОРСКИЙ РАЙОН', NULL),
-(1045, 'ru', 1044, 'Печоры', 'ПЕЧОРЫ', NULL),
-(1046, 'ru', 1045, 'Плюсский район', 'ПЛЮССКИЙ РАЙОН', NULL),
-(1047, 'ru', 1046, 'Порховский район', 'ПОРХОВСКИЙ РАЙОН', NULL),
-(1048, 'ru', 1047, 'Порхов', 'ПОРХОВ', NULL),
-(1049, 'ru', 1048, 'Пустошкинский район', 'ПУСТОШКИНСКИЙ РАЙОН', NULL),
-(1050, 'ru', 1049, 'Пустошка', 'ПУСТОШКА', NULL),
-(1051, 'ru', 1050, 'Пушкиногорский район', 'ПУШКИНОГОРСКИЙ РАЙОН', NULL),
-(1052, 'ru', 1051, 'Пыталовский район', 'ПЫТАЛОВСКИЙ РАЙОН', NULL),
-(1053, 'ru', 1052, 'Пыталово', 'ПЫТАЛОВО', NULL),
-(1054, 'ru', 1053, 'Себежский район', 'СЕБЕЖСКИЙ РАЙОН', NULL),
-(1055, 'ru', 1054, 'Себеж', 'СЕБЕЖ', NULL),
-(1056, 'ru', 1055, 'Усвятский район', 'УСВЯТСКИЙ РАЙОН', NULL),
-(1057, 'ru', 1056, 'Струго-Красненский район', 'СТРУГО-КРАСНЕНСКИЙ РАЙОН', NULL),
-(1058, 'ru', 1057, 'Псковский район', 'ПСКОВСКИЙ РАЙОН', NULL),
-(1059, 'ru', 1058, 'Новгородская область', 'НОВГОРОДСКАЯ ОБЛАСТЬ', NULL),
-(1060, 'ru', 1059, 'Новгородский район', 'НОВГОРОДСКИЙ РАЙОН', NULL),
-(1061, 'ru', 1060, 'Великий Новгород', 'ВЕЛИКИЙ НОВГОРОД', NULL),
-(1062, 'ru', 1061, 'Батецкий район', 'БАТЕЦКИЙ РАЙОН', NULL),
-(1063, 'ru', 1062, 'Боровичский район', 'БОРОВИЧСКИЙ РАЙОН', NULL),
-(1064, 'ru', 1063, 'Боровичи', 'БОРОВИЧИ', NULL),
-(1065, 'ru', 1064, 'Валдайский район', 'ВАЛДАЙСКИЙ РАЙОН', NULL),
-(1066, 'ru', 1065, 'Валдай', 'ВАЛДАЙ', NULL),
-(1067, 'ru', 1066, 'Волотовский район', 'ВОЛОТОВСКИЙ РАЙОН', NULL),
-(1068, 'ru', 1067, 'Демянский район', 'ДЕМЯНСКИЙ РАЙОН', NULL),
-(1069, 'ru', 1068, 'Любытинский район', 'ЛЮБЫТИНСКИЙ РАЙОН', NULL),
-(1070, 'ru', 1069, 'Маловишерский район', 'МАЛОВИШЕРСКИЙ РАЙОН', NULL),
-(1071, 'ru', 1070, 'Малая Вишера', 'МАЛАЯ ВИШЕРА', NULL),
-(1072, 'ru', 1071, 'Крестецкий район', 'КРЕСТЕЦКИЙ РАЙОН', NULL),
-(1073, 'ru', 1072, 'Мошенской район', 'МОШЕНСКОЙ РАЙОН', NULL),
-(1074, 'ru', 1073, 'Марёвский район', 'МАРЁВСКИЙ РАЙОН', NULL),
-(1075, 'ru', 1074, 'Окуловский район', 'ОКУЛОВСКИЙ РАЙОН', NULL),
-(1076, 'ru', 1075, 'Окуловка', 'ОКУЛОВКА', NULL),
-(1077, 'ru', 1076, 'Парфинский район', 'ПАРФИНСКИЙ РАЙОН', NULL),
-(1078, 'ru', 1077, 'Пестовский район', 'ПЕСТОВСКИЙ РАЙОН', NULL),
-(1079, 'ru', 1078, 'Пестово', 'ПЕСТОВО', NULL),
-(1080, 'ru', 1079, 'Солецкий район', 'СОЛЕЦКИЙ РАЙОН', NULL),
-(1081, 'ru', 1080, 'Сольцы', 'СОЛЬЦЫ', NULL),
-(1082, 'ru', 1081, 'Сольцы 2', 'СОЛЬЦЫ 2', NULL),
-(1083, 'ru', 1082, 'Поддорский район', 'ПОДДОРСКИЙ РАЙОН', NULL),
-(1084, 'ru', 1083, 'Хвойнинский район', 'ХВОЙНИНСКИЙ РАЙОН', NULL),
-(1085, 'ru', 1084, 'Старорусский район', 'СТАРОРУССКИЙ РАЙОН', NULL),
-(1086, 'ru', 1085, 'Старая Русса', 'СТАРАЯ РУССА', NULL),
-(1087, 'ru', 1086, 'Чудовский район', 'ЧУДОВСКИЙ РАЙОН', NULL),
-(1088, 'ru', 1087, 'Чудово', 'ЧУДОВО', NULL),
-(1089, 'ru', 1088, 'Холмский район', 'ХОЛМСКИЙ РАЙОН', NULL),
-(1090, 'ru', 1089, 'Холм', 'ХОЛМ', NULL),
-(1091, 'ru', 1090, 'Шимский район', 'ШИМСКИЙ РАЙОН', NULL),
-(1092, 'ru', 1091, 'Ненецкий автономный округ', 'НЕНЕЦКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
-(1093, 'ru', 1092, 'Нарьян-Мар', 'НАРЬЯН-МАР', NULL),
-(1094, 'ru', 1093, 'Юг', 'ЮГ', NULL),
-(1095, 'ru', 1094, 'Краснодарский край', 'КРАСНОДАРСКИЙ КРАЙ', NULL),
-(1096, 'ru', 1095, 'Краснодар', 'КРАСНОДАР', NULL),
-(1097, 'ru', 1096, 'Геленджик', 'ГЕЛЕНДЖИК', NULL),
-(1098, 'ru', 1097, 'Армавир', 'АРМАВИР', NULL),
-(1099, 'ru', 1098, 'Горячий Ключ', 'ГОРЯЧИЙ КЛЮЧ', NULL),
-(1100, 'ru', 1099, 'Новороссийск', 'НОВОРОССИЙСК', NULL),
-(1101, 'ru', 1100, 'Сочи', 'СОЧИ', NULL),
-(1102, 'ru', 1101, 'Абинский район', 'АБИНСКИЙ РАЙОН', NULL),
-(1103, 'ru', 1102, 'Абинск', 'АБИНСК', NULL),
-(1104, 'ru', 1103, 'Анапский район', 'АНАПСКИЙ РАЙОН', NULL),
-(1105, 'ru', 1104, 'Анапа', 'АНАПА', NULL),
-(1106, 'ru', 1105, 'Апшеронский район', 'АПШЕРОНСКИЙ РАЙОН', NULL),
-(1107, 'ru', 1106, 'Апшеронск', 'АПШЕРОНСК', NULL),
-(1108, 'ru', 1107, 'Хадыженск', 'ХАДЫЖЕНСК', NULL),
-(1109, 'ru', 1108, 'Белоглинский район', 'БЕЛОГЛИНСКИЙ РАЙОН', NULL),
-(1110, 'ru', 1109, 'Белореченский район', 'БЕЛОРЕЧЕНСКИЙ РАЙОН', NULL),
-(1111, 'ru', 1110, 'Белореченск', 'БЕЛОРЕЧЕНСК', NULL),
-(1112, 'ru', 1111, 'Брюховецкий район', 'БРЮХОВЕЦКИЙ РАЙОН', NULL),
-(1113, 'ru', 1112, 'Выселковский район', 'ВЫСЕЛКОВСКИЙ РАЙОН', NULL),
-(1114, 'ru', 1113, 'Гулькевичский район', 'ГУЛЬКЕВИЧСКИЙ РАЙОН', NULL),
-(1115, 'ru', 1114, 'Гулькевичи', 'ГУЛЬКЕВИЧИ', NULL),
-(1116, 'ru', 1115, 'Динской район', 'ДИНСКОЙ РАЙОН', NULL),
-(1117, 'ru', 1116, 'Ейский район', 'ЕЙСКИЙ РАЙОН', NULL),
-(1118, 'ru', 1117, 'Ейск', 'ЕЙСК', NULL),
-(1119, 'ru', 1118, 'Кавказский район', 'КАВКАЗСКИЙ РАЙОН', NULL),
-(1120, 'ru', 1119, 'Кропоткин', 'КРОПОТКИН', NULL),
-(1121, 'ru', 1120, 'Калининский район', 'КАЛИНИНСКИЙ РАЙОН', NULL),
-(1122, 'ru', 1121, 'Каневской район', 'КАНЕВСКОЙ РАЙОН', NULL),
-(1123, 'ru', 1122, 'Кореновский район', 'КОРЕНОВСКИЙ РАЙОН', NULL),
-(1124, 'ru', 1123, 'Кореновск', 'КОРЕНОВСК', NULL),
-(1125, 'ru', 1124, 'Крыловский район', 'КРЫЛОВСКИЙ РАЙОН', NULL),
-(1126, 'ru', 1125, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
-(1127, 'ru', 1126, 'Крымский район', 'КРЫМСКИЙ РАЙОН', NULL),
-(1128, 'ru', 1127, 'Крымск', 'КРЫМСК', NULL),
-(1129, 'ru', 1128, 'Курганинский район', 'КУРГАНИНСКИЙ РАЙОН', NULL),
-(1130, 'ru', 1129, 'Курганинск', 'КУРГАНИНСК', NULL),
-(1131, 'ru', 1130, 'Кущевский район', 'КУЩЕВСКИЙ РАЙОН', NULL),
-(1132, 'ru', 1131, 'Лабинский район', 'ЛАБИНСКИЙ РАЙОН', NULL),
-(1133, 'ru', 1132, 'Лабинск', 'ЛАБИНСК', NULL),
-(1134, 'ru', 1133, 'Ленинградский район', 'ЛЕНИНГРАДСКИЙ РАЙОН', NULL),
-(1135, 'ru', 1134, 'Мостовский район', 'МОСТОВСКИЙ РАЙОН', NULL),
-(1136, 'ru', 1135, 'Новокубанский район', 'НОВОКУБАНСКИЙ РАЙОН', NULL),
-(1137, 'ru', 1136, 'Новокубанск', 'НОВОКУБАНСК', NULL),
-(1138, 'ru', 1137, 'Новопокровский район', 'НОВОПОКРОВСКИЙ РАЙОН', NULL),
-(1139, 'ru', 1138, 'Отрадненский район', 'ОТРАДНЕНСКИЙ РАЙОН', NULL),
-(1140, 'ru', 1139, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
-(1141, 'ru', 1140, 'Приморско-Ахтарский район', 'ПРИМОРСКО-АХТАРСКИЙ РАЙОН', NULL),
-(1142, 'ru', 1141, 'Приморско-Ахтарск', 'ПРИМОРСКО-АХТАРСК', NULL),
-(1143, 'ru', 1142, 'Северский район', 'СЕВЕРСКИЙ РАЙОН', NULL),
-(1144, 'ru', 1143, 'Славянский район', 'СЛАВЯНСКИЙ РАЙОН', NULL),
-(1145, 'ru', 1144, 'Славянск-на-Кубани', 'СЛАВЯНСК-НА-КУБАНИ', NULL),
-(1146, 'ru', 1145, 'Темрюкский район', 'ТЕМРЮКСКИЙ РАЙОН', NULL),
-(1147, 'ru', 1146, 'Темрюк', 'ТЕМРЮК', NULL),
-(1148, 'ru', 1147, 'Тбилисский район', 'ТБИЛИССКИЙ РАЙОН', NULL),
-(1149, 'ru', 1148, 'Староминский район', 'СТАРОМИНСКИЙ РАЙОН', NULL),
-(1150, 'ru', 1149, 'Тимашевский район', 'ТИМАШЕВСКИЙ РАЙОН', NULL),
-(1151, 'ru', 1150, 'Тимашевск', 'ТИМАШЕВСК', NULL),
-(1152, 'ru', 1151, 'Тихорецкий район', 'ТИХОРЕЦКИЙ РАЙОН', NULL),
-(1153, 'ru', 1152, 'Тихорецк', 'ТИХОРЕЦК', NULL),
-(1154, 'ru', 1153, 'Туапсинский район', 'ТУАПСИНСКИЙ РАЙОН', NULL),
-(1155, 'ru', 1154, 'Туапсе', 'ТУАПСЕ', NULL),
-(1156, 'ru', 1155, 'Усть-Лабинский район', 'УСТЬ-ЛАБИНСКИЙ РАЙОН', NULL),
-(1157, 'ru', 1156, 'Усть-Лабинск', 'УСТЬ-ЛАБИНСК', NULL),
-(1158, 'ru', 1157, 'Успенский район', 'УСПЕНСКИЙ РАЙОН', NULL),
-(1159, 'ru', 1158, 'Щербиновский район', 'ЩЕРБИНОВСКИЙ РАЙОН', NULL),
-(1160, 'ru', 1159, 'Волгоградская область', 'ВОЛГОГРАДСКАЯ ОБЛАСТЬ', NULL),
-(1161, 'ru', 1160, 'Волгоград', 'ВОЛГОГРАД', NULL),
-(1162, 'ru', 1161, 'Волжский', 'ВОЛЖСКИЙ', NULL),
-(1163, 'ru', 1162, 'Камышин', 'КАМЫШИН', NULL),
-(1164, 'ru', 1163, 'Михайловка', 'МИХАЙЛОВКА', NULL),
-(1165, 'ru', 1164, 'Урюпинск', 'УРЮПИНСК', NULL),
-(1166, 'ru', 1165, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
-(1167, 'ru', 1166, 'Быковский район', 'БЫКОВСКИЙ РАЙОН', NULL),
-(1168, 'ru', 1167, 'Фролово', 'ФРОЛОВО', NULL),
-(1169, 'ru', 1168, 'Городищенский район', 'ГОРОДИЩЕНСКИЙ РАЙОН', NULL),
-(1170, 'ru', 1169, 'Даниловский район', 'ДАНИЛОВСКИЙ РАЙОН', NULL),
-(1171, 'ru', 1170, 'Дубовский район', 'ДУБОВСКИЙ РАЙОН', NULL),
-(1172, 'ru', 1171, 'Дубовка', 'ДУБОВКА', NULL),
-(1173, 'ru', 1172, 'Еланский район', 'ЕЛАНСКИЙ РАЙОН', NULL),
-(1174, 'ru', 1173, 'Жирновский район', 'ЖИРНОВСКИЙ РАЙОН', NULL),
-(1175, 'ru', 1174, 'Жирновск', 'ЖИРНОВСК', NULL),
-(1176, 'ru', 1175, 'Иловлинский район', 'ИЛОВЛИНСКИЙ РАЙОН', NULL),
-(1177, 'ru', 1176, 'Калачевский район', 'КАЛАЧЕВСКИЙ РАЙОН', NULL),
-(1178, 'ru', 1177, 'Калач-на-Дону', 'КАЛАЧ-НА-ДОНУ', NULL),
-(1179, 'ru', 1178, 'Камышинский район', 'КАМЫШИНСКИЙ РАЙОН', NULL),
-(1180, 'ru', 1179, 'Петров Вал', 'ПЕТРОВ ВАЛ', NULL),
-(1181, 'ru', 1180, 'Киквидзенский район', 'КИКВИДЗЕНСКИЙ РАЙОН', NULL),
-(1182, 'ru', 1181, 'Клетский район', 'КЛЕТСКИЙ РАЙОН', NULL),
-(1183, 'ru', 1182, 'Котельниковский район', 'КОТЕЛЬНИКОВСКИЙ РАЙОН', NULL),
-(1184, 'ru', 1183, 'Котельниково', 'КОТЕЛЬНИКОВО', NULL),
-(1185, 'ru', 1184, 'Котовский район', 'КОТОВСКИЙ РАЙОН', NULL),
-(1186, 'ru', 1185, 'Котово', 'КОТОВО', NULL),
-(1187, 'ru', 1186, 'Кумылженский район', 'КУМЫЛЖЕНСКИЙ РАЙОН', NULL),
-(1188, 'ru', 1187, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
-(1189, 'ru', 1188, 'Ленинск', 'ЛЕНИНСК', NULL),
-(1190, 'ru', 1189, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
-(1191, 'ru', 1190, 'Нехаевский район', 'НЕХАЕВСКИЙ РАЙОН', NULL),
-(1192, 'ru', 1191, 'Николаевский район', 'НИКОЛАЕВСКИЙ РАЙОН', NULL),
-(1193, 'ru', 1192, 'Николаевск', 'НИКОЛАЕВСК', NULL),
-(1194, 'ru', 1193, 'Новоаннинский район', 'НОВОАННИНСКИЙ РАЙОН', NULL),
-(1195, 'ru', 1194, 'Новоаннинский', 'НОВОАННИНСКИЙ', NULL),
-(1196, 'ru', 1195, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(1197, 'ru', 1196, 'Ольховский район', 'ОЛЬХОВСКИЙ РАЙОН', NULL),
-(1198, 'ru', 1197, 'Палласовский район', 'ПАЛЛАСОВСКИЙ РАЙОН', NULL),
-(1199, 'ru', 1198, 'Палласовка', 'ПАЛЛАСОВКА', NULL),
-(1200, 'ru', 1199, 'Руднянский район', 'РУДНЯНСКИЙ РАЙОН', NULL),
-(1201, 'ru', 1200, 'Светлоярский район', 'СВЕТЛОЯРСКИЙ РАЙОН', NULL),
-(1202, 'ru', 1201, 'Серафимовичский район', 'СЕРАФИМОВИЧСКИЙ РАЙОН', NULL),
-(1203, 'ru', 1202, 'Серафимович', 'СЕРАФИМОВИЧ', NULL),
-(1204, 'ru', 1203, 'Среднеахтубинский район', 'СРЕДНЕАХТУБИНСКИЙ РАЙОН', NULL),
-(1205, 'ru', 1204, 'Краснослободск', 'КРАСНОСЛОБОДСК', NULL),
-(1206, 'ru', 1205, 'Старополтавский район', 'СТАРОПОЛТАВСКИЙ РАЙОН', NULL),
-(1207, 'ru', 1206, 'Суровикинский район', 'СУРОВИКИНСКИЙ РАЙОН', NULL),
-(1208, 'ru', 1207, 'Суровикино', 'СУРОВИКИНО', NULL),
-(1209, 'ru', 1208, 'Урюпинский район', 'УРЮПИНСКИЙ РАЙОН', NULL),
-(1210, 'ru', 1209, 'Новониколаевский район', 'НОВОНИКОЛАЕВСКИЙ РАЙОН', NULL),
-(1211, 'ru', 1210, 'Фроловский район', 'ФРОЛОВСКИЙ РАЙОН', NULL),
-(1212, 'ru', 1211, 'Чернышковский район', 'ЧЕРНЫШКОВСКИЙ РАЙОН', NULL),
-(1213, 'ru', 1212, 'Ростовская область', 'РОСТОВСКАЯ ОБЛАСТЬ', NULL),
-(1214, 'ru', 1213, 'Ростов-на-Дону', 'РОСТОВ-НА-ДОНУ', NULL),
-(1215, 'ru', 1214, 'Волгодонск', 'ВОЛГОДОНСК', NULL),
-(1216, 'ru', 1215, 'Батайск', 'БАТАЙСК', NULL),
-(1217, 'ru', 1216, 'Гуково', 'ГУКОВО', NULL),
-(1218, 'ru', 1217, 'Зверево', 'ЗВЕРЕВО', NULL),
-(1219, 'ru', 1218, 'Каменск-Шахтинский', 'КАМЕНСК-ШАХТИНСКИЙ', NULL),
-(1220, 'ru', 1219, 'Донецк', 'ДОНЕЦК', NULL),
-(1221, 'ru', 1220, 'Новочеркасск', 'НОВОЧЕРКАССК', NULL),
-(1222, 'ru', 1221, 'Новошахтинск', 'НОВОШАХТИНСК', NULL),
-(1223, 'ru', 1222, 'Шахты', 'ШАХТЫ', NULL),
-(1224, 'ru', 1223, 'Таганрог', 'ТАГАНРОГ', NULL),
-(1225, 'ru', 1224, 'Азовский район', 'АЗОВСКИЙ РАЙОН', NULL),
-(1226, 'ru', 1225, 'Азов', 'АЗОВ', NULL),
-(1227, 'ru', 1226, 'Аксайский район', 'АКСАЙСКИЙ РАЙОН', NULL),
-(1228, 'ru', 1227, 'Аксай', 'АКСАЙ', NULL),
-(1229, 'ru', 1228, 'Белокалитвинский район', 'БЕЛОКАЛИТВИНСКИЙ РАЙОН', NULL),
-(1230, 'ru', 1229, 'Белая Калитва', 'БЕЛАЯ КАЛИТВА', NULL),
-(1231, 'ru', 1230, 'Багаевский район', 'БАГАЕВСКИЙ РАЙОН', NULL),
-(1232, 'ru', 1231, 'Боковский район', 'БОКОВСКИЙ РАЙОН', NULL),
-(1233, 'ru', 1232, 'Верхнедонской район', 'ВЕРХНЕДОНСКОЙ РАЙОН', NULL),
-(1234, 'ru', 1233, 'Веселовский район', 'ВЕСЕЛОВСКИЙ РАЙОН', NULL),
-(1235, 'ru', 1234, 'Дубовский район', 'ДУБОВСКИЙ РАЙОН', NULL),
-(1236, 'ru', 1235, 'Волгодонской район', 'ВОЛГОДОНСКОЙ РАЙОН', NULL),
-(1237, 'ru', 1236, 'Егорлыкский район', 'ЕГОРЛЫКСКИЙ РАЙОН', NULL),
-(1238, 'ru', 1237, 'Заветинский район', 'ЗАВЕТИНСКИЙ РАЙОН', NULL),
-(1239, 'ru', 1238, 'Зерноградский район', 'ЗЕРНОГРАДСКИЙ РАЙОН', NULL),
-(1240, 'ru', 1239, 'Зерноград', 'ЗЕРНОГРАД', NULL),
-(1241, 'ru', 1240, 'Зимовниковский район', 'ЗИМОВНИКОВСКИЙ РАЙОН', NULL),
-(1242, 'ru', 1241, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
-(1243, 'ru', 1242, 'Кагальницкий район', 'КАГАЛЬНИЦКИЙ РАЙОН', NULL),
-(1244, 'ru', 1243, 'Кашарский район', 'КАШАРСКИЙ РАЙОН', NULL),
-(1245, 'ru', 1244, 'Красносулинский район', 'КРАСНОСУЛИНСКИЙ РАЙОН', NULL),
-(1246, 'ru', 1245, 'Красный Сулин', 'КРАСНЫЙ СУЛИН', NULL),
-(1247, 'ru', 1246, 'Константиновский район', 'КОНСТАНТИНОВСКИЙ РАЙОН', NULL),
-(1248, 'ru', 1247, 'Константиновск', 'КОНСТАНТИНОВСК', NULL),
-(1249, 'ru', 1248, 'Куйбышевский район', 'КУЙБЫШЕВСКИЙ РАЙОН', NULL),
-(1250, 'ru', 1249, 'Мартыновский район', 'МАРТЫНОВСКИЙ РАЙОН', NULL),
-(1251, 'ru', 1250, 'Матвеево-Курганский район', 'МАТВЕЕВО-КУРГАНСКИЙ РАЙОН', NULL),
-(1252, 'ru', 1251, 'Миллеровский район', 'МИЛЛЕРОВСКИЙ РАЙОН', NULL),
-(1253, 'ru', 1252, 'Миллерово', 'МИЛЛЕРОВО', NULL),
-(1254, 'ru', 1253, 'Милютинский район', 'МИЛЮТИНСКИЙ РАЙОН', NULL),
-(1255, 'ru', 1254, 'Морозовский район', 'МОРОЗОВСКИЙ РАЙОН', NULL),
-(1256, 'ru', 1255, 'Морозовск', 'МОРОЗОВСК', NULL),
-(1257, 'ru', 1256, 'Мясниковский район', 'МЯСНИКОВСКИЙ РАЙОН', NULL),
-(1258, 'ru', 1257, 'Неклиновский район', 'НЕКЛИНОВСКИЙ РАЙОН', NULL),
-(1259, 'ru', 1258, 'Обливский район', 'ОБЛИВСКИЙ РАЙОН', NULL),
-(1260, 'ru', 1259, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(1261, 'ru', 1260, 'Орловский район', 'ОРЛОВСКИЙ РАЙОН', NULL),
-(1262, 'ru', 1261, 'Песчанокопский район', 'ПЕСЧАНОКОПСКИЙ РАЙОН', NULL),
-(1263, 'ru', 1262, 'Пролетарский район', 'ПРОЛЕТАРСКИЙ РАЙОН', NULL),
-(1264, 'ru', 1263, 'Пролетарск', 'ПРОЛЕТАРСК', NULL),
-(1265, 'ru', 1264, 'Ремонтненский район', 'РЕМОНТНЕНСКИЙ РАЙОН', NULL),
-(1266, 'ru', 1265, 'Родионово-Несветайский район', 'РОДИОНОВО-НЕСВЕТАЙСКИЙ РАЙОН', NULL),
-(1267, 'ru', 1266, 'Сальский район', 'САЛЬСКИЙ РАЙОН', NULL),
-(1268, 'ru', 1267, 'Сальск', 'САЛЬСК', NULL),
-(1269, 'ru', 1268, 'Семикаракорский район', 'СЕМИКАРАКОРСКИЙ РАЙОН', NULL),
-(1270, 'ru', 1269, 'Семикаракорск', 'СЕМИКАРАКОРСК', NULL),
-(1271, 'ru', 1270, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(1272, 'ru', 1271, 'Тарасовский район', 'ТАРАСОВСКИЙ РАЙОН', NULL),
-(1273, 'ru', 1272, 'Тацинский район', 'ТАЦИНСКИЙ РАЙОН', NULL),
-(1274, 'ru', 1273, 'Усть-Донецкий район', 'УСТЬ-ДОНЕЦКИЙ РАЙОН', NULL),
-(1275, 'ru', 1274, 'Целинский район', 'ЦЕЛИНСКИЙ РАЙОН', NULL),
-(1276, 'ru', 1275, 'Чертковский район', 'ЧЕРТКОВСКИЙ РАЙОН', NULL),
-(1277, 'ru', 1276, 'Цимлянский район', 'ЦИМЛЯНСКИЙ РАЙОН', NULL),
-(1278, 'ru', 1277, 'Цимлянск', 'ЦИМЛЯНСК', NULL),
-(1279, 'ru', 1278, 'Шолоховский район', 'ШОЛОХОВСКИЙ РАЙОН', NULL),
-(1280, 'ru', 1279, 'Астраханская область', 'АСТРАХАНСКАЯ ОБЛАСТЬ', NULL),
-(1281, 'ru', 1280, 'Астрахань', 'АСТРАХАНЬ', NULL),
-(1282, 'ru', 1281, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(1283, 'ru', 1282, 'Знаменск', 'ЗНАМЕНСК', NULL),
-(1284, 'ru', 1283, 'Ахтубинский район', 'АХТУБИНСКИЙ РАЙОН', NULL),
-(1285, 'ru', 1284, 'Ахтубинск', 'АХТУБИНСК', NULL),
-(1286, 'ru', 1285, 'Ахтубинск-7', 'АХТУБИНСК-7', NULL),
-(1287, 'ru', 1286, 'Енотаевский район', 'ЕНОТАЕВСКИЙ РАЙОН', NULL),
-(1288, 'ru', 1287, 'Володарский район', 'ВОЛОДАРСКИЙ РАЙОН', NULL),
-(1289, 'ru', 1288, 'Камызякский район', 'КАМЫЗЯКСКИЙ РАЙОН', NULL),
-(1290, 'ru', 1289, 'Камызяк', 'КАМЫЗЯК', NULL),
-(1291, 'ru', 1290, 'Икрянинский район', 'ИКРЯНИНСКИЙ РАЙОН', NULL),
-(1292, 'ru', 1291, 'Лиманский район', 'ЛИМАНСКИЙ РАЙОН', NULL),
-(1293, 'ru', 1292, 'Красноярский район', 'КРАСНОЯРСКИЙ РАЙОН', NULL),
-(1294, 'ru', 1293, 'Наримановский район', 'НАРИМАНОВСКИЙ РАЙОН', NULL),
-(1295, 'ru', 1294, 'Нариманов', 'НАРИМАНОВ', NULL),
-(1296, 'ru', 1295, 'Приволжский район', 'ПРИВОЛЖСКИЙ РАЙОН', NULL),
-(1297, 'ru', 1296, 'Харабалинский район', 'ХАРАБАЛИНСКИЙ РАЙОН', NULL),
-(1298, 'ru', 1297, 'Харабали', 'ХАРАБАЛИ', NULL),
-(1299, 'ru', 1298, 'Черноярский район', 'ЧЕРНОЯРСКИЙ РАЙОН', NULL),
-(1300, 'ru', 1299, 'Республика Адыгея', 'РЕСПУБЛИКА АДЫГЕЯ', NULL),
-(1301, 'ru', 1300, 'Майкоп', 'МАЙКОП', NULL),
-(1302, 'ru', 1301, 'Адыгейск', 'АДЫГЕЙСК', NULL),
-(1303, 'ru', 1302, 'Кошехабльский район', 'КОШЕХАБЛЬСКИЙ РАЙОН', NULL),
-(1304, 'ru', 1303, 'Майкопский район', 'МАЙКОПСКИЙ РАЙОН', NULL),
-(1305, 'ru', 1304, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
-(1306, 'ru', 1305, 'Тахтамукайский район', 'ТАХТАМУКАЙСКИЙ РАЙОН', NULL),
-(1307, 'ru', 1306, 'Теучежский район', 'ТЕУЧЕЖСКИЙ РАЙОН', NULL),
-(1308, 'ru', 1307, 'Шовгеновский район', 'ШОВГЕНОВСКИЙ РАЙОН', NULL),
-(1309, 'ru', 1308, 'Гиагинский район', 'ГИАГИНСКИЙ РАЙОН', NULL),
-(1310, 'ru', 1309, 'Республика Калмыкия', 'РЕСПУБЛИКА КАЛМЫКИЯ', NULL),
-(1311, 'ru', 1310, 'Элиста', 'ЭЛИСТА', NULL),
-(1312, 'ru', 1311, 'Ики-Бурульский район', 'ИКИ-БУРУЛЬСКИЙ РАЙОН', NULL),
-(1313, 'ru', 1312, 'Городовиковский район', 'ГОРОДОВИКОВСКИЙ РАЙОН', NULL),
-(1314, 'ru', 1313, 'Городовиковск', 'ГОРОДОВИКОВСК', NULL),
-(1315, 'ru', 1314, 'Малодербетовский район', 'МАЛОДЕРБЕТОВСКИЙ РАЙОН', NULL),
-(1316, 'ru', 1315, 'Лаганский район', 'ЛАГАНСКИЙ РАЙОН', NULL),
-(1317, 'ru', 1316, 'Лагань', 'ЛАГАНЬ', NULL),
-(1318, 'ru', 1317, 'Кетченеровский район', 'КЕТЧЕНЕРОВСКИЙ РАЙОН', NULL),
-(1319, 'ru', 1318, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(1320, 'ru', 1319, 'Черноземельский район', 'ЧЕРНОЗЕМЕЛЬСКИЙ РАЙОН', NULL),
-(1321, 'ru', 1320, 'Юстинский район', 'ЮСТИНСКИЙ РАЙОН', NULL),
-(1322, 'ru', 1321, 'Приютненский район', 'ПРИЮТНЕНСКИЙ РАЙОН', NULL),
-(1323, 'ru', 1322, 'Сарпинский район', 'САРПИНСКИЙ РАЙОН', NULL),
-(1324, 'ru', 1323, 'Целинный район', 'ЦЕЛИННЫЙ РАЙОН', NULL),
-(1325, 'ru', 1324, 'Яшкульский район', 'ЯШКУЛЬСКИЙ РАЙОН', NULL),
-(1326, 'ru', 1325, 'Яшалтинский район', 'ЯШАЛТИНСКИЙ РАЙОН', NULL),
-(1327, 'ru', 1326, 'Северный Кавказ', 'СЕВЕРНЫЙ КАВКАЗ', NULL),
-(1328, 'ru', 1327, 'Республика Дагестан', 'РЕСПУБЛИКА ДАГЕСТАН', NULL),
-(1329, 'ru', 1328, 'Махачкала', 'МАХАЧКАЛА', NULL),
-(1330, 'ru', 1329, 'Кировский район район', 'КИРОВСКИЙ РАЙОН РАЙОН', NULL),
-(1331, 'ru', 1330, 'Дербент', 'ДЕРБЕНТ', NULL),
-(1332, 'ru', 1331, 'Кизилюрт', 'КИЗИЛЮРТ', NULL),
-(1333, 'ru', 1332, 'Дагестанские Огни', 'ДАГЕСТАНСКИЕ ОГНИ', NULL),
-(1334, 'ru', 1333, 'Избербаш', 'ИЗБЕРБАШ', NULL),
-(1335, 'ru', 1334, 'Южно-Сухокумск', 'ЮЖНО-СУХОКУМСК', NULL),
-(1336, 'ru', 1335, 'Кизляр', 'КИЗЛЯР', NULL),
-(1337, 'ru', 1336, 'Каспийск', 'КАСПИЙСК', NULL),
-(1338, 'ru', 1337, 'Гумбетовский район', 'ГУМБЕТОВСКИЙ РАЙОН', NULL),
-(1339, 'ru', 1338, 'Дахадаевский район', 'ДАХАДАЕВСКИЙ РАЙОН', NULL),
-(1340, 'ru', 1339, 'Гергебильский район', 'ГЕРГЕБИЛЬСКИЙ РАЙОН', NULL),
-(1341, 'ru', 1340, 'Гунибский район', 'ГУНИБСКИЙ РАЙОН', NULL),
-(1342, 'ru', 1341, 'Ботлихский район', 'БОТЛИХСКИЙ РАЙОН', NULL),
-(1343, 'ru', 1342, 'Акушинский район', 'АКУШИНСКИЙ РАЙОН', NULL),
-(1344, 'ru', 1343, 'Ахтынский район', 'АХТЫНСКИЙ РАЙОН', NULL),
-(1345, 'ru', 1344, 'Буйнакск', 'БУЙНАКСК', NULL),
-(1346, 'ru', 1345, 'Дербентский район', 'ДЕРБЕНТСКИЙ РАЙОН', NULL),
-(1347, 'ru', 1346, 'Буйнакский район', 'БУЙНАКСКИЙ РАЙОН', NULL),
-(1348, 'ru', 1347, 'Ахвахский район', 'АХВАХСКИЙ РАЙОН', NULL),
-(1349, 'ru', 1348, 'Бабаюртовский район', 'БАБАЮРТОВСКИЙ РАЙОН', NULL),
-(1350, 'ru', 1349, 'Агульский район', 'АГУЛЬСКИЙ РАЙОН', NULL),
-(1351, 'ru', 1350, 'Хасавюрт', 'ХАСАВЮРТ', NULL),
-(1352, 'ru', 1351, 'Кайтагский район', 'КАЙТАГСКИЙ РАЙОН', NULL),
-(1353, 'ru', 1352, 'Докузпаринский район', 'ДОКУЗПАРИНСКИЙ РАЙОН', NULL),
-(1354, 'ru', 1353, 'Карабудахкентский район', 'КАРАБУДАХКЕНТСКИЙ РАЙОН', NULL),
-(1355, 'ru', 1354, 'Каякентский район', 'КАЯКЕНТСКИЙ РАЙОН', NULL),
-(1356, 'ru', 1355, 'Кизилюртовский район', 'КИЗИЛЮРТОВСКИЙ РАЙОН', NULL),
-(1357, 'ru', 1356, 'Казбековский район', 'КАЗБЕКОВСКИЙ РАЙОН', NULL),
-(1358, 'ru', 1357, 'Новолакский район', 'НОВОЛАКСКИЙ РАЙОН', NULL),
-(1359, 'ru', 1358, 'Магарамкентский район', 'МАГАРАМКЕНТСКИЙ РАЙОН', NULL),
-(1360, 'ru', 1359, 'Лакский район', 'ЛАКСКИЙ РАЙОН', NULL),
-(1361, 'ru', 1360, 'Левашинский район', 'ЛЕВАШИНСКИЙ РАЙОН', NULL),
-(1362, 'ru', 1361, 'Кумторкалинский район', 'КУМТОРКАЛИНСКИЙ РАЙОН', NULL),
-(1363, 'ru', 1362, 'Кизлярский район', 'КИЗЛЯРСКИЙ РАЙОН', NULL),
-(1364, 'ru', 1363, 'Кулинский район', 'КУЛИНСКИЙ РАЙОН', NULL),
-(1365, 'ru', 1364, 'Курахский район', 'КУРАХСКИЙ РАЙОН', NULL),
-(1366, 'ru', 1365, 'Тарумовский район', 'ТАРУМОВСКИЙ РАЙОН', NULL),
-(1367, 'ru', 1366, 'Табасаранский район', 'ТАБАСАРАНСКИЙ РАЙОН', NULL),
-(1368, 'ru', 1367, 'Ногайский район', 'НОГАЙСКИЙ РАЙОН', NULL),
-(1369, 'ru', 1368, 'Рутульский район', 'РУТУЛЬСКИЙ РАЙОН', NULL),
-(1370, 'ru', 1369, 'Сергокалинский район', 'СЕРГОКАЛИНСКИЙ РАЙОН', NULL),
-(1371, 'ru', 1370, 'Сулейман-Стальский район', 'СУЛЕЙМАН-СТАЛЬСКИЙ РАЙОН', NULL),
-(1372, 'ru', 1371, 'Чародинский район', 'ЧАРОДИНСКИЙ РАЙОН', NULL),
-(1373, 'ru', 1372, 'Хунзахский район', 'ХУНЗАХСКИЙ РАЙОН', NULL),
-(1374, 'ru', 1373, 'Хасавюртовский район', 'ХАСАВЮРТОВСКИЙ РАЙОН', NULL),
-(1375, 'ru', 1374, 'Шамильский район', 'ШАМИЛЬСКИЙ РАЙОН', NULL),
-(1376, 'ru', 1375, 'Унцукульский район', 'УНЦУКУЛЬСКИЙ РАЙОН', NULL),
-(1377, 'ru', 1376, 'Хивский район', 'ХИВСКИЙ РАЙОН', NULL),
-(1378, 'ru', 1377, 'Тляратинский район', 'ТЛЯРАТИНСКИЙ РАЙОН', NULL),
-(1379, 'ru', 1378, 'Цумадинский район', 'ЦУМАДИНСКИЙ РАЙОН', NULL),
-(1380, 'ru', 1379, 'Цунтинский район', 'ЦУНТИНСКИЙ РАЙОН', NULL),
-(1381, 'ru', 1380, 'Кабардино-Балкарская Республика', 'КАБАРДИНО-БАЛКАРСКАЯ РЕСПУБЛИКА', NULL),
-(1382, 'ru', 1381, 'Нальчик', 'НАЛЬЧИК', NULL),
-(1383, 'ru', 1382, 'Баксанский район', 'БАКСАНСКИЙ РАЙОН', NULL),
-(1384, 'ru', 1383, 'Майский район', 'МАЙСКИЙ РАЙОН', NULL),
-(1385, 'ru', 1384, 'Майский', 'МАЙСКИЙ', NULL),
-(1386, 'ru', 1385, 'Зольский район', 'ЗОЛЬСКИЙ РАЙОН', NULL),
-(1387, 'ru', 1386, 'Прохладный', 'ПРОХЛАДНЫЙ', NULL),
-(1388, 'ru', 1387, 'Баксан', 'БАКСАН', NULL),
-(1389, 'ru', 1388, 'Прохладненский район', 'ПРОХЛАДНЕНСКИЙ РАЙОН', NULL),
-(1390, 'ru', 1389, 'Урванский район', 'УРВАНСКИЙ РАЙОН', NULL),
-(1391, 'ru', 1390, 'Нарткала', 'НАРТКАЛА', NULL),
-(1392, 'ru', 1391, 'Терский район', 'ТЕРСКИЙ РАЙОН', NULL),
-(1393, 'ru', 1392, 'Терек', 'ТЕРЕК', NULL),
-(1394, 'ru', 1393, 'Чегемский район', 'ЧЕГЕМСКИЙ РАЙОН', NULL),
-(1395, 'ru', 1394, 'Чегем', 'ЧЕГЕМ', NULL),
-(1396, 'ru', 1395, 'Эльбрусский район', 'ЭЛЬБРУССКИЙ РАЙОН', NULL),
-(1397, 'ru', 1396, 'Тырныауз', 'ТЫРНЫАУЗ', NULL),
-(1398, 'ru', 1397, 'Лескенский район', 'ЛЕСКЕНСКИЙ РАЙОН', NULL),
-(1399, 'ru', 1398, 'Черекский район', 'ЧЕРЕКСКИЙ РАЙОН', NULL),
-(1400, 'ru', 1399, 'Республика Северная Осетия-Алания', 'РЕСПУБЛИКА СЕВЕРНАЯ ОСЕТИЯ-АЛАНИЯ', NULL),
-(1401, 'ru', 1400, 'Алагирский район', 'АЛАГИРСКИЙ РАЙОН', NULL),
-(1402, 'ru', 1401, 'Алагир', 'АЛАГИР', NULL),
-(1403, 'ru', 1402, 'Владикавказ', 'ВЛАДИКАВКАЗ', NULL),
-(1404, 'ru', 1403, 'Дигорский район', 'ДИГОРСКИЙ РАЙОН', NULL),
-(1405, 'ru', 1404, 'Дигора', 'ДИГОРА', NULL),
-(1406, 'ru', 1405, 'Моздокский район', 'МОЗДОКСКИЙ РАЙОН', NULL),
-(1407, 'ru', 1406, 'Моздок', 'МОЗДОК', NULL),
-(1408, 'ru', 1407, 'Ардонский район', 'АРДОНСКИЙ РАЙОН', NULL),
-(1409, 'ru', 1408, 'Ардон', 'АРДОН', NULL),
-(1410, 'ru', 1409, 'Ирафский район', 'ИРАФСКИЙ РАЙОН', NULL),
-(1411, 'ru', 1410, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(1412, 'ru', 1411, 'Пригородный район', 'ПРИГОРОДНЫЙ РАЙОН', NULL),
-(1413, 'ru', 1412, 'Правобережный район', 'ПРАВОБЕРЕЖНЫЙ РАЙОН', NULL),
-(1414, 'ru', 1413, 'Беслан', 'БЕСЛАН', NULL),
-(1415, 'ru', 1414, 'Ставропольский край', 'СТАВРОПОЛЬСКИЙ КРАЙ', NULL),
-(1416, 'ru', 1415, 'Ставрополь', 'СТАВРОПОЛЬ', NULL),
-(1417, 'ru', 1416, 'Ессентуки', 'ЕССЕНТУКИ', NULL),
-(1418, 'ru', 1417, 'Кисловодск', 'КИСЛОВОДСК', NULL),
-(1419, 'ru', 1418, 'Железноводск', 'ЖЕЛЕЗНОВОДСК', NULL),
-(1420, 'ru', 1419, 'Невинномысск', 'НЕВИННОМЫССК', NULL),
-(1421, 'ru', 1420, 'Пятигорск', 'ПЯТИГОРСК', NULL),
-(1422, 'ru', 1421, 'Лермонтов', 'ЛЕРМОНТОВ', NULL),
-(1423, 'ru', 1422, 'Георгиевск', 'ГЕОРГИЕВСК', NULL),
-(1424, 'ru', 1423, 'Андроповский район', 'АНДРОПОВСКИЙ РАЙОН', NULL),
-(1425, 'ru', 1424, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
-(1426, 'ru', 1425, 'Апанасенковский район', 'АПАНАСЕНКОВСКИЙ РАЙОН', NULL),
-(1427, 'ru', 1426, 'Арзгирский район', 'АРЗГИРСКИЙ РАЙОН', NULL),
-(1428, 'ru', 1427, 'Благодарненский район', 'БЛАГОДАРНЕНСКИЙ РАЙОН', NULL),
-(1429, 'ru', 1428, 'Благодарный', 'БЛАГОДАРНЫЙ', NULL),
-(1430, 'ru', 1429, 'Буденновский район', 'БУДЕННОВСКИЙ РАЙОН', NULL),
-(1431, 'ru', 1430, 'Буденновск', 'БУДЕННОВСК', NULL),
-(1432, 'ru', 1431, 'Георгиевский район', 'ГЕОРГИЕВСКИЙ РАЙОН', NULL),
-(1433, 'ru', 1432, 'Грачевский район', 'ГРАЧЕВСКИЙ РАЙОН', NULL),
-(1434, 'ru', 1433, 'Ипатовский район', 'ИПАТОВСКИЙ РАЙОН', NULL),
-(1435, 'ru', 1434, 'Ипатово', 'ИПАТОВО', NULL),
-(1436, 'ru', 1435, 'Изобильненский район', 'ИЗОБИЛЬНЕНСКИЙ РАЙОН', NULL),
-(1437, 'ru', 1436, 'Изобильный', 'ИЗОБИЛЬНЫЙ', NULL),
-(1438, 'ru', 1437, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(1439, 'ru', 1438, 'Новопавловск', 'НОВОПАВЛОВСК', NULL),
-(1440, 'ru', 1439, 'Кочубеевский район', 'КОЧУБЕЕВСКИЙ РАЙОН', NULL),
-(1441, 'ru', 1440, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
-(1442, 'ru', 1441, 'Курский район', 'КУРСКИЙ РАЙОН', NULL),
-(1443, 'ru', 1442, 'Левокумский район', 'ЛЕВОКУМСКИЙ РАЙОН', NULL),
-(1444, 'ru', 1443, 'Минераловодский район', 'МИНЕРАЛОВОДСКИЙ РАЙОН', NULL),
-(1445, 'ru', 1444, 'Минеральные Воды', 'МИНЕРАЛЬНЫЕ ВОДЫ', NULL),
-(1446, 'ru', 1445, 'Нефтекумский район', 'НЕФТЕКУМСКИЙ РАЙОН', NULL),
-(1447, 'ru', 1446, 'Нефтекумск', 'НЕФТЕКУМСК', NULL),
-(1448, 'ru', 1447, 'Новоалександровский район', 'НОВОАЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
-(1449, 'ru', 1448, 'Новоалександровск', 'НОВОАЛЕКСАНДРОВСК', NULL),
-(1450, 'ru', 1449, 'Новоселицкий район', 'НОВОСЕЛИЦКИЙ РАЙОН', NULL),
-(1451, 'ru', 1450, 'Предгорный район', 'ПРЕДГОРНЫЙ РАЙОН', NULL),
-(1452, 'ru', 1451, 'Петровский район', 'ПЕТРОВСКИЙ РАЙОН', NULL),
-(1453, 'ru', 1452, 'Светлоград', 'СВЕТЛОГРАД', NULL),
-(1454, 'ru', 1453, 'Труновский район', 'ТРУНОВСКИЙ РАЙОН', NULL),
-(1455, 'ru', 1454, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(1456, 'ru', 1455, 'Зеленокумск', 'ЗЕЛЕНОКУМСК', NULL),
-(1457, 'ru', 1456, 'Степновский район', 'СТЕПНОВСКИЙ РАЙОН', NULL),
-(1458, 'ru', 1457, 'Туркменский район', 'ТУРКМЕНСКИЙ РАЙОН', NULL),
-(1459, 'ru', 1458, 'Шпаковский район', 'ШПАКОВСКИЙ РАЙОН', NULL),
-(1460, 'ru', 1459, 'Михайловск', 'МИХАЙЛОВСК', NULL),
-(1461, 'ru', 1460, 'Республика Ингушетия', 'РЕСПУБЛИКА ИНГУШЕТИЯ', NULL),
-(1462, 'ru', 1461, 'Магас', 'МАГАС', NULL),
-(1463, 'ru', 1462, 'Назрань', 'НАЗРАНЬ', NULL),
-(1464, 'ru', 1463, 'Карабулак', 'КАРАБУЛАК', NULL),
-(1465, 'ru', 1464, 'Малгобек', 'МАЛГОБЕК', NULL),
-(1466, 'ru', 1465, 'Джейрахский район', 'ДЖЕЙРАХСКИЙ РАЙОН', NULL),
-(1467, 'ru', 1466, 'Назрановский район', 'НАЗРАНОВСКИЙ РАЙОН', NULL),
-(1468, 'ru', 1467, 'Сунженский район', 'СУНЖЕНСКИЙ РАЙОН', NULL),
-(1469, 'ru', 1468, 'Малгобекский район', 'МАЛГОБЕКСКИЙ РАЙОН', NULL),
-(1470, 'ru', 1469, 'Карачаево-Черкесская Республика', 'КАРАЧАЕВО-ЧЕРКЕССКАЯ РЕСПУБЛИКА', NULL),
-(1471, 'ru', 1470, 'Черкесск', 'ЧЕРКЕССК', NULL),
-(1472, 'ru', 1471, 'Карачаевск', 'КАРАЧАЕВСК', NULL),
-(1473, 'ru', 1472, 'Адыге-Хабльский район', 'АДЫГЕ-ХАБЛЬСКИЙ РАЙОН', NULL),
-(1474, 'ru', 1473, 'Теберда', 'ТЕБЕРДА', NULL),
-(1475, 'ru', 1474, 'Карачаевский район', 'КАРАЧАЕВСКИЙ РАЙОН', NULL),
-(1476, 'ru', 1475, 'Зеленчукский район', 'ЗЕЛЕНЧУКСКИЙ РАЙОН', NULL),
-(1477, 'ru', 1476, 'Малокарачаевский район', 'МАЛОКАРАЧАЕВСКИЙ РАЙОН', NULL),
-(1478, 'ru', 1477, 'Усть-Джегутинский район', 'УСТЬ-ДЖЕГУТИНСКИЙ РАЙОН', NULL),
-(1479, 'ru', 1478, 'Усть-Джегута', 'УСТЬ-ДЖЕГУТА', NULL),
-(1480, 'ru', 1479, 'Хабезский район', 'ХАБЕЗСКИЙ РАЙОН', NULL),
-(1481, 'ru', 1480, 'Прикубанский район', 'ПРИКУБАНСКИЙ РАЙОН', NULL),
-(1482, 'ru', 1481, 'Урупский район', 'УРУПСКИЙ РАЙОН', NULL),
-(1483, 'ru', 1482, 'Ногайский район', 'НОГАЙСКИЙ РАЙОН', NULL),
-(1484, 'ru', 1483, 'Абазинский район', 'АБАЗИНСКИЙ РАЙОН', NULL),
-(1485, 'ru', 1484, 'Чеченская Республика', 'ЧЕЧЕНСКАЯ РЕСПУБЛИКА', NULL),
-(1486, 'ru', 1485, 'Грозный', 'ГРОЗНЫЙ', NULL),
-(1487, 'ru', 1486, 'Веденский район', 'ВЕДЕНСКИЙ РАЙОН', NULL),
-(1488, 'ru', 1487, 'Грозненский район', 'ГРОЗНЕНСКИЙ РАЙОН', NULL),
-(1489, 'ru', 1488, 'Ачхой-Мартановский район', 'АЧХОЙ-МАРТАНОВСКИЙ РАЙОН', NULL),
-(1490, 'ru', 1489, 'Аргун', 'АРГУН', NULL),
-(1491, 'ru', 1490, 'Гудермесский район', 'ГУДЕРМЕССКИЙ РАЙОН', NULL),
-(1492, 'ru', 1491, 'Гудермес', 'ГУДЕРМЕС', NULL),
-(1493, 'ru', 1492, 'Курчалоевский район', 'КУРЧАЛОЕВСКИЙ РАЙОН', NULL),
-(1494, 'ru', 1493, 'Надтеречный район', 'НАДТЕРЕЧНЫЙ РАЙОН', NULL),
-(1495, 'ru', 1494, 'Урус-Мартановский район', 'УРУС-МАРТАНОВСКИЙ РАЙОН', NULL),
-(1496, 'ru', 1495, 'Урус-Мартан', 'УРУС-МАРТАН', NULL),
-(1497, 'ru', 1496, 'Ножай-Юртовский район', 'НОЖАЙ-ЮРТОВСКИЙ РАЙОН', NULL),
-(1498, 'ru', 1497, 'Наурский район', 'НАУРСКИЙ РАЙОН', NULL),
-(1499, 'ru', 1498, 'Шалинский район', 'ШАЛИНСКИЙ РАЙОН', NULL),
-(1500, 'ru', 1499, 'Шали', 'ШАЛИ', NULL),
-(1501, 'ru', 1500, 'Шелковской район', 'ШЕЛКОВСКОЙ РАЙОН', NULL),
-(1502, 'ru', 1501, 'Итум-Калинский район', 'ИТУМ-КАЛИНСКИЙ РАЙОН', NULL),
-(1503, 'ru', 1502, 'Сунженский район', 'СУНЖЕНСКИЙ РАЙОН', NULL),
-(1504, 'ru', 1503, 'Шатойский район', 'ШАТОЙСКИЙ РАЙОН', NULL),
-(1505, 'ru', 1504, 'Шаройский район', 'ШАРОЙСКИЙ РАЙОН', NULL),
-(1506, 'ru', 1505, 'Поволжье', 'ПОВОЛЖЬЕ', NULL),
-(1507, 'ru', 1506, 'Республика Мордовия', 'РЕСПУБЛИКА МОРДОВИЯ', NULL),
-(1508, 'ru', 1507, 'Саранск', 'САРАНСК', NULL),
-(1509, 'ru', 1508, 'Атюрьевский район', 'АТЮРЬЕВСКИЙ РАЙОН', NULL),
-(1510, 'ru', 1509, 'Атяшевский район', 'АТЯШЕВСКИЙ РАЙОН', NULL),
-(1511, 'ru', 1510, 'Ардатовский район', 'АРДАТОВСКИЙ РАЙОН', NULL),
-(1512, 'ru', 1511, 'Ардатов', 'АРДАТОВ', NULL),
-(1513, 'ru', 1512, 'Ковылкино', 'КОВЫЛКИНО', NULL),
-(1514, 'ru', 1513, 'Рузаевка', 'РУЗАЕВКА', NULL),
-(1515, 'ru', 1514, 'Большеигнатовский район', 'БОЛЬШЕИГНАТОВСКИЙ РАЙОН', NULL),
-(1516, 'ru', 1515, 'Ельниковский район', 'ЕЛЬНИКОВСКИЙ РАЙОН', NULL),
-(1517, 'ru', 1516, 'Большеберезниковский район', 'БОЛЬШЕБЕРЕЗНИКОВСКИЙ РАЙОН', NULL),
-(1518, 'ru', 1517, 'Дубенский район', 'ДУБЕНСКИЙ РАЙОН', NULL),
-(1519, 'ru', 1518, 'Ичалковский район', 'ИЧАЛКОВСКИЙ РАЙОН', NULL),
-(1520, 'ru', 1519, 'Инсарский район', 'ИНСАРСКИЙ РАЙОН', NULL),
-(1521, 'ru', 1520, 'Инсар', 'ИНСАР', NULL),
-(1522, 'ru', 1521, 'Зубово-Полянский район', 'ЗУБОВО-ПОЛЯНСКИЙ РАЙОН', NULL),
-(1523, 'ru', 1522, 'Кочкуровский район', 'КОЧКУРОВСКИЙ РАЙОН', NULL),
-(1524, 'ru', 1523, 'Кадошкинский район', 'КАДОШКИНСКИЙ РАЙОН', NULL),
-(1525, 'ru', 1524, 'Ковылкинский район', 'КОВЫЛКИНСКИЙ РАЙОН', NULL),
-(1526, 'ru', 1525, 'Краснослободский район', 'КРАСНОСЛОБОДСКИЙ РАЙОН', NULL),
-(1527, 'ru', 1526, 'Краснослободск', 'КРАСНОСЛОБОДСК', NULL),
-(1528, 'ru', 1527, 'Лямбирский район', 'ЛЯМБИРСКИЙ РАЙОН', NULL),
-(1529, 'ru', 1528, 'Рузаевский район', 'РУЗАЕВСКИЙ РАЙОН', NULL),
-(1530, 'ru', 1529, 'Ромодановский район', 'РОМОДАНОВСКИЙ РАЙОН', NULL),
-(1531, 'ru', 1530, 'Торбеевский район', 'ТОРБЕЕВСКИЙ РАЙОН', NULL),
-(1532, 'ru', 1531, 'Темниковский район', 'ТЕМНИКОВСКИЙ РАЙОН', NULL),
-(1533, 'ru', 1532, 'Темников', 'ТЕМНИКОВ', NULL),
-(1534, 'ru', 1533, 'Теньгушевский район', 'ТЕНЬГУШЕВСКИЙ РАЙОН', NULL),
-(1535, 'ru', 1534, 'Старошайговский район', 'СТАРОШАЙГОВСКИЙ РАЙОН', NULL),
-(1536, 'ru', 1535, 'Чамзинский район', 'ЧАМЗИНСКИЙ РАЙОН', NULL),
-(1537, 'ru', 1536, 'Республика Татарстан', 'РЕСПУБЛИКА ТАТАРСТАН', NULL),
-(1538, 'ru', 1537, 'Казань', 'КАЗАНЬ', NULL),
-(1539, 'ru', 1538, 'Набережные Челны', 'НАБЕРЕЖНЫЕ ЧЕЛНЫ', NULL),
-(1540, 'ru', 1539, 'Агрызский район', 'АГРЫЗСКИЙ РАЙОН', NULL),
-(1541, 'ru', 1540, 'Агрыз', 'АГРЫЗ', NULL),
-(1542, 'ru', 1541, 'Азнакаевский район', 'АЗНАКАЕВСКИЙ РАЙОН', NULL),
-(1543, 'ru', 1542, 'Азнакаево', 'АЗНАКАЕВО', NULL),
-(1544, 'ru', 1543, 'Актанышский район', 'АКТАНЫШСКИЙ РАЙОН', NULL),
-(1545, 'ru', 1544, 'Аксубаевский район', 'АКСУБАЕВСКИЙ РАЙОН', NULL),
-(1546, 'ru', 1545, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
-(1547, 'ru', 1546, 'Альметьевский район', 'АЛЬМЕТЬЕВСКИЙ РАЙОН', NULL),
-(1548, 'ru', 1547, 'Альметьевск', 'АЛЬМЕТЬЕВСК', NULL),
-(1549, 'ru', 1548, 'Алькеевский район', 'АЛЬКЕЕВСКИЙ РАЙОН', NULL),
-(1550, 'ru', 1549, 'Апастовский район', 'АПАСТОВСКИЙ РАЙОН', NULL),
-(1551, 'ru', 1550, 'Арский район', 'АРСКИЙ РАЙОН', NULL),
-(1552, 'ru', 1551, 'Арск', 'АРСК', NULL),
-(1553, 'ru', 1552, 'Атнинский район', 'АТНИНСКИЙ РАЙОН', NULL),
-(1554, 'ru', 1553, 'Балтасинский район', 'БАЛТАСИНСКИЙ РАЙОН', NULL),
-(1555, 'ru', 1554, 'Бавлинский район', 'БАВЛИНСКИЙ РАЙОН', NULL),
-(1556, 'ru', 1555, 'Бавлы', 'БАВЛЫ', NULL),
-(1557, 'ru', 1556, 'Бугульминский район', 'БУГУЛЬМИНСКИЙ РАЙОН', NULL),
-(1558, 'ru', 1557, 'Бугульма', 'БУГУЛЬМА', NULL),
-(1559, 'ru', 1558, 'Буинский район', 'БУИНСКИЙ РАЙОН', NULL),
-(1560, 'ru', 1559, 'Буинск', 'БУИНСК', NULL),
-(1561, 'ru', 1560, 'Верхнеуслонский район', 'ВЕРХНЕУСЛОНСКИЙ РАЙОН', NULL),
-(1562, 'ru', 1561, 'Высокогорский район', 'ВЫСОКОГОРСКИЙ РАЙОН', NULL),
-(1563, 'ru', 1562, 'Елабужский район', 'ЕЛАБУЖСКИЙ РАЙОН', NULL),
-(1564, 'ru', 1563, 'Елабуга', 'ЕЛАБУГА', NULL),
-(1565, 'ru', 1564, 'Дрожжановский район', 'ДРОЖЖАНОВСКИЙ РАЙОН', NULL),
-(1566, 'ru', 1565, 'Зеленодольский район', 'ЗЕЛЕНОДОЛЬСКИЙ РАЙОН', NULL),
-(1567, 'ru', 1566, 'Зеленодольск', 'ЗЕЛЕНОДОЛЬСК', NULL),
-(1568, 'ru', 1567, 'Заинский район', 'ЗАИНСКИЙ РАЙОН', NULL),
-(1569, 'ru', 1568, 'Заинск', 'ЗАИНСК', NULL),
-(1570, 'ru', 1569, 'Кайбицкий район', 'КАЙБИЦКИЙ РАЙОН', NULL),
-(1571, 'ru', 1570, 'Камско-Устьинский район', 'КАМСКО-УСТЬИНСКИЙ РАЙОН', NULL),
-(1572, 'ru', 1571, 'Кукморский район', 'КУКМОРСКИЙ РАЙОН', NULL),
-(1573, 'ru', 1572, 'Лаишевский район', 'ЛАИШЕВСКИЙ РАЙОН', NULL),
-(1574, 'ru', 1573, 'Лаишево', 'ЛАИШЕВО', NULL),
-(1575, 'ru', 1574, 'Лениногорский район', 'ЛЕНИНОГОРСКИЙ РАЙОН', NULL),
-(1576, 'ru', 1575, 'Лениногорск', 'ЛЕНИНОГОРСК', NULL),
-(1577, 'ru', 1576, 'Мамадышский район', 'МАМАДЫШСКИЙ РАЙОН', NULL),
-(1578, 'ru', 1577, 'Мамадыш', 'МАМАДЫШ', NULL),
-(1579, 'ru', 1578, 'Муслюмовский район', 'МУСЛЮМОВСКИЙ РАЙОН', NULL),
-(1580, 'ru', 1579, 'Менделеевский район', 'МЕНДЕЛЕЕВСКИЙ РАЙОН', NULL),
-(1581, 'ru', 1580, 'Менделеевск', 'МЕНДЕЛЕЕВСК', NULL),
-(1582, 'ru', 1581, 'Мензелинский район', 'МЕНЗЕЛИНСКИЙ РАЙОН', NULL),
-(1583, 'ru', 1582, 'Мензелинск', 'МЕНЗЕЛИНСК', NULL),
-(1584, 'ru', 1583, 'Новошешминский район', 'НОВОШЕШМИНСКИЙ РАЙОН', NULL),
-(1585, 'ru', 1584, 'Нижнекамский район', 'НИЖНЕКАМСКИЙ РАЙОН', NULL),
-(1586, 'ru', 1585, 'Нижнекамск', 'НИЖНЕКАМСК', NULL),
-(1587, 'ru', 1586, 'Нурлатский район', 'НУРЛАТСКИЙ РАЙОН', NULL),
-(1588, 'ru', 1587, 'Нурлат', 'НУРЛАТ', NULL),
-(1589, 'ru', 1588, 'Пестречинский район', 'ПЕСТРЕЧИНСКИЙ РАЙОН', NULL),
-(1590, 'ru', 1589, 'Рыбно-Слободский район', 'РЫБНО-СЛОБОДСКИЙ РАЙОН', NULL),
-(1591, 'ru', 1590, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
-(1592, 'ru', 1591, 'Болгар', 'БОЛГАР', NULL),
-(1593, 'ru', 1592, 'Сармановский район', 'САРМАНОВСКИЙ РАЙОН', NULL),
-(1594, 'ru', 1593, 'Сабинский район', 'САБИНСКИЙ РАЙОН', NULL),
-(1595, 'ru', 1594, 'Тетюшский район', 'ТЕТЮШСКИЙ РАЙОН', NULL),
-(1596, 'ru', 1595, 'Тетюши', 'ТЕТЮШИ', NULL),
-(1597, 'ru', 1596, 'Тукаевский район', 'ТУКАЕВСКИЙ РАЙОН', NULL),
-(1598, 'ru', 1597, 'Тюлячинский район', 'ТЮЛЯЧИНСКИЙ РАЙОН', NULL),
-(1599, 'ru', 1598, 'Черемшанский район', 'ЧЕРЕМШАНСКИЙ РАЙОН', NULL),
-(1600, 'ru', 1599, 'Чистопольский район', 'ЧИСТОПОЛЬСКИЙ РАЙОН', NULL),
-(1601, 'ru', 1600, 'Чистополь', 'ЧИСТОПОЛЬ', NULL),
-(1602, 'ru', 1601, 'Ютазинский район', 'ЮТАЗИНСКИЙ РАЙОН', NULL),
-(1603, 'ru', 1602, 'Республика Марий Эл', 'РЕСПУБЛИКА МАРИЙ ЭЛ', NULL),
-(1604, 'ru', 1603, 'Йошкар-Ола', 'ЙОШКАР-ОЛА', NULL),
-(1605, 'ru', 1604, 'Козьмодемьянск', 'КОЗЬМОДЕМЬЯНСК', NULL),
-(1606, 'ru', 1605, 'Волжский район', 'ВОЛЖСКИЙ РАЙОН', NULL),
-(1607, 'ru', 1606, 'Волжск', 'ВОЛЖСК', NULL),
-(1608, 'ru', 1607, 'Горномарийский район', 'ГОРНОМАРИЙСКИЙ РАЙОН', NULL),
-(1609, 'ru', 1608, 'Звениговский район', 'ЗВЕНИГОВСКИЙ РАЙОН', NULL),
-(1610, 'ru', 1609, 'Звенигово', 'ЗВЕНИГОВО', NULL),
-(1611, 'ru', 1610, 'Куженерский район', 'КУЖЕНЕРСКИЙ РАЙОН', NULL),
-(1612, 'ru', 1611, 'Килемарский район', 'КИЛЕМАРСКИЙ РАЙОН', NULL),
-(1613, 'ru', 1612, 'Мари-Турекский район', 'МАРИ-ТУРЕКСКИЙ РАЙОН', NULL),
-(1614, 'ru', 1613, 'Медведевский район', 'МЕДВЕДЕВСКИЙ РАЙОН', NULL),
-(1615, 'ru', 1614, 'Моркинский район', 'МОРКИНСКИЙ РАЙОН', NULL),
-(1616, 'ru', 1615, 'Новоторъяльский район', 'НОВОТОРЪЯЛЬСКИЙ РАЙОН', NULL),
-(1617, 'ru', 1616, 'Сернурский район', 'СЕРНУРСКИЙ РАЙОН', NULL),
-(1618, 'ru', 1617, 'Параньгинский район', 'ПАРАНЬГИНСКИЙ РАЙОН', NULL),
-(1619, 'ru', 1618, 'Оршанский район', 'ОРШАНСКИЙ РАЙОН', NULL),
-(1620, 'ru', 1619, 'Юринский район', 'ЮРИНСКИЙ РАЙОН', NULL),
-(1621, 'ru', 1620, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(1622, 'ru', 1621, 'Кировская область', 'КИРОВСКАЯ ОБЛАСТЬ', NULL),
-(1623, 'ru', 1622, 'Киров', 'КИРОВ', NULL),
-(1624, 'ru', 1623, 'Арбажский район', 'АРБАЖСКИЙ РАЙОН', NULL),
-(1625, 'ru', 1624, 'Афанасьевский район', 'АФАНАСЬЕВСКИЙ РАЙОН', NULL),
-(1626, 'ru', 1625, 'Верхнекамский район', 'ВЕРХНЕКАМСКИЙ РАЙОН', NULL),
-(1627, 'ru', 1626, 'Кирс', 'КИРС', NULL),
-(1628, 'ru', 1627, 'Белохолуницкий район', 'БЕЛОХОЛУНИЦКИЙ РАЙОН', NULL),
-(1629, 'ru', 1628, 'Белая Холуница', 'БЕЛАЯ ХОЛУНИЦА', NULL),
-(1630, 'ru', 1629, 'Богородский район', 'БОГОРОДСКИЙ РАЙОН', NULL),
-(1631, 'ru', 1630, 'Вятскополянский район', 'ВЯТСКОПОЛЯНСКИЙ РАЙОН', NULL),
-(1632, 'ru', 1631, 'Вятские Поляны', 'ВЯТСКИЕ ПОЛЯНЫ', NULL),
-(1633, 'ru', 1632, 'Сосновка', 'СОСНОВКА', NULL),
-(1634, 'ru', 1633, 'Даровской район', 'ДАРОВСКОЙ РАЙОН', NULL),
-(1635, 'ru', 1634, 'Верхошижемский район', 'ВЕРХОШИЖЕМСКИЙ РАЙОН', NULL),
-(1636, 'ru', 1635, 'Кикнурский район', 'КИКНУРСКИЙ РАЙОН', NULL),
-(1637, 'ru', 1636, 'Зуевский район', 'ЗУЕВСКИЙ РАЙОН', NULL),
-(1638, 'ru', 1637, 'Зуевка', 'ЗУЕВКА', NULL),
-(1639, 'ru', 1638, 'Кирово-Чепецкий район', 'КИРОВО-ЧЕПЕЦКИЙ РАЙОН', NULL),
-(1640, 'ru', 1639, 'Кирово-Чепецк', 'КИРОВО-ЧЕПЕЦК', NULL),
-(1641, 'ru', 1640, 'Кильмезский район', 'КИЛЬМЕЗСКИЙ РАЙОН', NULL),
-(1642, 'ru', 1641, 'Котельничский район', 'КОТЕЛЬНИЧСКИЙ РАЙОН', NULL),
-(1643, 'ru', 1642, 'Котельнич', 'КОТЕЛЬНИЧ', NULL),
-(1644, 'ru', 1643, 'Куменский район', 'КУМЕНСКИЙ РАЙОН', NULL),
-(1645, 'ru', 1644, 'Малмыжский район', 'МАЛМЫЖСКИЙ РАЙОН', NULL),
-(1646, 'ru', 1645, 'Малмыж', 'МАЛМЫЖ', NULL),
-(1647, 'ru', 1646, 'Лузский район', 'ЛУЗСКИЙ РАЙОН', NULL),
-(1648, 'ru', 1647, 'Луза', 'ЛУЗА', NULL),
-(1649, 'ru', 1648, 'Лебяжский район', 'ЛЕБЯЖСКИЙ РАЙОН', NULL),
-(1650, 'ru', 1649, 'Нагорский район', 'НАГОРСКИЙ РАЙОН', NULL),
-(1651, 'ru', 1650, 'Мурашинский район', 'МУРАШИНСКИЙ РАЙОН', NULL),
-(1652, 'ru', 1651, 'Мураши', 'МУРАШИ', NULL),
-(1653, 'ru', 1652, 'Немский район', 'НЕМСКИЙ РАЙОН', NULL),
-(1654, 'ru', 1653, 'Омутнинский район', 'ОМУТНИНСКИЙ РАЙОН', NULL),
-(1655, 'ru', 1654, 'Омутнинск', 'ОМУТНИНСК', NULL),
-(1656, 'ru', 1655, 'Нолинский район', 'НОЛИНСКИЙ РАЙОН', NULL),
-(1657, 'ru', 1656, 'Нолинск', 'НОЛИНСК', NULL),
-(1658, 'ru', 1657, 'Опаринский район', 'ОПАРИНСКИЙ РАЙОН', NULL),
-(1659, 'ru', 1658, 'Оричевский район', 'ОРИЧЕВСКИЙ РАЙОН', NULL),
-(1660, 'ru', 1659, 'Подосиновский район', 'ПОДОСИНОВСКИЙ РАЙОН', NULL),
-(1661, 'ru', 1660, 'Орловский район', 'ОРЛОВСКИЙ РАЙОН', NULL),
-(1662, 'ru', 1661, 'Орлов', 'ОРЛОВ', NULL),
-(1663, 'ru', 1662, 'Пижанский район', 'ПИЖАНСКИЙ РАЙОН', NULL),
-(1664, 'ru', 1663, 'Санчурский район', 'САНЧУРСКИЙ РАЙОН', NULL),
-(1665, 'ru', 1664, 'Свечинский район', 'СВЕЧИНСКИЙ РАЙОН', NULL),
-(1666, 'ru', 1665, 'Слободской район', 'СЛОБОДСКОЙ РАЙОН', NULL),
-(1667, 'ru', 1666, 'Слободской', 'СЛОБОДСКОЙ', NULL),
-(1668, 'ru', 1667, 'Тужинский район', 'ТУЖИНСКИЙ РАЙОН', NULL),
-(1669, 'ru', 1668, 'Сунский район', 'СУНСКИЙ РАЙОН', NULL),
-(1670, 'ru', 1669, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(1671, 'ru', 1670, 'Советск', 'СОВЕТСК', NULL),
-(1672, 'ru', 1671, 'Унинский район', 'УНИНСКИЙ РАЙОН', NULL),
-(1673, 'ru', 1672, 'Уржумский район', 'УРЖУМСКИЙ РАЙОН', NULL),
-(1674, 'ru', 1673, 'Уржум', 'УРЖУМ', NULL),
-(1675, 'ru', 1674, 'Фаленский район', 'ФАЛЕНСКИЙ РАЙОН', NULL),
-(1676, 'ru', 1675, 'Шабалинский район', 'ШАБАЛИНСКИЙ РАЙОН', NULL),
-(1677, 'ru', 1676, 'Юрьянский район', 'ЮРЬЯНСКИЙ РАЙОН', NULL),
-(1678, 'ru', 1677, 'Яранский район', 'ЯРАНСКИЙ РАЙОН', NULL),
-(1679, 'ru', 1678, 'Яранск', 'ЯРАНСК', NULL),
-(1680, 'ru', 1679, 'Нижегородская область', 'НИЖЕГОРОДСКАЯ ОБЛАСТЬ', NULL),
-(1681, 'ru', 1680, 'Нижний Новгород', 'НИЖНИЙ НОВГОРОД', NULL),
-(1682, 'ru', 1681, 'Дзержинск', 'ДЗЕРЖИНСК', NULL),
-(1683, 'ru', 1682, 'Бор', 'БОР', NULL),
-(1684, 'ru', 1683, 'Саров', 'САРОВ', NULL),
-(1685, 'ru', 1684, 'Арзамас', 'АРЗАМАС', NULL),
-(1686, 'ru', 1685, 'Семенов', 'СЕМЕНОВ', NULL),
-(1687, 'ru', 1686, 'Выкса', 'ВЫКСА', NULL),
-(1688, 'ru', 1687, 'Первомайск', 'ПЕРВОМАЙСК', NULL),
-(1689, 'ru', 1688, 'Шахунья', 'ШАХУНЬЯ', NULL),
-(1690, 'ru', 1689, 'Арзамасский район', 'АРЗАМАССКИЙ РАЙОН', NULL),
-(1691, 'ru', 1690, 'Ардатовский район', 'АРДАТОВСКИЙ РАЙОН', NULL),
-(1692, 'ru', 1691, 'Балахнинский район', 'БАЛАХНИНСКИЙ РАЙОН', NULL),
-(1693, 'ru', 1692, 'Балахна', 'БАЛАХНА', NULL),
-(1694, 'ru', 1693, 'Богородский район', 'БОГОРОДСКИЙ РАЙОН', NULL),
-(1695, 'ru', 1694, 'Богородск', 'БОГОРОДСК', NULL),
-(1696, 'ru', 1695, 'Большемурашкинский район', 'БОЛЬШЕМУРАШКИНСКИЙ РАЙОН', NULL),
-(1697, 'ru', 1696, 'Вадский район', 'ВАДСКИЙ РАЙОН', NULL),
-(1698, 'ru', 1697, 'Бутурлинский район', 'БУТУРЛИНСКИЙ РАЙОН', NULL),
-(1699, 'ru', 1698, 'Большеболдинский район', 'БОЛЬШЕБОЛДИНСКИЙ РАЙОН', NULL),
-(1700, 'ru', 1699, 'Вачский район', 'ВАЧСКИЙ РАЙОН', NULL),
-(1701, 'ru', 1700, 'Ветлужский район', 'ВЕТЛУЖСКИЙ РАЙОН', NULL),
-(1702, 'ru', 1701, 'Ветлуга', 'ВЕТЛУГА', NULL),
-(1703, 'ru', 1702, 'Варнавинский район', 'ВАРНАВИНСКИЙ РАЙОН', NULL),
-(1704, 'ru', 1703, 'Воротынский район', 'ВОРОТЫНСКИЙ РАЙОН', NULL),
-(1705, 'ru', 1704, 'Володарский район', 'ВОЛОДАРСКИЙ РАЙОН', NULL),
-(1706, 'ru', 1705, 'Володарск', 'ВОЛОДАРСК', NULL),
-(1707, 'ru', 1706, 'Вознесенский район', 'ВОЗНЕСЕНСКИЙ РАЙОН', NULL),
-(1708, 'ru', 1707, 'Воскресенский район', 'ВОСКРЕСЕНСКИЙ РАЙОН', NULL),
-(1709, 'ru', 1708, 'Гагинский район', 'ГАГИНСКИЙ РАЙОН', NULL),
-(1710, 'ru', 1709, 'Городецкий район', 'ГОРОДЕЦКИЙ РАЙОН', NULL),
-(1711, 'ru', 1710, 'Городец', 'ГОРОДЕЦ', NULL),
-(1712, 'ru', 1711, 'Заволжье', 'ЗАВОЛЖЬЕ', NULL),
-(1713, 'ru', 1712, 'Дальнеконстантиновский район', 'ДАЛЬНЕКОНСТАНТИНОВСКИЙ РАЙОН', NULL),
-(1714, 'ru', 1713, 'Княгининский район', 'КНЯГИНИНСКИЙ РАЙОН', NULL),
-(1715, 'ru', 1714, 'Княгинино', 'КНЯГИНИНО', NULL),
-(1716, 'ru', 1715, 'Ковернинский район', 'КОВЕРНИНСКИЙ РАЙОН', NULL),
-(1717, 'ru', 1716, 'Дивеевский район', 'ДИВЕЕВСКИЙ РАЙОН', NULL),
-(1718, 'ru', 1717, 'Краснобаковский район', 'КРАСНОБАКОВСКИЙ РАЙОН', NULL),
-(1719, 'ru', 1718, 'Кстовский район', 'КСТОВСКИЙ РАЙОН', NULL),
-(1720, 'ru', 1719, 'Кстово', 'КСТОВО', NULL),
-(1721, 'ru', 1720, 'Промышленный район', 'ПРОМЫШЛЕННЫЙ РАЙОН', NULL),
-(1722, 'ru', 1721, 'Краснооктябрьский район', 'КРАСНООКТЯБРЬСКИЙ РАЙОН', NULL),
-(1723, 'ru', 1722, 'Лукояновский район', 'ЛУКОЯНОВСКИЙ РАЙОН', NULL);
-INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
-(1724, 'ru', 1723, 'Лукоянов', 'ЛУКОЯНОВ', NULL),
-(1725, 'ru', 1724, 'Кулебакский район', 'КУЛЕБАКСКИЙ РАЙОН', NULL),
-(1726, 'ru', 1725, 'Кулебаки', 'КУЛЕБАКИ', NULL),
-(1727, 'ru', 1726, 'Лысковский район', 'ЛЫСКОВСКИЙ РАЙОН', NULL),
-(1728, 'ru', 1727, 'Лысково', 'ЛЫСКОВО', NULL),
-(1729, 'ru', 1728, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
-(1730, 'ru', 1729, 'Павлово', 'ПАВЛОВО', NULL),
-(1731, 'ru', 1730, 'Ворсма', 'ВОРСМА', NULL),
-(1732, 'ru', 1731, 'Горбатов', 'ГОРБАТОВ', NULL),
-(1733, 'ru', 1732, 'Навашинский район', 'НАВАШИНСКИЙ РАЙОН', NULL),
-(1734, 'ru', 1733, 'Навашино', 'НАВАШИНО', NULL),
-(1735, 'ru', 1734, 'Перевозский район', 'ПЕРЕВОЗСКИЙ РАЙОН', NULL),
-(1736, 'ru', 1735, 'Перевоз', 'ПЕРЕВОЗ', NULL),
-(1737, 'ru', 1736, 'Пильнинский район', 'ПИЛЬНИНСКИЙ РАЙОН', NULL),
-(1738, 'ru', 1737, 'Починковский район', 'ПОЧИНКОВСКИЙ РАЙОН', NULL),
-(1739, 'ru', 1738, 'Сергачский район', 'СЕРГАЧСКИЙ РАЙОН', NULL),
-(1740, 'ru', 1739, 'Сергач', 'СЕРГАЧ', NULL),
-(1741, 'ru', 1740, 'Сокольский район', 'СОКОЛЬСКИЙ РАЙОН', NULL),
-(1742, 'ru', 1741, 'Сеченовский район', 'СЕЧЕНОВСКИЙ РАЙОН', NULL),
-(1743, 'ru', 1742, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
-(1744, 'ru', 1743, 'Тоншаевский район', 'ТОНШАЕВСКИЙ РАЙОН', NULL),
-(1745, 'ru', 1744, 'Сосновский район', 'СОСНОВСКИЙ РАЙОН', NULL),
-(1746, 'ru', 1745, 'Тонкинский район', 'ТОНКИНСКИЙ РАЙОН', NULL),
-(1747, 'ru', 1746, 'Уренский район', 'УРЕНСКИЙ РАЙОН', NULL),
-(1748, 'ru', 1747, 'Урень', 'УРЕНЬ', NULL),
-(1749, 'ru', 1748, 'Чкаловский район', 'ЧКАЛОВСКИЙ РАЙОН', NULL),
-(1750, 'ru', 1749, 'Чкаловск', 'ЧКАЛОВСК', NULL),
-(1751, 'ru', 1750, 'Шарангский район', 'ШАРАНГСКИЙ РАЙОН', NULL),
-(1752, 'ru', 1751, 'Шатковский район', 'ШАТКОВСКИЙ РАЙОН', NULL),
-(1753, 'ru', 1752, 'Удмуртская Республика', 'УДМУРТСКАЯ РЕСПУБЛИКА', NULL),
-(1754, 'ru', 1753, 'Ижевск', 'ИЖЕВСК', NULL),
-(1755, 'ru', 1754, 'Сарапул', 'САРАПУЛ', NULL),
-(1756, 'ru', 1755, 'Воткинск', 'ВОТКИНСК', NULL),
-(1757, 'ru', 1756, 'Глазов', 'ГЛАЗОВ', NULL),
-(1758, 'ru', 1757, 'Алнашский район', 'АЛНАШСКИЙ РАЙОН', NULL),
-(1759, 'ru', 1758, 'Можга', 'МОЖГА', NULL),
-(1760, 'ru', 1759, 'Вавожский район', 'ВАВОЖСКИЙ РАЙОН', NULL),
-(1761, 'ru', 1760, 'Балезинский район', 'БАЛЕЗИНСКИЙ РАЙОН', NULL),
-(1762, 'ru', 1761, 'Воткинский район', 'ВОТКИНСКИЙ РАЙОН', NULL),
-(1763, 'ru', 1762, 'Глазовский район', 'ГЛАЗОВСКИЙ РАЙОН', NULL),
-(1764, 'ru', 1763, 'Завьяловский район', 'ЗАВЬЯЛОВСКИЙ РАЙОН', NULL),
-(1765, 'ru', 1764, 'Граховский район', 'ГРАХОВСКИЙ РАЙОН', NULL),
-(1766, 'ru', 1765, 'Дебесский район', 'ДЕБЕССКИЙ РАЙОН', NULL),
-(1767, 'ru', 1766, 'Игринский район', 'ИГРИНСКИЙ РАЙОН', NULL),
-(1768, 'ru', 1767, 'Камбарский район', 'КАМБАРСКИЙ РАЙОН', NULL),
-(1769, 'ru', 1768, 'Камбарка', 'КАМБАРКА', NULL),
-(1770, 'ru', 1769, 'Каракулинский район', 'КАРАКУЛИНСКИЙ РАЙОН', NULL),
-(1771, 'ru', 1770, 'Кезский район', 'КЕЗСКИЙ РАЙОН', NULL),
-(1772, 'ru', 1771, 'Кизнерский район', 'КИЗНЕРСКИЙ РАЙОН', NULL),
-(1773, 'ru', 1772, 'Киясовский район', 'КИЯСОВСКИЙ РАЙОН', NULL),
-(1774, 'ru', 1773, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
-(1775, 'ru', 1774, 'Можгинский район', 'МОЖГИНСКИЙ РАЙОН', NULL),
-(1776, 'ru', 1775, 'Малопургинский район', 'МАЛОПУРГИНСКИЙ РАЙОН', NULL),
-(1777, 'ru', 1776, 'Сарапульский район', 'САРАПУЛЬСКИЙ РАЙОН', NULL),
-(1778, 'ru', 1777, 'Увинский район', 'УВИНСКИЙ РАЙОН', NULL),
-(1779, 'ru', 1778, 'Сюмсинский район', 'СЮМСИНСКИЙ РАЙОН', NULL),
-(1780, 'ru', 1779, 'Селтинский район', 'СЕЛТИНСКИЙ РАЙОН', NULL),
-(1781, 'ru', 1780, 'Юкаменский район', 'ЮКАМЕНСКИЙ РАЙОН', NULL),
-(1782, 'ru', 1781, 'Шарканский район', 'ШАРКАНСКИЙ РАЙОН', NULL),
-(1783, 'ru', 1782, 'Якшур-Бодьинский район', 'ЯКШУР-БОДЬИНСКИЙ РАЙОН', NULL),
-(1784, 'ru', 1783, 'Ярский район', 'ЯРСКИЙ РАЙОН', NULL),
-(1785, 'ru', 1784, 'Чувашская Республика', 'ЧУВАШСКАЯ РЕСПУБЛИКА', NULL),
-(1786, 'ru', 1785, 'Чебоксары', 'ЧЕБОКСАРЫ', NULL),
-(1787, 'ru', 1786, 'Канаш', 'КАНАШ', NULL),
-(1788, 'ru', 1787, 'Алатырь', 'АЛАТЫРЬ', NULL),
-(1789, 'ru', 1788, 'Алатырский район', 'АЛАТЫРСКИЙ РАЙОН', NULL),
-(1790, 'ru', 1789, 'Шумерля', 'ШУМЕРЛЯ', NULL),
-(1791, 'ru', 1790, 'Новочебоксарск', 'НОВОЧЕБОКСАРСК', NULL),
-(1792, 'ru', 1791, 'Аликовский район', 'АЛИКОВСКИЙ РАЙОН', NULL),
-(1793, 'ru', 1792, 'Батыревский район', 'БАТЫРЕВСКИЙ РАЙОН', NULL),
-(1794, 'ru', 1793, 'Вурнарский район', 'ВУРНАРСКИЙ РАЙОН', NULL),
-(1795, 'ru', 1794, 'Канашский район', 'КАНАШСКИЙ РАЙОН', NULL),
-(1796, 'ru', 1795, 'Ибресинский район', 'ИБРЕСИНСКИЙ РАЙОН', NULL),
-(1797, 'ru', 1796, 'Козловский район', 'КОЗЛОВСКИЙ РАЙОН', NULL),
-(1798, 'ru', 1797, 'Козловка', 'КОЗЛОВКА', NULL),
-(1799, 'ru', 1798, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
-(1800, 'ru', 1799, 'Красночетайский район', 'КРАСНОЧЕТАЙСКИЙ РАЙОН', NULL),
-(1801, 'ru', 1800, 'Комсомольский район', 'КОМСОМОЛЬСКИЙ РАЙОН', NULL),
-(1802, 'ru', 1801, 'Моргаушский район', 'МОРГАУШСКИЙ РАЙОН', NULL),
-(1803, 'ru', 1802, 'Мариинско-Посадский район', 'МАРИИНСКО-ПОСАДСКИЙ РАЙОН', NULL),
-(1804, 'ru', 1803, 'Мариинский Посад', 'МАРИИНСКИЙ ПОСАД', NULL),
-(1805, 'ru', 1804, 'Порецкий район', 'ПОРЕЦКИЙ РАЙОН', NULL),
-(1806, 'ru', 1805, 'Цивильский район', 'ЦИВИЛЬСКИЙ РАЙОН', NULL),
-(1807, 'ru', 1806, 'Цивильск', 'ЦИВИЛЬСК', NULL),
-(1808, 'ru', 1807, 'Урмарский район', 'УРМАРСКИЙ РАЙОН', NULL),
-(1809, 'ru', 1808, 'Чебоксарский район', 'ЧЕБОКСАРСКИЙ РАЙОН', NULL),
-(1810, 'ru', 1809, 'Шемуршинский район', 'ШЕМУРШИНСКИЙ РАЙОН', NULL),
-(1811, 'ru', 1810, 'Шумерлинский район', 'ШУМЕРЛИНСКИЙ РАЙОН', NULL),
-(1812, 'ru', 1811, 'Ядринский район', 'ЯДРИНСКИЙ РАЙОН', NULL),
-(1813, 'ru', 1812, 'Ядрин', 'ЯДРИН', NULL),
-(1814, 'ru', 1813, 'Янтиковский район', 'ЯНТИКОВСКИЙ РАЙОН', NULL),
-(1815, 'ru', 1814, 'Яльчикский район', 'ЯЛЬЧИКСКИЙ РАЙОН', NULL),
-(1816, 'ru', 1815, 'Самарская область', 'САМАРСКАЯ ОБЛАСТЬ', NULL),
-(1817, 'ru', 1816, 'Самара', 'САМАРА', NULL),
-(1818, 'ru', 1817, 'Жигулевск', 'ЖИГУЛЕВСК', NULL),
-(1819, 'ru', 1818, 'Тольятти', 'ТОЛЬЯТТИ', NULL),
-(1820, 'ru', 1819, 'Чапаевск', 'ЧАПАЕВСК', NULL),
-(1821, 'ru', 1820, 'Новокуйбышевск', 'НОВОКУЙБЫШЕВСК', NULL),
-(1822, 'ru', 1821, 'Октябрьск', 'ОКТЯБРЬСК', NULL),
-(1823, 'ru', 1822, 'Отрадный', 'ОТРАДНЫЙ', NULL),
-(1824, 'ru', 1823, 'Похвистнево', 'ПОХВИСТНЕВО', NULL),
-(1825, 'ru', 1824, 'Сызрань', 'СЫЗРАНЬ', NULL),
-(1826, 'ru', 1825, 'Кинель', 'КИНЕЛЬ', NULL),
-(1827, 'ru', 1826, 'Безенчукский район', 'БЕЗЕНЧУКСКИЙ РАЙОН', NULL),
-(1828, 'ru', 1827, 'Алексеевский район', 'АЛЕКСЕЕВСКИЙ РАЙОН', NULL),
-(1829, 'ru', 1828, 'Богатовский район', 'БОГАТОВСКИЙ РАЙОН', NULL),
-(1830, 'ru', 1829, 'Борский район', 'БОРСКИЙ РАЙОН', NULL),
-(1831, 'ru', 1830, 'Большеглушицкий район', 'БОЛЬШЕГЛУШИЦКИЙ РАЙОН', NULL),
-(1832, 'ru', 1831, 'Большечерниговский район', 'БОЛЬШЕЧЕРНИГОВСКИЙ РАЙОН', NULL),
-(1833, 'ru', 1832, 'Елховский район', 'ЕЛХОВСКИЙ РАЙОН', NULL),
-(1834, 'ru', 1833, 'Камышлинский район', 'КАМЫШЛИНСКИЙ РАЙОН', NULL),
-(1835, 'ru', 1834, 'Кинель-Черкасский район', 'КИНЕЛЬ-ЧЕРКАССКИЙ РАЙОН', NULL),
-(1836, 'ru', 1835, 'Исаклинский район', 'ИСАКЛИНСКИЙ РАЙОН', NULL),
-(1837, 'ru', 1836, 'Кинельский район', 'КИНЕЛЬСКИЙ РАЙОН', NULL),
-(1838, 'ru', 1837, 'Клявлинский район', 'КЛЯВЛИНСКИЙ РАЙОН', NULL),
-(1839, 'ru', 1838, 'Красноярский район', 'КРАСНОЯРСКИЙ РАЙОН', NULL),
-(1840, 'ru', 1839, 'Кошкинский район', 'КОШКИНСКИЙ РАЙОН', NULL),
-(1841, 'ru', 1840, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
-(1842, 'ru', 1841, 'Нефтегорский район', 'НЕФТЕГОРСКИЙ РАЙОН', NULL),
-(1843, 'ru', 1842, 'Нефтегорск', 'НЕФТЕГОРСК', NULL),
-(1844, 'ru', 1843, 'Приволжский район', 'ПРИВОЛЖСКИЙ РАЙОН', NULL),
-(1845, 'ru', 1844, 'Пестравский район', 'ПЕСТРАВСКИЙ РАЙОН', NULL),
-(1846, 'ru', 1845, 'Похвистневский район', 'ПОХВИСТНЕВСКИЙ РАЙОН', NULL),
-(1847, 'ru', 1846, 'Ставропольский район', 'СТАВРОПОЛЬСКИЙ РАЙОН', NULL),
-(1848, 'ru', 1847, 'Сергиевский район', 'СЕРГИЕВСКИЙ РАЙОН', NULL),
-(1849, 'ru', 1848, 'Сызранский район', 'СЫЗРАНСКИЙ РАЙОН', NULL),
-(1850, 'ru', 1849, 'Хворостянский район', 'ХВОРОСТЯНСКИЙ РАЙОН', NULL),
-(1851, 'ru', 1850, 'Челно-Вершинский район', 'ЧЕЛНО-ВЕРШИНСКИЙ РАЙОН', NULL),
-(1852, 'ru', 1851, 'Шенталинский район', 'ШЕНТАЛИНСКИЙ РАЙОН', NULL),
-(1853, 'ru', 1852, 'Волжский район', 'ВОЛЖСКИЙ РАЙОН', NULL),
-(1854, 'ru', 1853, 'Шигонский район', 'ШИГОНСКИЙ РАЙОН', NULL),
-(1855, 'ru', 1854, 'Пермский край', 'ПЕРМСКИЙ КРАЙ', NULL),
-(1856, 'ru', 1855, 'Пермь', 'ПЕРМЬ', NULL),
-(1857, 'ru', 1856, 'Березники', 'БЕРЕЗНИКИ', NULL),
-(1858, 'ru', 1857, 'Гремячинск', 'ГРЕМЯЧИНСК', NULL),
-(1859, 'ru', 1858, 'Александровск', 'АЛЕКСАНДРОВСК', NULL),
-(1860, 'ru', 1859, 'Губаха', 'ГУБАХА', NULL),
-(1861, 'ru', 1860, 'Добрянка', 'ДОБРЯНКА', NULL),
-(1862, 'ru', 1861, 'Кизел', 'КИЗЕЛ', NULL),
-(1863, 'ru', 1862, 'Лысьва', 'ЛЫСЬВА', NULL),
-(1864, 'ru', 1863, 'Кунгур', 'КУНГУР', NULL),
-(1865, 'ru', 1864, 'Соликамск', 'СОЛИКАМСК', NULL),
-(1866, 'ru', 1865, 'Чайковский', 'ЧАЙКОВСКИЙ', NULL),
-(1867, 'ru', 1866, 'Чусовой', 'ЧУСОВОЙ', NULL),
-(1868, 'ru', 1867, 'Кудымкар', 'КУДЫМКАР', NULL),
-(1869, 'ru', 1868, 'Березовский район', 'БЕРЕЗОВСКИЙ РАЙОН', NULL),
-(1870, 'ru', 1869, 'Бардымский район', 'БАРДЫМСКИЙ РАЙОН', NULL),
-(1871, 'ru', 1870, 'Верещагинский район', 'ВЕРЕЩАГИНСКИЙ РАЙОН', NULL),
-(1872, 'ru', 1871, 'Верещагино', 'ВЕРЕЩАГИНО', NULL),
-(1873, 'ru', 1872, 'Большесосновский район', 'БОЛЬШЕСОСНОВСКИЙ РАЙОН', NULL),
-(1874, 'ru', 1873, 'Ильинский район', 'ИЛЬИНСКИЙ РАЙОН', NULL),
-(1875, 'ru', 1874, 'Чермоз', 'ЧЕРМОЗ', NULL),
-(1876, 'ru', 1875, 'Еловский район', 'ЕЛОВСКИЙ РАЙОН', NULL),
-(1877, 'ru', 1876, 'Горнозаводский район', 'ГОРНОЗАВОДСКИЙ РАЙОН', NULL),
-(1878, 'ru', 1877, 'Горнозаводск', 'ГОРНОЗАВОДСК', NULL),
-(1879, 'ru', 1878, 'Карагайский район', 'КАРАГАЙСКИЙ РАЙОН', NULL),
-(1880, 'ru', 1879, 'Кишертский район', 'КИШЕРТСКИЙ РАЙОН', NULL),
-(1881, 'ru', 1880, 'Куединский район', 'КУЕДИНСКИЙ РАЙОН', NULL),
-(1882, 'ru', 1881, 'Кунгурский район', 'КУНГУРСКИЙ РАЙОН', NULL),
-(1883, 'ru', 1882, 'Красновишерский район', 'КРАСНОВИШЕРСКИЙ РАЙОН', NULL),
-(1884, 'ru', 1883, 'Красновишерск', 'КРАСНОВИШЕРСК', NULL),
-(1885, 'ru', 1884, 'Нытвенский район', 'НЫТВЕНСКИЙ РАЙОН', NULL),
-(1886, 'ru', 1885, 'Нытва', 'НЫТВА', NULL),
-(1887, 'ru', 1886, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(1888, 'ru', 1887, 'Осинский район', 'ОСИНСКИЙ РАЙОН', NULL),
-(1889, 'ru', 1888, 'Оса', 'ОСА', NULL),
-(1890, 'ru', 1889, 'Ординский район', 'ОРДИНСКИЙ РАЙОН', NULL),
-(1891, 'ru', 1890, 'Оханский район', 'ОХАНСКИЙ РАЙОН', NULL),
-(1892, 'ru', 1891, 'Оханск', 'ОХАНСК', NULL),
-(1893, 'ru', 1892, 'Очерский район', 'ОЧЕРСКИЙ РАЙОН', NULL),
-(1894, 'ru', 1893, 'Очер', 'ОЧЕР', NULL),
-(1895, 'ru', 1894, 'Пермский район', 'ПЕРМСКИЙ РАЙОН', NULL),
-(1896, 'ru', 1895, 'Сивинский район', 'СИВИНСКИЙ РАЙОН', NULL),
-(1897, 'ru', 1896, 'Соликамский район', 'СОЛИКАМСКИЙ РАЙОН', NULL),
-(1898, 'ru', 1897, 'Усольский район', 'УСОЛЬСКИЙ РАЙОН', NULL),
-(1899, 'ru', 1898, 'Усолье', 'УСОЛЬЕ', NULL),
-(1900, 'ru', 1899, 'Суксунский район', 'СУКСУНСКИЙ РАЙОН', NULL),
-(1901, 'ru', 1900, 'Уинский район', 'УИНСКИЙ РАЙОН', NULL),
-(1902, 'ru', 1901, 'Частинский район', 'ЧАСТИНСКИЙ РАЙОН', NULL),
-(1903, 'ru', 1902, 'Чердынский район', 'ЧЕРДЫНСКИЙ РАЙОН', NULL),
-(1904, 'ru', 1903, 'Чердынь', 'ЧЕРДЫНЬ', NULL),
-(1905, 'ru', 1904, 'Чернушинский район', 'ЧЕРНУШИНСКИЙ РАЙОН', NULL),
-(1906, 'ru', 1905, 'Чернушка', 'ЧЕРНУШКА', NULL),
-(1907, 'ru', 1906, 'Гайнский район', 'ГАЙНСКИЙ РАЙОН', NULL),
-(1908, 'ru', 1907, 'Кочевский район', 'КОЧЕВСКИЙ РАЙОН', NULL),
-(1909, 'ru', 1908, 'Кудымкарский район', 'КУДЫМКАРСКИЙ РАЙОН', NULL),
-(1910, 'ru', 1909, 'Косинский район', 'КОСИНСКИЙ РАЙОН', NULL),
-(1911, 'ru', 1910, 'Юрлинский район', 'ЮРЛИНСКИЙ РАЙОН', NULL),
-(1912, 'ru', 1911, 'Юсьвинский район', 'ЮСЬВИНСКИЙ РАЙОН', NULL),
-(1913, 'ru', 1912, 'Краснокамский район', 'КРАСНОКАМСКИЙ РАЙОН', NULL),
-(1914, 'ru', 1913, 'Краснокамск', 'КРАСНОКАМСК', NULL),
-(1915, 'ru', 1914, 'Пензенская область', 'ПЕНЗЕНСКАЯ ОБЛАСТЬ', NULL),
-(1916, 'ru', 1915, 'Пенза', 'ПЕНЗА', NULL),
-(1917, 'ru', 1916, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
-(1918, 'ru', 1917, 'Спасск', 'СПАССК', NULL),
-(1919, 'ru', 1918, 'Башмаковский район', 'БАШМАКОВСКИЙ РАЙОН', NULL),
-(1920, 'ru', 1919, 'Заречный', 'ЗАРЕЧНЫЙ', NULL),
-(1921, 'ru', 1920, 'Бековский район', 'БЕКОВСКИЙ РАЙОН', NULL),
-(1922, 'ru', 1921, 'Кузнецк', 'КУЗНЕЦК', NULL),
-(1923, 'ru', 1922, 'Кузнецк-8', 'КУЗНЕЦК-8', NULL),
-(1924, 'ru', 1923, 'Кузнецк-12', 'КУЗНЕЦК-12', NULL),
-(1925, 'ru', 1924, 'Белинский район', 'БЕЛИНСКИЙ РАЙОН', NULL),
-(1926, 'ru', 1925, 'Белинский', 'БЕЛИНСКИЙ', NULL),
-(1927, 'ru', 1926, 'Бессоновский район', 'БЕССОНОВСКИЙ РАЙОН', NULL),
-(1928, 'ru', 1927, 'Городищенский район', 'ГОРОДИЩЕНСКИЙ РАЙОН', NULL),
-(1929, 'ru', 1928, 'Сурск', 'СУРСК', NULL),
-(1930, 'ru', 1929, 'Городище', 'ГОРОДИЩЕ', NULL),
-(1931, 'ru', 1930, 'Вадинский район', 'ВАДИНСКИЙ РАЙОН', NULL),
-(1932, 'ru', 1931, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
-(1933, 'ru', 1932, 'Каменка', 'КАМЕНКА', NULL),
-(1934, 'ru', 1933, 'Иссинский район', 'ИССИНСКИЙ РАЙОН', NULL),
-(1935, 'ru', 1934, 'Земетчинский район', 'ЗЕМЕТЧИНСКИЙ РАЙОН', NULL),
-(1936, 'ru', 1935, 'Камешкирский район', 'КАМЕШКИРСКИЙ РАЙОН', NULL),
-(1937, 'ru', 1936, 'Колышлейский район', 'КОЛЫШЛЕЙСКИЙ РАЙОН', NULL),
-(1938, 'ru', 1937, 'Кузнецкий район', 'КУЗНЕЦКИЙ РАЙОН', NULL),
-(1939, 'ru', 1938, 'Лунинский район', 'ЛУНИНСКИЙ РАЙОН', NULL),
-(1940, 'ru', 1939, 'Лопатинский район', 'ЛОПАТИНСКИЙ РАЙОН', NULL),
-(1941, 'ru', 1940, 'Малосердобинский район', 'МАЛОСЕРДОБИНСКИЙ РАЙОН', NULL),
-(1942, 'ru', 1941, 'Неверкинский район', 'НЕВЕРКИНСКИЙ РАЙОН', NULL),
-(1943, 'ru', 1942, 'Наровчатский район', 'НАРОВЧАТСКИЙ РАЙОН', NULL),
-(1944, 'ru', 1943, 'Мокшанский район', 'МОКШАНСКИЙ РАЙОН', NULL),
-(1945, 'ru', 1944, 'Нижнеломовский район', 'НИЖНЕЛОМОВСКИЙ РАЙОН', NULL),
-(1946, 'ru', 1945, 'Нижний Ломов', 'НИЖНИЙ ЛОМОВ', NULL),
-(1947, 'ru', 1946, 'Никольский район', 'НИКОЛЬСКИЙ РАЙОН', NULL),
-(1948, 'ru', 1947, 'Никольск', 'НИКОЛЬСК', NULL),
-(1949, 'ru', 1948, 'Пачелмский район', 'ПАЧЕЛМСКИЙ РАЙОН', NULL),
-(1950, 'ru', 1949, 'Сердобский район', 'СЕРДОБСКИЙ РАЙОН', NULL),
-(1951, 'ru', 1950, 'Сердобск', 'СЕРДОБСК', NULL),
-(1952, 'ru', 1951, 'Шемышейский район', 'ШЕМЫШЕЙСКИЙ РАЙОН', NULL),
-(1953, 'ru', 1952, 'Сосновоборский район', 'СОСНОВОБОРСКИЙ РАЙОН', NULL),
-(1954, 'ru', 1953, 'Тамалинский район', 'ТАМАЛИНСКИЙ РАЙОН', NULL),
-(1955, 'ru', 1954, 'Пензенский район', 'ПЕНЗЕНСКИЙ РАЙОН', NULL),
-(1956, 'ru', 1955, 'Оренбургская область', 'ОРЕНБУРГСКАЯ ОБЛАСТЬ', NULL),
-(1957, 'ru', 1956, 'Оренбург', 'ОРЕНБУРГ', NULL),
-(1958, 'ru', 1957, 'Новотроицк', 'НОВОТРОИЦК', NULL),
-(1959, 'ru', 1958, 'Медногорск', 'МЕДНОГОРСК', NULL),
-(1960, 'ru', 1959, 'Бузулук', 'БУЗУЛУК', NULL),
-(1961, 'ru', 1960, 'Бугуруслан', 'БУГУРУСЛАН', NULL),
-(1962, 'ru', 1961, 'Орск', 'ОРСК', NULL),
-(1963, 'ru', 1962, 'Сорочинск', 'СОРОЧИНСК', NULL),
-(1964, 'ru', 1963, 'Кувандык', 'КУВАНДЫК', NULL),
-(1965, 'ru', 1964, 'Гай', 'ГАЙ', NULL),
-(1966, 'ru', 1965, 'Акбулакский район', 'АКБУЛАКСКИЙ РАЙОН', NULL),
-(1967, 'ru', 1966, 'Бугурусланский район', 'БУГУРУСЛАНСКИЙ РАЙОН', NULL),
-(1968, 'ru', 1967, 'Гайский район', 'ГАЙСКИЙ РАЙОН', NULL),
-(1969, 'ru', 1968, 'Сакмарский район', 'САКМАРСКИЙ РАЙОН', NULL),
-(1970, 'ru', 1969, 'Асекеевский район', 'АСЕКЕЕВСКИЙ РАЙОН', NULL),
-(1971, 'ru', 1970, 'Сорочинский район', 'СОРОЧИНСКИЙ РАЙОН', NULL),
-(1972, 'ru', 1971, 'Тюльганский район', 'ТЮЛЬГАНСКИЙ РАЙОН', NULL),
-(1973, 'ru', 1972, 'Ясненский район', 'ЯСНЕНСКИЙ РАЙОН', NULL),
-(1974, 'ru', 1973, 'Ясный', 'ЯСНЫЙ', NULL),
-(1975, 'ru', 1974, 'Бузулукский район', 'БУЗУЛУКСКИЙ РАЙОН', NULL),
-(1976, 'ru', 1975, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
-(1977, 'ru', 1976, 'Новоорский район', 'НОВООРСКИЙ РАЙОН', NULL),
-(1978, 'ru', 1977, 'Кувандыкский район', 'КУВАНДЫКСКИЙ РАЙОН', NULL),
-(1979, 'ru', 1978, 'Саракташский район', 'САРАКТАШСКИЙ РАЙОН', NULL),
-(1980, 'ru', 1979, 'Соль-Илецкий район', 'СОЛЬ-ИЛЕЦКИЙ РАЙОН', NULL),
-(1981, 'ru', 1980, 'Соль-Илецк', 'СОЛЬ-ИЛЕЦК', NULL),
-(1982, 'ru', 1981, 'Тоцкий район', 'ТОЦКИЙ РАЙОН', NULL),
-(1983, 'ru', 1982, 'Северный район', 'СЕВЕРНЫЙ РАЙОН', NULL),
-(1984, 'ru', 1983, 'Курманаевский район', 'КУРМАНАЕВСКИЙ РАЙОН', NULL),
-(1985, 'ru', 1984, 'Оренбургский район', 'ОРЕНБУРГСКИЙ РАЙОН', NULL),
-(1986, 'ru', 1985, 'Новосергиевский район', 'НОВОСЕРГИЕВСКИЙ РАЙОН', NULL),
-(1987, 'ru', 1986, 'Грачевский район', 'ГРАЧЕВСКИЙ РАЙОН', NULL),
-(1988, 'ru', 1987, 'Светлинский район', 'СВЕТЛИНСКИЙ РАЙОН', NULL),
-(1989, 'ru', 1988, 'Матвеевский район', 'МАТВЕЕВСКИЙ РАЙОН', NULL),
-(1990, 'ru', 1989, 'Переволоцкий район', 'ПЕРЕВОЛОЦКИЙ РАЙОН', NULL),
-(1991, 'ru', 1990, 'Адамовский район', 'АДАМОВСКИЙ РАЙОН', NULL),
-(1992, 'ru', 1991, 'Пономаревский район', 'ПОНОМАРЕВСКИЙ РАЙОН', NULL),
-(1993, 'ru', 1992, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
-(1994, 'ru', 1993, 'Беляевский район', 'БЕЛЯЕВСКИЙ РАЙОН', NULL),
-(1995, 'ru', 1994, 'Илекский район', 'ИЛЕКСКИЙ РАЙОН', NULL),
-(1996, 'ru', 1995, 'Домбаровский район', 'ДОМБАРОВСКИЙ РАЙОН', NULL),
-(1997, 'ru', 1996, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
-(1998, 'ru', 1997, 'Кваркенский район', 'КВАРКЕНСКИЙ РАЙОН', NULL),
-(1999, 'ru', 1998, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(2000, 'ru', 1999, 'Ташлинский район', 'ТАШЛИНСКИЙ РАЙОН', NULL),
-(2001, 'ru', 2000, 'Шарлыкский район', 'ШАРЛЫКСКИЙ РАЙОН', NULL),
-(2002, 'ru', 2001, 'Абдулинский район', 'АБДУЛИНСКИЙ РАЙОН', NULL),
-(2003, 'ru', 2002, 'Абдулино', 'АБДУЛИНО', NULL),
-(2004, 'ru', 2003, 'Республика Башкортостан', 'РЕСПУБЛИКА БАШКОРТОСТАН', NULL),
-(2005, 'ru', 2004, 'Уфа', 'УФА', NULL),
-(2006, 'ru', 2005, 'Демский район', 'ДЕМСКИЙ РАЙОН', NULL),
-(2007, 'ru', 2006, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(2008, 'ru', 2007, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
-(2009, 'ru', 2008, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(2010, 'ru', 2009, 'Агидель', 'АГИДЕЛЬ', NULL),
-(2011, 'ru', 2010, 'Октябрьский', 'ОКТЯБРЬСКИЙ', NULL),
-(2012, 'ru', 2011, 'Нефтекамск', 'НЕФТЕКАМСК', NULL),
-(2013, 'ru', 2012, 'Сибай', 'СИБАЙ', NULL),
-(2014, 'ru', 2013, 'Кумертау', 'КУМЕРТАУ', NULL),
-(2015, 'ru', 2014, 'Салават', 'САЛАВАТ', NULL),
-(2016, 'ru', 2015, 'Уфимский район', 'УФИМСКИЙ РАЙОН', NULL),
-(2017, 'ru', 2016, 'Межгорье', 'МЕЖГОРЬЕ', NULL),
-(2018, 'ru', 2017, 'Стерлитамак', 'СТЕРЛИТАМАК', NULL),
-(2019, 'ru', 2018, 'Альшеевский район', 'АЛЬШЕЕВСКИЙ РАЙОН', NULL),
-(2020, 'ru', 2019, 'Архангельский район', 'АРХАНГЕЛЬСКИЙ РАЙОН', NULL),
-(2021, 'ru', 2020, 'Аскинский район', 'АСКИНСКИЙ РАЙОН', NULL),
-(2022, 'ru', 2021, 'Аургазинский район', 'АУРГАЗИНСКИЙ РАЙОН', NULL),
-(2023, 'ru', 2022, 'Баймакский район', 'БАЙМАКСКИЙ РАЙОН', NULL),
-(2024, 'ru', 2023, 'Баймак', 'БАЙМАК', NULL),
-(2025, 'ru', 2024, 'Бакалинский район', 'БАКАЛИНСКИЙ РАЙОН', NULL),
-(2026, 'ru', 2025, 'Белебеевский район', 'БЕЛЕБЕЕВСКИЙ РАЙОН', NULL),
-(2027, 'ru', 2026, 'Белебей', 'БЕЛЕБЕЙ', NULL),
-(2028, 'ru', 2027, 'Балтачевский район', 'БАЛТАЧЕВСКИЙ РАЙОН', NULL),
-(2029, 'ru', 2028, 'Белорецкий район', 'БЕЛОРЕЦКИЙ РАЙОН', NULL),
-(2030, 'ru', 2029, 'Белорецк', 'БЕЛОРЕЦК', NULL),
-(2031, 'ru', 2030, 'Белокатайский район', 'БЕЛОКАТАЙСКИЙ РАЙОН', NULL),
-(2032, 'ru', 2031, 'Бижбулякский район', 'БИЖБУЛЯКСКИЙ РАЙОН', NULL),
-(2033, 'ru', 2032, 'Бирский район', 'БИРСКИЙ РАЙОН', NULL),
-(2034, 'ru', 2033, 'Бирск', 'БИРСК', NULL),
-(2035, 'ru', 2034, 'Благоварский район', 'БЛАГОВАРСКИЙ РАЙОН', NULL),
-(2036, 'ru', 2035, 'Благовещенский район', 'БЛАГОВЕЩЕНСКИЙ РАЙОН', NULL),
-(2037, 'ru', 2036, 'Благовещенск', 'БЛАГОВЕЩЕНСК', NULL),
-(2038, 'ru', 2037, 'Буздякский район', 'БУЗДЯКСКИЙ РАЙОН', NULL),
-(2039, 'ru', 2038, 'Бураевский район', 'БУРАЕВСКИЙ РАЙОН', NULL),
-(2040, 'ru', 2039, 'Бурзянский район', 'БУРЗЯНСКИЙ РАЙОН', NULL),
-(2041, 'ru', 2040, 'Гафурийский район', 'ГАФУРИЙСКИЙ РАЙОН', NULL),
-(2042, 'ru', 2041, 'Дуванский район', 'ДУВАНСКИЙ РАЙОН', NULL),
-(2043, 'ru', 2042, 'Ермекеевский район', 'ЕРМЕКЕЕВСКИЙ РАЙОН', NULL),
-(2044, 'ru', 2043, 'Зианчуринский район', 'ЗИАНЧУРИНСКИЙ РАЙОН', NULL),
-(2045, 'ru', 2044, 'Зилаирский район', 'ЗИЛАИРСКИЙ РАЙОН', NULL),
-(2046, 'ru', 2045, 'Иглинский район', 'ИГЛИНСКИЙ РАЙОН', NULL),
-(2047, 'ru', 2046, 'Илишевский район', 'ИЛИШЕВСКИЙ РАЙОН', NULL),
-(2048, 'ru', 2047, 'Ишимбайский район', 'ИШИМБАЙСКИЙ РАЙОН', NULL),
-(2049, 'ru', 2048, 'Ишимбай', 'ИШИМБАЙ', NULL),
-(2050, 'ru', 2049, 'Караидельский район', 'КАРАИДЕЛЬСКИЙ РАЙОН', NULL),
-(2051, 'ru', 2050, 'Калтасинский район', 'КАЛТАСИНСКИЙ РАЙОН', NULL),
-(2052, 'ru', 2051, 'Кармаскалинский район', 'КАРМАСКАЛИНСКИЙ РАЙОН', NULL),
-(2053, 'ru', 2052, 'Краснокамский район', 'КРАСНОКАМСКИЙ РАЙОН', NULL),
-(2054, 'ru', 2053, 'Кигинский район', 'КИГИНСКИЙ РАЙОН', NULL),
-(2055, 'ru', 2054, 'Кугарчинский район', 'КУГАРЧИНСКИЙ РАЙОН', NULL),
-(2056, 'ru', 2055, 'Кушнаренковский район', 'КУШНАРЕНКОВСКИЙ РАЙОН', NULL),
-(2057, 'ru', 2056, 'Куюргазинский район', 'КУЮРГАЗИНСКИЙ РАЙОН', NULL),
-(2058, 'ru', 2057, 'Мелеузовский район', 'МЕЛЕУЗОВСКИЙ РАЙОН', NULL),
-(2059, 'ru', 2058, 'Мелеуз', 'МЕЛЕУЗ', NULL),
-(2060, 'ru', 2059, 'Мечетлинский район', 'МЕЧЕТЛИНСКИЙ РАЙОН', NULL),
-(2061, 'ru', 2060, 'Мишкинский район', 'МИШКИНСКИЙ РАЙОН', NULL),
-(2062, 'ru', 2061, 'Нуримановский район', 'НУРИМАНОВСКИЙ РАЙОН', NULL),
-(2063, 'ru', 2062, 'Миякинский район', 'МИЯКИНСКИЙ РАЙОН', NULL),
-(2064, 'ru', 2063, 'Салаватский район', 'САЛАВАТСКИЙ РАЙОН', NULL),
-(2065, 'ru', 2064, 'Стерлибашевский район', 'СТЕРЛИБАШЕВСКИЙ РАЙОН', NULL),
-(2066, 'ru', 2065, 'Стерлитамакский район', 'СТЕРЛИТАМАКСКИЙ РАЙОН', NULL),
-(2067, 'ru', 2066, 'Татышлинский район', 'ТАТЫШЛИНСКИЙ РАЙОН', NULL),
-(2068, 'ru', 2067, 'Туймазинский район', 'ТУЙМАЗИНСКИЙ РАЙОН', NULL),
-(2069, 'ru', 2068, 'Туймазы', 'ТУЙМАЗЫ', NULL),
-(2070, 'ru', 2069, 'Учалинский район', 'УЧАЛИНСКИЙ РАЙОН', NULL),
-(2071, 'ru', 2070, 'Учалы', 'УЧАЛЫ', NULL),
-(2072, 'ru', 2071, 'Хайбуллинский район', 'ХАЙБУЛЛИНСКИЙ РАЙОН', NULL),
-(2073, 'ru', 2072, 'Федоровский район', 'ФЕДОРОВСКИЙ РАЙОН', NULL),
-(2074, 'ru', 2073, 'Чекмагушевский район', 'ЧЕКМАГУШЕВСКИЙ РАЙОН', NULL),
-(2075, 'ru', 2074, 'Чишминский район', 'ЧИШМИНСКИЙ РАЙОН', NULL),
-(2076, 'ru', 2075, 'Шаранский район', 'ШАРАНСКИЙ РАЙОН', NULL),
-(2077, 'ru', 2076, 'Янаульский район', 'ЯНАУЛЬСКИЙ РАЙОН', NULL),
-(2078, 'ru', 2077, 'Янаул', 'ЯНАУЛ', NULL),
-(2079, 'ru', 2078, 'Абзелиловский район', 'АБЗЕЛИЛОВСКИЙ РАЙОН', NULL),
-(2080, 'ru', 2079, 'Давлекановский район', 'ДАВЛЕКАНОВСКИЙ РАЙОН', NULL),
-(2081, 'ru', 2080, 'Давлеканово', 'ДАВЛЕКАНОВО', NULL),
-(2082, 'ru', 2081, 'Дюртюлинский район', 'ДЮРТЮЛИНСКИЙ РАЙОН', NULL),
-(2083, 'ru', 2082, 'Дюртюли', 'ДЮРТЮЛИ', NULL),
-(2084, 'ru', 2083, 'Ульяновская область', 'УЛЬЯНОВСКАЯ ОБЛАСТЬ', NULL),
-(2085, 'ru', 2084, 'Ульяновск', 'УЛЬЯНОВСК', NULL),
-(2086, 'ru', 2085, 'Димитровград', 'ДИМИТРОВГРАД', NULL),
-(2087, 'ru', 2086, 'Новоульяновск', 'НОВОУЛЬЯНОВСК', NULL),
-(2088, 'ru', 2087, 'Ульяновский район', 'УЛЬЯНОВСКИЙ РАЙОН', NULL),
-(2089, 'ru', 2088, 'Базарносызганский район', 'БАЗАРНОСЫЗГАНСКИЙ РАЙОН', NULL),
-(2090, 'ru', 2089, 'Барыш', 'БАРЫШ', NULL),
-(2091, 'ru', 2090, 'Барышский район', 'БАРЫШСКИЙ РАЙОН', NULL),
-(2092, 'ru', 2091, 'Вешкаймский район', 'ВЕШКАЙМСКИЙ РАЙОН', NULL),
-(2093, 'ru', 2092, 'Карсунский район', 'КАРСУНСКИЙ РАЙОН', NULL),
-(2094, 'ru', 2093, 'Инзенский район', 'ИНЗЕНСКИЙ РАЙОН', NULL),
-(2095, 'ru', 2094, 'Инза', 'ИНЗА', NULL),
-(2096, 'ru', 2095, 'Майнский район', 'МАЙНСКИЙ РАЙОН', NULL),
-(2097, 'ru', 2096, 'Кузоватовский район', 'КУЗОВАТОВСКИЙ РАЙОН', NULL),
-(2098, 'ru', 2097, 'Мелекесский район', 'МЕЛЕКЕССКИЙ РАЙОН', NULL),
-(2099, 'ru', 2098, 'Николаевский район', 'НИКОЛАЕВСКИЙ РАЙОН', NULL),
-(2100, 'ru', 2099, 'Новомалыклинский район', 'НОВОМАЛЫКЛИНСКИЙ РАЙОН', NULL),
-(2101, 'ru', 2100, 'Новоспасский район', 'НОВОСПАССКИЙ РАЙОН', NULL),
-(2102, 'ru', 2101, 'Радищевский район', 'РАДИЩЕВСКИЙ РАЙОН', NULL),
-(2103, 'ru', 2102, 'Сенгилеевский район', 'СЕНГИЛЕЕВСКИЙ РАЙОН', NULL),
-(2104, 'ru', 2103, 'Сенгилей', 'СЕНГИЛЕЙ', NULL),
-(2105, 'ru', 2104, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
-(2106, 'ru', 2105, 'Старомайнский район', 'СТАРОМАЙНСКИЙ РАЙОН', NULL),
-(2107, 'ru', 2106, 'Сурский район', 'СУРСКИЙ РАЙОН', NULL),
-(2108, 'ru', 2107, 'Старокулаткинский район', 'СТАРОКУЛАТКИНСКИЙ РАЙОН', NULL),
-(2109, 'ru', 2108, 'Тереньгульский район', 'ТЕРЕНЬГУЛЬСКИЙ РАЙОН', NULL),
-(2110, 'ru', 2109, 'Чердаклинский район', 'ЧЕРДАКЛИНСКИЙ РАЙОН', NULL),
-(2111, 'ru', 2110, 'Цильнинский район', 'ЦИЛЬНИНСКИЙ РАЙОН', NULL),
-(2112, 'ru', 2111, 'Саратовская область', 'САРАТОВСКАЯ ОБЛАСТЬ', NULL),
-(2113, 'ru', 2112, 'Саратов', 'САРАТОВ', NULL),
-(2114, 'ru', 2113, 'Балаково', 'БАЛАКОВО', NULL),
-(2115, 'ru', 2114, 'Шиханы', 'ШИХАНЫ', NULL),
-(2116, 'ru', 2115, 'Аткарск', 'АТКАРСК', NULL),
-(2117, 'ru', 2116, 'Петровск', 'ПЕТРОВСК', NULL),
-(2118, 'ru', 2117, 'Красноармейск', 'КРАСНОАРМЕЙСК', NULL),
-(2119, 'ru', 2118, 'Ртищево', 'РТИЩЕВО', NULL),
-(2120, 'ru', 2119, 'Балашов', 'БАЛАШОВ', NULL),
-(2121, 'ru', 2120, 'Вольск', 'ВОЛЬСК', NULL),
-(2122, 'ru', 2121, 'Вольск-18', 'ВОЛЬСК-18', NULL),
-(2123, 'ru', 2122, 'Хвалынск', 'ХВАЛЫНСК', NULL),
-(2124, 'ru', 2123, 'Маркс', 'МАРКС', NULL),
-(2125, 'ru', 2124, 'Пугачев', 'ПУГАЧЕВ', NULL),
-(2126, 'ru', 2125, 'Энгельс-19', 'ЭНГЕЛЬС-19', NULL),
-(2127, 'ru', 2126, 'Энгельс-2', 'ЭНГЕЛЬС-2', NULL),
-(2128, 'ru', 2127, 'Энгельс', 'ЭНГЕЛЬС', NULL),
-(2129, 'ru', 2128, 'Саратовский район', 'САРАТОВСКИЙ РАЙОН', NULL),
-(2130, 'ru', 2129, 'Александрово-Гайский район', 'АЛЕКСАНДРОВО-ГАЙСКИЙ РАЙОН', NULL),
-(2131, 'ru', 2130, 'Аркадакский район', 'АРКАДАКСКИЙ РАЙОН', NULL),
-(2132, 'ru', 2131, 'Аркадак', 'АРКАДАК', NULL),
-(2133, 'ru', 2132, 'Базарно-Карабулакский район', 'БАЗАРНО-КАРАБУЛАКСКИЙ РАЙОН', NULL),
-(2134, 'ru', 2133, 'Аткарский район', 'АТКАРСКИЙ РАЙОН', NULL),
-(2135, 'ru', 2134, 'Вольский район', 'ВОЛЬСКИЙ РАЙОН', NULL),
-(2136, 'ru', 2135, 'Балашовский район', 'БАЛАШОВСКИЙ РАЙОН', NULL),
-(2137, 'ru', 2136, 'Балаковский район', 'БАЛАКОВСКИЙ РАЙОН', NULL),
-(2138, 'ru', 2137, 'Балтайский район', 'БАЛТАЙСКИЙ РАЙОН', NULL),
-(2139, 'ru', 2138, 'Екатериновский район', 'ЕКАТЕРИНОВСКИЙ РАЙОН', NULL),
-(2140, 'ru', 2139, 'Воскресенский район', 'ВОСКРЕСЕНСКИЙ РАЙОН', NULL),
-(2141, 'ru', 2140, 'Дергачевский район', 'ДЕРГАЧЕВСКИЙ РАЙОН', NULL),
-(2142, 'ru', 2141, 'Духовницкий район', 'ДУХОВНИЦКИЙ РАЙОН', NULL),
-(2143, 'ru', 2142, 'Ивантеевский район', 'ИВАНТЕЕВСКИЙ РАЙОН', NULL),
-(2144, 'ru', 2143, 'Ершовский район', 'ЕРШОВСКИЙ РАЙОН', NULL),
-(2145, 'ru', 2144, 'Ершов', 'ЕРШОВ', NULL),
-(2146, 'ru', 2145, 'Калининский район', 'КАЛИНИНСКИЙ РАЙОН', NULL),
-(2147, 'ru', 2146, 'Калининск', 'КАЛИНИНСК', NULL),
-(2148, 'ru', 2147, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
-(2149, 'ru', 2148, 'Краснопартизанский район', 'КРАСНОПАРТИЗАНСКИЙ РАЙОН', NULL),
-(2150, 'ru', 2149, 'Краснокутский район', 'КРАСНОКУТСКИЙ РАЙОН', NULL),
-(2151, 'ru', 2150, 'Красный Кут', 'КРАСНЫЙ КУТ', NULL),
-(2152, 'ru', 2151, 'Лысогорский район', 'ЛЫСОГОРСКИЙ РАЙОН', NULL),
-(2153, 'ru', 2152, 'Марксовский район', 'МАРКСОВСКИЙ РАЙОН', NULL),
-(2154, 'ru', 2153, 'Новобурасский район', 'НОВОБУРАССКИЙ РАЙОН', NULL),
-(2155, 'ru', 2154, 'Новоузенский район', 'НОВОУЗЕНСКИЙ РАЙОН', NULL),
-(2156, 'ru', 2155, 'Новоузенск', 'НОВОУЗЕНСК', NULL),
-(2157, 'ru', 2156, 'Петровский район', 'ПЕТРОВСКИЙ РАЙОН', NULL),
-(2158, 'ru', 2157, 'Озинский район', 'ОЗИНСКИЙ РАЙОН', NULL),
-(2159, 'ru', 2158, 'Перелюбский район', 'ПЕРЕЛЮБСКИЙ РАЙОН', NULL),
-(2160, 'ru', 2159, 'Питерский район', 'ПИТЕРСКИЙ РАЙОН', NULL),
-(2161, 'ru', 2160, 'Пугачевский район', 'ПУГАЧЕВСКИЙ РАЙОН', NULL),
-(2162, 'ru', 2161, 'Романовский район', 'РОМАНОВСКИЙ РАЙОН', NULL),
-(2163, 'ru', 2162, 'Ровенский район', 'РОВЕНСКИЙ РАЙОН', NULL),
-(2164, 'ru', 2163, 'Самойловский район', 'САМОЙЛОВСКИЙ РАЙОН', NULL),
-(2165, 'ru', 2164, 'Ртищевский район', 'РТИЩЕВСКИЙ РАЙОН', NULL),
-(2166, 'ru', 2165, 'Татищевский район', 'ТАТИЩЕВСКИЙ РАЙОН', NULL),
-(2167, 'ru', 2166, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(2168, 'ru', 2167, 'Турковский район', 'ТУРКОВСКИЙ РАЙОН', NULL),
-(2169, 'ru', 2168, 'Хвалынский район', 'ХВАЛЫНСКИЙ РАЙОН', NULL),
-(2170, 'ru', 2169, 'Федоровский район', 'ФЕДОРОВСКИЙ РАЙОН', NULL),
-(2171, 'ru', 2170, 'Энгельсский район', 'ЭНГЕЛЬССКИЙ РАЙОН', NULL),
-(2172, 'ru', 2171, 'Урал', 'УРАЛ', NULL),
-(2173, 'ru', 2172, 'Тюменская область', 'ТЮМЕНСКАЯ ОБЛАСТЬ', NULL),
-(2174, 'ru', 2173, 'Тюмень', 'ТЮМЕНЬ', NULL),
-(2175, 'ru', 2174, 'Тюменский район', 'ТЮМЕНСКИЙ РАЙОН', NULL),
-(2176, 'ru', 2175, 'Тобольск', 'ТОБОЛЬСК', NULL),
-(2177, 'ru', 2176, 'Армизонский район', 'АРМИЗОНСКИЙ РАЙОН', NULL),
-(2178, 'ru', 2177, 'Аромашевский район', 'АРОМАШЕВСКИЙ РАЙОН', NULL),
-(2179, 'ru', 2178, 'Абатский район', 'АБАТСКИЙ РАЙОН', NULL),
-(2180, 'ru', 2179, 'Бердюжский район', 'БЕРДЮЖСКИЙ РАЙОН', NULL),
-(2181, 'ru', 2180, 'Вагайский район', 'ВАГАЙСКИЙ РАЙОН', NULL),
-(2182, 'ru', 2181, 'Голышмановский район', 'ГОЛЫШМАНОВСКИЙ РАЙОН', NULL),
-(2183, 'ru', 2182, 'Заводоуковский район', 'ЗАВОДОУКОВСКИЙ РАЙОН', NULL),
-(2184, 'ru', 2183, 'Заводоуковск', 'ЗАВОДОУКОВСК', NULL),
-(2185, 'ru', 2184, 'Викуловский район', 'ВИКУЛОВСКИЙ РАЙОН', NULL),
-(2186, 'ru', 2185, 'Исетский район', 'ИСЕТСКИЙ РАЙОН', NULL),
-(2187, 'ru', 2186, 'Ишимский район', 'ИШИМСКИЙ РАЙОН', NULL),
-(2188, 'ru', 2187, 'Ишим', 'ИШИМ', NULL),
-(2189, 'ru', 2188, 'Нижнетавдинский район', 'НИЖНЕТАВДИНСКИЙ РАЙОН', NULL),
-(2190, 'ru', 2189, 'Казанский район', 'КАЗАНСКИЙ РАЙОН', NULL),
-(2191, 'ru', 2190, 'Омутинский район', 'ОМУТИНСКИЙ РАЙОН', NULL),
-(2192, 'ru', 2191, 'Сладковский район', 'СЛАДКОВСКИЙ РАЙОН', NULL),
-(2193, 'ru', 2192, 'Тобольский район', 'ТОБОЛЬСКИЙ РАЙОН', NULL),
-(2194, 'ru', 2193, 'Сорокинский район', 'СОРОКИНСКИЙ РАЙОН', NULL),
-(2195, 'ru', 2194, 'Ялуторовский район', 'ЯЛУТОРОВСКИЙ РАЙОН', NULL),
-(2196, 'ru', 2195, 'Ялуторовск', 'ЯЛУТОРОВСК', NULL),
-(2197, 'ru', 2196, 'Упоровский район', 'УПОРОВСКИЙ РАЙОН', NULL),
-(2198, 'ru', 2197, 'Юргинский район', 'ЮРГИНСКИЙ РАЙОН', NULL),
-(2199, 'ru', 2198, 'Уватский район', 'УВАТСКИЙ РАЙОН', NULL),
-(2200, 'ru', 2199, 'Ярковский район', 'ЯРКОВСКИЙ РАЙОН', NULL),
-(2201, 'ru', 2200, 'Свердловская область', 'СВЕРДЛОВСКАЯ ОБЛАСТЬ', NULL),
-(2202, 'ru', 2201, 'Екатеринбург', 'ЕКАТЕРИНБУРГ', NULL),
-(2203, 'ru', 2202, 'Березовский', 'БЕРЕЗОВСКИЙ', NULL),
-(2204, 'ru', 2203, 'Асбест', 'АСБЕСТ', NULL),
-(2205, 'ru', 2204, 'Верхняя Пышма', 'ВЕРХНЯЯ ПЫШМА', NULL),
-(2206, 'ru', 2205, 'Карпинск', 'КАРПИНСК', NULL),
-(2207, 'ru', 2206, 'Заречный', 'ЗАРЕЧНЫЙ', NULL),
-(2208, 'ru', 2207, 'Ивдель', 'ИВДЕЛЬ', NULL),
-(2209, 'ru', 2208, 'Краснотурьинск', 'КРАСНОТУРЬИНСК', NULL),
-(2210, 'ru', 2209, 'Кировград', 'КИРОВГРАД', NULL),
-(2211, 'ru', 2210, 'Качканар', 'КАЧКАНАР', NULL),
-(2212, 'ru', 2211, 'Красноуральск', 'КРАСНОУРАЛЬСК', NULL),
-(2213, 'ru', 2212, 'Лесной', 'ЛЕСНОЙ', NULL),
-(2214, 'ru', 2213, 'Кушва', 'КУШВА', NULL),
-(2215, 'ru', 2214, 'Новоуральск', 'НОВОУРАЛЬСК', NULL),
-(2216, 'ru', 2215, 'Нижняя Тура', 'НИЖНЯЯ ТУРА', NULL),
-(2217, 'ru', 2216, 'Первоуральск', 'ПЕРВОУРАЛЬСК', NULL),
-(2218, 'ru', 2217, 'Североуральск', 'СЕВЕРОУРАЛЬСК', NULL),
-(2219, 'ru', 2218, 'Полевской', 'ПОЛЕВСКОЙ', NULL),
-(2220, 'ru', 2219, 'Ревда', 'РЕВДА', NULL),
-(2221, 'ru', 2220, 'Нижний Тагил', 'НИЖНИЙ ТАГИЛ', NULL),
-(2222, 'ru', 2221, 'Каменск-Уральский', 'КАМЕНСК-УРАЛЬСКИЙ', NULL),
-(2223, 'ru', 2222, 'Ирбит', 'ИРБИТ', NULL),
-(2224, 'ru', 2223, 'Красноуфимск', 'КРАСНОУФИМСК', NULL),
-(2225, 'ru', 2224, 'Алапаевск', 'АЛАПАЕВСК', NULL),
-(2226, 'ru', 2225, 'Серов', 'СЕРОВ', NULL),
-(2227, 'ru', 2226, 'Камышлов', 'КАМЫШЛОВ', NULL),
-(2228, 'ru', 2227, 'Нижняя Салда', 'НИЖНЯЯ САЛДА', NULL),
-(2229, 'ru', 2228, 'Волчанск', 'ВОЛЧАНСК', NULL),
-(2230, 'ru', 2229, 'Среднеуральск', 'СРЕДНЕУРАЛЬСК', NULL),
-(2231, 'ru', 2230, 'Верхний Тагил', 'ВЕРХНИЙ ТАГИЛ', NULL),
-(2232, 'ru', 2231, 'Дегтярск', 'ДЕГТЯРСК', NULL),
-(2233, 'ru', 2232, 'Тавда', 'ТАВДА', NULL),
-(2234, 'ru', 2233, 'Верхняя Тура', 'ВЕРХНЯЯ ТУРА', NULL),
-(2235, 'ru', 2234, 'Алапаевский район', 'АЛАПАЕВСКИЙ РАЙОН', NULL),
-(2236, 'ru', 2235, 'Артемовский район', 'АРТЕМОВСКИЙ РАЙОН', NULL),
-(2237, 'ru', 2236, 'Артемовский', 'АРТЕМОВСКИЙ', NULL),
-(2238, 'ru', 2237, 'Ачитский район', 'АЧИТСКИЙ РАЙОН', NULL),
-(2239, 'ru', 2238, 'Артинский район', 'АРТИНСКИЙ РАЙОН', NULL),
-(2240, 'ru', 2239, 'Байкаловский район', 'БАЙКАЛОВСКИЙ РАЙОН', NULL),
-(2241, 'ru', 2240, 'Белоярский район', 'БЕЛОЯРСКИЙ РАЙОН', NULL),
-(2242, 'ru', 2241, 'Богдановичский район', 'БОГДАНОВИЧСКИЙ РАЙОН', NULL),
-(2243, 'ru', 2242, 'Богданович', 'БОГДАНОВИЧ', NULL),
-(2244, 'ru', 2243, 'Верхнесалдинский район', 'ВЕРХНЕСАЛДИНСКИЙ РАЙОН', NULL),
-(2245, 'ru', 2244, 'Верхняя Салда', 'ВЕРХНЯЯ САЛДА', NULL),
-(2246, 'ru', 2245, 'Верхотурский район', 'ВЕРХОТУРСКИЙ РАЙОН', NULL),
-(2247, 'ru', 2246, 'Верхотурье', 'ВЕРХОТУРЬЕ', NULL),
-(2248, 'ru', 2247, 'Ирбитский район', 'ИРБИТСКИЙ РАЙОН', NULL),
-(2249, 'ru', 2248, 'Гаринский район', 'ГАРИНСКИЙ РАЙОН', NULL),
-(2250, 'ru', 2249, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
-(2251, 'ru', 2250, 'Камышловский район', 'КАМЫШЛОВСКИЙ РАЙОН', NULL),
-(2252, 'ru', 2251, 'Красноуфимский район', 'КРАСНОУФИМСКИЙ РАЙОН', NULL),
-(2253, 'ru', 2252, 'Невьянский район', 'НЕВЬЯНСКИЙ РАЙОН', NULL),
-(2254, 'ru', 2253, 'Невьянск', 'НЕВЬЯНСК', NULL),
-(2255, 'ru', 2254, 'Нижнесергинский район', 'НИЖНЕСЕРГИНСКИЙ РАЙОН', NULL),
-(2256, 'ru', 2255, 'Нижние Серги-3', 'НИЖНИЕ СЕРГИ-3', NULL),
-(2257, 'ru', 2256, 'Нижние Серги', 'НИЖНИЕ СЕРГИ', NULL),
-(2258, 'ru', 2257, 'Михайловск', 'МИХАЙЛОВСК', NULL),
-(2259, 'ru', 2258, 'Новолялинский район', 'НОВОЛЯЛИНСКИЙ РАЙОН', NULL),
-(2260, 'ru', 2259, 'Новая Ляля', 'НОВАЯ ЛЯЛЯ', NULL),
-(2261, 'ru', 2260, 'Пригородный район', 'ПРИГОРОДНЫЙ РАЙОН', NULL),
-(2262, 'ru', 2261, 'Пышминский район', 'ПЫШМИНСКИЙ РАЙОН', NULL),
-(2263, 'ru', 2262, 'Режевской район', 'РЕЖЕВСКОЙ РАЙОН', NULL),
-(2264, 'ru', 2263, 'Реж', 'РЕЖ', NULL),
-(2265, 'ru', 2264, 'Серовский район', 'СЕРОВСКИЙ РАЙОН', NULL),
-(2266, 'ru', 2265, 'Сухоложский район', 'СУХОЛОЖСКИЙ РАЙОН', NULL),
-(2267, 'ru', 2266, 'Сухой Лог', 'СУХОЙ ЛОГ', NULL),
-(2268, 'ru', 2267, 'Слободо-Туринский район', 'СЛОБОДО-ТУРИНСКИЙ РАЙОН', NULL),
-(2269, 'ru', 2268, 'Сысертский район', 'СЫСЕРТСКИЙ РАЙОН', NULL),
-(2270, 'ru', 2269, 'Арамиль', 'АРАМИЛЬ', NULL),
-(2271, 'ru', 2270, 'Сысерть', 'СЫСЕРТЬ', NULL),
-(2272, 'ru', 2271, 'Таборинский район', 'ТАБОРИНСКИЙ РАЙОН', NULL),
-(2273, 'ru', 2272, 'Тавдинский район', 'ТАВДИНСКИЙ РАЙОН', NULL),
-(2274, 'ru', 2273, 'Талицкий район', 'ТАЛИЦКИЙ РАЙОН', NULL),
-(2275, 'ru', 2274, 'Талица', 'ТАЛИЦА', NULL),
-(2276, 'ru', 2275, 'Тугулымский район', 'ТУГУЛЫМСКИЙ РАЙОН', NULL),
-(2277, 'ru', 2276, 'Туринский район', 'ТУРИНСКИЙ РАЙОН', NULL),
-(2278, 'ru', 2277, 'Туринск', 'ТУРИНСК', NULL),
-(2279, 'ru', 2278, 'Шалинский район', 'ШАЛИНСКИЙ РАЙОН', NULL),
-(2280, 'ru', 2279, 'Курганская область', 'КУРГАНСКАЯ ОБЛАСТЬ', NULL),
-(2281, 'ru', 2280, 'Курган', 'КУРГАН', NULL),
-(2282, 'ru', 2281, 'Шадринск', 'ШАДРИНСК', NULL),
-(2283, 'ru', 2282, 'Альменевский район', 'АЛЬМЕНЕВСКИЙ РАЙОН', NULL),
-(2284, 'ru', 2283, 'Белозерский район', 'БЕЛОЗЕРСКИЙ РАЙОН', NULL),
-(2285, 'ru', 2284, 'Варгашинский район', 'ВАРГАШИНСКИЙ РАЙОН', NULL),
-(2286, 'ru', 2285, 'Далматовский район', 'ДАЛМАТОВСКИЙ РАЙОН', NULL),
-(2287, 'ru', 2286, 'Далматово', 'ДАЛМАТОВО', NULL),
-(2288, 'ru', 2287, 'Каргапольский район', 'КАРГАПОЛЬСКИЙ РАЙОН', NULL),
-(2289, 'ru', 2288, 'Звериноголовский район', 'ЗВЕРИНОГОЛОВСКИЙ РАЙОН', NULL),
-(2290, 'ru', 2289, 'Кетовский район', 'КЕТОВСКИЙ РАЙОН', NULL),
-(2291, 'ru', 2290, 'Катайский район', 'КАТАЙСКИЙ РАЙОН', NULL),
-(2292, 'ru', 2291, 'Катайск', 'КАТАЙСК', NULL),
-(2293, 'ru', 2292, 'Куртамышский район', 'КУРТАМЫШСКИЙ РАЙОН', NULL),
-(2294, 'ru', 2293, 'Куртамыш', 'КУРТАМЫШ', NULL),
-(2295, 'ru', 2294, 'Лебяжьевский район', 'ЛЕБЯЖЬЕВСКИЙ РАЙОН', NULL),
-(2296, 'ru', 2295, 'Мокроусовский район', 'МОКРОУСОВСКИЙ РАЙОН', NULL),
-(2297, 'ru', 2296, 'Макушинский район', 'МАКУШИНСКИЙ РАЙОН', NULL),
-(2298, 'ru', 2297, 'Макушино', 'МАКУШИНО', NULL),
-(2299, 'ru', 2298, 'Мишкинский район', 'МИШКИНСКИЙ РАЙОН', NULL),
-(2300, 'ru', 2299, 'Притобольный район', 'ПРИТОБОЛЬНЫЙ РАЙОН', NULL),
-(2301, 'ru', 2300, 'Половинский район', 'ПОЛОВИНСКИЙ РАЙОН', NULL),
-(2302, 'ru', 2301, 'Петуховский район', 'ПЕТУХОВСКИЙ РАЙОН', NULL),
-(2303, 'ru', 2302, 'Петухово', 'ПЕТУХОВО', NULL),
-(2304, 'ru', 2303, 'Сафакулевский район', 'САФАКУЛЕВСКИЙ РАЙОН', NULL),
-(2305, 'ru', 2304, 'Частоозерский район', 'ЧАСТООЗЕРСКИЙ РАЙОН', NULL),
-(2306, 'ru', 2305, 'Шадринский район', 'ШАДРИНСКИЙ РАЙОН', NULL),
-(2307, 'ru', 2306, 'Целинный район', 'ЦЕЛИННЫЙ РАЙОН', NULL),
-(2308, 'ru', 2307, 'Шатровский район', 'ШАТРОВСКИЙ РАЙОН', NULL),
-(2309, 'ru', 2308, 'Шумихинский район', 'ШУМИХИНСКИЙ РАЙОН', NULL),
-(2310, 'ru', 2309, 'Шумиха', 'ШУМИХА', NULL),
-(2311, 'ru', 2310, 'Юргамышский район', 'ЮРГАМЫШСКИЙ РАЙОН', NULL),
-(2312, 'ru', 2311, 'Щучанский район', 'ЩУЧАНСКИЙ РАЙОН', NULL),
-(2313, 'ru', 2312, 'Щучье', 'ЩУЧЬЕ', NULL),
-(2314, 'ru', 2313, 'Ямало-Ненецкий автономный округ', 'ЯМАЛО-НЕНЕЦКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
-(2315, 'ru', 2314, 'Лабытнанги', 'ЛАБЫТНАНГИ', NULL),
-(2316, 'ru', 2315, 'Салехард', 'САЛЕХАРД', NULL),
-(2317, 'ru', 2316, 'Губкинский', 'ГУБКИНСКИЙ', NULL),
-(2318, 'ru', 2317, 'Надым', 'НАДЫМ', NULL),
-(2319, 'ru', 2318, 'Муравленко', 'МУРАВЛЕНКО', NULL),
-(2320, 'ru', 2319, 'Красноселькупский район', 'КРАСНОСЕЛЬКУПСКИЙ РАЙОН', NULL),
-(2321, 'ru', 2320, 'Пуровский район', 'ПУРОВСКИЙ РАЙОН', NULL),
-(2322, 'ru', 2321, 'Тарко-Сале', 'ТАРКО-САЛЕ', NULL),
-(2323, 'ru', 2322, 'Новый Уренгой', 'НОВЫЙ УРЕНГОЙ', NULL),
-(2324, 'ru', 2323, 'Ноябрьск', 'НОЯБРЬСК', NULL),
-(2325, 'ru', 2324, 'Надымский район', 'НАДЫМСКИЙ РАЙОН', NULL),
-(2326, 'ru', 2325, 'Ямальский район', 'ЯМАЛЬСКИЙ РАЙОН', NULL),
-(2327, 'ru', 2326, 'Приуральский район', 'ПРИУРАЛЬСКИЙ РАЙОН', NULL),
-(2328, 'ru', 2327, 'Шурышкарский район', 'ШУРЫШКАРСКИЙ РАЙОН', NULL),
-(2329, 'ru', 2328, 'Тазовский район', 'ТАЗОВСКИЙ РАЙОН', NULL),
-(2330, 'ru', 2329, 'Ханты-Мансийский автономный округ', 'ХАНТЫ-МАНСИЙСКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
-(2331, 'ru', 2330, 'Когалым', 'КОГАЛЫМ', NULL),
-(2332, 'ru', 2331, 'Лангепас', 'ЛАНГЕПАС', NULL),
-(2333, 'ru', 2332, 'Мегион', 'МЕГИОН', NULL),
-(2334, 'ru', 2333, 'Ханты-Мансийск', 'ХАНТЫ-МАНСИЙСК', NULL),
-(2335, 'ru', 2334, 'Пыть-Ях', 'ПЫТЬ-ЯХ', NULL),
-(2336, 'ru', 2335, 'Нягань', 'НЯГАНЬ', NULL),
-(2337, 'ru', 2336, 'Урай', 'УРАЙ', NULL),
-(2338, 'ru', 2337, 'Сургут', 'СУРГУТ', NULL),
-(2339, 'ru', 2338, 'Покачи', 'ПОКАЧИ', NULL),
-(2340, 'ru', 2339, 'Белоярский', 'БЕЛОЯРСКИЙ', NULL),
-(2341, 'ru', 2340, 'Югорск', 'ЮГОРСК', NULL),
-(2342, 'ru', 2341, 'Нефтеюганск', 'НЕФТЕЮГАНСК', NULL),
-(2343, 'ru', 2342, 'Нижневартовск', 'НИЖНЕВАРТОВСК', NULL),
-(2344, 'ru', 2343, 'Радужный', 'РАДУЖНЫЙ', NULL),
-(2345, 'ru', 2344, 'Кондинский район', 'КОНДИНСКИЙ РАЙОН', NULL),
-(2346, 'ru', 2345, 'Белоярский район', 'БЕЛОЯРСКИЙ РАЙОН', NULL),
-(2347, 'ru', 2346, 'Березовский район', 'БЕРЕЗОВСКИЙ РАЙОН', NULL),
-(2348, 'ru', 2347, 'Нижневартовский район', 'НИЖНЕВАРТОВСКИЙ РАЙОН', NULL),
-(2349, 'ru', 2348, 'Нефтеюганский район', 'НЕФТЕЮГАНСКИЙ РАЙОН', NULL),
-(2350, 'ru', 2349, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(2351, 'ru', 2350, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(2352, 'ru', 2351, 'Советский', 'СОВЕТСКИЙ', NULL),
-(2353, 'ru', 2352, 'Сургутский район', 'СУРГУТСКИЙ РАЙОН', NULL),
-(2354, 'ru', 2353, 'Лянтор', 'ЛЯНТОР', NULL),
-(2355, 'ru', 2354, 'Ханты-Мансийский район', 'ХАНТЫ-МАНСИЙСКИЙ РАЙОН', NULL),
-(2356, 'ru', 2355, 'Челябинская область', 'ЧЕЛЯБИНСКАЯ ОБЛАСТЬ', NULL),
-(2357, 'ru', 2356, 'Челябинск', 'ЧЕЛЯБИНСК', NULL),
-(2358, 'ru', 2357, 'Верхний Уфалей', 'ВЕРХНИЙ УФАЛЕЙ', NULL),
-(2359, 'ru', 2358, 'Златоуст', 'ЗЛАТОУСТ', NULL),
-(2360, 'ru', 2359, 'Карабаш', 'КАРАБАШ', NULL),
-(2361, 'ru', 2360, 'Копейск', 'КОПЕЙСК', NULL),
-(2362, 'ru', 2361, 'Кыштым', 'КЫШТЫМ', NULL),
-(2363, 'ru', 2362, 'Магнитогорск', 'МАГНИТОГОРСК', NULL),
-(2364, 'ru', 2363, 'Миасс', 'МИАСС', NULL),
-(2365, 'ru', 2364, 'Озерск', 'ОЗЕРСК', NULL),
-(2366, 'ru', 2365, 'Усть-Катав', 'УСТЬ-КАТАВ', NULL),
-(2367, 'ru', 2366, 'Трехгорный', 'ТРЕХГОРНЫЙ', NULL),
-(2368, 'ru', 2367, 'Снежинск', 'СНЕЖИНСК', NULL),
-(2369, 'ru', 2368, 'Южноуральск', 'ЮЖНОУРАЛЬСК', NULL),
-(2370, 'ru', 2369, 'Трехгорный-1', 'ТРЕХГОРНЫЙ-1', NULL),
-(2371, 'ru', 2370, 'Троицк', 'ТРОИЦК', NULL),
-(2372, 'ru', 2371, 'Чебаркуль', 'ЧЕБАРКУЛЬ', NULL),
-(2373, 'ru', 2372, 'Ашинский район', 'АШИНСКИЙ РАЙОН', NULL),
-(2374, 'ru', 2373, 'Миньяр', 'МИНЬЯР', NULL),
-(2375, 'ru', 2374, 'Сим', 'СИМ', NULL),
-(2376, 'ru', 2375, 'Аша', 'АША', NULL),
-(2377, 'ru', 2376, 'Карталинский район', 'КАРТАЛИНСКИЙ РАЙОН', NULL),
-(2378, 'ru', 2377, 'Карталы', 'КАРТАЛЫ', NULL),
-(2379, 'ru', 2378, 'Катав-Ивановский район', 'КАТАВ-ИВАНОВСКИЙ РАЙОН', NULL),
-(2380, 'ru', 2379, 'Юрюзань', 'ЮРЮЗАНЬ', NULL),
-(2381, 'ru', 2380, 'Катав-Ивановск', 'КАТАВ-ИВАНОВСК', NULL),
-(2382, 'ru', 2381, 'Каслинский район', 'КАСЛИНСКИЙ РАЙОН', NULL),
-(2383, 'ru', 2382, 'Касли', 'КАСЛИ', NULL),
-(2384, 'ru', 2383, 'Саткинский район', 'САТКИНСКИЙ РАЙОН', NULL),
-(2385, 'ru', 2384, 'Бакал', 'БАКАЛ', NULL),
-(2386, 'ru', 2385, 'Сатка', 'САТКА', NULL),
-(2387, 'ru', 2386, 'Агаповский район', 'АГАПОВСКИЙ РАЙОН', NULL),
-(2388, 'ru', 2387, 'Аргаяшский район', 'АРГАЯШСКИЙ РАЙОН', NULL),
-(2389, 'ru', 2388, 'Варненский район', 'ВАРНЕНСКИЙ РАЙОН', NULL),
-(2390, 'ru', 2389, 'Брединский район', 'БРЕДИНСКИЙ РАЙОН', NULL),
-(2391, 'ru', 2390, 'Верхнеуральский район', 'ВЕРХНЕУРАЛЬСКИЙ РАЙОН', NULL),
-(2392, 'ru', 2391, 'Верхнеуральск', 'ВЕРХНЕУРАЛЬСК', NULL),
-(2393, 'ru', 2392, 'Еткульский район', 'ЕТКУЛЬСКИЙ РАЙОН', NULL),
-(2394, 'ru', 2393, 'Кизильский район', 'КИЗИЛЬСКИЙ РАЙОН', NULL),
-(2395, 'ru', 2394, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
-(2396, 'ru', 2395, 'Кунашакский район', 'КУНАШАКСКИЙ РАЙОН', NULL),
-(2397, 'ru', 2396, 'Кусинский район', 'КУСИНСКИЙ РАЙОН', NULL),
-(2398, 'ru', 2397, 'Куса', 'КУСА', NULL),
-(2399, 'ru', 2398, 'Нагайбакский район', 'НАГАЙБАКСКИЙ РАЙОН', NULL),
-(2400, 'ru', 2399, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(2401, 'ru', 2400, 'Нязепетровский район', 'НЯЗЕПЕТРОВСКИЙ РАЙОН', NULL),
-(2402, 'ru', 2401, 'Нязепетровск', 'НЯЗЕПЕТРОВСК', NULL),
-(2403, 'ru', 2402, 'Сосновский район', 'СОСНОВСКИЙ РАЙОН', NULL),
-(2404, 'ru', 2403, 'Троицкий район', 'ТРОИЦКИЙ РАЙОН', NULL),
-(2405, 'ru', 2404, 'Увельский район', 'УВЕЛЬСКИЙ РАЙОН', NULL),
-(2406, 'ru', 2405, 'Уйский район', 'УЙСКИЙ РАЙОН', NULL),
-(2407, 'ru', 2406, 'Чебаркульский район', 'ЧЕБАРКУЛЬСКИЙ РАЙОН', NULL),
-(2408, 'ru', 2407, 'Чесменский район', 'ЧЕСМЕНСКИЙ РАЙОН', NULL),
-(2409, 'ru', 2408, 'Пластовский район', 'ПЛАСТОВСКИЙ РАЙОН', NULL),
-(2410, 'ru', 2409, 'Пласт', 'ПЛАСТ', NULL),
-(2411, 'ru', 2410, 'Еманжелинский район', 'ЕМАНЖЕЛИНСКИЙ РАЙОН', NULL),
-(2412, 'ru', 2411, 'Еманжелинск', 'ЕМАНЖЕЛИНСК', NULL),
-(2413, 'ru', 2412, 'Коркинский район', 'КОРКИНСКИЙ РАЙОН', NULL),
-(2414, 'ru', 2413, 'Коркино', 'КОРКИНО', NULL),
-(2415, 'ru', 2414, 'Сибирь', 'СИБИРЬ', NULL),
-(2416, 'ru', 2415, 'Иркутская область', 'ИРКУТСКАЯ ОБЛАСТЬ', NULL),
-(2417, 'ru', 2416, 'Саянск', 'САЯНСК', NULL),
-(2418, 'ru', 2417, 'Иркутск-45', 'ИРКУТСК-45', NULL),
-(2419, 'ru', 2418, 'Ангарск', 'АНГАРСК', NULL),
-(2420, 'ru', 2419, 'Иркутск', 'ИРКУТСК', NULL),
-(2421, 'ru', 2420, 'Братск', 'БРАТСК', NULL),
-(2422, 'ru', 2421, 'Бодайбо', 'БОДАЙБО', NULL),
-(2423, 'ru', 2422, 'Зима', 'ЗИМА', NULL),
-(2424, 'ru', 2423, 'Усолье-Сибирское', 'УСОЛЬЕ-СИБИРСКОЕ', NULL),
-(2425, 'ru', 2424, 'Нижнеудинск', 'НИЖНЕУДИНСК', NULL),
-(2426, 'ru', 2425, 'Тайшет', 'ТАЙШЕТ', NULL),
-(2427, 'ru', 2426, 'Тулун', 'ТУЛУН', NULL),
-(2428, 'ru', 2427, 'Иркутский район', 'ИРКУТСКИЙ РАЙОН', NULL),
-(2429, 'ru', 2428, 'Усть-Кут', 'УСТЬ-КУТ', NULL),
-(2430, 'ru', 2429, 'Шелехов', 'ШЕЛЕХОВ', NULL),
-(2431, 'ru', 2430, 'Свирск', 'СВИРСК', NULL),
-(2432, 'ru', 2431, 'Черемхово', 'ЧЕРЕМХОВО', NULL),
-(2433, 'ru', 2432, 'Усть-Илимск', 'УСТЬ-ИЛИМСК', NULL),
-(2434, 'ru', 2433, 'Ангарский район', 'АНГАРСКИЙ РАЙОН', NULL),
-(2435, 'ru', 2434, 'Балаганский район', 'БАЛАГАНСКИЙ РАЙОН', NULL),
-(2436, 'ru', 2435, 'Бодайбинский район', 'БОДАЙБИНСКИЙ РАЙОН', NULL),
-(2437, 'ru', 2436, 'Братский район', 'БРАТСКИЙ РАЙОН', NULL),
-(2438, 'ru', 2437, 'Вихоревка', 'ВИХОРЕВКА', NULL),
-(2439, 'ru', 2438, 'Заларинский район', 'ЗАЛАРИНСКИЙ РАЙОН', NULL),
-(2440, 'ru', 2439, 'Жигаловский район', 'ЖИГАЛОВСКИЙ РАЙОН', NULL),
-(2441, 'ru', 2440, 'Казачинско-Ленский район', 'КАЗАЧИНСКО-ЛЕНСКИЙ РАЙОН', NULL),
-(2442, 'ru', 2441, 'Зиминский район', 'ЗИМИНСКИЙ РАЙОН', NULL),
-(2443, 'ru', 2442, 'Катангский район', 'КАТАНГСКИЙ РАЙОН', NULL),
-(2444, 'ru', 2443, 'Киренский район', 'КИРЕНСКИЙ РАЙОН', NULL),
-(2445, 'ru', 2444, 'Киренск', 'КИРЕНСК', NULL),
-(2446, 'ru', 2445, 'Качугский район', 'КАЧУГСКИЙ РАЙОН', NULL),
-(2447, 'ru', 2446, 'Мамско-Чуйский район', 'МАМСКО-ЧУЙСКИЙ РАЙОН', NULL),
-(2448, 'ru', 2447, 'Нижнеилимский район', 'НИЖНЕИЛИМСКИЙ РАЙОН', NULL),
-(2449, 'ru', 2448, 'Железногорск-Илимский', 'ЖЕЛЕЗНОГОРСК-ИЛИМСКИЙ', NULL),
-(2450, 'ru', 2449, 'Куйтунский район', 'КУЙТУНСКИЙ РАЙОН', NULL),
-(2451, 'ru', 2450, 'Нижнеудинский район', 'НИЖНЕУДИНСКИЙ РАЙОН', NULL),
-(2452, 'ru', 2451, 'Алзамай', 'АЛЗАМАЙ', NULL),
-(2453, 'ru', 2452, 'Ольхонский район', 'ОЛЬХОНСКИЙ РАЙОН', NULL),
-(2454, 'ru', 2453, 'Слюдянский район', 'СЛЮДЯНСКИЙ РАЙОН', NULL),
-(2455, 'ru', 2454, 'Слюдянка', 'СЛЮДЯНКА', NULL),
-(2456, 'ru', 2455, 'Байкальск', 'БАЙКАЛЬСК', NULL),
-(2457, 'ru', 2456, 'Тулунский район', 'ТУЛУНСКИЙ РАЙОН', NULL),
-(2458, 'ru', 2457, 'Тайшетский район', 'ТАЙШЕТСКИЙ РАЙОН', NULL),
-(2459, 'ru', 2458, 'Бирюсинск', 'БИРЮСИНСК', NULL),
-(2460, 'ru', 2459, 'Усольский район', 'УСОЛЬСКИЙ РАЙОН', NULL),
-(2461, 'ru', 2460, 'Усть-Кутский район', 'УСТЬ-КУТСКИЙ РАЙОН', NULL),
-(2462, 'ru', 2461, 'Черемховский район', 'ЧЕРЕМХОВСКИЙ РАЙОН', NULL),
-(2463, 'ru', 2462, 'Усть-Удинский район', 'УСТЬ-УДИНСКИЙ РАЙОН', NULL),
-(2464, 'ru', 2463, 'Усть-Илимский район', 'УСТЬ-ИЛИМСКИЙ РАЙОН', NULL),
-(2465, 'ru', 2464, 'Чунский район', 'ЧУНСКИЙ РАЙОН', NULL),
-(2466, 'ru', 2465, 'Аларский район', 'АЛАРСКИЙ РАЙОН', NULL),
-(2467, 'ru', 2466, 'Шелеховский район', 'ШЕЛЕХОВСКИЙ РАЙОН', NULL),
-(2468, 'ru', 2467, 'Баяндаевский район', 'БАЯНДАЕВСКИЙ РАЙОН', NULL),
-(2469, 'ru', 2468, 'Боханский район', 'БОХАНСКИЙ РАЙОН', NULL),
-(2470, 'ru', 2469, 'Нукутский район', 'НУКУТСКИЙ РАЙОН', NULL),
-(2471, 'ru', 2470, 'Эхирит-Булагатский район', 'ЭХИРИТ-БУЛАГАТСКИЙ РАЙОН', NULL),
-(2472, 'ru', 2471, 'Осинский район', 'ОСИНСКИЙ РАЙОН', NULL),
-(2473, 'ru', 2472, 'Красноярский край', 'КРАСНОЯРСКИЙ КРАЙ', NULL),
-(2474, 'ru', 2473, 'Красноярск', 'КРАСНОЯРСК', NULL),
-(2475, 'ru', 2474, 'Дивногорск', 'ДИВНОГОРСК', NULL),
-(2476, 'ru', 2475, 'Железногорск', 'ЖЕЛЕЗНОГОРСК', NULL),
-(2477, 'ru', 2476, 'Бородино', 'БОРОДИНО', NULL),
-(2478, 'ru', 2477, 'Норильск', 'НОРИЛЬСК', NULL),
-(2479, 'ru', 2478, 'Лесосибирск', 'ЛЕСОСИБИРСК', NULL),
-(2480, 'ru', 2479, 'Зеленогорск', 'ЗЕЛЕНОГОРСК', NULL),
-(2481, 'ru', 2480, 'Ачинск', 'АЧИНСК', NULL),
-(2482, 'ru', 2481, 'Боготол', 'БОГОТОЛ', NULL),
-(2483, 'ru', 2482, 'Минусинск', 'МИНУСИНСК', NULL),
-(2484, 'ru', 2483, 'Енисейск', 'ЕНИСЕЙСК', NULL),
-(2485, 'ru', 2484, 'Сосновоборск', 'СОСНОВОБОРСК', NULL),
-(2486, 'ru', 2485, 'Канск', 'КАНСК', NULL),
-(2487, 'ru', 2486, 'Абанский район', 'АБАНСКИЙ РАЙОН', NULL),
-(2488, 'ru', 2487, 'Шарыпово', 'ШАРЫПОВО', NULL),
-(2489, 'ru', 2488, 'Назарово', 'НАЗАРОВО', NULL),
-(2490, 'ru', 2489, 'Ачинский район', 'АЧИНСКИЙ РАЙОН', NULL),
-(2491, 'ru', 2490, 'Балахтинский район', 'БАЛАХТИНСКИЙ РАЙОН', NULL),
-(2492, 'ru', 2491, 'Березовский район', 'БЕРЕЗОВСКИЙ РАЙОН', NULL),
-(2493, 'ru', 2492, 'Бирилюсский район', 'БИРИЛЮССКИЙ РАЙОН', NULL),
-(2494, 'ru', 2493, 'Богучанский район', 'БОГУЧАНСКИЙ РАЙОН', NULL),
-(2495, 'ru', 2494, 'Боготольский район', 'БОГОТОЛЬСКИЙ РАЙОН', NULL),
-(2496, 'ru', 2495, 'Большемуртинский район', 'БОЛЬШЕМУРТИНСКИЙ РАЙОН', NULL),
-(2497, 'ru', 2496, 'Большеулуйский район', 'БОЛЬШЕУЛУЙСКИЙ РАЙОН', NULL),
-(2498, 'ru', 2497, 'Дзержинский район', 'ДЗЕРЖИНСКИЙ РАЙОН', NULL),
-(2499, 'ru', 2498, 'Емельяновский район', 'ЕМЕЛЬЯНОВСКИЙ РАЙОН', NULL),
-(2500, 'ru', 2499, 'Енисейский район', 'ЕНИСЕЙСКИЙ РАЙОН', NULL),
-(2501, 'ru', 2500, 'Иланский район', 'ИЛАНСКИЙ РАЙОН', NULL),
-(2502, 'ru', 2501, 'Иланский', 'ИЛАНСКИЙ', NULL),
-(2503, 'ru', 2502, 'Ермаковский район', 'ЕРМАКОВСКИЙ РАЙОН', NULL),
-(2504, 'ru', 2503, 'Идринский район', 'ИДРИНСКИЙ РАЙОН', NULL),
-(2505, 'ru', 2504, 'Канский район', 'КАНСКИЙ РАЙОН', NULL),
-(2506, 'ru', 2505, 'Ирбейский район', 'ИРБЕЙСКИЙ РАЙОН', NULL),
-(2507, 'ru', 2506, 'Казачинский район', 'КАЗАЧИНСКИЙ РАЙОН', NULL),
-(2508, 'ru', 2507, 'Каратузский район', 'КАРАТУЗСКИЙ РАЙОН', NULL),
-(2509, 'ru', 2508, 'Кежемский район', 'КЕЖЕМСКИЙ РАЙОН', NULL),
-(2510, 'ru', 2509, 'Кодинск', 'КОДИНСК', NULL),
-(2511, 'ru', 2510, 'Козульский район', 'КОЗУЛЬСКИЙ РАЙОН', NULL),
-(2512, 'ru', 2511, 'Краснотуранский район', 'КРАСНОТУРАНСКИЙ РАЙОН', NULL),
-(2513, 'ru', 2512, 'Курагинский район', 'КУРАГИНСКИЙ РАЙОН', NULL),
-(2514, 'ru', 2513, 'Артемовск', 'АРТЕМОВСК', NULL),
-(2515, 'ru', 2514, 'Манский район', 'МАНСКИЙ РАЙОН', NULL),
-(2516, 'ru', 2515, 'Минусинский район', 'МИНУСИНСКИЙ РАЙОН', NULL),
-(2517, 'ru', 2516, 'Назаровский район', 'НАЗАРОВСКИЙ РАЙОН', NULL),
-(2518, 'ru', 2517, 'Мотыгинский район', 'МОТЫГИНСКИЙ РАЙОН', NULL),
-(2519, 'ru', 2518, 'Партизанский район', 'ПАРТИЗАНСКИЙ РАЙОН', NULL),
-(2520, 'ru', 2519, 'Нижнеингашский район', 'НИЖНЕИНГАШСКИЙ РАЙОН', NULL),
-(2521, 'ru', 2520, 'Новоселовский район', 'НОВОСЕЛОВСКИЙ РАЙОН', NULL),
-(2522, 'ru', 2521, 'Рыбинский район', 'РЫБИНСКИЙ РАЙОН', NULL),
-(2523, 'ru', 2522, 'Заозерный', 'ЗАОЗЕРНЫЙ', NULL),
-(2524, 'ru', 2523, 'Саянский район', 'САЯНСКИЙ РАЙОН', NULL),
-(2525, 'ru', 2524, 'Пировский район', 'ПИРОВСКИЙ РАЙОН', NULL),
-(2526, 'ru', 2525, 'Сухобузимский район', 'СУХОБУЗИМСКИЙ РАЙОН', NULL),
-(2527, 'ru', 2526, 'Тасеевский район', 'ТАСЕЕВСКИЙ РАЙОН', NULL),
-(2528, 'ru', 2527, 'Туруханский район', 'ТУРУХАНСКИЙ РАЙОН', NULL),
-(2529, 'ru', 2528, 'Игарка', 'ИГАРКА', NULL),
-(2530, 'ru', 2529, 'Северо-Енисейский район', 'СЕВЕРО-ЕНИСЕЙСКИЙ РАЙОН', NULL),
-(2531, 'ru', 2530, 'Тюхтетский район', 'ТЮХТЕТСКИЙ РАЙОН', NULL),
-(2532, 'ru', 2531, 'Ужурский район', 'УЖУРСКИЙ РАЙОН', NULL),
-(2533, 'ru', 2532, 'Ужур', 'УЖУР', NULL),
-(2534, 'ru', 2533, 'Уярский район', 'УЯРСКИЙ РАЙОН', NULL),
-(2535, 'ru', 2534, 'Уяр', 'УЯР', NULL),
-(2536, 'ru', 2535, 'Шарыповский район', 'ШАРЫПОВСКИЙ РАЙОН', NULL),
-(2537, 'ru', 2536, 'Шушенский район', 'ШУШЕНСКИЙ РАЙОН', NULL),
-(2538, 'ru', 2537, 'Таймырский Долгано-Ненецкий район', 'ТАЙМЫРСКИЙ ДОЛГАНО-НЕНЕЦКИЙ РАЙОН', NULL),
-(2539, 'ru', 2538, 'Дудинка', 'ДУДИНКА', NULL),
-(2540, 'ru', 2539, 'Эвенкийский район', 'ЭВЕНКИЙСКИЙ РАЙОН', NULL),
-(2541, 'ru', 2540, 'Забайкальский край', 'ЗАБАЙКАЛЬСКИЙ КРАЙ', NULL),
-(2542, 'ru', 2541, 'Чита', 'ЧИТА', NULL),
-(2543, 'ru', 2542, 'Читинский район', 'ЧИТИНСКИЙ РАЙОН', NULL),
-(2544, 'ru', 2543, 'Балейский район', 'БАЛЕЙСКИЙ РАЙОН', NULL),
-(2545, 'ru', 2544, 'Балей', 'БАЛЕЙ', NULL),
-(2546, 'ru', 2545, 'Александрово-Заводский район', 'АЛЕКСАНДРОВО-ЗАВОДСКИЙ РАЙОН', NULL),
-(2547, 'ru', 2546, 'Акшинский район', 'АКШИНСКИЙ РАЙОН', NULL),
-(2548, 'ru', 2547, 'Забайкальский район', 'ЗАБАЙКАЛЬСКИЙ РАЙОН', NULL),
-(2549, 'ru', 2548, 'Каларский район', 'КАЛАРСКИЙ РАЙОН', NULL),
-(2550, 'ru', 2549, 'Борзинский район', 'БОРЗИНСКИЙ РАЙОН', NULL),
-(2551, 'ru', 2550, 'Борзя', 'БОРЗЯ', NULL),
-(2552, 'ru', 2551, 'Газимуро-Заводский район', 'ГАЗИМУРО-ЗАВОДСКИЙ РАЙОН', NULL),
-(2553, 'ru', 2552, 'Карымский район', 'КАРЫМСКИЙ РАЙОН', NULL),
-(2554, 'ru', 2553, 'Краснокаменский район', 'КРАСНОКАМЕНСКИЙ РАЙОН', NULL),
-(2555, 'ru', 2554, 'Краснокаменск', 'КРАСНОКАМЕНСК', NULL),
-(2556, 'ru', 2555, 'Красночикойский район', 'КРАСНОЧИКОЙСКИЙ РАЙОН', NULL),
-(2557, 'ru', 2556, 'Калганский район', 'КАЛГАНСКИЙ РАЙОН', NULL);
-INSERT INTO `b_sale_loc_name` (`ID`, `LANGUAGE_ID`, `LOCATION_ID`, `NAME`, `NAME_UPPER`, `SHORT_NAME`) VALUES
-(2558, 'ru', 2557, 'Могочинский район', 'МОГОЧИНСКИЙ РАЙОН', NULL),
-(2559, 'ru', 2558, 'Могоча', 'МОГОЧА', NULL),
-(2560, 'ru', 2559, 'Нерчинский район', 'НЕРЧИНСКИЙ РАЙОН', NULL),
-(2561, 'ru', 2560, 'Нерчинск', 'НЕРЧИНСК', NULL),
-(2562, 'ru', 2561, 'Кыринский район', 'КЫРИНСКИЙ РАЙОН', NULL),
-(2563, 'ru', 2562, 'Нерчинско-Заводский район', 'НЕРЧИНСКО-ЗАВОДСКИЙ РАЙОН', NULL),
-(2564, 'ru', 2563, 'Оловяннинский район', 'ОЛОВЯННИНСКИЙ РАЙОН', NULL),
-(2565, 'ru', 2564, 'Ононский район', 'ОНОНСКИЙ РАЙОН', NULL),
-(2566, 'ru', 2565, 'Приаргунский район', 'ПРИАРГУНСКИЙ РАЙОН', NULL),
-(2567, 'ru', 2566, 'Петровск-Забайкальский район', 'ПЕТРОВСК-ЗАБАЙКАЛЬСКИЙ РАЙОН', NULL),
-(2568, 'ru', 2567, 'Петровск-Забайкальский', 'ПЕТРОВСК-ЗАБАЙКАЛЬСКИЙ', NULL),
-(2569, 'ru', 2568, 'Тунгиро-Олекминский район', 'ТУНГИРО-ОЛЕКМИНСКИЙ РАЙОН', NULL),
-(2570, 'ru', 2569, 'Улетовский район', 'УЛЕТОВСКИЙ РАЙОН', NULL),
-(2571, 'ru', 2570, 'Сретенский район', 'СРЕТЕНСКИЙ РАЙОН', NULL),
-(2572, 'ru', 2571, 'Сретенск', 'СРЕТЕНСК', NULL),
-(2573, 'ru', 2572, 'Хилокский район', 'ХИЛОКСКИЙ РАЙОН', NULL),
-(2574, 'ru', 2573, 'Хилок', 'ХИЛОК', NULL),
-(2575, 'ru', 2574, 'Тунгокоченский район', 'ТУНГОКОЧЕНСКИЙ РАЙОН', NULL),
-(2576, 'ru', 2575, 'Шелопугинский район', 'ШЕЛОПУГИНСКИЙ РАЙОН', NULL),
-(2577, 'ru', 2576, 'Шилкинский район', 'ШИЛКИНСКИЙ РАЙОН', NULL),
-(2578, 'ru', 2577, 'Шилка', 'ШИЛКА', NULL),
-(2579, 'ru', 2578, 'Чернышевский район', 'ЧЕРНЫШЕВСКИЙ РАЙОН', NULL),
-(2580, 'ru', 2579, 'Агинский район', 'АГИНСКИЙ РАЙОН', NULL),
-(2581, 'ru', 2580, 'Дульдургинский район', 'ДУЛЬДУРГИНСКИЙ РАЙОН', NULL),
-(2582, 'ru', 2581, 'Могойтуйский район', 'МОГОЙТУЙСКИЙ РАЙОН', NULL),
-(2583, 'ru', 2582, 'Кемеровская область', 'КЕМЕРОВСКАЯ ОБЛАСТЬ', NULL),
-(2584, 'ru', 2583, 'Анжеро-Судженск', 'АНЖЕРО-СУДЖЕНСК', NULL),
-(2585, 'ru', 2584, 'Березовский', 'БЕРЕЗОВСКИЙ', NULL),
-(2586, 'ru', 2585, 'Киселевск', 'КИСЕЛЕВСК', NULL),
-(2587, 'ru', 2586, 'Калтан', 'КАЛТАН', NULL),
-(2588, 'ru', 2587, 'Мыски', 'МЫСКИ', NULL),
-(2589, 'ru', 2588, 'Осинники', 'ОСИННИКИ', NULL),
-(2590, 'ru', 2589, 'Кемерово', 'КЕМЕРОВО', NULL),
-(2591, 'ru', 2590, 'Тайга', 'ТАЙГА', NULL),
-(2592, 'ru', 2591, 'Ленинск-Кузнецкий', 'ЛЕНИНСК-КУЗНЕЦКИЙ', NULL),
-(2593, 'ru', 2592, 'Новокузнецк', 'НОВОКУЗНЕЦК', NULL),
-(2594, 'ru', 2593, 'Полысаево', 'ПОЛЫСАЕВО', NULL),
-(2595, 'ru', 2594, 'Прокопьевск', 'ПРОКОПЬЕВСК', NULL),
-(2596, 'ru', 2595, 'Юрга', 'ЮРГА', NULL),
-(2597, 'ru', 2596, 'Белово', 'БЕЛОВО', NULL),
-(2598, 'ru', 2597, 'Междуреченск', 'МЕЖДУРЕЧЕНСК', NULL),
-(2599, 'ru', 2598, 'Кемеровский район', 'КЕМЕРОВСКИЙ РАЙОН', NULL),
-(2600, 'ru', 2599, 'Беловский район', 'БЕЛОВСКИЙ РАЙОН', NULL),
-(2601, 'ru', 2600, 'Ижморский район', 'ИЖМОРСКИЙ РАЙОН', NULL),
-(2602, 'ru', 2601, 'Гурьевский район', 'ГУРЬЕВСКИЙ РАЙОН', NULL),
-(2603, 'ru', 2602, 'Гурьевск', 'ГУРЬЕВСК', NULL),
-(2604, 'ru', 2603, 'Салаир', 'САЛАИР', NULL),
-(2605, 'ru', 2604, 'Ленинск-Кузнецкий район', 'ЛЕНИНСК-КУЗНЕЦКИЙ РАЙОН', NULL),
-(2606, 'ru', 2605, 'Крапивинский район', 'КРАПИВИНСКИЙ РАЙОН', NULL),
-(2607, 'ru', 2606, 'Мариинский район', 'МАРИИНСКИЙ РАЙОН', NULL),
-(2608, 'ru', 2607, 'Мариинск', 'МАРИИНСК', NULL),
-(2609, 'ru', 2608, 'Новокузнецкий район', 'НОВОКУЗНЕЦКИЙ РАЙОН', NULL),
-(2610, 'ru', 2609, 'Прокопьевский район', 'ПРОКОПЬЕВСКИЙ РАЙОН', NULL),
-(2611, 'ru', 2610, 'Промышленновский район', 'ПРОМЫШЛЕННОВСКИЙ РАЙОН', NULL),
-(2612, 'ru', 2611, 'Таштагольский район', 'ТАШТАГОЛЬСКИЙ РАЙОН', NULL),
-(2613, 'ru', 2612, 'Таштагол', 'ТАШТАГОЛ', NULL),
-(2614, 'ru', 2613, 'Тисульский район', 'ТИСУЛЬСКИЙ РАЙОН', NULL),
-(2615, 'ru', 2614, 'Тяжинский район', 'ТЯЖИНСКИЙ РАЙОН', NULL),
-(2616, 'ru', 2615, 'Топкинский район', 'ТОПКИНСКИЙ РАЙОН', NULL),
-(2617, 'ru', 2616, 'Топки', 'ТОПКИ', NULL),
-(2618, 'ru', 2617, 'Юргинский район', 'ЮРГИНСКИЙ РАЙОН', NULL),
-(2619, 'ru', 2618, 'Яйский район', 'ЯЙСКИЙ РАЙОН', NULL),
-(2620, 'ru', 2619, 'Чебулинский район', 'ЧЕБУЛИНСКИЙ РАЙОН', NULL),
-(2621, 'ru', 2620, 'Яшкинский район', 'ЯШКИНСКИЙ РАЙОН', NULL),
-(2622, 'ru', 2621, 'Новосибирская область', 'НОВОСИБИРСКАЯ ОБЛАСТЬ', NULL),
-(2623, 'ru', 2622, 'Новосибирск', 'НОВОСИБИРСК', NULL),
-(2624, 'ru', 2623, 'Обь', 'ОБЬ', NULL),
-(2625, 'ru', 2624, 'Барабинск', 'БАРАБИНСК', NULL),
-(2626, 'ru', 2625, 'Бердск', 'БЕРДСК', NULL),
-(2627, 'ru', 2626, 'Новосибирский район', 'НОВОСИБИРСКИЙ РАЙОН', NULL),
-(2628, 'ru', 2627, 'Куйбышев', 'КУЙБЫШЕВ', NULL),
-(2629, 'ru', 2628, 'Искитим', 'ИСКИТИМ', NULL),
-(2630, 'ru', 2629, 'Татарск', 'ТАТАРСК', NULL),
-(2631, 'ru', 2630, 'Баганский район', 'БАГАНСКИЙ РАЙОН', NULL),
-(2632, 'ru', 2631, 'Болотнинский район', 'БОЛОТНИНСКИЙ РАЙОН', NULL),
-(2633, 'ru', 2632, 'Болотное', 'БОЛОТНОЕ', NULL),
-(2634, 'ru', 2633, 'Барабинский район', 'БАРАБИНСКИЙ РАЙОН', NULL),
-(2635, 'ru', 2634, 'Венгеровский район', 'ВЕНГЕРОВСКИЙ РАЙОН', NULL),
-(2636, 'ru', 2635, 'Доволенский район', 'ДОВОЛЕНСКИЙ РАЙОН', NULL),
-(2637, 'ru', 2636, 'Здвинский район', 'ЗДВИНСКИЙ РАЙОН', NULL),
-(2638, 'ru', 2637, 'Искитимский район', 'ИСКИТИМСКИЙ РАЙОН', NULL),
-(2639, 'ru', 2638, 'Карасукский район', 'КАРАСУКСКИЙ РАЙОН', NULL),
-(2640, 'ru', 2639, 'Карасук', 'КАРАСУК', NULL),
-(2641, 'ru', 2640, 'Каргатский район', 'КАРГАТСКИЙ РАЙОН', NULL),
-(2642, 'ru', 2641, 'Каргат', 'КАРГАТ', NULL),
-(2643, 'ru', 2642, 'Колыванский район', 'КОЛЫВАНСКИЙ РАЙОН', NULL),
-(2644, 'ru', 2643, 'Коченевский район', 'КОЧЕНЕВСКИЙ РАЙОН', NULL),
-(2645, 'ru', 2644, 'Куйбышевский район', 'КУЙБЫШЕВСКИЙ РАЙОН', NULL),
-(2646, 'ru', 2645, 'Краснозерский район', 'КРАСНОЗЕРСКИЙ РАЙОН', NULL),
-(2647, 'ru', 2646, 'Кочковский район', 'КОЧКОВСКИЙ РАЙОН', NULL),
-(2648, 'ru', 2647, 'Купинский район', 'КУПИНСКИЙ РАЙОН', NULL),
-(2649, 'ru', 2648, 'Купино', 'КУПИНО', NULL),
-(2650, 'ru', 2649, 'Маслянинский район', 'МАСЛЯНИНСКИЙ РАЙОН', NULL),
-(2651, 'ru', 2650, 'Кыштовский район', 'КЫШТОВСКИЙ РАЙОН', NULL),
-(2652, 'ru', 2651, 'Ордынский район', 'ОРДЫНСКИЙ РАЙОН', NULL),
-(2653, 'ru', 2652, 'Мошковский район', 'МОШКОВСКИЙ РАЙОН', NULL),
-(2654, 'ru', 2653, 'Сузунский район', 'СУЗУНСКИЙ РАЙОН', NULL),
-(2655, 'ru', 2654, 'Северный район', 'СЕВЕРНЫЙ РАЙОН', NULL),
-(2656, 'ru', 2655, 'Татарский район', 'ТАТАРСКИЙ РАЙОН', NULL),
-(2657, 'ru', 2656, 'Тогучинский район', 'ТОГУЧИНСКИЙ РАЙОН', NULL),
-(2658, 'ru', 2657, 'Тогучин', 'ТОГУЧИН', NULL),
-(2659, 'ru', 2658, 'Убинский район', 'УБИНСКИЙ РАЙОН', NULL),
-(2660, 'ru', 2659, 'Усть-Таркский район', 'УСТЬ-ТАРКСКИЙ РАЙОН', NULL),
-(2661, 'ru', 2660, 'Чановский район', 'ЧАНОВСКИЙ РАЙОН', NULL),
-(2662, 'ru', 2661, 'Черепановский район', 'ЧЕРЕПАНОВСКИЙ РАЙОН', NULL),
-(2663, 'ru', 2662, 'Черепаново', 'ЧЕРЕПАНОВО', NULL),
-(2664, 'ru', 2663, 'Чулымский район', 'ЧУЛЫМСКИЙ РАЙОН', NULL),
-(2665, 'ru', 2664, 'Чулым', 'ЧУЛЫМ', NULL),
-(2666, 'ru', 2665, 'Чулым-3', 'ЧУЛЫМ-3', NULL),
-(2667, 'ru', 2666, 'Чистоозерный район', 'ЧИСТООЗЕРНЫЙ РАЙОН', NULL),
-(2668, 'ru', 2667, 'Омская область', 'ОМСКАЯ ОБЛАСТЬ', NULL),
-(2669, 'ru', 2668, 'Омск', 'ОМСК', NULL),
-(2670, 'ru', 2669, 'Азовский немецкий национальный район', 'АЗОВСКИЙ НЕМЕЦКИЙ НАЦИОНАЛЬНЫЙ РАЙОН', NULL),
-(2671, 'ru', 2670, 'Большеуковский район', 'БОЛЬШЕУКОВСКИЙ РАЙОН', NULL),
-(2672, 'ru', 2671, 'Большереченский район', 'БОЛЬШЕРЕЧЕНСКИЙ РАЙОН', NULL),
-(2673, 'ru', 2672, 'Горьковский район', 'ГОРЬКОВСКИЙ РАЙОН', NULL),
-(2674, 'ru', 2673, 'Исилькульский район', 'ИСИЛЬКУЛЬСКИЙ РАЙОН', NULL),
-(2675, 'ru', 2674, 'Исилькуль', 'ИСИЛЬКУЛЬ', NULL),
-(2676, 'ru', 2675, 'Знаменский район', 'ЗНАМЕНСКИЙ РАЙОН', NULL),
-(2677, 'ru', 2676, 'Колосовский район', 'КОЛОСОВСКИЙ РАЙОН', NULL),
-(2678, 'ru', 2677, 'Калачинский район', 'КАЛАЧИНСКИЙ РАЙОН', NULL),
-(2679, 'ru', 2678, 'Калачинск', 'КАЛАЧИНСК', NULL),
-(2680, 'ru', 2679, 'Кормиловский район', 'КОРМИЛОВСКИЙ РАЙОН', NULL),
-(2681, 'ru', 2680, 'Крутинский район', 'КРУТИНСКИЙ РАЙОН', NULL),
-(2682, 'ru', 2681, 'Любинский район', 'ЛЮБИНСКИЙ РАЙОН', NULL),
-(2683, 'ru', 2682, 'Марьяновский район', 'МАРЬЯНОВСКИЙ РАЙОН', NULL),
-(2684, 'ru', 2683, 'Москаленский район', 'МОСКАЛЕНСКИЙ РАЙОН', NULL),
-(2685, 'ru', 2684, 'Называевский район', 'НАЗЫВАЕВСКИЙ РАЙОН', NULL),
-(2686, 'ru', 2685, 'Называевск', 'НАЗЫВАЕВСК', NULL),
-(2687, 'ru', 2686, 'Муромцевский район', 'МУРОМЦЕВСКИЙ РАЙОН', NULL),
-(2688, 'ru', 2687, 'Одесский район', 'ОДЕССКИЙ РАЙОН', NULL),
-(2689, 'ru', 2688, 'Нижнеомский район', 'НИЖНЕОМСКИЙ РАЙОН', NULL),
-(2690, 'ru', 2689, 'Оконешниковский район', 'ОКОНЕШНИКОВСКИЙ РАЙОН', NULL),
-(2691, 'ru', 2690, 'Нововаршавский район', 'НОВОВАРШАВСКИЙ РАЙОН', NULL),
-(2692, 'ru', 2691, 'Омский район', 'ОМСКИЙ РАЙОН', NULL),
-(2693, 'ru', 2692, 'Павлоградский район', 'ПАВЛОГРАДСКИЙ РАЙОН', NULL),
-(2694, 'ru', 2693, 'Русско-Полянский район', 'РУССКО-ПОЛЯНСКИЙ РАЙОН', NULL),
-(2695, 'ru', 2694, 'Полтавский район', 'ПОЛТАВСКИЙ РАЙОН', NULL),
-(2696, 'ru', 2695, 'Таврический район', 'ТАВРИЧЕСКИЙ РАЙОН', NULL),
-(2697, 'ru', 2696, 'Саргатский район', 'САРГАТСКИЙ РАЙОН', NULL),
-(2698, 'ru', 2697, 'Седельниковский район', 'СЕДЕЛЬНИКОВСКИЙ РАЙОН', NULL),
-(2699, 'ru', 2698, 'Тевризский район', 'ТЕВРИЗСКИЙ РАЙОН', NULL),
-(2700, 'ru', 2699, 'Тарский район', 'ТАРСКИЙ РАЙОН', NULL),
-(2701, 'ru', 2700, 'Тара', 'ТАРА', NULL),
-(2702, 'ru', 2701, 'Тюкалинский район', 'ТЮКАЛИНСКИЙ РАЙОН', NULL),
-(2703, 'ru', 2702, 'Тюкалинск', 'ТЮКАЛИНСК', NULL),
-(2704, 'ru', 2703, 'Усть-Ишимский район', 'УСТЬ-ИШИМСКИЙ РАЙОН', NULL),
-(2705, 'ru', 2704, 'Черлакский район', 'ЧЕРЛАКСКИЙ РАЙОН', NULL),
-(2706, 'ru', 2705, 'Шербакульский район', 'ШЕРБАКУЛЬСКИЙ РАЙОН', NULL),
-(2707, 'ru', 2706, 'Томская область', 'ТОМСКАЯ ОБЛАСТЬ', NULL),
-(2708, 'ru', 2707, 'Томск', 'ТОМСК', NULL),
-(2709, 'ru', 2708, 'Кедровый', 'КЕДРОВЫЙ', NULL),
-(2710, 'ru', 2709, 'Северск', 'СЕВЕРСК', NULL),
-(2711, 'ru', 2710, 'Александровский район', 'АЛЕКСАНДРОВСКИЙ РАЙОН', NULL),
-(2712, 'ru', 2711, 'Асиновский район', 'АСИНОВСКИЙ РАЙОН', NULL),
-(2713, 'ru', 2712, 'Асино', 'АСИНО', NULL),
-(2714, 'ru', 2713, 'Бакчарский район', 'БАКЧАРСКИЙ РАЙОН', NULL),
-(2715, 'ru', 2714, 'Стрежевой', 'СТРЕЖЕВОЙ', NULL),
-(2716, 'ru', 2715, 'Верхнекетский район', 'ВЕРХНЕКЕТСКИЙ РАЙОН', NULL),
-(2717, 'ru', 2716, 'Каргасокский район', 'КАРГАСОКСКИЙ РАЙОН', NULL),
-(2718, 'ru', 2717, 'Кожевниковский район', 'КОЖЕВНИКОВСКИЙ РАЙОН', NULL),
-(2719, 'ru', 2718, 'Зырянский район', 'ЗЫРЯНСКИЙ РАЙОН', NULL),
-(2720, 'ru', 2719, 'Колпашевский район', 'КОЛПАШЕВСКИЙ РАЙОН', NULL),
-(2721, 'ru', 2720, 'Колпашево', 'КОЛПАШЕВО', NULL),
-(2722, 'ru', 2721, 'Молчановский район', 'МОЛЧАНОВСКИЙ РАЙОН', NULL),
-(2723, 'ru', 2722, 'Кривошеинский район', 'КРИВОШЕИНСКИЙ РАЙОН', NULL),
-(2724, 'ru', 2723, 'Тегульдетский район', 'ТЕГУЛЬДЕТСКИЙ РАЙОН', NULL),
-(2725, 'ru', 2724, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
-(2726, 'ru', 2725, 'Парабельский район', 'ПАРАБЕЛЬСКИЙ РАЙОН', NULL),
-(2727, 'ru', 2726, 'Шегарский район', 'ШЕГАРСКИЙ РАЙОН', NULL),
-(2728, 'ru', 2727, 'Томский район', 'ТОМСКИЙ РАЙОН', NULL),
-(2729, 'ru', 2728, 'Чаинский район', 'ЧАИНСКИЙ РАЙОН', NULL),
-(2730, 'ru', 2729, 'Алтайский край', 'АЛТАЙСКИЙ КРАЙ', NULL),
-(2731, 'ru', 2730, 'Барнаул', 'БАРНАУЛ', NULL),
-(2732, 'ru', 2731, 'Алейск', 'АЛЕЙСК', NULL),
-(2733, 'ru', 2732, 'Бийск', 'БИЙСК', NULL),
-(2734, 'ru', 2733, 'Белокуриха', 'БЕЛОКУРИХА', NULL),
-(2735, 'ru', 2734, 'Рубцовск', 'РУБЦОВСК', NULL),
-(2736, 'ru', 2735, 'Новоалтайск', 'НОВОАЛТАЙСК', NULL),
-(2737, 'ru', 2736, 'Камень-на-Оби', 'КАМЕНЬ-НА-ОБИ', NULL),
-(2738, 'ru', 2737, 'Славгород', 'СЛАВГОРОД', NULL),
-(2739, 'ru', 2738, 'Заринск', 'ЗАРИНСК', NULL),
-(2740, 'ru', 2739, 'Алейский район', 'АЛЕЙСКИЙ РАЙОН', NULL),
-(2741, 'ru', 2740, 'Яровое', 'ЯРОВОЕ', NULL),
-(2742, 'ru', 2741, 'Баевский район', 'БАЕВСКИЙ РАЙОН', NULL),
-(2743, 'ru', 2742, 'Алтайский район', 'АЛТАЙСКИЙ РАЙОН', NULL),
-(2744, 'ru', 2743, 'Бийский район', 'БИЙСКИЙ РАЙОН', NULL),
-(2745, 'ru', 2744, 'Бурлинский район', 'БУРЛИНСКИЙ РАЙОН', NULL),
-(2746, 'ru', 2745, 'Волчихинский район', 'ВОЛЧИХИНСКИЙ РАЙОН', NULL),
-(2747, 'ru', 2746, 'Благовещенский район', 'БЛАГОВЕЩЕНСКИЙ РАЙОН', NULL),
-(2748, 'ru', 2747, 'Быстроистокский район', 'БЫСТРОИСТОКСКИЙ РАЙОН', NULL),
-(2749, 'ru', 2748, 'Ельцовский район', 'ЕЛЬЦОВСКИЙ РАЙОН', NULL),
-(2750, 'ru', 2749, 'Егорьевский район', 'ЕГОРЬЕВСКИЙ РАЙОН', NULL),
-(2751, 'ru', 2750, 'Завьяловский район', 'ЗАВЬЯЛОВСКИЙ РАЙОН', NULL),
-(2752, 'ru', 2751, 'Заринский район', 'ЗАРИНСКИЙ РАЙОН', NULL),
-(2753, 'ru', 2752, 'Залесовский район', 'ЗАЛЕСОВСКИЙ РАЙОН', NULL),
-(2754, 'ru', 2753, 'Змеиногорский район', 'ЗМЕИНОГОРСКИЙ РАЙОН', NULL),
-(2755, 'ru', 2754, 'Змеиногорск', 'ЗМЕИНОГОРСК', NULL),
-(2756, 'ru', 2755, 'Зональный район', 'ЗОНАЛЬНЫЙ РАЙОН', NULL),
-(2757, 'ru', 2756, 'Косихинский район', 'КОСИХИНСКИЙ РАЙОН', NULL),
-(2758, 'ru', 2757, 'Каменский район', 'КАМЕНСКИЙ РАЙОН', NULL),
-(2759, 'ru', 2758, 'Ключевский район', 'КЛЮЧЕВСКИЙ РАЙОН', NULL),
-(2760, 'ru', 2759, 'Калманский район', 'КАЛМАНСКИЙ РАЙОН', NULL),
-(2761, 'ru', 2760, 'Красногорский район', 'КРАСНОГОРСКИЙ РАЙОН', NULL),
-(2762, 'ru', 2761, 'Крутихинский район', 'КРУТИХИНСКИЙ РАЙОН', NULL),
-(2763, 'ru', 2762, 'Кулундинский район', 'КУЛУНДИНСКИЙ РАЙОН', NULL),
-(2764, 'ru', 2763, 'Краснощёковский район', 'КРАСНОЩЁКОВСКИЙ РАЙОН', NULL),
-(2765, 'ru', 2764, 'Курьинский район', 'КУРЬИНСКИЙ РАЙОН', NULL),
-(2766, 'ru', 2765, 'Кытмановский район', 'КЫТМАНОВСКИЙ РАЙОН', NULL),
-(2767, 'ru', 2766, 'Локтевский район', 'ЛОКТЕВСКИЙ РАЙОН', NULL),
-(2768, 'ru', 2767, 'Горняк', 'ГОРНЯК', NULL),
-(2769, 'ru', 2768, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
-(2770, 'ru', 2769, 'Немецкий Национальный район', 'НЕМЕЦКИЙ НАЦИОНАЛЬНЫЙ РАЙОН', NULL),
-(2771, 'ru', 2770, 'Мамонтовский район', 'МАМОНТОВСКИЙ РАЙОН', NULL),
-(2772, 'ru', 2771, 'Павловский район', 'ПАВЛОВСКИЙ РАЙОН', NULL),
-(2773, 'ru', 2772, 'Новичихинский район', 'НОВИЧИХИНСКИЙ РАЙОН', NULL),
-(2774, 'ru', 2773, 'Панкрушихинский район', 'ПАНКРУШИХИНСКИЙ РАЙОН', NULL),
-(2775, 'ru', 2774, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
-(2776, 'ru', 2775, 'Петропавловский район', 'ПЕТРОПАВЛОВСКИЙ РАЙОН', NULL),
-(2777, 'ru', 2776, 'Поспелихинский район', 'ПОСПЕЛИХИНСКИЙ РАЙОН', NULL),
-(2778, 'ru', 2777, 'Рубцовский район', 'РУБЦОВСКИЙ РАЙОН', NULL),
-(2779, 'ru', 2778, 'Родинский район', 'РОДИНСКИЙ РАЙОН', NULL),
-(2780, 'ru', 2779, 'Ребрихинский район', 'РЕБРИХИНСКИЙ РАЙОН', NULL),
-(2781, 'ru', 2780, 'Романовский район', 'РОМАНОВСКИЙ РАЙОН', NULL),
-(2782, 'ru', 2781, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(2783, 'ru', 2782, 'Смоленский район', 'СМОЛЕНСКИЙ РАЙОН', NULL),
-(2784, 'ru', 2783, 'Табунский район', 'ТАБУНСКИЙ РАЙОН', NULL),
-(2785, 'ru', 2784, 'Солтонский район', 'СОЛТОНСКИЙ РАЙОН', NULL),
-(2786, 'ru', 2785, 'Суетский район', 'СУЕТСКИЙ РАЙОН', NULL),
-(2787, 'ru', 2786, 'Тальменский район', 'ТАЛЬМЕНСКИЙ РАЙОН', NULL),
-(2788, 'ru', 2787, 'Солонешенский район', 'СОЛОНЕШЕНСКИЙ РАЙОН', NULL),
-(2789, 'ru', 2788, 'Топчихинский район', 'ТОПЧИХИНСКИЙ РАЙОН', NULL),
-(2790, 'ru', 2789, 'Тогульский район', 'ТОГУЛЬСКИЙ РАЙОН', NULL),
-(2791, 'ru', 2790, 'Третьяковский район', 'ТРЕТЬЯКОВСКИЙ РАЙОН', NULL),
-(2792, 'ru', 2791, 'Троицкий район', 'ТРОИЦКИЙ РАЙОН', NULL),
-(2793, 'ru', 2792, 'Тюменцевский район', 'ТЮМЕНЦЕВСКИЙ РАЙОН', NULL),
-(2794, 'ru', 2793, 'Угловский район', 'УГЛОВСКИЙ РАЙОН', NULL),
-(2795, 'ru', 2794, 'Усть-Калманский район', 'УСТЬ-КАЛМАНСКИЙ РАЙОН', NULL),
-(2796, 'ru', 2795, 'Хабарский район', 'ХАБАРСКИЙ РАЙОН', NULL),
-(2797, 'ru', 2796, 'Целинный район', 'ЦЕЛИННЫЙ РАЙОН', NULL),
-(2798, 'ru', 2797, 'Усть-Пристанский район', 'УСТЬ-ПРИСТАНСКИЙ РАЙОН', NULL),
-(2799, 'ru', 2798, 'Шелаболихинский район', 'ШЕЛАБОЛИХИНСКИЙ РАЙОН', NULL),
-(2800, 'ru', 2799, 'Чарышский район', 'ЧАРЫШСКИЙ РАЙОН', NULL),
-(2801, 'ru', 2800, 'Шипуновский район', 'ШИПУНОВСКИЙ РАЙОН', NULL),
-(2802, 'ru', 2801, 'Республика Бурятия', 'РЕСПУБЛИКА БУРЯТИЯ', NULL),
-(2803, 'ru', 2802, 'Улан-Удэ', 'УЛАН-УДЭ', NULL),
-(2804, 'ru', 2803, 'Северобайкальск', 'СЕВЕРОБАЙКАЛЬСК', NULL),
-(2805, 'ru', 2804, 'Джидинский район', 'ДЖИДИНСКИЙ РАЙОН', NULL),
-(2806, 'ru', 2805, 'Дэдэ-Ичетуй улус', 'ДЭДЭ-ИЧЕТУЙ УЛУС', NULL),
-(2807, 'ru', 2806, 'Верхний Бургалтай улус', 'ВЕРХНИЙ БУРГАЛТАЙ УЛУС', NULL),
-(2808, 'ru', 2807, 'Баунтовский эвенкийский район', 'БАУНТОВСКИЙ ЭВЕНКИЙСКИЙ РАЙОН', NULL),
-(2809, 'ru', 2808, 'Еравнинский район', 'ЕРАВНИНСКИЙ РАЙОН', NULL),
-(2810, 'ru', 2809, 'Бичурский район', 'БИЧУРСКИЙ РАЙОН', NULL),
-(2811, 'ru', 2810, 'Заиграевский район', 'ЗАИГРАЕВСКИЙ РАЙОН', NULL),
-(2812, 'ru', 2811, 'Закаменский район', 'ЗАКАМЕНСКИЙ РАЙОН', NULL),
-(2813, 'ru', 2812, 'Закаменск', 'ЗАКАМЕНСК', NULL),
-(2814, 'ru', 2813, 'Иволгинский район', 'ИВОЛГИНСКИЙ РАЙОН', NULL),
-(2815, 'ru', 2814, 'Оронгой улус', 'ОРОНГОЙ УЛУС', NULL),
-(2816, 'ru', 2815, 'Гильбира улус', 'ГИЛЬБИРА УЛУС', NULL),
-(2817, 'ru', 2816, 'Нур-Селение улус', 'НУР-СЕЛЕНИЕ УЛУС', NULL),
-(2818, 'ru', 2817, 'Хурамша улус', 'ХУРАМША УЛУС', NULL),
-(2819, 'ru', 2818, 'Хойтобэе улус', 'ХОЙТОБЭЕ УЛУС', NULL),
-(2820, 'ru', 2819, 'Кабанский район', 'КАБАНСКИЙ РАЙОН', NULL),
-(2821, 'ru', 2820, 'Бабушкин', 'БАБУШКИН', NULL),
-(2822, 'ru', 2821, 'Кижингинский район', 'КИЖИНГИНСКИЙ РАЙОН', NULL),
-(2823, 'ru', 2822, 'Загустай улус', 'ЗАГУСТАЙ УЛУС', NULL),
-(2824, 'ru', 2823, 'Кяхтинский район', 'КЯХТИНСКИЙ РАЙОН', NULL),
-(2825, 'ru', 2824, 'Кяхта', 'КЯХТА', NULL),
-(2826, 'ru', 2825, 'Курумканский район', 'КУРУМКАНСКИЙ РАЙОН', NULL),
-(2827, 'ru', 2826, 'Муйский район', 'МУЙСКИЙ РАЙОН', NULL),
-(2828, 'ru', 2827, 'Мухоршибирский район', 'МУХОРШИБИРСКИЙ РАЙОН', NULL),
-(2829, 'ru', 2828, 'Окинский район', 'ОКИНСКИЙ РАЙОН', NULL),
-(2830, 'ru', 2829, 'Прибайкальский район', 'ПРИБАЙКАЛЬСКИЙ РАЙОН', NULL),
-(2831, 'ru', 2830, 'Селенгинский район', 'СЕЛЕНГИНСКИЙ РАЙОН', NULL),
-(2832, 'ru', 2831, 'Гусиноозерск', 'ГУСИНООЗЕРСК', NULL),
-(2833, 'ru', 2832, 'Тохой улус', 'ТОХОЙ УЛУС', NULL),
-(2834, 'ru', 2833, 'Харгана улус', 'ХАРГАНА УЛУС', NULL),
-(2835, 'ru', 2834, 'Удунга улус', 'УДУНГА УЛУС', NULL),
-(2836, 'ru', 2835, 'Енхор улус', 'ЕНХОР УЛУС', NULL),
-(2837, 'ru', 2836, 'Тарбагатайский район', 'ТАРБАГАТАЙСКИЙ РАЙОН', NULL),
-(2838, 'ru', 2837, 'Тункинский район', 'ТУНКИНСКИЙ РАЙОН', NULL),
-(2839, 'ru', 2838, 'Хужиры улус', 'ХУЖИРЫ УЛУС', NULL),
-(2840, 'ru', 2839, 'Улбугай улус', 'УЛБУГАЙ УЛУС', NULL),
-(2841, 'ru', 2840, 'Шанай улус', 'ШАНАЙ УЛУС', NULL),
-(2842, 'ru', 2841, 'Северо-Байкальский район', 'СЕВЕРО-БАЙКАЛЬСКИЙ РАЙОН', NULL),
-(2843, 'ru', 2842, 'Баргузинский район', 'БАРГУЗИНСКИЙ РАЙОН', NULL),
-(2844, 'ru', 2843, 'Хоринский район', 'ХОРИНСКИЙ РАЙОН', NULL),
-(2845, 'ru', 2844, 'Республика Хакасия', 'РЕСПУБЛИКА ХАКАСИЯ', NULL),
-(2846, 'ru', 2845, 'Абакан', 'АБАКАН', NULL),
-(2847, 'ru', 2846, 'Аскизский тракт район', 'АСКИЗСКИЙ ТРАКТ РАЙОН', NULL),
-(2848, 'ru', 2847, 'Койбалы район', 'КОЙБАЛЫ РАЙОН', NULL),
-(2849, 'ru', 2848, 'Колягинские холмы район', 'КОЛЯГИНСКИЕ ХОЛМЫ РАЙОН', NULL),
-(2850, 'ru', 2849, 'Нижняя Согра район', 'НИЖНЯЯ СОГРА РАЙОН', NULL),
-(2851, 'ru', 2850, 'Облепиховый сад район', 'ОБЛЕПИХОВЫЙ САД РАЙОН', NULL),
-(2852, 'ru', 2851, 'Орбита район', 'ОРБИТА РАЙОН', NULL),
-(2853, 'ru', 2852, 'Подсинее район', 'ПОДСИНЕЕ РАЙОН', NULL),
-(2854, 'ru', 2853, 'Река Ташеба район', 'РЕКА ТАШЕБА РАЙОН', NULL),
-(2855, 'ru', 2854, 'Самохвал район', 'САМОХВАЛ РАЙОН', NULL),
-(2856, 'ru', 2855, 'Саяногорск', 'САЯНОГОРСК', NULL),
-(2857, 'ru', 2856, 'Черногорск', 'ЧЕРНОГОРСК', NULL),
-(2858, 'ru', 2857, 'деревня Мохово район', 'ДЕРЕВНЯ МОХОВО РАЙОН', NULL),
-(2859, 'ru', 2858, 'Мохово район', 'МОХОВО РАЙОН', NULL),
-(2860, 'ru', 2859, 'Опытное поле район', 'ОПЫТНОЕ ПОЛЕ РАЙОН', NULL),
-(2861, 'ru', 2860, 'Промзона ПКСО район', 'ПРОМЗОНА ПКСО РАЙОН', NULL),
-(2862, 'ru', 2861, 'Шахтные поля район', 'ШАХТНЫЕ ПОЛЯ РАЙОН', NULL),
-(2863, 'ru', 2862, 'Аскизский район', 'АСКИЗСКИЙ РАЙОН', NULL),
-(2864, 'ru', 2863, 'Алтайский район', 'АЛТАЙСКИЙ РАЙОН', NULL),
-(2865, 'ru', 2864, 'Абаза', 'АБАЗА', NULL),
-(2866, 'ru', 2865, 'Сорск', 'СОРСК', NULL),
-(2867, 'ru', 2866, 'Бейский район', 'БЕЙСКИЙ РАЙОН', NULL),
-(2868, 'ru', 2867, 'Боградский район', 'БОГРАДСКИЙ РАЙОН', NULL),
-(2869, 'ru', 2868, 'Таштыпский район', 'ТАШТЫПСКИЙ РАЙОН', NULL),
-(2870, 'ru', 2869, 'Усть-Абаканский район', 'УСТЬ-АБАКАНСКИЙ РАЙОН', NULL),
-(2871, 'ru', 2870, 'Орджоникидзевский район', 'ОРДЖОНИКИДЗЕВСКИЙ РАЙОН', NULL),
-(2872, 'ru', 2871, 'Ширинский район', 'ШИРИНСКИЙ РАЙОН', NULL),
-(2873, 'ru', 2872, 'Республика Тыва', 'РЕСПУБЛИКА ТЫВА', NULL),
-(2874, 'ru', 2873, 'Ак-Довурак', 'АК-ДОВУРАК', NULL),
-(2875, 'ru', 2874, 'Кызыл', 'КЫЗЫЛ', NULL),
-(2876, 'ru', 2875, 'Бай-Тайгинский район', 'БАЙ-ТАЙГИНСКИЙ РАЙОН', NULL),
-(2877, 'ru', 2876, 'Барун-Хемчикский район', 'БАРУН-ХЕМЧИКСКИЙ РАЙОН', NULL),
-(2878, 'ru', 2877, 'Кызылский район', 'КЫЗЫЛСКИЙ РАЙОН', NULL),
-(2879, 'ru', 2878, 'Каа-Хемский район', 'КАА-ХЕМСКИЙ РАЙОН', NULL),
-(2880, 'ru', 2879, 'Дзун-Хемчикский район', 'ДЗУН-ХЕМЧИКСКИЙ РАЙОН', NULL),
-(2881, 'ru', 2880, 'Чадан', 'ЧАДАН', NULL),
-(2882, 'ru', 2881, 'Монгун-Тайгинский район', 'МОНГУН-ТАЙГИНСКИЙ РАЙОН', NULL),
-(2883, 'ru', 2882, 'Пий-Хемский район', 'ПИЙ-ХЕМСКИЙ РАЙОН', NULL),
-(2884, 'ru', 2883, 'Туран', 'ТУРАН', NULL),
-(2885, 'ru', 2884, 'Тандинский район', 'ТАНДИНСКИЙ РАЙОН', NULL),
-(2886, 'ru', 2885, 'Тес-Хемский район', 'ТЕС-ХЕМСКИЙ РАЙОН', NULL),
-(2887, 'ru', 2886, 'Овюрский район', 'ОВЮРСКИЙ РАЙОН', NULL),
-(2888, 'ru', 2887, 'Сут-Хольский район', 'СУТ-ХОЛЬСКИЙ РАЙОН', NULL),
-(2889, 'ru', 2888, 'Чеди-Хольский район', 'ЧЕДИ-ХОЛЬСКИЙ РАЙОН', NULL),
-(2890, 'ru', 2889, 'Улуг-Хемский район', 'УЛУГ-ХЕМСКИЙ РАЙОН', NULL),
-(2891, 'ru', 2890, 'Шагонар', 'ШАГОНАР', NULL),
-(2892, 'ru', 2891, 'Чаа-Хольский район', 'ЧАА-ХОЛЬСКИЙ РАЙОН', NULL),
-(2893, 'ru', 2892, 'Тоджинский район', 'ТОДЖИНСКИЙ РАЙОН', NULL),
-(2894, 'ru', 2893, 'Эрзинский район', 'ЭРЗИНСКИЙ РАЙОН', NULL),
-(2895, 'ru', 2894, 'Тере-Хольский район', 'ТЕРЕ-ХОЛЬСКИЙ РАЙОН', NULL),
-(2896, 'ru', 2895, 'Республика Алтай', 'РЕСПУБЛИКА АЛТАЙ', NULL),
-(2897, 'ru', 2896, 'Кош-Агачский район', 'КОШ-АГАЧСКИЙ РАЙОН', NULL),
-(2898, 'ru', 2897, 'Майминский район', 'МАЙМИНСКИЙ РАЙОН', NULL),
-(2899, 'ru', 2898, 'Горно-Алтайск', 'ГОРНО-АЛТАЙСК', NULL),
-(2900, 'ru', 2899, 'Онгудайский район', 'ОНГУДАЙСКИЙ РАЙОН', NULL),
-(2901, 'ru', 2900, 'Турочакский район', 'ТУРОЧАКСКИЙ РАЙОН', NULL),
-(2902, 'ru', 2901, 'Улаганский район', 'УЛАГАНСКИЙ РАЙОН', NULL),
-(2903, 'ru', 2902, 'Чемальский район', 'ЧЕМАЛЬСКИЙ РАЙОН', NULL),
-(2904, 'ru', 2903, 'Усть-Коксинский район', 'УСТЬ-КОКСИНСКИЙ РАЙОН', NULL),
-(2905, 'ru', 2904, 'Усть-Канский район', 'УСТЬ-КАНСКИЙ РАЙОН', NULL),
-(2906, 'ru', 2905, 'Чойский район', 'ЧОЙСКИЙ РАЙОН', NULL),
-(2907, 'ru', 2906, 'Шебалинский район', 'ШЕБАЛИНСКИЙ РАЙОН', NULL),
-(2908, 'ru', 2907, 'Дальний Восток', 'ДАЛЬНИЙ ВОСТОК', NULL),
-(2909, 'ru', 2908, 'Хабаровский край', 'ХАБАРОВСКИЙ КРАЙ', NULL),
-(2910, 'ru', 2909, 'Хабаровск', 'ХАБАРОВСК', NULL),
-(2911, 'ru', 2910, 'Николаевск-на-Амуре', 'НИКОЛАЕВСК-НА-АМУРЕ', NULL),
-(2912, 'ru', 2911, 'Комсомольск-на-Амуре', 'КОМСОМОЛЬСК-НА-АМУРЕ', NULL),
-(2913, 'ru', 2912, 'Советская Гавань', 'СОВЕТСКАЯ ГАВАНЬ', NULL),
-(2914, 'ru', 2913, 'Бикин', 'БИКИН', NULL),
-(2915, 'ru', 2914, 'Амурск', 'АМУРСК', NULL),
-(2916, 'ru', 2915, 'Ванинский район', 'ВАНИНСКИЙ РАЙОН', NULL),
-(2917, 'ru', 2916, 'Амурский район', 'АМУРСКИЙ РАЙОН', NULL),
-(2918, 'ru', 2917, 'Аяно-Майский район', 'АЯНО-МАЙСКИЙ РАЙОН', NULL),
-(2919, 'ru', 2918, 'Бикинский район', 'БИКИНСКИЙ РАЙОН', NULL),
-(2920, 'ru', 2919, 'Верхнебуреинский район', 'ВЕРХНЕБУРЕИНСКИЙ РАЙОН', NULL),
-(2921, 'ru', 2920, 'Имени Лазо район', 'ИМЕНИ ЛАЗО РАЙОН', NULL),
-(2922, 'ru', 2921, 'Вяземский район', 'ВЯЗЕМСКИЙ РАЙОН', NULL),
-(2923, 'ru', 2922, 'Вяземский', 'ВЯЗЕМСКИЙ', NULL),
-(2924, 'ru', 2923, 'Комсомольский район', 'КОМСОМОЛЬСКИЙ РАЙОН', NULL),
-(2925, 'ru', 2924, 'Имени Полины Осипенко район', 'ИМЕНИ ПОЛИНЫ ОСИПЕНКО РАЙОН', NULL),
-(2926, 'ru', 2925, 'Нанайский район', 'НАНАЙСКИЙ РАЙОН', NULL),
-(2927, 'ru', 2926, 'Николаевский район', 'НИКОЛАЕВСКИЙ РАЙОН', NULL),
-(2928, 'ru', 2927, 'Тугуро-Чумиканский район', 'ТУГУРО-ЧУМИКАНСКИЙ РАЙОН', NULL),
-(2929, 'ru', 2928, 'Советско-Гаванский район', 'СОВЕТСКО-ГАВАНСКИЙ РАЙОН', NULL),
-(2930, 'ru', 2929, 'Ульчский район', 'УЛЬЧСКИЙ РАЙОН', NULL),
-(2931, 'ru', 2930, 'Охотский район', 'ОХОТСКИЙ РАЙОН', NULL),
-(2932, 'ru', 2931, 'Солнечный район', 'СОЛНЕЧНЫЙ РАЙОН', NULL),
-(2933, 'ru', 2932, 'Хабаровский район', 'ХАБАРОВСКИЙ РАЙОН', NULL),
-(2934, 'ru', 2933, 'Амурская область', 'АМУРСКАЯ ОБЛАСТЬ', NULL),
-(2935, 'ru', 2934, 'Благовещенск', 'БЛАГОВЕЩЕНСК', NULL),
-(2936, 'ru', 2935, 'Шимановск', 'ШИМАНОВСК', NULL),
-(2937, 'ru', 2936, 'Свободный', 'СВОБОДНЫЙ', NULL),
-(2938, 'ru', 2937, 'Райчихинск', 'РАЙЧИХИНСК', NULL),
-(2939, 'ru', 2938, 'Белогорск', 'БЕЛОГОРСК', NULL),
-(2940, 'ru', 2939, 'Благовещенский район', 'БЛАГОВЕЩЕНСКИЙ РАЙОН', NULL),
-(2941, 'ru', 2940, 'Зея', 'ЗЕЯ', NULL),
-(2942, 'ru', 2941, 'Тында', 'ТЫНДА', NULL),
-(2943, 'ru', 2942, 'Белогорский район', 'БЕЛОГОРСКИЙ РАЙОН', NULL),
-(2944, 'ru', 2943, 'Бурейский район', 'БУРЕЙСКИЙ РАЙОН', NULL),
-(2945, 'ru', 2944, 'Архаринский район', 'АРХАРИНСКИЙ РАЙОН', NULL),
-(2946, 'ru', 2945, 'Ивановский район', 'ИВАНОВСКИЙ РАЙОН', NULL),
-(2947, 'ru', 2946, 'Константиновский район', 'КОНСТАНТИНОВСКИЙ РАЙОН', NULL),
-(2948, 'ru', 2947, 'Завитинский район', 'ЗАВИТИНСКИЙ РАЙОН', NULL),
-(2949, 'ru', 2948, 'Завитинск', 'ЗАВИТИНСК', NULL),
-(2950, 'ru', 2949, 'Зейский район', 'ЗЕЙСКИЙ РАЙОН', NULL),
-(2951, 'ru', 2950, 'Магдагачинский район', 'МАГДАГАЧИНСКИЙ РАЙОН', NULL),
-(2952, 'ru', 2951, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
-(2953, 'ru', 2952, 'Мазановский район', 'МАЗАНОВСКИЙ РАЙОН', NULL),
-(2954, 'ru', 2953, 'Свободненский район', 'СВОБОДНЕНСКИЙ РАЙОН', NULL),
-(2955, 'ru', 2954, 'Ромненский район', 'РОМНЕНСКИЙ РАЙОН', NULL),
-(2956, 'ru', 2955, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(2957, 'ru', 2956, 'Сковородинский район', 'СКОВОРОДИНСКИЙ РАЙОН', NULL),
-(2958, 'ru', 2957, 'Сковородино', 'СКОВОРОДИНО', NULL),
-(2959, 'ru', 2958, 'Тамбовский район', 'ТАМБОВСКИЙ РАЙОН', NULL),
-(2960, 'ru', 2959, 'Селемджинский район', 'СЕЛЕМДЖИНСКИЙ РАЙОН', NULL),
-(2961, 'ru', 2960, 'Серышевский район', 'СЕРЫШЕВСКИЙ РАЙОН', NULL),
-(2962, 'ru', 2961, 'Шимановский район', 'ШИМАНОВСКИЙ РАЙОН', NULL),
-(2963, 'ru', 2962, 'Тындинский район', 'ТЫНДИНСКИЙ РАЙОН', NULL),
-(2964, 'ru', 2963, 'Камчатский край', 'КАМЧАТСКИЙ КРАЙ', NULL),
-(2965, 'ru', 2964, 'Алеутский район', 'АЛЕУТСКИЙ РАЙОН', NULL),
-(2966, 'ru', 2965, 'Быстринский район', 'БЫСТРИНСКИЙ РАЙОН', NULL),
-(2967, 'ru', 2966, 'Петропавловск-Камчатский', 'ПЕТРОПАВЛОВСК-КАМЧАТСКИЙ', NULL),
-(2968, 'ru', 2967, 'Вилючинск', 'ВИЛЮЧИНСК', NULL),
-(2969, 'ru', 2968, 'Елизовский район', 'ЕЛИЗОВСКИЙ РАЙОН', NULL),
-(2970, 'ru', 2969, 'Елизово', 'ЕЛИЗОВО', NULL),
-(2971, 'ru', 2970, 'Олюторский район', 'ОЛЮТОРСКИЙ РАЙОН', NULL),
-(2972, 'ru', 2971, 'Тигильский район', 'ТИГИЛЬСКИЙ РАЙОН', NULL),
-(2973, 'ru', 2972, 'Усть-Большерецкий район', 'УСТЬ-БОЛЬШЕРЕЦКИЙ РАЙОН', NULL),
-(2974, 'ru', 2973, 'Усть-Камчатский район', 'УСТЬ-КАМЧАТСКИЙ РАЙОН', NULL),
-(2975, 'ru', 2974, 'Мильковский район', 'МИЛЬКОВСКИЙ РАЙОН', NULL),
-(2976, 'ru', 2975, 'Пенжинский район', 'ПЕНЖИНСКИЙ РАЙОН', NULL),
-(2977, 'ru', 2976, 'Карагинский район', 'КАРАГИНСКИЙ РАЙОН', NULL),
-(2978, 'ru', 2977, 'Соболевский район', 'СОБОЛЕВСКИЙ РАЙОН', NULL),
-(2979, 'ru', 2978, 'Магаданская область', 'МАГАДАНСКАЯ ОБЛАСТЬ', NULL),
-(2980, 'ru', 2979, 'Магадан', 'МАГАДАН', NULL),
-(2981, 'ru', 2980, 'Ольский район', 'ОЛЬСКИЙ РАЙОН', NULL),
-(2982, 'ru', 2981, 'Омсукчанский район', 'ОМСУКЧАНСКИЙ РАЙОН', NULL),
-(2983, 'ru', 2982, 'Среднеканский район', 'СРЕДНЕКАНСКИЙ РАЙОН', NULL),
-(2984, 'ru', 2983, 'Северо-Эвенский район', 'СЕВЕРО-ЭВЕНСКИЙ РАЙОН', NULL),
-(2985, 'ru', 2984, 'Сусуманский район', 'СУСУМАНСКИЙ РАЙОН', NULL),
-(2986, 'ru', 2985, 'Сусуман', 'СУСУМАН', NULL),
-(2987, 'ru', 2986, 'Тенькинский район', 'ТЕНЬКИНСКИЙ РАЙОН', NULL),
-(2988, 'ru', 2987, 'Хасынский район', 'ХАСЫНСКИЙ РАЙОН', NULL),
-(2989, 'ru', 2988, 'Ягоднинский район', 'ЯГОДНИНСКИЙ РАЙОН', NULL),
-(2990, 'ru', 2989, 'Республика Саха (Якутия)', 'РЕСПУБЛИКА САХА (ЯКУТИЯ)', NULL),
-(2991, 'ru', 2990, 'Якутск', 'ЯКУТСК', NULL),
-(2992, 'ru', 2991, 'Абыйский улус', 'АБЫЙСКИЙ УЛУС', NULL),
-(2993, 'ru', 2992, 'Аллаиховский улус', 'АЛЛАИХОВСКИЙ УЛУС', NULL),
-(2994, 'ru', 2993, 'Амгинский улус', 'АМГИНСКИЙ УЛУС', NULL),
-(2995, 'ru', 2994, 'Алданский улус', 'АЛДАНСКИЙ УЛУС', NULL),
-(2996, 'ru', 2995, 'Алдан', 'АЛДАН', NULL),
-(2997, 'ru', 2996, 'Томмот', 'ТОММОТ', NULL),
-(2998, 'ru', 2997, 'Нерюнгри', 'НЕРЮНГРИ', NULL),
-(2999, 'ru', 2998, 'Булунский улус', 'БУЛУНСКИЙ УЛУС', NULL),
-(3000, 'ru', 2999, 'Верхнеколымский улус', 'ВЕРХНЕКОЛЫМСКИЙ УЛУС', NULL),
-(3001, 'ru', 3000, 'Верхоянский улус', 'ВЕРХОЯНСКИЙ УЛУС', NULL),
-(3002, 'ru', 3001, 'Верхоянск', 'ВЕРХОЯНСК', NULL),
-(3003, 'ru', 3002, 'Верхневилюйский улус', 'ВЕРХНЕВИЛЮЙСКИЙ УЛУС', NULL),
-(3004, 'ru', 3003, 'Вилюйский улус', 'ВИЛЮЙСКИЙ УЛУС', NULL),
-(3005, 'ru', 3004, 'Вилюйск', 'ВИЛЮЙСК', NULL),
-(3006, 'ru', 3005, 'Горный улус', 'ГОРНЫЙ УЛУС', NULL),
-(3007, 'ru', 3006, 'Анабарский улус', 'АНАБАРСКИЙ УЛУС', NULL),
-(3008, 'ru', 3007, 'Жиганский улус', 'ЖИГАНСКИЙ УЛУС', NULL),
-(3009, 'ru', 3008, 'Кобяйский улус', 'КОБЯЙСКИЙ УЛУС', NULL),
-(3010, 'ru', 3009, 'Ленский улус', 'ЛЕНСКИЙ УЛУС', NULL),
-(3011, 'ru', 3010, 'Ленск', 'ЛЕНСК', NULL),
-(3012, 'ru', 3011, 'Мегино-Кангаласский улус', 'МЕГИНО-КАНГАЛАССКИЙ УЛУС', NULL),
-(3013, 'ru', 3012, 'Мирнинский улус', 'МИРНИНСКИЙ УЛУС', NULL),
-(3014, 'ru', 3013, 'Мирный', 'МИРНЫЙ', NULL),
-(3015, 'ru', 3014, 'Удачный', 'УДАЧНЫЙ', NULL),
-(3016, 'ru', 3015, 'Момский улус', 'МОМСКИЙ УЛУС', NULL),
-(3017, 'ru', 3016, 'Нижнеколымский улус', 'НИЖНЕКОЛЫМСКИЙ УЛУС', NULL),
-(3018, 'ru', 3017, 'Намский улус', 'НАМСКИЙ УЛУС', NULL),
-(3019, 'ru', 3018, 'Нюрбинский улус', 'НЮРБИНСКИЙ УЛУС', NULL),
-(3020, 'ru', 3019, 'Нюрба', 'НЮРБА', NULL),
-(3021, 'ru', 3020, 'Оймяконский улус', 'ОЙМЯКОНСКИЙ УЛУС', NULL),
-(3022, 'ru', 3021, 'Среднеколымский улус', 'СРЕДНЕКОЛЫМСКИЙ УЛУС', NULL),
-(3023, 'ru', 3022, 'Среднеколымск', 'СРЕДНЕКОЛЫМСК', NULL),
-(3024, 'ru', 3023, 'Олекминский улус', 'ОЛЕКМИНСКИЙ УЛУС', NULL),
-(3025, 'ru', 3024, 'Олекминск', 'ОЛЕКМИНСК', NULL),
-(3026, 'ru', 3025, 'Оленекский эвенкийский национальный улус', 'ОЛЕНЕКСКИЙ ЭВЕНКИЙСКИЙ НАЦИОНАЛЬНЫЙ УЛУС', NULL),
-(3027, 'ru', 3026, 'Томпонский улус', 'ТОМПОНСКИЙ УЛУС', NULL),
-(3028, 'ru', 3027, 'Сунтарский улус', 'СУНТАРСКИЙ УЛУС', NULL),
-(3029, 'ru', 3028, 'Таттинский улус', 'ТАТТИНСКИЙ УЛУС', NULL),
-(3030, 'ru', 3029, 'Усть-Алданский улус', 'УСТЬ-АЛДАНСКИЙ УЛУС', NULL),
-(3031, 'ru', 3030, 'Усть-Майский улус', 'УСТЬ-МАЙСКИЙ УЛУС', NULL),
-(3032, 'ru', 3031, 'Усть-Янский улус', 'УСТЬ-ЯНСКИЙ УЛУС', NULL),
-(3033, 'ru', 3032, 'Хангаласский улус', 'ХАНГАЛАССКИЙ УЛУС', NULL),
-(3034, 'ru', 3033, 'Покровск', 'ПОКРОВСК', NULL),
-(3035, 'ru', 3034, 'Эвено-Бытантайский Национальный улус', 'ЭВЕНО-БЫТАНТАЙСКИЙ НАЦИОНАЛЬНЫЙ УЛУС', NULL),
-(3036, 'ru', 3035, 'Чурапчинский улус', 'ЧУРАПЧИНСКИЙ УЛУС', NULL),
-(3037, 'ru', 3036, 'Приморский край', 'ПРИМОРСКИЙ КРАЙ', NULL),
-(3038, 'ru', 3037, 'Владивосток', 'ВЛАДИВОСТОК', NULL),
-(3039, 'ru', 3038, 'Арсеньев', 'АРСЕНЬЕВ', NULL),
-(3040, 'ru', 3039, 'Артем', 'АРТЕМ', NULL),
-(3041, 'ru', 3040, 'Находка', 'НАХОДКА', NULL),
-(3042, 'ru', 3041, 'Дальнегорск', 'ДАЛЬНЕГОРСК', NULL),
-(3043, 'ru', 3042, 'Спасск-Дальний', 'СПАССК-ДАЛЬНИЙ', NULL),
-(3044, 'ru', 3043, 'Дальнереченск', 'ДАЛЬНЕРЕЧЕНСК', NULL),
-(3045, 'ru', 3044, 'Партизанск', 'ПАРТИЗАНСК', NULL),
-(3046, 'ru', 3045, 'Фокино', 'ФОКИНО', NULL),
-(3047, 'ru', 3046, 'Большой Камень', 'БОЛЬШОЙ КАМЕНЬ', NULL),
-(3048, 'ru', 3047, 'Уссурийск', 'УССУРИЙСК', NULL),
-(3049, 'ru', 3048, 'Лесозаводск', 'ЛЕСОЗАВОДСК', NULL),
-(3050, 'ru', 3049, 'Дальнегорский район', 'ДАЛЬНЕГОРСКИЙ РАЙОН', NULL),
-(3051, 'ru', 3050, 'Кавалеровский район', 'КАВАЛЕРОВСКИЙ РАЙОН', NULL),
-(3052, 'ru', 3051, 'Дальнереченский район', 'ДАЛЬНЕРЕЧЕНСКИЙ РАЙОН', NULL),
-(3053, 'ru', 3052, 'Анучинский район', 'АНУЧИНСКИЙ РАЙОН', NULL),
-(3054, 'ru', 3053, 'Лазовский район', 'ЛАЗОВСКИЙ РАЙОН', NULL),
-(3055, 'ru', 3054, 'Михайловский район', 'МИХАЙЛОВСКИЙ РАЙОН', NULL),
-(3056, 'ru', 3055, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(3057, 'ru', 3056, 'Красноармейский район', 'КРАСНОАРМЕЙСКИЙ РАЙОН', NULL),
-(3058, 'ru', 3057, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(3059, 'ru', 3058, 'Надеждинский район', 'НАДЕЖДИНСКИЙ РАЙОН', NULL),
-(3060, 'ru', 3059, 'Партизанский район', 'ПАРТИЗАНСКИЙ РАЙОН', NULL),
-(3061, 'ru', 3060, 'Пограничный район', 'ПОГРАНИЧНЫЙ РАЙОН', NULL),
-(3062, 'ru', 3061, 'Ольгинский район', 'ОЛЬГИНСКИЙ РАЙОН', NULL),
-(3063, 'ru', 3062, 'Тернейский район', 'ТЕРНЕЙСКИЙ РАЙОН', NULL),
-(3064, 'ru', 3063, 'Спасский район', 'СПАССКИЙ РАЙОН', NULL),
-(3065, 'ru', 3064, 'Пожарский район', 'ПОЖАРСКИЙ РАЙОН', NULL),
-(3066, 'ru', 3065, 'Хорольский район', 'ХОРОЛЬСКИЙ РАЙОН', NULL),
-(3067, 'ru', 3066, 'Черниговский район', 'ЧЕРНИГОВСКИЙ РАЙОН', NULL),
-(3068, 'ru', 3067, 'Хасанский район', 'ХАСАНСКИЙ РАЙОН', NULL),
-(3069, 'ru', 3068, 'Ханкайский район', 'ХАНКАЙСКИЙ РАЙОН', NULL),
-(3070, 'ru', 3069, 'Шкотовский район', 'ШКОТОВСКИЙ РАЙОН', NULL),
-(3071, 'ru', 3070, 'Чугуевский район', 'ЧУГУЕВСКИЙ РАЙОН', NULL),
-(3072, 'ru', 3071, 'Яковлевский район', 'ЯКОВЛЕВСКИЙ РАЙОН', NULL),
-(3073, 'ru', 3072, 'Сахалинская область', 'САХАЛИНСКАЯ ОБЛАСТЬ', NULL),
-(3074, 'ru', 3073, 'Южно-Сахалинск', 'ЮЖНО-САХАЛИНСК', NULL),
-(3075, 'ru', 3074, 'Корсаковский район', 'КОРСАКОВСКИЙ РАЙОН', NULL),
-(3076, 'ru', 3075, 'Корсаков', 'КОРСАКОВ', NULL),
-(3077, 'ru', 3076, 'Курильский район', 'КУРИЛЬСКИЙ РАЙОН', NULL),
-(3078, 'ru', 3077, 'Курильск', 'КУРИЛЬСК', NULL),
-(3079, 'ru', 3078, 'Анивский район', 'АНИВСКИЙ РАЙОН', NULL),
-(3080, 'ru', 3079, 'Анива', 'АНИВА', NULL),
-(3081, 'ru', 3080, 'Макаровский район', 'МАКАРОВСКИЙ РАЙОН', NULL),
-(3082, 'ru', 3081, 'Макаров', 'МАКАРОВ', NULL),
-(3083, 'ru', 3082, 'Долинский район', 'ДОЛИНСКИЙ РАЙОН', NULL),
-(3084, 'ru', 3083, 'Долинск', 'ДОЛИНСК', NULL),
-(3085, 'ru', 3084, 'Северо-Курильский район', 'СЕВЕРО-КУРИЛЬСКИЙ РАЙОН', NULL),
-(3086, 'ru', 3085, 'Северо-Курильск', 'СЕВЕРО-КУРИЛЬСК', NULL),
-(3087, 'ru', 3086, 'Поронайский район', 'ПОРОНАЙСКИЙ РАЙОН', NULL),
-(3088, 'ru', 3087, 'Поронайск', 'ПОРОНАЙСК', NULL),
-(3089, 'ru', 3088, 'Смирныховский район', 'СМИРНЫХОВСКИЙ РАЙОН', NULL),
-(3090, 'ru', 3089, 'Ногликский район', 'НОГЛИКСКИЙ РАЙОН', NULL),
-(3091, 'ru', 3090, 'Невельский район', 'НЕВЕЛЬСКИЙ РАЙОН', NULL),
-(3092, 'ru', 3091, 'Невельск', 'НЕВЕЛЬСК', NULL),
-(3093, 'ru', 3092, 'Охинский район', 'ОХИНСКИЙ РАЙОН', NULL),
-(3094, 'ru', 3093, 'Оха', 'ОХА', NULL),
-(3095, 'ru', 3094, 'Холмский район', 'ХОЛМСКИЙ РАЙОН', NULL),
-(3096, 'ru', 3095, 'Холмск', 'ХОЛМСК', NULL),
-(3097, 'ru', 3096, 'Томаринский район', 'ТОМАРИНСКИЙ РАЙОН', NULL),
-(3098, 'ru', 3097, 'Томари', 'ТОМАРИ', NULL),
-(3099, 'ru', 3098, 'Тымовский район', 'ТЫМОВСКИЙ РАЙОН', NULL),
-(3100, 'ru', 3099, 'Углегорский район', 'УГЛЕГОРСКИЙ РАЙОН', NULL),
-(3101, 'ru', 3100, 'Углегорск', 'УГЛЕГОРСК', NULL),
-(3102, 'ru', 3101, 'Шахтерск', 'ШАХТЕРСК', NULL),
-(3103, 'ru', 3102, 'Александровск-Сахалинский район', 'АЛЕКСАНДРОВСК-САХАЛИНСКИЙ РАЙОН', NULL),
-(3104, 'ru', 3103, 'Александровск-Сахалинский', 'АЛЕКСАНДРОВСК-САХАЛИНСКИЙ', NULL),
-(3105, 'ru', 3104, 'Южно-Курильский район', 'ЮЖНО-КУРИЛЬСКИЙ РАЙОН', NULL),
-(3106, 'ru', 3105, 'Еврейская автономная область', 'ЕВРЕЙСКАЯ АВТОНОМНАЯ ОБЛАСТЬ', NULL),
-(3107, 'ru', 3106, 'Биробиджан', 'БИРОБИДЖАН', NULL),
-(3108, 'ru', 3107, 'Биробиджанский район', 'БИРОБИДЖАНСКИЙ РАЙОН', NULL),
-(3109, 'ru', 3108, 'Облученский район', 'ОБЛУЧЕНСКИЙ РАЙОН', NULL),
-(3110, 'ru', 3109, 'Облучье', 'ОБЛУЧЬЕ', NULL),
-(3111, 'ru', 3110, 'Октябрьский район', 'ОКТЯБРЬСКИЙ РАЙОН', NULL),
-(3112, 'ru', 3111, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
-(3113, 'ru', 3112, 'Смидовичский район', 'СМИДОВИЧСКИЙ РАЙОН', NULL),
-(3114, 'ru', 3113, 'Чукотский автономный округ', 'ЧУКОТСКИЙ АВТОНОМНЫЙ ОКРУГ', NULL),
-(3115, 'ru', 3114, 'Чаунский район', 'ЧАУНСКИЙ РАЙОН', NULL),
-(3116, 'ru', 3115, 'Певек', 'ПЕВЕК', NULL),
-(3117, 'ru', 3116, 'Чукотский район', 'ЧУКОТСКИЙ РАЙОН', NULL),
-(3118, 'ru', 3117, 'Билибинский район', 'БИЛИБИНСКИЙ РАЙОН', NULL),
-(3119, 'ru', 3118, 'Билибино', 'БИЛИБИНО', NULL),
-(3120, 'ru', 3119, 'Анадырь', 'АНАДЫРЬ', NULL),
-(3121, 'ru', 3120, 'Провиденский район', 'ПРОВИДЕНСКИЙ РАЙОН', NULL),
-(3122, 'ru', 3121, 'Анадырский район', 'АНАДЫРСКИЙ РАЙОН', NULL),
-(3123, 'ru', 3122, 'Иультинский район', 'ИУЛЬТИНСКИЙ РАЙОН', NULL),
-(3124, 'ru', 3123, 'Крымский федеральный округ', 'КРЫМСКИЙ ФЕДЕРАЛЬНЫЙ ОКРУГ', NULL),
-(3125, 'ru', 3124, 'Крым', 'КРЫМ', NULL),
-(3126, 'ru', 3125, 'Керчь', 'КЕРЧЬ', NULL),
-(3127, 'ru', 3126, 'Судак', 'СУДАК', NULL),
-(3128, 'ru', 3127, 'Саки', 'САКИ', NULL),
-(3129, 'ru', 3128, 'Красноперекопск', 'КРАСНОПЕРЕКОПСК', NULL),
-(3130, 'ru', 3129, 'Армянск', 'АРМЯНСК', NULL),
-(3131, 'ru', 3130, 'Симферополь', 'СИМФЕРОПОЛЬ', NULL),
-(3132, 'ru', 3131, 'Ялта', 'ЯЛТА', NULL),
-(3133, 'ru', 3132, 'Алупка', 'АЛУПКА', NULL),
-(3134, 'ru', 3133, 'Джанкой', 'ДЖАНКОЙ', NULL),
-(3135, 'ru', 3134, 'Евпатория', 'ЕВПАТОРИЯ', NULL),
-(3136, 'ru', 3135, 'Феодосия', 'ФЕОДОСИЯ', NULL),
-(3137, 'ru', 3136, 'Бахчисарайский район', 'БАХЧИСАРАЙСКИЙ РАЙОН', NULL),
-(3138, 'ru', 3137, 'Бахчисарай', 'БАХЧИСАРАЙ', NULL),
-(3139, 'ru', 3138, 'Алушта', 'АЛУШТА', NULL),
-(3140, 'ru', 3139, 'Белогорский район', 'БЕЛОГОРСКИЙ РАЙОН', NULL),
-(3141, 'ru', 3140, 'Белогорск', 'БЕЛОГОРСК', NULL),
-(3142, 'ru', 3141, 'Джанкойский район', 'ДЖАНКОЙСКИЙ РАЙОН', NULL),
-(3143, 'ru', 3142, 'Кировский район', 'КИРОВСКИЙ РАЙОН', NULL),
-(3144, 'ru', 3143, 'Старый Крым', 'СТАРЫЙ КРЫМ', NULL),
-(3145, 'ru', 3144, 'Красногвардейский район', 'КРАСНОГВАРДЕЙСКИЙ РАЙОН', NULL),
-(3146, 'ru', 3145, 'Красноперекопский район', 'КРАСНОПЕРЕКОПСКИЙ РАЙОН', NULL),
-(3147, 'ru', 3146, 'Красноперекопск', 'КРАСНОПЕРЕКОПСК', NULL),
-(3148, 'ru', 3147, 'Нижнегорский район', 'НИЖНЕГОРСКИЙ РАЙОН', NULL),
-(3149, 'ru', 3148, 'Первомайский район', 'ПЕРВОМАЙСКИЙ РАЙОН', NULL),
-(3150, 'ru', 3149, 'Ленинский район', 'ЛЕНИНСКИЙ РАЙОН', NULL),
-(3151, 'ru', 3150, 'Щелкино', 'ЩЕЛКИНО', NULL),
-(3152, 'ru', 3151, 'Симферопольский район', 'СИМФЕРОПОЛЬСКИЙ РАЙОН', NULL),
-(3153, 'ru', 3152, 'Раздольненский район', 'РАЗДОЛЬНЕНСКИЙ РАЙОН', NULL),
-(3154, 'ru', 3153, 'Сакский район', 'САКСКИЙ РАЙОН', NULL),
-(3155, 'ru', 3154, 'Саки', 'САКИ', NULL),
-(3156, 'ru', 3155, 'Советский район', 'СОВЕТСКИЙ РАЙОН', NULL),
-(3157, 'ru', 3156, 'Севастополь', 'СЕВАСТОПОЛЬ', NULL),
-(3158, 'ru', 3157, 'Инкерман', 'ИНКЕРМАН', NULL),
-(3159, 'ru', 3158, 'Черноморский район', 'ЧЕРНОМОРСКИЙ РАЙОН', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_sale_loc_type`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_type`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_type` (
-  `ID` int(11) NOT NULL,
-  `CODE` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `SORT` int(11) DEFAULT '100'
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `b_sale_loc_type`
---
-
-INSERT INTO `b_sale_loc_type` (`ID`, `CODE`, `SORT`) VALUES
-(1, 'COUNTRY', 100),
-(2, 'COUNTRY_DISTRICT', 200),
-(3, 'REGION', 300),
-(4, 'SUBREGION', 500),
-(5, 'CITY', 600),
-(6, 'VILLAGE', 700),
-(7, 'STREET', 1000);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `b_sale_loc_type_name`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_sale_loc_type_name`;
-CREATE TABLE IF NOT EXISTS `b_sale_loc_type_name` (
-  `ID` int(11) NOT NULL,
-  `LANGUAGE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
-  `NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `TYPE_ID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `b_sale_loc_type_name`
---
-
-INSERT INTO `b_sale_loc_type_name` (`ID`, `LANGUAGE_ID`, `NAME`, `TYPE_ID`) VALUES
-(1, 'ru', 'Страна', 1),
-(2, 'en', 'Country', 1),
-(3, 'de', 'Land', 1),
-(4, 'ru', 'Округ', 2),
-(5, 'en', 'District', 2),
-(6, 'de', 'Bundesland', 2),
-(7, 'ru', 'Область', 3),
-(8, 'en', 'Region', 3),
-(9, 'de', 'Landkreis', 3),
-(10, 'ru', 'Район области', 4),
-(11, 'en', 'Area', 4),
-(12, 'de', 'Region', 4),
-(13, 'ru', 'Город', 5),
-(14, 'en', 'City', 5),
-(15, 'de', 'Stadt', 5),
-(16, 'ru', 'Село', 6),
-(17, 'en', 'Town', 6),
-(18, 'de', 'Gemeinde', 6),
-(19, 'ru', 'Улица', 7),
-(20, 'en', 'Street', 7),
-(21, 'de', 'Straße', 7);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `b_sale_order`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order`;
@@ -30288,7 +31491,7 @@ INSERT INTO `b_sale_order` (`ID`, `LID`, `PERSON_TYPE_ID`, `PAYED`, `DATE_PAYED`
 --
 -- Table structure for table `b_sale_order_change`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_change`;
@@ -30340,7 +31543,7 @@ INSERT INTO `b_sale_order_change` (`ID`, `ORDER_ID`, `TYPE`, `DATA`, `DATE_CREAT
 --
 -- Table structure for table `b_sale_order_delivery`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_delivery`;
@@ -30357,7 +31560,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_delivery` (
 --
 -- Table structure for table `b_sale_order_flags2group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_flags2group`;
@@ -30372,7 +31575,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_flags2group` (
 --
 -- Table structure for table `b_sale_order_history`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_history`;
@@ -30429,7 +31632,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_history` (
 --
 -- Table structure for table `b_sale_order_processing`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_processing`;
@@ -30456,7 +31659,7 @@ INSERT INTO `b_sale_order_processing` (`ORDER_ID`, `PRODUCTS_ADDED`, `PRODUCTS_R
 --
 -- Table structure for table `b_sale_order_props`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props`;
@@ -30518,7 +31721,7 @@ INSERT INTO `b_sale_order_props` (`ID`, `PERSON_TYPE_ID`, `NAME`, `TYPE`, `REQUI
 --
 -- Table structure for table `b_sale_order_props_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_group`;
@@ -30544,7 +31747,7 @@ INSERT INTO `b_sale_order_props_group` (`ID`, `PERSON_TYPE_ID`, `NAME`, `SORT`) 
 --
 -- Table structure for table `b_sale_order_props_relation`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_relation`;
@@ -30559,7 +31762,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props_relation` (
 --
 -- Table structure for table `b_sale_order_props_value`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_value`;
@@ -30625,7 +31828,7 @@ INSERT INTO `b_sale_order_props_value` (`ID`, `ORDER_ID`, `ORDER_PROPS_ID`, `NAM
 --
 -- Table structure for table `b_sale_order_props_variant`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_props_variant`;
@@ -30643,7 +31846,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_props_variant` (
 --
 -- Table structure for table `b_sale_order_tax`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_order_tax`;
@@ -30664,7 +31867,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_order_tax` (
 --
 -- Table structure for table `b_sale_pay_system`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_pay_system`;
@@ -30694,7 +31897,7 @@ INSERT INTO `b_sale_pay_system` (`ID`, `LID`, `CURRENCY`, `NAME`, `ACTIVE`, `SOR
 --
 -- Table structure for table `b_sale_pay_system_action`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_pay_system_action`;
@@ -30733,7 +31936,7 @@ INSERT INTO `b_sale_pay_system_action` (`ID`, `PAY_SYSTEM_ID`, `PERSON_TYPE_ID`,
 --
 -- Table structure for table `b_sale_person_type`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_person_type`;
@@ -30758,7 +31961,7 @@ INSERT INTO `b_sale_person_type` (`ID`, `LID`, `NAME`, `SORT`, `ACTIVE`) VALUES
 --
 -- Table structure for table `b_sale_person_type_site`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_person_type_site`;
@@ -30780,7 +31983,7 @@ INSERT INTO `b_sale_person_type_site` (`PERSON_TYPE_ID`, `SITE_ID`) VALUES
 --
 -- Table structure for table `b_sale_product2product`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_product2product`;
@@ -30814,7 +32017,7 @@ INSERT INTO `b_sale_product2product` (`ID`, `PRODUCT_ID`, `PARENT_PRODUCT_ID`, `
 --
 -- Table structure for table `b_sale_recurring`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_recurring`;
@@ -30851,7 +32054,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_recurring` (
 --
 -- Table structure for table `b_sale_site2group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_site2group`;
@@ -30866,7 +32069,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_site2group` (
 --
 -- Table structure for table `b_sale_status`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_status`;
@@ -30889,7 +32092,7 @@ INSERT INTO `b_sale_status` (`ID`, `SORT`) VALUES
 --
 -- Table structure for table `b_sale_status2group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_status2group`;
@@ -30914,7 +32117,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_status2group` (
 --
 -- Table structure for table `b_sale_status_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_status_lang`;
@@ -30942,7 +32145,7 @@ INSERT INTO `b_sale_status_lang` (`STATUS_ID`, `LID`, `NAME`, `DESCRIPTION`) VAL
 --
 -- Table structure for table `b_sale_store_barcode`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_store_barcode`;
@@ -30963,7 +32166,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_store_barcode` (
 --
 -- Table structure for table `b_sale_tax`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax`;
@@ -30981,7 +32184,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax` (
 --
 -- Table structure for table `b_sale_tax2location`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax2location`;
@@ -30996,7 +32199,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax2location` (
 --
 -- Table structure for table `b_sale_tax_exempt2group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax_exempt2group`;
@@ -31010,7 +32213,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax_exempt2group` (
 --
 -- Table structure for table `b_sale_tax_rate`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_tax_rate`;
@@ -31032,7 +32235,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_tax_rate` (
 --
 -- Table structure for table `b_sale_trading_platform`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_trading_platform`;
@@ -31057,7 +32260,7 @@ INSERT INTO `b_sale_trading_platform` (`ID`, `CODE`, `ACTIVE`, `NAME`, `DESCRIPT
 --
 -- Table structure for table `b_sale_user_account`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_account`;
@@ -31084,7 +32287,7 @@ INSERT INTO `b_sale_user_account` (`ID`, `USER_ID`, `TIMESTAMP_X`, `CURRENT_BUDG
 --
 -- Table structure for table `b_sale_user_cards`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_cards`;
@@ -31119,7 +32322,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_user_cards` (
 --
 -- Table structure for table `b_sale_user_props`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_props`;
@@ -31145,7 +32348,7 @@ INSERT INTO `b_sale_user_props` (`ID`, `NAME`, `USER_ID`, `PERSON_TYPE_ID`, `DAT
 --
 -- Table structure for table `b_sale_user_props_value`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_props_value`;
@@ -31174,7 +32377,7 @@ INSERT INTO `b_sale_user_props_value` (`ID`, `USER_PROPS_ID`, `ORDER_PROPS_ID`, 
 --
 -- Table structure for table `b_sale_user_transact`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_user_transact`;
@@ -31208,7 +32411,7 @@ INSERT INTO `b_sale_user_transact` (`ID`, `USER_ID`, `TIMESTAMP_X`, `TRANSACT_DA
 --
 -- Table structure for table `b_sale_viewed_product`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sale_viewed_product`;
@@ -31228,7 +32431,7 @@ CREATE TABLE IF NOT EXISTS `b_sale_viewed_product` (
   `DETAIL_PICTURE` int(11) DEFAULT NULL,
   `CALLBACK_FUNC` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PRODUCT_PROVIDER_CLASS` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_sale_viewed_product`
@@ -31250,7 +32453,7 @@ INSERT INTO `b_sale_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT_ID
 (31, 2571, '2015-10-12 14:43:47', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (32, 2571, '2015-10-12 14:43:47', 46, 'catalog', 's1', 'Кухня-2', '/catalog/kitchen/kukhnya-2/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (33, 3642, '2015-10-06 10:54:51', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
-(34, 3642, '2015-10-06 10:54:51', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(34, 3642, '2015-10-28 19:49:36', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (35, 2571, '2015-10-05 16:09:31', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (36, 3642, '2015-10-02 13:45:11', 25, 'catalog', 's1', 'Ванная-Azori-Россия-Узоры (Асти)', '/catalog/vannaya/vannaya-azori-rossiya-uzory-asti/', NULL, '0.00', NULL, 989, 990, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (37, 2571, '2015-10-05 16:23:14', 11, 'catalog', 's1', 'Гостиная-Italon-Россия-Камень-Natura Stone', '/catalog/gostinaya/natura-stone/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
@@ -31279,10 +32482,10 @@ INSERT INTO `b_sale_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT_ID
 (62, 11775, '2015-10-23 14:19:07', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (63, 11775, '2015-10-23 14:19:14', 63, 'catalog', 's1', 'Mallol', '/catalog/vannaya/mallol/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (64, 4499, '2015-10-26 13:53:04', 63, 'catalog', 's1', 'Mallol', '/catalog/vannaya/mallol/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
-(65, 4499, '2015-10-27 15:23:58', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(65, 4499, '2015-10-30 12:02:47', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (66, 4499, '2015-10-26 15:52:33', 116, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1181, 1182, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (67, 4499, '2015-10-26 16:04:56', 58, 'catalog', 's1', 'Коллекция-1', '/catalog/vannaya/kollektsiya-1/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
-(68, 4499, '2015-10-27 15:24:07', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1187, 1188, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(68, 4499, '2015-10-30 12:02:57', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1187, 1188, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (69, 12246, '2015-10-27 11:57:11', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1187, 1188, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (70, 12246, '2015-10-27 11:52:47', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (71, 12246, '2015-10-27 11:52:34', 31, 'catalog', 's1', 'Ванная-Azori-Россия-Узоры (Vento)', '/catalog/vannaya/vento/', NULL, '0.00', NULL, 1001, 1002, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
@@ -31291,21 +32494,23 @@ INSERT INTO `b_sale_viewed_product` (`ID`, `FUSER_ID`, `DATE_VISIT`, `PRODUCT_ID
 (74, 11704, '2015-10-27 12:18:15', 47, 'catalog', 's1', 'Кухня-1', '/catalog/kitchen/kukhnya-1/', 'RUB', '4400.00', 'Розничная цена', NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (75, 11704, '2015-10-27 12:18:23', 46, 'catalog', 's1', 'Кухня-2', '/catalog/kitchen/kukhnya-2/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (76, 11704, '2015-10-27 12:18:44', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
-(77, 11704, '2015-10-27 12:43:20', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(77, 11704, '2015-10-28 15:13:49', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (78, 12625, '2015-10-27 14:54:02', 7, 'catalog', 's1', 'Ванная-KM-Россия-Однотонная-01', '/catalog/vannaya/km-01/', NULL, '0.00', NULL, 949, 950, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (79, 12625, '2015-10-27 14:53:53', 31, 'catalog', 's1', 'Ванная-Azori-Россия-Узоры (Vento)', '/catalog/vannaya/vento/', NULL, '0.00', NULL, 1001, 1002, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (80, 12625, '2015-10-27 14:54:11', 58, 'catalog', 's1', 'Коллекция-1', '/catalog/vannaya/kollektsiya-1/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (81, 12625, '2015-10-27 14:59:33', 11, 'catalog', 's1', 'Гостиная-Italon-Россия-Камень-Natura Stone', '/catalog/gostinaya/natura-stone/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (82, 12625, '2015-10-27 14:54:23', 20, 'catalog', 's1', 'Гостиная-Novabelle-Италия-Узоры', '/catalog/gostinaya/charme/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
 (83, 12625, '2015-10-27 14:54:26', 37, 'catalog', 's1', 'Гостиная-Azori-Россия-Узоры', '/catalog/gostinaya/gostinaya-azori-rossiya-uzory/', NULL, '0.00', NULL, NULL, NULL, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
-(84, 12625, '2015-10-27 14:54:33', 43, 'catalog', 's1', 'Проверка', '/catalog/kitchen/proverka/', NULL, '0.00', NULL, 1031, 1032, 'CatalogViewedProductCallback', 'CCatalogProductProvider');
+(84, 12625, '2015-10-27 14:54:33', 43, 'catalog', 's1', 'Проверка', '/catalog/kitchen/proverka/', NULL, '0.00', NULL, 1031, 1032, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(85, 3642, '2015-10-28 19:49:36', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1197, 1198, 'CatalogViewedProductCallback', 'CCatalogProductProvider'),
+(86, 11704, '2015-10-28 15:13:49', 119, 'catalog', 's1', 'Legend', '/catalog/vannaya/legend/', NULL, '0.00', NULL, 1197, 1198, 'CatalogViewedProductCallback', 'CCatalogProductProvider');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_content`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content`;
@@ -31327,7 +32532,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content` (
   `UPD` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `DATE_FROM` datetime DEFAULT NULL,
   `DATE_TO` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=509 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=512 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_search_content`
@@ -31382,7 +32587,7 @@ INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CU
 (388, '2015-09-15 11:11:30', 'blog', 'U1', 0, NULL, NULL, NULL, NULL, 'Вячеслав Ширшин', '', NULL, 'USER', '1', NULL, NULL, NULL),
 (389, '2015-09-15 11:22:12', 'main', 's1|/themes/index.php', 0, NULL, NULL, NULL, '/themes/index.php', 'Тематика', 'Text here....', '', '', '', NULL, NULL, NULL),
 (390, '2015-09-24 16:25:25', 'main', 's1|/index.php', 0, NULL, NULL, NULL, '/index.php', 'Интернет-магазин "Одежда"', '', '', '', '', NULL, NULL, NULL),
-(392, '2015-10-26 14:50:24', 'iblock', '24', 0, NULL, NULL, NULL, '=ID=24&EXTERNAL_ID=24&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-napolnaya', 'Ванная-Асти-Россия-Узоры-Напольная', '', '', 'offers', '3', NULL, NULL, NULL),
+(392, '2015-10-28 22:38:27', 'iblock', '24', 0, NULL, NULL, NULL, '=ID=24&EXTERNAL_ID=24&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-napolnaya', 'Ванная-Асти-Россия-Узоры-Напольная', '', '', 'offers', '3', NULL, NULL, NULL),
 (393, '2015-10-04 21:35:44', 'iblock', '25', 0, NULL, NULL, NULL, '=ID=25&EXTERNAL_ID=25&IBLOCK_SECTION_ID=8&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=vannaya-azori-rossiya-uzory-asti', 'Ванная-Azori-Россия-Узоры (Асти)', '', '', 'catalog', '2', NULL, NULL, NULL),
 (394, '2015-09-16 12:06:50', 'iblock', '26', 0, NULL, NULL, NULL, '=ID=26&EXTERNAL_ID=26&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=vannaya-asti-rossiya-uzory-yfcntyyfz', 'Ванная-Асти-Россия-Узоры-Yfcntyyfz', '', '', 'offers', '3', NULL, NULL, NULL),
 (396, '2015-09-16 12:19:28', 'iblock', '28', 0, NULL, NULL, NULL, '=ID=28&EXTERNAL_ID=28&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=atlantic-mosaic', 'Atlantic Mosaic', '', '', 'offers', '3', NULL, NULL, NULL),
@@ -31473,24 +32678,22 @@ INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CU
 (486, '2015-10-22 13:32:56', 'iblock', '103', 0, NULL, NULL, NULL, '=ID=103&EXTERNAL_ID=103&IBLOCK_SECTION_ID=20&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=belani', 'Белани', '', '', 'directories', '4', NULL, NULL, NULL),
 (487, '2015-10-22 13:58:00', 'iblock', '104', 0, NULL, NULL, NULL, '=ID=104&EXTERNAL_ID=104&IBLOCK_SECTION_ID=11&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=paradyz', 'Paradyz', '', '', 'directories', '4', NULL, NULL, NULL),
 (488, '2015-10-22 13:59:42', 'iblock', '105', 0, NULL, NULL, NULL, '=ID=105&EXTERNAL_ID=105&IBLOCK_SECTION_ID=11&IBLOCK_TYPE_ID=directories&IBLOCK_ID=4&IBLOCK_CODE=manufacturers&IBLOCK_EXTERNAL_ID=&CODE=polcolorit', 'Polcolorit', '', '', 'directories', '4', NULL, NULL, NULL),
-(490, '2015-10-26 14:26:16', 'iblock', '107', 0, NULL, NULL, NULL, '=ID=107&EXTERNAL_ID=107&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema', 'Legend crema', '', '', 'offers', '3', NULL, NULL, NULL);
+(496, '2015-10-30 12:00:07', 'iblock', '112', 0, NULL, NULL, NULL, '=ID=112&EXTERNAL_ID=112&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema', 'Legend crema', '', '', 'offers', '3', NULL, NULL, NULL);
 INSERT INTO `b_search_content` (`ID`, `DATE_CHANGE`, `MODULE_ID`, `ITEM_ID`, `CUSTOM_RANK`, `USER_ID`, `ENTITY_TYPE_ID`, `ENTITY_ID`, `URL`, `TITLE`, `BODY`, `TAGS`, `PARAM1`, `PARAM2`, `UPD`, `DATE_FROM`, `DATE_TO`) VALUES
-(496, '2015-10-26 15:42:54', 'iblock', '112', 0, NULL, NULL, NULL, '=ID=112&EXTERNAL_ID=112&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema2', 'Legend crema2', '', '', 'offers', '3', NULL, NULL, NULL),
-(498, '2015-10-26 15:44:27', 'iblock', '114', 0, NULL, NULL, NULL, '=ID=114&EXTERNAL_ID=114&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-listelo-decoro-crema', 'Legend listelo decoro crema', '', '', 'offers', '3', NULL, NULL, NULL),
-(499, '2015-10-26 15:45:13', 'iblock', '115', 0, NULL, NULL, NULL, '=ID=115&EXTERNAL_ID=115&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema3', 'Legend crema3', '', '', 'offers', '3', NULL, NULL, NULL),
-(502, '2015-10-27 13:29:54', 'iblock', '118', 0, NULL, NULL, NULL, '=ID=118&EXTERNAL_ID=118&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema34', 'Legend crema34', '', '', 'offers', '3', NULL, NULL, NULL),
-(503, '2015-10-27 14:31:36', 'iblock', '119', 0, NULL, NULL, NULL, '=ID=119&EXTERNAL_ID=119&IBLOCK_SECTION_ID=8&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=legend', 'Legend', '', '', 'catalog', '2', NULL, NULL, NULL),
-(504, '2015-10-27 14:59:12', 'iblock', '120', 0, NULL, NULL, NULL, '=ID=120&EXTERNAL_ID=120&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend', 'Legend boiserie crema', '', '', 'offers', '3', NULL, NULL, NULL),
-(505, '2015-10-27 14:24:21', 'iblock', '121', 0, NULL, NULL, NULL, '=ID=121&EXTERNAL_ID=121&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-listelo-decoro-crema1', 'Legend listelo decoro crema1', '', '', 'offers', '3', NULL, NULL, NULL),
-(507, '2015-10-27 14:24:21', 'iblock', '123', 0, NULL, NULL, NULL, '=ID=123&EXTERNAL_ID=123&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-bord', 'Legend bord', '', '', 'offers', '3', NULL, NULL, NULL),
-(508, '2015-10-27 14:31:05', 'iblock', '122', 0, NULL, NULL, NULL, '=ID=122&EXTERNAL_ID=122&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema12', 'Legend crema12', '', '', 'offers', '3', NULL, NULL, NULL);
+(498, '2015-10-30 12:01:07', 'iblock', '114', 0, NULL, NULL, NULL, '=ID=114&EXTERNAL_ID=114&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-listelo-decoro-crema', 'Legend listelo decoro crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(503, '2015-10-30 11:58:21', 'iblock', '119', 0, NULL, NULL, NULL, '=ID=119&EXTERNAL_ID=119&IBLOCK_SECTION_ID=8&IBLOCK_TYPE_ID=catalog&IBLOCK_ID=2&IBLOCK_CODE=collections&IBLOCK_EXTERNAL_ID=&CODE=legend', 'Legend', '', '', 'catalog', '2', NULL, NULL, NULL),
+(504, '2015-10-30 12:00:16', 'iblock', '120', 0, NULL, NULL, NULL, '=ID=120&EXTERNAL_ID=120&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend', 'Legend boiserie crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(507, '2015-10-30 12:01:58', 'iblock', '123', 0, NULL, NULL, NULL, '=ID=123&EXTERNAL_ID=123&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-bord', 'Legend listelo reposo crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(508, '2015-10-30 12:02:23', 'iblock', '122', 0, NULL, NULL, NULL, '=ID=122&EXTERNAL_ID=122&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-crema 40x40', 'Legend crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(510, '2015-10-30 12:01:39', 'iblock', '125', 0, NULL, NULL, NULL, '=ID=125&EXTERNAL_ID=125&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-inserto-decoro-crema', 'Legend inserto decoro crema', '', '', 'offers', '3', NULL, NULL, NULL),
+(511, '2015-10-30 12:02:40', 'iblock', '126', 0, NULL, NULL, NULL, '=ID=126&EXTERNAL_ID=126&IBLOCK_SECTION_ID=&IBLOCK_TYPE_ID=offers&IBLOCK_ID=3&IBLOCK_CODE=tiles&IBLOCK_EXTERNAL_ID=&CODE=legend-moka', 'Legend moka', '', '', 'offers', '3', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_content_freq`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_freq`;
@@ -31507,7 +32710,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_freq` (
 --
 -- Table structure for table `b_search_content_param`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_param`;
@@ -31522,7 +32725,7 @@ CREATE TABLE IF NOT EXISTS `b_search_content_param` (
 --
 -- Table structure for table `b_search_content_right`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_right`;
@@ -31739,33 +32942,29 @@ INSERT INTO `b_search_content_right` (`SEARCH_CONTENT_ID`, `GROUP_CODE`) VALUES
 (487, 'G2'),
 (488, 'G1'),
 (488, 'G2'),
-(490, 'G1'),
-(490, 'G2'),
 (496, 'G1'),
 (496, 'G2'),
 (498, 'G1'),
 (498, 'G2'),
-(499, 'G1'),
-(499, 'G2'),
-(502, 'G1'),
-(502, 'G2'),
 (503, 'G1'),
 (503, 'G2'),
 (504, 'G1'),
 (504, 'G2'),
-(505, 'G1'),
-(505, 'G2'),
 (507, 'G1'),
 (507, 'G2'),
 (508, 'G1'),
-(508, 'G2');
+(508, 'G2'),
+(510, 'G1'),
+(510, 'G2'),
+(511, 'G1'),
+(511, 'G2');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_content_site`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_site`;
@@ -31919,23 +33118,21 @@ INSERT INTO `b_search_content_site` (`SEARCH_CONTENT_ID`, `SITE_ID`, `URL`) VALU
 (486, 's1', ''),
 (487, 's1', ''),
 (488, 's1', ''),
-(490, 's1', ''),
 (496, 's1', ''),
 (498, 's1', ''),
-(499, 's1', ''),
-(502, 's1', ''),
 (503, 's1', ''),
 (504, 's1', ''),
-(505, 's1', ''),
 (507, 's1', ''),
-(508, 's1', '');
+(508, 's1', ''),
+(510, 's1', ''),
+(511, 's1', '');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_content_stem`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_stem`;
@@ -33217,37 +34414,35 @@ INSERT INTO `b_search_content_stem` (`SEARCH_CONTENT_ID`, `LANGUAGE_ID`, `STEM`,
 (486, 'ru', 1852, 0.2314, 1),
 (487, 'ru', 1668, 0.2314, 1),
 (488, 'ru', 1669, 0.2314, 1),
-(490, 'ru', 1853, 0.2314, 1),
-(490, 'ru', 1854, 0.2314, 2),
 (496, 'ru', 1853, 0.2314, 1),
-(496, 'ru', 1855, 0.2314, 2),
+(496, 'ru', 1854, 0.2314, 2),
 (498, 'ru', 1816, 0.2314, 2),
 (498, 'ru', 1853, 0.2314, 1),
 (498, 'ru', 1854, 0.2314, 4),
 (498, 'ru', 1857, 0.2314, 3),
-(499, 'ru', 1853, 0.2314, 1),
-(499, 'ru', 1858, 0.2314, 2),
-(502, 'ru', 1853, 0.2314, 1),
-(502, 'ru', 1859, 0.2314, 2),
 (503, 'ru', 1853, 0.2314, 1),
 (504, 'ru', 1853, 0.2314, 1),
 (504, 'ru', 1854, 0.2314, 3),
 (504, 'ru', 1856, 0.2314, 2),
-(505, 'ru', 1816, 0.2314, 2),
-(505, 'ru', 1853, 0.2314, 1),
-(505, 'ru', 1857, 0.2314, 3),
-(505, 'ru', 1860, 0.2314, 4),
+(507, 'ru', 1816, 0.2314, 2),
 (507, 'ru', 1853, 0.2314, 1),
-(507, 'ru', 1862, 0.2314, 2),
+(507, 'ru', 1854, 0.2314, 4),
+(507, 'ru', 1864, 0.2314, 3),
 (508, 'ru', 1853, 0.2314, 1),
-(508, 'ru', 1861, 0.2314, 2);
+(508, 'ru', 1854, 0.2314, 2),
+(510, 'ru', 1853, 0.2314, 1),
+(510, 'ru', 1854, 0.2314, 4),
+(510, 'ru', 1857, 0.2314, 3),
+(510, 'ru', 1863, 0.2314, 2),
+(511, 'ru', 1853, 0.2314, 1),
+(511, 'ru', 1865, 0.2314, 2);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_content_text`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_text`;
@@ -33401,23 +34596,21 @@ INSERT INTO `b_search_content_text` (`SEARCH_CONTENT_ID`, `SEARCH_CONTENT_MD5`, 
 (486, '9a75d07204363d3b6d4c25d668970ff8', 'БЕЛАНИ\r\n\r\n'),
 (487, '4637981741b302d2408a024de3de52d2', 'PARADYZ\r\n\r\n'),
 (488, '1e19b69ec57989b4be55b80ba7d9bc4e', 'POLCOLORIT\r\n\r\n'),
-(490, 'd6bb13f827b34670df92019ec0c028b4', 'LEGEND CREMA\r\n\r\n'),
-(496, '2028e13c5249ee91b251e4138c8fb277', 'LEGEND CREMA2\r\n\r\n'),
+(496, 'd6bb13f827b34670df92019ec0c028b4', 'LEGEND CREMA\r\n\r\n'),
 (498, '82d095ebc767d043013983c2a1415314', 'LEGEND LISTELO DECORO CREMA\r\n\r\n'),
-(499, '6f5f28a720a5edec304cf99a8d45bd7d', 'LEGEND CREMA3\r\n\r\n'),
-(502, 'a4ad48226b660839a38503afc34bcfe3', 'LEGEND CREMA34\r\n\r\n'),
 (503, '4f19b1c85256908c12410b5a7a87e5aa', 'LEGEND\r\n\r\n'),
 (504, 'a2afa2ef0d4d58fcc786e2a1874fd294', 'LEGEND BOISERIE CREMA\r\n\r\n'),
-(505, '9e99a72877dd5a4904643d2868ad371c', 'LEGEND LISTELO DECORO CREMA1\r\n\r\n'),
-(507, 'ef95b104fdb549c9d696fc1b4ea73382', 'LEGEND BORD\r\n\r\n'),
-(508, 'c9bb1905130f6abaff085d17b59d0133', 'LEGEND CREMA12\r\n\r\n');
+(507, '1cff533d3b2c84795125978ac678948d', 'LEGEND LISTELO REPOSO CREMA\r\n\r\n'),
+(508, 'd6bb13f827b34670df92019ec0c028b4', 'LEGEND CREMA\r\n\r\n'),
+(510, '7928337aed228e6a1125a2cbb52e24df', 'LEGEND INSERTO DECORO CREMA\r\n\r\n'),
+(511, 'a6466028b3eb34e86d1da1f2e916c500', 'LEGEND MOKA\r\n\r\n');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_content_title`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_content_title`;
@@ -33642,37 +34835,35 @@ INSERT INTO `b_search_content_title` (`SEARCH_CONTENT_ID`, `SITE_ID`, `POS`, `WO
 (486, 's1', 0, 'БЕЛАНИ'),
 (487, 's1', 0, 'PARADYZ'),
 (488, 's1', 0, 'POLCOLORIT'),
-(490, 's1', 7, 'CREMA'),
-(490, 's1', 0, 'LEGEND'),
-(496, 's1', 7, 'CREMA2'),
+(496, 's1', 7, 'CREMA'),
 (496, 's1', 0, 'LEGEND'),
 (498, 's1', 22, 'CREMA'),
 (498, 's1', 15, 'DECORO'),
 (498, 's1', 0, 'LEGEND'),
 (498, 's1', 7, 'LISTELO'),
-(499, 's1', 7, 'CREMA3'),
-(499, 's1', 0, 'LEGEND'),
-(502, 's1', 7, 'CREMA34'),
-(502, 's1', 0, 'LEGEND'),
 (503, 's1', 0, 'LEGEND'),
 (504, 's1', 7, 'BOISERIE'),
 (504, 's1', 16, 'CREMA'),
 (504, 's1', 0, 'LEGEND'),
-(505, 's1', 22, 'CREMA1'),
-(505, 's1', 15, 'DECORO'),
-(505, 's1', 0, 'LEGEND'),
-(505, 's1', 7, 'LISTELO'),
-(507, 's1', 7, 'BORD'),
+(507, 's1', 22, 'CREMA'),
 (507, 's1', 0, 'LEGEND'),
-(508, 's1', 7, 'CREMA12'),
-(508, 's1', 0, 'LEGEND');
+(507, 's1', 7, 'LISTELO'),
+(507, 's1', 15, 'REPOSO'),
+(508, 's1', 7, 'CREMA'),
+(508, 's1', 0, 'LEGEND'),
+(510, 's1', 22, 'CREMA'),
+(510, 's1', 15, 'DECORO'),
+(510, 's1', 7, 'INSERTO'),
+(510, 's1', 0, 'LEGEND'),
+(511, 's1', 0, 'LEGEND'),
+(511, 's1', 7, 'MOKA');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_search_custom_rank`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_custom_rank`;
@@ -33692,7 +34883,7 @@ CREATE TABLE IF NOT EXISTS `b_search_custom_rank` (
 --
 -- Table structure for table `b_search_phrase`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_phrase`;
@@ -33726,14 +34917,14 @@ INSERT INTO `b_search_phrase` (`ID`, `TIMESTAMP_X`, `SITE_ID`, `RESULT_COUNT`, `
 --
 -- Table structure for table `b_search_stem`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_stem`;
 CREATE TABLE IF NOT EXISTS `b_search_stem` (
   `ID` int(11) NOT NULL,
   `STEM` varchar(50) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=1863 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1866 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_search_stem`
@@ -34193,6 +35384,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1644, 'IMPETUS'),
 (1645, 'IN'),
 (1654, 'INANI'),
+(1863, 'INSERTO'),
 (1651, 'INSOLENS'),
 (1576, 'IPSUM'),
 (1507, 'ITALON'),
@@ -34219,6 +35411,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1604, 'MEA'),
 (1608, 'MEL'),
 (1834, 'MIJARES'),
+(1865, 'MOKA'),
 (1591, 'MOLESTIAE'),
 (1523, 'MOSAIC'),
 (626, 'N-Р’РРќРР›РљРђРџР РћР›РђРљРўРђРњ'),
@@ -34249,6 +35442,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 (1612, 'QUI'),
 (1616, 'QUO'),
 (1622, 'REBUM'),
+(1864, 'REPOSO'),
 (1648, 'REPUDIANDAE'),
 (1581, 'RIDENS'),
 (618, 'RU2277566'),
@@ -35608,7 +36802,7 @@ INSERT INTO `b_search_stem` (`ID`, `STEM`) VALUES
 --
 -- Table structure for table `b_search_suggest`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_suggest`;
@@ -35627,7 +36821,7 @@ CREATE TABLE IF NOT EXISTS `b_search_suggest` (
 --
 -- Table structure for table `b_search_tags`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_tags`;
@@ -35642,7 +36836,7 @@ CREATE TABLE IF NOT EXISTS `b_search_tags` (
 --
 -- Table structure for table `b_search_user_right`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_search_user_right`;
@@ -35665,24 +36859,9 @@ INSERT INTO `b_search_user_right` (`USER_ID`, `GROUP_CODE`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `b_security_sitecheck`
---
--- Creation: Sep 25, 2015 at 08:21 AM
---
-
-DROP TABLE IF EXISTS `b_security_sitecheck`;
-CREATE TABLE IF NOT EXISTS `b_security_sitecheck` (
-  `ID` int(11) NOT NULL,
-  `TEST_DATE` datetime DEFAULT NULL,
-  `RESULTS` longtext COLLATE utf8_unicode_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `b_sec_filter_mask`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_filter_mask`;
@@ -35700,7 +36879,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_filter_mask` (
 --
 -- Table structure for table `b_sec_frame_mask`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_frame_mask`;
@@ -35718,7 +36897,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_frame_mask` (
 --
 -- Table structure for table `b_sec_iprule`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule`;
@@ -35741,7 +36920,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule` (
 --
 -- Table structure for table `b_sec_iprule_excl_ip`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_excl_ip`;
@@ -35758,7 +36937,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_excl_ip` (
 --
 -- Table structure for table `b_sec_iprule_excl_mask`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_excl_mask`;
@@ -35775,7 +36954,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_excl_mask` (
 --
 -- Table structure for table `b_sec_iprule_incl_ip`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_incl_ip`;
@@ -35792,7 +36971,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_incl_ip` (
 --
 -- Table structure for table `b_sec_iprule_incl_mask`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_iprule_incl_mask`;
@@ -35809,7 +36988,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_iprule_incl_mask` (
 --
 -- Table structure for table `b_sec_recovery_codes`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_recovery_codes`;
@@ -35827,7 +37006,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_recovery_codes` (
 --
 -- Table structure for table `b_sec_redirect_url`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_redirect_url`;
@@ -35852,7 +37031,7 @@ INSERT INTO `b_sec_redirect_url` (`IS_SYSTEM`, `SORT`, `URL`, `PARAMETER_NAME`) 
 --
 -- Table structure for table `b_sec_session`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_session`;
@@ -35867,7 +37046,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_session` (
 --
 -- Table structure for table `b_sec_user`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_user`;
@@ -35888,7 +37067,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_user` (
 --
 -- Table structure for table `b_sec_virus`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_virus`;
@@ -35905,7 +37084,7 @@ CREATE TABLE IF NOT EXISTS `b_sec_virus` (
 --
 -- Table structure for table `b_sec_white_list`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sec_white_list`;
@@ -35917,9 +37096,24 @@ CREATE TABLE IF NOT EXISTS `b_sec_white_list` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `b_security_sitecheck`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `b_security_sitecheck`;
+CREATE TABLE IF NOT EXISTS `b_security_sitecheck` (
+  `ID` int(11) NOT NULL,
+  `TEST_DATE` datetime DEFAULT NULL,
+  `RESULTS` longtext COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `b_sender_contact`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_contact`;
@@ -35938,7 +37132,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_contact` (
 --
 -- Table structure for table `b_sender_contact_list`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_contact_list`;
@@ -35952,7 +37146,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_contact_list` (
 --
 -- Table structure for table `b_sender_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_group`;
@@ -35971,7 +37165,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_group` (
 --
 -- Table structure for table `b_sender_group_connector`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_group_connector`;
@@ -35987,7 +37181,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_group_connector` (
 --
 -- Table structure for table `b_sender_list`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_list`;
@@ -36003,7 +37197,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_list` (
 --
 -- Table structure for table `b_sender_mailing`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing`;
@@ -36027,7 +37221,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing` (
 --
 -- Table structure for table `b_sender_mailing_attachment`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_attachment`;
@@ -36041,7 +37235,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_attachment` (
 --
 -- Table structure for table `b_sender_mailing_chain`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_chain`;
@@ -36071,7 +37265,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_chain` (
 --
 -- Table structure for table `b_sender_mailing_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_group`;
@@ -36086,7 +37280,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_group` (
 --
 -- Table structure for table `b_sender_mailing_subscription`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_subscription`;
@@ -36101,7 +37295,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_subscription` (
 --
 -- Table structure for table `b_sender_mailing_trigger`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_mailing_trigger`;
@@ -36118,7 +37312,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_mailing_trigger` (
 --
 -- Table structure for table `b_sender_posting`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting`;
@@ -36137,7 +37331,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting` (
 --
 -- Table structure for table `b_sender_posting_click`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_click`;
@@ -36154,7 +37348,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_click` (
 --
 -- Table structure for table `b_sender_posting_read`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_read`;
@@ -36170,7 +37364,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_read` (
 --
 -- Table structure for table `b_sender_posting_recipient`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_recipient`;
@@ -36193,7 +37387,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_recipient` (
 --
 -- Table structure for table `b_sender_posting_unsub`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_posting_unsub`;
@@ -36209,7 +37403,7 @@ CREATE TABLE IF NOT EXISTS `b_sender_posting_unsub` (
 --
 -- Table structure for table `b_sender_preset_template`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sender_preset_template`;
@@ -36225,9 +37419,9 @@ CREATE TABLE IF NOT EXISTS `b_sender_preset_template` (
 --
 -- Table structure for table `b_seo_adv_autolog`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
--- Last update: Sep 25, 2015 at 08:21 AM
--- Last check: Sep 25, 2015 at 10:08 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
+-- Last update: Oct 28, 2015 at 10:10 PM
+-- Last check: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_autolog`;
@@ -36248,7 +37442,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_autolog` (
 --
 -- Table structure for table `b_seo_adv_banner`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_banner`;
@@ -36273,7 +37467,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_banner` (
 --
 -- Table structure for table `b_seo_adv_campaign`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_campaign`;
@@ -36294,7 +37488,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_campaign` (
 --
 -- Table structure for table `b_seo_adv_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_group`;
@@ -36316,7 +37510,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_group` (
 --
 -- Table structure for table `b_seo_adv_link`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_link`;
@@ -36331,7 +37525,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_link` (
 --
 -- Table structure for table `b_seo_adv_log`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_log`;
@@ -36351,7 +37545,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_log` (
 --
 -- Table structure for table `b_seo_adv_order`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_order`;
@@ -36371,7 +37565,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_order` (
 --
 -- Table structure for table `b_seo_adv_region`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_adv_region`;
@@ -36393,7 +37587,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_adv_region` (
 --
 -- Table structure for table `b_seo_keywords`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_keywords`;
@@ -36409,7 +37603,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_keywords` (
 --
 -- Table structure for table `b_seo_search_engine`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_search_engine`;
@@ -36439,7 +37633,7 @@ INSERT INTO `b_seo_search_engine` (`ID`, `CODE`, `ACTIVE`, `SORT`, `NAME`, `CLIE
 --
 -- Table structure for table `b_seo_sitemap`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap`;
@@ -36458,7 +37652,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap` (
 --
 -- Table structure for table `b_seo_sitemap_entity`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap_entity`;
@@ -36474,7 +37668,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap_entity` (
 --
 -- Table structure for table `b_seo_sitemap_iblock`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap_iblock`;
@@ -36489,7 +37683,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap_iblock` (
 --
 -- Table structure for table `b_seo_sitemap_runtime`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_sitemap_runtime`;
@@ -36509,7 +37703,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_sitemap_runtime` (
 --
 -- Table structure for table `b_seo_yandex_direct_stat`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_seo_yandex_direct_stat`;
@@ -36535,7 +37729,7 @@ CREATE TABLE IF NOT EXISTS `b_seo_yandex_direct_stat` (
 --
 -- Table structure for table `b_short_uri`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_short_uri`;
@@ -36556,7 +37750,7 @@ CREATE TABLE IF NOT EXISTS `b_short_uri` (
 --
 -- Table structure for table `b_site_template`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_site_template`;
@@ -36580,7 +37774,7 @@ INSERT INTO `b_site_template` (`ID`, `SITE_ID`, `CONDITION`, `SORT`, `TEMPLATE`)
 --
 -- Table structure for table `b_smile`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_smile`;
@@ -36633,7 +37827,7 @@ INSERT INTO `b_smile` (`ID`, `TYPE`, `SET_ID`, `SORT`, `TYPING`, `CLICKABLE`, `I
 --
 -- Table structure for table `b_smile_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_smile_lang`;
@@ -36694,7 +37888,7 @@ INSERT INTO `b_smile_lang` (`ID`, `TYPE`, `SID`, `LID`, `NAME`) VALUES
 --
 -- Table structure for table `b_smile_set`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_smile_set`;
@@ -36719,7 +37913,7 @@ INSERT INTO `b_smile_set` (`ID`, `STRING_ID`, `SORT`, `TYPE`, `PARENT_ID`) VALUE
 --
 -- Table structure for table `b_socialservices_message`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_socialservices_message`;
@@ -36738,7 +37932,7 @@ CREATE TABLE IF NOT EXISTS `b_socialservices_message` (
 --
 -- Table structure for table `b_socialservices_user`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_socialservices_user`;
@@ -36769,7 +37963,7 @@ CREATE TABLE IF NOT EXISTS `b_socialservices_user` (
 --
 -- Table structure for table `b_socialservices_user_link`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_socialservices_user_link`;
@@ -36789,7 +37983,7 @@ CREATE TABLE IF NOT EXISTS `b_socialservices_user_link` (
 --
 -- Table structure for table `b_sticker`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sticker`;
@@ -36825,7 +38019,7 @@ CREATE TABLE IF NOT EXISTS `b_sticker` (
 --
 -- Table structure for table `b_sticker_group_task`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_sticker_group_task`;
@@ -36846,7 +38040,7 @@ INSERT INTO `b_sticker_group_task` (`GROUP_ID`, `TASK_ID`) VALUES
 --
 -- Table structure for table `b_subscription`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_subscription`;
@@ -36868,7 +38062,7 @@ CREATE TABLE IF NOT EXISTS `b_subscription` (
 --
 -- Table structure for table `b_subscription_rubric`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_subscription_rubric`;
@@ -36882,7 +38076,7 @@ CREATE TABLE IF NOT EXISTS `b_subscription_rubric` (
 --
 -- Table structure for table `b_task`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_task`;
@@ -36957,7 +38151,7 @@ INSERT INTO `b_task` (`ID`, `NAME`, `LETTER`, `MODULE_ID`, `SYS`, `DESCRIPTION`,
 --
 -- Table structure for table `b_task_operation`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_task_operation`;
@@ -37234,7 +38428,7 @@ INSERT INTO `b_task_operation` (`TASK_ID`, `OPERATION_ID`) VALUES
 --
 -- Table structure for table `b_undo`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_undo`;
@@ -37248,25 +38442,12 @@ CREATE TABLE IF NOT EXISTS `b_undo` (
   `TIMESTAMP_X` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `b_undo`
---
-
-INSERT INTO `b_undo` (`ID`, `MODULE_ID`, `UNDO_TYPE`, `UNDO_HANDLER`, `CONTENT`, `USER_ID`, `TIMESTAMP_X`) VALUES
-('2156b54c9d0ef56742f206173c132abf5', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:13:"Legend crema3";s:8:"SUB_CODE";s:13:"legend-crema3";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"-39";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"2";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:22:"legend crema 45x45.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445863517871/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"72731";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:22:"legend crema 45x45.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445863918986/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"72731";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:0:"";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"N";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:0:"";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"N";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"5";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:0:"";s:17:"SUBCAT_BASE_WIDTH";s:0:"";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"-39";s:6:"TMP_ID";s:2:"39";}', 2, 1445863500),
-('249503db5f3ff781120cc17d2a900a5ec', 'main', 'autosave', 'CAutoSave::_Restore', 'a:88:{s:6:"ACTIVE";s:1:"Y";s:11:"ACTIVE_FROM";s:0:"";s:9:"ACTIVE_TO";s:0:"";s:4:"NAME";s:12:"Legend crema";s:4:"CODE";s:12:"legend-crema";s:4:"SORT";s:3:"500";s:39:"PROPX000091X7X000093XX000091Xn0X000093X";s:0:"";s:25:"bxu_filesX000091XX000093X";a:3:{i:0;s:0:"";i:1;s:0:"";i:2;s:0:"";}s:39:"PROPX000091X8X000093XX000091Xn0X000093X";s:0:"";s:40:"PROPX000091X9X000093XX000091X305X000093X";s:2:"76";s:38:"PROPX000091X10X000093XX000091XX000093X";a:1:{i:0;s:1:"7";}s:41:"PROPX000091X12X000093XX000091X307X000093X";s:2:"53";s:17:"PREVIEW_TEXT_TYPE";s:0:"";s:12:"PREVIEW_TEXT";s:0:"";s:16:"DETAIL_TEXT_TYPE";s:0:"";s:11:"DETAIL_TEXT";s:0:"";s:77:"IPROPERTY_TEMPLATESX000091XELEMENT_META_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:78:"IPROPERTY_TEMPLATESX000091XELEMENT_META_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:80:"IPROPERTY_TEMPLATESX000091XELEMENT_META_KEYWORDSX000093XX000091XTEMPLATEX000093X";s:0:"";s:81:"IPROPERTY_TEMPLATESX000091XELEMENT_META_KEYWORDSX000093XX000091XINHERITEDX000093X";s:0:"";s:83:"IPROPERTY_TEMPLATESX000091XELEMENT_META_DESCRIPTIONX000093XX000091XTEMPLATEX000093X";s:0:"";s:84:"IPROPERTY_TEMPLATESX000091XELEMENT_META_DESCRIPTIONX000093XX000091XINHERITEDX000093X";s:0:"";s:77:"IPROPERTY_TEMPLATESX000091XELEMENT_PAGE_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:78:"IPROPERTY_TEMPLATESX000091XELEMENT_PAGE_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_ALTX000093XX000091XTEMPLATEX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_ALTX000093XX000091XINHERITEDX000093X";s:0:"";s:93:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:94:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XTEMPLATEX000093X";s:0:"";s:93:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XINHERITEDX000093X";s:0:"";s:89:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XLOWERX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XTRANSLITX000093X";s:0:"";s:89:"IPROPERTY_TEMPLATESX000091XELEMENT_PREVIEW_PICTURE_FILE_NAMEX000093XX000091XSPACEX000093X";s:0:"";s:90:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_ALTX000093XX000091XTEMPLATEX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_ALTX000093XX000091XINHERITEDX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_TITLEX000093XX000091XTEMPLATEX000093X";s:0:"";s:93:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_TITLEX000093XX000091XINHERITEDX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XTEMPLATEX000093X";s:0:"";s:92:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XINHERITEDX000093X";s:0:"";s:88:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XLOWERX000093X";s:0:"";s:91:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XTRANSLITX000093X";s:0:"";s:88:"IPROPERTY_TEMPLATESX000091XELEMENT_DETAIL_PICTURE_FILE_NAMEX000093XX000091XSPACEX000093X";s:0:"";s:4:"TAGS";s:0:"";s:7:"ck_TAGS";s:0:"";s:14:"IBLOCK_SECTION";a:1:{i:0;s:1:"8";}s:30:"IBLOCK_SECTIONX000091XX000093X";a:1:{i:0;s:0:"";}s:16:"price_useextform";s:0:"";s:10:"CAT_VAT_ID";s:0:"";s:16:"CAT_VAT_INCLUDED";s:0:"";s:14:"CAT_BASE_PRICE";s:4:"1.00";s:17:"CAT_BASE_CURRENCY";s:3:"RUB";s:15:"CAT_PRICE_EXIST";s:1:"Y";s:24:"CAT_BASE_QUANTITY_FROM_0";s:0:"";s:28:"CAT_BASE_IDX000091X0X000093X";s:2:"42";s:22:"CAT_BASE_QUANTITY_TO_0";s:0:"";s:16:"CAT_BASE_PRICE_0";s:4:"1.00";s:19:"CAT_BASE_CURRENCY_0";s:3:"RUB";s:15:"CAT_ROW_COUNTER";s:1:"0";s:17:"CAT_PRICE_EXIST_0";s:1:"Y";s:17:"CAT_BASE_QUANTITY";s:1:"0";s:26:"CAT_BASE_QUANTITY_RESERVED";s:1:"0";s:11:"CAT_MEASURE";s:1:"1";s:17:"CAT_MEASURE_RATIO";s:1:"1";s:20:"CAT_MEASURE_RATIO_ID";s:2:"42";s:23:"CAT_BASE_QUANTITY_TRACE";s:1:"D";s:9:"USE_STORE";s:1:"D";s:15:"NEGATIVE_AMOUNT";s:1:"D";s:9:"SUBSCRIBE";s:1:"D";s:15:"CAT_BASE_WEIGHT";s:1:"0";s:15:"CAT_BASE_LENGTH";s:1:"0";s:14:"CAT_BASE_WIDTH";s:1:"0";s:15:"CAT_BASE_HEIGHT";s:1:"0";s:4:"save";s:0:"";s:5:"apply";s:0:"";s:8:"dontsave";s:0:"";s:12:"save_and_add";s:0:"";s:25:"form_element_2_active_tab";s:6:"edit10";s:20:"find_section_section";s:1:"8";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"N";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:2:"ID";s:3:"108";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:6:"TMP_ID";s:1:"0";}', 2, 1445859308),
-('24af22e0eb631991e597758a5c2820371', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:12:"Legend crema";s:8:"SUB_CODE";s:12:"legend-crema";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"-43";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445865615056/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"25307";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445865353926/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"25307";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:1:"8";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"N";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:0:"";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"N";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"5";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:0:"";s:17:"SUBCAT_BASE_WIDTH";s:0:"";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"-43";s:6:"TMP_ID";s:2:"43";}', 2, 1445865004),
-('299033c6f936e06fe67240b4744ac5a1c', 'main', 'autosave', 'CAutoSave::_Restore', 'a:68:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:21:"Legend boiserie crema";s:8:"SUB_CODE";s:6:"legend";s:8:"SUB_SORT";s:3:"500";s:61:"PROPX000091X5X000093XX000091X350X000093XX000091XVALUEX000093X";s:3:"119";s:67:"PROPX000091X5X000093XX000091X350X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:6:"88.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445941519571/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"41573";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:6:"88.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445942120271/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"41573";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:5:"15.00";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:31:"SUBCAT_BASE_IDX000091X0X000093X";s:2:"50";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:5:"15.00";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:1:"0";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:1:"0";s:14:"SUBCAT_MEASURE";s:1:"1";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:2:"50";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:1:"0";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"750";s:18:"SUBCAT_BASE_HEIGHT";s:1:"0";s:11:"from_module";s:6:"iblock";s:8:"bxpublic";s:1:"Y";s:28:"form_subelement_3_active_tab";s:9:"sub_edit6";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"N";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:2:"ID";s:3:"120";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"119";s:6:"TMP_ID";s:1:"0";}', 2, 1445941512),
-('29cf648cba9c6f33cceca31f92dd5d45b', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:11:"Legend bord";s:8:"SUB_CODE";s:11:"legend-bord";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"119";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"9";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:6:"89.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445941989906/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:4:"5817";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:6:"89.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-28/00/bxu/a2b9691de78c8c7714b42d2a5d661f71/file1445942629595/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:4:"5817";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:1:"3";s:20:"SUBCAT_BASE_CURRENCY";s:3:"EUR";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:1:"3";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"EUR";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"5";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"120";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"119";s:6:"TMP_ID";s:1:"0";}', 2, 1445941934),
-('2cd64c5accde5ad645b4fd7f2d5719310', 'main', 'autosave', 'CAutoSave::_Restore', 'a:60:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:21:"Legend boiserie crema";s:8:"SUB_CODE";s:6:"legend";s:8:"SUB_SORT";s:3:"500";s:61:"PROPX000091X5X000093XX000091X350X000093XX000091XVALUEX000093X";s:3:"119";s:67:"PROPX000091X5X000093XX000091X350X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:19:"SUB_PREVIEW_PICTURE";s:4:"1190";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:18:"SUB_DETAIL_PICTURE";s:4:"1191";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:5:"15.00";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:31:"SUBCAT_BASE_IDX000091X0X000093X";s:2:"50";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:5:"15.00";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:1:"0";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:1:"0";s:14:"SUBCAT_MEASURE";s:1:"1";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:2:"50";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:1:"0";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"750";s:18:"SUBCAT_BASE_HEIGHT";s:1:"0";s:11:"from_module";s:6:"iblock";s:8:"bxpublic";s:1:"Y";s:28:"form_subelement_3_active_tab";s:9:"sub_edit1";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"N";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:2:"ID";s:3:"120";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"119";s:6:"TMP_ID";s:1:"0";}', 2, 1445866018),
-('2d32ca68e3716b27bcb4af6bd01cf1d32', 'main', 'autosave', 'CAutoSave::_Restore', 'a:64:{s:10:"SUB_ACTIVE";s:1:"Y";s:15:"SUB_ACTIVE_FROM";s:0:"";s:13:"SUB_ACTIVE_TO";s:0:"";s:8:"SUB_NAME";s:12:"Legend crema";s:8:"SUB_CODE";s:12:"legend-crema";s:8:"SUB_SORT";s:3:"500";s:60:"PROPX000091X5X000093XX000091Xn0X000093XX000091XVALUEX000093X";s:3:"-41";s:66:"PROPX000091X5X000093XX000091Xn0X000093XX000091XDESCRIPTIONX000093X";s:0:"";s:38:"PROPX000091X11X000093XX000091XX000093X";a:1:{i:0;s:1:"1";}s:39:"SUB_PREVIEW_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:39:"SUB_PREVIEW_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:43:"SUB_PREVIEW_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445865154858/default";s:39:"SUB_PREVIEW_PICTUREX000091XsizeX000093X";s:5:"25307";s:40:"SUB_PREVIEW_PICTUREX000091XerrorX000093X";s:0:"";s:25:"SUB_PREVIEW_PICTURE_descr";s:0:"";s:25:"bxu_filesX000091XX000093X";a:2:{i:0;s:0:"";i:1;s:0:"";}s:21:"SUB_PREVIEW_TEXT_TYPE";s:0:"";s:16:"SUB_PREVIEW_TEXT";s:0:"";s:38:"SUB_DETAIL_PICTUREX000091XnameX000093X";s:22:"legend crema 25x75.jpg";s:38:"SUB_DETAIL_PICTUREX000091XtypeX000093X";s:10:"image/jpeg";s:42:"SUB_DETAIL_PICTUREX000091Xtmp_nameX000093X";s:95:"/upload/tmp/BXTEMP-2015-10-27/03/bxu/9dae90d6c845f0d753639425339b3eb4/file1445864654852/default";s:38:"SUB_DETAIL_PICTUREX000091XsizeX000093X";s:5:"25307";s:39:"SUB_DETAIL_PICTUREX000091XerrorX000093X";s:0:"";s:24:"SUB_DETAIL_PICTURE_descr";s:0:"";s:20:"SUB_DETAIL_TEXT_TYPE";s:0:"";s:15:"SUB_DETAIL_TEXT";s:0:"";s:8:"SUB_TAGS";s:0:"";s:11:"ck_SUB_TAGS";s:2:"on";s:19:"subprice_useextform";s:0:"";s:13:"SUBCAT_VAT_ID";s:0:"";s:19:"SUBCAT_VAT_INCLUDED";s:0:"";s:17:"SUBCAT_BASE_PRICE";s:1:"5";s:20:"SUBCAT_BASE_CURRENCY";s:3:"RUB";s:18:"SUBCAT_PRICE_EXIST";s:1:"Y";s:27:"SUBCAT_BASE_QUANTITY_FROM_0";s:0:"";s:25:"SUBCAT_BASE_QUANTITY_TO_0";s:0:"";s:19:"SUBCAT_BASE_PRICE_0";s:1:"5";s:22:"SUBCAT_BASE_CURRENCY_0";s:3:"RUB";s:18:"SUBCAT_ROW_COUNTER";s:1:"0";s:20:"SUBCAT_PRICE_EXIST_0";s:1:"Y";s:20:"SUBCAT_BASE_QUANTITY";s:0:"";s:29:"SUBCAT_BASE_QUANTITY_RESERVED";s:0:"";s:14:"SUBCAT_MEASURE";s:1:"1";s:20:"SUBCAT_MEASURE_RATIO";s:1:"1";s:23:"SUBCAT_MEASURE_RATIO_ID";s:1:"0";s:26:"SUBCAT_BASE_QUANTITY_TRACE";s:1:"D";s:12:"SUBUSE_STORE";s:1:"D";s:18:"SUBNEGATIVE_AMOUNT";s:1:"D";s:12:"SUBSUBSCRIBE";s:1:"D";s:18:"SUBCAT_BASE_WEIGHT";s:0:"";s:18:"SUBCAT_BASE_LENGTH";s:3:"250";s:17:"SUBCAT_BASE_WIDTH";s:3:"750";s:18:"SUBCAT_BASE_HEIGHT";s:0:"";s:28:"form_subelement_3_active_tab";s:10:"sub_edit10";s:6:"filter";s:1:"Y";s:10:"set_filter";s:1:"Y";s:12:"linked_state";s:1:"Y";s:6:"Update";s:1:"Y";s:4:"from";s:0:"";s:2:"WF";s:1:"N";s:10:"return_url";s:0:"";s:17:"IBLOCK_SECTION_ID";s:1:"0";s:10:"PRODUCT_ID";s:3:"-41";s:6:"TMP_ID";s:2:"41";}', 2, 1445864589);
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_user`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user`;
@@ -37339,8 +38520,8 @@ CREATE TABLE IF NOT EXISTS `b_user` (
 --
 
 INSERT INTO `b_user` (`ID`, `TIMESTAMP_X`, `LOGIN`, `PASSWORD`, `CHECKWORD`, `ACTIVE`, `NAME`, `LAST_NAME`, `EMAIL`, `LAST_LOGIN`, `DATE_REGISTER`, `LID`, `PERSONAL_PROFESSION`, `PERSONAL_WWW`, `PERSONAL_ICQ`, `PERSONAL_GENDER`, `PERSONAL_BIRTHDATE`, `PERSONAL_PHOTO`, `PERSONAL_PHONE`, `PERSONAL_FAX`, `PERSONAL_MOBILE`, `PERSONAL_PAGER`, `PERSONAL_STREET`, `PERSONAL_MAILBOX`, `PERSONAL_CITY`, `PERSONAL_STATE`, `PERSONAL_ZIP`, `PERSONAL_COUNTRY`, `PERSONAL_NOTES`, `WORK_COMPANY`, `WORK_DEPARTMENT`, `WORK_POSITION`, `WORK_WWW`, `WORK_PHONE`, `WORK_FAX`, `WORK_PAGER`, `WORK_STREET`, `WORK_MAILBOX`, `WORK_CITY`, `WORK_STATE`, `WORK_ZIP`, `WORK_COUNTRY`, `WORK_PROFILE`, `WORK_LOGO`, `WORK_NOTES`, `ADMIN_NOTES`, `STORED_HASH`, `XML_ID`, `PERSONAL_BIRTHDAY`, `EXTERNAL_AUTH_ID`, `CHECKWORD_TIME`, `SECOND_NAME`, `CONFIRM_CODE`, `LOGIN_ATTEMPTS`, `LAST_ACTIVITY_DATE`, `AUTO_TIME_ZONE`, `TIME_ZONE`, `TIME_ZONE_OFFSET`, `TITLE`, `BX_USER_ID`, `LANGUAGE_ID`) VALUES
-(1, '2015-09-15 07:11:30', 'admin', 'jTgFUHs43d73b14209c6495b8c8e5dddc6cf9eab', 'NtnFE6si377bf6f632f1ab1bc82bb888781abbc6', 'Y', 'Вячеслав', 'Ширшин', 'den.silents@yandex.ru', '2015-10-27 15:17:04', '2015-08-27 09:43:52', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-09-15 10:11:30', '', NULL, 0, NULL, '', NULL, NULL, '', 'cc3cefd8cea8bfa68cf103f431d19771', NULL),
-(2, '2015-10-05 16:54:56', 'editor', 'dXnvq92p3d55b22371e156a0c168953b19831fa3', 'gyXNDy4F0d19b130a107ec536586329911862214', 'Y', '', '', 'den.silents@yandex.ru', '2015-10-27 14:08:40', '2015-10-05 19:51:27', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-10-05 19:54:56', '', NULL, 0, NULL, '', NULL, NULL, '', 'edbca7bfcdf13d63fb8f12405af13b78', NULL),
+(1, '2015-09-15 07:11:30', 'admin', 'jTgFUHs43d73b14209c6495b8c8e5dddc6cf9eab', 'NtnFE6si377bf6f632f1ab1bc82bb888781abbc6', 'Y', 'Вячеслав', 'Ширшин', 'den.silents@yandex.ru', '2015-10-30 11:39:33', '2015-08-27 09:43:52', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-09-15 10:11:30', '', NULL, 0, NULL, '', NULL, NULL, '', 'cc3cefd8cea8bfa68cf103f431d19771', NULL),
+(2, '2015-10-05 16:54:56', 'editor', 'dXnvq92p3d55b22371e156a0c168953b19831fa3', 'gyXNDy4F0d19b130a107ec536586329911862214', 'Y', '', '', 'den.silents@yandex.ru', '2015-10-30 11:41:56', '2015-10-05 19:51:27', 's1', '', '', '', '', NULL, NULL, '', '', '', '', '', '', '', '', '', '0', '', '', '', '', '', '', '', '', '', '', '', '', '', '0', '', NULL, '', '', NULL, '', NULL, NULL, '2015-10-05 19:54:56', '', NULL, 0, NULL, '', NULL, NULL, '', 'edbca7bfcdf13d63fb8f12405af13b78', NULL),
 (3, '2015-10-13 19:43:57', 'Anthonyfulp', 'coktholh479d9721b1513699ee73ab6715897ced', '3Ybfnf6f003f919c7dad56eb5aa0078cc8528d97', 'Y', 'Anthonyfulp', 'AnthonyfulpXE', 'danie12722@mail.ru', '2015-10-13 22:43:57', '2015-10-13 22:43:57', 's1', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2015-10-13 22:43:57', NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -37348,7 +38529,7 @@ INSERT INTO `b_user` (`ID`, `TIMESTAMP_X`, `LOGIN`, `PASSWORD`, `CHECKWORD`, `AC
 --
 -- Table structure for table `b_user_access`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_access`;
@@ -37384,7 +38565,7 @@ INSERT INTO `b_user_access` (`USER_ID`, `PROVIDER_ID`, `ACCESS_CODE`) VALUES
 --
 -- Table structure for table `b_user_access_check`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_access_check`;
@@ -37410,7 +38591,7 @@ INSERT INTO `b_user_access_check` (`USER_ID`, `PROVIDER_ID`) VALUES
 --
 -- Table structure for table `b_user_counter`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_counter`;
@@ -37430,7 +38611,7 @@ CREATE TABLE IF NOT EXISTS `b_user_counter` (
 --
 -- Table structure for table `b_user_digest`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_digest`;
@@ -37444,7 +38625,7 @@ CREATE TABLE IF NOT EXISTS `b_user_digest` (
 --
 -- Table structure for table `b_user_field`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_field`;
@@ -37478,7 +38659,7 @@ INSERT INTO `b_user_field` (`ID`, `ENTITY_ID`, `FIELD_NAME`, `USER_TYPE_ID`, `XM
 --
 -- Table structure for table `b_user_field_confirm`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_field_confirm`;
@@ -37496,7 +38677,7 @@ CREATE TABLE IF NOT EXISTS `b_user_field_confirm` (
 --
 -- Table structure for table `b_user_field_enum`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_field_enum`;
@@ -37514,7 +38695,7 @@ CREATE TABLE IF NOT EXISTS `b_user_field_enum` (
 --
 -- Table structure for table `b_user_field_lang`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_field_lang`;
@@ -37533,7 +38714,7 @@ CREATE TABLE IF NOT EXISTS `b_user_field_lang` (
 --
 -- Table structure for table `b_user_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_group`;
@@ -37563,7 +38744,7 @@ INSERT INTO `b_user_group` (`USER_ID`, `GROUP_ID`, `DATE_ACTIVE_FROM`, `DATE_ACT
 --
 -- Table structure for table `b_user_hit_auth`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_hit_auth`;
@@ -37581,7 +38762,7 @@ CREATE TABLE IF NOT EXISTS `b_user_hit_auth` (
 --
 -- Table structure for table `b_user_option`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_option`;
@@ -37592,7 +38773,7 @@ CREATE TABLE IF NOT EXISTS `b_user_option` (
   `NAME` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `VALUE` text COLLATE utf8_unicode_ci,
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `b_user_option`
@@ -37602,12 +38783,12 @@ INSERT INTO `b_user_option` (`ID`, `USER_ID`, `CATEGORY`, `NAME`, `VALUE`, `COMM
 (1, NULL, 'intranet', '~gadgets_admin_index', 'a:1:{i:0;a:1:{s:7:"GADGETS";a:11:{s:28:"ADMIN_ORDERS_GRAPH@111111111";a:3:{s:6:"COLUMN";i:0;s:3:"ROW";i:0;s:4:"HIDE";s:1:"N";}s:22:"ADMIN_ORDERS@111111111";a:3:{s:6:"COLUMN";i:0;s:3:"ROW";i:1;s:4:"HIDE";s:1:"N";}s:19:"HTML_AREA@444444444";a:5:{s:6:"COLUMN";i:1;s:3:"ROW";i:0;s:4:"HIDE";s:1:"N";s:8:"USERDATA";a:1:{s:7:"content";s:797:"<table class="bx-gadgets-info-site-table" cellspacing="0"><tr>	<td class="bx-gadget-gray">Создатель сайта:</td>	<td>Группа компаний &laquo;1С-Битрикс&raquo;.</td>	<td class="bx-gadgets-info-site-logo" rowspan="5"><img src="/bitrix/components/bitrix/desktop/templates/admin/images/site_logo.png"></td></tr><tr>	<td class="bx-gadget-gray">Адрес сайта:</td>	<td><a href="http://www.1c-bitrix.ru">www.1c-bitrix.ru</a></td></tr><tr>	<td class="bx-gadget-gray">Сайт сдан:</td>	<td>12 декабря 2010 г.</td></tr><tr>	<td class="bx-gadget-gray">Ответственное лицо:</td>	<td>Иван Иванов</td></tr><tr>	<td class="bx-gadget-gray">E-mail:</td>	<td><a href="mailto:info@1c-bitrix.ru">info@1c-bitrix.ru</a></td></tr></table>";}s:8:"SETTINGS";a:1:{s:9:"TITLE_STD";s:34:"Информация о сайте";}}s:24:"ADMIN_SECURITY@555555555";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:1;s:4:"HIDE";s:1:"N";}s:23:"ADMIN_PERFMON@666666666";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:2;s:4:"HIDE";s:1:"N";}s:24:"ADMIN_PRODUCTS@111111111";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:5;s:4:"HIDE";s:1:"N";}s:20:"ADMIN_INFO@333333333";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:6;s:4:"HIDE";s:1:"N";}s:25:"ADMIN_CHECKLIST@777888999";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:7;s:4:"HIDE";s:1:"N";}s:19:"RSSREADER@777777777";a:4:{s:6:"COLUMN";i:1;s:3:"ROW";i:8;s:4:"HIDE";s:1:"N";s:8:"SETTINGS";a:3:{s:9:"TITLE_STD";s:33:"Новости 1С-Битрикс";s:3:"CNT";i:10;s:7:"RSS_URL";s:45:"https://www.1c-bitrix.ru/about/life/news/rss/";}}s:23:"ADMIN_MARKETPALCE@22549";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:3;s:4:"HIDE";s:1:"N";}s:22:"ADMIN_MOBILESHOP@13391";a:3:{s:6:"COLUMN";i:1;s:3:"ROW";i:4;s:4:"HIDE";s:1:"N";}}}}', 'Y'),
 (2, NULL, 'main.interface', 'global', 'a:1:{s:5:"theme";s:5:"green";}', 'Y'),
 (3, NULL, 'filter', 'tbl_product_admin_51650330e96c767cf675e245aee13389_filter', 'a:1:{s:4:"rows";s:22:"miss-0,IBEL_A_F_PARENT";}', 'Y'),
-(4, 1, 'admin_panel', 'settings', 'a:2:{s:4:"edit";s:3:"off";s:9:"collapsed";s:2:"on";}', 'N'),
+(4, 1, 'admin_panel', 'settings', 'a:2:{s:4:"edit";s:2:"on";s:9:"collapsed";s:2:"on";}', 'N'),
 (5, 1, 'html_editor', 'user_settings__filesrc_pub', 'a:4:{s:13:"taskbar_shown";s:1:"1";s:4:"view";s:4:"code";s:16:"link_dialog_type";s:8:"external";s:12:"specialchars";s:141:"&raquo;|&laquo;|&cent;|&sect;|&euro;|&pound;|&yen;|&copy;|&reg;|&deg;|&plusmn;|&para;|&hellip;|&prime;|&Prime;|&trade;|&asymp;|&ne;|&lt;|&gt;";}', 'N'),
 (6, 1, 'BX.WindowManager.9.5', 'size_/bitrix/admin/component_props.php', 'a:2:{s:5:"width";s:4:"1069";s:6:"height";s:3:"510";}', 'N'),
 (7, 1, 'BX.WindowManager.9.5', 'size_bx_component_properties_res', 'a:2:{s:5:"width";s:4:"1052";s:6:"height";s:3:"610";}', 'N'),
 (8, 1, 'favorite', 'favorite_menu', 'a:1:{s:5:"stick";s:1:"N";}', 'N'),
-(9, 1, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:368:"menu_highloadblock,menu_iblock_/offers/3,menu_module_settings,menu_fileman_file_s1_,menu_sale_settings,menu_iblock_/slider/5,menu_site,urlrewrite,menu_lang,menu_sale_delivery,menu_sale_taxes,menu_iblock_/catalog/2,menu_users,menu_currency,menu_iblock_/catalog,menu_iblock_/directories,menu_util,backup,menu_iblock,iblock_admin,menu_iblock_/offers,menu_iblock_/offers/3";}', 'N'),
+(9, 1, 'admin_menu', 'pos', 'a:3:{s:8:"sections";s:325:"menu_highloadblock,menu_iblock_/offers/3,menu_module_settings,menu_fileman_file_s1_,menu_sale_settings,menu_iblock_/slider/5,menu_site,urlrewrite,menu_sale_delivery,menu_sale_taxes,menu_users,menu_currency,menu_iblock_/catalog,menu_iblock_/directories,menu_util,backup,menu_iblock,iblock_admin,menu_iblock_/offers,menu_system";s:5:"width";s:3:"361";s:3:"ver";s:2:"on";}', 'N'),
 (10, 1, 'filter', 'tbl_eshop_color_reference_filter_id', 'a:1:{s:4:"rows";s:1:"0";}', 'N'),
 (11, 1, 'filter', 'tbl_eshop_brand_reference_filter_id', 'a:1:{s:4:"rows";s:1:"0";}', 'N'),
 (12, 1, 'BX.WindowManager.9.5', 'size_/bitrix/admin/iblock_edit_property.php', 'a:2:{s:5:"width";s:3:"955";s:6:"height";s:3:"564";}', 'N'),
@@ -37634,7 +38815,7 @@ INSERT INTO `b_user_option` (`ID`, `USER_ID`, `CATEGORY`, `NAME`, `VALUE`, `COMM
 (33, 1, 'list', 'tbl_iblock_el_search6a57d3d7f28a0fe4d7695ef9f0933761', 'a:4:{s:7:"columns";s:7:"ID,NAME";s:2:"by";s:4:"name";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
 (34, 2, 'admin_panel', 'settings', 'a:1:{s:4:"edit";s:3:"off";}', 'N'),
 (35, 2, 'favorite', 'favorite_menu', 'a:1:{s:5:"stick";s:1:"N";}', 'N'),
-(36, 2, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:245:"menu_iblock_/directories/6,menu_iblock_/slider/5,iblock_import,menu_sale_buyers,menu_sale_discount,menu_sale_taxes,menu_iblock_/directories,menu_iblock,menu_iblock_/offers,menu_iblock_%2Foffers%2F3,menu_iblock_/catalog,menu_iblock_%2Fcatalog%2F2";}', 'N'),
+(36, 2, 'admin_menu', 'pos', 'a:1:{s:8:"sections";s:203:"menu_iblock_/directories/6,menu_iblock_/slider/5,iblock_import,menu_sale_buyers,menu_sale_discount,menu_sale_taxes,menu_iblock_/directories,menu_iblock_/offers,menu_iblock_/catalog,menu_iblock_/catalog/2";}', 'N'),
 (37, 2, 'main', 'fileinput', 'a:3:{s:7:"presets";a:5:{i:0;a:3:{s:5:"width";s:3:"200";s:6:"height";s:3:"200";s:5:"title";s:7:"200x200";}i:1;a:3:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";s:5:"title";s:3:"500";}i:2;a:3:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";s:5:"title";s:7:"500x500";}i:3;a:3:{s:5:"width";s:4:"1070";s:6:"height";s:3:"300";s:5:"title";s:10:"Слайд";}i:4;a:3:{s:5:"width";s:3:"130";s:6:"height";s:3:"390";s:5:"title";s:2:"11";}}s:4:"mode";s:9:"mode-pict";s:10:"frameFiles";s:1:"N";}', 'N'),
 (38, 2, 'filter', 'tbl_iblock_el_search859784e286e2d897f982a12582078e8b_filter', 'a:1:{s:4:"rows";s:2:"id";}', 'N'),
 (39, 2, 'list', 'tbl_iblock_el_search859784e286e2d897f982a12582078e8b', 'a:4:{s:7:"columns";s:7:"ID,NAME";s:2:"by";s:4:"name";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
@@ -37646,14 +38827,16 @@ INSERT INTO `b_user_option` (`ID`, `USER_ID`, `CATEGORY`, `NAME`, `VALUE`, `COMM
 (45, 2, 'search_tags', 'order', 's:4:"NAME";', 'N'),
 (46, 2, 'BX.WindowManager.9.5', 'options_8a89be1e0e71327e9f19485a59ab8804', 'a:4:{s:3:"pin";s:5:"false";s:3:"top";s:5:"false";s:4:"left";s:5:"false";s:9:"transform";s:5:"false";}', 'N'),
 (47, 2, 'list', 'tbl_iblock_sub_element_ef0c70488f2295b4f6bae07cdcf066f1', 'a:4:{s:7:"columns";s:94:"CATALOG_TYPE,NAME,ACTIVE,SORT,ID,CATALOG_GROUP_1,EXTERNAL_ID,CATALOG_MEASURE_RATIO,PROPERTY_11";s:2:"by";s:2:"id";s:5:"order";s:3:"asc";s:9:"page_size";s:2:"20";}', 'N'),
-(48, 2, 'list', 'tbl_iblock_list_a787d39d17af063ea1c165aff454b7d6', 'a:4:{s:7:"columns";s:56:"CATALOG_TYPE,NAME,ACTIVE,SORT,TIMESTAMP_X,ID,PROPERTY_10";s:2:"by";s:11:"timestamp_x";s:5:"order";s:4:"desc";s:9:"page_size";s:2:"20";}', 'N');
+(48, 2, 'list', 'tbl_iblock_list_a787d39d17af063ea1c165aff454b7d6', 'a:4:{s:7:"columns";s:56:"CATALOG_TYPE,NAME,ACTIVE,SORT,TIMESTAMP_X,ID,PROPERTY_10";s:2:"by";s:11:"timestamp_x";s:5:"order";s:4:"desc";s:9:"page_size";s:2:"20";}', 'N'),
+(49, 2, 'list', 'tbl_iblock_list_ef0c70488f2295b4f6bae07cdcf066f1', 'a:4:{s:7:"columns";s:98:"CATALOG_TYPE,NAME,ACTIVE,SORT,ID,PROPERTY_11,CATALOG_MEASURE,CATALOG_GROUP_1,CATALOG_MEASURE_RATIO";s:2:"by";s:11:"timestamp_x";s:5:"order";s:4:"desc";s:9:"page_size";s:2:"20";}', 'N'),
+(50, 1, 'filter', 'tbl_iblock_list_ef0c70488f2295b4f6bae07cdcf066f1_filter', 'a:1:{s:4:"rows";s:34:"miss-0,IBLIST_A_PARENT,IBLIST_A_ID";}', 'N');
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_user_stored_auth`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_user_stored_auth`;
@@ -37675,17 +38858,17 @@ INSERT INTO `b_user_stored_auth` (`ID`, `USER_ID`, `DATE_REG`, `LAST_AUTH`, `STO
 (1, 1, '2015-08-27 09:43:52', '2015-08-27 09:43:52', '5cfebdc818b183ff67b2f713a3d4c22d', 'N', 2130706433),
 (2, 1, '2015-08-27 11:00:40', '2015-08-27 17:50:02', 'ed752865a1c20638303ff19117af7d9c', 'N', 2130706433),
 (3, 1, '2015-09-17 16:34:58', '2015-09-23 11:35:38', 'def37519bc76e1310fba6182a8536148', 'N', 2130706433),
-(4, 1, '2015-09-24 21:16:15', '2015-10-22 19:57:12', 'fef3ce4384d4ddf1297d19e77d1cc033', 'N', 2151974653),
+(4, 1, '2015-09-24 21:16:15', '2015-10-28 22:38:17', 'fef3ce4384d4ddf1297d19e77d1cc033', 'N', 2151974653),
 (6, 2, '2015-10-06 10:16:16', '2015-10-27 12:40:15', 'e771bd4f0bc9ddc40ef167cf8b476641', 'N', 3650294786),
-(9, 1, '2015-10-21 13:25:14', '2015-10-27 15:17:04', '3e7293457396e7011144f508b341e9c1', 'N', 1435467550),
-(12, 2, '2015-10-27 14:00:28', '2015-10-27 14:08:40', '4373c263b1b240e164f8dad76253f900', 'N', 3650294786);
+(9, 1, '2015-10-21 13:25:14', '2015-10-30 11:39:33', '3e7293457396e7011144f508b341e9c1', 'N', 1435467550),
+(12, 2, '2015-10-27 14:00:28', '2015-10-30 11:41:56', '4373c263b1b240e164f8dad76253f900', 'N', 3650294786);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `b_utm_blog_comment`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_utm_blog_comment`;
@@ -37704,7 +38887,7 @@ CREATE TABLE IF NOT EXISTS `b_utm_blog_comment` (
 --
 -- Table structure for table `b_utm_blog_post`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_utm_blog_post`;
@@ -37723,7 +38906,7 @@ CREATE TABLE IF NOT EXISTS `b_utm_blog_post` (
 --
 -- Table structure for table `b_uts_blog_comment`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_uts_blog_comment`;
@@ -37737,7 +38920,7 @@ CREATE TABLE IF NOT EXISTS `b_uts_blog_comment` (
 --
 -- Table structure for table `b_uts_blog_post`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_uts_blog_post`;
@@ -37752,7 +38935,7 @@ CREATE TABLE IF NOT EXISTS `b_uts_blog_post` (
 --
 -- Table structure for table `b_vote`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote`;
@@ -37788,7 +38971,7 @@ CREATE TABLE IF NOT EXISTS `b_vote` (
 --
 -- Table structure for table `b_vote_answer`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_answer`;
@@ -37813,7 +38996,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_answer` (
 --
 -- Table structure for table `b_vote_channel`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_channel`;
@@ -37835,7 +39018,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_channel` (
 --
 -- Table structure for table `b_vote_channel_2_group`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_channel_2_group`;
@@ -37851,7 +39034,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_channel_2_group` (
 --
 -- Table structure for table `b_vote_channel_2_site`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_channel_2_site`;
@@ -37865,7 +39048,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_channel_2_site` (
 --
 -- Table structure for table `b_vote_event`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_event`;
@@ -37884,7 +39067,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_event` (
 --
 -- Table structure for table `b_vote_event_answer`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_event_answer`;
@@ -37900,7 +39083,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_event_answer` (
 --
 -- Table structure for table `b_vote_event_question`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_event_question`;
@@ -37915,7 +39098,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_event_question` (
 --
 -- Table structure for table `b_vote_question`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_question`;
@@ -37941,7 +39124,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_question` (
 --
 -- Table structure for table `b_vote_user`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_vote_user`;
@@ -37960,7 +39143,7 @@ CREATE TABLE IF NOT EXISTS `b_vote_user` (
 --
 -- Table structure for table `b_xml_tree`
 --
--- Creation: Sep 25, 2015 at 08:21 AM
+-- Creation: Oct 28, 2015 at 10:10 PM
 --
 
 DROP TABLE IF EXISTS `b_xml_tree`;
@@ -40741,6 +41924,22 @@ INSERT INTO `b_xml_tree` (`ID`, `PARENT_ID`, `LEFT_MARGIN`, `RIGHT_MARGIN`, `DEP
 (2757, 0, 315, 0, 0, '', NULL, NULL),
 (2758, 0, 316, 0, 0, '', NULL, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bx_test_tmp`
+--
+-- Creation: Oct 28, 2015 at 10:10 PM
+--
+
+DROP TABLE IF EXISTS `bx_test_tmp`;
+CREATE TABLE IF NOT EXISTS `bx_test_tmp` (
+  `tst` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tst2` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tst3` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `tst4` text COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -40926,6 +42125,24 @@ ALTER TABLE `b_catalog_currency_rate`
   ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `IX_CURRENCY_RATE` (`CURRENCY`,`DATE_RATE`);
 
 --
+-- Indexes for table `b_catalog_disc_save_group`
+--
+ALTER TABLE `b_catalog_disc_save_group`
+  ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSG_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSG_GROUP` (`GROUP_ID`);
+
+--
+-- Indexes for table `b_catalog_disc_save_range`
+--
+ALTER TABLE `b_catalog_disc_save_range`
+  ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSR_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSR_DISCOUNT2` (`DISCOUNT_ID`,`RANGE_FROM`);
+
+--
+-- Indexes for table `b_catalog_disc_save_user`
+--
+ALTER TABLE `b_catalog_disc_save_user`
+  ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSU_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSU_USER` (`DISCOUNT_ID`,`USER_ID`);
+
+--
 -- Indexes for table `b_catalog_discount`
 --
 ALTER TABLE `b_catalog_discount`
@@ -40978,24 +42195,6 @@ ALTER TABLE `b_catalog_discount_coupon`
 --
 ALTER TABLE `b_catalog_discount_module`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSC_MOD` (`DISCOUNT_ID`);
-
---
--- Indexes for table `b_catalog_disc_save_group`
---
-ALTER TABLE `b_catalog_disc_save_group`
-  ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSG_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSG_GROUP` (`GROUP_ID`);
-
---
--- Indexes for table `b_catalog_disc_save_range`
---
-ALTER TABLE `b_catalog_disc_save_range`
-  ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSR_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSR_DISCOUNT2` (`DISCOUNT_ID`,`RANGE_FROM`);
-
---
--- Indexes for table `b_catalog_disc_save_user`
---
-ALTER TABLE `b_catalog_disc_save_user`
-  ADD PRIMARY KEY (`ID`), ADD KEY `IX_CAT_DSU_DISCOUNT` (`DISCOUNT_ID`), ADD KEY `IX_CAT_DSU_USER` (`DISCOUNT_ID`,`USER_ID`);
 
 --
 -- Indexes for table `b_catalog_docs_barcode`
@@ -41700,16 +42899,16 @@ ALTER TABLE `b_lang`
   ADD PRIMARY KEY (`LID`);
 
 --
--- Indexes for table `b_language`
---
-ALTER TABLE `b_language`
-  ADD PRIMARY KEY (`LID`);
-
---
 -- Indexes for table `b_lang_domain`
 --
 ALTER TABLE `b_lang_domain`
   ADD PRIMARY KEY (`LID`,`DOMAIN`);
+
+--
+-- Indexes for table `b_language`
+--
+ALTER TABLE `b_language`
+  ADD PRIMARY KEY (`LID`);
 
 --
 -- Indexes for table `b_list_rubric`
@@ -42126,6 +43325,48 @@ ALTER TABLE `b_sale_lang`
   ADD PRIMARY KEY (`LID`);
 
 --
+-- Indexes for table `b_sale_loc_2site`
+--
+ALTER TABLE `b_sale_loc_2site`
+  ADD PRIMARY KEY (`SITE_ID`,`LOCATION_ID`,`LOCATION_TYPE`);
+
+--
+-- Indexes for table `b_sale_loc_def2site`
+--
+ALTER TABLE `b_sale_loc_def2site`
+  ADD PRIMARY KEY (`LOCATION_CODE`,`SITE_ID`);
+
+--
+-- Indexes for table `b_sale_loc_ext`
+--
+ALTER TABLE `b_sale_loc_ext`
+  ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_EXT_LID_SID` (`LOCATION_ID`,`SERVICE_ID`);
+
+--
+-- Indexes for table `b_sale_loc_ext_srv`
+--
+ALTER TABLE `b_sale_loc_ext_srv`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `b_sale_loc_name`
+--
+ALTER TABLE `b_sale_loc_name`
+  ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_NAME_NAME_U` (`NAME_UPPER`), ADD KEY `IX_B_SALE_LOC_NAME_LI_LI` (`LOCATION_ID`,`LANGUAGE_ID`);
+
+--
+-- Indexes for table `b_sale_loc_type`
+--
+ALTER TABLE `b_sale_loc_type`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `b_sale_loc_type_name`
+--
+ALTER TABLE `b_sale_loc_type_name`
+  ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_TYPE_NAME_TI_LI` (`TYPE_ID`,`LANGUAGE_ID`);
+
+--
 -- Indexes for table `b_sale_location`
 --
 ALTER TABLE `b_sale_location`
@@ -42190,48 +43431,6 @@ ALTER TABLE `b_sale_location_region_lang`
 --
 ALTER TABLE `b_sale_location_zip`
   ADD PRIMARY KEY (`ID`), ADD KEY `IX_LOCATION_ID` (`LOCATION_ID`), ADD KEY `IX_ZIP` (`ZIP`);
-
---
--- Indexes for table `b_sale_loc_2site`
---
-ALTER TABLE `b_sale_loc_2site`
-  ADD PRIMARY KEY (`SITE_ID`,`LOCATION_ID`,`LOCATION_TYPE`);
-
---
--- Indexes for table `b_sale_loc_def2site`
---
-ALTER TABLE `b_sale_loc_def2site`
-  ADD PRIMARY KEY (`LOCATION_CODE`,`SITE_ID`);
-
---
--- Indexes for table `b_sale_loc_ext`
---
-ALTER TABLE `b_sale_loc_ext`
-  ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_EXT_LID_SID` (`LOCATION_ID`,`SERVICE_ID`);
-
---
--- Indexes for table `b_sale_loc_ext_srv`
---
-ALTER TABLE `b_sale_loc_ext_srv`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `b_sale_loc_name`
---
-ALTER TABLE `b_sale_loc_name`
-  ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_NAME_NAME_U` (`NAME_UPPER`), ADD KEY `IX_B_SALE_LOC_NAME_LI_LI` (`LOCATION_ID`,`LANGUAGE_ID`);
-
---
--- Indexes for table `b_sale_loc_type`
---
-ALTER TABLE `b_sale_loc_type`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `b_sale_loc_type_name`
---
-ALTER TABLE `b_sale_loc_type_name`
-  ADD PRIMARY KEY (`ID`), ADD KEY `IX_B_SALE_LOC_TYPE_NAME_TI_LI` (`TYPE_ID`,`LANGUAGE_ID`);
 
 --
 -- Indexes for table `b_sale_order`
@@ -42516,12 +43715,6 @@ ALTER TABLE `b_search_user_right`
   ADD UNIQUE KEY `UX_B_SEARCH_USER_RIGHT` (`USER_ID`,`GROUP_CODE`);
 
 --
--- Indexes for table `b_security_sitecheck`
---
-ALTER TABLE `b_security_sitecheck`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indexes for table `b_sec_filter_mask`
 --
 ALTER TABLE `b_sec_filter_mask`
@@ -42591,6 +43784,12 @@ ALTER TABLE `b_sec_virus`
 -- Indexes for table `b_sec_white_list`
 --
 ALTER TABLE `b_sec_white_list`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `b_security_sitecheck`
+--
+ALTER TABLE `b_security_sitecheck`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -43055,7 +44254,7 @@ ALTER TABLE `b_admin_notify_lang`
 -- AUTO_INCREMENT for table `b_agent`
 --
 ALTER TABLE `b_agent`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=82;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `b_app_password`
 --
@@ -43172,6 +44371,21 @@ ALTER TABLE `b_catalog_contractor`
 ALTER TABLE `b_catalog_currency_rate`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `b_catalog_disc_save_group`
+--
+ALTER TABLE `b_catalog_disc_save_group`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `b_catalog_disc_save_range`
+--
+ALTER TABLE `b_catalog_disc_save_range`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `b_catalog_disc_save_user`
+--
+ALTER TABLE `b_catalog_disc_save_user`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `b_catalog_discount`
 --
 ALTER TABLE `b_catalog_discount`
@@ -43217,21 +44431,6 @@ ALTER TABLE `b_catalog_discount_coupon`
 ALTER TABLE `b_catalog_discount_module`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `b_catalog_disc_save_group`
---
-ALTER TABLE `b_catalog_disc_save_group`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `b_catalog_disc_save_range`
---
-ALTER TABLE `b_catalog_disc_save_range`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `b_catalog_disc_save_user`
---
-ALTER TABLE `b_catalog_disc_save_user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `b_catalog_docs_barcode`
 --
 ALTER TABLE `b_catalog_docs_barcode`
@@ -43275,12 +44474,12 @@ ALTER TABLE `b_catalog_measure`
 -- AUTO_INCREMENT for table `b_catalog_measure_ratio`
 --
 ALTER TABLE `b_catalog_measure_ratio`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `b_catalog_price`
 --
 ALTER TABLE `b_catalog_price`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=54;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT for table `b_catalog_product2group`
 --
@@ -43320,7 +44519,7 @@ ALTER TABLE `b_catalog_vat`
 -- AUTO_INCREMENT for table `b_catalog_viewed_product`
 --
 ALTER TABLE `b_catalog_viewed_product`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=90;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `b_checklist`
 --
@@ -43370,12 +44569,12 @@ ALTER TABLE `b_event_type`
 -- AUTO_INCREMENT for table `b_favorite`
 --
 ALTER TABLE `b_favorite`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `b_file`
 --
 ALTER TABLE `b_file`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1216;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1246;
 --
 -- AUTO_INCREMENT for table `b_file_search`
 --
@@ -43595,7 +44794,7 @@ ALTER TABLE `b_hot_keys`
 -- AUTO_INCREMENT for table `b_hot_keys_code`
 --
 ALTER TABLE `b_hot_keys_code`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=142;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=140;
 --
 -- AUTO_INCREMENT for table `b_iblock`
 --
@@ -43605,12 +44804,12 @@ ALTER TABLE `b_iblock`
 -- AUTO_INCREMENT for table `b_iblock_element`
 --
 ALTER TABLE `b_iblock_element`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=124;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=127;
 --
 -- AUTO_INCREMENT for table `b_iblock_element_property`
 --
 ALTER TABLE `b_iblock_element_property`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=402;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=453;
 --
 -- AUTO_INCREMENT for table `b_iblock_iproperty`
 --
@@ -43620,12 +44819,12 @@ ALTER TABLE `b_iblock_iproperty`
 -- AUTO_INCREMENT for table `b_iblock_offers_tmp`
 --
 ALTER TABLE `b_iblock_offers_tmp`
-  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
+  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=46;
 --
 -- AUTO_INCREMENT for table `b_iblock_property`
 --
 ALTER TABLE `b_iblock_property`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `b_iblock_property_enum`
 --
@@ -43755,7 +44954,7 @@ ALTER TABLE `b_posting_email`
 -- AUTO_INCREMENT for table `b_pull_channel`
 --
 ALTER TABLE `b_pull_channel`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=42;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `b_pull_push`
 --
@@ -43770,7 +44969,7 @@ ALTER TABLE `b_pull_push_queue`
 -- AUTO_INCREMENT for table `b_pull_stack`
 --
 ALTER TABLE `b_pull_stack`
-  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+  MODIFY `ID` int(18) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `b_pull_watch`
 --
@@ -43870,12 +45069,12 @@ ALTER TABLE `b_sale_auxiliary`
 -- AUTO_INCREMENT for table `b_sale_basket`
 --
 ALTER TABLE `b_sale_basket`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=31;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `b_sale_basket_props`
 --
 ALTER TABLE `b_sale_basket_props`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=39;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `b_sale_delivery`
 --
@@ -43920,7 +45119,32 @@ ALTER TABLE `b_sale_export`
 -- AUTO_INCREMENT for table `b_sale_fuser`
 --
 ALTER TABLE `b_sale_fuser`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12632;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13855;
+--
+-- AUTO_INCREMENT for table `b_sale_loc_ext`
+--
+ALTER TABLE `b_sale_loc_ext`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2118;
+--
+-- AUTO_INCREMENT for table `b_sale_loc_ext_srv`
+--
+ALTER TABLE `b_sale_loc_ext_srv`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `b_sale_loc_name`
+--
+ALTER TABLE `b_sale_loc_name`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3160;
+--
+-- AUTO_INCREMENT for table `b_sale_loc_type`
+--
+ALTER TABLE `b_sale_loc_type`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `b_sale_loc_type_name`
+--
+ALTER TABLE `b_sale_loc_type_name`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `b_sale_location`
 --
@@ -43971,31 +45195,6 @@ ALTER TABLE `b_sale_location_region_lang`
 --
 ALTER TABLE `b_sale_location_zip`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `b_sale_loc_ext`
---
-ALTER TABLE `b_sale_loc_ext`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2118;
---
--- AUTO_INCREMENT for table `b_sale_loc_ext_srv`
---
-ALTER TABLE `b_sale_loc_ext_srv`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
--- AUTO_INCREMENT for table `b_sale_loc_name`
---
-ALTER TABLE `b_sale_loc_name`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3160;
---
--- AUTO_INCREMENT for table `b_sale_loc_type`
---
-ALTER TABLE `b_sale_loc_type`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT for table `b_sale_loc_type_name`
---
-ALTER TABLE `b_sale_loc_type_name`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `b_sale_order`
 --
@@ -44130,12 +45329,12 @@ ALTER TABLE `b_sale_user_transact`
 -- AUTO_INCREMENT for table `b_sale_viewed_product`
 --
 ALTER TABLE `b_sale_viewed_product`
-  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=85;
+  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT for table `b_search_content`
 --
 ALTER TABLE `b_search_content`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=509;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=512;
 --
 -- AUTO_INCREMENT for table `b_search_custom_rank`
 --
@@ -44150,16 +45349,11 @@ ALTER TABLE `b_search_phrase`
 -- AUTO_INCREMENT for table `b_search_stem`
 --
 ALTER TABLE `b_search_stem`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1863;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1866;
 --
 -- AUTO_INCREMENT for table `b_search_suggest`
 --
 ALTER TABLE `b_search_suggest`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `b_security_sitecheck`
---
-ALTER TABLE `b_security_sitecheck`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `b_sec_filter_mask`
@@ -44180,6 +45374,11 @@ ALTER TABLE `b_sec_iprule`
 -- AUTO_INCREMENT for table `b_sec_recovery_codes`
 --
 ALTER TABLE `b_sec_recovery_codes`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `b_security_sitecheck`
+--
+ALTER TABLE `b_security_sitecheck`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `b_sender_contact`
@@ -44390,7 +45589,7 @@ ALTER TABLE `b_user_hit_auth`
 -- AUTO_INCREMENT for table `b_user_option`
 --
 ALTER TABLE `b_user_option`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `b_user_stored_auth`
 --

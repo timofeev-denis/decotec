@@ -916,3 +916,41 @@ tabsection,
 .bx-no-touch .bx_catalog_top_home .bx_item_detail_scu .bx_slide_right{right:-5%;background:url(images/arr_right.png) no-repeat   right center;background-size: 100% auto}
 .bx-touch 	 .bx_catalog_top_home .bx_item_detail_scu .bx_slide_left {left:   0;background:url(images/fade_left.png)  repeat-y   left  center;background-size: 100% auto}
 .bx-touch 	 .bx_catalog_top_home .bx_item_detail_scu .bx_slide_right{right:  0;background:url(images/fade_right.png) repeat-y   right center;background-size: 100% auto}
+
+#item_dialog .item_image,
+#item_dialog .item_param_name
+ {
+	/*width: 50%;*/
+	width: 220px;
+	float: left;
+}
+#item_dialog .item_info {
+	margin-left: 20px;
+	width: 400px;
+	float: left;
+}
+#item_dialog .item_param_value {
+	margin-left: 20px;
+	width: 40%;
+	float: left;
+}
+
+#item_dialog .item_info_section {
+	padding-top: 20px;
+	clear: both;
+}
+#item_dialog {
+	overflow: hidden;
+}
+.ui-dialog-title {
+	text-align: center;
+	width: 100%;
+}
+
+.input-group-btn .bootstrap-touchspin-down,
+.input-group-btn .bootstrap-touchspin-up {
+	font-size: 14px;
+}
+div.bootstrap-touchspin {
+	width: 140px;
+}
