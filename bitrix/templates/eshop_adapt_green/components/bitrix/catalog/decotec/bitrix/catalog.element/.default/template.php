@@ -582,7 +582,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						$( "#buy_button" ).focus();
 						$( "#item_price" ).text( data.PRICE + " / шт." );
 						$( "#item_type" ).text( data.ATT_TYPE );
-						$( "#item_size" ).text( data.WIDTH + "x" + data.HEIGHT );
+						$( "#item_size" ).text( data.WIDTH + " x " + data.LENGTH + " мм" );
 						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
 					});
 				});
