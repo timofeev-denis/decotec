@@ -551,20 +551,19 @@ if ('Y' == $arParams['USE_COMMENTS'])
 			$(function() {
 				
 				// Подготавливаем диалог
-				//$('[data-remodal-id=modal]').remodal();
 				var dlg = $('#item_dialog').remodal();
 				
 				$( ".showItemDialog" ).click(function( e ) {
 					//e.preventDefault();
-					itemid = $( this ).parents( ".bx_catalog_item" ).data( "itemid" );
+					var itemid = $( this ).parents( ".bx_catalog_item" ).data( "itemid" );
 					$.ajax({
 						dataType: "json",
 						url: "/get_tile_data.php",
 						data: { id: itemid }
 					}).done( function( data ) {
-						//$( "#item_dialog" ).dialog( "open" );
 						dlg.open();
 						//$( "#buy_button" ).focus();
+						$( "#itemId" ).val( itemid );
 						$( "#item_price" ).text( data.PRICE + " руб. / шт." );
 						$( "#item_title" ).text( data.NAME );
 						$( "#item_type" ).text( data.ATT_TYPE );
@@ -576,14 +575,14 @@ if ('Y' == $arParams['USE_COMMENTS'])
 			});
 		</script>
 		<div id="item_dialog">
-			<!--<div class="container-fluid">-->
+			<form method="GET">
 				<div class="row">
-					<div id="item_title" class="col-md-12">Ванная-KM-Россия-Однотонная wide</div>
+					<div id="item_title" class="col-md-12">Детальное описание</div>
 				</div>
 				<div class="row">
 					<!-- image -->
 					<div class="col-md-6 col-sm-6">
-						<img id="item_detail_picture" src="/images/tall.jpg" alt="" title="">
+						<img id="item_detail_picture" src="/images/tile_default.jpg" alt="" title="">
 					</div>
 					<!-- /image -->
 					
@@ -645,9 +644,9 @@ if ('Y' == $arParams['USE_COMMENTS'])
 								
 									<div class="quantity">
 										<span>В штуках</span>
-										<input id="tiles" type="text" value="" name="tiles">
+										<input id="tiles" type="text" value="" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>">
 										<script>
-											$("input[name='tiles']").TouchSpin({
+											$("input[id='tiles']").TouchSpin({
 												initval: 1
 											});
 										</script>
@@ -657,7 +656,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 										<span>В метрах<sup>2</sup></span>
 										<input id="meters" type="text" value="" name="meters">
 										<script>
-											$("input[name='meters']").TouchSpin({
+											$("input[id='meters']").TouchSpin({
 												initval: 1
 											});
 										</script>
@@ -684,115 +683,10 @@ if ('Y' == $arParams['USE_COMMENTS'])
 					</div>
 					<!-- /info -->
 				</div>
-				<!--
-				<div class="row">
-					<div class="bx_item_container">
-						<div class="item_image">
-							<div class="bx_item_slider" id="bx_117848907_87_big_slider">
-								<div class="bx_bigimages" id="bx_117848907_87_bigimg_cont">
-									<div class="item_imgcontainer">
-										<span class="item_imgwrapper"><img id="item_detail_picture" src="/images/tile_default.jpg" alt="" title=""></span>
-									</div>
-								</div>
-								<div class="item_info_section"></div>
-							</div>
-						</div>
-						<div class="item_info">
+				<input type="hidden" name="id" id="itemId" value="0" />
+				<input type="hidden" name="action" value="BUY" />
 
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Страна</div>
-									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["DISPLAY_VALUE"]?></div>
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Производитель</div>
-									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["DISPLAY_VALUE"]?></div>
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Вид</div>
-									<div class="item_param_value"><a href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?echo $arResult["SECTION"]["PATH"][0]["NAME"]?></a></div>
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
-									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></div>
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тип</div>
-									<div class="item_param_value" id="item_type"></div>
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Размер</div>
-									<div class="item_param_value" id="item_size"></div>
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Цена</div>
-									<div class="item_param_value" id="item_price"></div>
-								</div>
-							</div>
-							
-							<div class="buy_controls" style = "float: right; text-align: center; padding-top: 50px; width: 400px;">
-								<div style = "display: inline-block;">
-								
-									<div style = "float: left;">
-										<span>В штуках</span>
-										<input id="tiles" type="text" value="" name="tiles">
-										<script>
-											$("input[name='tiles']").TouchSpin({
-												initval: 1
-											});
-										</script>
-									</div>
-									
-									<div style = "float: left; width: 50px; height: 10px;"></div>
-									
-									<div style = "float: left;">
-										<span>В метрах<sup>2</sup></span>
-										<input id="meters" type="text" value="" name="meters">
-										<script>
-											$("input[name='meters']").TouchSpin({
-												initval: 1
-											});
-										</script>
-									</div>
-									
-								</div>
-							</div>
-
-							<div class="item_info_section">
-								<div class="bx_item_description">
-									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;"></div>
-									<div class="item_param_value" id="item_price">
-										<button id="buy_button">В корзину</button>
-									</div>
-								</div>
-							</div>
-
-							<div class="item_info_section"></div>
-							
-							<div class="clb"></div>
-						</div>
-					</div>
-				</div>
-				-->
-			<!--</div>-->
+			</form>
 		</div>
 		
 		
