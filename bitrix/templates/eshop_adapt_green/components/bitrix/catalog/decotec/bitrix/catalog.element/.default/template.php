@@ -525,195 +525,274 @@ if ('Y' == $arParams['USE_COMMENTS'])
 		
 		
 		
-		<!--
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css">
-		-->
-		<link rel="stylesheet" href="/bitrix/css/main/jquery-ui.css">
 		
 		<link rel="stylesheet" href="/bitrix/css/main/jquery.bootstrap-touchspin.css">
-		<script type="text/javascript" src="//code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 		<script type="text/javascript" src="/bitrix/js/main/jquery/jquery.bootstrap-touchspin.js"></script>
+		
+		<link rel="stylesheet" href="/remodal/dist/remodal.css">
+		<link rel="stylesheet" href="/remodal/dist/remodal-default-theme.css">
+		<style>
+			.remodal-bg.with-red-theme.remodal-is-opening,
+			.remodal-bg.with-red-theme.remodal-is-opened {
+			  filter: none;
+			}
+
+			.remodal-overlay.with-red-theme {
+			  background-color: #f44336;
+			}
+
+			.remodal.with-red-theme {
+			  background: #fff;
+			}
+		</style>
+		<script src="/remodal/dist/remodal.js"></script>
 		
 		<script>
 			$(function() {
 				
 				// Подготавливаем диалог
-				$( "#item_dialog" ).dialog({
-					autoOpen: false,
-					resizable: false,
-					height: 'auto',
-					modal: true
-				});
-				// Скрыть заголовок
-				// $(".ui-dialog-titlebar").hide();
-				// Предотвращение прокрутки окна при нажатии на кнопку закрытия диалога
-				$('.ui-dialog-titlebar-close').mousedown( function() {
-					$('#item_dialog').dialog('close');
-				});
-				// Определяем ширину диалога и открываем его
-				/*
-				$( ".showItemDialog" ).on( "click", function( e ) {
-					// Устанавливаем ширину
-					w = $( document ).width() * 0.7;
-					$( "#item_dialog" ).dialog( "option", "width", w );
-					
-					//console.log( $(e).parent( "bx_catalog_item" ) );
-					console.log( e.srcElement );
-					$( "#item_dialog" ).dialog( "option", "title", "New Title" );
-					$( "#item_dialog" ).dialog( "open" );
-				});
-				*/
+				//$('[data-remodal-id=modal]').remodal();
+				var dlg = $('#item_dialog').remodal();
+				
 				$( ".showItemDialog" ).click(function( e ) {
-					e.preventDefault();
-					// Устанавливаем ширину
-					// w = $( document ).width() * 0.7;
-					w = 820;
-					$( "#item_dialog" ).dialog( "option", "width", w );
-					
-					//console.log( $(e).parent( "bx_catalog_item" ) );
+					//e.preventDefault();
 					itemid = $( this ).parents( ".bx_catalog_item" ).data( "itemid" );
 					$.ajax({
 						dataType: "json",
 						url: "/get_tile_data.php",
 						data: { id: itemid }
 					}).done( function( data ) {
-						//$( "#item_dialog" ).dialog( "option", "title", data.NAME );
-						$( "#item_dialog" ).dialog( "open" );
-						$( "#buy_button" ).focus();
-						$( "#item_price" ).text( data.PRICE + " / шт." );
+						//$( "#item_dialog" ).dialog( "open" );
+						dlg.open();
+						//$( "#buy_button" ).focus();
+						$( "#item_price" ).text( data.PRICE + " руб. / шт." );
 						$( "#item_title" ).text( data.NAME );
 						$( "#item_type" ).text( data.ATT_TYPE );
 						$( "#item_size" ).text( data.WIDTH + " x " + data.LENGTH + " мм" );
 						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
 					});
+					
 				});
 			});
 		</script>
 		<div id="item_dialog">
-			<div class="row">
-				<div id="item_title">Ванная-KM-Россия-Однотонная wide</div>
-			</div>
-			<div class="row">
-				<div class="bx_item_container">
-					<div class="item_image">
-						<div class="bx_item_slider" id="bx_117848907_87_big_slider">
-							<div class="bx_bigimages" id="bx_117848907_87_bigimg_cont">
-								<div class="item_imgcontainer">
-									<span class="item_imgwrapper"><img id="item_detail_picture" src="/images/tile_default.jpg" alt="" title=""></span>
+			<!--<div class="container-fluid">-->
+				<div class="row">
+					<div id="item_title" class="col-md-12">Ванная-KM-Россия-Однотонная wide</div>
+				</div>
+				<div class="row">
+					<!-- image -->
+					<div class="col-md-6 col-sm-6">
+						<img id="item_detail_picture" src="/images/tall.jpg" alt="" title="">
+					</div>
+					<!-- /image -->
+					
+					<!-- info -->
+					<div class="col-md-6 col-sm-6">
+						<div class="item_info">
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Страна</div>
+									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["DISPLAY_VALUE"]?></div>
 								</div>
 							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Производитель</div>
+									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["DISPLAY_VALUE"]?></div>
+								</div>
+							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Вид</div>
+									<div class="item_param_value"><a href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?echo $arResult["SECTION"]["PATH"][0]["NAME"]?></a></div>
+								</div>
+							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
+									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></div>
+								</div>
+							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тип</div>
+									<div class="item_param_value" id="item_type"></div>
+								</div>
+							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Размер</div>
+									<div class="item_param_value" id="item_size"></div>
+								</div>
+							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Цена</div>
+									<div class="item_param_value" id="item_price"></div>
+								</div>
+							</div>
+							
+							<div class="buy_controls" style = "text-align: center; padding-top: 50px; width: 100%;">
+								<div style = "display: inline-block;">
+								
+									<div class="quantity">
+										<span>В штуках</span>
+										<input id="tiles" type="text" value="" name="tiles">
+										<script>
+											$("input[name='tiles']").TouchSpin({
+												initval: 1
+											});
+										</script>
+									</div>
+									
+									<div class="quantity">
+										<span>В метрах<sup>2</sup></span>
+										<input id="meters" type="text" value="" name="meters">
+										<script>
+											$("input[name='meters']").TouchSpin({
+												initval: 1
+											});
+										</script>
+									</div>
+									
+								</div>
+							</div>
+
+							<div class="item_info_section">
+								<div class="bx_item_description bx_item_detail">
+									<div id="totalPrice">1820</div>
+								</div>
+							</div>
+							<div class="item_info_section">
+								<div class="bx_item_description bx_item_detail ">
+									<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину">
+								</div>
+							</div>
+
 							<div class="item_info_section"></div>
-							<div class="bx_slider_conteiner" id="bx_117848907_87_slider_cont">
-							<div class="bx_slider_scroller_container">
-							<div class="bx_slide">
-							<!--
-							<ul style="width: 100%;" id="bx_117848907_87_slider_list">
-							<li class="img_preview bx_active" data-value="1126" style="width: 20%; padding-top: 14.285714285714%;"><span class="cnt">По кв. м.</span></li>
-							<li class="img_preview" data-value="1127" style="width: 20%; padding-top: 14.285714285714%;"><span class="cnt">По шт.</span></li>
-							<li class="img_preview" data-value="1128" style="width: 20%; padding-top: 14.285714285714%;"><span class="cnt">По уп.</span></li>
-							</ul>
-							-->
-							</div>
-							<div class="bx_slide_left" id="bx_117848907_87_slider_left" style="cursor: default; opacity: 0.2;"></div>
-							<div class="bx_slide_right" id="bx_117848907_87_slider_right" style="cursor: pointer; opacity: 1;"></div>
-							</div>
-							</div>
+							
+							<div class="clb"></div>
 						</div>
 					</div>
-					<div class="item_info">
-
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Страна</div>
-								<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["DISPLAY_VALUE"]?></div>
+					<!-- /info -->
+				</div>
+				<!--
+				<div class="row">
+					<div class="bx_item_container">
+						<div class="item_image">
+							<div class="bx_item_slider" id="bx_117848907_87_big_slider">
+								<div class="bx_bigimages" id="bx_117848907_87_bigimg_cont">
+									<div class="item_imgcontainer">
+										<span class="item_imgwrapper"><img id="item_detail_picture" src="/images/tile_default.jpg" alt="" title=""></span>
+									</div>
+								</div>
+								<div class="item_info_section"></div>
 							</div>
 						</div>
+						<div class="item_info">
 
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Производитель</div>
-								<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["DISPLAY_VALUE"]?></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Страна</div>
+									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_COUNTRY"]["DISPLAY_VALUE"]?></div>
+								</div>
 							</div>
-						</div>
 
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Вид</div>
-								<div class="item_param_value"><a href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?echo $arResult["SECTION"]["PATH"][0]["NAME"]?></a></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Производитель</div>
+									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_MANUFACTURER"]["DISPLAY_VALUE"]?></div>
+								</div>
 							</div>
-						</div>
 
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
-								<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Вид</div>
+									<div class="item_param_value"><a href="<?=$arResult["SECTION"]["SECTION_PAGE_URL"]?>"><?echo $arResult["SECTION"]["PATH"][0]["NAME"]?></a></div>
+								</div>
 							</div>
-						</div>
 
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тип</div>
-								<div class="item_param_value" id="item_type"></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тематика</div>
+									<div class="item_param_value"><?=$arResult["DISPLAY_PROPERTIES"]["ATT_THEME"]["DISPLAY_VALUE"]?></div>
+								</div>
 							</div>
-						</div>
 
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Размер</div>
-								<div class="item_param_value" id="item_size"></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Тип</div>
+									<div class="item_param_value" id="item_type"></div>
+								</div>
 							</div>
-						</div>
 
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Цена</div>
-								<div class="item_param_value" id="item_price"></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Размер</div>
+									<div class="item_param_value" id="item_size"></div>
+								</div>
 							</div>
-						</div>
-						
-						<div class="buy_controls" style = "float: right; text-align: center; padding-top: 50px; width: 400px;">
-							<div style = "display: inline-block;">
+
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Цена</div>
+									<div class="item_param_value" id="item_price"></div>
+								</div>
+							</div>
 							
-								<div style = "float: left;">
-									<span>В штуках</span>
-									<input id="tiles" type="text" value="" name="tiles">
-									<script>
-										$("input[name='tiles']").TouchSpin({
-											initval: 1
-										});
-									</script>
-								</div>
+							<div class="buy_controls" style = "float: right; text-align: center; padding-top: 50px; width: 400px;">
+								<div style = "display: inline-block;">
 								
-								<div style = "float: left; width: 50px; height: 10px;"></div>
-								
-								<div style = "float: left;">
-									<span>В метрах<sup>2</sup></span>
-									<input id="meters" type="text" value="" name="meters">
-									<script>
-										$("input[name='meters']").TouchSpin({
-											initval: 1
-										});
-									</script>
-								</div>
-								
-							</div>
-						</div>
-
-						<div class="item_info_section">
-							<div class="bx_item_description">
-								<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;"></div>
-								<div class="item_param_value" id="item_price">
-									<button id="buy_button">В корзину</button>
+									<div style = "float: left;">
+										<span>В штуках</span>
+										<input id="tiles" type="text" value="" name="tiles">
+										<script>
+											$("input[name='tiles']").TouchSpin({
+												initval: 1
+											});
+										</script>
+									</div>
+									
+									<div style = "float: left; width: 50px; height: 10px;"></div>
+									
+									<div style = "float: left;">
+										<span>В метрах<sup>2</sup></span>
+										<input id="meters" type="text" value="" name="meters">
+										<script>
+											$("input[name='meters']").TouchSpin({
+												initval: 1
+											});
+										</script>
+									</div>
+									
 								</div>
 							</div>
-						</div>
 
-						<div class="item_info_section"></div>
-						
-						<div class="clb"></div>
+							<div class="item_info_section">
+								<div class="bx_item_description">
+									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;"></div>
+									<div class="item_param_value" id="item_price">
+										<button id="buy_button">В корзину</button>
+									</div>
+								</div>
+							</div>
+
+							<div class="item_info_section"></div>
+							
+							<div class="clb"></div>
+						</div>
 					</div>
 				</div>
-			</div>
+				-->
+			<!--</div>-->
 		</div>
 		
 		
