@@ -25,6 +25,11 @@ $curPage = $APPLICATION->GetCurPage(true);
 	<header class="bx-header" itemscope itemtype="http://schema.org/Organization">
 		<div class="bx-header-section container">
 			<div class="row">
+				<div class="col-md-12">
+					<div class="shop-name center">Магазин керамической плитки</div>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="bx-logo">
 						<a class="bx-logo-block hidden-xs" href="<?=SITE_DIR?>">

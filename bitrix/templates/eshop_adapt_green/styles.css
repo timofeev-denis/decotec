@@ -26,6 +26,12 @@ p.bxe-first-letter:first-letter{
 	  	font-size: 16px;
   		margin-left: 20px;
 	}
+	.shop-name {
+		font-size: 3em;
+		line-height: 1em;
+		padding-bottom: 0.5em;
+		color: #159ebb;
+	}
 }
 
 blockquote {
@@ -42,6 +48,11 @@ blockquote p{
 @media (max-width: 768px){
 	blockquote p {
 	  	font-size: 16px;
+	}
+	.shop-name {
+		font-size: 2em;
+		line-height: 1.5em;
+		color: #159ebb;
 	}
 }
 
