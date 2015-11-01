@@ -484,7 +484,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 				foreach ($arResult['OFFERS'] as $key => $arOneOffer) {
 					//print_r( $arOneOffer );
 				?>
-					<div class="bx_catalog_item" data-itemid="<?=$arOneOffer["ID"]?>">
+					<div class="bx_catalog_item bx_offer" data-itemid="<?=$arOneOffer["ID"]?>">
 						<form method="GET">
 							<div class="bx_catalog_item_container" id="bx_328740560_20">
 								<a id="bx_328740560_20_pict" href="#item_dialog" class="bx_catalog_item_images showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>

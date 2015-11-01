@@ -178,7 +178,7 @@ if (!empty($arResult['ITEMS']))
 		$showImgClass = $arParams['SHOW_IMAGE'] != "Y" ? "no-imgs" : "";
 
 		?>
-	<div class="<? echo($arItem['SECOND_PICT'] && $arParams ? 'bx_catalog_item double' : 'bx_catalog_item'); ?>" id="<? echo $strMainID; ?>">
+	<div class="<? echo($arItem['SECOND_PICT'] && $arParams ? 'bx_catalog_item double' : 'bx_catalog_item'); ?> bx_collection" id="<? echo $strMainID; ?>">
 	<div class="bx_catalog_item_container <? echo $showImgClass; ?>">
 	<a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images"<? if ($arParams['SHOW_IMAGE'] == "Y")
 		{
