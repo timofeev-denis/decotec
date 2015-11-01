@@ -571,6 +571,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						data.SQUARE = data.WIDTH * data.LENGTH / 1000000;
 						tileData = data;
 						$( "input[id='tiles']" ).val( "1" );
+						$( "input[id='meters']" ).trigger("touchspin.updatesettings", {min: data.SQUARE});
 						$( "input[id='tiles']" ).change();
 						$( "#itemId" ).val( itemid );
 						$( "#item_price" ).text( data.PRICE + " руб. / шт." );
@@ -670,6 +671,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 										<input id="tiles" type="text" value="" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>">
 										<script>
 											$("input[id='tiles']").TouchSpin({
+												min: 1,
 												initval: 1
 											});
 										</script>
@@ -681,7 +683,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 										<script>
 											$("input[id='meters']").TouchSpin({
 												step: 0.01,
-												decimals: 2,
+												decimals: 4,
 											});
 										</script>
 									</div>
