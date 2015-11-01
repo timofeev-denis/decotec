@@ -552,7 +552,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 				
 				// Подготавливаем диалог
 				var dlg = $('#item_dialog').remodal();
-				
+				var tileData;
 				$( ".showItemDialog" ).click(function( e ) {
 					//e.preventDefault();
 					var itemid = $( this ).parents( ".bx_catalog_item" ).data( "itemid" );
@@ -562,6 +562,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						data: { id: itemid }
 					}).done( function( data ) {
 						dlg.open();
+						tileData = data;
 						//$( "#buy_button" ).focus();
 						$( "#itemId" ).val( itemid );
 						$( "#item_price" ).text( data.PRICE + " руб. / шт." );
@@ -569,8 +570,22 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						$( "#item_type" ).text( data.ATT_TYPE );
 						$( "#item_size" ).text( data.WIDTH + " x " + data.LENGTH + " мм" );
 						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
+						data.SQUARE = data.WIDTH * data.LENGTH / 1000000;
+						$("input[id='tiles']").change();
 					});
-					
+				});
+				
+				function updatePrice() {
+					$( "#totalPrice" ).text( tileData.PRICE * $("input[id='tiles']").val() );
+				}
+				
+				$("input[id='tiles']").change(function() {
+					$("input[id='meters']").val( $( this ).val() * tileData.SQUARE );
+					updatePrice();
+				});	
+				$("input[id='meters']").change(function() {
+					$("input[id='tiles']").val( Math.ceil( $( this ).val() / tileData.SQUARE ) );
+					updatePrice();
 				});
 			});
 		</script>
@@ -657,7 +672,8 @@ if ('Y' == $arParams['USE_COMMENTS'])
 										<input id="meters" type="text" value="" name="meters">
 										<script>
 											$("input[id='meters']").TouchSpin({
-												initval: 1
+												step: 0.01,
+												decimals: 2,
 											});
 										</script>
 									</div>

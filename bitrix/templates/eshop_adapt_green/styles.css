@@ -927,9 +927,9 @@ tabsection,
 	/*float: right;*/
 }
 div.bootstrap-touchspin {
-	width: 120px;
-	margin-left: 10px;
-	margin-right: 10px;
+	width: 140px;
+	margin-left: 0px;
+	margin-right: 20px;
 }
 
 @media (max-width: 767px) {
@@ -957,11 +957,13 @@ div.bootstrap-touchspin {
 	content: " руб.";
 }
 @media (min-width: 768px) {
-	#item_dialog .quantity{
+	#item_dialog .quantity {
 		float: left;
 	}
 }
-
+.quantity {
+	margin-top: 20px;
+}
 #item_dialog .item_param_name {
 	width: 50%;
 	float: left;
