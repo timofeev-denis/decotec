@@ -289,8 +289,7 @@
 	-webkit-background-size:contain;
 	background-size:contain;
 }
-.bx_catalog_list_home .bx_catalog_item_title,
-.bx_catalog_list_home .bx_catalog_item_price .bx_price {
+.line-3em {
 	min-height: 3em;
 }
 .bx_catalog_list_home .bx_catalog_item_images_double{

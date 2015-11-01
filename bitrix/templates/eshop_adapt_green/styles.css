@@ -951,10 +951,10 @@ div.bootstrap-touchspin {
 	font-weight: bold;
 }
 #totalPrice:before {
-	content: "Итого: ";
+	content: 'Итого: ';
 }
 #totalPrice:after {
-	content: " руб.";
+	content: ' руб.';
 }
 @media (min-width: 768px) {
 	#item_dialog .quantity {
