@@ -187,7 +187,7 @@
 .bx_catalog_list_home .bx_catalog_item_title{
 	overflow: hidden;
 	/*text-overflow: ellipsis;*/
-	white-space: nowrap;
+	/*white-space: nowrap;*/
 }
 .bx-no-touch .bx_catalog_list_home .bx_catalog_item:hover .bx_catalog_item_title{
 	overflow: auto;
@@ -212,7 +212,7 @@
 .bx_catalog_list_home .bx_catalog_item_controls{
 	padding-top:10px;
 	text-align:center;
-	opacity:0;
+	/*opacity:0;*/
 }
 @media (min-width:641px) and (max-width:960px){.bx_catalog_list_home .bx_catalog_item_controls{height:auto}}
 @media (max-width:640px){.bx-touch .bx_catalog_list_home .bx_catalog_item_controls{height:auto;line-height:30px;text-align:center}}
@@ -259,7 +259,10 @@
 	.bx-touch .bx_catalog_list_home .bx_catalog_item_controls .bx_catalog_item_controls_blockone{display:none;}
 	.bx-touch .bx_catalog_list_home .bx_catalog_item_controls .bx_catalog_item_controls_blocktwo{float:none;width:100%;text-align:center;}
 }
-.bx_catalog_list_home .bx_catalog_item_controls input[type=text]{border:none;}
+.bx_catalog_list_home .bx_catalog_item_controls input[type=text]{
+	border: 1px solid #ddd;
+    border-radius: 2px;
+}
 .bx-touch .bx_catalog_list_home .bx_catalog_item_controls,
 .bx_catalog_list_home .bx_catalog_item:hover .bx_catalog_item_controls{opacity:1}
 .bx_catalog_list_home .bx_cnt_desc{
@@ -286,6 +289,10 @@
 	-webkit-background-size:contain;
 	background-size:contain;
 }
+.bx_catalog_list_home .bx_catalog_item_title,
+.bx_catalog_list_home .bx_catalog_item_price .bx_price {
+	min-height: 3em;
+}
 .bx_catalog_list_home .bx_catalog_item_images_double{
 	z-index:900;
 	margin-top:-200%;
@@ -305,7 +312,7 @@
 @-webkit-keyframes rotateimgfirst {from {opacity:1;} to {opacity:0;}}
 @keyframes rotateimglast  {from {opacity:0;} to {opacity:1;}}
 @-webkit-keyframes rotateimglast  {from {opacity:0;} to {opacity:1;}}
-
+/*
 .bx-no-touch .bx_catalog_list_home .bx_catalog_item 	  .bx_catalog_item_controls,
 .bx_catalog_list_home .bx_catalog_item 	  .bx_catalog_item_articul,
 .bx_catalog_list_home .bx_catalog_item 	  .bx_catalog_item_scu{display:none}
@@ -317,7 +324,7 @@
 
 .bx-no-touch .bx_catalog_list_home .bx_catalog_item .bx_catalog_item_controls.touch,
 .bx-touch    .bx_catalog_list_home .bx_catalog_item .bx_catalog_item_controls.no_touch{display:none !important;}
-
+*/
 /* Stickers */
 .bx_catalog_list_home .bx_stick{
 	position:absolute;

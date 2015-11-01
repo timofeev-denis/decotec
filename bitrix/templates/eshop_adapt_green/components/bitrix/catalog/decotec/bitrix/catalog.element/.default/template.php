@@ -505,9 +505,6 @@ if ('Y' == $arParams['USE_COMMENTS'])
 										<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" id="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" style="width: 40px; text-align: center;">
 										<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
 									</div>
-									<div class="bx_catalog_item_controls touch">
-										<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
-									</div>
 							</div>
 						</form>
 					</div>
