@@ -1015,3 +1015,12 @@ div.bootstrap-touchspin {
 	-webkit-background-size: contain !important;
     background-size: contain !important;
 }
+table#item_quantity td {
+	display: table-cell !important;
+}
+table#item_quantity {
+	display: inline-block;
+}
+.center {
+	text-align: center;
+}

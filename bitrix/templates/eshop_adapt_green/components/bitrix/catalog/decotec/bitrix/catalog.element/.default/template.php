@@ -549,7 +549,13 @@ if ('Y' == $arParams['USE_COMMENTS'])
 		
 		<script>
 			$(function() {
-				
+				function round(value, decimals) {
+					if( typeof decimals !== 'number' ) {
+						decimals = 0;
+					}
+					return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+				}
+
 				// Подготавливаем диалог
 				var dlg = $('#item_dialog').remodal();
 				var tileData;
@@ -562,16 +568,17 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						data: { id: itemid }
 					}).done( function( data ) {
 						dlg.open();
+						data.SQUARE = data.WIDTH * data.LENGTH / 1000000;
 						tileData = data;
-						//$( "#buy_button" ).focus();
+						$( "input[id='tiles']" ).val( "1" );
+						$( "input[id='tiles']" ).change();
 						$( "#itemId" ).val( itemid );
 						$( "#item_price" ).text( data.PRICE + " руб. / шт." );
+						$( "#item_price_square" ).html( round( data.PRICE * ( 1 / data.SQUARE ), 2 ) + " руб. / м&sup2;" );
 						$( "#item_title" ).text( data.NAME );
 						$( "#item_type" ).text( data.ATT_TYPE );
 						$( "#item_size" ).text( data.WIDTH + " x " + data.LENGTH + " мм" );
 						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
-						data.SQUARE = data.WIDTH * data.LENGTH / 1000000;
-						$("input[id='tiles']").change();
 					});
 				});
 				
@@ -651,6 +658,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 								<div class="bx_item_description">
 									<div class="item_param_name" style="border-bottom: 1px solid #f2f2f2;">Цена</div>
 									<div class="item_param_value" id="item_price"></div>
+									<div class="item_param_value" id="item_price_square"></div>
 								</div>
 							</div>
 							
