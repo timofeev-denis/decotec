@@ -1004,12 +1004,14 @@ div.bootstrap-touchspin {
 	clear: both;
 }
 #item_dialog #item_title {
-    line-height: 1.5em;
-    font-size: 1.5em;
+    line-height: 1em;
+    font-size: 2em;
     text-align: center;
     vertical-align: top;
     width: 100%;
 	padding-bottom: 25px;
+	border-bottom: 1px solid #eee;
+	color: #757575;
 }
 #item_dialog .item_imgcontainer {
 	text-align: center;
@@ -1101,4 +1103,10 @@ table#item_quantity {
 	.bx_catalog_list_home .bx_offer {
 		min-height: 560px;
 	}
+}
+.bold {
+	font-weight: bold;
+}
+.bx_catalog_item_title a.large {
+	font-size: 15px;
 }
