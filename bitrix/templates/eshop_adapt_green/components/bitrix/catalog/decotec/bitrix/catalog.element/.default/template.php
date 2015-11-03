@@ -693,12 +693,12 @@ if ('Y' == $arParams['USE_COMMENTS'])
 
 							<div class="item_info_section">
 								<div class="bx_item_description bx_item_detail">
-									<div id="totalPrice">1820</div>
+									<div id="totalPrice"></div>
 								</div>
 							</div>
 							<div class="item_info_section">
 								<div class="bx_item_description bx_item_detail ">
-									<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину">
+									<input type="submit" class="bx_bt_button_type_2 bx_large_button" value="В корзину">
 								</div>
 							</div>
 

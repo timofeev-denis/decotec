@@ -145,8 +145,6 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 ?>
 		<div class="bx_catalog_item_controls">
 <?
-		if ($arItem['CAN_BUY'])
-		{
 			if ('Y' == $arParams['USE_PRODUCT_QUANTITY'])
 			{
 			?>
@@ -160,7 +158,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 			}
 ?>
 			<div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo">
-				<a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow">
+				<a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" rel="nofollow">
 <?
 			if ($arParams['ADD_TO_BASKET_ACTION'] == 'BUY')
 			{
@@ -168,7 +166,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 			}
 			else
 			{
-				echo ('' != $arParams['MESS_BTN_ADD_TO_BASKET'] ? $arParams['MESS_BTN_ADD_TO_BASKET'] : GetMessage('CT_BCT_TPL_MESS_BTN_ADD_TO_BASKET'));
+				echo ('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CT_BCT_TPL_MESS_BTN_ADD_TO_BASKET'));
 			}
 ?>
 				</a>
@@ -182,35 +180,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 				</div>
 <?
 			}
-		}
-		else
-		{
-?>
-			<div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone"><span class="bx_notavailable">
-<?
-			echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCT_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
-?>
-			</span></div>
-<?
-			if ($arParams['DISPLAY_COMPARE'] || $showSubscribeBtn)
-			{
-				?>
-				<div class="bx_catalog_item_controls_blocktwo"><?
-				if ($arParams['DISPLAY_COMPARE'])
-				{
-					?><a id="<? echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><? echo $compareBtnMessage; ?></a><?
-				}
-				if ($showSubscribeBtn)
-				{
-					?>
-					<a id="<? echo $arItemIDs['SUBSCRIBE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><?
-					echo ('' != $arParams['MESS_BTN_SUBSCRIBE'] ? $arParams['MESS_BTN_SUBSCRIBE'] : GetMessage('CT_BCT_TPL_MESS_BTN_SUBSCRIBE'));
-					?></a><?
-				}
-				?>
-				</div><?
-			}
-		}
+
 ?>
 			<div style="clear: both;"></div></div>
 <?
