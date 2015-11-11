@@ -505,8 +505,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 									<input type="hidden" name="action" value="BUY" />
 								
 									<div class="bx_catalog_item_controls no_touch">
-										<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" id="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" style="width: 40px; text-align: center;">
-										<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
+										<a class="showItemDialog bx_bt_button bx_medium" href="#item_dialog" rel="nofollow">Подробнее</a>
 									</div>
 							</div>
 						</form>
