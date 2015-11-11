@@ -570,21 +570,42 @@ if ('Y' == $arParams['USE_COMMENTS'])
 						dlg.open();
 						data.SQUARE = data.WIDTH * data.LENGTH / 1000000;
 						tileData = data;
-						$( "input[id='tiles']" ).val( "1" );
-						$( "input[id='meters']" ).trigger("touchspin.updatesettings", {min: data.SQUARE});
-						$( "input[id='tiles']" ).change();
 						$( "#itemId" ).val( itemid );
-						$( "#item_price" ).text( data.PRICE + " руб. / шт." );
-						$( "#item_price_square" ).html( round( data.PRICE * ( 1 / data.SQUARE ), 2 ) + " руб. / м&sup2;" );
+						if( data.ATT_TYPE_XML_ID == "decor" || data.ATT_TYPE_XML_ID == "border" ) {
+							$( "#item_price" ).text( data.PRICE + " руб. / шт." );
+							$( "#item_price" ).show();
+							$( "#item_price_square" ).hide();
+							$( "#quantity_m2" ).hide();
+							$( "#tiles" ).attr( "name", "<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" );
+							$( "#meters" ).attr( "name", "meters" );
+						} else {
+							$( "input[id='meters']" ).trigger("touchspin.updatesettings", {
+								min: data.SQUARE,
+								step: data.SQUARE
+								});
+							$( "#item_price_square" ).html( data.PRICE + " руб. / м&sup2;" );
+							//$( "#item_price_square" ).html( round( data.PRICE * ( 1 / data.SQUARE ), 2 ) + " руб. / м&sup2;" );
+							$( "#item_price" ).hide();
+							$( "#item_price_square" ).show();
+							$( "#quantity_m2" ).show();
+							$( "#tiles" ).attr( "name", "tiles" );
+							$( "#meters" ).attr( "name", "<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" );
+						}
+						$( "input[id='tiles']" ).val( "1" );
+						$( "input[id='tiles']" ).change();
 						$( "#item_title" ).text( data.NAME );
 						$( "#item_type" ).text( data.ATT_TYPE );
 						$( "#item_size" ).text( data.WIDTH + " x " + data.LENGTH + " мм" );
-						$( "#item_detail_picture" ).attr("src", data.DETAIL_PICTURE);
+						$( "#item_detail_picture" ).attr( "src", data.DETAIL_PICTURE );
 					});
 				});
 				
 				function updatePrice() {
-					$( "#totalPrice" ).text( tileData.PRICE * $("input[id='tiles']").val() );
+					if( tileData.ATT_TYPE_XML_ID == "decor" || tileData.ATT_TYPE_XML_ID == "border" ) {
+						$( "#totalPrice" ).text( round( tileData.PRICE * $("input[id='tiles']").val() ), 2 );
+					} else {
+						$( "#totalPrice" ).text( round( tileData.PRICE * $("input[id='meters']").val() ), 2 );
+					}
 				}
 				
 				$("input[id='tiles']").change(function() {
@@ -678,7 +699,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 										</script>
 									</div>
 									
-									<div class="quantity">
+									<div class="quantity" id="quantity_m2">
 										<span>В метрах<sup>2</sup></span>
 										<input id="meters" type="text" value="" name="meters">
 										<script>

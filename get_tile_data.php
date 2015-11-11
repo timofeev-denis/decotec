@@ -42,6 +42,7 @@ $arFields = $ob->GetFields();
 $arProps = $ob->GetProperties();
 $tileData = array();		// Массив с итоговыми даными
 $tileData[ "ATT_TYPE" ] = $arProps[ "ATT_TYPE" ][ "VALUE" ];
+$tileData[ "ATT_TYPE_XML_ID" ] = $arProps[ "ATT_TYPE" ][ "VALUE_XML_ID" ];
 $tileData[ "NAME" ] = $arFields[ "NAME" ];
 //$tileData[ "DETAIL_PICTURE" ] = $arFields[ "DETAIL_PICTURE" ];
 $tileData[ "DETAIL_PICTURE" ] = CFile::GetPath( $arFields[ "DETAIL_PICTURE" ] );
