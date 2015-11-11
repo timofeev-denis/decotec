@@ -598,6 +598,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 			});
 		</script>
 		<div id="item_dialog">
+			<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
 			<form method="GET">
 				<div class="row">
 					<div id="item_title" class="col-md-12">Детальное описание</div>
