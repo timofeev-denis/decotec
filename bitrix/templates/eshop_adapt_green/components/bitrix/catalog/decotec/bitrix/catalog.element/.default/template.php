@@ -489,7 +489,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 							<div class="bx_catalog_item_container" id="bx_328740560_20">
 								<a id="bx_328740560_20_pict" href="#item_dialog" class="bx_catalog_item_images showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>
 								<a id="bx_328740560_20_secondpict" href="#item_dialog" class="bx_catalog_item_images_double showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>');" title="<?=$arOneOffer["NAME"]?>">		</a>
-								<div class="bx_catalog_item_title line-3em bold">
+								<div class="bx_catalog_item_title line-3em bold top20">
 									<a class="showItemDialog large" href="#item_dialog" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["NAME"]?></a>
 								</div>
 								<div class="bx_catalog_item_title">
