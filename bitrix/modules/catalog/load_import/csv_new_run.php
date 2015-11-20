@@ -735,49 +735,22 @@ if ('' == $strImportErrorMessage)
 					false,
 					array('ID', 'PREVIEW_PICTURE', 'DETAIL_PICTURE')
 				);
-				if ($arr = $res->Fetch())
+				$arr = $res->Fetch();
+				if ($bThereIsGroups)
 				{
-					$PRODUCT_ID = (int)$arr['ID'];
-					if (isset($arLoadProductArray["PREVIEW_PICTURE"]) && intval($arr["PREVIEW_PICTURE"])>0)
-					{
-						$arLoadProductArray["PREVIEW_PICTURE"]["old_file"] = $arr["PREVIEW_PICTURE"];
-					}
-					if (isset($arLoadProductArray["DETAIL_PICTURE"]) && intval($arr["DETAIL_PICTURE"])>0)
-					{
-						$arLoadProductArray["DETAIL_PICTURE"]["old_file"] = $arr["DETAIL_PICTURE"];
-					}
-					if ($bThereIsGroups)
-					{
-						$LAST_GROUP_CODE_tmp = (($LAST_GROUP_CODE > 0) ? $LAST_GROUP_CODE : false);
-						if (!isset($arProductGroups[$PRODUCT_ID]))
-							$arProductGroups[$PRODUCT_ID] = array();
-						if (!in_array($LAST_GROUP_CODE_tmp, $arProductGroups[$PRODUCT_ID]))
-						{
-							$arProductGroups[$PRODUCT_ID][] = $LAST_GROUP_CODE_tmp;
-						}
-						$arLoadProductArray["IBLOCK_SECTION"] = $arProductGroups[$PRODUCT_ID];
-					}
-					$res = $el->Update($PRODUCT_ID, $arLoadProductArray, $bWorkflow, true, 'Y' === $IMAGE_RESIZE);
+					$arLoadProductArray["IBLOCK_SECTION"] = (($LAST_GROUP_CODE>0) ? $LAST_GROUP_CODE : false);
 				}
-				else
+				if ($arLoadProductArray["ACTIVE"] != "N")
+					$arLoadProductArray["ACTIVE"] = "Y";
+
+				$PRODUCT_ID = $el->Add($arLoadProductArray, $bWorkflow, true, 'Y' === $IMAGE_RESIZE);
+				if ($bThereIsGroups)
 				{
-					if ($bThereIsGroups)
-					{
-						$arLoadProductArray["IBLOCK_SECTION"] = (($LAST_GROUP_CODE>0) ? $LAST_GROUP_CODE : false);
-					}
-					if ($arLoadProductArray["ACTIVE"] != "N")
-						$arLoadProductArray["ACTIVE"] = "Y";
-
-					$PRODUCT_ID = $el->Add($arLoadProductArray, $bWorkflow, true, 'Y' === $IMAGE_RESIZE);
-					if ($bThereIsGroups)
-					{
-						if (!isset($arProductGroups[$PRODUCT_ID]))
-							$arProductGroups[$PRODUCT_ID] = array();
-						$arProductGroups[$PRODUCT_ID][] = (($LAST_GROUP_CODE > 0) ? $LAST_GROUP_CODE : false);
-					}
-					$res = ($PRODUCT_ID > 0);
+					if (!isset($arProductGroups[$PRODUCT_ID]))
+						$arProductGroups[$PRODUCT_ID] = array();
+					$arProductGroups[$PRODUCT_ID][] = (($LAST_GROUP_CODE > 0) ? $LAST_GROUP_CODE : false);
 				}
-
+				$res = ($PRODUCT_ID > 0);
 				if (!$res)
 				{
 					$strErrorR .= GetMessage("CATI_LINE_NO")." ".$line_num.". ".GetMessage("CATI_ERROR_LOADING")." ".$el->LAST_ERROR."<br>";
