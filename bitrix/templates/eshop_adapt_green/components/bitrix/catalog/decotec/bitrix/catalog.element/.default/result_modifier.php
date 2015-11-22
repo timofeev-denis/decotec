@@ -592,5 +592,11 @@ function cmp( $a, $b ) {
     return ( $a[ "SORT" ] < $b[ "SORT" ] ) ? -1 : 1;
 }
 usort( $arResult[ "OFFERS" ], "cmp" );
+if( isset( $arResult["DISPLAY_PROPERTIES"]["ATT_ACTION"][ "VALUE" ] ) ) {
+	$res = CIBlockElement::GetByID( $arResult["DISPLAY_PROPERTIES"]["ATT_ACTION"][ "VALUE" ] );
+	if($ar_res = $res->GetNext()) {
+		$arResult[ "ACTION_PICTURE" ] = CFile::GetPath( $ar_res[ "PREVIEW_PICTURE" ] );
+	}
+}
 
 ?>

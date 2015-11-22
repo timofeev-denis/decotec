@@ -328,6 +328,11 @@ if ('' != $arResult['DETAIL_TEXT'])
 }
 ?>
 </div>
+<? if( isset( $arResult[ "ACTION_PICTURE" ] ) ):?>
+<div class="item_info_section" style="width: 100%; height: 125px; background-size: 100% auto; background: url(<?=$arResult[ "ACTION_PICTURE" ]?>) no-repeat;">
+</div>
+<? endif ?>
+
 
 
 <div class="item_price" style="display: none;">
