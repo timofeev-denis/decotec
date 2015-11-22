@@ -489,7 +489,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 							<div class="bx_catalog_item_container" id="bx_328740560_20">
 								<a id="bx_328740560_20_pict" href="#item_dialog" class="bx_catalog_item_images showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>')" title="<?=$arOneOffer["NAME"]?>">		</a>
 								<a id="bx_328740560_20_secondpict" href="#item_dialog" class="bx_catalog_item_images_double showItemDialog" style="background-image: url('<?=CFile::GetPath($arOneOffer["PREVIEW_PICTURE"])?>');" title="<?=$arOneOffer["NAME"]?>">		</a>
-								<div class="bx_catalog_item_title line-3em bold">
+								<div class="bx_catalog_item_title line-3em bold top20">
 									<a class="showItemDialog large" href="#item_dialog" title="<?=$arOneOffer["NAME"]?>"><?=$arOneOffer["NAME"]?></a>
 								</div>
 								<div class="bx_catalog_item_title">
@@ -505,8 +505,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 									<input type="hidden" name="action" value="BUY" />
 								
 									<div class="bx_catalog_item_controls no_touch">
-										<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" id="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" style="width: 40px; text-align: center;">
-										<input type="submit" class="bx_bt_button_type_2 bx_medium" value="В корзину" />
+										<a class="showItemDialog bx_bt_button bx_medium" href="#item_dialog" rel="nofollow">Подробнее</a>
 									</div>
 							</div>
 						</form>
