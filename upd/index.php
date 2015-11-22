@@ -39,24 +39,29 @@ class Updater {
 			default:
 				return 6;
 		}		
-		/*
-		$tmp = CIBlockElement::GetByID( $id );
-		$item = $tmp->GetNextElement();
-		$arSKUProps = $item->GetProperties();
-		//$this->e( $arSKUProps );
-		switch( $arGoodsProps[ "ATT_TYPE" ][ "VALUE_XML_ID" ] )  {
+	}
+	protected function getRatioValue( $type, $SKUitem) {
+		switch( $type )  {
 			case "border":
 			case "decor":
-				return 5;
+				return 1;
 			default:
-				return 6;
+				return $SKUitem[ "LENGTH" ] * $SKUitem[ "WIDTH" ] / 1000000;
+		}	
+	}
+	protected function getRatioID( $productID ) {
+		$result = 0;
+		$oldRatios = CCatalogMeasureRatio::GetList( array(), array( "PRODUCT_ID" => $productID ) );
+		while( $r = $oldRatios->Fetch() ) {
+			if( $result != 0 ) {
+				CCatalogMeasureRatio::Delete( $r[ "ID" ] );
+			}
+			$result = $r[ "ID" ];
 		}
-		*/
+		return $result;
 	}
 	function __construct() {
-			
 		$arSKUInfo = CCatalogSKU::GetInfoByProductIBlock( COLLECTIONS );
-		$this->e( $arSKUInfo['SKU_PROPERTY_ID'] );
 		//$arSelect = Array( "ID", "NAME", "DATE_ACTIVE_FROM" ); // выбираемые поля либо false
 		$arSelect = false; // выбираемые поля либо false
 		//$arFilterGoods = Array( "IBLOCK_ID"=>COLLECTIONS, "ACTIVE"=>"Y", "ID" => 187 );
@@ -81,22 +86,20 @@ class Updater {
 				
 				//$this->e( $tiles );
 				//$this->e( $tiles );
-				print( $arSKUFields[ "ID" ] . " " . $arSKUFields[ "NAME" ] . "<br>\n" );
+				
 				$SKUitem = CCatalogProduct::GetByID( $arSKUFields[ "ID" ] );
 				//$this->e( $SKUitem );
 				CPrice::SetBasePrice( $arSKUFields[ "ID" ], $SKUitem[ "PURCHASING_PRICE" ] * $priceMargin, $SKUitem[ "PURCHASING_CURRENCY" ] );
-				CCatalogProduct::Update( $arSKUFields[ "ID" ], array( "MEASURE" => $this->getMeasure( $arSKUProps[ "ATT_TYPE" ][ "VALUE_XML_ID" ] ) ) );
-				$ratio = $SKUitem[ "LENGTH" ] * $SKUitem[ "WIDTH" ] / 1000000;
-				CCatalogMeasureRatio::Update( $this->getMeasure( $arSKUProps[ "ATT_TYPE" ][ "VALUE_XML_ID" ] ), array( "PRODUCT_ID" => $arSKUFields[ "ID" ], "RATIO" => $ratio ) ); 
-				/*
-				+ CPrice::SetBasePrice( $tiles[ "ID" ], $tiles[ "PURCHASING_PRICE" ] * $priceMargin, $tiles[ "PURCHASING_CURRENCY" ] );
-				+ CCatalogProduct::Update( $tiles[ "ID" ], array( "MEASURE" => $this->getMeasure( $tiles[ "ID" ] ) ) );
-				$ratio = $tiles[ "LENGTH" ] * $tiles[ "WIDTH" ] / 1000000;
-				CCatalogMeasureRatio::Update( $this->getMeasure( $tiles[ "ID" ] ), array( "PRODUCT_ID" => $tiles[ "ID" ], "RATIO" => $ratio ) ); 
-				*/
-				//$db_res = CPrice::GetList( array(), array( "PRODUCT_ID" => $arSKUFields[ "ID" ], "CATALOG_GROUP_ID" => 1) );
-				
-				
+				$measure = $this->getMeasure( $arSKUProps[ "ATT_TYPE" ][ "VALUE_XML_ID" ] );
+				CCatalogProduct::Update( $arSKUFields[ "ID" ], array( "MEASURE" => $measure ) );
+				$ratioValue = $this->getRatioValue( $arSKUProps[ "ATT_TYPE" ][ "VALUE_XML_ID" ], $SKUitem);
+				$RatioID = $this->getRatioID( $arSKUFields[ "ID" ] );
+				if( $RatioID == 0 ) {
+					CCatalogMeasureRatio::Add( array( "PRODUCT_ID" => $arSKUFields[ "ID" ], "RATIO" => $ratioValue ) );
+				} else {
+					CCatalogMeasureRatio::Update( $RatioID, array( "PRODUCT_ID" => $arSKUFields[ "ID" ], "RATIO" => $ratioValue ) ); 
+				}
+				print( $arSKUFields[ "ID" ] . " " . $arSKUFields[ "NAME" ] . " ratio ({$RatioID}): " . $ratioValue . " measure: " . $measure . "<br>\n" );
 			}
 			//$this->e( $arGoodsProps );
 			//e( $arGoodsFields );
