@@ -58,7 +58,7 @@ $tileData[ "HEIGHT" ] = $offer[ "HEIGHT" ];
 
 // Получаем цену
 $tmp = CCatalogProduct::GetOptimalPrice( $tileId );
-$tileData[ "PRICE" ] = $tmp[ "RESULT_PRICE" ][ "BASE_PRICE" ];
+$tileData[ "PRICE" ] = round( $tmp[ "RESULT_PRICE" ][ "BASE_PRICE" ], 2 );
 
 print( json_encode( $tileData ) );
 
