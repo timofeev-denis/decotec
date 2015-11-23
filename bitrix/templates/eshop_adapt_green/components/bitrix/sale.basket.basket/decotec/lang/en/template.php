@@ -1,5 +1,6 @@
 <?
 $MESS["SALE_ORDER"] = "Check out";
+$MESS["SALE_CONTINUE"] = "Continue shoping";
 $MESS["SALE_OR"] = "or";
 $MESS["SALE_NAME"] = "Name";
 $MESS["SALE_PROPS"] = "Properties";

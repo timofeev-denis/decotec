@@ -1,5 +1,6 @@
 <?
 $MESS["SALE_ORDER"] = "Оформить заказ";
+$MESS["SALE_CONTINUE"] = "Продолжить покупки";
 $MESS["SALE_OR"] = "или";
 $MESS["SALE_NAME"] = "Товары";
 $MESS["SALE_PROPS"] = "Свойства";

@@ -511,7 +511,7 @@ if ($normalCount > 0):
 				<?=$arResult["PREPAY_BUTTON"]?>
 				<span><?=GetMessage("SALE_OR")?></span>
 			<?endif;?>
-
+			<a href="javascript:void(0)" onclick="window.history.back();" class="checkout"><?=GetMessage("SALE_CONTINUE")?></a>
 			<a href="javascript:void(0)" onclick="checkOut();" class="checkout"><?=GetMessage("SALE_ORDER")?></a>
 		</div>
 	</div>
