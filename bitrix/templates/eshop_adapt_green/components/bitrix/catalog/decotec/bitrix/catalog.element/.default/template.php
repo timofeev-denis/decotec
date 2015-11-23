@@ -554,6 +554,7 @@ if ('Y' == $arParams['USE_COMMENTS'])
 		<script>
 			$(function() {
 				function round(value, decimals) {
+					console.log( "decimals: " + decimals + " " + (typeof decimals ));
 					if( typeof decimals !== 'number' ) {
 						decimals = 0;
 					}
@@ -606,9 +607,9 @@ if ('Y' == $arParams['USE_COMMENTS'])
 				
 				function updatePrice() {
 					if( tileData.ATT_TYPE_XML_ID == "decor" || tileData.ATT_TYPE_XML_ID == "border" ) {
-						$( "#totalPrice" ).text( round( tileData.PRICE * $("input[id='tiles']").val() ), 2 );
+						$( "#totalPrice" ).text( round( tileData.PRICE * $("input[id='tiles']").val(), 2 ) );
 					} else {
-						$( "#totalPrice" ).text( round( tileData.PRICE * $("input[id='meters']").val() ), 2 );
+						$( "#totalPrice" ).text( round( tileData.PRICE * $("input[id='meters']").val(), 2 ) );
 					}
 				}
 				
