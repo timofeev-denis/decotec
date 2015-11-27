@@ -62,10 +62,8 @@ class Updater {
 	}
 	function __construct() {
 		$arSKUInfo = CCatalogSKU::GetInfoByProductIBlock( COLLECTIONS );
-		//$arSelect = Array( "ID", "NAME", "DATE_ACTIVE_FROM" ); // выбираемые поля либо false
 		$arSelect = false; // выбираемые поля либо false
-		//$arFilterGoods = Array( "IBLOCK_ID"=>COLLECTIONS, "ACTIVE"=>"Y", "ID" => 187 );
-		$arFilterGoods = Array( "IBLOCK_ID"=>COLLECTIONS, "ACTIVE"=>"Y" );
+		$arFilterGoods = Array( "IBLOCK_ID"=>COLLECTIONS, "ACTIVE"=>"Y", ">=ID" => 776 );
 
 		//$arFilter = Array( "IBLOCK_ID"=>TILES, "ACTIVE"=>"Y", "ID" => 710 );
 		$goods = CIBlockElement::GetList( Array( "SORT"=>"ASC" ), $arFilterGoods, false, Array("nTopCount"=>9999) );
