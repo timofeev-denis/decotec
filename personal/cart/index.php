@@ -22,7 +22,7 @@ $APPLICATION->SetTitle("Корзина");
 		"PATH_TO_ORDER" => "/personal/order/make/",
 		"HIDE_COUPON" => "Y",
 		"QUANTITY_FLOAT" => "N",
-		"PRICE_VAT_SHOW_VALUE" => "Y",
+		"PRICE_VAT_SHOW_VALUE" => "N",
 		"SET_TITLE" => "Y",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"OFFERS_PROPS" => array(

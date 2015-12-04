@@ -396,7 +396,7 @@ if ($normalCount > 0):
 								<?
 								if ($bDeleteColumn):
 								?>
-									<a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>"><?=GetMessage("SALE_DELETE")?></a><br />
+									<a href="<?=str_replace("#ID#", $arItem["ID"], $arUrls["delete"])?>"><div class="basket_delete_button" title="<?=GetMessage("SALE_DELETE")?>" alt="<?=GetMessage("SALE_DELETE")?>"></div></a><br />
 								<?
 								endif;
 								if ($bDelayColumn):

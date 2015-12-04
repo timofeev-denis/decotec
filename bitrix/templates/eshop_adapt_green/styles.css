@@ -1128,3 +1128,11 @@ table#item_quantity {
 td.price, td.custom, td.control {
 	border-left: 1px solid #e5e5e5;
 }
+
+.basket_delete_button {
+	width: 20px;
+	height: 20px;
+	background-image: url(images/delete_button.gif);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
