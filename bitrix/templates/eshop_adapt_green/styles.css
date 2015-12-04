@@ -1124,3 +1124,7 @@ table#item_quantity {
 .top20 {
 	padding-top: 20px;
 }
+
+td.price, td.custom, td.control {
+	border-left: 1px solid #e5e5e5;
+}

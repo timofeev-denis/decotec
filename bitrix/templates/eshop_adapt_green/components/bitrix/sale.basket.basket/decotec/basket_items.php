@@ -66,7 +66,10 @@ if ($normalCount > 0):
 						<?
 						endif;
 						?>
-							<?=$arHeader["name"]; ?>
+						<?if ($arHeader["id"] != "WEIGHT") {
+							echo $arHeader["name"];
+						}
+						?>
 							</td>
 					<?
 					endforeach;
