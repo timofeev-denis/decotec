@@ -60,7 +60,7 @@ if ($normalCount > 0):
 						?>
 							<td class="price" id="col_<?=$arHeader["id"];?>">
 						<?
-						else:
+						elseif ($arHeader["id"] != "WEIGHT"):
 						?>
 							<td class="custom" id="col_<?=$arHeader["id"];?>">
 						<?
@@ -363,9 +363,6 @@ if ($normalCount > 0):
 							<?
 							elseif ($arHeader["id"] == "WEIGHT"):
 							?>
-								<td class="custom">
-									<?=$arItem["WEIGHT_FORMATED"]?>
-								</td>
 							<?
 							else:
 							?>
