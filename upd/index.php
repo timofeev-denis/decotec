@@ -63,7 +63,7 @@ class Updater {
 	function __construct() {
 		$arSKUInfo = CCatalogSKU::GetInfoByProductIBlock( COLLECTIONS );
 		$arSelect = false; // выбираемые поля либо false
-		$arFilterGoods = Array( "IBLOCK_ID"=>COLLECTIONS, "ACTIVE"=>"Y", ">=ID" => 1908 );
+		$arFilterGoods = Array( "IBLOCK_ID"=>COLLECTIONS, "ACTIVE"=>"Y", ">=ID" => 1949 );
 
 		//$arFilter = Array( "IBLOCK_ID"=>TILES, "ACTIVE"=>"Y", "ID" => 710 );
 		$goods = CIBlockElement::GetList( Array( "SORT"=>"ASC" ), $arFilterGoods, false, Array("nTopCount"=>9999) );

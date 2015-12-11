@@ -1,13 +1,13 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("О магазине");
+$APPLICATION->SetTitle("О компании");
 ?><div class="row">
 	<div class="col-xs-12">
 		<p>
 			 Компания «Декотэк» предлагает:
 		</p>
 		<p>
-			<span style="line-height: 1.42857;">- Коллекционная керамическая плитка производства TUBADZIN, &nbsp;Польша</span><br>
+			<span style="line-height: 1.42857;">- Коллекционная керамическая плитка производства TUBADZIN,  Польша</span><br>
 		</p>
 		<p>
 			<span style="line-height: 1.42857;">- Коллекционная керамическая плитка производства POLCOLORIT, Польша</span>
@@ -20,7 +20,7 @@ $APPLICATION->SetTitle("О магазине");
 		<p>
 		</p>
 		<p>
-			 - Керамическая плитка заводов &nbsp;IBERO, VENUS, MALLOL, CRISTAL CERAMICA, &nbsp;GRESMANC, &nbsp;HISPANIA, &nbsp;OSET, MAPISA, &nbsp;PORCELANITE, SIERRAGRES, &nbsp;Испания
+			 - Керамическая плитка заводов  IBERO, VENUS, MALLOL, CRISTAL CERAMICA,  GRESMANC,  HISPANIA,  OSET, MAPISA,  PORCELANITE, SIERRAGRES,  Испания
 		</p>
 		<p>
 		</p>
@@ -30,7 +30,7 @@ $APPLICATION->SetTitle("О магазине");
  <br>
 			</p>
 			<p>
-				 Компания&nbsp;«Декотэк»&nbsp;это:
+				 Компания «Декотэк» это:
 			</p>
 			<p>
  <span st yle=" line-height:=" ">- Интересный и постоянно обновляющийся ассортимент</span><br>
@@ -48,7 +48,7 @@ $APPLICATION->SetTitle("О магазине");
 				 - Гибкая система скидок
 			</p>
 			<p>
-				 - Отсрочка платежа по схеме факторинга&nbsp;
+				 - Отсрочка платежа по схеме факторинга 
 			</p>
 			<p>
 				 - Доставка по Москве и Московской области
@@ -72,7 +72,7 @@ $APPLICATION->SetTitle("О магазине");
 				 На дополнительные вопросы Вам ответят:
 			</p>
 			<p>
-				 - По адресу - &nbsp;г. Москва, Волоколамское шоссе, 97
+				 - По адресу -  г. Москва, Волоколамское шоссе, 97
 			</p>
 			<p>
 				 - По телефонам - (495) 287-41-00 (многоканальный)
@@ -84,7 +84,7 @@ $APPLICATION->SetTitle("О магазине");
  <br>
 			</p>
 			<p>
- <span style="line-height: 1.42857;">Мы надеемся, что наше сотрудничество принесёт Вам &nbsp;финансовую выгоду и экономию времени.</span>
+ <span style="line-height: 1.42857;">Мы надеемся, что наше сотрудничество принесёт Вам  финансовую выгоду и экономию времени.</span>
 			</p>
 		</div>
 	</div>
