@@ -260,7 +260,7 @@ $bShowNameWithPicture = ($bDefaultColumns) ? true : false; // flat to show name 
 						<?
 						elseif ($arColumn["id"] == "PRICE_FORMATED"):
 						?>
-							<td class="price right">
+							<td class="price center">
 								<div class="current_price"><?=$arItem["PRICE_FORMATED"]?></div>
 								<div class="old_price right">
 									<?
@@ -306,7 +306,7 @@ $bShowNameWithPicture = ($bDefaultColumns) ? true : false; // flat to show name 
 						<?
 						elseif (in_array($arColumn["id"], array("QUANTITY", "WEIGHT_FORMATED", "DISCOUNT_PRICE_PERCENT_FORMATED", "SUM"))):
 						?>
-							<td class="custom right">
+							<td class="custom center">
 								<span><?=getColumnName($arColumn)?>:</span>
 								<?=$arItem[$arColumn["id"]]?>
 							</td>

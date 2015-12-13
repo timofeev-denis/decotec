@@ -107,15 +107,15 @@
 /*.bx_ordercart .bx_ordercart_order_table_container tbody td.control,*/
 .bx_ordercart .bx_ordercart_order_table_container tbody td.price{
 	text-align:left;
-	font-size:16px;
+	font-size:15px;
 	line-height:22px;
 }
 .bx_ordercart .bx_ordercart_order_table_container tbody td.custom span{display:none;}
 .bx_ordercart .bx_ordercart_order_table_container tbody td.item{width:70%;}
 .bx_ordercart .bx_ordercart_order_table_container tbody td.price .current_price{
 	color:#000;
-	font-weight:bold;
-	font-size:17px;
+	font-weight:normal;
+	font-size:15px;
 }
 .bx_ordercart .bx_ordercart_order_table_container tbody td.price     .old_price{
 	color:#b8b8b8;

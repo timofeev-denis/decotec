@@ -194,7 +194,6 @@ if (!function_exists("PrintPropsForm"))
 						{
 							$rows = ($arProperties["SIZE2"] > 10) ? 4 : $arProperties["SIZE2"];
 							?>
-							<br/>
 							<div class="bx_block r1x3 pt8">
 								<?=$arProperties["NAME"]?>
 								<?if ($arProperties["REQUIED_FORMATED"]=="Y"):?>
@@ -221,14 +220,14 @@ if (!function_exists("PrintPropsForm"))
 						elseif ($arProperties["TYPE"] == "LOCATION")
 						{
 							?>
-							<div class="bx_block r1x3 pt8">
+							<div class="bx_block r1x3 pt8 hidden">
 								<?=$arProperties["NAME"]?>
 								<?if ($arProperties["REQUIED_FORMATED"]=="Y"):?>
 									<span class="bx_sof_req">*</span>
 								<?endif;?>
 							</div>
 
-							<div class="bx_block r3x1">
+							<div class="bx_block r3x1 hidden">
 
 								<?
 								$value = 0;
@@ -306,7 +305,6 @@ if (!function_exists("PrintPropsForm"))
 								?>
 
 							</div>
-							<div style="clear: both;"></div>
 							<?
 						}
 						elseif ($arProperties["TYPE"] == "RADIO")

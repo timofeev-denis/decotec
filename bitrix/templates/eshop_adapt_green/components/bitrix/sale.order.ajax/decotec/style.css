@@ -434,6 +434,9 @@ div.bx_section div.bx_block div.bx_element input[type=checkbox],
 .bx_ordercart .bx_ordercart_order_table_container tbody .right {
     text-align: right !important;
 }
+.bx_ordercart .bx_ordercart_order_table_container tbody .center {
+    text-align: center !important;
+}
 
 div#order_form_content div.bx_section div#sale_order_props div div.bx_block textarea {
  	margin-bottom: 10px;
@@ -487,4 +490,7 @@ div#order_form_content .errortext {
 }
 .-bx-popup-special-prompt{
 	padding: 5px 10px;
+}
+.hidden {
+	display: none;
 }
