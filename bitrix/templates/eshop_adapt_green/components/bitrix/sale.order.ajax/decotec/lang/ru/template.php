@@ -1,6 +1,7 @@
 <?
 $MESS['SOA_TEMPL_PERSON_TYPE'] = "Тип плательщика";
 $MESS['SOA_TEMPL_BUTTON'] = "Оформить заказ";
+$MESS['SOA_TEMPL_BUTTON_NEXT'] = "Продолжить";
 $MESS['SOA_TEMPL_PROP_INFO'] = "Информация для оплаты и доставки заказа";
 $MESS['SOA_TEMPL_PROP_CHOOSE'] = "Выберите профиль:";
 $MESS['SOA_TEMPL_EXISTING_PROFILE'] = "Профиль покупателя:";

@@ -1,6 +1,7 @@
 <?
 $MESS["SOA_TEMPL_PERSON_TYPE"] = "Payer Type";
 $MESS["SOA_TEMPL_BUTTON"] = "Complete Order";
+$MESS["SOA_TEMPL_BUTTON_NEXT"] = "Continue";
 $MESS["SOA_TEMPL_PROP_INFO"] = "Payment and Delivery Details";
 $MESS["SOA_TEMPL_PROP_CHOOSE"] = "Choose previous details:";
 $MESS["SOA_TEMPL_PROP_NEW_PROFILE"] = "New Profile";

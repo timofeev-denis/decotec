@@ -276,7 +276,7 @@
 											?><br /><?
 										}
 										?>
-										<?=GetMessage("SALE_DELIV_PRICE");?>: <b><?=$arDelivery["PRICE_FORMATED"]?></b><br />
+										
 									</span>
 									<p>
 										<?
