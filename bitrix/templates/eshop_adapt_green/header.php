@@ -26,7 +26,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 		<div class="bx-header-section container">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="shop-name center">Магазин керамической плитки</div>
+					<div class="shop-name center">Керамическая плитка</div>
 				</div>
 			</div>
 			<div class="row">

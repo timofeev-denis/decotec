@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="bx-subscribe">
-	<div class="bx-block-title">РАССЫЛКА</div>
+	<div class="bx-block-title">РАССЫЛКА<div class="lower normal">акции и распродажи</div></div>
 	<?$APPLICATION->IncludeComponent(
 	"bitrix:sender.subscribe", 
 	".default", 

@@ -1,18 +1,18 @@
-2015-Dec-13 13:28:15 Наличие необходимых модулей php (check_php_modules): Ok
+2015-Dec-14 13:28:18 Наличие необходимых модулей php (check_php_modules): Ok
 Все необходимые модули установлены
-2015-Dec-13 13:28:15 Обязательные параметры PHP (check_php_settings): Ok
+2015-Dec-14 13:28:18 Обязательные параметры PHP (check_php_settings): Ok
 Настройки правильные
-2015-Dec-13 13:28:15 Модули веб-сервера (check_security): Ok
+2015-Dec-14 13:28:18 Модули веб-сервера (check_security): Ok
 Конфликтов не выявлено
-2015-Dec-13 13:28:15 Значения переменных сервера (check_server_vars): Ok
+2015-Dec-14 13:28:18 Значения переменных сервера (check_server_vars): Ok
 Корректные
-2015-Dec-13 13:28:15 Сохранение сессии (check_session): Ok
+2015-Dec-14 13:28:18 Сохранение сессии (check_session): Ok
 50% done
-2015-Dec-13 13:28:15 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
+2015-Dec-14 13:28:18 Параметры настройки UTF (mbstring и константа BX_UTF) (check_mbstring): Ok
 Правильные. Сайт работает в UTF кодировке
-2015-Dec-13 13:28:15 Служебные скрипты в корне сайта (check_install_scripts): Ok
+2015-Dec-14 13:28:18 Служебные скрипты в корне сайта (check_install_scripts): Ok
 Отсутствуют
-2015-Dec-13 13:28:15 Работа с сокетами (check_socket): Ok
+2015-Dec-14 13:28:18 Работа с сокетами (check_socket): Ok
 Connection to dekotek.ru:80	Success
 
 Успешно

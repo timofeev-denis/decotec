@@ -1136,3 +1136,10 @@ td.price, td.custom, td.control {
 	background-repeat: no-repeat;
 	background-position: top left;
 }
+.lower {
+	text-transform: lowercase;
+}
+
+.normal {
+	font-weight: normal;
+}

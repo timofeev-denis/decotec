@@ -7,20 +7,20 @@ $APPLICATION->SetTitle("О компании");
 			 Компания «Декотэк» предлагает:
 		</p>
 		<p>
-			<span style="line-height: 1.42857;">- Коллекционная керамическая плитка производства TUBADZIN,  Польша</span><br>
+ <span style="line-height: 1.42857;">- Коллекционную&nbsp;керамическую&nbsp;плитку&nbsp;производства TUBADZIN, &nbsp;Польша</span><br>
 		</p>
 		<p>
-			<span style="line-height: 1.42857;">- Коллекционная керамическая плитка производства POLCOLORIT, Польша</span>
+ <span style="line-height: 1.42857;">- Коллекционную&nbsp;керамическую&nbsp;плитку&nbsp;производства POLCOLORIT, Польша</span>
 		</p>
 		<p>
-			<span style="line-height: 1.42857;">- Клинкерная плитка для фасадов и каминов Ceramika PARADYZ, Польша</span>
+ <span style="line-height: 1.42857;">- Клинкерную&nbsp;плитку&nbsp;для фасадов и каминов Ceramika PARADYZ, Польша</span>
 		</p>
 		<p>
 		</p>
 		<p>
 		</p>
 		<p>
-			 - Керамическая плитка заводов  IBERO, VENUS, MALLOL, CRISTAL CERAMICA,  GRESMANC,  HISPANIA,  OSET, MAPISA,  PORCELANITE, SIERRAGRES,  Испания
+			 - Керамическую&nbsp;плитку&nbsp;заводов &nbsp;IBERO, VENUS, MALLOL, CRISTAL CERAMICA, &nbsp;GRESMANC, &nbsp;HISPANIA, &nbsp;OSET, MAPISA, &nbsp;PORCELANITE, SIERRAGRES, &nbsp;Испания
 		</p>
 		<p>
 		</p>
@@ -30,7 +30,7 @@ $APPLICATION->SetTitle("О компании");
  <br>
 			</p>
 			<p>
-				 Компания «Декотэк» это:
+				 Компания&nbsp;«Декотэк»&nbsp;это:
 			</p>
 			<p>
  <span st yle=" line-height:=" ">- Интересный и постоянно обновляющийся ассортимент</span><br>
@@ -48,7 +48,7 @@ $APPLICATION->SetTitle("О компании");
 				 - Гибкая система скидок
 			</p>
 			<p>
-				 - Отсрочка платежа по схеме факторинга 
+				 - Отсрочка платежа по схеме факторинга&nbsp;
 			</p>
 			<p>
 				 - Доставка по Москве и Московской области
@@ -72,7 +72,7 @@ $APPLICATION->SetTitle("О компании");
 				 На дополнительные вопросы Вам ответят:
 			</p>
 			<p>
-				 - По адресу -  г. Москва, Волоколамское шоссе, 97
+				 - По адресу - &nbsp;г. Москва, Волоколамское шоссе, 97
 			</p>
 			<p>
 				 - По телефонам - (495) 287-41-00 (многоканальный)
@@ -84,7 +84,7 @@ $APPLICATION->SetTitle("О компании");
  <br>
 			</p>
 			<p>
- <span style="line-height: 1.42857;">Мы надеемся, что наше сотрудничество принесёт Вам  финансовую выгоду и экономию времени.</span>
+ <span style="line-height: 1.42857;">Мы надеемся, что наше сотрудничество принесёт Вам &nbsp;финансовую выгоду и экономию времени.</span>
 			</p>
 		</div>
 	</div>

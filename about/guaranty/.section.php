@@ -1,5 +1,6 @@
 <?
-$sSectionName = "Гарантия";
-$arDirProperties = array(
+$sSectionName = "Возврат товара";
+$arDirProperties = Array(
+
 );
 ?>
