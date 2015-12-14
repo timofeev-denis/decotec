@@ -428,7 +428,11 @@ body>.bx-aside-nav-control{
 #filter {
 	cursor: default !important;
 }
-
+#separator {
+    line-height: 56px;
+    border-left: 2px solid rgba(255, 255, 255, 0.45);
+    width: 10px;
+}
 @media (min-width: 1200px) {
 	.bx-top-nav-container .bx-nav-1-lvl>a {font-size: 15px;}
 	.bx-top-nav-container .bx-nav-1-lvl>a span {padding: 12px 14px 15px}
@@ -436,11 +440,17 @@ body>.bx-aside-nav-control{
 @media (min-width: 992px) and (max-width: 1199px) {
 	.bx-top-nav-container .bx-nav-1-lvl>a {font-size: 13px;}
 	.bx-top-nav-container .bx-nav-1-lvl>a span {padding: 9px 11px 12px}
+	#separator {
+		line-height: 47px;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
 	.bx-top-nav-container .bx-nav-1-lvl>a {font-size: 11px;}
 	.bx-top-nav-container .bx-nav-1-lvl>a span {padding: 5px 6px 9px}
+	#separator {
+		line-height: 37px;
+	}
 }
 @media (min-width: 768px){
 	.bx-aside-nav-control,
@@ -453,4 +463,7 @@ body>.bx-aside-nav-control{
 	.bx-top-nav-container{display: none;}
 	.bx-aside-nav .bx-nav-parent-arrow{display: block;}
 	.bx-aside-nav .bx-nav-1-lvl.bx-nav-parent>a>span>.fa{display: none;}
+	#separator {
+		display: none;
+	}
 }

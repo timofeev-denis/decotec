@@ -104,6 +104,14 @@ $menuBlockId = "catalog_menu_".$this->randString();
 			<?endif?>
 			</li>
 		<?endforeach;?>
+			<li class="bx-nav-1-lvl bx-nav-list-0-col" id="separator" >
+				&nbsp;
+			</li>
+			<li class="bx-nav-1-lvl bx-nav-list-0-col" >
+				<a href="/about/howto/">
+					<span>Как купить</span>
+				</a>
+			</li>
 		</ul>
 		<div style="clear: both;"></div>
 	</nav>

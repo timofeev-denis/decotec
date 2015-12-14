@@ -8,4 +8,19 @@ $APPLICATION->SetTitle("3D проектирование");
 </p>
 <p>
 	 &nbsp; &nbsp; &nbsp;По вашим размерам помещения создается 3D-визуализация ванной комнаты, задается расположение мебели и сантехники. Дизайнер подберет для Вас варианты напольного покрытия и настенной плитки.&nbsp;
+</p>
+<p>
+	 Примеры работ:
+</p>
+<p>
+ <img width="1024" alt="Art.JPG" src="/upload/medialibrary/49b/49bab88bd83f1748733da3419f2809f4.JPG" height="302" title="Art.JPG">
+</p>
+<p>
+ <br>
+</p>
+<p>
+	<br>
+</p>
+<p>
+ <br>
 </p><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
