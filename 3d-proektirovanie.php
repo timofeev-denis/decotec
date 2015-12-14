@@ -10,6 +10,9 @@ $APPLICATION->SetTitle("3D проектирование");
 	 &nbsp; &nbsp; &nbsp;По вашим размерам помещения создается 3D-визуализация ванной комнаты, задается расположение мебели и сантехники. Дизайнер подберет для Вас варианты напольного покрытия и настенной плитки.&nbsp;
 </p>
 <p>
+	<br>
+</p>
+<p>
 	 Примеры работ:
 </p>
 <p>
@@ -19,8 +22,11 @@ $APPLICATION->SetTitle("3D проектирование");
  <br>
 </p>
 <p>
-	<br>
+ <img width="1024" alt="Paris.jpg" src="/upload/medialibrary/c63/c63e4eab969a4d3d2706923357e67e72.jpg" height="364" title="Paris.jpg"><br>
 </p>
 <p>
  <br>
+</p>
+<p>
+ <img width="1024" alt="Waves.jpg" src="/upload/medialibrary/98e/98e27332aab059df0b8af372074493a8.jpg" height="317" title="Waves.jpg"><br>
 </p><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
