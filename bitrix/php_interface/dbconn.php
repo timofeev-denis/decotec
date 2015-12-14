@@ -31,4 +31,7 @@ define("BX_UTF", true);
 //Bitrix Env replace()
 //define("BX_CRONTAB_SUPPORT", true);
 ///Bitrix Env replace()
+if(!(defined("CHK_EVENT") && CHK_EVENT===true)) {
+   define("BX_CRONTAB_SUPPORT", true);
+}
 ?>
