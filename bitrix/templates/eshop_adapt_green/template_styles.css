@@ -170,14 +170,64 @@ img {
 /* header / phone */
 
 .bx-inc-orginfo {
-	padding-left: 28px;
+	/*padding-left: 28px;*/
 }
+
+.bx-inc-orginfo table {
+	width: 100%;
+}
+
+.bx-inc-orginfo td.phone:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+	color: #97a1ab;
+	content: "\f095";
+}
+.bx-inc-orginfo td.phone {
+	color: #000;
+	font-size: 21px;
+	font-weight: 700;
+	white-space: nowrap;
+	font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	text-align: center;
+	
+}
+
+.bx-inc-orginfo td.info {
+	font-size: 13px;
+	font-weight: normal;
+	text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {	
+	.bx-inc-orginfo td.phone {
+		font-size: 16px;
+	}
+	.bx-inc-orginfo td.info {
+		font-size: 10px;
+	}
+}
+
+@media (max-width: 479px) {	
+	.bx-inc-orginfo td.phone {
+		font-size: 16px;
+	}
+	.bx-inc-orginfo td.info {
+		font-size: 10px;
+	}
+}
+
 
 @media (max-width: 767px) {
 	.bx-inc-orginfo {
 		text-align: center;
 		padding-bottom: 10px;
-	}
+	}	
 }
 
 .bx-inc-orginfo-phone {
@@ -186,9 +236,18 @@ img {
 	font-weight: 700;
 	white-space: nowrap;
 	font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	text-align: center;
 }
-
-.bx-inc-orginfo-phone i {
+.bx-inc-orginfo-phone span {
+	font-size: 13px;
+	font-weight: normal;
+	white-space: nowrap;
+	font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	margin-left: -23px;
+    width: 100%;
+    display: inline-block;
+}
+.bx-inc-orginfo i {
 	color: #97a1ab;
 	position: relative;
 	margin-left: -23px;
@@ -378,13 +437,15 @@ textarea {
 	font-weight: bold;
 	padding-bottom: 5px;
 }
-
 .bx-inclogofooter-worktime {
 	color: #cfd0d0;
 	font-family: "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
-	text-transform: uppercase;
+}
+
+.bx-inclogofooter-worktime span{
+	font-weight: normal;
 }
 /* INC.social.widget */
 

@@ -30,7 +30,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 					<div class="bx-logo">
 						<a class="bx-logo-block hidden-xs" href="<?=SITE_DIR?>">
 							<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo.php"), false);?>
@@ -40,21 +40,12 @@ $curPage = $APPLICATION->GetCurPage(true);
 						</a>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="bx-inc-orginfo">
-						<div>
-							<span class="bx-inc-orginfo-phone"><i class="fa fa-phone"></i> <?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/telephone.php"), false);?></span>
-						</div>
+						<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/telephone.php"), false);?>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
-					<div class="bx-worktime">
-						<div class="bx-worktime-prop">
-							<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/schedule.php"), false);?>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 hidden-xs">
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 hidden-xs">
 					<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "decotec", Array(
 	"PATH_TO_BASKET" => SITE_DIR."personal/cart/",	// Страница корзины
 		"PATH_TO_PERSONAL" => SITE_DIR."personal/",	// Страница персонального раздела

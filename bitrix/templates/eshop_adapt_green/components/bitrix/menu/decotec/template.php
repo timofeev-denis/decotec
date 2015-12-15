@@ -112,6 +112,11 @@ $menuBlockId = "catalog_menu_".$this->randString();
 					<span>Как купить</span>
 				</a>
 			</li>
+			<li class="bx-nav-1-lvl bx-nav-list-0-col" >
+				<a href="/3d-proektirovanie.php">
+					<span>3D-проектирование</span>
+				</a>
+			</li>
 		</ul>
 		<div style="clear: both;"></div>
 	</nav>

@@ -161,6 +161,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 					"FORMAT" => ($FORMAT <> "html"? "text":"html"),
 					"EMAIL" => $_POST["SENDER_SUBSCRIBE_EMAIL"],
 					"ACTIVE" => "Y",
+//					"SEND_CONFIRM" => "N",
 					"RUB_ID" => $RUB_ID
 				);
 				CModule::IncludeModule("subscribe");
@@ -168,7 +169,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 
 				//can add without authorization
 				$ID = $subscr->Add( $arFields );
-				/*
+				
 				if( $ID > 0 ) {
 					echo "id = " . $ID;
 					CSubscription::Authorize($ID);
@@ -177,10 +178,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 					$strWarning .= "Error adding subscription: ".$subscr->LAST_ERROR."<br>";
 					echo $strWarning . "\n";
 				}
-				*/
+				
 				ob_end_clean();
 				
-				//\Bitrix\Sender\Subscription::sendEventConfirm($_POST["SENDER_SUBSCRIBE_EMAIL"], $mailingIdList, SITE_ID);
+				\Bitrix\Sender\Subscription::sendEventConfirm($_POST["SENDER_SUBSCRIBE_EMAIL"], $mailingIdList, SITE_ID);
 				$APPLICATION->set_cookie("SENDER_SUBSCR_EMAIL", $_POST["SENDER_SUBSCRIBE_EMAIL"], $cookieLifeTime);
 				$arResult['MESSAGE'] = array('TYPE' => 'NOTE', 'CODE' => 'message_confirm');
 				$subscr_EMAIL = $_POST["SENDER_SUBSCRIBE_EMAIL"];

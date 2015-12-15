@@ -22,7 +22,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"3D проектирование", 
+		"3D-проектирование", 
 		"/3d-proektirovanie.php", 
 		Array(), 
 		Array(), 
