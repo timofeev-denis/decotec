@@ -79,6 +79,21 @@ $strAlt = (
 	: $arResult['NAME']
 );
 ?><div class="bx_item_detail <? echo $templateData['TEMPLATE_CLASS']; ?>" id="<? echo $arItemIDs['ID']; ?>">
+<?php
+if( intval( $arResult[ "PROPERTIES" ][ "ATT_ACTION" ][ "VALUE" ] ) > 0 ) {
+	$arSelect = Array( "ID", "NAME", "DATE_ACTIVE_FROM" ); // выбираемые поля либо false
+	$arFilter = Array( "IBLOCK_ID"=>7, "ACTIVE"=>"Y", "ID"=> $arResult[ "PROPERTIES" ][ "ATT_ACTION" ][ "VALUE" ]);
+	$res = CIBlockElement::GetList( Array( "SORT"=>"ASC" ), $arFilter, false, $arSelect);
+	$ob = $res->GetNextElement();
+	$arFields = $ob->GetFields();
+	?>
+	<div class="action_banner"><h4>Данная коллекция участвует в акции <a href="<?=$arFields["DETAIL_PAGE_URL"]?>">«<?=$arFields["NAME"]?>»</a></h4>
+
+	</div>
+	<div style="clear:both;"></div>
+<?php
+}
+?>
 <?
 if ('Y' == $arParams['DISPLAY_NAME'])
 {
@@ -328,12 +343,6 @@ if ('' != $arResult['DETAIL_TEXT'])
 }
 ?>
 </div>
-<? if( isset( $arResult[ "ACTION_PICTURE" ] ) ):?>
-<div class="item_info_section" style="width: 100%; height: 125px; background-size: 100% auto; background: url(<?=$arResult[ "ACTION_PICTURE" ]?>) no-repeat;">
-</div>
-<? endif ?>
-
-
 
 <div class="item_price" style="display: none;">
 <?

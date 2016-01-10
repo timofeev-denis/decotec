@@ -1143,3 +1143,9 @@ td.price, td.custom, td.control {
 .normal {
 	font-weight: normal;
 }
+.action_banner {
+	height: 45px;
+}
+.action_banner h4 {
+	line-height: 1.2em;
+}
