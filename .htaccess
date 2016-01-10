@@ -1,6 +1,10 @@
 Options -Indexes 
 ErrorDocument 404 /404.php
 
+# RewriteEngine On
+# RewriteCond %{HTTP_HOST} !^decotec\.ru$ [NC]
+# RewriteRule ^(.*)$ http://decotec.ru/$1 [L,R=301]
+
 <IfModule mod_php5.c>
   php_value mbstring.func_overload 2
   php_value mbstring.internal_encoding utf-8
