@@ -87,7 +87,7 @@ if( intval( $arResult[ "PROPERTIES" ][ "ATT_ACTION" ][ "VALUE" ] ) > 0 ) {
 	$ob = $res->GetNextElement();
 	$arFields = $ob->GetFields();
 	?>
-	<div class="action_banner"><h4>Данная коллекция участвует в акции <a href="<?=$arFields["DETAIL_PAGE_URL"]?>">«<?=$arFields["NAME"]?>»</a></h4>
+	<div class="action_banner"><a href="<?=$arFields["DETAIL_PAGE_URL"]?>"><h3>Акция «<?=$arFields["NAME"]?>»</h3></a>
 
 	</div>
 	<div style="clear:both;"></div>
