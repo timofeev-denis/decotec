@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Интернет-магазин керамической плитки");
+$APPLICATION->SetTitle("Керамическая плитка");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"decotec",
