@@ -2,17 +2,23 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 //$APPLICATION->SetTitle("detail");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:news.detail",
-	"",
-	Array(
+	"bitrix:news.detail", 
+	".default", 
+	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "directories",
 		"IBLOCK_ID" => "7",
 		"ELEMENT_ID" => $_REQUEST["element_id"],
 		"ELEMENT_CODE" => "",
 		"CHECK_DATES" => "Y",
-		"FIELD_CODE" => array("",""),
-		"PROPERTY_CODE" => array("",""),
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"PROPERTY_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"IBLOCK_URL" => "",
 		"DETAIL_URL" => "",
 		"AJAX_MODE" => "N",
@@ -38,7 +44,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"USE_PERMISSIONS" => "N",
 		"DISPLAY_DATE" => "Y",
-		"DISPLAY_NAME" => "Y",
+		"DISPLAY_NAME" => "N",
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"USE_SHARE" => "N",
@@ -51,5 +57,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 		"SET_STATUS_404" => "N",
 		"SHOW_404" => "N",
 		"MESSAGE_404" => ""
-	)
+	),
+	false
 );?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
