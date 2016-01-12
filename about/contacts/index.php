@@ -10,15 +10,19 @@ $APPLICATION->SetTitle("Контакты");
  <small><a href="https://maps.google.com/maps?ll=55.830506,37.399742&z=16&t=m&hl=ru-RU&gl=RU&mapclient=embed&q=%D0%92%D0%BE%D0%BB%D0%BE%D0%BA%D0%BE%D0%BB%D0%B0%D0%BC%D1%81%D0%BA%D0%BE%D0%B5%20%D1%88%D0%BE%D1%81%D1%81%D0%B5%2C%2097" style="color:#0000FF;text-align:left" target="_blank">Просмотреть увеличенную карту</a></small>
 		<h2>Задать вопрос</h2>
 		 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.feedback",
-	"eshop_adapt",
-	Array(
+	"bitrix:main.feedback", 
+	"eshop_adapt", 
+	array(
 		"USE_CAPTCHA" => "Y",
 		"OK_TEXT" => "Спасибо, ваше сообщение принято.",
-		"EMAIL_TO" => "sale@nyuta.bx",
-		"REQUIRED_FIELDS" => array(),
-		"EVENT_MESSAGE_ID" => array()
-	)
+		"EMAIL_TO" => "ishop@decotec.ru",
+		"REQUIRED_FIELDS" => array(
+		),
+		"EVENT_MESSAGE_ID" => array(
+		),
+		"COMPONENT_TEMPLATE" => "eshop_adapt"
+	),
+	false
 );?>
 	</div>
 </div>
