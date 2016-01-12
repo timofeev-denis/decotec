@@ -167,6 +167,13 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 		$minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
 
 	?><div class="<? echo ($arItem['SECOND_PICT'] ? 'bx_catalog_item double' : 'bx_catalog_item'); ?> bx_collection"><div class="bx_catalog_item_container" id="<? echo $strMainID; ?>">
+		<?php
+		if (array_key_exists("ATT_ACTION", $arItem["PROPERTIES"]) && intval($arItem["PROPERTIES"]["ATT_ACTION"]["PROPERTY_VALUE_ID"]) > 0) {
+		?>
+		<img class="action_sticker" src="/images/actions/action_sticker.png" />
+		<?php
+		}
+		?>
 		<a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images" style="background-image: url('<? echo CFile::GetPath( $arItem[ "PROPERTIES" ][ "MORE_PHOTO" ][ "VALUE" ][ 0 ] ); ?>')" title="<? echo $imgTitle; ?>"><?
 	if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 	{

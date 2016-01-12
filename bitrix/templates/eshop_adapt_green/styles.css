@@ -1155,3 +1155,19 @@ td.price, td.custom, td.control {
 	padding-top: 0.65em;
 	color: #fff;
 }
+.action_sticker {
+	position: absolute;
+	z-index: 980;
+}
+@media (max-width:767px) {
+	.action_sticker {
+		width: 40px;
+		height: 40px;
+	}
+}
+@media (min-width:768px) {
+	.action_sticker {
+		width: 60px;
+		height: 60px;
+	}
+}

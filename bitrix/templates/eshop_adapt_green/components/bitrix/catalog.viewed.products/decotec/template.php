@@ -180,6 +180,13 @@ if (!empty($arResult['ITEMS']))
 		?>
 	<div class="<? echo($arItem['SECOND_PICT'] && $arParams ? 'bx_catalog_item double' : 'bx_catalog_item'); ?> bx_collection" id="<? echo $strMainID; ?>">
 	<div class="bx_catalog_item_container <? echo $showImgClass; ?>">
+	<?php
+	if (array_key_exists("ATT_ACTION", $arItem["PROPERTIES"]) && intval($arItem["PROPERTIES"]["ATT_ACTION"]["PROPERTY_VALUE_ID"]) > 0) {
+	?>
+	<img class="action_sticker" src="/images/actions/action_sticker.png" />
+	<?php
+	}
+	?>
 	<a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images"<? if ($arParams['SHOW_IMAGE'] == "Y")
 		{
 			?> style="background-image: url('<?=CFile::GetPath( $arItem['PROPERTIES']['MORE_PHOTO']['VALUE'][0] )?>')"<?
