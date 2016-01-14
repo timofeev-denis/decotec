@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Protected Area (Enter Editor password)"
+AuthUserFile /home/decotec/decotec.ru/docs/upd/.htpasswd
+Require valid-user
