@@ -1175,3 +1175,6 @@ td.price, td.custom, td.control {
 		height: 60px;
 	}
 }
+.text_right {
+	text-align: right;
+}
