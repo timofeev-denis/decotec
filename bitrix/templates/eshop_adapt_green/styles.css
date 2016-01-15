@@ -1144,12 +1144,16 @@ td.price, td.custom, td.control {
 	font-weight: normal;
 }
 .action_banner {
+	width: 100%; 
+	padding-bottom: 10px;
+}
+.action_default_banner {
 	height: 70px;
-	background-image: url(/images/actions/action_bg.png);
 	background-repeat: no-repeat;
 	background-position: top left;
+	background-image: url(/images/actions/action_bg.png);
 }
-.action_banner h3 {
+.action_default_banner h3 {
 	text-align: center;
 	line-height: 1.2em;
 	padding-top: 0.65em;

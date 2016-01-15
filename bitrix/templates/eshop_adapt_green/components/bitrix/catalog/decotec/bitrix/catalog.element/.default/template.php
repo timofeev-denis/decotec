@@ -85,15 +85,29 @@ if( intval( $arResult[ "PROPERTIES" ][ "ATT_ACTION" ][ "VALUE" ] ) > 0 ) {
 	$arFilter = Array( "IBLOCK_ID"=>7, "ACTIVE"=>"Y", "ID"=> $arResult[ "PROPERTIES" ][ "ATT_ACTION" ][ "VALUE" ]);
 	$res = CIBlockElement::GetList( Array( "SORT"=>"ASC" ), $arFilter, false, $arSelect);
 	$ob = $res->GetNextElement();
-	$arFields = $ob->GetFields();
+	$arActionFields = $ob->GetFields();
+	
+	$actionBanner = CFile::GetPath( $arActionFields[ "PREVIEW_PICTURE" ] );
+	if( $actionBanner ) {
+		// Show preview picture
+		?>
+		<a href="<?=$arActionFields["DETAIL_PAGE_URL"]?>"><img src="<?=$actionBanner?>" class="action_banner" /></a>
+		<?php
+	} else {
+		// Show default banner (just in case)
+		?>
+		<a href="<?=$arActionFields["DETAIL_PAGE_URL"]?>"><div class='action_default_banner'><h3>Акция «<?=$arActionFields["NAME"]?>»</h3></div></a>
+		<?php
+	}
 	?>
-	<div class="action_banner"><a href="<?=$arFields["DETAIL_PAGE_URL"]?>"><h3>Акция «<?=$arFields["NAME"]?>»</h3></a>
 
-	</div>
 	<div style="clear:both;"></div>
 <?php
 }
 ?>
+<!--!
+<?php var_dump( CFile::GetPath( $arActionFields[ "PREVIEW_PICTURE" ] ) ); ?>
+-->
 <?
 if ('Y' == $arParams['DISPLAY_NAME'])
 {
