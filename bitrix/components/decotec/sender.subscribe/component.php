@@ -31,12 +31,12 @@ $messageDictionary = array(
 );
 
 $cookieLifeTime = time() + 60 * 60 * 24 * 30 * 12 * 10; // 30 days * 12 months * 10 ~ 10 years
-$file = "/home/decotec/dekotek.ru/docs/debug.log";
+$file = "/home/decotec/decotec.ru/docs/debug.log";
 
 if($_SERVER['REQUEST_METHOD'] == 'GET')
 {	
-	file_put_contents($file, "GET\n", FILE_APPEND);
-	file_put_contents($file, var_export( $_GET, true ) . "\n", FILE_APPEND);
+	//file_put_contents($file, date("d-m-Y H:i:s") . " " . "GET\n", FILE_APPEND);
+	//file_put_contents($file, date("d-m-Y H:i:s") . " " . var_export( $_GET, true ) . "\n", FILE_APPEND);
 	if(isset($_GET['sender_subscription']) && isset($messageDictionary[$_GET['sender_subscription']]))
 	{
 		$arResult['MESSAGE'] = $messageDictionary[$_GET['sender_subscription']];
@@ -44,7 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 	}
 
 	if(isset($_GET['tag']) && isset($_GET['sender_subscription']) && $_GET['sender_subscription']=='confirm') {
-		file_put_contents($file, "_GET['tag'] IS set\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "_GET['tag'] IS set\n", FILE_APPEND);
 		if(!CModule::IncludeModule("sender"))
 		{
 			$obCache->AbortDataCache();
@@ -53,11 +53,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 		}
 
 		try {
-			file_put_contents($file, "TRY\n", FILE_APPEND);
+			//file_put_contents($file, date("d-m-Y H:i:s") . " " . "TRY\n", FILE_APPEND);
 			$arTag = \Bitrix\Main\Mail\Tracking::parseSignedTag($_REQUEST['tag']);
 			if($arTag['MODULE_ID'] == 'sender' && check_email($arTag['FIELDS']['EMAIL']) && is_array($arTag['FIELDS']['MAILING_LIST']) && isset($arTag['FIELDS']['SITE_ID']))
 			{
-				file_put_contents($file, "    Subscription::add\n", FILE_APPEND);
+				//file_put_contents($file, date("d-m-Y H:i:s") . " " . "    Subscription::add\n", FILE_APPEND);
 				\Bitrix\Sender\Subscription::add($arTag['FIELDS']['EMAIL'], $arTag['FIELDS']['MAILING_LIST'], $arTag['FIELDS']['SITE_ID']);
 				$APPLICATION->set_cookie("SENDER_SUBSCR_EMAIL", $arTag['FIELDS']['EMAIL'], $cookieLifeTime);
 				$subscr_EMAIL = $arTag['FIELDS']['EMAIL'];
@@ -73,17 +73,17 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 			$arResult['MESSAGE'] = array('TYPE' => 'ERROR', 'CODE' => 'message_err_sec');
 		}
 	} else {
-		file_put_contents($file, "_GET['tag'] is NOT set\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "_GET['tag'] is NOT set\n", FILE_APPEND);
 	}
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST['sender_subscription']) && $_POST['sender_subscription']=='add')
 {
-	file_put_contents($file, "POST\n", FILE_APPEND);
-	file_put_contents($file, var_export( $_POST, true ) . "\n", FILE_APPEND);
+	//file_put_contents($file, date("d-m-Y H:i:s") . " " . "POST\n", FILE_APPEND);
+	//file_put_contents($file, date("d-m-Y H:i:s") . " " . var_export( $_POST, true ) . "\n", FILE_APPEND);
 	
 	if(check_email($_POST["SENDER_SUBSCRIBE_EMAIL"], true))
 	{
-		file_put_contents($file, "check_email==true\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "check_email==true\n", FILE_APPEND);
 		if(!CModule::IncludeModule("sender"))
 		{
 			$obCache->AbortDataCache();
@@ -92,12 +92,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 		}
 
 		$mailingListFromPost = array(0);
-		file_put_contents($file, "1-mailingListFromPost" . var_export( $mailingListFromPost, true ) . "\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "1-mailingListFromPost" . var_export( $mailingListFromPost, true ) . "\n", FILE_APPEND);
 		if(is_array($_POST["SENDER_SUBSCRIBE_RUB_ID"]))
 		{
 			foreach ($_POST["SENDER_SUBSCRIBE_RUB_ID"] as $mailingId) $mailingListFromPost[] = intval($mailingId);
 		}
-		file_put_contents($file, "2-mailingListFromPost" . var_export( $mailingListFromPost, true ) . "\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "2-mailingListFromPost" . var_export( $mailingListFromPost, true ) . "\n", FILE_APPEND);
 		if( $mailingListFromPost[0] == "0" ) {
 			$mailingListFromPost[0] = 1;
 		}
@@ -107,8 +107,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 		$arFilter["ID"] = $mailingListFromPost;
 		$mailingList = \Bitrix\Sender\Subscription::getMailingList($arFilter);
 		
-		file_put_contents($file, "**** mailingList: \n" . var_export( $mailingList, true ) . "\n", FILE_APPEND);
-		file_put_contents($file, "**** arFilter: \n" . var_export( $arFilter, true ) . "\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "**** mailingList: \n" . var_export( $mailingList, true ) . "\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "**** arFilter: \n" . var_export( $arFilter, true ) . "\n", FILE_APPEND);
 
 		$mailingIdList = array();
 		
@@ -119,7 +119,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 			
 		if($arParams["CONFIRMATION"])
 		{
-			file_put_contents($file, "CONFIRMATION\n", FILE_APPEND);
+			//file_put_contents($file, date("d-m-Y H:i:s") . " " . "CONFIRMATION\n", FILE_APPEND);
 			// check if email already subscribed
 			$sendEmailToSubscriber = true;
 			if(count($mailingIdList) <= 0) {
@@ -127,7 +127,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 			}
 			if(count($mailingIdList) > 0)
 			{
-				file_put_contents($file, "count(mailingIdList) > 0\n", FILE_APPEND);
+				//file_put_contents($file, date("d-m-Y H:i:s") . " " . "count(mailingIdList) > 0\n", FILE_APPEND);
 				$arExistedSubscription = array();
 				$subscriptionDb = \Bitrix\Sender\MailingSubscriptionTable::getList(array(
 					'select' => array('EXISTED_MAILING_ID' => 'MAILING.ID'),
@@ -144,7 +144,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 			}
 			else
 			{
-				file_put_contents($file, "count(mailingIdList) <= 0\n", FILE_APPEND);
+				//file_put_contents($file, date("d-m-Y H:i:s") . " " . "count(mailingIdList) <= 0\n", FILE_APPEND);
 				// do not send if no selected mailings and subscriber existed
 				$contactDb = \Bitrix\Sender\ContactTable::getList(array('filter' => array('=EMAIL' => strtolower($_POST["SENDER_SUBSCRIBE_EMAIL"]))));
 				if($contact = $contactDb->fetch())
@@ -152,7 +152,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 			}
 
 			if($sendEmailToSubscriber) {
-				file_put_contents($file, "sendEmailToSubscriber == true\n", FILE_APPEND);
+				//file_put_contents($file, date("d-m-Y H:i:s") . " " . "sendEmailToSubscriber == true\n", FILE_APPEND);
 				
 				ob_start();
 				$RUB_ID = array("1");
@@ -186,24 +186,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid() && isset($_POST
 				$arResult['MESSAGE'] = array('TYPE' => 'NOTE', 'CODE' => 'message_confirm');
 				$subscr_EMAIL = $_POST["SENDER_SUBSCRIBE_EMAIL"];
 			} else {
-				file_put_contents($file, "sendEmailToSubscriber == false\n", FILE_APPEND);
+				//file_put_contents($file, date("d-m-Y H:i:s") . " " . "sendEmailToSubscriber == false\n", FILE_APPEND);
 				$APPLICATION->set_cookie("SENDER_SUBSCR_EMAIL", $_POST["SENDER_SUBSCRIBE_EMAIL"], $cookieLifeTime);
 				$arResult['MESSAGE'] = array('TYPE' => 'NOTE', 'CODE' => 'message_success');
 				$subscr_EMAIL = $_POST["SENDER_SUBSCRIBE_EMAIL"];
 			}
 		} else {
-			file_put_contents($file, "!CONFIRMATION\n", FILE_APPEND);
+			//file_put_contents($file, date("d-m-Y H:i:s") . " " . "!CONFIRMATION\n", FILE_APPEND);
 			//\Bitrix\Sender\Subscription::add($_POST["SENDER_SUBSCRIBE_EMAIL"], $mailingIdList, SITE_ID);
 			$APPLICATION->set_cookie("SENDER_SUBSCR_EMAIL", $_POST["SENDER_SUBSCRIBE_EMAIL"], $cookieLifeTime);
 			$arResult['MESSAGE'] = array('TYPE' => 'NOTE', 'CODE' => 'message_success');
 			$subscr_EMAIL = $_POST["SENDER_SUBSCRIBE_EMAIL"];
 			unset($_SESSION['SENDER_SUBSCRIBE_LIST']);
 		}
-		//file_put_contents($file, "Subscription::add\n" . var_export($_POST, true), FILE_APPEND);
+		////file_put_contents($file, date("d-m-Y H:i:s") . " " . "Subscription::add\n" . var_export($_POST, true), FILE_APPEND);
 		//\Bitrix\Sender\Subscription::add($_POST["SENDER_SUBSCRIBE_EMAIL"], $mailingIdList, SITE_ID);
 
 	} else {
-		file_put_contents($file, "check_email==false\n", FILE_APPEND);
+		//file_put_contents($file, date("d-m-Y H:i:s") . " " . "check_email==false\n", FILE_APPEND);
 		$arResult['MESSAGE'] = array('TYPE' => 'ERROR', 'CODE' => 'message_err_email');
 	}
 }
