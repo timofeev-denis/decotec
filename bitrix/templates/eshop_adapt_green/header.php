@@ -161,4 +161,4 @@ $curPage = $APPLICATION->GetCurPage(true);
 		<div class="container bx-content-seection">
 			<div class="row">
 			<?$isCatalogPage = preg_match("~^".SITE_DIR."catalog/~", $curPage);?>
-				<div class="bx-content col-md-9 col-sm-8">
+				<div class="bx-content col-md-9">

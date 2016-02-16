@@ -159,7 +159,7 @@
 						<? endif; ?>
 					</div>
 					<?if (/*!$isCatalogPage*/true):?>
-					<div class="sidebar col-md-3 col-sm-4">
+					<div class="sidebar col-md-3">
 						<?$APPLICATION->IncludeComponent(
 							"bitrix:main.include",
 							"",
