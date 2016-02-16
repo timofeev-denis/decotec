@@ -237,16 +237,17 @@
 				?>
 					<div class="bx_block w100 vertical">
 
-						<div class="bx_element">
+						<div class="bx_element flex">
 
 							<input type="radio"
+								class="delivery_radio"
 								id="ID_DELIVERY_ID_<?= $arDelivery["ID"] ?>"
 								name="<?=htmlspecialcharsbx($arDelivery["FIELD_NAME"])?>"
 								value="<?= $arDelivery["ID"] ?>"<?if ($arDelivery["CHECKED"]=="Y") echo " checked";?>
 								onclick="submitForm();"
 								/>
 
-							<label for="ID_DELIVERY_ID_<?=$arDelivery["ID"]?>" <?=$clickHandler?>>
+							<label for="ID_DELIVERY_ID_<?=$arDelivery["ID"]?>" class="flex_1" <?=$clickHandler?>>
 
 								<?
 								if (count($arDelivery["LOGOTIP"]) > 0):
@@ -264,7 +265,6 @@
 								endif;
 								?>
 
-								<div class="bx_logotype"><span style='background-image:url(<?=$deliveryImgURL?>);'></span></div>
 
 								<div class="bx_description">
 									<div class="name"><strong><?= htmlspecialcharsbx($arDelivery["NAME"])?></strong></div>
@@ -299,6 +299,7 @@
 
 						<div class="clear"></div>
 					</div>
+					<div class="clear"></div>
 				</div>
 				<?
 			}

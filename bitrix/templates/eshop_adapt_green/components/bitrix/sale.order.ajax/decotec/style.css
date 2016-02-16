@@ -60,7 +60,7 @@
 	margin: 0 10px 10px 0;
 }
 
-#order_form_div label {
+#order_form_div label, label .bx_description .name {
 	color: #000;
 	font-size: 13px;
 }
@@ -337,7 +337,7 @@ div.bx_section div.bx_block div.bx_element input[type=checkbox],
 			box-sizing:border-box;
 	margin-right: 15px;
 	margin-bottom: 10px;
-	padding:0 10px;
+	/*padding:0 10px;*/
 	vertical-align: middle;
 }
 .bx_order_make .bx_block.r1x3.pt8{padding-top:8px}
@@ -452,7 +452,7 @@ div#order_form_content .errortext {
 	border-left: 1px solid #D5BABE;
 	border-radius: 5px;
 	background: #F8EAED;
-	background: url("images/alert.png") 10px 50% no-repeat, url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: url("images/alert.png") 10px 50% no-repeat, url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodâ€¦EiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
 	background: url("images/alert.png") 10px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F8EAED), color-stop(100%,#EDD0D6));
 	background: url("images/alert.png") 10px 50% no-repeat, -webkit-linear-gradient(top, #F8EAED 0%,#EDD0D6 100%);
 	background: url("images/alert.png") 10px 50% no-repeat, -moz-linear-gradient(top, #f8eaed 0%,#edd0d6 100%);
@@ -494,3 +494,17 @@ div#order_form_content .errortext {
 .hidden {
 	display: none;
 }
+
+.delivery_radio {
+	display: block !important;
+	width: 20px;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex_1 {
+	flex: 1;
+}
+
