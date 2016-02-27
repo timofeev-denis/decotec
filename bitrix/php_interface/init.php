@@ -51,4 +51,15 @@ function FunctionName($orderID, &$eventName, &$arFields, &$arOrder) {
 	$arFields[ "FULL_ADDRESS" ] = $full_address;   
 
 }
+
+AddEventHandler("subscribe", "BeforePostingSendMail", Array("MyClass", "BeforePostingSendMailHandler"));
+class MyClass {
+    // создаем обработчик события "BeforePostingSendMail"
+    function BeforePostingSendMailHandler($arFields) {
+		$arFields[ "BODY" ] .= "\r\n";
+		$arFields[ "BODY" ] .= file_get_contents( $_SERVER["DOCUMENT_ROOT"] . "/personal/subscribe/unsubscribe.html" );
+        return $arFields;
+    }
+}
+
 ?>
