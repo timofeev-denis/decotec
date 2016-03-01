@@ -43,7 +43,7 @@ endif;
 	$arParams["PAGE_NAVIGATION_TEMPLATE"] = trim($arParams["PAGE_NAVIGATION_TEMPLATE"]);
 	$arParams["PAGE_NAVIGATION_WINDOW"] = intVal(intVal($arParams["PAGE_NAVIGATION_WINDOW"]) > 0 ? $arParams["PAGE_NAVIGATION_WINDOW"] : 11);
 
-	$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
+	$arParams["PATH_TO_SMILE"] = "";
 
 	$arParams["WORD_LENGTH"] = intVal($arParams["WORD_LENGTH"]);
 	$arParams["IMAGE_SIZE"] = (intVal($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 300);
@@ -105,7 +105,7 @@ $arResult["URL"] = array(
 	"~MODERATE_MESSAGE" => CComponentEngine::MakePathFromTemplate($arParams["~URL_TEMPLATES_MESSAGE_APPR"], array("FID" => $arParams["FID"], "TID" => $arParams["TID"])),
 );
 
-$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+$parser = new forumTextParser(LANGUAGE_ID);
 $parser->MaxStringLen = $arParams["WORD_LENGTH"];
 $parser->imageWidth = $arParams["IMAGE_SIZE"];
 $parser->userPath = $arParams["URL_TEMPLATES_PROFILE_VIEW"];
@@ -219,8 +219,8 @@ if ($db_Message && ($res = $db_Message->GetNext()))
 		if (strLen($res["AVATAR"]) > 0):
 			$res["AVATAR"] = array("ID" => $res["AVATAR"]);
 			$res["AVATAR"]["FILE"] = CFile::GetFileArray($res["AVATAR"]["ID"]);
-			$res["AVATAR"]["HTML"] = CFile::ShowImage($res["AVATAR"]["FILE"], COption::GetOptionString("forum", "avatar_max_width", 90),
-				COption::GetOptionString("forum", "avatar_max_height", 90), "border=\"0\"", "", true);
+			$res["AVATAR"]["HTML"] = CFile::ShowImage($res["AVATAR"]["FILE"], COption::GetOptionString("forum", "avatar_max_width", 100),
+				COption::GetOptionString("forum", "avatar_max_height", 100), "border=\"0\"", "", true);
 		endif;
 		// data
 		$res["DATE_REG"] = CForumFormat::DateFormat($arParams["DATE_FORMAT"], MakeTimeStamp($res["DATE_REG"], CSite::GetDateFormat()));

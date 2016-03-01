@@ -12,8 +12,6 @@ $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/components/bitrix/forum.interfac
 				Input params
 ********************************************************************/
 /***************** BASE ********************************************/
-$arParams["PATH_TO_ICON"] = (empty($arParams["PATH_TO_ICON"]) ? $templateFolder."/images/icon/" : $arParams["PATH_TO_ICON"]);
-$arParams["PATH_TO_ICON"] = str_replace("//", "/", $arParams["PATH_TO_ICON"]."/");
 $arParams["SHOW_AUTHOR_COLUMN"] = ($arParams["SHOW_AUTHOR_COLUMN"] == "Y" ? "Y" : "N");
 $arParams["SHOW_RSS"] = ($arParams["SHOW_RSS"] == "N" ? "N" : "Y");
 if ($arParams["SHOW_RSS"] == "Y"):
@@ -213,7 +211,7 @@ foreach ($arResult["TOPICS"] as $res):
 						endif;
 								?><span class="forum-item-title"><?
 						if (false && strLen($res["IMAGE"]) > 0):
-								?><img src="<?=$arParams["PATH_TO_ICON"].$res["IMAGE"];?>" alt="<?=$res["IMAGE_DESCR"];?>" border="0" width="15" height="15"/><?
+								?><img src="<?=$res["IMAGE"];?>" alt="<?=$res["IMAGE_DESCR"];?>" border="0" width="15" height="15"/><?
 						endif;
 								?><a href="<?=$res["URL"]["TOPIC"]?>" title="<?=GetMessage("F_TOPIC_START")?> <?=$res["START_DATE"]?>"><?=$res["TITLE"]?></a><?
 						if ($res["TopicStatus"] == "NEW" && strLen($arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"]) > 0):

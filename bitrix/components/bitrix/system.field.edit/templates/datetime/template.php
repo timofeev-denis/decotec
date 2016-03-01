@@ -1,7 +1,26 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?
+/**
+ * Bitrix Framework
+ * @package bitrix
+ * @subpackage main
+ * @copyright 2001-2015 Bitrix
+ */
+
+/**
+ * Bitrix vars
+ * @global CMain $APPLICATION
+ * @global CUser $USER
+ * @var array $arParams
+ * @var array $arResult
+ * @var CBitrixComponentTemplate $this
+ * @var CBitrixComponent $component
+ */
+
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?>
 <div class="fields integer" id="main_<?=$arParams["arUserField"]["FIELD_NAME"]?>"><?
 $index = 0;
-$fIndex = time();
+$fIndex = $arResult["RANDOM"];
 foreach ($arResult["VALUE"] as $res):
 
 	if($index == 0 && $arParams["arUserField"]["ENTITY_VALUE_ID"]<1 && $arParams["arUserField"]["SETTINGS"]["DEFAULT_VALUE"]["TYPE"]!="NONE")
@@ -25,7 +44,7 @@ foreach ($arResult["VALUE"] as $res):
 		?> readonly="readonly"<?
 	endif;
 ?> class="fields datetime"><?
-	$GLOBALS['APPLICATION']->IncludeComponent(
+	$APPLICATION->IncludeComponent(
 		"bitrix:main.calendar",
 		"",
 		array(
@@ -59,7 +78,7 @@ if ($arParams["arUserField"]["EDIT_IN_LIST"] =="Y"):?>
 		?> size="<?=$arParams["arUserField"]["SETTINGS"]["SIZE"]?>"<?
 	endif;
 ?> class="fields datetime"><?
-	$GLOBALS['APPLICATION']->IncludeComponent(
+	$APPLICATION->IncludeComponent(
 		"bitrix:main.calendar",
 		"",
 		array(
@@ -89,10 +108,9 @@ function addStr<?=$fIndex?>()
 		text = text.replace(/[#]FIELD_NAME[#]/g, replaceText+'['+index<?=$fIndex?>+']');
 		text = text.replace(/[\%]23FIELD_NAME[\%]23/g, escape(replaceText+'['+index<?=$fIndex?>+']'));
 		var div = element.appendChild(document.createElement('DIV'));
-		div.innerHTML += text
+		div.innerHTML += text;
 		index<?=$fIndex?>++;
 	}
-	return;
 }
 </script>
 <?endif;

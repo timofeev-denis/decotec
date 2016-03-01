@@ -312,16 +312,22 @@ class HighloadBlockTable extends Entity\DataManager
 		$entity_name = $hlblock['NAME'];
 		$entity_data_class = $hlblock['NAME'];
 
-		if (!class_exists($entity_data_class.'Table'))
+		if (!preg_match('/^[a-z0-9_]+$/i', $entity_data_class))
 		{
-			if (!preg_match('/^[a-z0-9_]+$/i', $entity_data_class))
-			{
-				throw new Main\SystemException(sprintf(
-					'Invalid entity name `%s`.', $entity_data_class
-				));
-			}
+			throw new Main\SystemException(sprintf(
+				'Invalid entity name `%s`.', $entity_data_class
+			));
+		}
 
-			$entity_data_class .= 'Table';
+		$entity_data_class .= 'Table';
+
+		if (class_exists($entity_data_class))
+		{
+			// rebuild if it's already exists
+			Entity\Base::destroy($entity_data_class);
+		}
+		else
+		{
 			$entity_table_name = $hlblock['TABLE_NAME'];
 
 			// make with an empty map
@@ -346,31 +352,31 @@ class HighloadBlockTable extends Entity\DataManager
 			';
 
 			eval($eval);
+		}
 
-			// then configure and attach fields
-			/** @var \Bitrix\Main\Entity\DataManager $entity_data_class */
-			$entity = $entity_data_class::getEntity();
+		// then configure and attach fields
+		/** @var \Bitrix\Main\Entity\DataManager $entity_data_class */
+		$entity = $entity_data_class::getEntity();
 
-			$uFields = $USER_FIELD_MANAGER->getUserFields('HLBLOCK_'.$hlblock['ID']);
+		$uFields = $USER_FIELD_MANAGER->getUserFields('HLBLOCK_'.$hlblock['ID']);
 
-			foreach ($uFields as $uField)
+		foreach ($uFields as $uField)
+		{
+			if ($uField['MULTIPLE'] == 'N')
 			{
-				if ($uField['MULTIPLE'] == 'N')
-				{
-					// just add single field
-					$field = $USER_FIELD_MANAGER->getEntityField($uField, $uField['FIELD_NAME']);
-					$entity->addField($field);
+				// just add single field
+				$field = $USER_FIELD_MANAGER->getEntityField($uField, $uField['FIELD_NAME']);
+				$entity->addField($field);
 
-					foreach ($USER_FIELD_MANAGER->getEntityReferences($uField, $field) as $reference)
-					{
-						$entity->addField($reference);
-					}
-				}
-				else
+				foreach ($USER_FIELD_MANAGER->getEntityReferences($uField, $field) as $reference)
 				{
-					// build utm entity
-					static::compileUtmEntity($entity, $uField);
+					$entity->addField($reference);
 				}
+			}
+			else
+			{
+				// build utm entity
+				static::compileUtmEntity($entity, $uField);
 			}
 		}
 
@@ -531,6 +537,12 @@ class HighloadBlockTable extends Entity\DataManager
 		$utmClassName = static::getUtmEntityClassName($hlentity, $userfield);
 		$utmTableName = static::getMultipleValueTableName($hlblock, $userfield);
 
+		// don't rebuild if it already exists
+		if (class_exists($utmClassName.'Table'))
+		{
+			return Entity\Base::getInstance($utmClassName);
+		}
+
 		// main fields
 		$utmValueField = $USER_FIELD_MANAGER->getEntityField($userfield, 'VALUE');
 
@@ -611,6 +623,10 @@ class HighloadBlockTable extends Entity\DataManager
 			new Entity\Validator\RegExp(
 				'/^[A-Z][A-Za-z0-9]*$/',
 				GetMessage('HIGHLOADBLOCK_HIGHLOAD_BLOCK_ENTITY_NAME_FIELD_REGEXP_INVALID')
+			),
+			new Entity\Validator\RegExp(
+				'/(?<!Table)$/i',
+				GetMessage('HIGHLOADBLOCK_HIGHLOAD_BLOCK_ENTITY_NAME_FIELD_TABLE_POSTFIX_INVALID')
 			)
 		);
 	}

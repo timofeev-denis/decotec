@@ -102,13 +102,15 @@ $arUserFields_S = array("-"=>" ");
 $arUserFields_F = array("-"=>" ");
 if ($iblockExists)
 {
-	$arUserFields = $USER_FIELD_MANAGER->GetUserFields('IBLOCK_'.$arCurrentValues['IBLOCK_ID'].'_SECTION');
+	$arUserFields = $USER_FIELD_MANAGER->GetUserFields('IBLOCK_'.$arCurrentValues['IBLOCK_ID'].'_SECTION', 0, LANGUAGE_ID);
 	foreach ($arUserFields as $FIELD_NAME => $arUserField)
 	{
+		$arUserField['LIST_COLUMN_LABEL'] = (string)$arUserField['LIST_COLUMN_LABEL'];
+		$arProperty_UF[$FIELD_NAME] = $arUserField['LIST_COLUMN_LABEL'] ? '['.$FIELD_NAME.']'.$arUserField['LIST_COLUMN_LABEL'] : $FIELD_NAME;
 		if ($arUserField["USER_TYPE"]["BASE_TYPE"] == "string")
-			$arUserFields_S[$FIELD_NAME] = $arUserField["LIST_COLUMN_LABEL"] ? $arUserField["LIST_COLUMN_LABEL"]: $FIELD_NAME;
+			$arUserFields_S[$FIELD_NAME] = $arProperty_UF[$FIELD_NAME];
 		if ($arUserField["USER_TYPE"]["BASE_TYPE"] == "file" && $arUserField['MULTIPLE'] == 'N')
-			$arUserFields_F[$FIELD_NAME] = $FIELD_NAME;
+			$arUserFields_F[$FIELD_NAME] = $arProperty_UF[$FIELD_NAME];
 	}
 	unset($arUserFields);
 }
@@ -218,6 +220,7 @@ $arComponentParameters = array(
 			"SECTION_ID" => array(
 				"NAME" => GetMessage("CP_BC_VARIABLE_ALIASES_SECTION_ID"),
 			),
+
 		),
 		"AJAX_MODE" => array(),
 		"SEF_MODE" => array(

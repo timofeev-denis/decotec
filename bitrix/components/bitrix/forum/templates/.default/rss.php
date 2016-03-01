@@ -25,7 +25,6 @@ $APPLICATION->IncludeComponent(
 		"TN_DESCRIPTION" => $arParams["RSS_TN_DESCRIPTION"],
 		"TN_TEMPLATE" => $arParams["RSS_TN_TEMPLATE"],
 		"COUNT" => $arParams["RSS_COUNT"],
-		"PATH_TO_SMILE" =>  $arParams["PATH_TO_SMILE"],
 		"DATE_TIME_FORMAT" =>  $arResult["DATE_TIME_FORMAT"],
 		"USER_FIELDS" => $arParams["USER_FIELDS"],
 		
@@ -76,7 +75,6 @@ $APPLICATION->IncludeComponent(
 		"TN_DESCRIPTION" => $arParams["RSS_TN_DESCRIPTION"],
 		"TN_TEMPLATE" => $arParams["RSS_TN_TEMPLATE"],
 		"COUNT" => $arParams["RSS_COUNT"],
-		"PATH_TO_SMILE" =>  $arParams["PATH_TO_SMILE"],
 		"DATE_TIME_FORMAT" =>  $arResult["DATE_TIME_FORMAT"],
 		"NAME_TEMPLATE" => $arParams["NAME_TEMPLATE"],
 		

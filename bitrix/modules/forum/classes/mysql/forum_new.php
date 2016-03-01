@@ -237,11 +237,14 @@ class CForumGroup extends CAllForumGroup
 		$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 		$ID = intVal($DB->LastID());
 
-		for ($i = 0; $i < count($arFields["LANG"]); $i++)
+		if (array_key_exists("LANG", $arFields))
 		{
-			$arInsert = $DB->PrepareInsert("b_forum_group_lang", $arFields["LANG"][$i]);
-			$strSql = "INSERT INTO b_forum_group_lang(FORUM_GROUP_ID, ".$arInsert[0].") VALUES(".$ID.", ".$arInsert[1].")";
-			$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
+			foreach ($arFields["LANG"] as $l)
+			{
+				$arInsert = $DB->PrepareInsert("b_forum_group_lang", $l);
+				$strSql = "INSERT INTO b_forum_group_lang(FORUM_GROUP_ID, ".$arInsert[0].") VALUES(".$ID.", ".$arInsert[1].")";
+				$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
+			}
 		}
 		CForumGroup::Resort();
 /***************** Event onAfterGroupForumsAdd *********************/
@@ -282,9 +285,9 @@ class CForumGroup extends CAllForumGroup
 		{
 			$DB->Query("DELETE FROM b_forum_group_lang WHERE FORUM_GROUP_ID = ".$ID, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 
-			for ($i = 0; $i<count($arFields["LANG"]); $i++)
+			foreach ($arFields["LANG"] as $l)
 			{
-				$arInsert = $DB->PrepareInsert("b_forum_group_lang", $arFields["LANG"][$i]);
+				$arInsert = $DB->PrepareInsert("b_forum_group_lang", $l);
 				$strSql = "INSERT INTO b_forum_group_lang(FORUM_GROUP_ID, ".$arInsert[0].") VALUES(".$ID.", ".$arInsert[1].")";
 				$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 			}
@@ -297,34 +300,3 @@ class CForumGroup extends CAllForumGroup
 		return $ID;
 	}
 }
-
-/**********************************************************************/
-/************** FORUM SMILE *******************************************/
-/**********************************************************************/
-class CForumSmile extends CAllForumSmile
-{
-	function Add($arFields)
-	{
-		global $DB;
-
-		if (!CForumSmile::CheckFields("ADD", $arFields))
-			return false;
-
-		if(CACHED_b_forum_smile !== false)
-			$GLOBALS["CACHE_MANAGER"]->CleanDir("b_forum_smile");
-
-		$arInsert = $DB->PrepareInsert("b_forum_smile", $arFields);
-		$strSql = "INSERT INTO b_forum_smile(".$arInsert[0].") VALUES(".$arInsert[1].")";
-		$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
-		$ID = intVal($DB->LastID());
-
-		foreach ($arFields["LANG"] as $i => $val)
-		{
-			$arInsert = $DB->PrepareInsert("b_forum_smile_lang", $arFields["LANG"][$i]);
-			$strSql = "INSERT INTO b_forum_smile_lang(SMILE_ID, ".$arInsert[0].") VALUES(".$ID.", ".$arInsert[1].")";
-			$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
-		}
-		return $ID;
-	}
-}
-?>

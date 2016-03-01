@@ -278,16 +278,16 @@ $MESS["SC_HELP_CHECK_MYSQL_BUG_VERSION"] = "Известны версии MySQL 
 $MESS["SC_HELP_CHECK_MYSQL_TIME"] = "Сравнивается системное время базы данных и веб-сервера. Рассинхронизация может быть, когда они установлены на разные физические машины, но чаще всего в результате неправильной установки часового пояса.
 
 Установить часовой пояс php можно в <i>/bitrix/php_interface/dbconn.php</i>, например:
-<code>date_default_timezone_set(&quot;Europe/Moscow&quot;);</code>
+<code>date_default_timezone_set(&quot;Etc/GMT-3&quot;);</code>
 
 Для базы данных добавьте в <i>/bitrix/php_interface/after_connect_d7.php</i>:
 <code>\$connection = Bitrix\\Main\\Application::getConnection(); 
-\$connection-&gt;queryExecute(&quot;SET LOCAL time_zone='Europe/Moscow'&quot;);</code>
+\$connection-&gt;queryExecute(&quot;SET LOCAL time_zone='&quot;.date('P').&quot;'&quot;);</code>
 
 В файл <i>/bitrix/php_interface/after_connect.php</i>
-<code>\$DB->Query(&quot;SET LOCAL time_zone='Europe/Moscow'&quot;);</code>
+<code>\$DB->Query(&quot;SET LOCAL time_zone='&quot;.date('P').&quot;'&quot;);</code>
 
-Вместо <i>Europe/Moscow</i> укажите свой часовой пояс из списка: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones";
+Вместо <i>Etc/GMT-3</i> укажите свой часовой пояс из списка: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones";
 $MESS["SC_HELP_CHECK_MYSQL_MODE"] = "Параметр <i>sql_mode</i> задаёт режим работы MySQL. Может принимать значения, несовместимые с 1С-Битрикс. Чтобы установить режим работы по умолчанию, добавьте в <i>/bitrix/php_interface/after_connect_d7.php</i>:
 <code>\$connection = Bitrix\\Main\\Application::getConnection(); 
 \$connection-&gt;queryExecute(&quot;SET sql_mode=''&quot;);</code>

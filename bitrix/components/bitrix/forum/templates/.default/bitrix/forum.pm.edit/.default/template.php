@@ -64,6 +64,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 </div>
 <?
 endif;
+$arParams["FORM_ID"] = "REPLIER";
 ?>
 <IFRAME style="width:0px; height:0px; border: 0px" src="javascript:void(0)" name="frame_USER_ID" id="frame_USER_ID"></IFRAME>
 <form name="REPLIER" id="REPLIER" action="<?=POST_FORM_ACTION_URI?>" method="POST" onsubmit="return ValidateForm(this);"<?
@@ -133,50 +134,76 @@ endif;
 				$arSmiles = array();
 				foreach($arResult["SMILES"] as $arSmile)
 				{
-					$arSmiles[] = array(
-						'name' => $arSmile["NAME"],
-						'path' => $arParams["PATH_TO_SMILE"].$arSmile["IMAGE"],
-						'code' => array_shift(explode(" ", str_replace("\\\\","\\",$arSmile["TYPING"])))
-					);
+					$arSmiles[] = array_change_key_case($arSmile, CASE_LOWER) + array(
+						'path' => $arSmile["IMAGE"],
+						'code' => array_shift(explode(" ", str_replace("\\\\","\\",$arSmile["TYPING"]))));
 				}
 
-				CModule::IncludeModule("fileman");
-				AddEventHandler("fileman", "OnIncludeLightEditorScript", "CustomizeLHEForForum");
+			CModule::IncludeModule("fileman");
 
-				$LHE = new CLightHTMLEditor();
-
-				$arEditorParams = array(
+			$Editor = new CHTMLEditor;
+			$res = array_merge(
+				array(
+					'height' => 200,
+					'minBodyWidth' => 350,
+					'normalBodyWidth' => 555,
+					'bAllowPhp' => false,
+					'limitPhpAccess' => false,
+					'showTaskbars' => false,
+					'showNodeNavi' => false,
+					'askBeforeUnloadPage' => true,
+					'bbCode' => true,
+					'siteId' => SITE_ID,
+					'autoResize' => true,
+					'autoResizeOffset' => 40,
+					'saveOnBlur' => true,
+					'controlsMap' => array(
+						array('id' => 'Bold',  'compact' => true, 'sort' => 80),
+						array('id' => 'Italic',  'compact' => true, 'sort' => 90),
+						array('id' => 'Underline',  'compact' => true, 'sort' => 100),
+						array('id' => 'Strikeout',  'compact' => true, 'sort' => 110),
+						array('id' => 'RemoveFormat',  'compact' => true, 'sort' => 120),
+						array('id' => 'Color',  'compact' => true, 'sort' => 130),
+						array('id' => 'FontSelector',  'compact' => false, 'sort' => 135),
+						array('id' => 'FontSize',  'compact' => false, 'sort' => 140),
+						array('separator' => true, 'compact' => false, 'sort' => 145),
+						array('id' => 'OrderedList',  'compact' => true, 'sort' => 150),
+						array('id' => 'UnorderedList',  'compact' => true, 'sort' => 160),
+						array('id' => 'AlignList', 'compact' => false, 'sort' => 190),
+						array('separator' => true, 'compact' => false, 'sort' => 200),
+						array('id' => 'InsertLink',  'compact' => true, 'sort' => 210, 'wrap' => 'bx-b-link-'.$arParams["FORM_ID"]),
+						array('id' => 'InsertImage',  'compact' => false, 'sort' => 220),
+						array('id' => 'InsertVideo',  'compact' => true, 'sort' => 230, 'wrap' => 'bx-b-video-'.$arParams["FORM_ID"]),
+						array('id' => 'InsertTable',  'compact' => false, 'sort' => 250),
+						array('id' => 'Code',  'compact' => true, 'sort' => 260),
+						array('id' => 'Quote',  'compact' => true, 'sort' => 270, 'wrap' => 'bx-b-quote-'.$arParams["FORM_ID"]),
+						array('id' => 'Smile',  'compact' => false, 'sort' => 280),
+						array('separator' => true, 'compact' => false, 'sort' => 290),
+						array('id' => 'Fullscreen',  'compact' => false, 'sort' => 310),
+						array('id' => 'BbCode',  'compact' => true, 'sort' => 340),
+						array('id' => 'More',  'compact' => true, 'sort' => 400)
+					)
+				),
+				array(
+					'name' => "POST_MESSAGE",
 					'id' => "POST_MESSAGE",
-					'content' => (isset($arResult['POST_VALUES']["~POST_MESSAGE"]) ? $arResult['POST_VALUES']["~POST_MESSAGE"] : $arResult['POST_VALUES']["POST_MESSAGE"]),
-					'inputName' => "POST_MESSAGE",
-					'inputId' => "",
-					'width' => "100%",
-					'height' => "200px",
-					'minHeight' => "200px",
-					'bUseFileDialogs' => false,
-					'bUseMedialib' => false,
-					'BBCode' => true,
-					'bBBParseImageSize' => true,
-					'jsObjName' => "oLHE",
-					'toolbarConfig' => array(),
-					'smileCountInToolbar' => 3,
+					'width' => '100%',
+					'arSmilesSet' => CForumSmile::getSetsByType("S", LANGUAGE_ID),
 					'arSmiles' => $arSmiles,
-					'bQuoteFromSelection' => true,
-					'ctrlEnterHandler' => 'postformCtrlEnterHandler'.$arParams["form_index"],
-					'bSetDefaultCodeView' => ($arParams['EDITOR_CODE_DEFAULT'] === 'Y'),
-					'bResizable' => true,
-					'bAutoResize' => true
-				);
-
-				$arEditorParams['toolbarConfig'] = forumTextParser::GetEditorToolbar(array('mode'=>'full'));
-				$LHE->Show($arEditorParams);
+					'content' => (isset($arResult['POST_VALUES']["~POST_MESSAGE"]) ? $arResult['POST_VALUES']["~POST_MESSAGE"] : $arResult['POST_VALUES']["POST_MESSAGE"]),
+					'iframeCss' => 'body{font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; font-size: 13px;}'.
+						'.bx-spoiler {border:1px solid #C0C0C0;background-color:#fff4ca;padding: 4px 4px 4px 24px;color:#373737;border-radius:2px;min-height:1em;margin: 0;}'.
+						(is_array($arParams["LHE"]) && isset($arParams["LHE"]["iframeCss"]) ? $arParams["LHE"]["iframeCss"] : ""),
+				)
+			);
+			$Editor->Show($res);
 			?>
 		</div>
 
 		<div class="forum-reply-field forum-reply-field-settings">
 			<div class="forum-reply-field-setting">
 				<input type="checkbox" name="USE_SMILES" id="USE_SMILES" <?
-				?>value="Y" <?=($arResult["POST_VALUES"]["USE_SMILES"]=="Y") ? "checked=\"checked\"" : "";?> <?
+				?>value="Y" <?=($arResult["POST_VALUES"]["USE_SMILES"]!="N") ? "checked=\"checked\"" : "";?> <?
 				?>tabindex="<?=$tabIndex++;?>" />&nbsp;<label for="USE_SMILES"><?=GetMessage("F_WANT_ALLOW_SMILES")?></label></div>
 
 <?

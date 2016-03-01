@@ -55,7 +55,12 @@ else
 	$bSecurityFrameExcl = false;
 
 $messageDetails = "";
-if (CSecurityFrame::IsActive())
+if (CHTMLPagesCache::IsOn())
+{
+	$messageType = "ERROR";
+	$messageText = GetMessage("SEC_FRAME_HTML_CACHE");
+}
+else if (CSecurityFrame::IsActive())
 {
 	$messageType = "OK";
 	$messageText = GetMessage("SEC_FRAME_ON");

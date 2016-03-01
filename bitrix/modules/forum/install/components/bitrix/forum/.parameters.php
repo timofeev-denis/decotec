@@ -310,7 +310,6 @@ $arComponentParameters = array(
 			"HIDDEN" => $hidden),
 
 		"SEND_MAIL" => CForumParameters::GetSendMessageRights(GetMessage("F_SEND_MAIL"), "ADDITIONAL_SETTINGS", "E") + array("HIDDEN" => $hidden),
-		"SEND_ICQ" => CForumParameters::GetSendMessageRights(GetMessage("F_SEND_ICQ"), "ADDITIONAL_SETTINGS", "E", "ICQ") + array("HIDDEN" => "Y"),
 /*		"SHOW_USER_STATUS" => Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",
 			"NAME" => GetMessage("F_SHOW_USER_STATUS"),
@@ -394,7 +393,6 @@ if (IsModuleInstalled("search"))
 $arComponentParameters["PARAMETERS"]["DATE_FORMAT"]["HIDDEN"] = $hidden;
 $arComponentParameters["PARAMETERS"]["DATE_TIME_FORMAT"]["HIDDEN"] = $hidden;
 $arComponentParameters["PARAMETERS"]["SEND_MAIL"]["HIDDEN"] = $hidden;
-$arComponentParameters["PARAMETERS"]["SEND_ICQ"]["HIDDEN"] = "Y";
 $arComponentParameters["PARAMETERS"]["SET_NAVIGATION"]["HIDDEN"] = $hidden;
 
 if($arCurrentValues["USE_RSS"]=="Y")

@@ -84,20 +84,14 @@
 				}
 			},
 			DatePicker: {
-				params: {
-					format: "DD.MM.YYYY",
-					type: "date",//date|time|datetime
-					callback: function ()
-					{
-					}
-				},
 				setParams: function (params)
 				{
 					if (typeof params == "object")
-						this.params = BXMobileApp.TOOLS.merge(this.params, params);
+						this.params = params;
 				},
-				show: function ()
+				show: function (params)
 				{
+					this.setParams(params);
 					app.showDatePicker(this.params);
 
 				},
@@ -141,6 +135,28 @@
 				}
 			}
 		},
+		PushManager:
+		{
+			prepareParams : function (push)
+			{
+				if (typeof (push) != 'object' || typeof (push.params) == 'undefined')
+				{
+					return {'ACTION': 'NONE'};
+				}
+
+				var result = {};
+				try
+				{
+					result = JSON.parse(push.params);
+				}
+				catch(e)
+				{
+					result = {'ACTION': push.params};
+				}
+
+				return result;
+			}
+		},
 		PageManager:
 		{
 			loadPageBlank: function (params)
@@ -180,6 +196,28 @@
 			loadPageModal: function (params)
 			{
 				app.showModalDialog(params)
+			}
+		},
+		PushManager:
+		{
+			prepareParams : function (push)
+			{
+				if (typeof (push) != 'object' || typeof (push.params) == 'undefined')
+				{
+					return {'ACTION': 'NONE'};
+				}
+
+				var result = {};
+				try
+				{
+					result = JSON.parse(push.params);
+				}
+				catch(e)
+				{
+					result = {'ACTION': push.params};
+				}
+
+				return result;
 			}
 		},
 		TOOLS: {
@@ -446,7 +484,6 @@
 		{
 			app.exec("showActionSheet", {"id": this.id});
 		}
-
 		this.isShown = true;
 	};
 
@@ -752,22 +789,26 @@
 			}
 		},
 		TextPanel: {
-			params: {
+			defaultParams : {
 				placeholder: "Text here...",
 				button_name: "Send",
+                mentionDataSource: {},
 				action: function (){},
+                smileButton:{},
 				plusAction: "",
 				callback:"-1",
-				useImageButton: false
+				useImageButton: true
 			},
-			isShown: false,
+			params:{},
+			isAboutToShow: false,
 			temporaryParams: {},
+            timeout:0,
 			setParams: function (params)
 			{
-				this.params = BXMobileApp.TOOLS.merge(this.params, params);
-				if (this.isShown)
+				this.params = BXMobileApp.TOOLS.merge(this.defaultParams, params);
+				if (this.isAboutToShow)
 				{
-					app.textPanelAction("setParams", this.params);
+                    this.redraw();
 				}
 			},
 			show: function (params)
@@ -778,7 +819,7 @@
 				}
 
 				var showParams = this.getParams();
-				if (!this.isShown)
+				if (!this.isAboutToShow)
 				{
 					for (var key in this.temporaryParams)
 					{
@@ -798,7 +839,7 @@
 					app.showInput(showParams);
 				}
 
-				this.isShown = true;
+				this.isAboutToShow = true;
 			},
 			hide: function ()
 			{
@@ -823,23 +864,27 @@
 			setUseImageButton: function (use)
 			{
 				this.params.useImageButton = !((typeof use == "boolean" && use === false));
-				app.textPanelAction("setParams", {useImageButton: this.params.useImageButton});
+                this.redraw();
 			},
 			setAction: function (callback)
 			{
 				this.params.action = callback;
-				app.textPanelAction("setParams", {action: callback});
+                this.redraw();
 			},
 			setText: function (text)
 			{
-				if (!this.isShown)
+				if (!this.isAboutToShow)
 				{
 					this.temporaryParams["text"] = text;
 				}
 				else
 				{
-					app.textPanelAction("setParams", {text: text});
+
+                    var params = app.clone(this.params, true);
+                    params.text = text;
+					app.textPanelAction("setParams", params);
 				}
+
 
 			},
 			showLoading: function (shown)
@@ -855,7 +900,22 @@
 				}
 
 				return params;
-			}
+			},
+            redraw:function()
+            {
+                if(this.timeout > 0)
+                    clearTimeout(this.timeout);
+
+                this.timeout = setTimeout(BX.proxy(this._applyParams, this), 100);
+            },
+            _applyParams:function()
+            {
+                app.textPanelAction("setParams", this.params);
+                this.timeout = 0;
+
+                if(this.isAboutToShow)
+                    this.show()
+            }
 
 		},
 		Scroll: {

@@ -85,11 +85,9 @@ window.reviewsCtrlEnterHandler<?=CUtil::JSEscape($arParams["form_index"]);?> = f
 			{
 				foreach($arResult["SMILES"] as $arSmile)
 				{
-					$arSmiles[] = array(
-						'name' => $arSmile["NAME"],
-						'path' => $arParams["PATH_TO_SMILE"].$arSmile["IMAGE"],
-						'code' => array_shift(explode(" ", str_replace("\\\\","\\",$arSmile["TYPING"])))
-					);
+					$arSmiles[] = array_change_key_case($arSmile, CASE_LOWER) + array(
+						'path' => $arSmile["IMAGE"],
+						'code' => array_shift(explode(" ", str_replace("\\\\","\\",$arSmile["TYPING"]))));
 				}
 			}
 
@@ -233,7 +231,7 @@ window.reviewsCtrlEnterHandler<?=CUtil::JSEscape($arParams["form_index"]);?> = f
 
 	</div>
 </form>
-<script type="application/javascript">
+<script type="text/javascript">
 BX.ready(function(){
 	window["UC"] = (!!window["UC"] ? window["UC"] : {});
 	window["UC"]["l<?=$arParams["FORM_ID"]?>"] = new FTRList({

@@ -10,10 +10,8 @@ use	Bitrix\Sale\BusinessValue,
 	Bitrix\Sale\DeliveryStatus,
 	Bitrix\Main\Localization\Loc;
 
-include_once $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/install/index.php';
-$saleObject = new sale;
-$saleVersion = $saleObject->MODULE_VERSION;
-if (version_compare($saleVersion, '15.0.0', '>='))
+$saleConverted15 = COption::GetOptionString("main", "~sale_converted_15", "") == "Y";
+if ($saleConverted15)
 {
 	$BIZVAL_INDIVIDUAL_DOMAIN = BusinessValue::INDIVIDUAL_DOMAIN;
 	$BIZVAL_ENTITY_DOMAIN = BusinessValue::ENTITY_DOMAIN;
@@ -1520,17 +1518,6 @@ if($bRus || COption::GetOptionString("eshop", "wizard_installed", "N", WIZARD_SI
 		next($businessValueCodes);
 	}
 
-	// Install Business Values
-
-	if (version_compare($saleVersion, '15.0.0', '>='))
-	{
-		BusinessValue::install('ESHOP', null, array(
-			'PERSON_DOMAIN' => $businessValuePersonDomain,
-			'GROUPS'        => $businessValueGroups,
-			'CODES'         => $businessValueCodes,
-		));
-	}
-
 /*
 	$propReplace = "";
 	foreach($arGeneralInfo["properies"] as $key => $val)
@@ -2254,7 +2241,7 @@ if($bRus || COption::GetOptionString("eshop", "wizard_installed", "N", WIZARD_SI
 
 	if (COption::GetOptionString("eshop", "wizard_installed", "N", WIZARD_SITE_ID) != "Y" || WIZARD_INSTALL_DEMO_DATA)
 	{
-		if (version_compare($saleVersion, '15.0.0', '>='))
+		if ($saleConverted15)
 		{
 			$orderPaidStatus    = 'P';
 			$deliveryAssembleStatus  = 'DA';
@@ -2427,82 +2414,96 @@ if($bRus || COption::GetOptionString("eshop", "wizard_installed", "N", WIZARD_SI
 			CModule::IncludeModule("sale");
 			CModule::IncludeModule("catalog");
 			$arPrd = Array();
-			$dbItem = CIBlockElement::GetList(Array(/*"PROPERTY_MORE_PHOTO" => "DESC", "ID" => "ASC"*/), Array("IBLOCK_TYPE" => "offers", "IBLOCK_SITE_ID" => WIZARD_SITE_ID, "PROPERTY_NEWPRODUCT" => false), false, Array("nTopCount" => 100), Array("ID", "IBLOCK_ID", "XML_ID", "NAME", "DETAIL_PAGE_URL", "IBLOCK_XML_ID"));
+			$dbItem = CIBlockElement::GetList(Array(), Array("IBLOCK_TYPE" => "offers", "IBLOCK_SITE_ID" => WIZARD_SITE_ID, "PROPERTY_NEWPRODUCT" => false), false, Array("nTopCount" => 100), Array("ID", "IBLOCK_ID", "XML_ID", "NAME", "DETAIL_PAGE_URL", "IBLOCK_XML_ID"));
 			while($arItem = $dbItem->GetNext())
 				$arPrd[] = $arItem;
 
 			if(!empty($arPrd))
 			{
-				for($i=0; $i<$prdCnt;$i++)
-				{
-					$prdID = $arPrd[mt_rand(20, 99)];
-					$arProduct = CCatalogProduct::GetByID($prdID["ID"]);
-					$CALLBACK_FUNC = "";
-					$arCallbackPrice = CSaleBasket::ReReadPrice($CALLBACK_FUNC, "catalog", $prdID["ID"], 1);
-
-					$arFields = array(
-							"PRODUCT_ID" => $prdID["ID"],
-							"PRODUCT_PRICE_ID" => $arCallbackPrice["PRODUCT_PRICE_ID"],
-							"PRICE" => $arCallbackPrice["PRICE"],
-							"CURRENCY" => $arCallbackPrice["CURRENCY"],
-							"WEIGHT" => $arProduct["WEIGHT"],
-							"QUANTITY" => 1,
-							"LID" => WIZARD_SITE_ID,
-							"DELAY" => "N",
-							"CAN_BUY" => "Y",
-							"NAME" => $prdID["NAME"],
-							"CALLBACK_FUNC" => $CALLBACK_FUNC,
-							"MODULE" => "catalog",
-							"PRODUCT_PROVIDER_CLASS" => "CCatalogProductProvider",
-							"ORDER_CALLBACK_FUNC" => "",
-							"CANCEL_CALLBACK_FUNC" => "",
-							"PAY_CALLBACK_FUNC" => "",
-							"DETAIL_PAGE_URL" => $prdID["DETAIL_PAGE_URL"],
-							"CATALOG_XML_ID" => $prdID["IBLOCK_XML_ID"],
-							"PRODUCT_XML_ID" => $prdID["XML_ID"],
-							"VAT_RATE" => $arCallbackPrice['VAT_RATE'],
-						);
-					$addres = CSaleBasket::Add($arFields);
-				}
-
 				$arOrder = Array(
-						"LID" => $arData["SITE_ID"],
-						"PERSON_TYPE_ID" => $arData["PERSON_TYPE_ID"],
-						"PAYED" => "N",
-						"CANCELED" => "N",
-						"STATUS_ID" => "N",
-						"PRICE" => 1,
-						"CURRENCY" => $arData["CURRENCY"],
-						"USER_ID" => $arData["USER_ID"],
-						"PAY_SYSTEM_ID" => $arData["PAY_SYSTEM_ID"],
-						//"PRICE_DELIVERY" => $arData["PRICE_DELIVERY"],
-						//"DELIVERY_ID" => $arData["DELIVERY_ID"],
-					);
+					"LID" => $arData["SITE_ID"],
+					"PERSON_TYPE_ID" => $arData["PERSON_TYPE_ID"],
+					"PAYED" => "N",
+					"CANCELED" => "N",
+					"STATUS_ID" => "N",
+					"PRICE" => 1,
+					"CURRENCY" => $arData["CURRENCY"],
+					"USER_ID" => $arData["USER_ID"],
+					"PAY_SYSTEM_ID" => $arData["PAY_SYSTEM_ID"],
+					//"PRICE_DELIVERY" => $arData["PRICE_DELIVERY"],
+					//"DELIVERY_ID" => $arData["DELIVERY_ID"],
+				);
 
+				$fuserID = 0;
 				$dbFUserListTmp = CSaleUser::GetList(array("USER_ID" => $arData["USER_ID"]));
 				if(empty($dbFUserListTmp))
 				{
 					$arFields = array(
-							"=DATE_INSERT" => $DB->GetNowFunction(),
-							"=DATE_UPDATE" => $DB->GetNowFunction(),
-							"USER_ID" => $arData["USER_ID"]
-						);
+						"=DATE_INSERT" => $DB->GetNowFunction(),
+						"=DATE_UPDATE" => $DB->GetNowFunction(),
+						"USER_ID" => $arData["USER_ID"]
+					);
 
-					$ID = CSaleUser::_Add($arFields);
+					$fuserID = CSaleUser::_Add($arFields);
+				}
+				else
+				{
+					$fuserID = $dbFUserListTmp['ID'];
 				}
 
 				$orderID = CSaleOrder::Add($arOrder);
-				CSaleBasket::OrderBasket($orderID, CSaleBasket::GetBasketUserID(), WIZARD_SITE_ID);
+
+				CCatalogProduct::setPriceVatIncludeMode(true);
+				CCatalogProduct::setUsedCurrency(CSaleLang::GetLangCurrency(WIZARD_SITE_ID));
+				CCatalogProduct::setUseDiscount(true);
+				for($i=0; $i<$prdCnt;$i++)
+				{
+					$prdID = $arPrd[mt_rand(20, 99)];
+					$arProduct = CCatalogProduct::GetByID($prdID["ID"]);
+					$arPrice = CCatalogProduct::GetOptimalPrice($prdID["ID"], 1, array(2), 'N', array(), WIZARD_SITE_ID, array());
+
+					$arFields = array(
+						"IGNORE_CALLBACK_FUNC" => "Y",
+						"PRODUCT_ID" => $prdID["ID"],
+						"PRODUCT_PRICE_ID" => $arPrice['PRICE']['ID'],
+						"BASE_PRICE" => $arPrice['RESULT_PRICE']['BASE_PRICE'],
+						"PRICE" => $arPrice['RESULT_PRICE']['DISCOUNT_PRICE'],
+						"VAT_RATE" => $arPrice['PRICE']['VAT_RATE'],
+						"CURRENCY" => $arPrice['RESULT_PRICE']['CURRENCY'],
+						"WEIGHT" => $arProduct["WEIGHT"],
+						"DIMENSIONS" => serialize(array(
+							"WIDTH" => $arProduct["WIDTH"],
+							"HEIGHT" => $arProduct["HEIGHT"],
+							"LENGTH" => $arProduct["LENGTH"]
+						)),
+						"QUANTITY" => 1,
+						"LID" => WIZARD_SITE_ID,
+						"DELAY" => "N",
+						"CAN_BUY" => "Y",
+						"NAME" => $prdID["NAME"],
+						"CALLBACK_FUNC" => "",
+						"MODULE" => "catalog",
+						"PRODUCT_PROVIDER_CLASS" => "CCatalogProductProvider",
+						"ORDER_CALLBACK_FUNC" => "",
+						"CANCEL_CALLBACK_FUNC" => "",
+						"PAY_CALLBACK_FUNC" => "",
+						"DETAIL_PAGE_URL" => $prdID["DETAIL_PAGE_URL"],
+						"CATALOG_XML_ID" => $prdID["IBLOCK_XML_ID"],
+						"PRODUCT_XML_ID" => $prdID["XML_ID"],
+						"NOTES" => $arPrice["PRICE"]["CATALOG_GROUP_NAME"],
+						"FUSER_ID" => $fuserID,
+						"ORDER_ID" => $orderID
+					);
+					$addres = CSaleBasket::Add($arFields);
+				}
 				$dbBasketItems = CSaleBasket::GetList(
-						array("NAME" => "ASC"),
+						array(),
 						array(
-								"FUSER_ID" => CSaleBasket::GetBasketUserID(),
-								"LID" => WIZARD_SITE_ID,
 								"ORDER_ID" => $orderID
 							),
 						false,
 						false,
-						array("ID", "CALLBACK_FUNC", "MODULE", "PRODUCT_ID", "QUANTITY", "DELAY", "CAN_BUY", "PRICE", "WEIGHT", "NAME")
+						array("ID", "QUANTITY", "PRICE")
 					);
 				$ORDER_PRICE = 0;
 				while ($arBasketItems = $dbBasketItems->GetNext())

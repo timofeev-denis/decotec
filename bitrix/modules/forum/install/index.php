@@ -177,7 +177,6 @@ Class forum extends CModule
 	{
 		$this->errors = false;
 		$arInstall = array(
-			"INSTALL_SMILES" => ($_REQUEST["install_forum"] == "Y" && $_REQUEST["INSTALL_SMILES"] != "Y" ? "N" : "Y"),
 			"INSTALL_FILTER" => ($_REQUEST["install_forum"] == "Y" && $_REQUEST["INSTALL_FILTER"] != "Y" ? "N" : "Y"));
 		
 		if (!$GLOBALS["DB"]->Query("SELECT 'x' FROM b_forum", true))
@@ -195,7 +194,9 @@ Class forum extends CModule
 		
 		CAgent::AddAgent("CForumStat::CleanUp();","forum");
 		CAgent::AddAgent("CForumFiles::CleanUp();", "forum");
-		
+
+		RegisterModuleDependences("main", "OnAfterUserUpdate", "forum", "CForumUser", "OnAfterUserUpdate");
+
 		RegisterModuleDependences("main", "OnGroupDelete", "forum", "CForumNew", "OnGroupDelete");
 		RegisterModuleDependences("main", "OnBeforeLangDelete", "forum", "CForumNew", "OnBeforeLangDelete");
 		RegisterModuleDependences("main", "OnFileDelete", "forum", "CForumFiles", "OnFileDelete");
@@ -228,27 +229,6 @@ Class forum extends CModule
 		RegisterModuleDependences('forum', 'onAfterTopicAdd', 'forum', '\Bitrix\Forum\Internals\ConversionHandlers', 'onTopicAdd');
 		RegisterModuleDependences('forum', 'onAfterMessageAdd', 'forum', '\Bitrix\Forum\Internals\ConversionHandlers', 'onMessageAdd');
 
-		if ($arInstall["INSTALL_SMILES"] == "Y")
-		{
-			$bInsSmiles = False;
-			if ($GLOBALS["DB"]->TableExists("b_forum_smile") || $GLOBALS["DB"]->TableExists("B_FORUM_SMILE"))
-			{
-				$bInsSmiles = true;
-				$db_res = $GLOBALS["DB"]->Query("SELECT * FROM b_forum_smile", true);
-				if ($db_res && $db_res->Fetch())
-					$bInsSmiles = false;
-			}
-			if ($bInsSmiles)
-			{
-				$this->errors = $GLOBALS["DB"]->RunSQLBatch($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/install/".$GLOBALS["DBType"]."/smile.sql");
-				$by = "LID"; $order = "DESC";
-				$sites = CLanguage::GetList($by, $order, Array());
-				while($site = $sites->Fetch())
-				{
-					$this->errors = $GLOBALS["DB"]->RunSQLBatch($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/install/".$GLOBALS["DBType"]."/".$site["LID"]."/smile.sql");
-				}
-			}
-		}
 		if ($GLOBALS["DB"]->TableExists("b_forum_pm_folder") || $GLOBALS["DB"]->TableExists("B_FORUM_PM_FOLDER"))
 		{
 			$db_res = $GLOBALS["DB"]->Query("SELECT ID FROM b_forum_pm_folder WHERE USER_ID IS NULL OR USER_ID <= 0");
@@ -309,6 +289,8 @@ Class forum extends CModule
 	
 	function UnInstallDB($arParams = array())
 	{
+		/** @var CDataBase $DB */
+		global $DB;
 		$this->errors = false;
 
 		$arSQLErrors = array();
@@ -319,10 +301,26 @@ Class forum extends CModule
 		if(array_key_exists("savedata", $arParams) && $arParams["savedata"] != "Y")
 		{
 			$this->UnInstallUserFields();
-			$db_res = $GLOBALS["DB"]->Query("SELECT ID FROM b_file WHERE MODULE_ID = 'forum'");
+			$db_res = $DB->Query("SELECT ID FROM b_file WHERE MODULE_ID = 'forum'");
 			while($res = $db_res->Fetch())
 				CFile::Delete($res["ID"]);
-			$this->errors = $GLOBALS["DB"]->RunSQLBatch($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/install/".$GLOBALS["DBType"]."/uninstall.sql");
+			if ($DB->TableExists("b_forum_smile") || $DB->TableExists("B_FORUM_SMILE"))
+			{
+				if ($DB->type == "ORACLE")
+				{
+					$DB->Query("DROP TABLE B_FORUM_SMILE CASCADE CONSTRAINTS");
+					$DB->Query("DROP SEQUENCE sq_B_FORUM_SMILE");
+					$DB->Query("DROP TABLE B_FORUM_SMILE_LANG CASCADE CONSTRAINTS");
+					$DB->Query("DROP SEQUENCE SQ_B_FORUM_SMILE_LANG");
+				}
+				else
+				{
+					$DB->Query("DELETE FROM b_forum_smile");
+					$DB->Query("DROP TABLE b_forum_smile");
+					$DB->Query("DROP TABLE b_forum_smile_lang");
+				}
+			}
+			$this->errors = $DB->RunSQLBatch($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/install/".$GLOBALS["DBType"]."/uninstall.sql");
 		}
 		if(!empty($this->errors))
 		{
@@ -355,6 +353,8 @@ Class forum extends CModule
 		UnRegisterModuleDependences('conversion', 'OnGetRateTypes' , 'forum', '\Bitrix\Forum\Internals\ConversionHandlers', 'onGetRateTypes');
 		UnRegisterModuleDependences('forum', 'onAfterTopicAdd', 'forum', '\Bitrix\Forum\Internals\ConversionHandlers', 'onTopicAdd');
 		UnRegisterModuleDependences('forum', 'onAfterMessageAdd', 'forum', '\Bitrix\Forum\Internals\ConversionHandlers', 'onMessageAdd');
+
+		UnRegisterModuleDependences("main", "OnAfterUserUpdate", "forum", "CForumUser", "OnAfterUserUpdate");
 
 		CAgent::RemoveAgent("CForumTopic::CleanUp();","forum");
 		CAgent::RemoveAgent("CForumStat::CleanUp();","forum");

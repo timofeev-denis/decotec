@@ -67,7 +67,7 @@
 			return this.listLoaded;
 		},
 
-		GetSource: function(params)
+		GetSource: function(params, bxid)
 		{
 			if (!this.arVA)
 			{
@@ -76,24 +76,25 @@
 
 			var
 				res = "<?" + this.componentIncludeMethod + "(\n" +
-					"\t\"" + params.name+"\",\n" +
+					"\t\"" + params.name + "\",\n" +
 					"\t\"" + (params.template || "") + "\",\n";
 
-			if (params.params)
+			if (params.params && !this.editor.util.IsEmptyObject(params.params))
 			{
 				res += "\tArray(\n";
 
 				var
 					propValues = params.params,
-					i, k, cnt,
+					keysSorted = Object.keys(propValues).sort(),
+					i, k, arVal, arLen, j,
 					_len1 = "SEF_URL_TEMPLATES_".length,
 					_len2 = "VARIABLE_ALIASES_".length,
 					SUT, VA, lio, templ_key,
-					params_exist = false,
-					arVal, arLen, j;
+					params_exist = false;
 
-				for (i in propValues)
+				for (k = 0; k < keysSorted.length; k++)
 				{
+					i = keysSorted[k];
 					if (!propValues.hasOwnProperty(i))
 						continue;
 
@@ -204,46 +205,7 @@
 				if (VA || SUT)
 				{
 					lio = res.lastIndexOf(",");
-					res = res.substr(0, lio) + res.substr(lio+1);
-					VA = false;
-					SUT = false;
-					res += "\t\t),\n";
-				}
-
-				if (propValues["SEF_MODE"] && propValues["SEF_MODE"].toUpperCase() == "Y")
-				{
-					res += "\t\t\"VARIABLE_ALIASES\" => Array(\n";
-
-					if (this.arVA)
-					{
-						for (templ_key in this.arVA)
-						{
-							if (!this.arVA.hasOwnProperty(templ_key) || typeof(this.arVA[templ_key]) != 'object')
-								continue;
-							res += "\t\t\t\""+templ_key+"\" => Array(";
-
-							cnt = 0;
-							for (k in this.arVA[templ_key])
-							{
-								if (!this.arVA[templ_key].hasOwnProperty(k) || typeof(this.arVA[templ_key][k]) != 'string')
-									continue;
-								cnt++;
-								res += "\n\t\t\t\t\"" + k +"\" => \"" + this.arVA[templ_key][k]+"\",";
-							}
-
-							if (cnt > 0)
-							{
-								lio = res.lastIndexOf(",");
-								res = res.substr(0, lio) + res.substr(lio + 1);
-								res += "\n\t\t\t),\n";
-							}
-							else
-							{
-								res += "),\n";
-							}
-						}
-					}
-
+					res = res.substr(0, lio) + res.substr(lio + 1);
 					res += "\t\t),\n";
 				}
 
@@ -256,7 +218,16 @@
 			}
 			else
 			{
-				res += "Array()"
+				res += "Array()";
+
+				if (this.lastDroppedName == params.name && bxid)
+				{
+					var bxTag = this.editor.GetBxTag(bxid);
+					if (bxTag && bxTag.surrogateId)
+					{
+						this.ShowPropertiesDialog(bxTag.params, this.editor.GetBxTag(bxTag.surrogateId));
+					}
+				}
 			}
 
 			if (params.parentComponent !== false || params.exParams !== false)
@@ -291,14 +262,6 @@
 			}
 			res += "\n);?>";
 
-//			if (window.lca)
-//			{
-//				var key = str_pad_left(++_$compLength, 4, '0');
-//				_$arComponents[key] = res;
-//				return '#COMPONENT'+String(key)+'#';
-//			}
-//			else
-
 			return res;
 		},
 
@@ -307,6 +270,7 @@
 			var _params = {
 				name: params.name
 			};
+			this.lastDroppedName = params.name;
 			return this.GetSource(_params);
 		},
 
@@ -375,6 +339,7 @@
 				this.oPropertiesDialog = this.editor.GetDialog('componentProperties', {oBXComponentParamsManager: oBXComponentParamsManager});
 
 				BX.addCustomEvent(this.oPropertiesDialog, "OnDialogSave", BX.proxy(this.SavePropertiesDialog, this));
+				BX.addCustomEvent(this.oPropertiesDialog.oDialog, "onWindowUnRegister",BX.proxy(this.OnDialogClose, this));
 			}
 
 			this.currentViewedComponentTag = bxTag;
@@ -431,6 +396,15 @@
 			ddBxTag.params.origParams.template = compBxTag.params.template = template;
 
 			this.editor.synchro.FullSyncFromIframe();
+			this.lastDroppedName = '';
+		},
+
+		OnDialogClose: function()
+		{
+			if (this.editor.util.IsEmptyObject(this.currentViewedComponentTag.params.origParams.params) && this.lastDroppedName)
+			{
+				this.SavePropertiesDialog();
+			}
 		},
 
 		ReloadList: function()

@@ -195,9 +195,7 @@ class CIBlockPriceTools
 		$arPrices = array();
 
 		if (empty($arCatalogPrices) || !is_array($arCatalogPrices))
-		{
 			return $arPrices;
-		}
 
 		global $USER;
 		static $arCurUserGroups = array();
@@ -239,12 +237,14 @@ class CIBlockPriceTools
 			CCatalogDiscountSave::Disable();
 			foreach ($arCatalogPrices as $key => $value)
 			{
-				if ($value["CAN_VIEW"] && strlen($arItem["CATALOG_PRICE_".$value["ID"]]) > 0)
+				$catalogPriceValue = 'CATALOG_PRICE_'.$value['ID'];
+				$catalogCurrencyValue = 'CATALOG_CURRENCY_'.$value['ID'];
+				if ($value["CAN_VIEW"] && strlen($arItem[$catalogPriceValue]) > 0)
 				{
 					// get final price with VAT included.
 					if ($arItem['CATALOG_VAT_INCLUDED'] != 'Y')
 					{
-						$arItem['CATALOG_PRICE_'.$value['ID']] *= (1 + $arItem['CATALOG_VAT'] * 0.01);
+						$arItem[$catalogPriceValue] *= (1 + $arItem['CATALOG_VAT'] * 0.01);
 					}
 					// so discounts will include VAT
 					$arDiscounts = CCatalogDiscount::GetDiscount(
@@ -257,24 +257,24 @@ class CIBlockPriceTools
 						array()
 					);
 					$discountPrice = CCatalogProduct::CountPriceWithDiscount(
-						$arItem["CATALOG_PRICE_".$value["ID"]],
-						$arItem["CATALOG_CURRENCY_".$value["ID"]],
+						$arItem[$catalogPriceValue],
+						$arItem[$catalogCurrencyValue],
 						$arDiscounts
 					);
 					// get clear prices WO VAT
-					$arItem['CATALOG_PRICE_'.$value['ID']] /= (1 + $arItem['CATALOG_VAT'] * 0.01);
+					$arItem[$catalogPriceValue] /= (1 + $arItem['CATALOG_VAT'] * 0.01);
 					$discountPrice /= (1 + $arItem['CATALOG_VAT'] * 0.01);
 
 					$vat_value_discount = $discountPrice * $arItem['CATALOG_VAT'] * 0.01;
 					$vat_discountPrice = $discountPrice + $vat_value_discount;
 
-					$vat_value = $arItem['CATALOG_PRICE_'.$value['ID']] * $arItem['CATALOG_VAT'] * 0.01;
-					$vat_price = $arItem["CATALOG_PRICE_".$value["ID"]] + $vat_value;
+					$vat_value = $arItem[$catalogPriceValue] * $arItem['CATALOG_VAT'] * 0.01;
+					$vat_price = $arItem[$catalogPriceValue] + $vat_value;
 
-					if ($boolConvert && $strCurrencyID != $arItem["CATALOG_CURRENCY_".$value["ID"]])
+					if ($boolConvert && $strCurrencyID != $arItem[$catalogCurrencyValue])
 					{
-						$strOrigCurrencyID = $arItem["CATALOG_CURRENCY_".$value["ID"]];
-						$dblOrigNoVat = $arItem["CATALOG_PRICE_".$value["ID"]];
+						$strOrigCurrencyID = $arItem[$catalogCurrencyValue];
+						$dblOrigNoVat = $arItem[$catalogPriceValue];
 						$dblNoVat = CCurrencyRates::ConvertCurrency($dblOrigNoVat, $strOrigCurrencyID, $strCurrencyID);
 						$dblVatPrice = CCurrencyRates::ConvertCurrency($vat_price, $strOrigCurrencyID, $strCurrencyID);
 						$dblVatValue = CCurrencyRates::ConvertCurrency($vat_value, $strOrigCurrencyID, $strCurrencyID);
@@ -313,10 +313,10 @@ class CIBlockPriceTools
 					}
 					else
 					{
-						$strPriceCurrency = $arItem["CATALOG_CURRENCY_".$value["ID"]];
+						$strPriceCurrency = $arItem[$catalogCurrencyValue];
 						$arPrices[$key] = array(
-							"VALUE_NOVAT" => $arItem["CATALOG_PRICE_".$value["ID"]],
-							"PRINT_VALUE_NOVAT" => CCurrencyLang::CurrencyFormat($arItem["CATALOG_PRICE_".$value["ID"]], $strPriceCurrency, true),
+							"VALUE_NOVAT" => $arItem[$catalogPriceValue],
+							"PRINT_VALUE_NOVAT" => CCurrencyLang::CurrencyFormat($arItem[$catalogPriceValue], $strPriceCurrency, true),
 
 							"VALUE_VAT" => $vat_price,
 							"PRINT_VALUE_VAT" => CCurrencyLang::CurrencyFormat($vat_price, $strPriceCurrency, true),
@@ -452,23 +452,20 @@ class CIBlockPriceTools
 		if (isset($arItem['CATALOG_AVAILABLE']) && 'N' == $arItem['CATALOG_AVAILABLE'])
 			return false;
 
-		if(isset($arItem["PRICE_MATRIX"]) && !empty($arItem["PRICE_MATRIX"]) && is_array($arItem["PRICE_MATRIX"]))
+		if (!empty($arItem["PRICE_MATRIX"]) && is_array($arItem["PRICE_MATRIX"]))
 		{
 			return $arItem["PRICE_MATRIX"]["AVAILABLE"] == "Y";
 		}
 		else
 		{
 			if (empty($arCatalogPrices) || !is_array($arCatalogPrices))
-			{
 				return false;
-			}
 
-			foreach($arCatalogPrices as $arPrice)
+			foreach ($arCatalogPrices as $arPrice)
 			{
-				if($arPrice["CAN_BUY"] && isset($arItem["CATALOG_PRICE_".$arPrice["ID"]]) && $arItem["CATALOG_PRICE_".$arPrice["ID"]] !== null)
-				{
+				//if ($arPrice["CAN_BUY"] && isset($arItem["CATALOG_PRICE_".$arPrice["ID"]]) && $arItem["CATALOG_PRICE_".$arPrice["ID"]] !== null)
+				if ($arPrice["CAN_BUY"] && isset($arItem["CATALOG_PRICE_".$arPrice["ID"]]))
 					return true;
-				}
 			}
 		}
 		return false;
@@ -1242,8 +1239,8 @@ class CIBlockPriceTools
 			{
 				$USER_ID = (int)$USER_ID;
 				$userGroups = ($USER_ID > 0 ? CUser::GetUserGroup($USER_ID) : $USER->GetUserGroupArray());
-				$tmp = CIBlockPriceTools::SetCatalogDiscountCache($pricesAllow, $userGroups);
-				unset($tmp, $userGroups);
+				self::$needDiscountCache = CIBlockPriceTools::SetCatalogDiscountCache($pricesAllow, $userGroups);
+				unset($userGroups);
 			}
 			unset($pricesAllow);
 		}
@@ -1262,9 +1259,12 @@ class CIBlockPriceTools
 
 			$intOfferIBlockID = $arOffersIBlock["OFFERS_IBLOCK_ID"];
 
+			$productProperty = 'PROPERTY_'.$arOffersIBlock['OFFERS_PROPERTY_ID'];
+			$productPropertyValue = $productProperty.'_VALUE';
+
 			$arFilter = array(
 				"IBLOCK_ID" => $intOfferIBlockID,
-				"PROPERTY_".$arOffersIBlock["OFFERS_PROPERTY_ID"] => $arElementID,
+				$productProperty => $arElementID,
 				"ACTIVE" => "Y",
 				"ACTIVE_DATE" => "Y",
 			);
@@ -1279,7 +1279,7 @@ class CIBlockPriceTools
 			$arSelect = array(
 				"ID" => 1,
 				"IBLOCK_ID" => 1,
-				"PROPERTY_".$arOffersIBlock["OFFERS_PROPERTY_ID"] => 1,
+				$productProperty => 1,
 				"CATALOG_QUANTITY" => 1
 			);
 			//if(!$arParams["USE_PRICE_COUNT"])
@@ -1313,7 +1313,7 @@ class CIBlockPriceTools
 			while($arOffer = $rsOffers->GetNext())
 			{
 				$arOffer['ID'] = (int)$arOffer['ID'];
-				$element_id = (int)$arOffer["PROPERTY_".$arOffersIBlock["OFFERS_PROPERTY_ID"]."_VALUE"];
+				$element_id = (int)$arOffer[$productPropertyValue];
 				//No more than limit offers per element
 				if($limit > 0)
 				{
@@ -1366,7 +1366,7 @@ class CIBlockPriceTools
 			{
 				$rsRatios = CCatalogMeasureRatio::getList(
 					array(),
-					array('PRODUCT_ID' => $arOfferIDs),
+					array('@PRODUCT_ID' => $arOfferIDs),
 					false,
 					false,
 					array('PRODUCT_ID', 'RATIO')
@@ -1377,7 +1377,7 @@ class CIBlockPriceTools
 					if (isset($arOffersLink[$arRatio['PRODUCT_ID']]))
 					{
 						$intRatio = (int)$arRatio['RATIO'];
-						$dblRatio = doubleval($arRatio['RATIO']);
+						$dblRatio = (float)$arRatio['RATIO'];
 						$mxRatio = ($dblRatio > $intRatio ? $dblRatio : $intRatio);
 						if (CATALOG_VALUE_EPSILON > abs($mxRatio))
 							$mxRatio = 1;
@@ -1408,10 +1408,10 @@ class CIBlockPriceTools
 							{
 								$arOffer["DISPLAY_PROPERTIES"][$pid] = CIBlockFormatProperties::GetDisplayValue($arOffer, $prop, "catalog_out");
 							}
+							unset($prop);
 						}
-						if (isset($arOffer))
-							unset($arOffer);
 					}
+					unset($arOffer);
 				}
 
 				if (!empty($extPrices))
@@ -1435,7 +1435,7 @@ class CIBlockPriceTools
 				{
 					$arOffer['CATALOG_QUANTITY'] = (
 						0 < $arOffer['CATALOG_QUANTITY'] && is_float($arOffer['CATALOG_MEASURE_RATIO'])
-						? floatval($arOffer['CATALOG_QUANTITY'])
+						? (float)$arOffer['CATALOG_QUANTITY']
 						: (int)$arOffer['CATALOG_QUANTITY']
 					);
 					$arOffer['MIN_PRICE'] = false;
@@ -1536,7 +1536,7 @@ class CIBlockPriceTools
 				else
 				{
 					$item['RATIO_PRICE']['DISCOUNT_DIFF'] = $item['RATIO_PRICE']['VALUE'] - $item['RATIO_PRICE']['DISCOUNT_VALUE'];
-					$item['RATIO_PRICE']['DISCOUNT_DIFF_PERCENT'] = 100*$item['RATIO_PRICE']['DISCOUNT_DIFF']/$item['RATIO_PRICE']['VALUE'];
+					$item['RATIO_PRICE']['DISCOUNT_DIFF_PERCENT'] = roundEx(100*$item['RATIO_PRICE']['DISCOUNT_DIFF']/$item['RATIO_PRICE']['VALUE'], 0);
 					$item['RATIO_PRICE']['PRINT_DISCOUNT_DIFF'] = CCurrencyLang::CurrencyFormat(
 						$item['RATIO_PRICE']['DISCOUNT_DIFF'],
 						$item['RATIO_PRICE']['CURRENCY'],

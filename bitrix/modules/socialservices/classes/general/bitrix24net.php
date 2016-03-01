@@ -652,9 +652,23 @@ class CBitrix24NetTransport
 		$this->access_token = $access_token;
 	}
 
-	protected function prepareAnswer($result)
+	protected function prepareResponse($result)
 	{
 		return \Bitrix\Main\Web\Json::decode($result);
+	}
+
+	protected function prepareRequest(array $request)
+	{
+		$request["auth"] = $this->access_token;
+
+		return $this->convertRequest($request);
+	}
+
+	protected function convertRequest(array $request)
+	{
+		global $APPLICATION;
+
+		return $APPLICATION->ConvertCharsetArray($request, LANG_CHARSET, 'utf-8');
 	}
 
 	public function call($methodName, $additionalParams = null)
@@ -664,15 +678,22 @@ class CBitrix24NetTransport
 			$additionalParams = array();
 		}
 
-		$additionalParams['auth'] = $this->access_token;
+		$request = $this->prepareRequest($additionalParams);
 
 		$http = new \Bitrix\Main\Web\HttpClient(array('socketTimeout' => $this->httpTimeout));
 		$result = $http->post(
 			CBitrix24NetOAuthInterface::NET_URL.self::SERVICE_URL.$methodName,
-			$additionalParams
+			$request
 		);
 
-		$res = $this->prepareAnswer($result);
+		try
+		{
+			$res = $this->prepareResponse($result);
+		}
+		catch(\Bitrix\Main\ArgumentException $e)
+		{
+			$res = false;
+		}
 
 		if(!$res)
 		{
@@ -733,4 +754,40 @@ class CBitrix24NetTransport
 		$this->httpTimeout = 2;
 		return $this->call(self::METHOD_PROFILE_CHANNEL);
 	}
+}
+
+class CBitrix24NetPortalTransport extends CBitrix24NetTransport
+{
+	protected $clientId = null;
+	protected $clientSecret = null;
+
+	public static function init()
+	{
+		$result = parent::init();
+
+		if(!$result)
+		{
+			$interface = new CBitrix24NetOAuthInterface();
+			$result = new self($interface->getAppID(), $interface->getAppSecret());
+		}
+
+		return $result;
+	}
+
+	public function __construct($clientId, $clientSecret)
+	{
+		$this->clientId = $clientId;
+		$this->clientSecret = $clientSecret;
+
+		return parent::__construct('');
+	}
+
+	protected function prepareRequest(array $request)
+	{
+		$request["client_id"] = $this->clientId;
+		$request["client_secret"] = $this->clientSecret;
+
+		return $this->convertRequest($request);
+	}
+
 }

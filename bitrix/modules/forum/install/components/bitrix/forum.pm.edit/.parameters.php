@@ -53,12 +53,6 @@ $arComponentParameters = Array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "profile_view.php?UID=#UID#"),
 
-		
-		"PATH_TO_SMILE" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_SMILE"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/smile/"),
 		"EDITOR_CODE_DEFAULT" => Array(
 			"NAME" => GetMessage("F_EDITOR_CODE_DEFAULT"),
 			"TYPE" => "CHECKBOX",

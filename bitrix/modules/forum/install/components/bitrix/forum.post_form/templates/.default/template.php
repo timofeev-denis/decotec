@@ -91,10 +91,12 @@ if (($arResult["SHOW_PANEL_NEW_TOPIC"] == "Y" || $arResult["SHOW_PANEL_GUEST"] =
 			<input name="DESCRIPTION" id="DESCRIPTION<?=$arParams["form_index"]?>" type="text" value="<?=$arResult["TOPIC"]["DESCRIPTION"];?>" tabindex="<?=$tabIndex++;?>" size="70"/>
 		</div>
 <?
-/*?> for the future
-	<tr title="<?=GetMessage("F_TOPIC_ICON_DESCRIPTION")?>"><td>
-		<span class="title title-icons"><?=GetMessage("F_TOPIC_ICON")?></span>
-		<span class="value value-icons"><?=$arResult["ForumPrintIconsList"];?></span></td></tr>
+/*//		for the future
+?>
+	<div class="forum-reply-field forum-reply-field-title">
+		<label><?=GetMessage("F_TOPIC_ICON")?></label>
+		<?=$arResult["ForumPrintIconsList"]?>
+	</div>
 <?*/
 	};
 /* GUEST PANEL */
@@ -275,18 +277,6 @@ if ($arResult["SHOW_PANEL_NEW_TOPIC"] == "Y" && $arParams["SHOW_TAGS"] == "Y")
 		<div class="forum-reply-field forum-reply-field-text">
 			<?
 				$postMessageTabIndex = $tabIndex++;
-				$arSmiles = array();
-				if ($arResult["FORUM"]["ALLOW_SMILES"] == "Y")
-				{
-					foreach($arResult["SMILES"] as $arSmile)
-					{
-						$arSmiles[] = array(
-							'name' => $arSmile["NAME"],
-							'path' => $arParams["PATH_TO_SMILE"].$arSmile["IMAGE"],
-							'code' => array_shift(explode(" ", str_replace("\\\\","\\",$arSmile["TYPING"])))
-						);
-					}
-				}
 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.post.form",
@@ -335,7 +325,7 @@ if ($arResult["SHOW_PANEL_NEW_TOPIC"] == "Y" && $arParams["SHOW_TAGS"] == "Y")
 
 //					"TAGS" => Array(),
 
-					"SMILES" => array("VALUE" => $arSmiles),
+					"SMILES" => COption::GetOptionInt("forum", "smile_gallery_id", 0),
 					"NAME_TEMPLATE" => $arParams["NAME_TEMPLATE"],
 				),
 				$component,

@@ -8,8 +8,6 @@ endif;
 				Input params
 ********************************************************************/
 /***************** BASE ********************************************/
-$arParams["PATH_TO_ICON"] = (empty($arParams["PATH_TO_ICON"]) ? $templateFolder."/images/icon" : $arParams["PATH_TO_ICON"]);
-$arParams["PATH_TO_ICON"] = str_replace("//", "/", $arParams["PATH_TO_ICON"]."/");
 global $find_forum, $find_date1, $find_date2;
 /********************************************************************
 				/Input params
@@ -160,7 +158,7 @@ if ($arResult["SHOW_RESULT"] == "Y"):
 						endif;
 								?><span class="forum-item-title"><?
 						if (false && strLen($res["IMAGE"]) > 0):
-								?><img src="<?=$arParams["PATH_TO_ICON"].$res["IMAGE"];?>" alt="<?=$res["IMAGE_DESCR"];?>" border="0" width="15" height="15"/><?
+								?><img src="<?=$res["IMAGE"];?>" alt="<?=$res["IMAGE_DESCR"];?>" border="0" width="15" height="15"/><?
 						endif;
 								?><a href="<?=$res["URL"]["TOPIC"]?>" title="<?=GetMessage("F_TOPIC_START")?> <?=$res["START_DATE"]?>"><?=$res["TITLE"]?></a></span><?
 						if ($res["PAGES_COUNT"] > 1):

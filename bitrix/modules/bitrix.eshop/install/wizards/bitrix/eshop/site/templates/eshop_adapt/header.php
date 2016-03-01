@@ -22,7 +22,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 <?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
 <div class="bx-wrapper" id="bx_eshop_wrap">
-	<header class="bx-header" itemscope itemtype="http://schema.org/Organization">
+	<header class="bx-header">
 		<div class="bx-header-section container">
 			<div class="row">
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">

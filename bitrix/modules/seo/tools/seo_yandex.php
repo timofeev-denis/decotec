@@ -80,7 +80,7 @@ if(isset($_REQUEST['action']))
 								$uin = $engine->verifySite($arDomain['DOMAIN'], false);
 								if($uin)
 								{
-									$filename = "yandex_".$uin.".txt";
+									$filename = "yandex_".$uin.".html";
 
 									$path = Path::combine((
 										strlen($arDomain['SITE_DOC_ROOT']) > 0
@@ -88,7 +88,7 @@ if(isset($_REQUEST['action']))
 											: $_SERVER['DOCUMENT_ROOT']
 										), $arDomain['SITE_DIR'], $filename);
 									$obFile = new \Bitrix\Main\IO\File($path);
-									$obFile->putContents("");
+									$obFile->putContents('<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>Verification: '.$uin.'</body></html>');
 
 									$res = $engine->verifySite($arDomain['DOMAIN'], true);
 

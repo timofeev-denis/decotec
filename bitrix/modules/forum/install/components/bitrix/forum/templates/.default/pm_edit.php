@@ -18,7 +18,6 @@ $APPLICATION->IncludeComponent(
 		"UID" =>  $arResult["UID"],
 		"mode" =>  $arResult["mode"],
 		
-		"PATH_TO_SMILE" => $arParams["PATH_TO_SMILE"],
 		"SMILES_COUNT" => $arParams["SMILES_COUNT"],
 		"EDITOR_CODE_DEFAULT" => $arParams["EDITOR_CODE_DEFAULT"],
 		"SEO_USER" => $arParams["SEO_USER"],

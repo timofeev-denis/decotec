@@ -22,3 +22,61 @@
 2016-02-27 19:27:06 -  - exec CUpdateClientPartner::GetHTTPPage
 2016-02-27 19:27:06 -  - TIME GetUpdatesList(request) 0.379 sec
 2016-02-27 19:27:06 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:05 -  - exec CUpdateClientPartner::GetUpdatesList
+2016-03-01 17:10:05 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:05 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=decotec.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=40&TYPENC=E&CLIENT_PHPVER=5.4.45&dbv=5.6.25&instm=main%2C15.5.10%2CN%3Bbitrix.eshop%2C15.5.0%2CN%3Bbitrix.sitecorporate%2C15.0.0%2CN%3Bbitrixcloud%2C16.0.0%2CN%3Bblog%2C15.5.4%2CN%3Bcatalog%2C15.5.1%2CN%3Bclouds%2C16.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bcurrency%2C16.0.0%2CN%3Beshopapp%2C15.0.0%2CN%3Bfileman%2C16.0.0%2CN%3Bform%2C15.0.2%2CN%3Bforum%2C15.5.3%2CN%3Bhighloadblock%2C16.0.0%2CN%3Biblock%2C15.5.8%2CN%3Bmobileapp%2C15.5.8%2CN%3Bperfmon%2C16.0.0%2CN%3Bphotogallery%2C16.0.1%2CN%3Bpull%2C15.5.8%2CN%3Bsale%2C14.11.19%2CN%3Bscale%2C16.0.0%2CN%3Bsearch%2C16.0.0%2CN%3Bsecurity%2C16.0.1%2CN%3Bsender%2C15.5.3%2CN%3Bseo%2C15.5.6%2CN%3Bsocialservices%2C15.5.3%2CN%3Bstoreassist%2C16.0.0%2CN%3Bsubscribe%2C15.0.2%2CN%3Bvote%2C15.5.0%2CN%3Babtest%2C15.5.5%2CN%3Bconversion%2C15.5.6%2CN%3Breport%2C15.0.0%2CN%3Btranslate%2C14.0.0%2CN&reqm=bitrix.eshop%2Cbitrix.sitecorporate&SUPD_SRS=RU&SUPD_CMP=N
+2016-03-01 17:10:05 -  - exec CUpdateClientPartner::GetHTTPPage
+2016-03-01 17:10:06 -  - TIME GetUpdatesList(request) 1.086 sec
+2016-03-01 17:10:06 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:35 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2016-03-01 17:10:35 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:35 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=decotec.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=40&TYPENC=E&CLIENT_PHPVER=5.4.45&dbv=5.6.25&instm=main%2C15.5.10%2CN%3Bbitrix.eshop%2C15.5.0%2CN%3Bbitrix.sitecorporate%2C15.0.0%2CN%3Bbitrixcloud%2C16.0.0%2CN%3Bblog%2C15.5.4%2CN%3Bcatalog%2C15.5.1%2CN%3Bclouds%2C16.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bcurrency%2C16.0.0%2CN%3Beshopapp%2C15.0.0%2CN%3Bfileman%2C16.0.0%2CN%3Bform%2C15.0.2%2CN%3Bforum%2C15.5.3%2CN%3Bhighloadblock%2C16.0.0%2CN%3Biblock%2C15.5.8%2CN%3Bmobileapp%2C15.5.8%2CN%3Bperfmon%2C16.0.0%2CN%3Bphotogallery%2C16.0.1%2CN%3Bpull%2C15.5.8%2CN%3Bsale%2C14.11.19%2CN%3Bscale%2C16.0.0%2CN%3Bsearch%2C16.0.0%2CN%3Bsecurity%2C16.0.1%2CN%3Bsender%2C15.5.3%2CN%3Bseo%2C15.5.6%2CN%3Bsocialservices%2C15.5.3%2CN%3Bstoreassist%2C16.0.0%2CN%3Bsubscribe%2C15.0.2%2CN%3Bvote%2C15.5.0%2CN%3Babtest%2C15.5.5%2CN%3Bconversion%2C15.5.6%2CN%3Breport%2C15.0.0%2CN%3Btranslate%2C14.0.0%2CN&reqm=bitrix.eshop%2Cbitrix.sitecorporate&SUPD_SRS=RU&SUPD_CMP=N
+2016-03-01 17:10:35 -  - exec CUpdateClientPartner::GetHTTPPage
+2016-03-01 17:10:36 -  - TIME LoadModulesUpdates(request) 0.491 sec
+2016-03-01 17:10:36 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:36 - LMU01 - LoadModulesUpdates-Step
+2016-03-01 17:10:36 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2016-03-01 17:10:36 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:36 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:40 - DOWNLOAD - Time - 4.6964271068573 sec
+2016-03-01 17:10:40 -  - exec CUpdateClientPartner::UnGzipArchive
+2016-03-01 17:10:41 -  - TIME UnGzipArchive 0.886 sec
+2016-03-01 17:10:42 - CSURUS1 - Run updater '/bitrix/updates/update_m1456841440/bitrix.eshop/updater15.5.1.php'
+2016-03-01 17:10:45 -  - TIME UpdateStepModules 2.754 sec
+2016-03-01 17:10:45 - UPD_SUCCESS - Updated: bitrix.eshop (15.5.1)<br><li>Добавлена возможность создания страниц по шаблону сеток.<li>Добавлена возможность установки фоновой картинки шаблона на каждый раздел.
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:45 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=decotec.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=40&TYPENC=E&CLIENT_PHPVER=5.4.45&dbv=5.6.25&instm=main%2C15.5.10%2CN%3Bbitrix.eshop%2C15.5.1%2CN%3Bbitrix.sitecorporate%2C15.0.0%2CN%3Bbitrixcloud%2C16.0.0%2CN%3Bblog%2C15.5.4%2CN%3Bcatalog%2C15.5.1%2CN%3Bclouds%2C16.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bcurrency%2C16.0.0%2CN%3Beshopapp%2C15.0.0%2CN%3Bfileman%2C16.0.0%2CN%3Bform%2C15.0.2%2CN%3Bforum%2C15.5.3%2CN%3Bhighloadblock%2C16.0.0%2CN%3Biblock%2C15.5.8%2CN%3Bmobileapp%2C15.5.8%2CN%3Bperfmon%2C16.0.0%2CN%3Bphotogallery%2C16.0.1%2CN%3Bpull%2C15.5.8%2CN%3Bsale%2C14.11.19%2CN%3Bscale%2C16.0.0%2CN%3Bsearch%2C16.0.0%2CN%3Bsecurity%2C16.0.1%2CN%3Bsender%2C15.5.3%2CN%3Bseo%2C15.5.6%2CN%3Bsocialservices%2C15.5.3%2CN%3Bstoreassist%2C16.0.0%2CN%3Bsubscribe%2C15.0.2%2CN%3Bvote%2C15.5.0%2CN%3Babtest%2C15.5.5%2CN%3Bconversion%2C15.5.6%2CN%3Breport%2C15.0.0%2CN%3Btranslate%2C14.0.0%2CN&reqm=bitrix.eshop%2Cbitrix.sitecorporate&SUPD_SRS=RU&SUPD_CMP=N
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::GetHTTPPage
+2016-03-01 17:10:45 -  - TIME LoadModulesUpdates(request) 0.478 sec
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:45 - LMU01 - LoadModulesUpdates-Step
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:45 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:46 - DOWNLOAD - Time - 0.37371516227722 sec
+2016-03-01 17:10:46 -  - exec CUpdateClientPartner::UnGzipArchive
+2016-03-01 17:10:46 -  - TIME UnGzipArchive 0.005 sec
+2016-03-01 17:10:46 - CSURUS1 - Run updater '/bitrix/updates/update_m1456841446/bitrix.eshop/updater15.5.2.php'
+2016-03-01 17:10:46 -  - TIME UpdateStepModules 0.109 sec
+2016-03-01 17:10:46 - UPD_SUCCESS - Updated: bitrix.eshop (15.5.2)<br><li>Исправление ошибок.
+2016-03-01 17:10:46 -  - exec CUpdateClientPartner::LoadModulesUpdates
+2016-03-01 17:10:46 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:46 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=decotec.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=40&TYPENC=E&CLIENT_PHPVER=5.4.45&dbv=5.6.25&instm=main%2C15.5.10%2CN%3Bbitrix.eshop%2C15.5.2%2CN%3Bbitrix.sitecorporate%2C15.0.0%2CN%3Bbitrixcloud%2C16.0.0%2CN%3Bblog%2C15.5.4%2CN%3Bcatalog%2C15.5.1%2CN%3Bclouds%2C16.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bcurrency%2C16.0.0%2CN%3Beshopapp%2C15.0.0%2CN%3Bfileman%2C16.0.0%2CN%3Bform%2C15.0.2%2CN%3Bforum%2C15.5.3%2CN%3Bhighloadblock%2C16.0.0%2CN%3Biblock%2C15.5.8%2CN%3Bmobileapp%2C15.5.8%2CN%3Bperfmon%2C16.0.0%2CN%3Bphotogallery%2C16.0.1%2CN%3Bpull%2C15.5.8%2CN%3Bsale%2C14.11.19%2CN%3Bscale%2C16.0.0%2CN%3Bsearch%2C16.0.0%2CN%3Bsecurity%2C16.0.1%2CN%3Bsender%2C15.5.3%2CN%3Bseo%2C15.5.6%2CN%3Bsocialservices%2C15.5.3%2CN%3Bstoreassist%2C16.0.0%2CN%3Bsubscribe%2C15.0.2%2CN%3Bvote%2C15.5.0%2CN%3Babtest%2C15.5.5%2CN%3Bconversion%2C15.5.6%2CN%3Breport%2C15.0.0%2CN%3Btranslate%2C14.0.0%2CN&reqm=bitrix.eshop%2Cbitrix.sitecorporate&SUPD_SRS=RU&SUPD_CMP=N
+2016-03-01 17:10:46 -  - exec CUpdateClientPartner::GetHTTPPage
+2016-03-01 17:10:46 -  - TIME LoadModulesUpdates(request) 0.366 sec
+2016-03-01 17:10:46 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:46 - STEP - Finish - NOUPDATES
+2016-03-01 17:10:46 - STEP - Finish - NOUPDATES
+2016-03-01 17:10:56 -  - exec CUpdateClientPartner::GetUpdatesList
+2016-03-01 17:10:56 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:56 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=decotec.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=40&TYPENC=E&CLIENT_PHPVER=5.4.45&dbv=5.6.25&instm=main%2C15.5.10%2CN%3Bbitrix.eshop%2C15.5.2%2CN%3Bbitrix.sitecorporate%2C15.0.0%2CN%3Bbitrixcloud%2C16.0.0%2CN%3Bblog%2C15.5.4%2CN%3Bcatalog%2C15.5.1%2CN%3Bclouds%2C16.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bcurrency%2C16.0.0%2CN%3Beshopapp%2C15.0.0%2CN%3Bfileman%2C16.0.0%2CN%3Bform%2C15.0.2%2CN%3Bforum%2C15.5.3%2CN%3Bhighloadblock%2C16.0.0%2CN%3Biblock%2C15.5.8%2CN%3Bmobileapp%2C15.5.8%2CN%3Bperfmon%2C16.0.0%2CN%3Bphotogallery%2C16.0.1%2CN%3Bpull%2C15.5.8%2CN%3Bsale%2C14.11.19%2CN%3Bscale%2C16.0.0%2CN%3Bsearch%2C16.0.0%2CN%3Bsecurity%2C16.0.1%2CN%3Bsender%2C15.5.3%2CN%3Bseo%2C15.5.6%2CN%3Bsocialservices%2C15.5.3%2CN%3Bstoreassist%2C16.0.0%2CN%3Bsubscribe%2C15.0.2%2CN%3Bvote%2C15.5.0%2CN%3Babtest%2C15.5.5%2CN%3Bconversion%2C15.5.6%2CN%3Breport%2C15.0.0%2CN%3Btranslate%2C14.0.0%2CN&reqm=bitrix.eshop%2Cbitrix.sitecorporate&SUPD_SRS=RU&SUPD_CMP=N
+2016-03-01 17:10:56 -  - exec CUpdateClientPartner::GetHTTPPage
+2016-03-01 17:10:56 -  - TIME GetUpdatesList(request) 0.418 sec
+2016-03-01 17:10:56 -  - exec CUpdateClientPartner::ParseServerData
+2016-03-01 17:10:58 -  - exec CUpdateClientPartner::GetUpdatesList
+2016-03-01 17:10:58 -  - exec CUpdateClientPartner::__CollectRequestData
+2016-03-01 17:10:58 -  - utf=Y&lang=ru&stable=Y&CANGZIP=Y&SUPD_DBS=MYSQL&XE=N&CLIENT_SITE=decotec.ru&LICENSE_KEY=X&SUPD_STS=1&SUPD_URS=0&SUPD_URSA=40&TYPENC=E&CLIENT_PHPVER=5.4.45&dbv=5.6.25&instm=main%2C15.5.10%2CN%3Bbitrix.eshop%2C15.5.2%2CN%3Bbitrix.sitecorporate%2C15.0.0%2CN%3Bbitrixcloud%2C16.0.0%2CN%3Bblog%2C15.5.4%2CN%3Bcatalog%2C15.5.1%2CN%3Bclouds%2C16.0.0%2CN%3Bcompression%2C16.0.0%2CN%3Bcurrency%2C16.0.0%2CN%3Beshopapp%2C15.0.0%2CN%3Bfileman%2C16.0.0%2CN%3Bform%2C15.0.2%2CN%3Bforum%2C15.5.3%2CN%3Bhighloadblock%2C16.0.0%2CN%3Biblock%2C15.5.8%2CN%3Bmobileapp%2C15.5.8%2CN%3Bperfmon%2C16.0.0%2CN%3Bphotogallery%2C16.0.1%2CN%3Bpull%2C15.5.8%2CN%3Bsale%2C14.11.19%2CN%3Bscale%2C16.0.0%2CN%3Bsearch%2C16.0.0%2CN%3Bsecurity%2C16.0.1%2CN%3Bsender%2C15.5.3%2CN%3Bseo%2C15.5.6%2CN%3Bsocialservices%2C15.5.3%2CN%3Bstoreassist%2C16.0.0%2CN%3Bsubscribe%2C15.0.2%2CN%3Bvote%2C15.5.0%2CN%3Babtest%2C15.5.5%2CN%3Bconversion%2C15.5.6%2CN%3Breport%2C15.0.0%2CN%3Btranslate%2C14.0.0%2CN&reqm=bitrix.eshop%2Cbitrix.sitecorporate&SUPD_SRS=RU&SUPD_CMP=N
+2016-03-01 17:10:58 -  - exec CUpdateClientPartner::GetHTTPPage
+2016-03-01 17:10:59 -  - TIME GetUpdatesList(request) 0.9 sec
+2016-03-01 17:10:59 -  - exec CUpdateClientPartner::ParseServerData

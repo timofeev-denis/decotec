@@ -208,30 +208,20 @@ if ($lAdmin->EditAction() && $forumModulePermissions >= "R")
 		{
 			if (is_set($arFields, "STATE") && $arFields["STATE"] != $res["STATE"])
 			{
-				$res = serialize($res);
-				if ($arFields["STATE"] == "Y"):
-					CForumEventLog::Log("topic", "open", $ID, $res);
-				else:
-					CForumEventLog::Log("topic", "close", $ID, $res);
-				endif;
+				CForumEventLog::Log("topic", ($arFields["STATE"] == "Y" ? "open" : "close"), $ID, serialize($res));
 				unset($arFields["STATE"]);
 			}
 			if (is_set($arFields, "SORT") && $arFields["SORT"] != $res["SORT"])
 			{
-				$res = serialize($res);
-				if (intVal($arFields["SORT"]) == 100):
-					CForumEventLog::Log("topic", "stick", $res["ID"], $res);
-				else:
-					CForumEventLog::Log("topic", "unstick", $res["ID"], $res);
-				endif;
+				CForumEventLog::Log("topic", (intval($arFields["SORT"]) == 100 ? "stick" : "unstick"), $ID, serialize($res));
 				unset($arFields["SORT"]);
 			}
 			if (!empty($arFields))
 			{
 				foreach ($arFields as $key => $val):
-					if ($arFields[$key] != $arTopic[$key]):
+					if ($arFields[$key] != $res[$key]):
 						$res_log[$key] =  $arFields[$key];
-						$res_log["before".$key] =  $arTopic[$key];
+						$res_log["before".$key] =  $res[$key];
 					endif;
 				endforeach;
 				if (!empty($res_log)):

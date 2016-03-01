@@ -778,6 +778,7 @@
 		Update : function()
 		{
 			BX.ajax.getCaptcha(BX.proxy(this.UpdateControls, this));
+			return false;
 		}
 	}
 })();

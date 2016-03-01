@@ -16,9 +16,10 @@ class CSecurityCloudMonitorRequest
 	const REMOTE_STATUS_OK = "ok";
 	const REMOTE_STATUS_ERROR = "error";
 	const REMOTE_STATUS_FATAL_ERROR = "fatal_error";
-	const CONNECTION_TIMEOUT = 10;
+	const TIMEOUT = 10;
 
 	private static $validActions = array("check", "get_results");
+	protected static $trustedHosts = array("www.1c-bitrix.ru", "www.bitrixsoft.com", "www.bitrix.de");
 	protected $response = array();
 	protected $checkingToken = "";
 	protected $protocolVersion = 2;
@@ -181,36 +182,48 @@ class CSecurityCloudMonitorRequest
 	}
 
 	/**
-	 * Return Bitrix WebService Url for Cloud Security Monitor
+	 * Return Bitrix Cloud Security web service url
+	 *
+	 * @param string $host Bitrix security scanner host.
 	 * @return string
 	 */
-	protected static function getCheckerUrl()
+	protected static function buildCheckerUrl($host)
 	{
-		$result = "https://";
-		$result .= COption::GetOptionString("main", "update_site", "www.bitrixsoft.com");
-		$result .= self::BITRIX_CHECKER_URL_PATH;
-		return $result;
+		return sprintf('https://%s%s', $host, self::BITRIX_CHECKER_URL_PATH);
+	}
+
+	/**
+	 * Return Bitrix Cloud Security host
+	 *
+	 * @return string
+	 */
+	protected static function getServiceHost()
+	{
+		return COption::GetOptionString("main", "update_site", "www.bitrixsoft.com");
 	}
 
 	/**
 	 * Send request to Bitrix (check o receive)
-	 * @param array $pPayload
+	 * @param array $payload
 	 * @return array|bool
 	 */
-	protected static function sendRequest(array $pPayload)
+	protected static function sendRequest(array $payload)
 	{
-		$request = new CHTTP();
-		$request->http_timeout = self::CONNECTION_TIMEOUT;
-		$request->setFollowRedirect(true);
-		@$request->Post(self::getCheckerUrl(), $pPayload);
-		if($request->status === 200 && $request->result)
+		$targetHost = static::getServiceHost();
+		// Trusted host *must* have a valid SSL certificate
+		$skipSslValidation = !in_array($targetHost, static::$trustedHosts, true);
+		$httpClient = new \Bitrix\Main\Web\HttpClient(array(
+			'disableSslVerification' => $skipSslValidation,
+			'streamTimeout' => static::TIMEOUT
+		));
+
+		$response = $httpClient->post(self::buildCheckerUrl($targetHost), $payload);
+		if ($response && $httpClient->getStatus() == 200)
 		{
-			return self::decodeResponse($request->result);	
+			return self::decodeResponse($response);
 		}
-		else
-		{
-			return false;
-		}
+
+		return false;
 	}
 
 	/**

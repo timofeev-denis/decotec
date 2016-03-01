@@ -119,8 +119,8 @@ $arParams["SMILES_COUNT"] = intVal($arParams["SMILES_COUNT"]);
 
 $arParams["WORD_LENGTH"] = intVal($arParams["WORD_LENGTH"]);
 $arParams["WORD_WRAP_CUT"] = intVal($arParams["WORD_WRAP_CUT"]);
-$arParams["PATH_TO_SMILE"] = (empty($arParams["PATH_TO_SMILE"]) ? "/bitrix/images/forum/smile/" : $arParams["PATH_TO_SMILE"]);
-$arParams["PATH_TO_ICON"] = (empty($arParams["PATH_TO_ICON"]) ? "/bitrix/images/forum/icon/" : $arParams["PATH_TO_ICON"]);
+$arParams["PATH_TO_SMILE"] = "";
+$arParams["PATH_TO_ICON"] = "";
 $arParams["PAGE_NAVIGATION_TEMPLATE"] = trim($arParams["PAGE_NAVIGATION_TEMPLATE"]);
 $arParams["PAGE_NAVIGATION_TEMPLATE"] = (empty($arParams["PAGE_NAVIGATION_TEMPLATE"]) ? "forum" : $arParams["PAGE_NAVIGATION_TEMPLATE"]);
 $arParams["PAGE_NAVIGATION_WINDOW"] = intVal(intVal($arParams["PAGE_NAVIGATION_WINDOW"]) > 0 ? $arParams["PAGE_NAVIGATION_WINDOW"] : 5);

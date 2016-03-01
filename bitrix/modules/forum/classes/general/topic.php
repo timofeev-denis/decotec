@@ -189,8 +189,8 @@ class CAllForumTopic
 			$arFields["LAST_POSTER_ID"] = (intVal($arFields["LAST_POSTER_ID"]) > 0 ? intVal($arFields["LAST_POSTER_ID"]) : false);
 		if (is_set($arFields, "LAST_MESSAGE_ID") || $ACTION=="ADD")
 			$arFields["LAST_MESSAGE_ID"] = (intVal($arFields["LAST_MESSAGE_ID"]) > 0 ? intVal($arFields["LAST_MESSAGE_ID"]) : false);
-		if (is_set($arFields, "ICON_ID") || $ACTION=="ADD")
-			$arFields["ICON_ID"] = (intVal($arFields["ICON_ID"]) > 0 ? intVal($arFields["ICON_ID"]) : false);
+		if (is_set($arFields, "ICON") || $ACTION=="ADD")
+			$arFields["ICON"] = trim($arFields["ICON"]);
 		if (is_set($arFields, "STATE") || $ACTION=="ADD")
 			$arFields["STATE"] = (in_array($arFields["STATE"], array("Y", "N", "L")) ?  $arFields["STATE"] : "Y");
 		if (is_set($arFields, "APPROVED") || $ACTION=="ADD")
@@ -292,8 +292,8 @@ class CAllForumTopic
 			$Fields["XML_ID"] = "'".$DB->ForSQL($arFields["XML_ID"], 255)."'";
 		if (intVal($arFields["USER_START_ID"]) > 0)
 			$Fields["USER_START_ID"] = intVal($arFields["USER_START_ID"]);
-		if (intVal($arFields["ICON_ID"]) > 0)
-			$Fields["ICON_ID"] = intVal($arFields["ICON_ID"]);
+		if (strlen($arFields["ICON"]) > 0)
+			$Fields["ICON"] = trim($arFields["ICON"]);
 		if (intVal($arFields["LAST_MESSAGE_ID"]) > 0)
 			$Fields["LAST_MESSAGE_ID"] = intVal($arFields["LAST_MESSAGE_ID"]);
 		if ($arFields["LAST_POSTER_ID"])
@@ -568,7 +568,7 @@ class CAllForumTopic
 							"STATE" => "L",
 							"USER_START_NAME" => $res["USER_START_NAME"],
 							"START_DATE" => $res["START_DATE"],
-							"ICON_ID" => $res["ICON_ID"],
+							"ICON" => $res["ICON"],
 							"POSTS" => "0",
 							"VIEWS" => "0",
 							"FORUM_ID" => $res["FORUM_ID"],
@@ -790,13 +790,12 @@ class CAllForumTopic
 			"	FT.TITLE_SEO as TITLE_SEO_REAL, ".CForumNew::Concat("-", array("FT.ID", "FT.TITLE_SEO"))." as TITLE_SEO, \n".
 			"	".$DB->DateToCharFunction("FT.START_DATE", "FULL")." as START_DATE, \n".
 			"	".$DB->DateToCharFunction("FT.LAST_POST_DATE", "FULL")." as LAST_POST_DATE, \n".
-			"	FS.IMAGE, '' as IMAGE_DESCR".$arSQL["select"]."\n".
+			"	'' as IMAGE, '' as IMAGE_DESCR".$arSQL["select"]."\n".
 			"FROM b_forum_topic FT \n".
-			"	LEFT JOIN b_forum_smile FS ON (FT.ICON_ID = FS.ID)".$arSQL["join"]."\n".
+			"	".$arSQL["join"]."\n".
 			"WHERE FT.ID = ".$ID;
-		$db_res = $DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
-		if (COption::GetOptionString("forum", "FILTER", "Y") == "Y")
-			$db_res = new _CTopicDBResult($db_res);
+		$db_res = new _CTopicDBResult($DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__));
+
 		if ($res = $db_res->Fetch())
 		{
 			if (is_array($res))
@@ -898,7 +897,7 @@ class CAllForumTopic
 			"STATE" => "STATE",
 			"FORUM_ID" => "FORUM_ID",
 			"TOPIC_ID" => "TOPIC_ID",
-			"ICON_ID" => "ICON_ID",
+			"ICON" => "ICON",
 			"SORT" => "SORT",
 			"SOCNET_GROUP_ID" => "SOCNET_GROUP_ID",
 			"OWNER_ID" => "OWNER_ID",
@@ -1251,93 +1250,117 @@ class CAllForumTopic
 
 class _CTopicDBResult extends CDBResult
 {
-	var $sNameTemplate = '';
+	private $sNameTemplate = '';
+	private $noFilter = false;
+	private static $icons;
+
 	function _CTopicDBResult($res, $params = array())
 	{
 		$this->sNameTemplate = (!empty($params["sNameTemplate"]) ? $params["sNameTemplate"] : '');
+		$this->noFilter = (array_key_exists('NoFilter', $params) && $params['NoFilter'] === true);
 		parent::CDBResult($res);
+	}
+	protected static function getIcon($iconTyping)
+	{
+		if (!is_array(self::$icons))
+		{
+			$result = array();
+			$smiles = CForumSmile::GetByType(CSmile::TYPE_ICON, LANGUAGE_ID);
+			foreach ($smiles as $smile)
+				$result[$smile["TYPING"]] = $smile["IMAGE"];
+			self::$icons = $result;
+		}
+		return (array_key_exists($iconTyping, self::$icons) ? self::$icons[$iconTyping] : '');
 	}
 	function Fetch()
 	{
 		global $DB;
 		if($res = parent::Fetch())
 		{
-			if (COption::GetOptionString("forum", "FILTER", "Y") == "Y")
+			if (array_key_exists("ICON", $res) && !empty($res["ICON"]))
 			{
-				if (!empty($res["HTML"]))
-				{
-					$arr = unserialize($res["HTML"]);
-					if (is_array($arr) && is_set($arr, "TITLE"))
-					{
-						foreach ($arr as $key => $val)
-						{
-							if (strLen($val)>0)
-								$res[$key] = $val;
-						}
-					}
-				}
-				if (!empty($res["F_HTML"]))
-				{
-					$arr = unserialize($res["F_HTML"]);
-					if (is_array($arr))
-					{
-						foreach ($arr as $key => $val)
-						{
-							$res["F_".$key] = $val;
-						}
-					}
-					if (!empty($res["TITLE"]))
-						$res["F_TITLE"] = $res["TITLE"];
-				}
+				$res["IMAGE"] = self::getIcon($res["ICON"]);
 			}
 
-			/* For CForumUser::UserAddInfo only */
-			if (is_set($res, "FIRST_POST") || is_set($res, "LAST_POST"))
+			if ($this->noFilter !== true)
 			{
-				$arSqlSearch = array();
-				if (is_set($res, "FIRST_POST"))
-					$arSqlSearch["FIRST_POST"] = "FM.ID=".intVal($res["FIRST_POST"]);
-				if (is_set($res, "LAST_POST"))
-					$arSqlSearch["LAST_POST"] = "FM.ID=".intVal($res["LAST_POST"]);
-				if (!empty($arSqlSearch)):
-					$strSql = "SELECT FM.ID, ".$DB->DateToCharFunction("FM.POST_DATE", "FULL")." AS POST_DATE ".
-						"FROM b_forum_message FM WHERE ".implode(" OR ", $arSqlSearch);
-					$db_res = $DB->Query($strSql, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
-					if($db_res && $val = $db_res->Fetch()):
-						do
+				if (COption::GetOptionString("forum", "FILTER", "Y") == "Y")
+				{
+					if (!empty($res["HTML"]))
+					{
+						$arr = unserialize($res["HTML"]);
+						if (is_array($arr) && is_set($arr, "TITLE"))
 						{
-							if (is_set($res, "FIRST_POST") && $res["FIRST_POST"] == $val["ID"])
-								$res["FIRST_POST_DATE"] = $val["POST_DATE"];
-							if (is_set($res, "LAST_POST") && $res["LAST_POST"] == $val["ID"])
-								$res["LAST_POST_DATE"] = $val["POST_DATE"];
-						}while ($val = $db_res->Fetch());
+							foreach ($arr as $key => $val)
+							{
+								if (strLen($val)>0)
+									$res[$key] = $val;
+							}
+						}
+					}
+					if (!empty($res["F_HTML"]))
+					{
+						$arr = unserialize($res["F_HTML"]);
+						if (is_array($arr))
+						{
+							foreach ($arr as $key => $val)
+							{
+								$res["F_".$key] = $val;
+							}
+						}
+						if (!empty($res["TITLE"]))
+							$res["F_TITLE"] = $res["TITLE"];
+					}
+				}
+
+				/* For CForumUser::UserAddInfo only */
+				if (is_set($res, "FIRST_POST") || is_set($res, "LAST_POST"))
+				{
+					$arSqlSearch = array();
+					if (is_set($res, "FIRST_POST"))
+						$arSqlSearch["FIRST_POST"] = "FM.ID=".intVal($res["FIRST_POST"]);
+					if (is_set($res, "LAST_POST"))
+						$arSqlSearch["LAST_POST"] = "FM.ID=".intVal($res["LAST_POST"]);
+					if (!empty($arSqlSearch)):
+						$strSql = "SELECT FM.ID, ".$DB->DateToCharFunction("FM.POST_DATE", "FULL")." AS POST_DATE ".
+							"FROM b_forum_message FM WHERE ".implode(" OR ", $arSqlSearch);
+						$db_res = $DB->Query($strSql, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+						if($db_res && $val = $db_res->Fetch()):
+							do
+							{
+								if (is_set($res, "FIRST_POST") && $res["FIRST_POST"] == $val["ID"])
+									$res["FIRST_POST_DATE"] = $val["POST_DATE"];
+								if (is_set($res, "LAST_POST") && $res["LAST_POST"] == $val["ID"])
+									$res["LAST_POST_DATE"] = $val["POST_DATE"];
+							}while ($val = $db_res->Fetch());
+						endif;
 					endif;
-				endif;
-			}
+				}
 
-			if (!empty($this->sNameTemplate))
-			{
-				$arTmp = array();
-				foreach (array(
-					"USER_START_ID" => "USER_START_NAME",
-					"LAST_POSTER_ID" => "LAST_POSTER_NAME",
-					"ABS_LAST_POSTER_ID" => "ABS_LAST_POSTER_NAME") as $id => $name)
+				if (!empty($this->sNameTemplate))
 				{
-					$tmp = "";
-					if (!empty($res[$id]))
+					$arTmp = array();
+					foreach (array(
+						"USER_START_ID" => "USER_START_NAME",
+						"LAST_POSTER_ID" => "LAST_POSTER_NAME",
+						"ABS_LAST_POSTER_ID" => "ABS_LAST_POSTER_NAME") as $id => $name)
 					{
-						if (in_array($res[$id], $arTmp))
+						$tmp = "";
+						if (!empty($res[$id]))
 						{
-							$tmp = $arTmp[$res[$id]];
+							if (in_array($res[$id], $arTmp))
+							{
+								$tmp = $arTmp[$res[$id]];
+							}
+							else
+							{
+								$arTmp[$res[$id]] = $tmp = (!empty($res[$name."_FRMT"]) ? $res[$name."_FRMT"] :
+									CForumUser::GetFormattedNameByUserID($res[$id], $this->sNameTemplate));
+							}
 						}
-						else
-						{
-							$arTmp[$res[$id]] = $tmp = (!empty($res[$name."_FRMT"]) ? $res[$name."_FRMT"] :
-								CForumUser::GetFormattedNameByUserID($res[$id], $this->sNameTemplate));
-						}
-					}
 
-					$res[$name] = (!empty($tmp) ? $tmp : $res[$name]);
+						$res[$name] = (!empty($tmp) ? $tmp : $res[$name]);
+					}
 				}
 			}
 		}

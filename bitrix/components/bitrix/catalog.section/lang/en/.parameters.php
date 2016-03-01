@@ -79,7 +79,6 @@ $MESS["DISPLAY_COMPARE_TIP"] = "Checking this option will display the <b>Compare
 $MESS["SET_TITLE_TIP"] = "If checked, the page title will be set to the current section name.";
 $MESS["SET_BROWSER_TITLE_TIP"] = "If selected, an information block section title (or SEO title if active) will be used as the browser window title.";
 $MESS["PAGE_ELEMENT_COUNT_TIP"] = "Defines the number of elements per page. Other elements will be available via the breadcrumb navigation.";
-$MESS["LINE_ELEMENT_COUNT_TIP"] = "Defines the number of elements per row when displaying elements of a section.";
 $MESS["PROPERTY_CODE_TIP"] = "Select here the information block properties which you want to be shown with elements. If you select <b>(none)-&gt;</b> and do not specify the property ID's in the field beside, no properties will be displayed.";
 $MESS["PRICE_CODE_TIP"] = "Specify the price type to be used in the catalog. If you omit the price type, prices and buttons <b>Buy</b> and<b>Add to basket</b> will not be displayed.";
 $MESS["USE_PRICE_COUNT_TIP"] = "If checked, all existing price ranges will be selected.";
@@ -111,4 +110,5 @@ $MESS["PARTIAL_PRODUCT_PROPERTIES_TIP"] = "If unchecked, the product will be add
 $MESS["COMPARE_PATH_TIP"] = "Specifies the path to a page that includes the product comparison component. If empty, a current page will be used.";
 $MESS["CP_BCS_SET_LAST_MODIFIED"] = "Set page last modified date to response header";
 $MESS["T_IBLOCK_BACKGROUND_IMAGE"] = "Use property provided background image as background";
+$MESS["LINE_ELEMENT_COUNT_TIP"] = "This value specifies the number of items per row when displaying the section elements.  The default template can use values from 2 to 5.";
 ?>

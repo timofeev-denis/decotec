@@ -851,7 +851,7 @@ class CIBlockDocument
 						$r = intval($r);
 						$dbImg = CFile::GetByID($r);
 						if ($arImg = $dbImg->Fetch())
-							$result[] = "[url=/bitrix/tools/bizproc_show_file.php?f=".htmlspecialcharsbx($arImg["FILE_NAME"])."&i=".$r."&h=".md5($arImg["SUBDIR"])."]".htmlspecialcharsbx($arImg["ORIGINAL_NAME"])."[/url]";
+							$result[] = "[url=/bitrix/tools/bizproc_show_file.php?f=".urlencode($arImg["FILE_NAME"])."&i=".$r."&h=".md5($arImg["SUBDIR"])."]".htmlspecialcharsbx($arImg["ORIGINAL_NAME"])."[/url]";
 					}
 				}
 				else
@@ -859,7 +859,7 @@ class CIBlockDocument
 					$fieldValue = intval($fieldValue);
 					$dbImg = CFile::GetByID($fieldValue);
 					if ($arImg = $dbImg->Fetch())
-						$result = "[url=/bitrix/tools/bizproc_show_file.php?f=".htmlspecialcharsbx($arImg["FILE_NAME"])."&i=".$fieldValue."&h=".md5($arImg["SUBDIR"])."]".htmlspecialcharsbx($arImg["ORIGINAL_NAME"])."[/url]";
+						$result = "[url=/bitrix/tools/bizproc_show_file.php?f=".urlencode($arImg["FILE_NAME"])."&i=".$fieldValue."&h=".md5($arImg["SUBDIR"])."]".htmlspecialcharsbx($arImg["ORIGINAL_NAME"])."[/url]";
 				}
 				break;
 
@@ -1088,6 +1088,58 @@ class CIBlockDocument
 							}
 						}
 					}
+					elseif($propertyValue["USER_TYPE"] == "DiskFile")
+					{
+
+						if(!CModule::includeModule("disk"))
+						{
+							continue;
+						}
+
+						if(is_array($propertyValue["VALUE"]))
+						{
+							if($propertyValue["MULTIPLE"] == "Y")
+							{
+								$propertyValue["VALUE"] = current($propertyValue["VALUE"]);
+							}
+
+							foreach($propertyValue["VALUE"] as $attachedId)
+							{
+								$attachedId = (int)$attachedId;
+								$attachedModel = \Bitrix\Disk\AttachedObject::loadById($attachedId, array('OBJECT'));
+
+								if(!$attachedModel)
+								{
+									continue;
+								}
+								global $USER;
+								$userId = $USER->getID();
+								if($userId)
+								{
+									if(!$attachedModel->canRead($userId))
+									{
+										continue;
+									}
+								}
+
+								$file = $attachedModel->getFile();
+								if(!$file)
+								{
+									continue;
+								}
+
+								$driver = \Bitrix\Disk\Driver::getInstance();
+								$urlManager = $driver->getUrlManager();
+								$arResult["PROPERTY_".$propertyKey][$attachedId] = $urlManager->getUrlUfController('download', array('attachedId' => $attachedModel->getId()));
+								$arResult["PROPERTY_".$propertyKey."_PRINTABLE"][$attachedId] = '[url='.$urlManager->getUrlUfController('download', array('attachedId' => $attachedModel->getId())).']'.htmlspecialcharsbx($file->getName()).'[/url] ';
+							}
+						}
+						else
+						{
+							continue;
+						}
+
+					}
 					else
 					{
 						$arResult["PROPERTY_".$propertyKey] = $propertyValue["VALUE"];
@@ -1118,7 +1170,7 @@ class CIBlockDocument
 						if ($ar)
 						{
 							$arResult["PROPERTY_".$propertyKey][intval($v)] = $ar["SRC"];
-							$arResult["PROPERTY_".$propertyKey."_printable"][intval($v)] = "[url=/bitrix/tools/bizproc_show_file.php?f=".htmlspecialcharsbx($ar["FILE_NAME"])."&i=".$v."&h=".md5($ar["SUBDIR"])."]".htmlspecialcharsbx($ar["ORIGINAL_NAME"])."[/url]";
+							$arResult["PROPERTY_".$propertyKey."_printable"][intval($v)] = "[url=/bitrix/tools/bizproc_show_file.php?f=".urlencode($ar["FILE_NAME"])."&i=".$v."&h=".md5($ar["SUBDIR"])."]".htmlspecialcharsbx($ar["ORIGINAL_NAME"])."[/url]";
 						}
 					}
 				}
@@ -1380,6 +1432,18 @@ class CIBlockDocument
 					$arResult[$key]["Type"] = "E:EList";
 					$arResult[$key]["Options"] = $arProperty["LINK_IBLOCK_ID"];
 				}
+				elseif($arProperty["USER_TYPE"] == "DiskFile")
+				{
+					$arResult[$key]["Type"] = "S:DiskFile";
+					$arResult[$key."_PRINTABLE"] = array(
+						"Name" => $arProperty["NAME"].GetMessage("IBD_FIELD_USERNAME_PROPERTY"),
+						"Filterable" => false,
+						"Editable" => false,
+						"Required" => false,
+						"Multiple" => ($arProperty["MULTIPLE"] == "Y"),
+						"Type" => "string",
+					);
+				}
 				elseif ($arProperty["USER_TYPE"] == "HTML")
 				{
 					$arResult[$key]["Type"] = "S:HTML";
@@ -1485,7 +1549,13 @@ class CIBlockDocument
 				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyElist';
 			}
 			elseif ($t == 'S:HTML')
+			{
 				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyHtml';
+			}
+			elseif($t == 'S:DiskFile')
+			{
+				$arResult[$t]['typeClass'] = '\Bitrix\Iblock\BizprocType\UserTypePropertyDiskFile';
+			}
 		}
 
 		return $arResult;

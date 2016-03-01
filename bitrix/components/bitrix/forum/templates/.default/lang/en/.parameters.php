@@ -1,7 +1,5 @@
 <?
 $MESS["F_SHOW_TAGS"] = "Show tags";
-$MESS["F_DEFAULT_PATH_TO_SMILE"] = "Path to Smiles folder (root relative)";
-$MESS["F_DEFAULT_PATH_TO_ICON"] = "Path to Theme Icons folder (root relative)";
 $MESS["F_PAGE_NAVIGATION_TEMPLATE"] = "Name of the pager template";
 $MESS["F_THEMES"] = "Topics";
 $MESS["F_PAGE_NAVIGATION_WINDOW"] = "Number of pages in the page navigation";

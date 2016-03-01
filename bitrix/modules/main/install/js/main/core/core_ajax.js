@@ -1409,6 +1409,8 @@ BX.ajax.component.prototype.getState = function()
 	if (null != obNavChain)
 		state.nav_chain = obNavChain.innerHTML;
 
+	BX.onCustomEvent(state.node, "onComponentAjaxHistoryGetState", [state]);
+
 	return state;
 };
 
@@ -1418,7 +1420,11 @@ BX.ajax.component.prototype.setState = function(state)
 	BX.ajax.UpdatePageTitle(state.title);
 
 	if (state.nav_chain)
+	{
 		BX.ajax.UpdatePageNavChain(state.nav_chain);
+	}
+
+	BX.onCustomEvent(state.node, "onComponentAjaxHistorySetState", [state]);
 };
 
 var jsAjaxHistoryContainer = {

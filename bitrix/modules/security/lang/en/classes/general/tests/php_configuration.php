@@ -30,4 +30,11 @@ $MESS["SECURITY_SITE_CHECKER_ZEND_MULTIBYTE_ENABLED_RECOMMENDATION"] = "For PHP 
 $MESS["SECURITY_SITE_CHECKER_DISPLAY_ERRORS"] = "Errors are set to be printed to output.";
 $MESS["SECURITY_SITE_CHECKER_DISPLAY_ERRORS_DETAIL"] = "Displaying errors is useful for development and debugging but must be turned off in release versions.";
 $MESS["SECURITY_SITE_CHECKER_DISPLAY_ERRORS_RECOMMENDATION"] = "Add or edit the following line in the PHP settings:<br>display_errors = Off";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER"] = "The _REQUEST array is created in a wrong sequence";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER_DETAIL"] = "The _REQUEST array generally does not need to contain all variables except for _GET and _POST. Otherwise, this may compromise user and/or site data, or bring about other unforeseen consequences.";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER_RECOMMENDATION"] = "Add or edit the following line in the PHP settings:<br>request_order = \"GP\"";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER_ADDITIONAL"] = "Current value: \"#CURRENT#\"<br>Recommended: \"#RECOMMENDED#\"";
+$MESS["SECURITY_SITE_CHECKER_MAIL_ADD_HEADER"] = "Mail messages contain the UID of the PHP process";
+$MESS["SECURITY_SITE_CHECKER_MAIL_ADD_HEADER_DETAIL"] = "Each of the e-mail message includes the \"X-PHP-Originating-Script\" header containing the UID and name of a script that sends a message. This allows an attacker to learn a user that is running PHP.";
+$MESS["SECURITY_SITE_CHECKER_MAIL_ADD_HEADER_RECOMMENDATION"] = "Add or edit the following line in the PHP settings:<br>mail.add_x_header = Off";
 ?>

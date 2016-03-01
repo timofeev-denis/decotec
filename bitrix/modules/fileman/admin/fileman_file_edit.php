@@ -792,7 +792,7 @@ BX.ready(function() {
 		<?endif?>
 	<?endif?>
 		<tr><td colspan="2">
-			<textarea id="bx-filesrc" name="filesrc" rows="37" style="width:100%; overflow:auto;" wrap="OFF"><?= htmlspecialcharsEx($filesrc)?></textarea></td></tr>
+			<textarea id="bx-filesrc" name="filesrc" rows="37" style="width:100%; overflow:auto;" wrap="OFF"><?= htmlspecialcharsbx($filesrc)?></textarea></td></tr>
 
 <?
 $tabControl->EndTab();
@@ -877,6 +877,8 @@ if(COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y")
 		$forceSyntax = 'sql';
 	elseif($ext == 'js')
 		$forceSyntax = 'js';
+	elseif($ext == 'css')
+		$forceSyntax = 'css';
 
 	CCodeEditor::Show(
 		array(

@@ -451,7 +451,8 @@ class CPerfQuery
 			if (!$DB->TableExists($suggest_table->name))
 				return false;
 
-			$arIndexes = CPerfomanceTable::GetIndexes($suggest_table->name);
+			$table = new CPerfomanceTable;
+			$arIndexes = $table->GetIndexes($suggest_table->name);
 			foreach ($arIndexes as $index_name => $arColumns)
 				$arIndexes[$index_name] = implode(",", $arColumns);
 

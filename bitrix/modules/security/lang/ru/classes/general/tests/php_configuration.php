@@ -30,3 +30,10 @@ $MESS["SECURITY_SITE_CHECKER_ZEND_MULTIBYTE_ENABLED_RECOMMENDATION"] = "Для P
 $MESS["SECURITY_SITE_CHECKER_DISPLAY_ERRORS"] = "Включен вывод ошибок";
 $MESS["SECURITY_SITE_CHECKER_DISPLAY_ERRORS_DETAIL"] = "Вывод ошибок предназначен для разработки и тестовых стендов, он не должен использоваться на конечном ресурсе.";
 $MESS["SECURITY_SITE_CHECKER_DISPLAY_ERRORS_RECOMMENDATION"] = "Необходимо в настройках php указать:<br>display_errors = Off";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER"] = "Установлен не корректный порядок формирования массива _REQUEST";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER_DETAIL"] = "Зачастую в массив _REQUEST нет необходимости добавлять любые переменные, кроме массивов _GET и _POST. В противном случае это может привести к раскрытию информации о пользователе/сайте и иным не предсказуемым последствиям.";
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER_RECOMMENDATION"] = 'Необходимо в настройках php указать:<br>request_order = "GP"';
+$MESS["SECURITY_SITE_CHECKER_PHP_REQUEST_ORDER_ADDITIONAL"] = 'Текущее значение: "#CURRENT#"<br>Рекомендованное: "#RECOMMENDED#"';
+$MESS["SECURITY_SITE_CHECKER_MAIL_ADD_HEADER"] = "Почтовые сообщения содержат UID PHP процесса";
+$MESS["SECURITY_SITE_CHECKER_MAIL_ADD_HEADER_DETAIL"] = "В каждом отправляемом письме добавляется заголовок X-PHP-Originating-Script, который содержит UID и имя скрипта отправляющего письмо. Это позволяет злоумышленнику узнать от какого пользователя работает PHP.";
+$MESS["SECURITY_SITE_CHECKER_MAIL_ADD_HEADER_RECOMMENDATION"] = "Необходимо в настройках php указать:<br>mail.add_x_header = Off";

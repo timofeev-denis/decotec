@@ -1446,7 +1446,7 @@ if($bVarsFromForm && !array_key_exists("SUB_PREVIEW_PICTURE", $_REQUEST) && $arE
 						"cloud" => true,
 						"delete" => true,
 						"maxCount" => 1
-					))->show($str_PREVIEW_PICTURE);
+					))->show($ID > 0 && !$bSubCopy ? $str_PREVIEW_PICTURE : 0);
 				}
 				else
 				{
@@ -1568,7 +1568,7 @@ if($bVarsFromForm && !array_key_exists("SUB_DETAIL_PICTURE", $_REQUEST) && $arEl
 						"cloud" => true,
 						"delete" => true,
 						"maxCount" => 1
-					))->show($str_DETAIL_PICTURE);
+					))->show($ID > 0 && !$bSubCopy ? $str_DETAIL_PICTURE : 0);
 				}
 				else
 				{

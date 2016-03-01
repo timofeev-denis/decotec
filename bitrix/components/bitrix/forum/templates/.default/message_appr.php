@@ -20,7 +20,6 @@
 		"USER_FIELDS" => $arParams["USER_FIELDS"],
 		"MESSAGES_PER_PAGE" => $arParams["MESSAGES_PER_PAGE"],
 		"PAGE_NAVIGATION_TEMPLATE" => $arParams["PAGE_NAVIGATION_TEMPLATE"],
-		"PATH_TO_SMILE" => $arParams["PATH_TO_SMILE"],
 		"WORD_LENGTH" => $arParams["WORD_LENGTH"],
 		"IMAGE_SIZE" => $arParams["IMAGE_SIZE"],
 		"ATTACH_MODE" => $arParams["ATTACH_MODE"],

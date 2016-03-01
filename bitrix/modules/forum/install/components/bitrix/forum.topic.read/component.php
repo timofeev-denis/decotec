@@ -75,8 +75,8 @@ $arUserGroups = $USER->GetUserGroupArray();
 
 	$arParams["NAME_TEMPLATE"] = (!empty($arParams["NAME_TEMPLATE"]) ? $arParams["NAME_TEMPLATE"] : false);
 
-	$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
-	$arParams["PATH_TO_ICON"] = trim($arParams["PATH_TO_ICON"]);
+	$arParams["PATH_TO_SMILE"] = "";
+	$arParams["PATH_TO_ICON"] = "";
 
 	$arParams["WORD_LENGTH"] = intVal($arParams["WORD_LENGTH"]);
 	$arParams["IMAGE_SIZE"] = (intVal($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 300);
@@ -205,7 +205,7 @@ $arUserGroups = $USER->GetUserGroupArray();
 	unset($_GET["MID"]); unset($GLOBALS["HTTP_GET_VARS"]["MID"]);
 	unset($_GET["ACTION"]); unset($GLOBALS["HTTP_GET_VARS"]["ACTION"]);
 
-	$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+	$parser = new forumTextParser(LANGUAGE_ID);
 	$parser->MaxStringLen = $arParams["WORD_LENGTH"];
 	$parser->imageWidth = $arParams["IMAGE_SIZE"];
 	$parser->imageHeight = $arParams["IMAGE_SIZE"];
@@ -495,8 +495,8 @@ while ($bNeedLoop)
 			if (!empty($res["AVATAR"])):
 				$arUData["AVATAR"] = array("ID" => $res["~AVATAR"], "FILE" => CFile::GetFileArray($res["~AVATAR"]));
 				$arUData["AVATAR"]["HTML"] = CFile::ShowImage($arUData["AVATAR"]["FILE"],
-					COption::GetOptionString("forum", "avatar_max_width", 90),
-					COption::GetOptionString("forum", "avatar_max_height", 90), "border=\"0\"", "", true);
+					COption::GetOptionString("forum", "avatar_max_width", 100),
+					COption::GetOptionString("forum", "avatar_max_height", 100), "border=\"0\"", "", true);
 			endif;
 			// Voting
 			$arUData["VOTING"] = "N";

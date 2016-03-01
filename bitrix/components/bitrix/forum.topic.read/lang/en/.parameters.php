@@ -4,7 +4,6 @@ $MESS["F_MESSAGES_PER_PAGE"] = "Number of messages per page";
 $MESS["F_DEFAULT_TID"] = "Topic ID";
 $MESS["F_DEFAULT_FID"] = "Forum ID";
 $MESS["F_DEFAULT_MID"] = "Message ID";
-$MESS["F_DEFAULT_PATH_TO_SMILE"] = "Path to Smiles folder (root relative)";
 $MESS["F_INDEX_TEMPLATE"] = "Forums List page";
 $MESS["F_READ_TEMPLATE"] = "Topic Read page";
 $MESS["F_MESSAGE_TEMPLATE"] = "Message view page (with message ID)";

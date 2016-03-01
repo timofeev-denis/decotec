@@ -1,6 +1,6 @@
 ;(function() {
 window['BXDEBUG']=true;
-var BX = window.BX, repo = [], thumbSize = 200;
+var BX = window.BX, repo = {}, thumbSize = 200;
 BX.namespace("BX.UI");
 if (BX["UI"]["FileInput"])
 	return;
@@ -82,8 +82,7 @@ BX["UI"].FileInput.prototype = {
 				}
 			}
 		});
-
-		repo.push(this.agent);
+		repo[this.id] = this;
 		this.fileEvents = {
 			onFileIsAttached : BX.delegate(this.onFileIsAttached, this),
 			onFileIsAppended : BX.delegate(this.onFileIsAppended, this),
@@ -1079,7 +1078,13 @@ BX["UI"].FileInput.prototype = {
 			setTimeout(function(){ item.deleteFile(); }, 500);
 		else
 			item.deleteFile();
+	},
+	destroy : function() {
+		this.deleteFiles();
 	}
+};
+BX["UI"].FileInput.getInstance = function(id) {
+	return repo[id];
 };
 var filePath = function(id, events, maxCount)
 {

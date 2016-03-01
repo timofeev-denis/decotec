@@ -39,8 +39,8 @@ endif;
 /***************** ADDITIONAL **************************************/
 	$arParams["DATE_TIME_FORMAT"] = trim(empty($arParams["DATE_TIME_FORMAT"]) ? $DB->DateFormatToPHP(CSite::GetDateFormat("FULL")) : $arParams["DATE_TIME_FORMAT"]);
 	$arParams["NAME_TEMPLATE"] = (!empty($arParams["NAME_TEMPLATE"]) ? $arParams["NAME_TEMPLATE"] : false);
-	$arParams["PATH_TO_SMILE"] = (empty($arParams["PATH_TO_SMILE"]) ? "/bitrix/images/forum/smile/" : $arParams["PATH_TO_SMILE"]);
-	$arParams["PATH_TO_ICON"] = (empty($arParams["PATH_TO_ICON"]) ? "/bitrix/images/forum/icons/" : $arParams["PATH_TO_ICON"]);
+	$arParams["PATH_TO_SMILE"] = "";
+	$arParams["PATH_TO_ICON"] = "";
 	if ($arParams["AJAX_TYPE"] == "Y" || ($arParams["AJAX_TYPE"] == "A" && COption::GetOptionString("main", "component_ajax_on", "Y") == "Y"))
 		$arParams["AJAX_TYPE"] = "Y";
 	else
@@ -194,7 +194,7 @@ $arAllow = forumTextParser::GetFeatures($arResult["FORUM"]);
 $arAllow['SMILES'] = (($_POST["USE_SMILES"] == "Y") ? $arAllow['SMILES'] : 'N');
 $arResult["GROUP_NAVIGATION"] = array();
 $arResult["GROUPS"] = CForumGroup::GetByLang(LANGUAGE_ID);
-$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+$parser = new forumTextParser(LANGUAGE_ID, "");
 $parser->userPath = $arParams["URL_TEMPLATES_PROFILE_VIEW"];
 $parser->userNameTemplate = $arParams["NAME_TEMPLATE"];
 /********************************************************************
@@ -242,6 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$arFieldsG = array(
 			"POST_MESSAGE" => $_REQUEST["POST_MESSAGE"],
 			"USE_SMILES" => $_REQUEST["USE_SMILES"],
+			"ICON" => $_REQUEST["ICON"],
 			"FILES" => array());
 		if ($arParams["SHOW_VOTE"] == "Y" && !empty($_REQUEST["QUESTION"]))
 		{
@@ -344,7 +345,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		}
 		if (empty($strErrorMessage))
 		{
-			foreach (array("AUTHOR_NAME", "AUTHOR_EMAIL", "TITLE", "TITLE_SEO", "TAGS", "DESCRIPTION", "ICON_ID") as $res)
+			foreach (array("AUTHOR_NAME", "AUTHOR_EMAIL", "TITLE", "TITLE_SEO", "TAGS", "DESCRIPTION", "ICON") as $res)
 			{
 				if (is_set($_REQUEST, $res))
 					$arFieldsG[$res] = $_REQUEST[$res];
@@ -577,10 +578,10 @@ endif;
 		$arFormParams["TITLE_SEO"] = $_POST["TITLE_SEO"];
 		$arFormParams["TAGS"] = $_POST["TAGS"];
 		$arFormParams["DESCRIPTION"] = $_POST["DESCRIPTION"];
-		$arFormParams["ICON_ID"] = $_POST["ICON_ID"];
+		$arFormParams["ICON"] = $_POST["ICON"];
 	}
-	$arFormParams["PATH_TO_SMILE"] = $arParams["PATH_TO_SMILE"];
-	$arFormParams["PATH_TO_ICON"] = $arParams["PATH_TO_ICON"];
+	$arFormParams["PATH_TO_SMILE"] = "";
+	$arFormParams["PATH_TO_ICON"] = "";
 	$arFormParams["CACHE_TIME"] = $arParams["CACHE_TIME"];
 	$arFormParams["URL_TEMPLATES_LIST"] = $arParams["~URL_TEMPLATES_LIST"];
 	$arFormParams["URL_TEMPLATES_READ"] = $arParams["~URL_TEMPLATES_MESSAGE"];

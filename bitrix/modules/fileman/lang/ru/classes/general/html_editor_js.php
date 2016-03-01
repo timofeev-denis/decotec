@@ -292,8 +292,12 @@ $MESS["BXEdMetaClass_block"] = "Текстовый блок";
 $MESS["BXEdMetaClass_block_icon"] = "Текстовый блок с иконкой";
 $MESS["BXEdMetaClass_list"] = "Список";
 
+$MESS["BXEdViewSettings"] = "Внешний вид";
+$MESS["BXEdShowSnippets"] = "Отображать панель сниппетов";
+$MESS["BXEdRefreshNotice"] = "Изменения вступят в силу после обновления страницы";
 $MESS["BXEdPasteSettings"] = "Очистка содержимого при вставке";
 $MESS["BXEdPasteSetColors"] = "Очищать стили цвета текста и фона";
 $MESS["BXEdPasteSetBgBorders"] = "Очищать стили границ и фона элементов";
 $MESS["BXEdPasteSetDecor"] = "Очищать стили текста (полужирный, курсив, подчеркнутый)";
+$MESS["BXEdPasteSetTableDimen"] = "Очищать ширину и высоту у таблиц и их ячеек";
 ?>

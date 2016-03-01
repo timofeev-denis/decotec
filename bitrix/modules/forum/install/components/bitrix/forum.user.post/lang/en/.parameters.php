@@ -7,7 +7,7 @@ $MESS["F_PROFILE_VIEW_TEMPLATE"] = "Profile page";
 $MESS["F_USER_LIST_TEMPLATE"] = "Forum Users page";
 $MESS["F_DEFAULT_MODE"] = "Display mode";
 $MESS["F_DEFAULT_UID"] = "Forum User ID";
-$MESS["F_DEFAULT_PATH_TO_SMILE"] = "Path to Smiles folder (root-relative)";
+
 $MESS["F_MESSAGE_ALL"] = "all author's posts";
 $MESS["F_MESSAGE_LT"] = "topics participated in";
 $MESS["F_MESSAGE_LTA"] = "topics started";

@@ -62,7 +62,7 @@ create table b_forum_topic (
 	TITLE_SEO varchar(255) null,
 	TAGS varchar(255),
 	DESCRIPTION varchar(255),
-	ICON_ID tinyint(2),
+	ICON varchar(255),
 	STATE char(1) not null default 'Y',
 	APPROVED char(1) not null default 'Y',
 	SORT int(10) not null default '150',
@@ -152,29 +152,6 @@ create table b_forum_file (
 	index IX_FORUM_FILE_TOPIC(TOPIC_ID),
 	index IX_FORUM_FILE_MESSAGE(MESSAGE_ID)	
 );
-create table b_forum_smile (
-	ID smallint(3) not null auto_increment,
-	TYPE char(1) not null default 'S',
-	TYPING varchar(100) null,
-	IMAGE varchar(255) not null,
-	DESCRIPTION varchar(255) null,
-	CLICKABLE char(1) not null default 'Y',
-	SORT int(10) not null default '150',
-	IMAGE_WIDTH int not null default '0',
-	IMAGE_HEIGHT int not null default '0',
-	primary key (ID)
-);
-
-create table b_forum_smile_lang
-(
-	ID int not null auto_increment,
-	SMILE_ID int not null,
-	LID char(2) not null,
-	NAME varchar(255) not null,
-	primary key (ID),
-	unique UX_FORUM_SMILE_K(SMILE_ID, LID)
-);
-
 create table b_forum_user (
 	ID bigint(10) not null auto_increment,
 	USER_ID int(10)not null,

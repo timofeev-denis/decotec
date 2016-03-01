@@ -13,4 +13,5 @@ $MESS["SEC_FRAME_EXCEPTIONS_TAB_TITLE"] = "Protection will not be applied to pag
 $MESS["SEC_FRAME_SITE"] = "for website:";
 $MESS["SEC_FRAME_MASKS"] = "Exclusion masks:<br>(e.g.: /bitrix/* or */news/*)";
 $MESS["SEC_FRAME_ADD"] = "Add";
+$MESS["SEC_FRAME_HTML_CACHE"] = "Frame use restriction may now work in composite mode or when HTML page cache is enabled";
 ?>

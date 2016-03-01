@@ -1486,7 +1486,7 @@ class CAllUserTypeManager
 			{
 				$arHeaders[] = array(
 					"id" => $FIELD_NAME,
-					"content" => $arUserField["LIST_COLUMN_LABEL"]? $arUserField["LIST_COLUMN_LABEL"]: $arUserField["FIELD_NAME"],
+					"content" => htmlspecialcharsbx($arUserField["LIST_COLUMN_LABEL"]? $arUserField["LIST_COLUMN_LABEL"]: $arUserField["FIELD_NAME"]),
 					"sort" => $arUserField["MULTIPLE"]=="N"? $FIELD_NAME: false,
 				);
 			}
@@ -1512,7 +1512,7 @@ class CAllUserTypeManager
 				{
 					if($arUserField["LIST_FILTER_LABEL"])
 					{
-						$arFindFields[$FIELD_NAME] = $arUserField["LIST_FILTER_LABEL"];
+						$arFindFields[$FIELD_NAME] = htmlspecialcharsbx($arUserField["LIST_FILTER_LABEL"]);
 					}
 					else
 					{
@@ -1779,7 +1779,12 @@ class CAllUserTypeManager
 			}
 			if($arUserField["EDIT_IN_LIST"]=="Y" && is_callable(array($arUserField["USER_TYPE"]["CLASS_NAME"], "getadminlistedithtml")))
 			{
-				if($arUserField["MULTIPLE"] == "N")
+				if (!$row->bEditMode)
+				{
+					// put dummy
+					$row->AddEditField($arUserField["FIELD_NAME"], "&nbsp;");
+				}
+				elseif($arUserField["MULTIPLE"] == "N")
 				{
 					$html = call_user_func_array(
 						array($arUserField["USER_TYPE"]["CLASS_NAME"], "getadminlistedithtml"),

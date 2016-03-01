@@ -29,7 +29,7 @@ $arParams["AJAX_TYPE"] = ($arParams["AJAX_TYPE"] == "Y" ? "Y" : "N");
 $arParams["SHOW_RSS"] = ($arParams["SHOW_RSS"] == "N" ? "N" : "Y");
 $arParams["SHOW_FIRST_POST"] = ($arParams["SHOW_FIRST_POST"] == "Y" ? "Y" : "N");
 if ($arParams["SHOW_RSS"] == "Y"):
-	$arParams["SHOW_RSS"] = (!$USER->IsAuthorized() ? "Y" : (CForumNew::GetUserPermission($arParams["FID"], array(2)) > "A" ? "Y" : "N"));
+	$arParams["SHOW_RSS"] = (!$USER->IsAuthorized() || CForumNew::GetUserPermission($arParams["FID"], array(2)) > "A") ? "Y" : "N";
 endif;
 $arParams["SHOW_NAME_LINK"] = ($arParams["SHOW_NAME_LINK"] == "N" ? "N" : "Y");
 

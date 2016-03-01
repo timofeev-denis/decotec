@@ -184,6 +184,7 @@ JCSmartFilter.prototype.postHandler = function (result, fromCache)
 
 			if (result.FILTER_AJAX_URL && result.COMPONENT_CONTAINER_ID)
 			{
+				BX.unbindAll(hrefFILTER[0]);
 				BX.bind(hrefFILTER[0], 'click', function(e)
 				{
 					url = BX.util.htmlspecialcharsback(result.FILTER_AJAX_URL);
@@ -206,7 +207,7 @@ JCSmartFilter.prototype.postHandler = function (result, fromCache)
 
 				if (this.viewMode == "VERTICAL")
 				{
-					curProp = BX.findChild(BX.findParent(this.curFilterinput, {'class':'bx-filter-parameters-box'}), {'class':'bx_filter_container_modef'}, true, false);
+					curProp = BX.findChild(BX.findParent(this.curFilterinput, {'class':'bx-filter-parameters-box'}), {'class':'bx-filter-container-modef'}, true, false);
 					curProp.appendChild(modef);
 				}
 

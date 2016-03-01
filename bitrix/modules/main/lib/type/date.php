@@ -41,6 +41,15 @@ class Date
 			}
 
 			$this->value->setDate($parsedValue['year'], $parsedValue['month'], $parsedValue['day']);
+
+			if (
+				isset($parsedValue["relative"])
+				&& isset($parsedValue["relative"]["second"])
+				&& $parsedValue["relative"]["second"] != 0
+			)
+			{
+				$this->value->add(new \DateInterval("PT".$parsedValue["relative"]["second"]."S"));
+			}
 		}
 		$this->value->setTime(0, 0, 0);
 	}

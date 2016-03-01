@@ -1,12 +1,13 @@
 function ValidateForm(form)
 {
-	if (typeof form != "object" || !window.oLHE)
+	var editor = (window["BXHtmlEditor"] ? window["BXHtmlEditor"].Get("POST_MESSAGE") : null);
+	if (typeof form != "object" || !editor)
 		return false;
-	window.oLHE.SaveContent();
+	editor.SaveContent();
 
 	var
 		errors = "",
-		Message = window.oLHE.GetContent(),
+		Message = editor.GetContent(),
 		MessageMax = 64000,
 		MessageLength = form.POST_MESSAGE.value.length;
 

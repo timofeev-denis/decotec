@@ -26,6 +26,7 @@ if ($arCurrentValues["SET_NAVIGATION"] == "Y")
 			"NAME" => GetMessage("F_SHOW_NAV"),
 			"TYPE" => "LIST",
 			"MULTIPLE" => "Y",
+			"PARENT" => "PAGER_SETTINGS",
 			"VALUES" => array(
 				"TOP" => GetMessage("F_SHOW_NAV_TOP"),
 				"BOTTOM" => GetMessage("F_SHOW_NAV_BOTTOM")),

@@ -132,12 +132,14 @@ $bShowAuto = $ID > 0 && $bAllowUpdate && IsModuleInstalled("catalog");
 
 if($ID <= 0)
 {
+	$host = str_replace(array(':80', ':443'), '', $request->getHttpHost());
+
 	$banner = array(
 		"SETTINGS" => array(
 			"CampaignID" => $campaign["SETTINGS"]["CampaignID"],
 			"Title" => "",
 			"Text" => "",
-			"Href" => 'http'.($request->isHttps() ? 's' : '').'://'.$request->getHttpHost(),
+			"Href" => 'http'.($request->isHttps() ? 's' : '').'://'.$host,
 			"Geo" => Main\Config\Option::get('seo', 'yandex_direct_region_last_list', ''),
 			"Phrases" => array(),
 			"MinusKeywords" => array(),

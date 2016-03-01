@@ -22,6 +22,7 @@ class CCommentFiles
 
 		AddEventHandler("forum", "OnPrepareComments", Array(&$this, "OnPrepareComments"));
 		AddEventHandler("forum", "OnCommentPreview", Array(&$this, "OnCommentPreview"));
+		AddEventHandler("forum", "OnCommentError", Array(&$this, "OnCommentError"));
 
 		if ($arParams["ALLOW_UPLOAD"] !== "N")
 		{
@@ -92,7 +93,7 @@ class CCommentFiles
 		}
 	}
 
-	function OnCommentPreview()
+	function OnCommentError()
 	{
 		$arResult =& $this->component->arResult;
 		$arParams =& $this->component->arParams;
@@ -100,10 +101,15 @@ class CCommentFiles
 		$arDummy = array();
 		$this->OnCommentAdd(null, null, $arDummy);
 
-		$arResult["MESSAGE_VIEW"]["FILES"] = $_REQUEST["FILE_NEW"];
 		$arResult["REVIEW_FILES"] = array();
-		foreach ($arResult["MESSAGE_VIEW"]["FILES"] as $val)
+		foreach ($_REQUEST["FILE_NEW"] as $val)
 			$arResult["REVIEW_FILES"][$val] = CFile::GetFileArray($val);
+	}
+
+	function OnCommentPreview()
+	{
+		$this->OnCommentError();
+		$arResult["MESSAGE_VIEW"]["FILES"] = $_REQUEST["FILE_NEW"];
 	}
 
 	function OnCommentPreviewDisplay()
@@ -226,7 +232,6 @@ class CCommentFiles
 				?><span><?=str_replace("#SIZE#", $sFileSize, GetMessage("F_FILE_SIZE"))?></span>
 			</div>
 <?
-
 			$componentParams = array(
 				'INPUT_NAME' => 'FILE_NEW',
 				'INPUT_NAME_UNSAVED' => 'FILE_NEW_TMP',

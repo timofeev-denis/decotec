@@ -3876,6 +3876,39 @@ BX.formatDate = function(date, format)
 		.replace(/MI/ig, BX.util.str_pad_left(date.getMinutes().toString(), 2, '0'))
 		.replace(/SS/ig, BX.util.str_pad_left(date.getSeconds().toString(), 2, '0'));
 };
+BX.formatName = function(user, template, login)
+{
+	user = user || {};
+	template = (template || '');
+	var replacement = {
+		TITLE : (user["TITLE"] || ''),
+		NAME : (user["NAME"] || ''),
+		LAST_NAME : (user["LAST_NAME"] || ''),
+		SECOND_NAME : (user["SECOND_NAME"] || ''),
+		LOGIN : (user["LOGIN"] || ''),
+		NAME_SHORT : user["NAME"] ? user["NAME"].substr(0, 1) + '.' : '',
+		LAST_NAME_SHORT : user["LAST_NAME"] ? user["LAST_NAME"].substr(0, 1) + '.' : '',
+		SECOND_NAME_SHORT : user["SECOND_NAME"] ? user["SECOND_NAME"].substr(0, 1) + '.' : '',
+		EMAIL : (user["EMAIL"] || ''),
+		ID : (user["ID"] || ''),
+		NOBR : "",
+		'/NOBR' : ""
+	}, result = template;
+	for (var ii in replacement)
+	{
+		if (replacement.hasOwnProperty(ii))
+		{
+			result = result.replace("#" + ii+ "#", replacement[ii])
+		}
+	}
+	result = result.replace(/([\s]+)/gi, " ").trim();
+	if (result == "")
+	{
+		result = (login == "Y" ? replacement["LOGIN"] : "");
+		result = (result == "" ? "Noname" : result);
+	}
+	return result;
+};
 
 BX.getNumMonth = function(month)
 {

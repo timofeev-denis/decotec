@@ -8,6 +8,9 @@ class CAllIBlock
 	protected static $disabledCacheTag = array();
 	protected static $enableClearTagCache = 0;
 
+	protected static $catalogIncluded = null;
+	protected static $workflowIncluded = null;
+
 	public static function ShowPanel($IBLOCK_ID=0, $ELEMENT_ID=0, $SECTION_ID="", $type="news", $bGetIcons=false, $componentName="", $arLabels=array())
 	{
 		/** @global CMain $APPLICATION */
@@ -164,6 +167,8 @@ class CAllIBlock
 		/** @global CMain $APPLICATION */
 		global $APPLICATION;
 
+		$windowParams = array('width' => 700, 'height' => 400, 'resize' => false);
+
 		$arButtons = array(
 			"view" => array(),
 			"edit" => array(),
@@ -171,19 +176,12 @@ class CAllIBlock
 			"submenu" => array(),
 		);
 
-		if(array_key_exists("SECTION_BUTTONS", $arOptions) && $arOptions["SECTION_BUTTONS"] === false)
-			$bSectionButtons = false;
-		else
-			$bSectionButtons = true;
+		$bSectionButtons = !(isset($arOptions['SECTION_BUTTONS']) && $arOptions['SECTION_BUTTONS'] === false);
+		$bSessID = !(isset($arOptions['SESSID']) && $arOptions['SESSID'] === false);
 
-		if(array_key_exists("SESSID", $arOptions) && $arOptions["SESSID"] === false)
-			$bSessID = false;
-		else
-			$bSessID = true;
-
-		$IBLOCK_ID = intval($IBLOCK_ID);
-		$ELEMENT_ID = intval($ELEMENT_ID);
-		$SECTION_ID = intval($SECTION_ID);
+		$IBLOCK_ID = (int)$IBLOCK_ID;
+		$ELEMENT_ID = (int)$ELEMENT_ID;
+		$SECTION_ID = (int)$SECTION_ID;
 
 		if(($ELEMENT_ID > 0) && (($IBLOCK_ID <= 0) || ($bSectionButtons && $SECTION_ID == 0)))
 		{
@@ -204,10 +202,11 @@ class CAllIBlock
 			return $arButtons;
 
 		$bCatalog = false;
-		if(isset($arOptions["CATALOG"]) && $arOptions["CATALOG"] == true)
+		if (isset($arOptions["CATALOG"]) && $arOptions["CATALOG"] == true)
 		{
-			if(CModule::IncludeModule('catalog'))
-				$bCatalog = true;
+			if (self::$catalogIncluded === null)
+				self::$catalogIncluded = \Bitrix\Main\Loader::includeModule('catalog');
+			$bCatalog = self::$catalogIncluded;
 		}
 
 		$return_url = array(
@@ -223,7 +222,7 @@ class CAllIBlock
 			"section_list" => "",
 		);
 
-		if(array_key_exists("RETURN_URL", $arOptions))
+		if(isset($arOptions['RETURN_URL']))
 		{
 			if(is_array($arOptions["RETURN_URL"]))
 			{
@@ -255,7 +254,9 @@ class CAllIBlock
 		}
 
 		$arIBlock = CIBlock::GetArrayByID($IBLOCK_ID);
-		$bWorkflow = CModule::IncludeModule("workflow") && ($arIBlock["WORKFLOW"] !== "N");
+		if (self::$workflowIncluded === null)
+			self::$workflowIncluded = \Bitrix\Main\Loader::includeModule('workflow');
+		$bWorkflow = self::$workflowIncluded && ($arIBlock["WORKFLOW"] !== "N");
 		$s = $bWorkflow? "&WF=Y": "";
 
 		$arLabels = $arOptions["LABELS"];
@@ -273,9 +274,7 @@ class CAllIBlock
 			$action = $APPLICATION->GetPopupLink(
 				array(
 					"URL" => $url,
-					"PARAMS" => array(
-						"width" => 700, 'height' => 400, 'resize' => false,
-					),
+					"PARAMS" => $windowParams,
 				)
 			);
 
@@ -325,11 +324,7 @@ class CAllIBlock
 			$action = $APPLICATION->GetPopupLink(
 				array(
 					"URL" => $url,
-					"PARAMS" => array(
-						"width" => 700,
-						'height' => 400,
-						'resize' => false,
-					),
+					"PARAMS" => $windowParams,
 				)
 			);
 			$arButton = array(
@@ -411,9 +406,7 @@ class CAllIBlock
 					$action = $APPLICATION->GetPopupLink(
 						array(
 							"URL" => $url,
-							"PARAMS" => array(
-								"width" => 700, 'height' => 400, 'resize' => false,
-							),
+							"PARAMS" => $windowParams,
 						)
 					);
 
@@ -450,9 +443,7 @@ class CAllIBlock
 					$action = $APPLICATION->GetPopupLink(
 						array(
 							"URL" => $url,
-							"PARAMS" => array(
-								"width" => 700, 'height' => 400, 'resize' => false,
-							),
+							"PARAMS" => $windowParams,
 						)
 					);
 

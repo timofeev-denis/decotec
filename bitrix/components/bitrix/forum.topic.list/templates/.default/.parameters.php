@@ -5,11 +5,6 @@ $arTemplateParameters = array(
 		"NAME" => GetMessage("F_TMPLT_SHOW_ADDITIONAL_MARKER"),
 		"TYPE" => "STRING",
 		"DEFAULT" => ""),
-/*	"PATH_TO_ICON" => Array(
-		"NAME" => GetMessage("F_DEFAULT_PATH_TO_ICON"),
-		"TYPE" => "STRING",
-		"DEFAULT" => "/bitrix/images/forum/icon/"),
-*/
 	"SHOW_RSS" => array(
 		"NAME" => GetMessage("F_SHOW_RSS"),
 		"TYPE" => "CHECKBOX",

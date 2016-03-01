@@ -34,11 +34,7 @@ elseif (ForumCurrUserPermissions($arParams["FORUM_ID"]) <= "E")
 }
 elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == "N") && ($_REQUEST["save_product_review"] == "Y"))
 {
-	$FORUM_TOPIC_ID = 0;
-	$arProperties = array();
-	$needProperty = array();
 	$strErrorMessage = "";
-
 	// 1.2 Check Post Text
 	if (strLen($_REQUEST["REVIEW_TEXT"]) < 3)
 	{
@@ -138,39 +134,35 @@ elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == 
 	$FORUM_TOPIC_ID = intVal($arResult["ELEMENT"]["PROPERTY_FORUM_TOPIC_ID_VALUE"]);
 	$FORUM_MESSAGE_CNT = intVal($arResult["ELEMENT"]["PROPERTY_FORUM_MESSAGE_CNT_VALUE"]);
 
-	if ($FORUM_TOPIC_ID <= 0):
-		$db_res = CIBlockElement::GetProperty($arResult["ELEMENT"]["IBLOCK_ID"], $arResult["ELEMENT"]["ID"], false, false, array("CODE" => "FORUM_TOPIC_ID"));
-		if (!($db_res && $res = $db_res->Fetch()))
-			$needProperty[] = "FORUM_TOPIC_ID";
-	endif;
-	if ($FORUM_MESSAGE_CNT <= 0):
-		$db_res = CIBlockElement::GetProperty($arResult["ELEMENT"]["IBLOCK_ID"], $arResult["ELEMENT"]["ID"], false, false, array("CODE" => "FORUM_MESSAGE_CNT"));
-		if (!($db_res && $res = $db_res->Fetch()))
-			$needProperty[] = "FORUM_MESSAGE_CNT";
-	endif;
-	if (!empty($needProperty)):
+	if ($FORUM_TOPIC_ID <= 0 && !($res = CIBlockElement::GetProperty($arResult["ELEMENT"]["IBLOCK_ID"], $arResult["ELEMENT"]["ID"], false, false, array("CODE" => "FORUM_TOPIC_ID"))->fetch()))
+	{
+		$needProperty[] = "FORUM_TOPIC_ID";
+	}
+	if ($FORUM_MESSAGE_CNT <= 0 && !($res = CIBlockElement::GetProperty($arResult["ELEMENT"]["IBLOCK_ID"], $arResult["ELEMENT"]["ID"], false, false, array("CODE" => "FORUM_MESSAGE_CNT"))->fetch()))
+	{
+		$needProperty[] = "FORUM_MESSAGE_CNT";
+	}
+	if (!empty($needProperty))
+	{
 		$obProperty = new CIBlockProperty;
-		$res = true;
 		foreach ($needProperty as $nameProperty)
 		{
 			$sName = trim($nameProperty == "FORUM_TOPIC_ID" ? GetMessage("F_FORUM_TOPIC_ID") : GetMessage("F_FORUM_MESSAGE_CNT"));
 			$sName = (empty($sName) ? $nameProperty : $sName);
-			$res = $obProperty->Add(array(
+			if($obProperty->Add(array(
 				"IBLOCK_ID" => $PRODUCT_IBLOCK_ID,
 				"ACTIVE" => "Y",
 				"PROPERTY_TYPE" => "N",
 				"MULTIPLE" => "N",
 				"NAME" => $sName,
-				"CODE" => $nameProperty));
-			if($res)
+				"CODE" => $nameProperty)))
 				${strToUpper($nameProperty)} = 0;
 		}
-	endif;
-
+	}
 	// 1.5 Set NULL for topic_id if it was deleted
 	if ($FORUM_TOPIC_ID > 0):
 		$arTopic = CForumTopic::GetByID($FORUM_TOPIC_ID);
-		if (!$arTopic || !is_array($arTopic) || count($arTopic) <= 0 || $arTopic["FORUM_ID"] != $arParams["FORUM_ID"]):
+		if (!is_array($arTopic) || $arTopic["FORUM_ID"] != $arParams["FORUM_ID"]):
 			CIBlockElement::SetPropertyValues($arParams["ELEMENT_ID"], $PRODUCT_IBLOCK_ID, 0, "FORUM_TOPIC_ID");
 			CIBlockElement::SetPropertyValues($arParams["ELEMENT_ID"], $PRODUCT_IBLOCK_ID, 0, "FORUM_MESSAGE_CNT");
 			$FORUM_TOPIC_ID = 0;
@@ -184,7 +176,6 @@ elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == 
 	endif;
 
 	// 1.6 Create New topic and add messages
-	$MID = 0; $TID = 0;
 	if ($FORUM_TOPIC_ID <= 0)
 	{
 	// 1.6.a Create New topic
@@ -286,20 +277,24 @@ elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == 
 				CForumTopic::Delete($TID);
 				$TID = 0;
 			}
-			elseif ($arParams["SUBSCRIBE_AUTHOR_ELEMENT"] == "Y" && intVal($arResult["ELEMENT"]["~CREATED_BY"]) > 0)
+			else
 			{
-				if ($arUserStart["USER_PROFILE"] == "N"):
-					$arUserStart["FORUM_USER_ID"] = CForumUser::Add(array("USER_ID" => $arResult["ELEMENT"]["~CREATED_BY"]));
-				endif;
-				if (intVal($arUserStart["FORUM_USER_ID"]) > 0):
-					CForumSubscribe::Add(array(
-						"USER_ID" => $arResult["ELEMENT"]["~CREATED_BY"],
-						"FORUM_ID" => $arParams["FORUM_ID"],
-						"SITE_ID" => SITE_ID,
-						"TOPIC_ID" => $TID,
-						"NEW_TOPIC_ONLY" => "N"));
-					BXClearCache(true, "/bitrix/forum/user/".$arResult["ELEMENT"]["~CREATED_BY"]."/subscribe/"); // Sorry, Max.
-				endif;
+				CIBlockElement::SetPropertyValues($arParams["ELEMENT_ID"], $PRODUCT_IBLOCK_ID, intVal($TID), "FORUM_TOPIC_ID");
+				if ($arParams["SUBSCRIBE_AUTHOR_ELEMENT"] == "Y" && intVal($arResult["ELEMENT"]["~CREATED_BY"]) > 0)
+				{
+					if ($arUserStart["USER_PROFILE"] == "N"):
+						$arUserStart["FORUM_USER_ID"] = CForumUser::Add(array("USER_ID" => $arResult["ELEMENT"]["~CREATED_BY"]));
+					endif;
+					if (intVal($arUserStart["FORUM_USER_ID"]) > 0):
+						CForumSubscribe::Add(array(
+							"USER_ID" => $arResult["ELEMENT"]["~CREATED_BY"],
+							"FORUM_ID" => $arParams["FORUM_ID"],
+							"SITE_ID" => SITE_ID,
+							"TOPIC_ID" => $TID,
+							"NEW_TOPIC_ONLY" => "N"));
+						BXClearCache(true, "/bitrix/forum/user/".$arResult["ELEMENT"]["~CREATED_BY"]."/subscribe/"); // Sorry, Max.
+					endif;
+				}
 			}
 		}
 	// Second exit point
@@ -309,6 +304,7 @@ elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == 
 		else:
 			$DB->Commit();
 		endif;
+		$FORUM_TOPIC_ID = $TID;
 	}
 		// 1.6.1 Add post comment
 	$arFieldsG = array(
@@ -344,8 +340,8 @@ elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == 
 		if (!empty($arFiles))
 			$arFieldsG["FILES"] = $arFiles;
 	}
-	$TOPIC_ID = ($FORUM_TOPIC_ID > 0 ? $FORUM_TOPIC_ID : $TID);
-	$MID = ForumAddMessage(($TOPIC_ID > 0 ? "REPLY" : "NEW"), $arParams["FORUM_ID"], $TOPIC_ID, 0, $arFieldsG, $strErrorMessage, $arNote, false,
+	;
+	$MID = ForumAddMessage(($FORUM_TOPIC_ID > 0 ? "REPLY" : "NEW"), $arParams["FORUM_ID"], $FORUM_TOPIC_ID, 0, $arFieldsG, $strErrorMessage, $arNote, false,
 		$_POST["captcha_word"], 0, $_POST["captcha_code"], $arParams["NAME_TEMPLATE"]);
 
 	if ($MID <= 0 || !empty($strErrorMessage)):
@@ -355,27 +351,14 @@ elseif ((empty($_REQUEST["preview_comment"]) || $_REQUEST["preview_comment"] == 
 		$arResult['RESULT'] = false;
 		$arResult["OK_MESSAGE"] = '';
 	else:
-		if ($TOPIC_ID <= 0):
+		if ($FORUM_TOPIC_ID <= 0):
 			$res = CForumMessage::GetByID($MID);
-			$FORUM_TOPIC_ID = $TID = intVal($res["TOPIC_ID"]);
+			$FORUM_TOPIC_ID = intVal($res["TOPIC_ID"]);
 		endif;
 		if ($arParams["AUTOSAVE"])
 			$arParams["AUTOSAVE"]->Reset();
-	// 1.7 Update Iblock Property
-		if ($TID > 0)
-		{
-			CIBlockElement::SetPropertyValues($arParams["ELEMENT_ID"], $PRODUCT_IBLOCK_ID, intVal($TID), "FORUM_TOPIC_ID");
-		}
-		else
-		{
-			if ($TOPIC_ID > 0)
-				$TID = $TOPIC_ID;
-			if ($FORUM_TOPIC_ID > 0)
-				$TID = $FORUM_TOPIC_ID;
-		}
 
 		$arResult["FORUM_TOPIC_ID"] = intVal($FORUM_TOPIC_ID);
-
 		ForumClearComponentCache($componentName);
 
 		// SUBSCRIBE

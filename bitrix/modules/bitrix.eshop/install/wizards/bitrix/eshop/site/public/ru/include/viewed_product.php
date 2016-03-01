@@ -1,9 +1,5 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
-$wizTemplateId = COption::GetOptionString("main", "wizard_template_id", "eshop_adapt_horizontal", SITE_ID);
-$template =  ($wizTemplateId == "eshop_adapt_vertical") ? "vertical" : "";
-?>
-<?$APPLICATION->IncludeComponent("bitrix:catalog.viewed.products", $template, array(
+<?$APPLICATION->IncludeComponent("bitrix:catalog.viewed.products", "", array(
 		"HIDE_NOT_AVAILABLE" => "N",
 		"PAGE_ELEMENT_COUNT" => "5",
 		"SHOW_DISCOUNT_PERCENT" => "Y",

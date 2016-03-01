@@ -16,7 +16,8 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 	public $FILTER_NAME = "";
 	public $SAFE_FILTER_NAME = "";
 	public $convertCurrencyId = "";
-	
+
+	protected $currencyTagList = array();
 	protected $currencyCache = array();
 	protected static $catalogIncluded = null;
 	protected static $iblockIncluded = null;
@@ -101,9 +102,9 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 				'filter' => array('=CURRENCY' => $this->arParams['CURRENCY_ID'])
 			));
 			if ($currency = $currencyList->fetch())
-			{
 				$this->convertCurrencyId = $currency['CURRENCY'];
-			}
+			unset($currency);
+			unset($currencyList);
 		}
 
 		if (self::$iblockIncluded === null)
@@ -270,9 +271,14 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 				$currency = $this->facet->lookupDictionaryValue($currency);
 
 			if ($this->convertCurrencyId && $existCurrency)
+			{
 				$priceValue = CCurrencyRates::ConvertCurrency($arElement["MIN_VALUE_NUM"], $currency, $this->convertCurrencyId);
+				$this->currencyTagList[$currency] = $currency;
+			}
 			else
+			{
 				$priceValue = $arElement["MIN_VALUE_NUM"];
+			}
 
 			if (
 				!isset($resultItem["VALUES"]["MIN"]["VALUE"])
@@ -285,9 +291,14 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 			}
 
 			if ($this->convertCurrencyId && $existCurrency)
+			{
 				$priceValue = CCurrencyRates::ConvertCurrency($arElement["MAX_VALUE_NUM"], $currency, $this->convertCurrencyId);
+				$this->currencyTagList[$currency] = $currency;
+			}
 			else
+			{
 				$priceValue = $arElement["MAX_VALUE_NUM"];
+			}
 
 			if (
 				!isset($resultItem["VALUES"]["MAX"]["VALUE"])
@@ -307,9 +318,14 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 			if(strlen($price))
 			{
 				if ($this->convertCurrencyId && $existCurrency)
+				{
 					$convertPrice = CCurrencyRates::ConvertCurrency($price, $currency, $this->convertCurrencyId);
+					$this->currencyTagList[$currency] = $currency;
+				}
 				else
+				{
 					$convertPrice = (float)$price;
+				}
 
 				if(
 					!isset($resultItem["VALUES"]["MIN"])
@@ -1004,7 +1020,7 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 
 		return str_replace("#SMART_FILTER_PATH#", implode("/", $this->encodeSmartParts($smartParts)), $url);
 	}
-	
+
 	public function encodeSmartParts($smartParts)
 	{
 		foreach ($smartParts as &$smartPart)
@@ -1025,5 +1041,23 @@ class CBitrixCatalogSmartFilter extends CBitrixComponent
 		}
 		unset($smartPart);
 		return $smartParts;
+	}
+
+	public function setCurrencyTag()
+	{
+		if (
+			$this->convertCurrencyId != ''
+			&& !empty($this->currencyTagList)
+			&& defined('BX_COMP_MANAGED_CACHE')
+		)
+		{
+			$this->currencyTagList[$this->convertCurrencyId] = $this->convertCurrencyId;
+			$taggedCache = \Bitrix\Main\Application::getInstance()->getTaggedCache();
+			$taggedCache->startTagCache($this->getCachePath());
+			foreach ($this->currencyTagList as &$oneCurrency)
+				$taggedCache->registerTag('currency_id_'.$oneCurrency);
+			unset($oneCurrency);
+			$taggedCache->endTagCache();
+		}
 	}
 }

@@ -10,7 +10,6 @@ $MESS ['F_DATE_TIME_FORMAT'] = "Date and Time format";
 $MESS ['F_SET_NAVIGATION'] = "Show Breadcrumb navigation";
 $MESS ['F_DISPLAY_PANEL'] = "Display panel buttons for this component";
 $MESS ['F_MESSAGES_PER_PAGE'] = "Number of messages per page";
-$MESS ['F_DEFAULT_PATH_TO_SMILE'] = "Path to Smile folder (root relative)";
 $MESS ['F_DEFAULT_TID'] = "Topic ID";
 $MESS ['F_PAGE_NAVIGATION_TEMPLATE'] = "Name of the pager template";
 $MESS ['F_IMAGE_SIZE'] = "Size of attached image (px)";

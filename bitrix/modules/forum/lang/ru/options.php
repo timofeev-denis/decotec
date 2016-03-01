@@ -47,4 +47,7 @@ $MESS["FR_ADMIN"] = "Администратор";
 $MESS["FR_ADMINISTRATOR"] = "Администратор";
 $MESS["FR_USER"] = "Пользователь";
 $MESS["FR_GUEST"] = "Гость";
+$MESS["FORUM_OPTIONS_SMILE_GALLERY_ID"] = "Галерея смайлов для парсера";
+$MESS["FORUM_OPTIONS_SMILE_SET_ID"] = "Набор смайлов форума";
+$MESS["FORUM_OPTIONS_SMILE_GALLERY_ID"] = "Галерея смайлов форума";
 ?>

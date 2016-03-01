@@ -79,7 +79,6 @@ $MESS["DISPLAY_COMPARE_TIP"] = "Wenn diese Option aktiv ist, wird der Button <i>
 $MESS["SET_TITLE_TIP"] = "Wenn diese Option aktiv ist, wird als Seitenüberschrift die eingestellte Bereichsbezeichnung angezeigt.";
 $MESS["SET_BROWSER_TITLE_TIP"] = "Bei der aktivierten Option wird die Überschrift des Informationsblockbereichs (oder eine SEO-Überschrift, wenn aktiv) als Überschrift des Browserfensters benutzt.";
 $MESS["PAGE_ELEMENT_COUNT_TIP"] = "Diese Zahl gibt die Anzahl der Elemente auf einer Seite an. Die anderen Elemente werden mit Hilfe der Seitennavigation angezeigt.";
-$MESS["LINE_ELEMENT_COUNT_TIP"] = "Die Zahl bestimmt die Menge der Elemente in einer Zeile bei der Anzeige der Elemente.";
 $MESS["PROPERTY_CODE_TIP"] = "Zwischen den Informationsblock-Eigenschaften kann man die wählen, die bei der Anzeige der Elemente angezeigt werden. Beim Auswählen des Punktes (nicht gewählt)-> und ohne die Angabe der Feld ID's in den unteren Zeilen, werden die Eigenschaften nicht angezeigt.";
 $MESS["PRICE_CODE_TIP"] = "Es wird eingestellt, welcher der Preistypen im Katalog angezeigt wird. Wenn keiner der Typen gewählt ist, werden der Preis und die Buttons <i>Kaufen</i> und <i>Zum Warenkorb</i> nicht angezeigt.";
 $MESS["USE_PRICE_COUNT_TIP"] = "Wenn diese Option aktiviert ist, werden alle existierenden Preisspannen ausgewählt.";
@@ -111,4 +110,5 @@ $MESS["PARTIAL_PRODUCT_PROPERTIES_TIP"] = "Wenn nicht ausgewählt, wird das Prod
 $MESS["COMPARE_PATH_TIP"] = "Gibt den Pfad zur Seite mit der Komponente des Produktvergleichs an. Wenn der Wert leer ist, wird aktuelle Seite benutzt.";
 $MESS["CP_BCS_SET_LAST_MODIFIED"] = "Im Header der Antwort den Zeitpunkt der Seitenänderung angeben";
 $MESS["T_IBLOCK_BACKGROUND_IMAGE"] = "Das Bild aus den Eigenschaften als Hintergrundbild für Vorlage benutzen";
+$MESS["LINE_ELEMENT_COUNT_TIP"] = "Die Zahl gibt die Anzahl der Elemente pro Zeile bei der Ansicht der Bereichselemente an. In der Standardvorlage reichen die möglichen Werte von 2 bis 5.";
 ?>

@@ -1087,15 +1087,7 @@ BXSticker.prototype = {
 
 	GetNewStickerContent: function()
 	{
-		var zeroInt = function(x)
-		{
-			x = parseInt(x);
-			if (isNaN(x))
-				x = 0;
-			return x < 10 ? '0' + x.toString() : x.toString();
-		}
-		var oDate = new Date();
-		var strDate = this.Params.strDate + " " + zeroInt(oDate.getHours()) + ':' + zeroInt(oDate.getMinutes());
+		var strDate = BX.date.format(BX.date.convertBitrixFormat(BX.message('FORMAT_DATETIME')));
 		return "[ST_TITLE]" + BX.util.htmlspecialchars(this.Params.curUserName) + ' ' + strDate + "[/ST_TITLE]\n";
 	},
 
@@ -1655,7 +1647,7 @@ BXSticker.prototype = {
 		for (i = 0; i < len; i++)
 		{
 			node = this.magicNodes.nodes[i];
-			
+
 		}
 	},
 

@@ -13,7 +13,7 @@ $shopLocalization = $wizard->GetVar("shopLocalization");
 if ($_SESSION["WIZARD_CATALOG_IBLOCK_ID"])
 {
 	$IBLOCK_CATALOG_ID = $_SESSION["WIZARD_CATALOG_IBLOCK_ID"];
-	unset($_SESSION["WIZARD_CATALOG_IBLOCK_ID"]);
+	//unset($_SESSION["WIZARD_CATALOG_IBLOCK_ID"]);
 }
 if ($_SESSION["WIZARD_OFFERS_IBLOCK_ID"])
 {

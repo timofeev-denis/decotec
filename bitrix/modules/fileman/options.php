@@ -626,7 +626,7 @@ if($USER->isAdmin())
 		<td colspan="2">
 		<table cellspacing="4"  cellpadding="0" width="100%">
 		<tr>
-			<td valign="top" width="40%" class="adm-detail-content-cell-l" style="{padding: 4px;}"><?= GetMessage('FILEMAN_OPTION_MENU_TYPES')?></td>
+			<td valign="top" width="40%" class="adm-detail-content-cell-l" style="padding: 4px;"><?= GetMessage('FILEMAN_OPTION_MENU_TYPES')?></td>
 			<td valign="top" width="60%" class="adm-detail-content-cell-r">
 			<table cellPadding="2" cellSpacing="2" border="0" width="100%">
 			<tr class="heading">

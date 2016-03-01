@@ -650,11 +650,13 @@ span.bxhtmled-top-bar-dd-active:before {
 	height: 27px;
 }
 
-
-
 .bxhtmled-toolbar{ text-align: left !important;}
 .bxhtmled-area-cnt{position: absolute; top: 34px; left: -5px; z-index: 100;}
-.bxhtmled-iframe-cnt{position: absolute; top: 0; left: 0; background-color: #FFF !important;}
+.bxhtmled-iframe-cnt{
+	position: absolute; top: 0; left: 0; background-color: #FFF !important;
+	overflow: auto!important;
+	-webkit-overflow-scrolling: touch!important;
+}
 .bxhtmled-textarea-cnt{position: absolute; top: 0; left: 0;}
 
 .bxhtmled-textarea-cnt{}
@@ -997,6 +999,12 @@ span.bxhtmled-top-bar-dd-active:before {
 	vertical-align: middle !important;
 	text-shadow: 0 1px #fff !important;
 	padding-left: 13px !important;
+}
+.bxhtmled-dialog .bxhtmled-dialog-tbl .bxhtmled-notice-cell {
+	color: #333f48 !important;
+	font-size: 11px !important;
+	font-weight: normal !important;
+	padding: 13px 0 0 33px!important;
 }
 
 .bxhtmled-dialog .bxhtmled-dialog-tbl .bxhtmled-title-cell-foldable{cursor: pointer;}
@@ -1876,12 +1884,62 @@ border-radius: 2px; cursor: pointer;
 
 /* *** END *** Spell check *** END *** */
 
-.bxhtmled-smile-cont {max-width: 160px;}
+.bxhtmled-smile-cont {max-width: 180px;}
 .bxhtmled-smile-img
 {
 	margin: 4px;
 	cursor: pointer;
 }
+
+.bxhtmled-smile-tabs-wrap {
+	border-bottom: 1px solid #cdd1d6;
+	-webkit-box-shadow: 0 1px 0 #edeef0;
+	box-shadow: 0 1px 0 #edeef0;
+	padding-bottom: 0px;
+	vertical-align: top;
+}
+
+.bxhtmled-smile-tab {
+	display: inline-block;
+	min-height: 22px;
+	min-width: 22px;
+	cursor: pointer!important;
+	margin: 0 6px 1px 0 !important;
+	vertical-align: top!important;
+	text-align: center!important;
+	padding: 2px!important;
+	border: 1px solid #FFF;
+}
+
+.bxhtmled-smile-tab-active {
+	background-image: -webkit-linear-gradient(top, #afdcef, #c2e3f1) !important;
+	background-image:    -moz-linear-gradient(top, #afdcef, #c2e3f1) !important;
+	background-image:     -ms-linear-gradient(top, #afdcef, #c2e3f1) !important;
+	background-image:      -o-linear-gradient(top, #afdcef, #c2e3f1) !important;
+	background-image:         linear-gradient(to bottom, #afdcef, #c2e3f1) !important;
+	border: 1px solid;
+	border-color: #93b7c7 #add2e2 #bcdce8!important;
+	-webkit-box-shadow: inset 0 1px 0 #a6d0e2, inset 0 -1px 0 #bedeeb;
+	box-shadow: inset 0 1px 0 #a6d0e2, inset 0 -1px 0 #bedeeb;
+	height: 22px;
+	width: 22px;
+}
+
+
+
+.bxhtmled-smile-slider-wrap {
+	overflow: hidden;
+	position: relative;
+}
+
+.bxhtmled-smile-slider {
+	margin-left: 0;
+}
+
+.bxhtmled-smiles-wrap {
+	float: left;
+}
+
 
 .bxhtmled-list li{margin-bottom: 2px;}
 .bxhtmled-list-del-item {
@@ -1899,6 +1957,8 @@ border-radius: 2px; cursor: pointer;
 
 
 .bxhtmled-settings-dialog-cnt .bxhtmled-dialog-tbl .bxhtmled-title-cell{white-space: nowrap; padding: 2px; font-weight: bold !important; text-align: center;}
+.bxhtmled-settings-dialog-cnt .bxhtmled-dialog-tbl .bxhtmled-left-c {min-width: 10% !important;}
+
 
 
 /* dirty hacks for old filedialog and medialib dialog*/

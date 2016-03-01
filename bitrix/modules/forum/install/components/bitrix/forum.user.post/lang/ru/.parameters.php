@@ -7,7 +7,7 @@ $MESS["F_PROFILE_VIEW_TEMPLATE"] = "Страница профиля пользо
 $MESS["F_USER_LIST_TEMPLATE"] = "Страница пользователей форума";
 $MESS["F_DEFAULT_MODE"] = "Режим отображения";
 $MESS["F_DEFAULT_UID"] = "ID пользователя форума";
-$MESS["F_DEFAULT_PATH_TO_SMILE"] = "Путь относительно корня сайта к папке со смайлами";
+
 $MESS["F_MESSAGE_ALL"] = "все сообщения автора";
 $MESS["F_MESSAGE_LT"] = "участвовал в темах";
 $MESS["F_MESSAGE_LTA"] = "автор тем";

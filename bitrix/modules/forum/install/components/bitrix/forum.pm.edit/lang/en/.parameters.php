@@ -1,5 +1,4 @@
 <?
-$MESS["F_DEFAULT_PATH_TO_SMILE"] = "Path to Smiles folder (root relative)";
 $MESS["F_SET_NAVIGATION"] = "Show Breadcrumb navigation";
 $MESS["F_URL_TEMPLATES"] = "URLs processing";
 $MESS["F_PM_LIST_TEMPLATE"] = "Private Messages List page";

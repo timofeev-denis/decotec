@@ -1,4 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+/**
+ * @global CMain $APPLICATION
+ * @global CUser $USER
+ * @var array $arParams
+ * @var array $arResult
+ */
 if (empty($arResult["TOPIC"]))
 	return 0;
 
@@ -55,6 +61,14 @@ endif;
 			?><?=str_replace("#FORUM#", 
 				"<a href =\"".$arResult["FORUM"][$res["FORUM_ID"]]["URL"]["LIST"]."\">".$arResult["FORUM"][$res["FORUM_ID"]]["NAME"]."</a>", 
 				$arParams["SEPARATE"])?>
+			<?if(isset($res['MESSAGE'])):?>
+				<div class="forum-topic-last-message">
+					<?=$res['MESSAGE']['POST_MESSAGE_TEXT']?>
+					<span class="forum-topic-last-author">
+					</span>
+					( <?=$res['MESSAGE']['AUTHOR_NAME']?> @ <?=$res['MESSAGE']['POST_DATE']?> )
+				</div>
+			<?endif?>
 		</td>
 <?
 		
@@ -87,7 +101,7 @@ endif;
 		if (in_array("LAST_POST_DATE", $arParams["SHOW_COLUMNS"])):
 ?>
 		<td class="last_post_date">
-			<a href="<?=$res["read_last_message"]?>" title="<?=GetMessage("FTP_LAST_MESS")?>"><?=$res["LAST_POST_DATE"]?></a>
+			<a href="<?=$res["read"]?>" title="<?=GetMessage("FTP_LAST_MESS")?>"><?=$res["LAST_POST_DATE"]?></a>
 		</td>
 <?
 		endif;

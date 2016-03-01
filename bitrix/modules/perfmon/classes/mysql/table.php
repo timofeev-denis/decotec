@@ -8,7 +8,7 @@ class CPerfomanceTableList extends CDBResult
 		if ($bFull)
 			$rsTables = $DB->Query("show table status");
 		else
-			$rsTables = $DB->Query("show tables from `".$DB->ForSQL($DB->DBName)."`");
+			$rsTables = $DB->Query("show tables from ".CPerfomanceTable::escapeTable($DB->DBName));
 		return new CPerfomanceTableList($rsTables);
 	}
 
@@ -80,9 +80,7 @@ class CPerfomanceTable extends CAllPerfomanceTable
 
 		if (!array_key_exists($TABLE_NAME, $cache))
 		{
-			$strSql = "
-				SHOW INDEXES FROM `".$DB->ForSQL($TABLE_NAME)."`
-			";
+			$strSql = "SHOW INDEXES FROM ".$this->escapeTable($TABLE_NAME);
 			$arResult = array();
 			$rsInd = $DB->Query($strSql, true);
 			if ($rsInd)
@@ -112,9 +110,7 @@ class CPerfomanceTable extends CAllPerfomanceTable
 
 		if (!array_key_exists($TABLE_NAME, $cache))
 		{
-			$strSql = "
-				SHOW INDEXES FROM `".$DB->ForSQL($TABLE_NAME)."`
-			";
+			$strSql = "SHOW INDEXES FROM ".$this->escapeTable($TABLE_NAME);
 			$arResult = array();
 			$rsInd = $DB->Query($strSql, true);
 			if ($rsInd)
@@ -146,7 +142,7 @@ class CPerfomanceTable extends CAllPerfomanceTable
 		{
 			global $DB;
 
-			$strSql = "SHOW COLUMNS FROM `".$DB->ForSQL($TABLE_NAME)."`";
+			$strSql = "SHOW COLUMNS FROM ".$this->escapeTable($TABLE_NAME);
 			$rs = $DB->Query($strSql);
 			$arResult = array();
 			$arResultExt = array();
@@ -223,6 +219,24 @@ class CPerfomanceTable extends CAllPerfomanceTable
 
 	function escapeColumn($column)
 	{
-		return "`".$column."`";
+		return "`".str_replace("`", "``", $column)."`";
+	}
+
+	function escapeTable($tableName)
+	{
+		return "`".str_replace("`", "``", $tableName)."`";
+	}
+
+	function getCreateIndexDDL($TABLE_NAME, $INDEX_NAME, $INDEX_COLUMNS)
+	{
+		$tableFields = $this->GetTableFields($TABLE_NAME, true);
+		foreach ($INDEX_COLUMNS as $i => $field)
+		{
+			if ($tableFields[trim($field, '`[]"')]["orm_type"] === "text")
+			{
+				$INDEX_COLUMNS[$i] = $field."(100)";
+			}
+		}
+		return parent::getCreateIndexDDL($TABLE_NAME, $INDEX_NAME, $INDEX_COLUMNS);
 	}
 }

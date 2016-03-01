@@ -304,7 +304,7 @@ if($this->StartResultCache(false, array($arrFilter, CDBResult::NavStringForCache
 				$arSelect[] = $field;
 	}
 
-	$arCurrencyList = array();
+	$currencyList = array();
 
 	$bGetPropertyCodes = !empty($arParams["PROPERTY_CODE"]);
 	$bGetProductProperties = !empty($arParams["PRODUCT_PROPERTIES"]);
@@ -512,7 +512,12 @@ if($this->StartResultCache(false, array($arrFilter, CDBResult::NavStringForCache
 					if (is_array($arItem["PRICE_MATRIX"]) && !empty($arItem["PRICE_MATRIX"]))
 					{
 						if (isset($arItem["PRICE_MATRIX"]['CURRENCY_LIST']) && is_array($arItem["PRICE_MATRIX"]['CURRENCY_LIST']))
-							$arCurrencyList = array_merge($arCurrencyList, $arItem["PRICE_MATRIX"]['CURRENCY_LIST']);
+						{
+							//TODO: replace this code after catalog 15.5.4
+							foreach ($arItem['PRICE_MATRIX']['CURRENCY_LIST'] as $oneCurrency)
+								$currencyList[$oneCurrency] = $oneCurrency;
+							unset($oneCurrency);
+						}
 					}
 				}
 				else
@@ -522,10 +527,9 @@ if($this->StartResultCache(false, array($arrFilter, CDBResult::NavStringForCache
 						foreach ($arItem["PRICES"] as &$arOnePrices)
 						{
 							if (isset($arOnePrices['ORIG_CURRENCY']))
-								$arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+								$currencyList[$arOnePrices['ORIG_CURRENCY']] = $arOnePrices['ORIG_CURRENCY'];
 						}
-						if (isset($arOnePrices))
-							unset($arOnePrices);
+						unset($arOnePrices);
 					}
 				}
 			}
@@ -537,29 +541,22 @@ if($this->StartResultCache(false, array($arrFilter, CDBResult::NavStringForCache
 			break;
 	}
 
-	if ('Y' == $arParams['CONVERT_CURRENCY'])
+	if (
+		'Y' == $arParams['CONVERT_CURRENCY']
+		&& !empty($currencyList)
+		&& defined("BX_COMP_MANAGED_CACHE")
+	)
 	{
-		if (!empty($arCurrencyList))
-		{
-			if (defined("BX_COMP_MANAGED_CACHE"))
-			{
-				$arCurrencyList[] = $arConvertParams['CURRENCY_ID'];
-				$arCurrencyList = array_unique($arCurrencyList);
-				$CACHE_MANAGER->StartTagCache($this->GetCachePath());
-				foreach ($arCurrencyList as &$strOneCurrency)
-				{
-					$CACHE_MANAGER->RegisterTag("currency_id_".$strOneCurrency);
-				}
-				if (isset($strOneCurrency))
-					unset($strOneCurrency);
-				$CACHE_MANAGER->EndTagCache();
-			}
-		}
+		$currencyList[$arConvertParams['CURRENCY_ID']] = $arConvertParams['CURRENCY_ID'];
+		$CACHE_MANAGER->StartTagCache($this->GetCachePath());
+		foreach ($currencyList as &$oneCurrency)
+			$CACHE_MANAGER->RegisterTag('currency_id_'.$oneCurrency);
+		unset($oneCurrency);
+		$CACHE_MANAGER->EndTagCache();
 	}
+	unset($currencyList);
 
 	$this->SetResultCacheKeys(array(
 	));
 	$this->IncludeComponentTemplate();
 }
-
-?>

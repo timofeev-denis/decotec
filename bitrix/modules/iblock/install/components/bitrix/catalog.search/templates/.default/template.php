@@ -113,7 +113,7 @@ if (!empty($arElements) && is_array($arElements))
 		array('HIDE_ICONS' => 'Y')
 	);
 }
-else
+elseif (is_array($arElements))
 {
 	echo GetMessage("CT_BCSE_NOT_FOUND");
 }

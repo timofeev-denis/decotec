@@ -18,8 +18,6 @@ $APPLICATION->IncludeComponent(
 		"URL_TEMPLATES_TOPIC_SEARCH" => $arResult["URL_TEMPLATES_TOPIC_SEARCH"],
 
 		"USER_FIELDS" => $arParams["USER_FIELDS"],
-		"PATH_TO_SMILE" => $arParams["PATH_TO_SMILE"],
-		"PATH_TO_ICON" => $arParams["PATH_TO_ICON"],
 		"WORD_LENGTH" => $arParams["WORD_LENGTH"],
 		"IMAGE_SIZE" => $arParams["IMAGE_SIZE"],
 		"ATTACH_MODE" => $arParams["ATTACH_MODE"],

@@ -27,7 +27,25 @@ $arResult["AUTH_SERVICES"] = $arServices;
 //***************************************
 //Checking the input parameters.
 //***************************************
-if((isset($_REQUEST["code"]) && $_REQUEST["code"] <> '') || (isset($_REQUEST["auth_service_id"]) && $_REQUEST["auth_service_id"] <> '' && isset($arResult["AUTH_SERVICES"][$_REQUEST["auth_service_id"]])) && (check_bitrix_sessid() || CSocServAuthManager::CheckUniqueKey(false)))
+if(
+	(
+		(
+			isset($_REQUEST["code"])
+			&& $_REQUEST["code"] <> ''
+		)
+		||
+		(
+			isset($_REQUEST["auth_service_id"])
+			&& $_REQUEST["auth_service_id"] <> ''
+			&& isset($arResult["AUTH_SERVICES"][$_REQUEST["auth_service_id"]])
+		)
+	)
+	&&
+	(
+		check_bitrix_sessid()
+		|| CSocServAuthManager::CheckUniqueKey(false)
+	)
+)
 {
 	$arResult["CURRENT_SERVICE"] = $_REQUEST["auth_service_id"];
 	if(isset($_REQUEST["auth_service_error"]) && $_REQUEST["auth_service_error"] <> '')
@@ -181,7 +199,28 @@ if(CModule::IncludeModule("socialnetwork"))
 {
 	CJSCore::Init(array('socnetlogdest'));
 	// socialnetwork
-	$arResult["PostToShow"]["FEED_DESTINATION"]['LAST']['SONETGROUPS'] = CSocNetLogDestination::GetLastSocnetGroup();
+
+	if (method_exists('CSocNetLogDestination','GetDestinationSort'))
+	{
+		$arResult["PostToShow"]["FEED_DESTINATION"] = array(
+			'DEST_SORT' => CSocNetLogDestination::GetDestinationSort(array(
+				"DEST_CONTEXT" => "SOCSERVICES"
+			)),
+			'LAST' => array()
+		);
+		CSocNetLogDestination::fillLastDestination($arResult["PostToShow"]["FEED_DESTINATION"]['DEST_SORT'], $arResult["PostToShow"]["FEED_DESTINATION"]['LAST']);
+	}
+	else
+	{
+		$arResult["PostToShow"]["FEED_DESTINATION"] = array(
+			'LAST' => array(
+				'SONETGROUPS' => CSocNetLogDestination::GetLastSocnetGroup(),
+				'DEPARTMENT' => CSocNetLogDestination::GetLastDepartment(),
+				'LAST' => CSocNetLogDestination::GetLastUser()
+			)
+		);
+	}
+
 	$arResult["PostToShow"]["FEED_DESTINATION"]['SONETGROUPS'] = CSocNetLogDestination::GetSocnetGroup(Array('features' => array("blog", array("premoderate_post", "moderate_post", "write_post", "full_post"))));
 
 	$arDestUser = Array();
@@ -243,10 +282,6 @@ if(CModule::IncludeModule("socialnetwork"))
 	$arStructure = CSocNetLogDestination::GetStucture();
 	$arResult["PostToShow"]["FEED_DESTINATION"]['DEPARTMENT'] = $arStructure['department'];
 	$arResult["PostToShow"]["FEED_DESTINATION"]['DEPARTMENT_RELATION'] = $arStructure['department_relation'];
-	$arResult["PostToShow"]["FEED_DESTINATION"]['LAST']['DEPARTMENT'] = CSocNetLogDestination::GetLastDepartment();
-
-	// users
-	$arResult["PostToShow"]["FEED_DESTINATION"]['LAST']['USERS'] = CSocNetLogDestination::GetLastUser();
 
 	if (CModule::IncludeModule('extranet') && !CExtranet::IsIntranetUser())
 	{

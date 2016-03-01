@@ -1964,7 +1964,7 @@ if (
 				<?endforeach?>
 				</select>
 				</div>
-				<script>
+				<script type="text/javascript">
 					window.ipropTemplates[window.ipropTemplates.length] = {
 						"ID": "IBLOCK_ELEMENT_SECTION_ID",
 						"INPUT_ID": "IBLOCK_ELEMENT_SECTION_ID",
@@ -1977,12 +1977,19 @@ if (
 						"RESULT_ID": "",
 						"TEMPLATE": ""
 					};
+					<?
+					if (COption::GetOptionString('iblock', 'show_xml_id') == 'Y')
+					{
+					?>
 					window.ipropTemplates[window.ipropTemplates.length] = {
 						"ID": "XML_ID",
 						"INPUT_ID": "XML_ID",
 						"RESULT_ID": "",
 						"TEMPLATE": ""
 					};
+					<?
+					}
+					?>
 				</script>
 			</td>
 		</tr>
@@ -2125,7 +2132,7 @@ if($bVarsFromForm && !array_key_exists("PREVIEW_PICTURE", $_REQUEST) && $arEleme
 							"cloud" => true,
 							"delete" => true,
 							"maxCount" => 1
-						))->show($str_PREVIEW_PICTURE);
+						))->show($ID > 0 && !$bCopy? $str_PREVIEW_PICTURE: 0);
 				}
 				else
 				{
@@ -2245,7 +2252,7 @@ if($bVarsFromForm && !array_key_exists("DETAIL_PICTURE", $_REQUEST) && $arElemen
 							"cloud" => true,
 							"delete" => true,
 							"maxCount" => 1
-						))->show($str_DETAIL_PICTURE);
+						))->show($ID > 0 && !$bCopy? $str_DETAIL_PICTURE: 0);
 				}
 				else
 				{
@@ -3298,10 +3305,28 @@ elseif(!$bPropertyAjax && $nobuttons !== "Y"):
 				top.BX.reload(true);
 		}
 	}";
+	$edit_in_panel = "{
+		title: '".CUtil::JSEscape(GetMessage('IBLOCK_EL_EDIT_IN_PANEL'))."',
+		name: 'edit_in_panel',
+		id: 'edit_in_panel',
+		className: 'adm-btn-add',
+		action: function () {
+			location.href = '/bitrix/admin/".CIBlock::GetAdminElementEditLink(
+			$IBLOCK_ID,
+			$ID,
+			array(
+				'WF' => ($WF == 'Y' ? 'Y': null),
+				'find_section_section' => (int)$find_section_section,
+				'menu' => null
+			)
+		)."';
+		}
+	}";
 	$tabControl->ButtonsPublic(array(
 		'.btnSave',
 		($ID > 0 && $bWorkflow? $wfClose: $cancel),
-		$save_and_add,
+		$edit_in_panel,
+		$save_and_add
 	));
 endif;
 

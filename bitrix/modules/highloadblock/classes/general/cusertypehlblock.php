@@ -271,6 +271,32 @@ class CUserTypeHlblock extends CUserTypeEnum
 		return $rows;
 	}
 
+	function GetAdminListViewHTML($arUserField, $arHtmlControl)
+	{
+		static $cache = array();
+		$empty_caption = '&nbsp;';
+
+		$cacheKey = $arUserField['SETTINGS']['HLBLOCK_ID'].'_v'.$arHtmlControl["VALUE"];
+
+		if(!array_key_exists($cacheKey, $cache) && !empty($arHtmlControl["VALUE"]))
+		{
+			$rsEnum = call_user_func_array(
+				array($arUserField["USER_TYPE"]["CLASS_NAME"], "getlist"),
+				array(
+					$arUserField,
+				)
+			);
+			if(!$rsEnum)
+				return $empty_caption;
+			while($arEnum = $rsEnum->GetNext())
+				$cache[$arUserField['SETTINGS']['HLBLOCK_ID'].'_v'.$arEnum["ID"]] = $arEnum["VALUE"];
+		}
+		if(!array_key_exists($cacheKey, $cache))
+			$cache[$cacheKey] = $empty_caption;
+
+		return $cache[$cacheKey];
+	}
+
 	public static function getDropDownData()
 	{
 		global $USER_FIELD_MANAGER;

@@ -538,12 +538,19 @@ endforeach;
 
 			}
 
+			$signer = new Bitrix\Main\Security\Sign\Signer();
+
 			//templates
 			$arSiteTemplates = array();
+			$templateSigns = array();
 			$db_res = CSiteTemplate::GetList(array("sort"=>"asc", "name"=>"asc"), array("TYPE" => ""), array("ID", "NAME"));
 			while($arRes = $db_res->GetNext())
+			{
 				$arSiteTemplates[] = $arRes;
+				$templateSigns[$arRes["ID"]] = $signer->sign($arRes["ID"], "template_preview".bitrix_sessid());
+			}
 
+			$bFirst = true;
 			foreach($SITE_TEMPLATE as $i=>$val):
 				ConditionParse($val['CONDITION']);
 			?>
@@ -556,7 +563,28 @@ endforeach;
 						<?endforeach;?>
 					</select>
 				</td>
-				<td><a title="<?=GetMessage('MAIN_PREVIEW_TEMPLATE')?>" href="javascript:void(0)" onClick="if(document.getElementById('SITE_TEMPLATE[<?=$i?>][TEMPLATE]').selectedIndex>0)window.open((document.bform.SERVER_NAME.value?'http://'+document.bform.SERVER_NAME.value:'') + document.bform.DIR.value+'?bitrix_preview_site_template='+document.getElementById('SITE_TEMPLATE[<?=$i?>][TEMPLATE]')[document.getElementById('SITE_TEMPLATE[<?=$i?>][TEMPLATE]').selectedIndex].value);return false;"><img src="/bitrix/images/main/preview.gif" width="16" height="16" border="0"></a></td>
+				<td>
+					<?
+					if($bFirst):
+						$bFirst = false;
+					?>
+					<script type="text/javascript">
+						function bx_preview_template(index)
+						{
+							var templateSigns = <?=CUtil::PhpToJSObject($templateSigns)?>;
+							var sel = document.getElementById('SITE_TEMPLATE['+index+'][TEMPLATE]');
+							var url = (document.bform.SERVER_NAME.value? 'http://'+document.bform.SERVER_NAME.value : '') + document.bform.DIR.value;
+
+							if(sel.selectedIndex > 0)
+							{
+								window.open(url + '?bitrix_preview_site_template='+templateSigns[sel.value]);
+							}
+							return false;
+						}
+					</script>
+					<?endif?>
+					<a title="<?=GetMessage('MAIN_PREVIEW_TEMPLATE')?>" href="javascript:void(0)" onclick="bx_preview_template('<?=$i?>')"><img src="/bitrix/images/main/preview.gif" width="16" height="16" border="0"></a>
+				</td>
 				<td><input type="text" size="2" name="SITE_TEMPLATE[<?=$i?>][SORT]" value="<?=htmlspecialcharsex($val["SORT"])?>"></td>
 				<td><?ConditionSelect($i);?></td>
 				<td align="left"><?

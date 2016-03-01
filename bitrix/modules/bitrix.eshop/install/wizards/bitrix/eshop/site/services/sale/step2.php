@@ -678,7 +678,7 @@ if(IntVal($userGroupID) > 0)
 	}
 	
 	$rsTasks = CTask::GetList(array(), array("MODULE_ID"=>"fileman", "SYS"=>"Y", "BINDIG"=>"module","LETTER"=>"F"));
-	if($arTask = $rsTasks->Fetch())
+	while($arTask = $rsTasks->Fetch())
 	{
 		CGroup::SetModulePermission($userGroupID, $arTask["MODULE_ID"], $arTask["ID"]);
 	}

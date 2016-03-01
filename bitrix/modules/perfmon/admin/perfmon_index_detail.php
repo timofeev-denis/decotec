@@ -58,7 +58,9 @@ $arSuggest["FORMATTED_SQL_TEXT"] = $sql;
 
 $arColumns = explode(",", $arSuggest["COLUMN_NAMES"]);
 $arTableStat = CPerfQueryStat::GatherTableStat($arSuggest["TABLE_NAME"]);
-$arIndexes = CPerfomanceTable::GetIndexes($arSuggest["TABLE_NAME"]);
+
+$obTable = new CPerfomanceTable;
+$arIndexes = $obTable->GetIndexes($arSuggest["TABLE_NAME"]);
 
 $arQueries = array();
 
@@ -421,7 +423,7 @@ $tabControl->BeginNextTab();
 				while(array_key_exists($prefix.$i, $arIndexes))
 					$i++;
 
-				$ddl = "CREATE INDEX ".$prefix.$i." ON ".$arSuggest["TABLE_NAME"]."(".implode(", ", $arIndexColumns).")";
+				$ddl = $obTable->getCreateIndexDDL($arSuggest["TABLE_NAME"], $prefix.$i, $arIndexColumns);
 			?>
 			<td>
 				<?echo htmlspecialcharsEx($ddl)?>
@@ -445,7 +447,7 @@ $tabControl->BeginNextTab();
 	<?else:?>
 		<tr>
 			<td><?echo GetMessage("PERFMON_IDETAIL_CREATED_INDEX_DDL")?>:</td>
-			<td><?echo "CREATE INDEX ".$IndexExists." ON ".$arSuggest["TABLE_NAME"]."(".implode(", ", $arIndexes[$IndexExists]).")"?></td>
+			<td><?echo $obTable->getCreateIndexDDL($arSuggest["TABLE_NAME"], $IndexExists, $arIndexes[$IndexExists])?></td>
 		</tr>
 		<tr>
 			<td><?echo GetMessage("PERFMON_IDETAIL_DROP_INDEX_DDL")?>:</td>

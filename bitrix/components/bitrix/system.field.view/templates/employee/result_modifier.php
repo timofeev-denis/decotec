@@ -2,6 +2,8 @@
 
 $arValue = array();
 
+if(empty($arParams['arUserField']['SETTINGS']))
+	$arParams['arUserField']['SETTINGS'] = array();
 if (!$arParams['arUserField']['SETTINGS']['USER_URL'])
 	$arParams['arUserField']['SETTINGS']['USER_URL'] = COption::GetOptionString('intranet', 'path_user', '/company/personal/user/#USER_ID#/');
 

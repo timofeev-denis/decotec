@@ -24,58 +24,27 @@ class forumTextParser extends CTextParser
 	public $imageHtmlWidth = 0;
 	public $imageHtmlHeight = 0;
 	public $imageTemplate = "popup_image";
-	protected $preg_smiles = array();
 	public $component = null;
+	public $smilesGallery = 0;
+	public $arFilesIDParsed = array();
+
 
 	function forumTextParser($lang = false, $pathToSmiles = '', $type=false, $mode = 'full')
 	{
 		$this->CTextParser();
-		$lang = (($lang === false) ? LANGUAGE_ID : $lang);
-		$arResult = array();
 		$this->arFiles = array();
 		$this->arFilesParsed = array();
 		$this->serverName = (defined("SITE_SERVER_NAME") && strlen(SITE_SERVER_NAME) > 0 ? SITE_SERVER_NAME : COption::GetOptionString("main", "server_name", ""));
 		$this->serverName = (strlen($this->serverName) > 0 ? $this->serverName : $_SERVER["SERVER_NAME"]);
-		$pathToSmiles = (!empty($pathToSmiles) ? $pathToSmiles : "/bitrix/images/forum/smile/");
+
 		$this->arUserfields = array();
 		$this->ajaxPage = $GLOBALS["APPLICATION"]->GetCurPageParam("", array("bxajaxid", "logout"));
 		$this->userPath = "";
 		$this->userNameTemplate = str_replace(array("#NOBR#","#/NOBR#"), "", CSite::GetDefaultNameFormat());
+		$this->smilesGallery = \COption::GetOptionInt("forum", "smile_gallery_id", 0);
 
 		if ($mode == 'full')
 		{
-			$arSmiles = CForumSmile::GetByType("S", $lang);
-			$arResult["SMILES_FOR_PARSER"] = array();
-			foreach($arSmiles as $key=>$smile)
-			{
-				$arTypings = explode(" ", $smile["TYPING"]);
-				foreach ($arTypings as $typing)
-				{
-					$arResult["SMILES_FOR_PARSER"][] =
-						array(
-							'TYPING' => $typing,
-							'IMAGE'  => $pathToSmiles.$smile["IMAGE"],
-							'DESCRIPTION' => $smile["NAME"]
-						) +
-						$smile;
-
-					$tok = str_replace(array(chr(34), chr(39), "<", ">"), array("\013", "\014", "&lt;", "&gt;"), $typing);
-					$code = preg_quote(str_replace(array("\x5C"), array("&#092;"), $tok));
-					$patt = preg_quote($tok, "/");
-
-					$image = preg_quote(stripslashes($smile["IMAGE"]));
-					$description = preg_quote(htmlspecialcharsbx(stripslashes($smile["NAME"]), ENT_QUOTES), "/");
-
-					$arResult['pattern'][] = "\$this->convert_emoticon('$code', '$image', '$description')";
-					$arResult['replace'][] = "/(?<=[^\w&])$patt(?=.\W|\W.|\W$)/ei".BX_UTF_PCRE_MODIFIER;
-				}
-			}
-			$this->smiles = $arResult["SMILES_FOR_PARSER"];
-			$this->preg_smiles = array(
-				"pattern" => $arResult["pattern"],
-				"replace" => $arResult["replace"]
-			);
-
 			AddEventHandler("main", "TextParserBeforeTags", Array(&$this, "ParserSpoiler"));
 			AddEventHandler("main", "TextParserAfterTags", Array(&$this, "ParserFile"));
 			AddEventHandler("main", "TextParserAfterTags", Array(&$this, "ParserUser"));
@@ -289,13 +258,12 @@ class forumTextParser extends CTextParser
 						"uid" => $userId,
 						"UID" => $userId)).'">'.$name.'</a>'.
 				(
-					!defined("BX_MOBILE_LOG")
-					&& !$this->bMobile 
+					!$this->bMobile
 						? '<script type="text/javascript">if(!!BX[\'tooltip\']){BX.tooltip(\''.$userId.'\', "bp_'.$anchor_id.'", "'.CUtil::JSEscape($this->ajaxPage).'");}</script>' 
 						: ''
 				);
 		}
-		return;
+		return "";
 	}
 
 	function convert_spoiler_tag($text, $title="")
@@ -346,7 +314,7 @@ class forumTextParser extends CTextParser
 		if ($this->{$marker."_open"} == 0)
 		{
 			$this->{$marker."_error"}++;
-			return;
+			return "";
 		}
 		$this->{$marker."_closed"}++;
 
@@ -496,10 +464,8 @@ class forumTextParser extends CTextParser
 			"LIST" => "Y",
 			"SMILES" => "Y",
 			"NL2BR" => "N",
-			"TABLE" => "Y"),
-		$arParams = array())
+			"TABLE" => "Y"))
 	{
-		global $DB;
 		if (empty($arAllow))
 			$arAllow = array(
 				"HTML" => "N",
@@ -510,55 +476,17 @@ class forumTextParser extends CTextParser
 				"CODE" => "Y",
 				"FONT" => "Y",
 				"LIST" => "Y",
-				"SMILES" => "N",
+				"SMILES" => "Y",
 				"NL2BR" => "N",
 				"TABLE" => "Y"
 			);
+		$text = preg_replace(
+			array(
+				"#^(.+?)<cut[\s]*(/>|>).*?$#is".BX_UTF_PCRE_MODIFIER,
+				"#^(.+?)\[cut[\s]*(/\]|\]).*?$#is".BX_UTF_PCRE_MODIFIER),
+			"\\1", $text);
 
-		$this->quote_error = 0;
-		$this->quote_open = 0;
-		$this->quote_closed = 0;
-		$this->code_error = 0;
-		$this->code_open = 0;
-		$this->code_closed = 0;
-		$bAllowSmiles = $arAllow["SMILES"];
-		$arAllow["SMILES"] = "N";
-
-		$this->arFiles = is_array($arFiles) ? $arFiles : array($arFiles);
-		$this->arFilesIDParsed = array();
-
-		if ($arAllow["HTML"] != "Y")
-		{
-			$text = preg_replace(
-				array(
-					"#^(.+?)<cut[\s]*(/>|>).*?$#is".BX_UTF_PCRE_MODIFIER,
-					"#^(.+?)\[cut[\s]*(/\]|\]).*?$#is".BX_UTF_PCRE_MODIFIER),
-				"\\1", $text);
-			$text = $this->convert($text, $arAllow, "rss");
-		}
-		else
-		{
-			if ($arAllow["NL2BR"]=="Y")
-				$text = str_replace("\n", "<br />", $text);
-		}
-
-		if (strLen($arParams["SERVER_NAME"]) <= 0)
-		{
-			$dbSite = CSite::GetByID(SITE_ID);
-			$arSite = $dbSite->Fetch();
-			$arParams["SERVER_NAME"] = $arSite["SERVER_NAME"];
-			if (strLen($arParams["SERVER_NAME"]) <=0)
-			{
-				if (defined("SITE_SERVER_NAME") && strlen(SITE_SERVER_NAME)>0)
-					$arParams["SERVER_NAME"] = SITE_SERVER_NAME;
-				else
-					$arParams["SERVER_NAME"] = COption::GetOptionString("main", "server_name", "www.bitrixsoft.com");
-			}
-		}
-
-		if ($bAllowSmiles=="Y" && !empty($this->preg_smiles["pattern"]))
-			$text = preg_replace($this->preg_smiles["pattern"], $this->preg_smiles["replace"], ' '.$text.' ');
-		return trim($text);
+		return $this->convert($text, $arAllow, "rss", $arImages);
 	}
 }
 
@@ -642,7 +570,7 @@ class textParser
 		$this->preg_smiles = array(
 			"pattern" => $arSmiles[$id]["pattern"],
 			"replace" => $arSmiles[$id]["replace"]);
-		$this->path_to_smile = $pathToSmile;
+		$this->path_to_smile = "";
 	}
 
 	function convert($text, $allow = array("HTML" => "N", "ANCHOR" => "Y", "BIU" => "Y", "IMG" => "Y", "QUOTE" => "Y", "CODE" => "Y", "FONT" => "Y", "LIST" => "Y", "SMILES" => "Y", "NL2BR" => "N", "VIDEO" => "Y"), $type = "html")
@@ -1171,9 +1099,7 @@ class textParser
 		$code = stripslashes($code);
 		$description = stripslashes($description);
 		$image = stripslashes($image);
-		if ($this->path_to_smile !== false)
-			return '<img src="'.$servername.$this->path_to_smile.$image.'" border="0" alt="smile'.$code.'" title="'.$description.'" />';
-		return '<img src="'.$servername.'/bitrix/images/forum/smile/'.$image.'" border="0" alt="smile'.$code.'" title="'.$description.'" />';
+		return '<img src="'.$servername.$image.'" border="0" alt="smile'.$code.'" title="'.$description.'" />';
 	}
 
 	function pre_convert_code_tag ($text = "")

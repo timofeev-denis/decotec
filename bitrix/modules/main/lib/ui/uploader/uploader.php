@@ -1151,7 +1151,7 @@ class Uploader
 			header('Content-Type:application/json; charset=UTF-8');
 
 		echo Json::encode($result);
-		include($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_after.php");
+		\CMain::finalActions();
 		die;
 	}
 

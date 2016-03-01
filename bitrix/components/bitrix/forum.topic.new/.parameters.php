@@ -51,16 +51,6 @@ $arComponentParameters = Array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "profile_view.php?UID=#UID#"),
 		
-		"PATH_TO_SMILE" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_SMILE"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/smile/"),
-		"PATH_TO_ICON" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_ICON"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/icons/"),
 		"DATE_TIME_FORMAT" => CComponentUtil::GetDateTimeFormatField(GetMessage("F_DATE_TIME_FORMAT"), "ADDITIONAL_SETTINGS"),
 		"NAME_TEMPLATE" => array(
 			"TYPE" => "LIST",

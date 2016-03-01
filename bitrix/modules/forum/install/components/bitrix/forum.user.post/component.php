@@ -64,7 +64,7 @@ if (!function_exists("__array_merge"))
 	$arParams["NAME_TEMPLATE"] = (!empty($arParams["NAME_TEMPLATE"]) ? $arParams["NAME_TEMPLATE"] : false);
 	$arParams["PAGE_NAVIGATION_TEMPLATE"] = trim($arParams["PAGE_NAVIGATION_TEMPLATE"]);
 	$arParams["PAGE_NAVIGATION_WINDOW"] = intVal(intVal($arParams["PAGE_NAVIGATION_WINDOW"]) > 0 ? $arParams["PAGE_NAVIGATION_WINDOW"] : 11);
-	$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
+	$arParams["PATH_TO_SMILE"] = "";
 	$arParams["WORD_LENGTH"] = intVal($arParams["WORD_LENGTH"]);
 	$arParams["IMAGE_SIZE"] = (intVal($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 300);
 /***************** STANDART ****************************************/
@@ -161,8 +161,8 @@ if (!empty($arResult["USER"]["AVATAR"])):
 		"ID" => $arResult["USER"]["AVATAR"],
 		"FILE" => CFile::GetFileArray($arResult["USER"]["AVATAR"]));
 	$arResult["USER"]["~AVATAR"]["HTML"] = CFile::ShowImage($arResult["USER"]["~AVATAR"]["FILE"],
-		COption::GetOptionString("forum", "avatar_max_width", 90),
-		COption::GetOptionString("forum", "avatar_max_height", 90), "border=\"0\"", "", true);
+		COption::GetOptionString("forum", "avatar_max_width", 100),
+		COption::GetOptionString("forum", "avatar_max_height", 100), "border=\"0\"", "", true);
 	$arResult["USER"]["AVATAR"] = $arResult["USER"]["~AVATAR"]["HTML"];
 endif;
 
@@ -172,7 +172,7 @@ $arResult["USER"]["DATE_REG"] = (!empty($arResult["USER"]["DATE_REG"]) ?
 $arResult["USER"]["GROUPS"] = CUser::GetUserGroup($arParams["UID"]);
 $arResult["USER"]["RANK"] = CForumUser::GetUserRank($arParams["UID"], LANGUAGE_ID);
 
-$arResult["PARSER"] = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+$arResult["PARSER"] = new forumTextParser(LANGUAGE_ID);
 $arResult["PARSER"]->MaxStringLen = $arParams["WORD_LENGTH"];
 $arResult["PARSER"]->image_params["width"] = $arResult["PARSER"]->image_params["height"] = $arParams["IMAGE_SIZE"];
 $arResult["PARSER"]->userPath = $arParams["URL_TEMPLATES_PROFILE_VIEW"];

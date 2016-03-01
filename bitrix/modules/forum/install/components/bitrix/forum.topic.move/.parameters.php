@@ -44,11 +44,6 @@ $arComponentParameters = Array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "profile_view.php?UID=#UID#"),
 
-		"PATH_TO_ICON" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_ICON"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/icon/"),
 		"SET_NAVIGATION" => Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",
 			"NAME" => GetMessage("F_SET_NAVIGATION"),

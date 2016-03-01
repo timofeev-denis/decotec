@@ -14,6 +14,7 @@ $arClasses = array(
 	"CBitrix24NetOAuthInterface" => "classes/general/bitrix24net.php",
 	"CSocServBitrix24Net" => "classes/general/bitrix24net.php",
 	"CBitrix24NetTransport" => "classes/general/bitrix24net.php",
+	"CBitrix24NetPortalTransport" => "classes/general/bitrix24net.php",
 	"CSocServFacebook" => "classes/general/facebook.php",
 	"CFacebookInterface" => "classes/general/facebook.php",
 	"CSocServMyMailRu" => "classes/general/mailru.php",

@@ -44,10 +44,10 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 
 	foreach ($arTABLES as $table_name)
 	{
-		if (strlen($table_name) <= 0 || !preg_match("/^[a-z0-9_]+\$/i", $table_name))
+		if (strlen($table_name) <= 0)
 			continue;
 
-		$res = $DB->Query("show table status like '".$table_name."'", false);
+		$res = $DB->Query("show table status like '".$DB->ForSql($table_name)."'", false);
 		$arStatus = $res->Fetch();
 		if (!$arStatus || $arStatus["Comment"] === "VIEW")
 			continue;
@@ -58,9 +58,9 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 			if ($to != strtoupper($arStatus["Engine"]))
 			{
 				if ($to == "MYISAM")
-					$res = $DB->Query("alter table `".$table_name."` ENGINE = MyISAM", false);
+					$res = $DB->Query("alter table ".CPerfomanceTable::escapeTable($table_name)." ENGINE = MyISAM", false);
 				elseif ($to == "INNODB")
-					$res = $DB->Query("alter table `".$table_name."` ENGINE = InnoDB", false);
+					$res = $DB->Query("alter table ".CPerfomanceTable::escapeTable($table_name)." ENGINE = InnoDB", false);
 				else
 					$res = true;
 			}
@@ -70,7 +70,7 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 			}
 			break;
 		case "optimize":
-			$DB->Query("optimize table `".$table_name."`", false);
+			$DB->Query("optimize table ".CPerfomanceTable::escapeTable($table_name)."", false);
 			break;
 		case "orm":
 			$_GET["orm"] = "y";
@@ -110,8 +110,8 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 			echo "&lt;", "?", "php\n";
 			echo "namespace Bitrix\\".$moduleNamespace.";\n";
 			echo "\n";
-			echo "use Bitrix\\Main\\Entity;\n";
-			echo "use Bitrix\\Main\\Localization\\Loc;\n";
+			echo "use Bitrix\\Main,\n";
+			echo "	Bitrix\\Main\\Localization\\Loc;\n";
 			echo "Loc::loadMessages(_"."_FILE_"."_);\n";
 			echo "\n";
 			echo "/"."**\n";
@@ -180,7 +180,7 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 			echo " * @package Bitrix\\".$moduleNamespace."\n";
 			echo " *"."*/\n";
 			echo "\n";
-			echo "class ".$className."Table extends Entity\DataManager\n";
+			echo "class ".$className."Table extends Main\\Entity\\DataManager\n";
 			echo "{\n";
 			echo "\t/**\n";
 			echo "\t * Returns DB table name for entity.\n";
@@ -299,7 +299,7 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 				echo "\tpublic static function ".$validateFunctionName."()\n";
 				echo "\t{\n";
 				echo "\t\treturn array(\n";
-				echo "\t\t\tnew Entity\\Validator\\Length(null, ".$validator["length"]."),\n";
+				echo "\t\t\tnew Main\\Entity\\Validator\\Length(null, ".$validator["length"]."),\n";
 				echo "\t\t);\n";
 				echo "\t}\n";
 			}
@@ -542,7 +542,7 @@ if (strlen($strLastTables) > 0)
 		setTimeout(filter_rows, 250);
 	});
 	var hrefs;
-	var rows = new Array();
+	var rows = [];
 	var prev = '';
 	function filter_rows()
 	{
@@ -589,6 +589,11 @@ if (strlen($strLastTables) > 0)
 	{
 		if (haystack.indexOf(needle) >= 0)
 			return true;
+
+		var ciNeedle = new RegExp(needle, 'i');
+		if (haystack.match(ciNeedle))
+			return true;
+
 		var needleParts = needle.split('');
 		for (var i = 0; i < needleParts.length; i++)
 		{
@@ -598,6 +603,7 @@ if (strlen($strLastTables) > 0)
 		var expr = new RegExp(pattern, 'i');
 		if (haystack.match(expr))
 			return true;
+
 		return false;
 	}
 </script>

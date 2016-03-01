@@ -30,7 +30,6 @@ class CHTMLEditor
 	private function Init($arParams)
 	{
 		global $USER;
-
 		?>
 		<script>
 			(function(window) {
@@ -324,6 +323,8 @@ class CHTMLEditor
 			'paste_clear_colors' => 'Y',
 			'paste_clear_borders' => 'Y',
 			'paste_clear_decor' => 'Y',
+			'paste_clear_table_dimen' => 'Y',
+			'show_snippets' => 'Y',
 			'link_dialog_type' => 'internal'
 		);
 		$settingsKey = "user_settings_".$arParams["bbCode"]."_".$this->id;
@@ -352,6 +353,7 @@ class CHTMLEditor
 
 		$arParams["showComponents"] = isset($arParams["showComponents"]) ? $arParams["showComponents"] : true;
 		$arParams["showSnippets"] = isset($arParams["showSnippets"]) ? $arParams["showSnippets"] : true;
+		$arParams["showSnippets"] = $arParams["showSnippets"] && $userSettings['show_snippets'] != 'N';
 
 		if(!isset($arParams["initConponentParams"]))
 			$arParams["initConponentParams"] = $arParams["showTaskbars"] !== false && $arParams["showComponents"] && ($arParams['limitPhpAccess'] || $arParams['bAllowPhp']);
@@ -397,6 +399,7 @@ class CHTMLEditor
 			'pasteSetColors' => $userSettings['paste_clear_colors'] != 'N',
 			'pasteSetBorders' => $userSettings['paste_clear_borders'] != 'N',
 			'pasteSetDecor' => $userSettings['paste_clear_decor'] != 'N',
+			'pasteClearTableDimen' => $userSettings['paste_clear_table_dimen'] != 'N',
 			'linkDialogType' => $userSettings['link_dialog_type'],
 			'lazyLoad' => $arParams["lazyLoad"]
 		);
@@ -424,8 +427,12 @@ class CHTMLEditor
 		if (isset($arParams["arSmiles"]))
 			$this->jsConfig["smiles"] = $arParams["arSmiles"];
 
+		if (isset($arParams["arSmilesSet"]))
+			$this->jsConfig["smileSets"] = $arParams["arSmilesSet"];
+
 		if (isset($arParams["iframeCss"]))
 			$this->jsConfig["iframeCss"] = $arParams["iframeCss"];
+
 
 		if (isset($arParams["beforeUnloadMessage"]))
 			$this->jsConfig["beforeUnloadMessage"] = $arParams["beforeUnloadMessage"];

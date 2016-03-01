@@ -371,6 +371,9 @@ class main extends CModule
 		RegisterModuleDependences("disk", "onAfterAjaxActionAppendSharing", "main", "\\Bitrix\\Main\\FinderDestTable", "onAfterDiskAjaxAction");
 		RegisterModuleDependences("disk", "onAfterAjaxActionChangeSharingAndRights", "main", "\\Bitrix\\Main\\FinderDestTable", "onAfterDiskAjaxAction");
 
+		RegisterModuleDependences("socialnetwork", "OnSocNetLogDelete", "main", "CUserCounter", "OnSocNetLogDelete");
+		RegisterModuleDependences("socialnetwork", "OnSocNetLogCommentDelete", "main", "CUserCounter", "OnSocNetLogCommentDelete");
+
 		COption::SetOptionString("main", "PARAM_MAX_SITES", "2");
 		COption::SetOptionString("main", "PARAM_MAX_USERS", "0");
 		COption::SetOptionString("main", "distributive6", "Y");

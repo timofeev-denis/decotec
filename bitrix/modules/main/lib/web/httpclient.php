@@ -41,6 +41,7 @@ class HttpClient
 	protected $compress = false;
 	protected $version = self::HTTP_1_0;
 	protected $requestCharset = '';
+	protected $sslVerify = true;
 
 	protected $status = 0;
 	/** @var HttpHeaders */
@@ -66,6 +67,7 @@ class HttpClient
 	 *		"proxyPassword" string Proxy password
 	 *		"compress" bool Accept gzip encoding (default false)
 	 *		"charset" string Charset for body in POST and PUT
+	 *		"disableSslVerification" bool Pass true to disable ssl check.
 	 * 	All the options can be set separately with setters.
 	 */
 	public function __construct(array $options = null)
@@ -109,14 +111,18 @@ class HttpClient
 			{
 				$this->setCharset($options["charset"]);
 			}
+			if(isset($options["disableSslVerification"]) && $options["disableSslVerification"] === true)
+			{
+				$this->disableSslVerification();
+			}
 		}
 	}
 
 	/**
-	 * Perfoms GET request.
+	 * Performs GET request.
 	 *
-	 * @param string $url Absolute URI eg. "http://user:pass @ host:port/path/?query"
-	 * @return string|bool Response entity string or false on error. Note, it's empty string if outputStream is set
+	 * @param string $url Absolute URI eg. "http://user:pass @ host:port/path/?query".
+	 * @return string|bool Response entity string or false on error. Note, it's empty string if outputStream is set.
 	 */
 	public function get($url)
 	{
@@ -130,9 +136,9 @@ class HttpClient
 	/**
 	 * Perfoms POST request.
 	 *
-	 * @param string $url Absolute URI eg. "http://user:pass @ host:port/path/?query"
-	 * @param array|string|resource $postData Entity of POST/PUT request. If it's resource handler then data will be read directly from the stream
-	 * @return string|bool Response entity string or false on error. Note, it's empty string if outputStream is set
+	 * @param string $url Absolute URI eg. "http://user:pass @ host:port/path/?query".
+	 * @param array|string|resource $postData Entity of POST/PUT request. If it's resource handler then data will be read directly from the stream.
+	 * @return string|bool Response entity string or false on error. Note, it's empty string if outputStream is set.
 	 */
 	public function post($url, $postData = null)
 	{
@@ -146,10 +152,10 @@ class HttpClient
 	/**
 	 * Perfoms HTTP request.
 	 *
-	 * @param string $method HTTP method (GET, POST, etc.). Note, it must be in UPPERCASE
-	 * @param string $url Absolute URI eg. "http://user:pass @ host:port/path/?query"
-	 * @param array|string|resource $postData Entity of POST/PUT request. If it's resource handler then data will be read directly from the stream
-	 * @return bool Query result (true or false). Response entity string can be get via getResult() method. Note, it's empty string if outputStream is set
+	 * @param string $method HTTP method (GET, POST, etc.). Note, it must be in UPPERCASE.
+	 * @param string $url Absolute URI eg. "http://user:pass @ host:port/path/?query".
+	 * @param array|string|resource $postData Entity of POST/PUT request. If it's resource handler then data will be read directly from the stream.
+	 * @return bool Query result (true or false). Response entity string can be get via getResult() method. Note, it's empty string if outputStream is set.
 	 */
 	public function query($method, $url, $postData = null)
 	{
@@ -224,9 +230,10 @@ class HttpClient
 	/**
 	 * Sets an HTTP request header field
 	 *
-	 * @param string $name Name of the header field
-	 * @param string $value Value of the field
-	 * @param bool $replace Replace existing header field with the same name or add one more
+	 * @param string $name Name of the header field.
+	 * @param string $value Value of the field.
+	 * @param bool $replace Replace existing header field with the same name or add one more.
+	 * @return void
 	 */
 	public function setHeader($name, $value, $replace = true)
 	{
@@ -240,6 +247,7 @@ class HttpClient
 	 * Sets an array of cookies for HTTP request
 	 *
 	 * @param array $cookies Array of cookie_name => value pairs.
+	 * @return void
 	 */
 	public function setCookies(array $cookies)
 	{
@@ -249,8 +257,9 @@ class HttpClient
 	/**
 	 * Sets Basic Authorization request header field
 	 *
-	 * @param string $user Username
-	 * @param string $pass Password
+	 * @param string $user Username.
+	 * @param string $pass Password.
+	 * @return void
 	 */
 	public function setAuthorization($user, $pass)
 	{
@@ -260,8 +269,9 @@ class HttpClient
 	/**
 	 * Sets redirect options
 	 *
-	 * @param bool $value If true, do redirect (default true)
-	 * @param null|int $max Maximum allowed redirect count
+	 * @param bool $value If true, do redirect (default true).
+	 * @param null|int $max Maximum allowed redirect count.
+	 * @return void
 	 */
 	public function setRedirect($value, $max = null)
 	{
@@ -275,7 +285,8 @@ class HttpClient
 	/**
 	 * Sets response waiting option
 	 *
-	 * @param bool $value If true, wait for response. If false, return just after request (default true)
+	 * @param bool $value If true, wait for response. If false, return just after request (default true).
+	 * @return void
 	 */
 	public function waitResponse($value)
 	{
@@ -285,7 +296,8 @@ class HttpClient
 	/**
 	 * Sets connection timeout
 	 *
-	 * @param int $value Connection timeout in seconds (default 30)
+	 * @param int $value Connection timeout in seconds (default 30).
+	 * @return void
 	 */
 	public function setTimeout($value)
 	{
@@ -295,7 +307,8 @@ class HttpClient
 	/**
 	 * Sets socket stream reading timeout
 	 *
-	 * @param int $value Stream reading timeout in seconds; "0" means no timeout (default 60)
+	 * @param int $value Stream reading timeout in seconds; "0" means no timeout (default 60).
+	 * @return void
 	 */
 	public function setStreamTimeout($value)
 	{
@@ -306,6 +319,7 @@ class HttpClient
 	 * Sets HTTP protocol version. In version 1.1 chunked response is possible.
 	 *
 	 * @param string $value Version "1.0" or "1.1" (default "1.0").
+	 * @return void
 	 */
 	public function setVersion($value)
 	{
@@ -318,6 +332,7 @@ class HttpClient
 	 * Note, that compressed response is processed anyway if Content-Encoding response header field is set
 	 *
 	 * @param bool $value If true, "Accept-Encoding: gzip" will be sent.
+	 * @return void
 	 */
 	public function setCompress($value)
 	{
@@ -327,7 +342,8 @@ class HttpClient
 	/**
 	 * Sets charset for entity-body (used in the Content-Type request header field for POST and PUT)
 	 *
-	 * @param string $value
+	 * @param string $value Charset.
+	 * @return void
 	 */
 	public function setCharset($value)
 	{
@@ -335,12 +351,23 @@ class HttpClient
 	}
 
 	/**
+	 * Disables ssl certificate verification.
+	 *
+	 * @return void
+	 */
+	public function disableSslVerification()
+	{
+		$this->sslVerify = false;
+	}
+
+	/**
 	 * Sets HTTP proxy for request
 	 *
-	 * @param string $proxyHost Proxy host name or address (without "http://")
-	 * @param null|int $proxyPort Proxy port number
-	 * @param null|string $proxyUser Proxy username
-	 * @param null|string $proxyPassword Proxy password
+	 * @param string $proxyHost Proxy host name or address (without "http://").
+	 * @param null|int $proxyPort Proxy port number.
+	 * @param null|string $proxyUser Proxy username.
+	 * @param null|string $proxyPassword Proxy password.
+	 * @return void
 	 */
 	public function setProxy($proxyHost, $proxyPort = null, $proxyUser = null, $proxyPassword = null)
 	{
@@ -360,6 +387,7 @@ class HttpClient
 	 * Note, in this mode the result string is empty.
 	 *
 	 * @param resource $handler File or stream handler.
+	 * @return void
 	 */
 	public function setOutputStream($handler)
 	{
@@ -369,8 +397,8 @@ class HttpClient
 	/**
 	 * Downloads and saves a file.
 	 *
-	 * @param string $url URI to download
-	 * @param string $filePath Absolute file path
+	 * @param string $url URI to download.
+	 * @param string $filePath Absolute file path.
 	 * @return bool
 	 */
 	public function download($url, $filePath)
@@ -407,7 +435,15 @@ class HttpClient
 			$port = $url->getPort();
 		}
 
-		$res = stream_socket_client($proto.$host.":".$port, $errno, $errstr, $this->socketTimeout);
+		$context = $this->createContext();
+		if ($context)
+		{
+			$res = stream_socket_client($proto.$host.":".$port, $errno, $errstr, $this->socketTimeout, STREAM_CLIENT_CONNECT, $context);
+		}
+		else
+		{
+			$res = stream_socket_client($proto.$host.":".$port, $errno, $errstr, $this->socketTimeout);
+		}
 
 		if(is_resource($res))
 		{
@@ -431,6 +467,19 @@ class HttpClient
 		}
 
 		return false;
+	}
+
+	protected function createContext()
+	{
+		$contextOptions = array();
+		if ($this->sslVerify === false)
+		{
+			$contextOptions["ssl"]["verify_peer_name"] = false;
+			$contextOptions["ssl"]["verify_peer"] = false;
+			$contextOptions["ssl"]["allow_self_signed"] = true;
+		}
+		$context = stream_context_create($contextOptions);
+		return $context;
 	}
 
 	protected function disconnect()
@@ -481,7 +530,7 @@ class HttpClient
 
 		if($this->proxyHost <> '')
 		{
-			$path = $url->getUrl();
+			$path = $url->getLocator();
 			if($this->proxyUser <> '')
 			{
 				$this->setHeader("Proxy-Authorization", "Basic ".base64_encode($this->proxyUser.":".$this->proxyPassword));
@@ -688,24 +737,23 @@ class HttpClient
 
 	protected function parseHeaders($headers)
 	{
-		$arHeaders = explode("\n", $headers);
-		foreach ($arHeaders as $k => $header)
+		foreach (explode("\n", $headers) as $k => $header)
 		{
 			if($k == 0)
 			{
-				if(preg_match('#HTTP\S+ (\d+)#', $header, $arFind))
+				if(preg_match('#HTTP\S+ (\d+)#', $header, $find))
 				{
-					$this->status = intval($arFind[1]);
+					$this->status = intval($find[1]);
 				}
 			}
 			elseif(strpos($header, ':') !== false)
 			{
-				$arHeader = explode(':', $header, 2);
-				if(strtolower($arHeader[0]) == 'set-cookie')
+				list($headerName, $headerValue) = explode(':', $header, 2);
+				if(strtolower($headerName) == 'set-cookie')
 				{
-					$this->responseCookies->addFromString($arHeader[1]);
+					$this->responseCookies->addFromString($headerValue);
 				}
-				$this->responseHeaders->add($arHeader[0], trim($arHeader[1]));
+				$this->responseHeaders->add($headerName, trim($headerValue));
 			}
 		}
 

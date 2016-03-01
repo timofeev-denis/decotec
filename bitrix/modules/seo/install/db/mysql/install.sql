@@ -23,7 +23,7 @@ create table if not exists b_seo_search_engine
 	UNIQUE INDEX ux_b_seo_search_engine_code (CODE)
 );
 
-INSERT INTO b_seo_search_engine (CODE, ACTIVE, SORT, NAME, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI) VALUES ('google', 'Y', 200, 'Google', '950140266760.apps.googleusercontent.com', 'IBktWJ_dS3rMKh43PSHO-zo5', 'urn:ietf:wg:oauth:2.0:oob');
+INSERT INTO b_seo_search_engine (CODE, ACTIVE, SORT, NAME, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI) VALUES ('google', 'Y', 200, 'Google', '868942902147-qrrd6ce1ajfkpse8ieq4gkpdeanvtnno.apps.googleusercontent.com', 'EItMlJpZLC2WRPKB6QsA5bV9', 'urn:ietf:wg:oauth:2.0:oob');
 INSERT INTO b_seo_search_engine (CODE, ACTIVE, SORT, NAME, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI) VALUES ('yandex', 'Y', 300, 'Yandex', 'f848c7bfc1d34a94ba6d05439f81bbd7', 'da0e73b2d9cc4e809f3170e49cb9df01', 'https://oauth.yandex.ru/verification_code');
 INSERT INTO b_seo_search_engine (CODE, ACTIVE, SORT, NAME, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI) VALUES ('yandex_direct', 'Y', 400, 'Yandex.Direct', '', '', 'https://oauth.yandex.ru/verification_code');
 

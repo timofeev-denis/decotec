@@ -578,6 +578,7 @@ var focusWithoutScrolling = function(element)
 			editor = this.editor,
 			value = this.GetValue(),
 			element = this.element,
+			iframeWindow = this.editor.sandbox.GetWindow(),
 			_element = !BX.browser.IsOpera() ? element : this.editor.sandbox.GetWindow();
 
 		if (this._eventsInitedObject && this._eventsInitedObject === _element)
@@ -645,39 +646,14 @@ var focusWithoutScrolling = function(element)
 			editor.On("OnIframeMouseDown", [e, target, bxTag]);
 		});
 
-		BX.bind(_element, "touchstart", function(e)
-		{
-			_this.Focus();
-		});
+		BX.bind(_element, "touchend", function(e){_this.Focus();});
+		BX.bind(_element, "touchstart", function(e){_this.Focus();});
 
 		BX.bind(_element, "click", function(e)
 		{
 			var
 				target = e.target || e.srcElement;
 			editor.On("OnIframeClick", [e, target]);
-
-			var selNode = editor.selection.GetSelectedNode();
-
-			//var node = _this.CheckParentSurrogate(editor.selection.GetSelectedNode());
-//			setTimeout(function()
-//			{
-//				var newSelNode = editor.selection.GetSelectedNode();
-//				if (selNode !== newSelNode)
-//				{
-//				}
-//				var node = _this.CheckParentSurrogate(editor.selection.GetSelectedNode());
-//				if(node)
-//				{
-//					editor.selection.SetAfter(node);
-//
-////					if (node.nextSibling && node.nextSibling.nodeType == 3 && editor.util.IsEmptyNode(link.nextSibling))
-////						invisText = link.nextSibling;
-////					else
-//					var invisText = editor.util.GetInvisibleTextNode();
-//					editor.selection.InsertNode(invisText);
-//					editor.selection.SetAfter(invisText);
-//				}
-//			}, 0);
 		});
 
 		BX.bind(_element, "dblclick", function(e)
@@ -700,18 +676,17 @@ var focusWithoutScrolling = function(element)
 
 		// resizestart
 		// resizeend
-		if (BX.browser.IsIOS() && false)
+		if (BX.browser.IsIOS())
 		{
 			// When on iPad/iPhone/IPod after clicking outside of editor, the editor loses focus
 			// but the UI still acts as if the editor has focus (blinking caret and onscreen keyboard visible)
 			// We prevent _this by focusing a temporary input element which immediately loses focus
-
-			BX.bind(element, "blur", function()
+			BX.bind(iframeWindow, "blur", function()
 			{
 				var
 					input = BX.create('INPUT', {props: {type: 'text', value: ''}}, element.ownerDocument),
-					originalScrollTop = document.documentElement.scrollTop || document.body.scrollTop,
-					originalScrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+					orScrollTop = document.documentElement.scrollTop || document.body.scrollTop,
+					orScrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
 
 				try
 				{
@@ -724,7 +699,7 @@ var focusWithoutScrolling = function(element)
 
 				BX.focus(input);
 				BX.remove(input);
-				window.scrollTo(originalScrollLeft, originalScrollTop);
+				window.scrollTo(orScrollLeft, orScrollTop);
 			});
 		}
 
@@ -776,12 +751,9 @@ var focusWithoutScrolling = function(element)
 			editor.selection.SaveRange();
 			editor.On('OnIframeKeyup', [e, keyCode, target]);
 
-			if (!editor.util.FirstLetterSupported() && (
-				keyCode === editor.KEY_CODES['delete'] ||
-				keyCode === editor.KEY_CODES['backspace'])
-				)
+			if (!editor.util.FirstLetterSupported() && _this.editor.parser.firstNodeCheck)
 			{
-				//_this.editor.parser.FirstLetterCheckNodes('', '', true);
+				_this.editor.parser.FirstLetterCheckNodes('', '', true);
 			}
 		});
 
@@ -989,6 +961,13 @@ var focusWithoutScrolling = function(element)
 			}
 		}
 
+		if (!this.editor.util.FirstLetterSupported()  &&
+			_this.editor.parser.firstNodeCheck &&
+			keyCode === this.editor.KEY_CODES['backspace'])
+		{
+			_this.editor.parser.FirstLetterBackspaceHandler(range);
+		}
+
 		// Handle "Enter"
 		if (!e.shiftKey && (keyCode === KEY_CODES["enter"] || keyCode === KEY_CODES["backspace"]))
 		{
@@ -1000,13 +979,6 @@ var focusWithoutScrolling = function(element)
 			this.savedScroll = BX.GetWindowScrollPos(document);
 			BX.addCustomEvent(this.editor, "OnIframeKeyup", BX.proxy(this._RestoreScrollTop, this));
 			setTimeout(BX.proxy(this._RestoreScrollTop, this), 0);
-		}
-
-		if (!this.editor.util.FirstLetterSupported() && (
-			keyCode === this.editor.KEY_CODES['delete'] ||
-				keyCode === this.editor.KEY_CODES['backspace'])
-			)
-		{
 		}
 	};
 
@@ -1781,6 +1753,49 @@ var focusWithoutScrolling = function(element)
 		this.editor.autolinkUrlRegExp = urlRegExp;
 		this.editor.autolinkEmailRegExp = emailRegExp;
 
+		function autoLinkHandler()
+		{
+			try
+			{
+				if (checkAutoLink())
+				{
+					editor.selection.ExecuteAndRestore(function(startContainer, endContainer)
+					{
+						if (endContainer && endContainer.parentNode)
+							autoLink(endContainer.parentNode);
+					});
+				}
+			}
+			catch(e){}
+		}
+
+		function checkAutoLink()
+		{
+			var
+				node, nodeValue,
+				result = false,
+				doc = editor.GetIframeDoc(),
+				walker = doc.createTreeWalker(
+				doc.body,
+				NodeFilter.SHOW_TEXT,
+				null,
+				false
+			);
+
+			while(node = walker.nextNode())
+			{
+				nodeValue = node.nodeValue || '';
+				if ((nodeValue.match(emailRegExp) || nodeValue.match(urlRegExp)) &&
+					node.parentNode && node.parentNode.nodeName != 'A')
+				{
+					result = true;
+					break;
+				}
+			}
+
+			return result;
+		}
+
 		function autoLink(element)
 		{
 			if (element && !ignorableParents[element.nodeName])
@@ -1825,6 +1840,7 @@ var focusWithoutScrolling = function(element)
 				if (realUrl.substr(0, 4) === "www.")
 					realUrl = "http://" + realUrl;
 
+				BX.onCustomEvent(_this.editor, 'OnAfterUrlConvert', [realUrl]);
 				return '<a href="' + realUrl + '">' + displayUrl + '</a>' + punctuation;
 			});
 		}
@@ -1906,14 +1922,10 @@ var focusWithoutScrolling = function(element)
 		{
 			BX.addCustomEvent(editor, "OnIframeNewWord", function()
 			{
-				try
-				{
-					editor.selection.ExecuteAndRestore(function(startContainer, endContainer)
-					{
-						autoLink(endContainer.parentNode);
-					});
-				}
-				catch(e){}
+				if (editor.autolinkTimeout)
+					editor.autolinkTimeout = clearTimeout(editor.autolinkTimeout);
+
+				editor.autolinkTimeout = setTimeout(autoLinkHandler, 500);
 			});
 
 			BX.addCustomEvent(editor, "OnSubmit", function()

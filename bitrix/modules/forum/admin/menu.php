@@ -63,12 +63,6 @@ if($APPLICATION->GetGroupRight("forum") != "D")
 				"title" => GetMessage("POINTS_PER_MESSAGE_ALT")
 			),
 			array(
-				"text" => GetMessage("FORUM_MENU_SMILES"),
-				"url" => "/bitrix/admin/forum_smile.php?lang=".LANG,
-				"more_url" => array("/bitrix/admin/forum_smile_edit.php"),
-				"title" => GetMessage("FORUM_MENU_SMILES_ALT")
-			),
-			array(
 				"text" => GetMessage("FORUM_MENU_TOPICS"),
 				"url" => "/bitrix/admin/forum_topics.php?lang=".LANG,
 				"more_url" => array("/bitrix/admin/forum_topics.php"),

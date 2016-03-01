@@ -513,7 +513,7 @@ class CForumMessage extends CAllForumMessage
 					break;
 				case "APPROVED_AND_MINE":
 					if ($val >= 0)
-						$arSqlSearch[] = "(FM.APPROVED='Y' OR (FM.APPROVED != 'Y' AND FM.AUTHOR_ID=".intval($val)."))";
+						$arSqlSearch[] = "(FM.APPROVED='Y' OR FM.AUTHOR_ID=".intval($val).")";
 					else
 						$arSqlSearch[] = "(FM.APPROVED='Y')";
 					break;
@@ -876,7 +876,7 @@ class CForumFiles extends CAllForumFiles
 				// to table b_forum_message
 				case "APPROVED_AND_MINE":
 					if ($val >= 0)
-						$arSqlSearch[] = "(FM.APPROVED='Y' OR (FM.APPROVED != 'Y' AND FM.AUTHOR_ID=".intval($val)."))";
+						$arSqlSearch[] = "(FM.APPROVED='Y' OR FM.AUTHOR_ID=".intval($val).")";
 					else
 						$arSqlSearch[] = "(FM.APPROVED='Y')";
 					break;

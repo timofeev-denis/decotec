@@ -7,4 +7,5 @@ $MESS["SERVICE_BLOG_DEMO_DATA"] = "Настройка блога идей";
 $MESS["SERVICE_CATALOG_SETTINGS"] = "Настройка каталога";
 $MESS["SERVICE_FORUM"] = "Настройка форума для отзывов";
 $MESS["SERVICE_ESHOPAPP"] = "Установка мобильного приложения";
+$MESS["SERVICE_ADVERTISING"] = "Реклама";
 ?>

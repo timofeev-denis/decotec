@@ -260,6 +260,7 @@ if($this->StartResultCache(false, ($arParams["CACHE_GROUPS"]? $USER->GetGroups()
 			}
 		}
 	}
+	$this->setCurrencyTag();
 
 	$this->EndResultCache();
 }
@@ -707,6 +708,12 @@ $clearURL = CHTTP::urlDeleteParams($pageURL, $paramsToDelete, array("delete_syst
 if ($arResult["JS_FILTER_PARAMS"]["SEF_SET_FILTER_URL"])
 {
 	$arResult["FILTER_URL"] = $arResult["JS_FILTER_PARAMS"]["SEF_SET_FILTER_URL"];
+	$arResult["FILTER_AJAX_URL"] = htmlspecialcharsbx(CHTTP::urlAddParams($arResult["FILTER_URL"], array(
+		"bxajaxid" => $_GET["bxajaxid"],
+	), array(
+		"skip_empty" => true,
+		"encode" => true,
+	)));
 	$arResult["SEF_SET_FILTER_URL"] = $arResult["JS_FILTER_PARAMS"]["SEF_SET_FILTER_URL"];
 	$arResult["SEF_DEL_FILTER_URL"] = $arResult["JS_FILTER_PARAMS"]["SEF_DEL_FILTER_URL"];
 }
@@ -845,13 +852,20 @@ if ($arParams["XML_EXPORT"] === "Y" && $_REQUEST["mode"] === "xml")
 	while(ob_end_clean());
 	header("Content-Type: text/xml; charset=utf-8");
 	echo $APPLICATION->convertCharset($xml, LANG_CHARSET, "utf-8");
+	define("PUBLIC_AJAX_MODE", true);
 	require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_after.php");
 	die();
 }
 elseif(isset($_REQUEST["ajax"]) && $_REQUEST["ajax"] === "y")
 {
 	$this->setFrameMode(false);
+	ob_start();
 	$this->IncludeComponentTemplate("ajax");
+	$json = ob_get_contents();
+	$APPLICATION->RestartBuffer();
+	while(ob_end_clean());
+	header('Content-Type: application/x-javascript; charset='.LANG_CHARSET);
+	echo $json;
 	define("PUBLIC_AJAX_MODE", true);
 	require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_after.php");
 	die();

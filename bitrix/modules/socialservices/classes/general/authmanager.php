@@ -231,22 +231,40 @@ class CSocServAuthManager
 
 	public static function CheckUniqueKey($bUnset = true)
 	{
+		$arState = array();
+
 		if(isset($_REQUEST["state"]))
 		{
-			$arState = array();
 			parse_str($_REQUEST["state"], $arState);
-			if(isset($arState['backurl']))
-				InitURLParam($arState['backurl']);
-		}
-		if(!isset($_REQUEST['check_key']) && isset($_REQUEST['backurl']))
-			InitURLParam($_REQUEST['backurl']);
 
-		if($_SESSION["UNIQUE_KEY"] <> '' && ($_REQUEST['check_key'] === $_SESSION["UNIQUE_KEY"]))
+			if(isset($arState['backurl']))
+			{
+				InitURLParam($arState['backurl']);
+			}
+		}
+
+		if(!isset($_REQUEST['check_key']) && isset($_REQUEST['backurl']))
+		{
+			InitURLParam($_REQUEST['backurl']);
+		}
+
+		$checkKey = '';
+		if(isset($_REQUEST['check_key']))
+		{
+			$checkKey = $_REQUEST['check_key'];
+		}
+		elseif(isset($arState['check_key']))
+		{
+			$checkKey = $arState['check_key'];
+		}
+
+		if($_SESSION["UNIQUE_KEY"] != '' && $checkKey != '' && ($checkKey === $_SESSION["UNIQUE_KEY"]))
 		{
 			if($bUnset)
 			{
 				unset($_SESSION["UNIQUE_KEY"]);
 			}
+
 			return true;
 		}
 		return false;

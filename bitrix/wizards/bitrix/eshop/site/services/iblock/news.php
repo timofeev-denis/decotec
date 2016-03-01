@@ -94,5 +94,5 @@ WizardServices::IncludeServiceLang("news.php", $lang);
 //CUserOptions::SetOption("list", "tbl_iblock_list_".md5($iblockType.".".$iblockID), array ( 'columns' => 'NAME,ACTIVE,DATE_ACTIVE_FROM', 'by' => 'timestamp_x', 'order' => 'desc', 'page_size' => '20', ));
 
 CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/news/index.php", array("NEWS_IBLOCK_ID" => $iblockID));
-CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/_index.php", array("NEWS_IBLOCK_ID" => $iblockID));
+CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH."/sect_bottom.php", array("NEWS_IBLOCK_ID" => $iblockID));
 ?>

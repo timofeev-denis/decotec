@@ -269,8 +269,6 @@ $arResult = array_merge(
 		"TOPICS_PER_PAGE" => $arParams["TOPICS_PER_PAGE"],
 		"MESSAGES_PER_PAGE" => $arParams["MESSAGES_PER_PAGE"],
 		"PATH_TO_AUTH_FORM" => $arParams["PATH_TO_AUTH_FORM"],
-		"PATH_TO_SMILE" => $arParams["PATH_TO_SMILE"],
-		"PATH_TO_ICON" => $arParams["PATH_TO_ICON"],
 		"SHOW_FORUM_ANOTHER_SITE" => $arParams["SHOW_FORUM_ANOTHER_SITE"],
 		"SHOW_FORUMS_LIST" => $arParams["SHOW_FORUMS_LIST"],
 		"HELP_CONTENT" => $arParams["HELP_CONTENT"],
@@ -342,8 +340,6 @@ if (!array_key_exists("USER_FIELDS", $arParams))
 	$arParams["USER_FIELDS"] = $GLOBALS["USER_FIELD_MANAGER"]->GetUserFields("FORUM_MESSAGE", 0, LANGUAGE_ID);
 	$arParams["USER_FIELDS"] = (is_array($arParams["USER_FIELDS"]) ? array_keys($arParams["USER_FIELDS"]) : array());
 }
-//$arParams["PATH_TO_SMILE"]
-//$arParams["PATH_TO_ICON"]
 //$arParams["PATH_TO_AUTH_FORM"]
 $arParams["MINIMIZE_SQL"] = "N";
 
@@ -354,7 +350,7 @@ $arParams["SHOW_TAGS"] = (is_set($arParams["SHOW_TAGS"]) ? $arParams["SHOW_TAGS"
 
 
 $arParams["SEND_MAIL"] = (in_array($arParams["SEND_MAIL"], array("A", "E", "U", "Y")) ? $arParams["SEND_MAIL"] : "E");
-$arParams["SEND_ICQ"] = (in_array($arParams["SEND_ICQ"], array("A", "E", "U", "Y")) ? $arParams["SEND_ICQ"] : "A");
+$arParams["SEND_ICQ"] = "A";
 
 //$arParams["SHOW_FORUM_ANOTHER_SITE"]
 

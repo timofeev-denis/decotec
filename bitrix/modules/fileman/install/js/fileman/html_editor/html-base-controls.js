@@ -879,6 +879,7 @@
 			{
 				BX.unbind(window, "keydown", BX.proxy(_this.OnKeyDown, _this));
 				_this.dialogShownTimeout = setTimeout(function(){_this.editor.dialogShown = false;}, 300);
+				_this.RestoreWindowOverflow();
 			});
 		},
 
@@ -893,9 +894,16 @@
 			this.oDialog.Show();
 			this.oDialog.DIV.style.zIndex = this.zIndex;
 			this.oDialog.OVERLAY.style.zIndex = this.zIndex - 2;
-			var top = parseInt(this.oDialog.DIV.style.top) - 180;
-			this.oDialog.DIV.style.top = (top > 50 ? top : 50) + 'px';
+			var
+				top = parseInt(this.oDialog.DIV.style.top) - 180,
+				scrollPos = BX.GetWindowScrollPos(document),
+				scrollTop = scrollPos.scrollTop,
+				minTop = scrollTop + 50;
+
+			this.oDialog.DIV.style.top = (top > minTop ? top : minTop) + 'px';
 			BX.bind(window, "keydown", BX.proxy(this.OnKeyDown, this));
+
+			this.savedBodyOverflow = this.savedScrollLeft = this.savedScrollTop = false;
 
 			setTimeout(function()
 				{
@@ -1067,7 +1075,62 @@
 		},
 
 		SetValues: BX.DoNothing,
-		GetValues: BX.DoNothing
+		GetValues: BX.DoNothing,
+
+		CheckSize: function(timeout)
+		{
+			var _this = this;
+
+			if (this.checkSizeTimeout)
+				this.checkSizeTimeout = clearTimeout(this.checkSizeTimeout);
+
+			if (timeout !== true)
+			{
+				this.checkSizeTimeout = setTimeout(function()
+				{
+					_this.CheckSize(true);
+				}, 50);
+				return;
+			}
+
+			var
+				innerSize = BX.GetWindowInnerSize(document),
+				dialogBottom = this.oDialog.DIV.offsetHeight + 50;
+
+			if (dialogBottom >= innerSize.innerHeight)
+			{
+				var scrollPos = BX.GetWindowScrollPos(document);
+				this.savedBodyOverflow = document.body.style.overflow;
+				this.savedScrollTop = scrollPos.scrollTop;
+				this.savedScrollLeft = scrollPos.scrollLeft;
+				document.body.style.overflow = "auto";
+
+				if (this.editor.expanded)
+					BX.unbind(window, "scroll", BX.proxy(this.editor.PreventScroll, this.editor));
+			}
+			else
+			{
+				this.RestoreWindowOverflow();
+			}
+		},
+
+		RestoreWindowOverflow: function()
+		{
+			if (this.savedBodyOverflow !== false)
+			{
+				document.body.style.overflow = this.savedBodyOverflow;
+				this.savedBodyOverflow = false;
+			}
+
+			if (this.savedScrollTop !== false)
+			{
+				window.scrollTo(this.savedScrollLeft, this.savedScrollTop);
+				this.savedScrollLeft = this.savedScrollTop = false;
+			}
+
+			if (this.editor.expanded)
+				BX.bind(window, "scroll", BX.proxy(this.editor.PreventScroll, this.editor));
+		}
 	};
 
 	function ContextMenu(editor)
@@ -2028,7 +2091,7 @@
 					{id: 'PrintBreak', compact: false, hidden: true, sort: 270},
 					{id: 'PageBreak', compact: false, hidden: true, sort: 275},
 					{id: 'Spellcheck', compact: false, hidden: true, sort: 280},
-					//{id: 'InsertHr', compact: false, hidden: true, sort: 290},
+					{id: 'InsertHr', compact: false, hidden: true, sort: 290},
 					{id: 'Sub', compact: false, hidden: true, sort: 310},
 					{id: 'Sup', compact: false, hidden: true, sort: 320},
 					{id: 'TemplateSelector', compact: false, sort: 330},
@@ -2639,6 +2702,11 @@
 			}
 			BX.unbind(document, 'mouseup', BX.proxy(this.OnMouseUp, this));
 			BX.removeCustomEvent(this.editor, "OnIframeMouseUp", BX.proxy(this.OnMouseUp, this));
+
+			if (this.editor.toolbar && this.editor.toolbar.controls && this.editor.toolbar.controls.More)
+			{
+				this.editor.toolbar.controls.More.Close();
+			}
 		},
 
 		OnMouseDown: function()
@@ -2664,7 +2732,7 @@
 		{
 			this.Check(value);
 		}
-	}
+	};
 
 	// List
 	function DropDown(editor)
@@ -3141,7 +3209,8 @@
 				value = this.values[i];
 				itemClass = this.itemClassName || '';
 				this.values[i].TITLE = this.values[i].TITLE || this.values[i].NAME;
-				if (this.values[i].VALUE)
+
+				if (this.values[i].VALUE && this.values[i].VALUE !== this.values[i].TITLE)
 				{
 					this.values[i].TITLE += ' (' + this.values[i].VALUE + ')';
 				}
@@ -3547,16 +3616,36 @@
 
 	ClassSelector.prototype.GetClasses = function()
 	{
-		var classes = this.editor.GetCurrentCssClasses(this.filterTag);
+		var
+			title,
+			classes = this.editor.GetCurrentCssClasses(this.filterTag);
+
 		this.values = [];
 		if (classes && classes.length > 0)
 		{
 			for (var i = 0; i < classes.length; i++)
 			{
+				title = null;
+				if (classes[i].classTitle && typeof classes[i].classTitle == 'object')
+				{
+					if (classes[i].classTitle.title)
+					{
+						title = classes[i].classTitle.title;
+					}
+					else
+					{
+						continue;
+					}
+				}
+				else if (classes[i].classTitle)
+				{
+					title = classes[i].classTitle;
+				}
+
 				this.values.push(
 					{
 						VALUE: classes[i].className,
-						TITLE: classes[i].classTitle,
+						TITLE:  title,
 						NAME: classes[i].className
 					}
 				);

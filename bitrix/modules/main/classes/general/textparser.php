@@ -184,11 +184,6 @@ class CTextParser
 		foreach(GetModuleEvents("main", "TextParserBefore", true) as $arEvent)
 			ExecuteModuleEventEx($arEvent, array(&$text, &$this));
 
-		if ($this->allow["HTML"] != "Y" && $this->allow['NL2BR'] == 'Y')
-		{
-			$text = preg_replace("#<br(.*?)>#is", "\n", $text);
-		}
-
 		if ($this->allow["CODE"]=="Y")
 		{
 			$text = preg_replace_callback(
@@ -199,7 +194,10 @@ class CTextParser
 				$text
 			);
 		}
-
+		if ($this->allow["HTML"] != "Y" && $this->allow['NL2BR'] == 'Y')
+		{
+			$text = preg_replace("#<br(.*?)>#is", "\n", $text);
+		}
 		if ($this->allow["HTML"] != "Y")
 		{
 			if ($this->allow["ANCHOR"]=="Y")
@@ -1277,23 +1275,23 @@ class CTextParser
 			if(preg_match("/^(https?:)?\/\/(www\.)?(youtube\.com|youtu\.be|rutube\.ru|vimeo\.com|player\.vimeo\.com)\//i", $arParams["PATH"]))
 			{
 				if (
-					(!defined("BX_MOBILE_LOG") || BX_MOBILE_LOG !== true)
-					&& (!$ob || !$ob->bMobile)
+					$ob
+					&& $ob->bMobile
 				)
 				{
-					?><iframe src="<?=$arParams["PATH"]?>" allowfullscreen="" frameborder="0" height="<?=$arParams["HEIGHT"]?>" width="<?=$arParams["WIDTH"]?>"></iframe><?
+					?><a href="<?=$arParams["PATH"]?>"><?=$arParams["PATH"]?></a><?
 				}
 				else
 				{
-					?><a href="<?=$arParams["PATH"]?>"><?=$arParams["PATH"]?></a><?
+					?><iframe src="<?=$arParams["PATH"]?>" allowfullscreen="" frameborder="0" height="<?=$arParams["HEIGHT"]?>" width="<?=$arParams["WIDTH"]?>"></iframe><?
 				}
 			}
 		}
 		else
 		{
 			if (
-				(defined("BX_MOBILE_LOG") && BX_MOBILE_LOG === true)
-				|| ($ob && $ob->bMobile)
+				$ob
+				&& $ob->bMobile
 			)
 			{
 				?><div onclick="return BX.eventCancelBubble(event);"><?
@@ -1340,8 +1338,8 @@ class CTextParser
 			);
 
 			if (
-				(defined("BX_MOBILE_LOG") && BX_MOBILE_LOG === true)
-				|| ($ob && $ob->bMobile)
+				$ob
+				&& $ob->bMobile
 			)
 			{
 				?></div><?

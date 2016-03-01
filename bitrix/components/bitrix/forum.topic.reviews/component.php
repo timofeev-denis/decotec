@@ -57,8 +57,7 @@ $arParams["USER_FIELDS"] = (is_array($arParams["USER_FIELDS"]) ? $arParams["USER
 if (!in_array("UF_FORUM_MESSAGE_DOC", $arParams["USER_FIELDS"]))
 	$arParams["USER_FIELDS"][] = "UF_FORUM_MESSAGE_DOC";
 $arParams["IMAGE_SIZE"] = (intVal($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 300);
-$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
-$arParams["PATH_TO_SMILE"] = (!empty($arParams["PATH_TO_SMILE"]) ? $arParams["PATH_TO_SMILE"] : "/bitrix/images/forum/smile/");
+$arParams["PATH_TO_SMILE"] = "";
 $arParams["POST_FIRST_MESSAGE"] = "Y";
 $arParams["POST_FIRST_MESSAGE_TEMPLATE"] = trim($arParams["POST_FIRST_MESSAGE_TEMPLATE"]);
 if (empty($arParams["POST_FIRST_MESSAGE_TEMPLATE"]))
@@ -230,7 +229,7 @@ $arResult["PANELS"] = array(
 $arResult["SHOW_PANEL"] = in_array("Y", $arResult["PANELS"]) ? "Y" : "N";
 
 // PARSER
-$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+$parser = new forumTextParser(LANGUAGE_ID);
 $parser->image_params["width"] = $arParams["IMAGE_SIZE"];
 $parser->image_params["height"] = $arParams["IMAGE_SIZE"];
 $arResult["PARSER"] = $parser;
@@ -583,9 +582,8 @@ if ($arResult["SHOW_POST_FORM"] == "Y")
 	$arResult["SHOW_PANEL_ATTACH_IMG"] = (in_array($arResult["FORUM"]["ALLOW_UPLOAD"], array("A", "F", "Y")) ? "Y" : "N");
 	$arResult["TRANSLIT"] = (LANGUAGE_ID=="ru" ? "Y" : " N");
 	if ($arResult["FORUM"]["ALLOW_SMILES"] == "Y"):
-		$arResult["ForumPrintSmilesList"] = ($arResult["FORUM"]["ALLOW_SMILES"] == "Y" ?
-			ForumPrintSmilesList(3, LANGUAGE_ID, $arParams["PATH_TO_SMILE"], $arParams["CACHE_TIME"]) : "");
-		$arResult["SMILES"] = CForumSmile::GetByType("S", LANGUAGE_ID);
+		$arResult["ForumPrintSmilesList"] = ($arResult["FORUM"]["ALLOW_SMILES"] == "Y" ? ForumPrintSmilesList(3, LANGUAGE_ID) : "");
+		$arResult["SMILES"] = CForumSmile::getSmiles("S", LANGUAGE_ID);
 	endif;
 
 	$arResult["CAPTCHA_CODE"] = "";

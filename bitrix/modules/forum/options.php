@@ -71,17 +71,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $FORUM_RIGHT == "W" && strlen($_REQU
 	COption::SetOptionString("forum", "file_max_size", $_REQUEST["file_max_size"]);
 	COption::SetOptionString("forum", "parser_nofollow", ($_REQUEST["parser_nofollow"] == "Y" ? "Y" : "N"));
 	COption::SetOptionString("forum", "parser_link_target", ($_REQUEST["parser_link_target"] == "_blank" ? "_blank" : "_self"));
+	COption::SetOptionInt("forum", "smile_gallery_id", $_REQUEST["smile_gallery_id"]);
 
 	COption::SetOptionString("forum", "FORUM_FROM_EMAIL", $_REQUEST["FORUM_FROM_EMAIL"]);
-	COption::SetOptionString("forum", "FORUMS_PER_PAGE", $_REQUEST["FORUMS_PER_PAGE_MAIN"]);
-	COption::SetOptionString("forum", "TOPICS_PER_PAGE", $_REQUEST["TOPICS_PER_PAGE"]);
-	COption::SetOptionString("forum", "MESSAGES_PER_PAGE", $_REQUEST["MESSAGES_PER_PAGE"]);
+	//COption::SetOptionString("forum", "FORUMS_PER_PAGE", $_REQUEST["FORUMS_PER_PAGE_MAIN"]);
+	//COption::SetOptionString("forum", "TOPICS_PER_PAGE", $_REQUEST["TOPICS_PER_PAGE"]);
+	//COption::SetOptionString("forum", "MESSAGES_PER_PAGE", $_REQUEST["MESSAGES_PER_PAGE"]);
+
 	COption::SetOptionString("forum", "SHOW_VOTES", (($_REQUEST["SHOW_VOTES"]=="Y") ? "Y" : "N" ));
-	COption::SetOptionString("forum", "SHOW_TASKBAR_ICON", (($_REQUEST["SHOW_TASKBAR_ICON"]=="Y") ? "Y" : "N" ));
-	COption::SetOptionString("forum", "SHOW_ICQ_CONTACT", (($_REQUEST["SHOW_ICQ_CONTACT"]=="Y") ? "Y" : "N" ));
+	//COption::SetOptionString("forum", "SHOW_ICQ_CONTACT", (($_REQUEST["SHOW_ICQ_CONTACT"]=="Y") ? "Y" : "N" ));
 	COption::SetOptionString("forum", "MaxPrivateMessages", $_REQUEST["MaxPrivateMessages"]);
 	COption::SetOptionString("forum", "UsePMVersion", $_REQUEST["UsePMVersion"]);
-	COption::SetOptionString("forum", "MESSAGE_HTML", ($_REQUEST["MESSAGE_HTML"]=="Y" ? "Y" : "N" ));
+//	COption::SetOptionString("forum", "MESSAGE_HTML", ($_REQUEST["MESSAGE_HTML"]=="Y" ? "Y" : "N" ));
 	COption::SetOptionString("forum", "FORUM_GETHOSTBYADDR", (($_REQUEST["FORUM_GETHOSTBYADDR"]=="Y") ? "Y" : "N" ));
 	COption::SetOptionString("forum", "FILTER", (($_REQUEST["FILTER"]=="Y") ? "Y" : "N" ));
 	COption::SetOptionString("forum", "FILTER_ACTION", $_REQUEST["FILTER_ACTION"]);
@@ -89,6 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $FORUM_RIGHT == "W" && strlen($_REQU
 	COption::SetOptionString("forum", "FILTER_MARK", $_REQUEST["FILTER_MARK"]);
 	COption::SetOptionString("forum", "search_message_count", $_REQUEST["search_message_count"]);
 
+	COption::SetOptionString("forum", "show_avatar_photo", (($_REQUEST["show_avatar_photo"]=="Y") ? "Y" : "N" ));
 	COption::SetOptionString("forum", "USE_AUTOSAVE", (($_REQUEST["USE_AUTOSAVE"]=="Y") ? "Y" : "N" ));
 	COption::SetOptionString("forum", "USER_EDIT_OWN_POST", (($_REQUEST["USER_EDIT_OWN_POST"]=="Y") ? "Y" : "N" ));
 	COption::SetOptionString("forum", "USER_SHOW_NAME", (($_REQUEST["USER_SHOW_NAME"]=="Y") ? "Y" : "N" ));
@@ -115,11 +117,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $FORUM_RIGHT == "W" && strlen($_REQU
 	
 	COption::SetOptionString("forum", "statuses_name", serialize($arNameStatuses));
 //*****************************************************************************************************************
-
-	if ($_REQUEST["SHOW_TASKBAR_ICON"] == "Y")
-		RegisterModuleDependences("main", "OnPanelCreate", "forum", "CForumNew", "OnPanelCreate");
-	else
-		UnRegisterModuleDependences("main", "OnPanelCreate", "forum", "CForumNew", "OnPanelCreate");
 }
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("MAIN_TAB_SET"), "ICON" => "vote_settings", "TITLE" => GetMessage("MAIN_TAB_TITLE_SET")),
@@ -143,53 +140,29 @@ $tabControl->BeginNextTab();
 			<input type="text" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="FORUM_FROM_EMAIL" /></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("FORUMS_PER_PAGE")?>:</td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "FORUMS_PER_PAGE", "10");?>
-			<input type="text" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="FORUMS_PER_PAGE_MAIN" /></td>
-	</tr>
-	<tr>
-		<td><?echo GetMessage("TOPICS_PER_PAGE")?>:</td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "TOPICS_PER_PAGE", "10");?>
-			<input type="text" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="TOPICS_PER_PAGE"></td>
-	</tr>
-	<tr>
-		<td><?echo GetMessage("MESSAGES_PER_PAGE")?>:</td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "MESSAGES_PER_PAGE", "10");?>
-			<input type="text" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="MESSAGES_PER_PAGE"></td>
-	</tr>
-	<tr>
 		<td><label for="SHOW_VOTES"><?= GetMessage("FORUM_GG_SHOW_VOTE") ?></label></td>
 		<td>
 			<?$val = COption::GetOptionString("forum", "SHOW_VOTES", "Y");?>
 			<input type="checkbox" value="Y" name="SHOW_VOTES" id="SHOW_VOTES" <?if ($val=="Y") echo "checked";?>></td>
 	</tr>
+<?if (($val = COption::GetOptionString("forum", "SHOW_ICQ_CONTACT", "N")) == "Y"):?>
 	<tr>
 		<td><label for="SHOW_ICQ_CONTACT"><?= GetMessage("SHOW_ICQ_CONTACT")?></td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "SHOW_ICQ_CONTACT", "N");?>
-			<input type="checkbox" value="Y" name="SHOW_ICQ_CONTACT" id="SHOW_ICQ_CONTACT" <?if ($val=="Y") echo "checked";?>></td>
+		<td><input type="checkbox" value="Y" name="SHOW_ICQ_CONTACT" id="SHOW_ICQ_CONTACT" checked="checked"></td>
 	</tr>
+<?endif;?>
+<?if (($val = COption::GetOptionString("forum", "FORUM_GETHOSTBYADDR", "N")) == "Y"):?>
 	<tr>
-		<td><?=GetMessage("FORUM_GETHOSTBYADDR")?></td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "FORUM_GETHOSTBYADDR", "N");?>
-			<input type="checkbox" value="Y" name="FORUM_GETHOSTBYADDR" id="FORUM_GETHOSTBYADDR" <?if ($val=="Y") echo "checked";?>></td>
+		<td><label for="FORUM_GETHOSTBYADDR"><?=GetMessage("FORUM_GETHOSTBYADDR")?></label></td>
+		<td><input type="checkbox" value="Y" name="FORUM_GETHOSTBYADDR" id="FORUM_GETHOSTBYADDR" checked="checked" /></td>
 	</tr>
-	<tr>
-		<td><?=GetMessage("MESSAGE_HTML")?></td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "MESSAGE_HTML", "Y");?>
-			<input type="checkbox" value="Y" name="MESSAGE_HTML" id="MESSAGE_HTML" <?if ($val=="Y") echo "checked";?>></td>
-	</tr>
+<?endif;?>
+<?if (($val = COption::GetOptionString("forum", "USE_COOKIE", "N")) == "Y"):?>
 	<tr>
 		<td><label for="USE_COOKIE"><?= GetMessage("FORUM_USE_COOKIE") ?></label></td>
-		<td>
-			<?$val = COption::GetOptionString("forum", "USE_COOKIE", "N");?>
-			<input type="checkbox" value="Y" name="USE_COOKIE" id="USE_COOKIE" <?if ($val=="Y") echo "checked";?>></td>
+		<td><input type="checkbox" value="Y" name="USE_COOKIE" id="USE_COOKIE" checked="checked"></td>
 	</tr>
+<?endif;?>
 	<tr>
 		<td class="adm-detail-valign-top"><label for="LOGS"><?=GetMessage("FORUM_LOGS_TITLE")?>:</label></td>
 		<td>
@@ -222,6 +195,20 @@ $tabControl->BeginNextTab();
 			<input type="checkbox" value="Y" name="USER_SHOW_NAME" id="USER_SHOW_NAME" <?if ($val=="Y") echo "checked";?>></td>
 	</tr>
 	<tr>
+		<td><label for="smile_gallery_id"><?=GetMessage("FORUM_OPTIONS_SMILE_GALLERY_ID") ?></label></td>
+		<td>
+			<?$val = COption::GetOptionInt("forum", "smile_gallery_id", 0);
+			$arSmileGallery = CSmileGallery::getListForForm();
+			?><select name="smile_gallery_id" id="smile_gallery_id"><?
+				foreach($arSmileGallery as $key => $v):
+					?><option value="<?=$key?>"<?if($val==$key)echo" selected"?>><?=$v?></option><?
+				endforeach;
+			?></select>
+		</td>
+	</tr>
+	<?
+	?>
+	<tr>
 		<td><label for="parser_nofollow"><?=GetMessage("F_PARSER_NOFOLLOW")?>:</label></td>
 		<td>
 			<?$val = COption::GetOptionString("forum", "parser_nofollow", "Y");?>
@@ -242,16 +229,16 @@ $tabControl->BeginNextTab();
 	<tr>
 		<td><?=GetMessage("FORUM_GG_AVATAR_S")?>:</td>
 		<td>
-			<?$val = COption::GetOptionString("forum", "avatar_max_size", 10000);?>
-			<input type="text" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="avatar_max_size"></td>
+			<?$val = COption::GetOptionString("forum", "avatar_max_size", 1048576);?>
+			<input type="text" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="avatar_max_size" /></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("FORUM_GG_AVATAR_W")?>:</td>
 		<td>
-			<?$val = COption::GetOptionString("forum", "avatar_max_width", 90);?>
-			<input type="text" size="14" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="avatar_max_width">&nbsp;/&nbsp;
-			<?$val = COption::GetOptionString("forum", "avatar_max_height", 90);?>
-			<input type="text" size="14" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="avatar_max_height">
+			<?$val = COption::GetOptionString("forum", "avatar_max_width", 100);?>
+			<input type="text" size="14" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="avatar_max_width" />&nbsp;/&nbsp;
+			<?$val = COption::GetOptionString("forum", "avatar_max_height", 100);?>
+			<input type="text" size="14" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="avatar_max_height" />
 			</td>
 	</tr>
 	<tr>

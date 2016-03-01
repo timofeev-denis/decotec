@@ -52,6 +52,25 @@ abstract class BaseObject
 	}
 
 	/**
+	 * Returns "lowercased" name of the object.
+	 * <p>
+	 * If name is not quoted then it made lowercase.
+	 *
+	 * @return string
+	 */
+	final public function getLowercasedName()
+	{
+		if ($this->name[0] == '`')
+			return $this->name;
+		elseif ($this->name[0] == '"')
+			return $this->name;
+		elseif ($this->name[0] == '[')
+			return $this->name;
+		else
+			return strtolower($this->name);
+	}
+
+	/**
 	 * Returns "normalized" name of the table.
 	 * <p>
 	 * If name is not quoted then it made uppercase.

@@ -50,6 +50,14 @@ class FinderDestTable extends Entity\DataManager
 				'Bitrix\Main\UserTable',
 				array('=this.CODE_USER_ID' => 'ref.ID')
 			),
+			new Entity\ReferenceField(
+				'CODE_USER_CURRENT',
+				'Bitrix\Main\UserTable',
+				array(
+					'=this.CODE_USER_ID' => 'ref.ID',
+					'=this.USER_ID' => new SqlExpression('?i', $GLOBALS["USER"]->GetId())
+				)
+			),
 			'CONTEXT' => array(
 				'data_type' => 'string'
 			),

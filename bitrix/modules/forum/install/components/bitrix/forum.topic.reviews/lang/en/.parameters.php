@@ -1,6 +1,5 @@
 <?
 $MESS["F_MESSAGES_PER_PAGE"] = "Number of messages per page";
-$MESS["F_PATH_TO_SMILE"] = "Path to Smiles folder (root relative)";
 $MESS["F_FORUM_ID"] = "Forum ID ";
 $MESS["F_IBLOCK_TYPE"] = "Type of information block";
 $MESS["F_IBLOCK_ID"] = "Information block";

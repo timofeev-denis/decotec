@@ -92,7 +92,7 @@ class Base
 		}
 		elseif (!empty($fieldInfo['reference']))
 		{
-			if (strpos($fieldInfo['data_type'], '\\') === false)
+			if (is_string($fieldInfo['data_type']) && strpos($fieldInfo['data_type'], '\\') === false)
 			{
 				// if reference has no namespace, then it'is in the same namespace
 				$fieldInfo['data_type'] = $this->getNamespace().$fieldInfo['data_type'];

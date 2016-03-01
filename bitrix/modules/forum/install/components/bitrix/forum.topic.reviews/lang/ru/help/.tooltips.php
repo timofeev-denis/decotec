@@ -9,7 +9,6 @@ $MESS["URL_TEMPLATES_PROFILE_VIEW_TIP"] = "Страница пользовате
 $MESS["MESSAGES_PER_PAGE_TIP"] = "Количество сообщений на одной странице";
 $MESS["PAGE_NAVIGATION_TEMPLATE_TIP"] = "Название шаблона для вывода постраничной навигации";
 $MESS["DATE_TIME_FORMAT_TIP"] = "Формат показа даты и времени";
-$MESS["PATH_TO_SMILE_TIP"] = "Путь относительно корня сайта к папке со смайлами";
 $MESS["USE_CAPTCHA_TIP"] = "Использовать CAPTCHA";
 $MESS["PREORDER_TIP"] = "Выводить сообщения в прямом порядке";
 $MESS["CACHE_TYPE_TIP"] = "Тип кеширования";

@@ -11,4 +11,7 @@ $MESS["PERFMON_ROW_EDIT_TAB_TITLE"] = "Edit record in table #TABLE_NAME#";
 $MESS["PERFMON_ROW_CACHE_TAB"] = "Managed cache";
 $MESS["PERFMON_ROW_CACHE_TAB_TITLE"] = "Managed cache reset parameters";
 $MESS["PERFMON_ROW_CACHE_CLEAR"] = "Reset Managed Cache";
+$MESS["PERFMON_ROW_EDIT_MENU_DELETE"] = "Delete";
+$MESS["PERFMON_ROW_EDIT_MENU_DELETE_TITLE"] = "Delete record";
+$MESS["PERFMON_ROW_EDIT_MENU_DELETE_CONF"] = "Are you sure you want to delete this record?";
 ?>

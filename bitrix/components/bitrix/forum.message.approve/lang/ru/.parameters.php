@@ -10,7 +10,6 @@ $MESS ['F_DATE_TIME_FORMAT'] = "Формат показа даты и време
 $MESS ['F_SET_NAVIGATION'] = "Показывать навигацию";
 $MESS ['F_DISPLAY_PANEL'] = "Добавлять в админ. панель кнопки для данного компонента";
 $MESS ['F_MESSAGES_PER_PAGE'] = "Количество сообщений на странице";
-$MESS ['F_DEFAULT_PATH_TO_SMILE'] = "Путь относительно корня сайта к папке со смайлами";
 $MESS ['F_DEFAULT_TID'] = "ID темы";
 $MESS ['F_PAGE_NAVIGATION_TEMPLATE'] = "Название шаблона для вывода постраничной навигации";
 $MESS ['F_IMAGE_SIZE'] = "Размер прикрепленного рисунка (px)";

@@ -914,12 +914,16 @@ JCInheritedPropertiesTemplates.prototype.updateInheritedPropertiesValues = funct
 
 	for (i = 0; i < ipropTemplates.length; i++)
 	{
-		ipropTemplates[i].TEMPLATE = BX(ipropTemplates[i].INPUT_ID).value;
-
-		space = BX('space_' + ipropTemplates[i].ID);
-		if (space)
+		obj_ta = BX(ipropTemplates[i].INPUT_ID);
+		if (obj_ta)
 		{
-			ipropTemplates[i].SPACE = space.value;
+			ipropTemplates[i].TEMPLATE = obj_ta.value;
+
+			space = BX('space_' + ipropTemplates[i].ID);
+			if (space)
+			{
+				ipropTemplates[i].SPACE = space.value;
+			}
 		}
 	}
 

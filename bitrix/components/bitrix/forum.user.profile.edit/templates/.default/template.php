@@ -268,19 +268,11 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 		<th><?=GetMessage("F_SIGNATURE")?></th>
 		<td><textarea name="FORUM_SIGNATURE" rows="3" cols="35"><?=$arResult["str_FORUM_SIGNATURE"]?></textarea></td>
 	</tr>
+	<?if(COption::GetOptionString("forum", "show_avatar_photo", "N") == 'N'):?>
 	<tr>
 		<th><?=GetMessage("F_AVATAR")?></th>
 		<td>
-			<?
-			foreach (array('AVATAR_SIZE', 'AVATAR_H', 'AVATAR_V') as $prop)
-				$arResult[$prop] = intval($arResult[$prop]);			
-			$arResult['AVATAR_SIZE'] = CFile::FormatSize($arResult['AVATAR_SIZE']);
-			if ((!empty($arResult['AVATAR_H'])) && (!empty($arResult['AVATAR_V'])) && (!empty($arResult['AVATAR_SIZE'])))
-			{	
-			?>
-			<?=str_replace(array("#SIZE#", "#SIZE_BITE#"), array($arResult["AVATAR_H"]."x".$arResult["AVATAR_V"], $arResult["AVATAR_SIZE"]), 
-				GetMessage("F_SIZE_AVATAR"))?><br/>
-			<?}?>
+			<?=GetMessage("F_SIZE_AVATAR", array("#SIZE#" => CFile::FormatSize(COption::GetOptionString("forum", "file_max_size", 5242880))))?><br/>
 			<input name="FORUM_AVATAR" size="30" type="file" />
 			<?if ($arResult["SHOW_DELETE_FORUM_AVATAR"] == "Y"):?>
 			<br/><input type="checkbox" name="FORUM_AVATAR_del" value="Y" id="FORUM_AVATAR_del" /> 
@@ -290,6 +282,7 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 			<?endif;?>
 		</td>
 	</tr>
+	<?endif;?>
 <?// ********************* User properties ***************************************************?>
 <?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
 	<?=$tabControl->BeginNextTab();?>

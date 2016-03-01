@@ -9,6 +9,7 @@ $MESS["IBLOCK_EL_TAB_WF"] = "Документооборот";
 $MESS["IBLOCK_EL_TAB_WF_TITLE"] = "Параметры в документообороте";
 $MESS["IBLOCK_EL_SAVE"] = "Сохранить";
 $MESS["IBLOCK_EL_CANC"] = "Отменить";
+$MESS["IBLOCK_EL_EDIT_IN_PANEL"] = "Административный раздел";
 $MESS["IBEL_E_TAB_PREV"] = "Анонс";
 $MESS["IBEL_E_TAB_PREV_TITLE"] = "Информация для анонса";
 $MESS["IBEL_E_TAB_DET"] = "Подробно";

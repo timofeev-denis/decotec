@@ -260,9 +260,9 @@ if (strlen($arResult["USER"]["PERSONAL_PHOTO"]) > 0)
 }
 $arResult["SHOW_DELETE_FORUM_AVATAR"] = "N";
 $arResult["str_FORUM_AVATAR"] = "";
-$arResult["AVATAR_H"] = COption::GetOptionString("forum", "avatar_max_width", 90);
-$arResult["AVATAR_V"] = COption::GetOptionString("forum", "avatar_max_height", 90);
-$arResult["AVATAR_SIZE"] = COption::GetOptionString("forum", "avatar_max_size", 5242880);
+$arResult["AVATAR_H"] = COption::GetOptionString("forum", "avatar_max_width", 100);
+$arResult["AVATAR_V"] = COption::GetOptionString("forum", "avatar_max_height", 100);
+$arResult["AVATAR_SIZE"] = COption::GetOptionString("forum", "avatar_max_size", 1048576);
 if (strlen($arResult["FORUM_USER"]["AVATAR"]) > 0)
 {
 	$arResult["SHOW_DELETE_FORUM_AVATAR"] = "Y";

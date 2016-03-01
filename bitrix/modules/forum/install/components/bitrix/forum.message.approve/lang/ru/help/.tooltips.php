@@ -13,7 +13,6 @@ $MESS["URL_TEMPLATES_TOPIC_NEW_TIP"] = "Страница создания нов
 $MESS["MESSAGES_PER_PAGE_TIP"] = "Количество сообщений на странице";
 $MESS["PAGE_NAVIGATION_TEMPLATE_TIP"] = "Название шаблона для вывода постраничной навигации";
 $MESS["PAGE_NAVIGATION_WINDOW_TIP"] = "Количество страниц в постраничной навигации";
-$MESS["PATH_TO_SMILE_TIP"] = "Путь к папке со смайлами (относительно корня сайта)";
 $MESS["WORD_LENGTH_TIP"] = "Длина слова";
 $MESS["IMAGE_SIZE_TIP"] = "Размер прикрепленного рисунка (px)";
 $MESS["DATE_FORMAT_TIP"] = "Формат показа даты";

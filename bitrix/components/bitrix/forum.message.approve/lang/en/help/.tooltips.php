@@ -13,7 +13,6 @@ $MESS["URL_TEMPLATES_TOPIC_NEW_TIP"] = "New Topic Creation Page";
 $MESS["MESSAGES_PER_PAGE_TIP"] = "Posts Per Page";
 $MESS["PAGE_NAVIGATION_TEMPLATE_TIP"] = "The Name of Breadcrumb Navigation Template";
 $MESS["PAGE_NAVIGATION_WINDOW_TIP"] = "Pages in Breadcrumbs";
-$MESS["PATH_TO_SMILE_TIP"] = "Path to smiley folder, relative to the site root";
 $MESS["WORD_LENGTH_TIP"] = "Word Length";
 $MESS["IMAGE_SIZE_TIP"] = "Attached image size (px)";
 $MESS["DATE_FORMAT_TIP"] = "Date Format";

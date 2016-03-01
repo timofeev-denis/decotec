@@ -1,12 +1,19 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-/*
-Parameters:
-	AUTH_RESULT - Authorization result message
-	NOT_SHOW_LINKS - Whether to show links to register page && password restoration (Y/N)
-*/
+/**
+ * @global CMain $APPLICATION
+ * @global CUser $USER
+ * @var array $arParams
+ * Parameters:
+ *	AUTH_RESULT - Authorization result message
+ *	NOT_SHOW_LINKS - Whether to show links to register page && password restoration (Y/N)
+ */
 
 $arParams["NOT_SHOW_LINKS"] = ($arParams["NOT_SHOW_LINKS"] == "Y" ? "Y" : "N");
+if(!is_array($arParams["~AUTH_RESULT"]) && $arParams["~AUTH_RESULT"] <> '')
+{
+	$arParams["~AUTH_RESULT"] = array("MESSAGE" => $arParams["~AUTH_RESULT"], "TYPE" => "ERROR");
+}
 
 $arParamsToDelete = array(
 	"login",
@@ -40,11 +47,11 @@ foreach($arResult as $key=>$value)
 }
 $arResult = $arRes;
 
-$arVarExcl = array("USER_LOGIN"=>1, "USER_PASSWORD"=>1, "backurl"=>1, "auth_service_id"=>1);
+$arVarExcl = array("USER_LOGIN"=>1, "USER_PASSWORD"=>1, "backurl"=>1, "auth_service_id"=>1, "TYPE"=>1, "AUTH_FORM"=>1);
 $arResult["POST"] = array();
 foreach($_POST as $vname=>$vvalue)
 {
-	if(!array_key_exists($vname, $arVarExcl))
+	if(!isset($arVarExcl[$vname]))
 	{
 		if(!is_array($vvalue))
 		{

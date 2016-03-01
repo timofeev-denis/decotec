@@ -14,9 +14,24 @@ if(!$arResult["NavShowAlways"])
 
 $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryString"]."&amp;" : "");
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");
+
+$colorSchemes = array(
+	"green" => "bx-green",
+	"yellow" => "bx-yellow",
+	"red" => "bx-red",
+	"blue" => "bx-blue",
+);
+if(isset($colorSchemes[$arParams["TEMPLATE_THEME"]]))
+{
+	$colorScheme = $colorSchemes[$arParams["TEMPLATE_THEME"]];
+}
+else
+{
+	$colorScheme = "";
+}
 ?>
 
-<div class="bx-pagination">
+<div class="bx-pagination <?=$colorScheme?>">
 	<div class="bx-pagination-container row">
 		<ul>
 <?if($arResult["bDescPageNumbering"] === true):?>

@@ -25,8 +25,6 @@ $arInfo = $APPLICATION->IncludeComponent(
 		"URL_TEMPLATES_USER_POST" =>  $arResult["URL_TEMPLATES_USER_POST"],
 
 		"USER_FIELDS" => $arParams["USER_FIELDS"],
-		"PATH_TO_SMILE" =>  $arParams["PATH_TO_SMILE"],
-		"PATH_TO_ICON" => $arParams["PATH_TO_ICON"],
 		"WORD_LENGTH" => $arParams["WORD_LENGTH"],
 		"DATE_FORMAT" =>  $arResult["DATE_FORMAT"],
 		"DATE_TIME_FORMAT" =>  $arResult["DATE_TIME_FORMAT"],
@@ -103,8 +101,6 @@ if ($arInfo != false):
 		"URL_TEMPLATES_RULES" =>  $arResult["URL_TEMPLATES_RULES"],
 		
 		"USER_FIELDS"	=>	$arParams["USER_FIELDS"],
-		"PATH_TO_SMILE"	=>	$arParams["PATH_TO_SMILE"],
-		"PATH_TO_ICON"	=>	$arParams["PATH_TO_ICON"],
 		"IMAGE_SIZE" => $arParams["IMAGE_SIZE"],
 		"AJAX_POST" => $arParams["AJAX_POST"],
 		"SHOW_VOTE" => "N", 

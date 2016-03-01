@@ -52,6 +52,13 @@ elseif (COption::GetOptionString("eshop", "template_converted", "N", WIZARD_SITE
 		$recursive = true,
 		$delete_after_copy = false
 	);
+	CopyDirFiles(
+		WIZARD_SITE_PATH."/include/company_logo.php",
+		WIZARD_SITE_PATH."/include/company_logo_old.php",
+		$rewrite = true,
+		$recursive = true,
+		$delete_after_copy = true
+	);
 
 	COption::SetOptionString("eshop", "template_converted", "Y", "", WIZARD_SITE_ID);
 }

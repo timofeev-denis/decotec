@@ -29,7 +29,6 @@
 		this.BLOCK_TAGS = ["H1", "H2", "H3", "H4", "H5", "H6", "P", "BLOCKQUOTE", "DIV", "SECTION", "PRE"];
 		this.NESTED_BLOCK_TAGS = ["BLOCKQUOTE", "DIV"];
 		this.TABLE_TAGS = ["TD", "TR", "TH", "TABLE", "TBODY", "CAPTION", "COL", "COLGROUP", "TFOOT", "THEAD"];
-
 		this.BBCODE_TAGS = ['U', 'TABLE', 'TR', 'TD', 'TH', 'IMG', 'A', 'CENTER', 'LEFT', 'RIGHT', 'JUSTIFY'];
 		//this.BBCODE_TAGS = ['P', 'U', 'DIV', 'TABLE', 'TR', 'TD', 'TH', 'IMG', 'A', 'CENTER', 'LEFT', 'RIGHT', 'JUSTIFY'];
 
@@ -115,6 +114,7 @@
 			var iframe = this.sandbox.GetIframe();
 
 			iframe.style.width = '100%';
+			// TODO: height in pixels
 			iframe.style.height = '100%';
 
 			// Views:
@@ -1108,7 +1108,11 @@
 			this.synchro.FromTextareaToIframe(true);
 			this.synchro.StartSync();
 			this.iframeView.ReInit();
-			this.Focus();
+			this.selection.lastCheckedRange = null;
+			if (this.config.setFocusAfterShow !== false)
+			{
+				this.Focus();
+			}
 		},
 
 		CheckAndReInit: function(content)
@@ -1139,7 +1143,6 @@
 			if (content !== undefined)
 			{
 				this.SetContent(content, true);
-				this.Focus(true);
 			}
 		},
 
@@ -1232,8 +1235,7 @@
 
 			this.util.FirstLetterSupported = function()
 			{
-				//var result = !BX.browser.IsChrome() && !BX.browser.IsSafari();
-				var result = true;
+				var result = !BX.browser.IsChrome() && !BX.browser.IsSafari();
 				_this.util.FirstLetterSupported = function(){return result;};
 				return result;
 			};
@@ -1729,6 +1731,18 @@
 				if (BX.checkNode && BX.checkNode(obj, params))
 					return obj;
 				return BX.findParent(obj, params, maxParent);
+			};
+
+			this.util.IsEmptyObject = function(obj)
+			{
+				for (var i in obj)
+				{
+					if (obj.hasOwnProperty(i))
+					{
+						return false;
+					}
+				}
+				return true;
 			};
 		},
 
@@ -2621,6 +2635,7 @@
 						height: 0,
 						marginwidth: 0,
 						marginheight: 0
+						//scrolling: 'no'
 					}
 				});
 
@@ -3052,7 +3067,7 @@
 
 			// Remove it again, just to make sure that the placeholder is definitely out of the dom tree
 			try {
-				if (caretPlaceholder.parentNode)
+				if (caretPlaceholder && caretPlaceholder.parentNode)
 					caretPlaceholder.parentNode.removeChild(caretPlaceholder);
 			} catch(e4) {}
 		},
@@ -4595,7 +4610,15 @@
 			"iframe": {},
 			"noindex": {},
 
-			"font": {replace_with_children: 1},
+			"font": {
+				rename_tag: "span",
+				convert_attributes: {
+					face: 'fontFamily',
+					size: 'fontSize',
+					color: 'color'
+				},
+				replace_with_children: 1
+			},
 
 			"embed": {},
 			"noembed": {},

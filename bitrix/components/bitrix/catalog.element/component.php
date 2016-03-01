@@ -918,17 +918,22 @@ if($this->StartResultCache(false, ($arParams["CACHE_GROUPS"]==="N"? false: $USER
 
 					$arResult["OFFERS"][] = $arOffer;
 				}
+				unset($arOffer);
+				unset($arOffers);
 			}
 
 			if ('Y' == $arParams['CONVERT_CURRENCY'])
 			{
-				$arCurrencyList = array();
+				$currencyList = array();
 				if ($arParams["USE_PRICE_COUNT"])
 				{
 					if (!empty($arResult["PRICE_MATRIX"]) && is_array($arResult["PRICE_MATRIX"]))
 					{
 						if (isset($arResult["PRICE_MATRIX"]['CURRENCY_LIST']) && is_array($arResult["PRICE_MATRIX"]['CURRENCY_LIST']))
-							$arCurrencyList = $arResult["PRICE_MATRIX"]['CURRENCY_LIST'];
+							$currencyList = $arResult["PRICE_MATRIX"]['CURRENCY_LIST'];
+						//TODO: remove this code after catalog 15.5.4
+						if (!empty($currencyList))
+							$currencyList = array_unique($currencyList);
 					}
 				}
 				else
@@ -938,10 +943,9 @@ if($this->StartResultCache(false, ($arParams["CACHE_GROUPS"]==="N"? false: $USER
 						foreach ($arResult["PRICES"] as &$arOnePrices)
 						{
 							if (isset($arOnePrices['ORIG_CURRENCY']))
-								$arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+								$currencyList[$arOnePrices['ORIG_CURRENCY']] = $arOnePrices['ORIG_CURRENCY'];
 						}
-						if (isset($arOnePrices))
-							unset($arOnePrices);
+						unset($arOnePrices);
 					}
 				}
 				if (!empty($arResult["OFFERS"]))
@@ -953,28 +957,23 @@ if($this->StartResultCache(false, ($arParams["CACHE_GROUPS"]==="N"? false: $USER
 							foreach ($arOneOffer['PRICES'] as &$arOnePrices)
 							{
 								if (isset($arOnePrices['ORIG_CURRENCY']))
-									$arCurrencyList[] = $arOnePrices['ORIG_CURRENCY'];
+									$currencyList[$arOnePrices['ORIG_CURRENCY']] = $arOnePrices['ORIG_CURRENCY'];
 							}
-							if (isset($arOnePrices))
-								unset($arOnePrices);
+							unset($arOnePrices);
 						}
 					}
-					if (isset($arOneOffer))
-						unset($arOneOffer);
+					unset($arOneOffer);
 				}
-				if (!empty($arCurrencyList) && defined("BX_COMP_MANAGED_CACHE"))
+				if (!empty($currencyList) && defined("BX_COMP_MANAGED_CACHE"))
 				{
-					$arCurrencyList[] = $arConvertParams['CURRENCY_ID'];
-					$arCurrencyList = array_unique($arCurrencyList);
+					$currencyList[$arConvertParams['CURRENCY_ID']] = $arConvertParams['CURRENCY_ID'];
 					$CACHE_MANAGER->StartTagCache($this->GetCachePath());
-					foreach ($arCurrencyList as &$strOneCurrency)
-					{
-						$CACHE_MANAGER->RegisterTag("currency_id_".$strOneCurrency);
-					}
-					if (isset($strOneCurrency))
-						unset($strOneCurrency);
+					foreach ($currencyList as &$oneCurrency)
+						$CACHE_MANAGER->RegisterTag('currency_id_'.$oneCurrency);
+					unset($oneCurrency);
 					$CACHE_MANAGER->EndTagCache();
 				}
+				unset($currencyList);
 			}
 
 			$resultCacheKeys = array(
@@ -1287,4 +1286,3 @@ else
 {
 	return 0;
 }
-?>

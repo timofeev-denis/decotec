@@ -590,3 +590,17 @@ a.postFormAutosave.bx-core-autosave-saving {background: scroll transparent url("
 	margin-top: 5px;
 	z-index:2;
 }
+
+table.forum-icons td{
+	white-space: nowrap;
+	padding: 0.4em;
+}
+table.forum-icons input {
+	width: auto;
+}
+table.forum-icons .forum-icon-empty {
+	border : 1px solid;
+	border-radius: 8px;
+	width : 16px;
+	height: 16px;
+}

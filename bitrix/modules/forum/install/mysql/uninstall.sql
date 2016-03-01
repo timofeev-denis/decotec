@@ -2,8 +2,6 @@ DROP TABLE if exists b_forum_file;
 DROP TABLE if exists b_forum_message;
 DROP TABLE if exists b_forum_topic;
 DROP TABLE if exists b_forum;
-DROP TABLE if exists b_forum_smile;
-DROP TABLE if exists b_forum_smile_lang;
 DROP TABLE if exists b_forum_user;
 DROP TABLE if exists b_forum_perms;
 DROP TABLE if exists b_forum_subscribe;

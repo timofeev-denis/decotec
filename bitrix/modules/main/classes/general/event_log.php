@@ -10,6 +10,12 @@ IncludeModuleLangFile(__FILE__);
 
 class CEventLog
 {
+	const SEVERITY_SECURITY = 1;
+	const SEVERITY_ERROR = 2;
+	const SEVERITY_WARNING = 3;
+	const SEVERITY_INFO = 4;
+	const SEVERITY_DEBUG = 5;
+
 	function Log($SEVERITY, $AUDIT_TYPE_ID, $MODULE_ID, $ITEM_ID, $DESCRIPTION = false, $SITE_ID = false)
 	{
 		return CEventLog::Add(array(
@@ -26,11 +32,11 @@ class CEventLog
 	{
 		global $USER, $DB;
 		static $arSeverity = array(
-			"SECURITY" => 1,
-			"ERROR" => 2,
-			"WARNING" => 3,
-			"INFO" => 4,
-			"DEBUG" => 5
+			"SECURITY" => self::SEVERITY_SECURITY,
+			"ERROR" => self::SEVERITY_ERROR,
+			"WARNING" => self::SEVERITY_WARNING,
+			"INFO" => self::SEVERITY_INFO,
+			"DEBUG" => self::SEVERITY_DEBUG,
 		);
 
 		$url = preg_replace("/(&?sessid=[0-9a-z]+)/", "", $_SERVER["REQUEST_URI"]);

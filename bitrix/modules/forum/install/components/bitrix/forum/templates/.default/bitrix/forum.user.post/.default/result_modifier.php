@@ -8,8 +8,7 @@ endif;
 				Input params
 ********************************************************************/
 /***************** BASE ********************************************/
-$arParams["PATH_TO_ICON"] = (empty($arParams["PATH_TO_ICON"]) ? $templateFolder."/images/icon" : $arParams["PATH_TO_ICON"]);
-$arParams["PATH_TO_ICON"] = str_replace("//", "/", $arParams["PATH_TO_ICON"]."/");
+$arParams["PATH_TO_ICON"] = "";
 
 if (!isset($arParams["ATTACH_MODE"]))
 {

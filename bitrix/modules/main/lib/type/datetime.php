@@ -48,6 +48,15 @@ class DateTime extends Date
 
 			$this->value->setDate($parsedValue['year'], $parsedValue['month'], $parsedValue['day']);
 			$this->value->setTime($parsedValue['hour'], $parsedValue['minute'], $parsedValue['second']);
+
+			if (
+				isset($parsedValue["relative"])
+				&& isset($parsedValue["relative"]["second"])
+				&& $parsedValue["relative"]["second"] != 0
+			)
+			{
+				$this->value->add(new \DateInterval("PT".$parsedValue["relative"]["second"]."S"));
+			}
 		}
 	}
 
@@ -150,7 +159,7 @@ class DateTime extends Date
 	 *
 	 * @param string $timeString Full or short formatted time.
 	 *
-	 * @return Bitrix\Main\Type\DateTime
+	 * @return DateTime
 	 */
 	public static function createFromUserTime($timeString)
 	{

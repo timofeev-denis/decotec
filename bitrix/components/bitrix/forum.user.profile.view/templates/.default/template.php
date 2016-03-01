@@ -38,6 +38,11 @@ if ($arResult["SHOW_EDIT_PROFILE"] == "Y" && check_bitrix_sessid() && !empty($_R
 	$arResult["USER"]["SHOW_PANELS"][$_REQUEST["option"]] = ($_REQUEST["value"] == "hide" ? "N" : "Y");
 endif;
 
+if (COption::GetOptionString("forum", "show_avatar_photo", "N") == 'Y')
+{
+	$arResult["USER"]["SHOW_PANELS"]["photo"] = 'Y';
+}
+
 if ($arParams["SHOW_RATING"] == 'Y')
 {
 	$authorId = intval($arParams["UID"]);
@@ -226,7 +231,7 @@ endif;
 ?>
 				<div style="float:right;" class="forum-user-hide-action">
 <?
-		if (!empty($arResult["USER"]["PERSONAL_PHOTO"])):
+		if (!empty($arResult["USER"]["PERSONAL_PHOTO"]) && COption::GetOptionString("forum", "show_avatar_photo", "N") == 'N'):
 ?>
 					<noindex><a rel="nofollow" onclick="return forumAddSessid(this);" href="<?=$APPLICATION->GetCurPageParam("option=photo&value=".
 						($arResult["USER"]["SHOW_PANELS"]["photo"] == "Y" ? "hide" : "show"), array("option", "value", "sessid"))?>"><?
@@ -267,7 +272,7 @@ endif;
 				</div>
 <?
 	endif;
-	
+
 	if ($arResult["USER"]["SHOW_PANELS"]["photo"] != "N" && !empty($arResult["USER"]["PERSONAL_PHOTO"])):
 ?>
 				<div class="forum-user-photo"><?=$arResult["USER"]["PERSONAL_PHOTO"]?></div>

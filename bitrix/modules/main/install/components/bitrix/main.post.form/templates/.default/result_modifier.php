@@ -119,7 +119,10 @@ if (
 		}
 	}
 
-	if (CModule::IncludeModule('extranet') && !CExtranet::IsIntranetUser())
+	if (
+		CModule::IncludeModule('extranet')
+		&& !CExtranet::IsIntranetUser()
+	)
 	{
 		$arParams["DESTINATION"]['EXTRANET_USER'] = 'Y';
 		$arParams["DESTINATION"]['USERS'] = CSocNetLogDestination::GetExtranetUser();
@@ -137,9 +140,51 @@ if (
 	}
 }
 
+if (in_array("MentionUser", $arParams["BUTTONS"]))
+{
+	if (
+		CModule::IncludeModule("socialnetwork")
+		&& method_exists('CSocNetLogDestination','GetDestinationSort')
+	)
+	{
+		$arResult["MENTION_DEST_SORT"] = CSocNetLogDestination::GetDestinationSort(array(
+			"DEST_CONTEXT" => "MENTION"
+		));
+	}
+	else
+	{
+		$arResult["MENTION_DEST_SORT"] = array();
+	}
+
+	$arParams["DESTINATION"]['LAST']['MENTION_USERS'] = array();
+
+	$arDestUser = Array();
+	foreach($arResult["MENTION_DEST_SORT"] as $code => $sortInfo)
+	{
+		if (preg_match('/^U(\d+)$/i', $code, $matches))
+		{
+			$arParams["DESTINATION"]['LAST']['MENTION_USERS'][$code] = $code;
+			$arDestUser[] = str_replace('U', '', $code);
+		}
+	}
+
+	$arParams["DESTINATION"]['MENTION_USERS'] = (
+		CModule::IncludeModule('extranet')
+		&& !CExtranet::IsIntranetUser()
+			? $arParams["DESTINATION"]['USERS']
+			: (
+				!empty($arDestUser)
+					? CSocNetLogDestination::GetUsers(Array('id' => $arDestUser))
+					: array()
+			)
+	);
+}
+
 $arParams["TAGS"] = (is_array($arParams["TAGS"]) ? $arParams["TAGS"] : array());
 if (!empty($arParams["TAGS"]))
+{
 	$arParams["TAGS"]["VALUE"] = (is_array($arParams["TAGS"]["VALUE"]) ? $arParams["TAGS"]["VALUE"] : array());
+}
 
 $arResult["SMILES"] = array("VALUE" => array(), "SETS" => array());
 if (array_key_exists("SMILES", $arParams))

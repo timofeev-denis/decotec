@@ -51,16 +51,6 @@ $arComponentParameters = Array(
 			"TYPE" => "STRING",
 			"DEFAULT" => "topic_search.php"),
 		
-		"PATH_TO_SMILE" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_SMILE"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/smile/"),
-		"PATH_TO_ICON" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_ICON"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/icon/"),
 		"WORD_LENGTH" => CForumParameters::GetWordLength(),
 		"IMAGE_SIZE" => Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",

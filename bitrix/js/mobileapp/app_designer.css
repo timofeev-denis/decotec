@@ -208,11 +208,9 @@
 
 .designer-create-form-input-wrap input,
 .designer-create-form-input-wrap input[type="text"] {
-	border: none;
-!important box-shadow : none;
-!important;
-	-webkit-box-shadow: none;
-!important;
+	border: none !important;
+    box-shadow: none !important;
+	-webkit-box-shadow: none !important;
 	min-width: 193px;
 	padding: 5px;
 	font-size: 13px;
@@ -477,11 +475,9 @@
 
 .designer-input-wrap input,
 .designer-input-wrap input[type="text"] {
-	border: none;
-!important box-shadow : none;
-!important;
-	-webkit-box-shadow: none;
-!important;
+	border: none !important;
+    box-shadow : none !important;
+    -webkit-box-shadow: none !important;
 	min-width: 90px;
 	padding: 2px;
 	font-size: 14px;

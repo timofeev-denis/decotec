@@ -151,7 +151,6 @@ $MESS["USE_REVIEW_TIP"] = "Wenn diese Option aktiv ist, wird das Formular zum hi
 $MESS["USE_COMPARE_TIP"] = "Wenn diese Option aktiv ist, besteht die Möglichkeit Katalogelemente mit dem Button <i>Vergleichen</i> zu vergleichen.";
 $MESS["SHOW_TOP_ELEMENTS_TIP"] = "Wenn diese Option aktiv ist, werden die TOP Elemente des Informationsblocks angezeigt.";
 $MESS["PAGE_ELEMENT_COUNT_TIP"] = "Die hier angegebene Zahl bestimmt die Anzahl der Elemente auf einer Seite. Andere Elemente werden mit Hilfe der Seitennavigation angezeigt.";
-$MESS["LINE_ELEMENT_COUNT_TIP"] = "Die hier angegebene Zahl bestimmt die Anzahl der Elemente in einer Zeile während der Anzeige der Bereichselemente.";
 $MESS["ELEMENT_SORT_FIELD_TIP"] = "Hier wird das Feld angegeben, nach dem die Sortierung der Produkte in jedem Bereich erfolgt.";
 $MESS["ELEMENT_SORT_ORDER_TIP"] = "Es wird die Sortierreinfolge der Elemente im Bereich bestimmt.";
 $MESS["LIST_PROPERTY_CODE_TIP"] = "Zwischen den Informationsblock-Eigenschaften kann man die wählen, die in der Elementliste im Bereich angezeigt werden. Beim Auswählen des Punktes (nicht gewählt)-> und ohne die Angabe der Feld ID's in den unteren Zeilen, werden die Eigenschaften nicht angezeigt.";
@@ -227,4 +226,5 @@ $MESS["CP_BC_SEF_MODE_SMART_FILTER"] = "URL des Smart-Filters";
 $MESS["CP_BC_VARIABLE_ALIASES_SMART_FILTER_PATH"] = "Parameter des Smart-Filters";
 $MESS["CP_BC_DETAIL_BACKGROUND_IMAGE"] = "Das Bild aus den Eigenschaften als Hintergrundbild für Vorlage benutzen";
 $MESS["CP_BC_SECTION_BACKGROUND_IMAGE"] = "Das Bild aus den Eigenschaften als Hintergrundbild für Vorlage benutzen";
+$MESS["LINE_ELEMENT_COUNT_TIP"] = "Diese Zahl gibt die Anzahl der Elemente pro Zeile bei der Ansicht der Bereichselemente an. In der Standardvorlage reichen die möglichen Werte von 2 bis 5.";
 ?>

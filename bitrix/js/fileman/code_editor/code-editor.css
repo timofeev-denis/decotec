@@ -14,7 +14,7 @@
 .bxce .bxce-cont{overflow: hidden; /*left: 54px;*/ padding: 1px 5px 0 54px; position: relative !important; z-index: 100;}
 .bxce .bxce-ta{background-color: transparent; border-width: 0; height: 100%; left: 0; margin: 0 0 0 4px; overflow: hidden; padding: 0; position: relative !important; resize: none; top: 0; width: 100%; z-index: 70; color: #ffffff; outline: none !important; box-shadow: none; max-width: none!important; max-height: none!important;
 font-family: consolas, monospace!important;font-size:12px!important;line-height: 13px!important;}
-.bxce .bxce-line-num{color: #AAAAAA; margin: 0 0 0 -55px; overflow: hidden;padding: 0; position: absolute !important; text-align: right; width: 55px; z-index: 80;background-color: #000000;}
+.bxce .bxce-line-num{color: #AAAAAA; margin: 0 0 0 -55px; overflow: hidden;padding: 0; position: absolute !important; text-align: right; width: 55px; z-index: 80;background-color: #000000; top: 2px;}
 .bxce .bxce-cur-line{display: none; position: absolute !important; top: -100px; background-color: #111111; overflow: hidden; z-index: 50; white-space: -moz-pre-wrap!important; white-space: pre-wrap!important; white-space: -o-pre-wrap!important; white-space: pre-wrap!important; margin:0!important; padding:0; word-wrap: break-word!important; color: #E5E5E5!important; left: 55px; vertical-align: top;}
 .bxce .bxce-cur-line pre, .bxce .bxce-hightlight pre{font-family: monospace!important;white-space: -moz-pre-wrap!important;white-space: -pre-wrap!important;white-space: -o-pre-wrap!important;white-space: pre-wrap!important;margin:0!important;padding:0!important;word-wrap: break-word!important;}
 .bxce .bxce-ie-tabspan, .bxce .bxce-hightlight .bxce-ie-tabspan{font-size: 12px!important; display: inline-block;width: 64px; height: 18px!important; vertical-align:top!important; line-height: 5px!important;margin:0!important; padding:0!important; background:url("/bitrix/images/fileman/codeeditor/but.png") repeat-x right -81px transparent; overflow: hidden;}
@@ -114,7 +114,7 @@ font-family: consolas, monospace!important;font-size:12px!important;line-height:
 	text-align: left;
 }
 .bxce-inner-hl textarea {outline: none !important;}
-.bxce-inner-hl pre.bxce-cursor {z-index: 10;position: absolute !important; visibility: hidden;border-left: 2px solid #e40015; border-right: none;width: 0;}
+.bxce-inner-hl pre.bxce-cursor {z-index: 10;position: absolute !important; visibility: hidden;border-left: 2px solid #e40015; border-right: none;width: 0;overflow: hidden !important;}
 
 .bxce-focused pre.bxce-cursor {visibility: visible;}
 div.bxce-selected {background: #d9d9d9;}

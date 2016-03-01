@@ -1,4 +1,6 @@
 <?
+use Bitrix\Main;
+
 IncludeModuleLangFile(__FILE__);
 
 function _ShowStringPropertyField($name, $property_fields, $values, $bInitDef = false, $bVarsFromForm = false)
@@ -143,9 +145,7 @@ function _ShowElementPropertyField($name, $property_fields, $values, $bVarsFromF
 	if ($MULTIPLE_CNT <= 0 || $MULTIPLE_CNT > 30)
 		$MULTIPLE_CNT = 5;
 
-	$bInitDef = $bInitDef && (strlen($property_fields["DEFAULT_VALUE"]) > 0);
-
-	$cnt = ($property_fields["MULTIPLE"] == "Y"? $MULTIPLE_CNT + ($bInitDef? 1: 0) : 1);
+	$cnt = ($property_fields["MULTIPLE"] == "Y"? $MULTIPLE_CNT : 1);
 
 	if(!is_array($values))
 		$values = array();
@@ -227,10 +227,21 @@ function _ShowFilePropertyField($name, $property_fields, $values, $max_file_size
 {
 	global $bCopy, $historyId;
 
+	static $maxSize = array();
+	if (empty($maxSize))
+	{
+		$detailImageSize = (int)Main\Config\Option::get('iblock', 'detail_image_size');
+		$maxSize = array(
+			'W' => $detailImageSize,
+			'H' => $detailImageSize
+		);
+		unset($detailImageSize);
+	}
+
 	CModule::IncludeModule('fileman');
 	$bVarsFromForm = false;
 
-	if(!is_array($values) || $bCopy || empty($values))
+	if (empty($values) || $bCopy || !is_array($values))
 	{
 		$values = array(
 			"n0" => 0,
@@ -253,10 +264,7 @@ function _ShowFilePropertyField($name, $property_fields, $values, $max_file_size
 					"FILE_SIZE" => "Y",
 					"DIMENSIONS" => "Y",
 					"IMAGE_POPUP" => "Y",
-					"MAX_SIZE" => array(
-						"W" => COption::GetOptionString("iblock", "detail_image_size"),
-						"H" => COption::GetOptionString("iblock", "detail_image_size"),
-					),
+					"MAX_SIZE" => $maxSize,
 				));
 			else
 				echo CFileInput::Show($name."[".$key."]", $file_id, array(
@@ -265,10 +273,7 @@ function _ShowFilePropertyField($name, $property_fields, $values, $max_file_size
 					"FILE_SIZE" => "Y",
 					"DIMENSIONS" => "Y",
 					"IMAGE_POPUP" => "Y",
-					"MAX_SIZE" => array(
-						"W" => COption::GetOptionString("iblock", "detail_image_size"),
-						"H" => COption::GetOptionString("iblock", "detail_image_size"),
-					),
+					"MAX_SIZE" => $maxSize,
 				), array(
 					'upload' => true,
 					'medialib' => true,
@@ -317,10 +322,7 @@ function _ShowFilePropertyField($name, $property_fields, $values, $max_file_size
 				"FILE_SIZE" => "Y",
 				"DIMENSIONS" => "Y",
 				"IMAGE_POPUP" => "Y",
-				"MAX_SIZE" => array(
-					"W" => COption::GetOptionString("iblock", "detail_image_size"),
-					"H" => COption::GetOptionString("iblock", "detail_image_size"),
-				),
+				"MAX_SIZE" => $maxSize,
 			), false);
 		else
 			echo CFileInput::ShowMultiple($inputName, $name."[n#IND#]", array(
@@ -329,10 +331,7 @@ function _ShowFilePropertyField($name, $property_fields, $values, $max_file_size
 				"FILE_SIZE" => "Y",
 				"DIMENSIONS" => "Y",
 				"IMAGE_POPUP" => "Y",
-				"MAX_SIZE" => array(
-					"W" => COption::GetOptionString("iblock", "detail_image_size"),
-					"H" => COption::GetOptionString("iblock", "detail_image_size"),
-				),
+				"MAX_SIZE" => $maxSize,
 			), false, array(
 				'upload' => true,
 				'medialib' => true,

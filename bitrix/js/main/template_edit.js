@@ -149,7 +149,7 @@ function str_pad_left (input, pad_length, pad_string)
 	return input;
 }
 
-function preview_template(ID, sess_id)
+function preview_template(ID, sess_id, sign)
 {
 	if (window.GLOBAL_pMainObj)
 	{
@@ -179,7 +179,7 @@ function preview_template(ID, sess_id)
 			setTimeout(function()
 				{
 					if (window.__status)
-						window.open('/?bitrix_preview_site_template='+ID+'&bx_template_preview_mode=Y');
+						window.open('/?bitrix_preview_site_template='+sign+'&bx_template_preview_mode=Y');
 					else if (window.strWarning)
 						alert(window.strWarning);
 				}, 10

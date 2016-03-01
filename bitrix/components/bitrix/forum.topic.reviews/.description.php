@@ -8,7 +8,11 @@ $arComponentDescription = array(
 		"ID" => "communication", 
 		"CHILD" => array(
 			"ID" => "forum",
-			"NAME" => GetMessage("FORUM")
+			"NAME" => GetMessage("FORUM"),
+			"CHILD" => array(
+				"ID" => "forum_public",
+				"NAME" => GetMessage("FORUM_PUBLIC"),
+			)
 		)
 	),
 );

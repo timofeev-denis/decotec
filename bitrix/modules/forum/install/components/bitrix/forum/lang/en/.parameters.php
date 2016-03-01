@@ -103,4 +103,5 @@ $MESS["F_VOTE_HOURS"] = "hours";
 $MESS["F_VOTE_DAYS"] = "days";
 $MESS["SEARCH_RESTART"] = "Try to search without morphology support (if no search results found)";
 $MESS["CP_BSP_NO_WORD_LOGIC"] = "Disable processing of common words as logical operators";
+$MESS["F_SEARCH_SETTINGS"] = "Search settings";
 ?>

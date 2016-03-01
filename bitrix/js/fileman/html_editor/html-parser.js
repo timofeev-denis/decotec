@@ -35,7 +35,6 @@
 			this.FIRST_LETTER_CLASS = 'bxe-first-letter';
 			this.FIRST_LETTER_CLASS_CHROME = 'bxe-first-letter-chrome';
 			this.FIRST_LETTER_SPAN = 'bxe-first-letter-s';
-			//BX.addCustomEvent(this.editor, 'OnContentChanged', BX.proxy(this.FirstLetterCheckNodes, this));
 		}
 	}
 
@@ -300,7 +299,7 @@
 		ConvertElement: function(oldNode, parseBx)
 		{
 			var
-				rule,
+				rule, i, value,
 				newNode,
 				new_rule,
 				tagRules = this.editor.GetParseRules().tags,
@@ -403,6 +402,23 @@
 				return null;
 			}
 
+			if (rule.convert_attributes && parseBx == false)
+			{
+				for (i in rule.convert_attributes)
+				{
+					if (rule.convert_attributes.hasOwnProperty(i) && oldNode.getAttribute(i))
+					{
+						value = this.ConvertAttributeValueToCss(i,rule.convert_attributes[i], oldNode.getAttribute(i));
+						if (value !== false)
+						{
+							rule.replace_with_children = false;
+							oldNode.style[rule.convert_attributes[i]] = value;
+						}
+						oldNode.removeAttribute(i);
+					}
+				}
+			}
+
 			if (rule.replace_with_children)
 			{
 				newNode = oldNode.ownerDocument.createDocumentFragment();
@@ -417,6 +433,11 @@
 			{
 				rule[new_rule] = null;
 				delete rule[new_rule];
+			}
+
+			if ((!newNode.className || newNode.className == '') && newNode.removeAttribute)
+			{
+				newNode.removeAttribute('class');
 			}
 
 			oldNode = null;
@@ -538,10 +559,22 @@
 				oldNode.setAttribute('data-bx-replace_with_children', '1');
 			}
 
+			if (decorNodes[nodeName] && this.editor.config.pasteSetDecor)
+			{
+				oldNode.setAttribute('data-bx-new-rule', 'replace_with_children');
+				oldNode.setAttribute('data-bx-replace_with_children', '1');
+			}
+
 			if (this.IsAnchor(oldNode) && (oldNode.name == '' || BX.util.trim(oldNode.name == '')))
 			{
 				oldNode.setAttribute('data-bx-new-rule', 'replace_with_children');
 				oldNode.setAttribute('data-bx-replace_with_children', '1');
+			}
+
+			if (BX.util.in_array(nodeName, this.editor.TABLE_TAGS) && this.editor.config.pasteClearTableDimen)
+			{
+				oldNode.removeAttribute('width');
+				oldNode.removeAttribute('height');
 			}
 
 			this.CleanNodeCss(oldNode);
@@ -568,9 +601,14 @@
 				styles, j, styleName, styleValue, i,
 				nodeName = node.nodeName,
 				whiteCssList = {
-					'height': ['auto'],
-					'width': ['auto']
+					'width': ['auto'],
+					'height': ['auto']
 				};
+
+			if (BX.util.in_array(nodeName, this.editor.TABLE_TAGS) && this.editor.config.pasteClearTableDimen)
+			{
+				whiteCssList = {};
+			}
 
 			if (!this.editor.config.pasteSetColors)
 			{
@@ -949,6 +987,35 @@
 			}
 		},
 
+		ConvertAttributeValueToCss: function(attribute, css, value)
+		{
+			if (attribute == 'size' && css == 'fontSize') // fontsize
+			{
+				var fontSizeMap = {
+					1: '9px',
+					2: '13px',
+					3: '9px',
+					4: '9px',
+					5: '9px',
+					6: '9px',
+					7: '48px'
+				};
+				if (fontSizeMap[value])
+				{
+					value = fontSizeMap[value];
+				}
+				else if (value < 1)
+				{
+					value = false;
+				}
+				else if (value > 7)
+				{
+					value = fontSizeMap[7];
+				}
+			}
+			return value;
+		},
+
 		GetAttributeEx: function(node, attributeName)
 		{
 			attributeName = attributeName.toLowerCase();
@@ -1047,7 +1114,7 @@
 
 			if (parseBx && content.indexOf('data-bx-noindex') !== -1)
 			{
-				content = content.replace(/(<a[^(<a)]*?)data\-bx\-noindex="Y"([\s\S]*?>[\s\S]*?\/a>)/ig, function(s, s1, s2)
+				content = content.replace(/(<a[^<]*?)data\-bx\-noindex="Y"([\s\S]*?>[\s\S]*?\/a>)/ig, function(s, s1, s2)
 				{
 					return '<!--noindex-->' + s1 + s2 + '<!--\/noindex-->';
 				});
@@ -1111,15 +1178,52 @@
 			this.firstNodeCheck = true;
 			node.className = this.FIRST_LETTER_CLASS_CHROME;
 			var
+				createSpan = true,
+				doc = this.editor.GetIframeDoc(),
+				textContent, firstSpanContent,
 				flTextNode = this._GetFlTextNode(node),
-				textContent, flSpan;
+				flSpan = this._GetFlSpan(node);
 
 			if (flTextNode)
 			{
 				textContent = BX.util.trim(this.editor.util.GetTextContent(flTextNode));
-				flSpan = BX.create('SPAN', {props: {className: this.FIRST_LETTER_SPAN}, text: textContent.substr(0, 1)}, node.ownerDocument);
-				this.editor.util.SetTextContent(flTextNode, textContent.substr(1));
-				flTextNode.parentNode.insertBefore(flSpan, flTextNode);
+
+				if (flSpan)
+				{
+					this._FLCleanNodesBeforeFirstSpan(flSpan);
+					firstSpanContent = BX.util.trim(this.editor.util.GetTextContent(flSpan));
+
+					if (textContent.substr(0, 1) == firstSpanContent && firstSpanContent.length == 1)
+					{
+						createSpan = false;
+					}
+					else if (textContent == firstSpanContent && firstSpanContent.length > 1)
+					{
+						createSpan = false;
+						this.editor.SetCursorNode();
+						this.editor.util.InsertAfter(doc.createTextNode(textContent.substr(1)), flSpan);
+						this.editor.RestoreCursor();
+						flSpan.innerHTML = textContent.substr(0, 1);
+					}
+					this._FLCleanNodesBeforeFirstSpan(flSpan);
+				}
+
+				if (createSpan)
+				{
+					if (flSpan)
+					{
+						this.editor.SetCursorNode();
+						this.editor.util.ReplaceWithOwnChildren(flSpan);
+						this.editor.RestoreCursor();
+					}
+
+					flSpan = BX.create('SPAN', {props: {className: this.FIRST_LETTER_SPAN}, text: textContent.substr(0, 1)}, node.ownerDocument);
+					this.editor.util.SetTextContent(flTextNode, textContent.substr(1));
+					flTextNode.parentNode.insertBefore(flSpan, flTextNode);
+					this._FLCleanNodesBeforeFirstSpan(flSpan);
+				}
+
+				this._FLCleanBogusSpans(node);
 			}
 		},
 
@@ -1143,6 +1247,7 @@
 		{
 			if (node.innerHTML == '' || !node.firstChild)
 				return null;
+
 			if (node.firstChild && node.firstChild.nodeType == 3 && node.firstChild.nodeValue && BX.util.trim(node.firstChild.nodeValue) !== '')
 				return node.firstChild;
 
@@ -1169,7 +1274,7 @@
 			if (this.firstNodeCheck || content.indexOf(this.FIRST_LETTER_CLASS) !== -1 || hardCheck === true)
 			{
 				var
-					flSpan, html,
+					html,
 					nodes1 = doc.querySelectorAll('.' + this.FIRST_LETTER_CLASS),
 					nodes2 = doc.querySelectorAll('.' + this.FIRST_LETTER_CLASS_CHROME);
 
@@ -1180,12 +1285,6 @@
 					{
 						BX.remove(nodes2[i]);
 						continue;
-					}
-
-					flSpan = this._GetFlSpan(nodes2[i]);
-					if (flSpan)
-					{
-						this.editor.util.ReplaceWithOwnChildren(flSpan);
 					}
 					this.HandleFirstLetterNode(nodes2[i]);
 				}
@@ -1204,6 +1303,36 @@
 				for (i = 0; i < spans.length; i++)
 				{
 					this.editor.util.ReplaceWithOwnChildren(spans[i]);
+				}
+			}
+		},
+
+		_FLCleanNodesBeforeFirstSpan: function(span)
+		{
+			while (span.previousSibling)
+			{
+				BX.remove(span.previousSibling);
+			}
+		},
+
+		_FLCleanBogusSpans: function(node)
+		{
+			var i, spans = node.getElementsByTagName('SPAN');
+			for (i = spans.length - 1; i >= 0; i--)
+			{
+				if (!spans[i].className && spans[i].style.lineHeight && spans[i].style.fontSize)
+					this.editor.util.ReplaceWithOwnChildren(spans[i]);
+			}
+		},
+
+		FirstLetterBackspaceHandler: function(range)
+		{
+			if (range.collapsed && range.startOffset == 0)
+			{
+				var flSpan = range.startContainer.previousSibling;
+				if (flSpan && flSpan.className.indexOf(this.FIRST_LETTER_SPAN) !== -1)
+				{
+					this.editor.selection.SetAfter(flSpan.lastChild);
 				}
 			}
 		}
@@ -1334,11 +1463,10 @@
 				bInString, ch, posnext, ti, quote_ch, mm = 0;
 
 			cleanPhp = cleanPhp === true;
-
 			while((p = content.indexOf("<?", p)) >= 0)
 			{
 				mm = 0;
-				i = p + 2;
+				i = p + 1;
 				bSlashed = false;
 				bInString = false;
 				while(i < content.length - 1)
@@ -2259,7 +2387,7 @@
 						var node = _this.GetBxNode(bxTag.tag);
 						if (node)
 						{
-							return node.Parse(bxTag.params);
+							return node.Parse(bxTag.params, bxid);
 						}
 					}
 				}
@@ -2275,9 +2403,9 @@
 			var _this = this;
 			this.arBxNodes = {
 				component: {
-					Parse: function(params)
+					Parse: function(params, bxid)
 					{
-						return _this.editor.components.GetSource(params);
+						return _this.editor.components.GetSource(params, bxid);
 					}
 				},
 				component_icon: {
@@ -2576,6 +2704,9 @@
 				bxTag, surNode,
 				node = target;
 
+			if (!range || !range.getNodes)
+				return;
+
 			if (!range.collapsed)
 			{
 				if (keyCode === codes['backspace'] || keyCode === codes['delete'])
@@ -2650,7 +2781,9 @@
 				}
 			}
 
-			if (range.startContainer == range.endContainer && range.startContainer.nodeName !== 'BODY')
+			if (range.startContainer &&
+				range.startContainer == range.endContainer &&
+				range.startContainer.nodeName !== 'BODY')
 			{
 				node = range.startContainer;
 				surNode = this.editor.util.CheckSurrogateNode(node);
@@ -3040,13 +3173,20 @@
 				});
 
 				l = this.editor.sortedSmiles.length;
-				var smHtml, symRe = "\\s.,;:!?\\#\\-\\*\\|\\[\\]\\(\\)\\{\\}<>&\\n\\t\\r";
+				var smHtml, symRe = "\\s.,;:!?\\#\\-\\*\\|\\[\\]\\(\\)\\{\\}<>&\\n\\t\\r", css;
 				for (i = 0; i < l; i++)
 				{
 					smile = this.editor.sortedSmiles[i];
 					if (smile.path && smile.code)
 					{
-						smHtml = '<img id="' + _this.editor.SetBxTag(false, {tag: "smile", params: smile}) + '" src="' + smile.path + '" title="' + (smile.name || smile.code) + '"/>';
+						css = '';
+						if (smile.width)
+							css += 'width:' + parseInt(smile.width) + 'px;';
+						if (smile.height)
+							css += 'height:' + parseInt(smile.height) + 'px;';
+						if (css !== '')
+							css = 'style="' + css + '"';
+						smHtml = '<img id="' + _this.editor.SetBxTag(false, {tag: "smile", params: smile}) + '" src="' + smile.path + '" title="' + (smile.name || smile.code) + '" ' + css + '/>';
 						content = content.replace(
 							new RegExp('([' + symRe + '])' + BX.util.preg_quote(smile.code) + '([' + symRe + '])', 'ig'),
 							"$1" + smHtml + "$2"
@@ -3252,7 +3392,7 @@
 						text = text.replace(/\n/ig, " ");
 					}
 
-					if (BX.browser.IsMac())
+					if (BX.browser.IsMac() || BX.browser.IsFirefox())
 					{
 						text = text.replace(/\n/ig, " ");
 					}
@@ -3353,9 +3493,7 @@
 		{
 			var
 				bxTag,
-				tableTags = ['TABLE', 'TD', 'TR', 'TH', 'TBODY', 'TFOOT', 'THEAD', 'CAPTION', 'COL', 'COLGROUP'],
-				isTableTag = false,
-				isAlign = false,
+				isTableTag, isAlign,
 				nodeName = oNode.node.nodeName.toUpperCase();
 
 			oNode.checkNodeAgain = false;
@@ -3435,7 +3573,7 @@
 
 			oNode.hide = false;
 			oNode.bbTag = nodeName;
-			isTableTag = BX.util.in_array(nodeName, tableTags);
+			isTableTag = BX.util.in_array(nodeName, this.editor.TABLE_TAGS);
 			isAlign = this.parseAlign && (oNode.node.style.textAlign || oNode.node.align) && !isTableTag;
 
 			if(nodeName == 'STRONG' || nodeName == 'B')
@@ -3691,13 +3829,25 @@
 			this.level = 0;
 
 			var
+				_this = this,
 				i, t,
 				point = 0,
 				start = null,
 				end = null,
 				tag = '',
 				result = '',
+				index = 0,
 				cont = '';
+
+			this.pieces = {};
+			code = code.replace(/<pre[\s\S]*?\/pre>/gi, function(s)
+				{
+					_this.pieces[index] = s;
+					var str = '#BX_CODE_PIECE_' + index + '#';
+					index++;
+					return str;
+				}
+			);
 
 			for (i = 0; i < code.length; i++)
 			{
@@ -3714,6 +3864,8 @@
 					{
 						result = result.replace(/(<!--noindex-->)(?:[\s|\n|\r|\t]*?)(<a[\s\S]*?\/a>)(?:[\s|\n|\r|\t]*?)(<!--\/noindex-->)(?:[\n|\r|\t]*)/ig, "$1$2$3");
 					}
+
+					result = result.replace(/#BX_CODE_PIECE_(\d+)#/g, function(s, ind){return (ind && _this.pieces[ind]) ? _this.pieces[ind] : s;});
 
 					return result;
 				}
@@ -3812,6 +3964,8 @@
 					result = this.PutTag(this.CleanTag(tag), result);
 				}
 			}
+
+			code = code.replace(/#BX_CODE_PIECE_(\d+)#/g, function(s, ind){return (ind && _this.pieces[ind]) ? _this.pieces[ind] : s;});
 
 			return code;
 		},

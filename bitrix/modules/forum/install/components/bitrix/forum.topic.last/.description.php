@@ -5,10 +5,14 @@ $arComponentDescription = array(
 	"ICON" => "/images/icon.gif",
 	"CACHE_PATH" => "Y",
 	"PATH" => array(
-		"ID" => "communication", 
+		"ID" => "communication",
 		"CHILD" => array(
 			"ID" => "forum",
-			"NAME" => GetMessage("FORUM")
+			"NAME" => GetMessage("FORUM"),
+			"CHILD" => array(
+				"ID" => "forum_public",
+				"NAME" => GetMessage("FORUM_PUBLIC"),
+			)
 		)
 	),
 );

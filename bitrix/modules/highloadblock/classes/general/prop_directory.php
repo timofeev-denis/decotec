@@ -237,7 +237,6 @@ function getDirectoryTableHead(e)
 		'max_len' : 35,
 		'change_case' : 'L',
 		'replace_space' : '',
-		'replace_other' : '',
 		'delete_repeat_replace' : true
 	});
 

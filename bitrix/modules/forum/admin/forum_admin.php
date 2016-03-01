@@ -204,7 +204,7 @@ if (check_bitrix_sessid() && $forumModulePermissions >= "R"):
 		}
 	}
 endif;
-$dbResultList = CForumNew::GetList(
+$dbResultList = CForumNew::GetListEx(
 	array($by => $order),
 	$arFilter);
 
@@ -213,12 +213,12 @@ $dbResultList->NavStart();
 $lAdmin->NavText($dbResultList->GetNavPrint(GetMessage("NAV")));
 
 $lAdmin->AddHeaders(array(
-	array("id"=>"ID", "content"=>"ID", "sort"=>"ID", "default"=>true),
+	array("id"=>"ID", "content"=>"ID", "sort"=>"ID", "default"=>false),
+	array("id"=>"FORUM_GROUP_ID", "content"=>GetMessage("FORUM_GROUP_ID"), "sort"=>"FORUM_GROUP_LEFT_MARGIN", "default"=>true,),
 	array("id"=>"NAME", "content"=>GetMessage("NAME"), "sort"=>"NAME", "default"=>true),
 	array("id"=>"ACTIVE","content"=>GetMessage("ACTIVE"), "sort"=>"ACTIVE", "default"=>true),
 	array("id"=>"LAND", "content"=>GetMessage('LAND'), "default"=>true),
 	array("id"=>"SORT", "content"=>GetMessage("SORT"),  "sort"=>"SORT", "align"=>"right"),
-	array("id"=>"FORUM_GROUP_ID", "content"=>GetMessage("FORUM_GROUP_ID"),  "sort"=>"FORUM_GROUP_ID", "default"=>true,),
 	array("id"=>"MODERATION","content"=>GetMessage("MODERATION"), "sort"=>"MODERATION"),
 	array("id"=>"INDEXATION","content"=>GetMessage("INDEXATION"), "sort"=>"INDEXATION"),
 	array("id"=>"ORDER_BY","content"=>GetMessage("ORDER_BY"), "sort"=>"ORDER_BY"),
@@ -233,11 +233,6 @@ while ($arForum = $dbResultList->NavNext(true, "f_"))
 
 	$bCanUpdateForum = CForumNew::CanUserUpdateForum($f_ID, $USER->GetUserGroupArray(), $USER->GetID());
 	$bCanDeleteForum = CForumNew::CanUserDeleteForum($f_ID, $USER->GetUserGroupArray(), $USER->GetID());
-	if ($forumModulePermissions >= "W")
-	{
-		$bCanUpdateForum = true;
-		$bCanDeleteForum = true;
-	}
 
 	$row->bReadOnly = ($bCanUpdateForum ? false : true);
 	
@@ -245,18 +240,31 @@ while ($arForum = $dbResultList->NavNext(true, "f_"))
 	$row->AddViewField("NAME", '<a title="'.GetMessage("FORUM_EDIT").'" href="forum_edit.php?ID='.$f_ID.'&amp;lang='.
 		LANG.GetFilterParams("filter_").'">'.$f_NAME.'</a>');
 	$row->AddInputField("NAME", ($bCanUpdateForum ? array("size" => "30") : false));
+
 	$row->AddCheckField("ACTIVE", ($bCanUpdateForum ? array() : false));
 	$res = array();
+	$res2 = array();
 	if (in_array("LAND", $arVisibleColumns))
 	{
 		$arForumSite = CForumNew::GetSites($f_ID);
-		$res = array();
-		foreach ($arForumSite as $key => $value)
+		foreach ($arSites as $lid => $site)
 		{
-			$res[] = $arSites[$key]["NAME"]." [".$key."]";
+			if (array_key_exists($lid, $arForumSite))
+				$res[] = $site["NAME"]." [".$lid."]";
+			$class = (empty($arForumSite[$lid]) ? "empty-path" : "");
+			$res2[] = <<<HTML
+<dt class="$class" id="site_lid_{$key}">{$site["NAME"]} [{$key}]</dt>
+<dd>
+	<textarea id="site_path_{$key}" rows="2" cols="40" name="SITE_PATH[{$key}]"
+		onfocus="BX.removeClass(BX('site_lid_{$key}'), 'empty-path')"
+		onblur="if(!BX.type.isNotEmptyString(this.value)){ BX.addClass(BX('site_lid_{$key}'), 'empty-path')}"
+		>{$arForumSite[$lid]}</textarea>
+</dd>
+HTML;
 		}
 	}
 	$row->AddField("LAND", implode("<br />", $res));
+	$row->AddEditField("LAND", '<dl>'.implode("", $res2).'</dl>');
 	$row->AddInputField("SORT", ($bCanUpdateForum? array("size" => "3") : false ));
 	$row->AddViewField("FORUM_GROUP_ID", $arForumGroups[$f_FORUM_GROUP_ID]["NAME"]);
 	$row->AddSelectField("FORUM_GROUP_ID", ($bCanUpdateForum ? $arForumGroupsTitle : false));
@@ -355,16 +363,21 @@ $oFilter->Begin();
 		</td>
 	</tr>
 	<tr>
-		<td><?= GetMessage("FFAN_GROUP_ID") ?>:</td>
+		<td><label><?= GetMessage("FFAN_GROUP_ID") ?>:</label></td>
 		<td>
-			<select name="filter_group_id">
-				<option value="">(<?=GetMessage("FFAN_ALL");?>)</option>
-				<?
+
+				<select name="filter_group_id">
+					<option value="">(<?=GetMessage("FFAN_ALL");?>)</option>
+					<?
 				foreach ($arForumGroupsTitle as $key => $val):
-					?><option value="<?=$key?>"<?=(intVal($filter_group_id)==intVal($key) ? " selected" : "")?>><?=htmlspecialcharsEx($val)?></option><?
+					?>
+					<option value="<?=$key?>"
+					<?=(intVal($filter_group_id)==intVal($key) ? " selected" : "")?>
+					><?=htmlspecialcharsEx($val)?></option><?
 				endforeach;
 				?>
-			</select>
+				</select>
+
 		</td>
 	</tr>
 <?
@@ -381,7 +394,10 @@ $oFilter->End();
 <?
 $lAdmin->DisplayList();
 ?>
-
+<style>
+dl, dd, dt { margin: 0; }
+dt.empty-path { text-decoration: line-through; }
+</style>
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

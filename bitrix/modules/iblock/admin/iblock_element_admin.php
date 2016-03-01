@@ -822,6 +822,9 @@ if($lAdmin->EditAction())
 					}
 					unset($arCatalogGroup);
 				}
+
+				$ipropValues = new \Bitrix\Iblock\InheritedProperty\ElementValues($IBLOCK_ID, $elID);
+				$ipropValues->clearValues();
 			}
 		}
 	}

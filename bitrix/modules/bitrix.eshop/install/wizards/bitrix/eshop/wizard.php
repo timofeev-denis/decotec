@@ -42,81 +42,44 @@ class SelectTemplateStep extends CSelectTemplateWizardStep
 
 		if ($wizard->IsNextButtonClick())
 		{
-			$arTemplates = array("eshop_adapt_horizontal", "eshop_adapt_vertical", "eshop_vertical", "eshop_horizontal", "eshop_vertical_popup");
+			$arTemplates = array("eshop_bootstrap");
 
 			$templateID = $wizard->GetVar("wizTemplateID");
 
 			if (!in_array($templateID, $arTemplates))
 				$this->SetError(GetMessage("wiz_template"));
 
-			if (in_array($templateID,  array("eshop_adapt_horizontal", "eshop_adapt_vertical")))
-				$wizard->SetVar("templateID", "eshop_adapt");
-			else
-				$wizard->SetVar("templateID", "eshop");
+			if (in_array($templateID,  array("eshop_bootstrap")))
+				$wizard->SetVar("templateID", "eshop_bootstrap");
 		}
 	}
 
 	function ShowStep()
 	{
 		$wizard =& $this->GetWizard();
-			
 
 		$templatesPath = WizardServices::GetTemplatesPath($wizard->GetPath()."/site");
 		$arTemplates = WizardServices::GetTemplates($templatesPath);
-		/*if (empty($arTemplates))
-			return;  */
 
 		$arTemplateOrder = array();
 
-		if (in_array("eshop_adapt", array_keys($arTemplates)))
+		if (in_array("eshop_bootstrap", array_keys($arTemplates)))
 		{
-			$arTemplateOrder[] = "eshop_adapt_horizontal";
-		//	$arTemplateOrder[] = "eshop_adapt_vertical";
-		}
-		if (in_array("eshop", array_keys($arTemplates)))
-		{
-			$arTemplateOrder[] = "eshop_horizontal";
-			$arTemplateOrder[] = "eshop_vertical";
-			$arTemplateOrder[] = "eshop_vertical_popup";
+			$arTemplateOrder[] = "eshop_bootstrap";
 		}
 
-		$defaultTemplateID = COption::GetOptionString("main", "wizard_template_id", "eshop_adapt_horizontal", $wizard->GetVar("siteID"));
-		if (!in_array($defaultTemplateID, array("eshop_adapt_horizontal", "eshop_adapt_vertical", "eshop_vertical", "eshop_horizontal", "eshop_vertical_popup"))) $defaultTemplateID = "eshop_adapt_horizontal";
+		$defaultTemplateID = COption::GetOptionString("main", "wizard_template_id", "eshop_bootstrap", $wizard->GetVar("siteID"));
+		if (!in_array($defaultTemplateID, array("eshop_bootstrap"))) $defaultTemplateID = "eshop_bootstrap";
 		$wizard->SetDefaultVar("wizTemplateID", $defaultTemplateID);
 
 		$arTemplateInfo = array(
-			"eshop_adapt_horizontal" => array(
+			"eshop_bootstrap" => array(
 				"NAME" => GetMessage("WIZ_TEMPLATE_ADAPT_HORIZONTAL"),
 				"DESCRIPTION" => "",
-				"PREVIEW" => $wizard->GetPath()."/site/templates/eshop_adapt/images/".LANGUAGE_ID."/preview_horizontal.gif",
-				"SCREENSHOT" => $wizard->GetPath()."/site/templates/eshop_adapt/images/".LANGUAGE_ID."/screen_horizontal.gif",
+				"PREVIEW" => $wizard->GetPath()."/site/templates/eshop_bootstrap/images/".LANGUAGE_ID."/preview_horizontal.gif",
+				"SCREENSHOT" => $wizard->GetPath()."/site/templates/eshop_bootstrap/images/".LANGUAGE_ID."/screen_horizontal.gif",
 			),
-			"eshop_adapt_vertical" => array(
-				"NAME" => GetMessage("WIZ_TEMPLATE_ADAPT_VERTICAL"),
-				"DESCRIPTION" => "",
-				"PREVIEW" => $wizard->GetPath()."/site/templates/eshop_adapt/images/".LANGUAGE_ID."/preview_vertical.gif",
-				"SCREENSHOT" => $wizard->GetPath()."/site/templates/eshop_adapt/images/".LANGUAGE_ID."/screen_vertical.gif",
-			),
-			"eshop_horizontal" => array(
-				"NAME" => GetMessage("WIZ_TEMPLATE_HORIZONTAL"),
-				"DESCRIPTION" => "",
-				"PREVIEW" => $wizard->GetPath()."/site/templates/eshop/lang/".LANGUAGE_ID."/preview_horizontal.gif",
-				"SCREENSHOT" => $wizard->GetPath()."/site/templates/eshop/lang/".LANGUAGE_ID."/screen_horizontal.gif",
-			),
-			"eshop_vertical" => array(
-				"NAME" => GetMessage("WIZ_TEMPLATE_VERTICAL"),
-				"DESCRIPTION" => "",
-				"PREVIEW" => $wizard->GetPath()."/site/templates/eshop/lang/".LANGUAGE_ID."/preview_vertical.gif",
-				"SCREENSHOT" => $wizard->GetPath()."/site/templates/eshop/lang/".LANGUAGE_ID."/screen_vertical.gif",
-			),	
-			"eshop_vertical_popup" => array(
-				"NAME" => GetMessage("WIZ_TEMPLATE_VERTICAL_POPUP"),
-				"DESCRIPTION" => "",
-				"PREVIEW" => $wizard->GetPath()."/site/templates/eshop/lang/".LANGUAGE_ID."/preview_vertical_popup.gif",
-				"SCREENSHOT" => $wizard->GetPath()."/site/templates/eshop/lang/".LANGUAGE_ID."/screen_vertical_popup.gif",
-			),		
 		);
-
 
 	//	$this->content .= "<input type='hidden' value='eshop' name='templateID' id='templateID'>";//$this->ShowInputField('hidden', 'templateID', array("id" => "templateID", "value" => "eshop"));
 
@@ -180,10 +143,10 @@ class SiteSettingsStep extends CSiteSettingsWizardStep
 		$themeID = $wizard->GetVar($templateID."_themeID");
 
 		$wizard->SetDefaultVars(Array(
-			"siteLogo" => file_exists(WIZARD_SITE_PATH."include/logo.png") ? WIZARD_SITE_DIR."include/logo.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_adapt/themes/".$themeID."/images/logo.png"),
-			"siteLogoRetina" => file_exists(WIZARD_SITE_PATH."include/logo_retina.png") ? WIZARD_SITE_DIR."include/logo_retina.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_adapt/themes/".$themeID."/images/logo_retina.png"),
-			"siteLogoMobile" => file_exists(WIZARD_SITE_PATH."include/logo_mobile.png") ? WIZARD_SITE_DIR."include/logo_mobile.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_adapt/themes/".$themeID."/images/logo_mobile.png"),
-			"siteLogoMobileRetina" => file_exists(WIZARD_SITE_PATH."include/logo_mobile_retina.png") ? WIZARD_SITE_DIR."include/logo_mobile_retina.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_adapt/themes/".$themeID."/images/logo_mobile_retina.png")
+			"siteLogo" => file_exists(WIZARD_SITE_PATH."include/logo.png") ? WIZARD_SITE_DIR."include/logo.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_bootstrap/themes/".$themeID."/images/logo.png"),
+			"siteLogoRetina" => file_exists(WIZARD_SITE_PATH."include/logo_retina.png") ? WIZARD_SITE_DIR."include/logo_retina.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_bootstrap/themes/".$themeID."/images/logo_retina.png"),
+			"siteLogoMobile" => file_exists(WIZARD_SITE_PATH."include/logo_mobile.png") ? WIZARD_SITE_DIR."include/logo_mobile.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_bootstrap/themes/".$themeID."/images/logo_mobile.png"),
+			"siteLogoMobileRetina" => file_exists(WIZARD_SITE_PATH."include/logo_mobile_retina.png") ? WIZARD_SITE_DIR."include/logo_mobile_retina.png" : ($isWizardInstalled ? "" : "/bitrix/wizards/bitrix/eshop/site/templates/eshop_bootstrap/themes/".$themeID."/images/logo_mobile_retina.png")
 		));
 
 		$wizard->SetDefaultVars(

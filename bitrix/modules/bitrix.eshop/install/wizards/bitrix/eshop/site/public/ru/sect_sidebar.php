@@ -90,3 +90,18 @@
 		Array('HIDE_ICONS' => 'N')
 	);?>
 </div>
+
+<div class="bx-sidebar-block">
+	<?$APPLICATION->IncludeComponent(
+		"bitrix:main.include",
+		"",
+		Array(
+			"AREA_FILE_SHOW" => "file",
+			"PATH" => SITE_DIR."include/info.php",
+			"AREA_FILE_RECURSIVE" => "N",
+			"EDIT_MODE" => "html",
+		),
+		false,
+		Array('HIDE_ICONS' => 'N')
+	);?>
+</div>

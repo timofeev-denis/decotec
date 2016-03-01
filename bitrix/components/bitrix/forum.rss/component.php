@@ -84,6 +84,7 @@ $arResult["SERVER_NAME"] = (defined("SITE_SERVER_NAME") && strLen(SITE_SERVER_NA
 		$arParams["CACHE_TIME"] = intval($arParams["CACHE_TIME"]);
 	else
 		$arParams["CACHE_TIME"] = 0;
+$arParams["CACHE_TIME"] = 0;
 /********************************************************************
 				/Input params
 ********************************************************************/
@@ -91,11 +92,11 @@ if (empty($arParams["TYPE_RANGE"])):
 	ShowError(GetMessage("F_EMPTY_TYPE"));
 	return 0;
 else:
-	$arFilter = (!empty($arParams["FID_RANGE"]) ? array("@ID" => $arParams["FID_RANGE"]) : array());
-	$arFilter["LID"] = SITE_ID;
-	if (!CForumUser::IsAdmin())
-		$arFilter["PERMS"] = array($USER->GetGroups(), 'A');
-	$arFilter["ACTIVE"] = "Y";
+	$arFilter = (!empty($arParams["FID_RANGE"]) ? array("@ID" => $arParams["FID_RANGE"]) : array()) + array(
+		"LID" => SITE_ID,
+		"PERMS" => array($USER->GetGroups(), 'A'),
+		"ACTIVE" => "Y");
+
 	$db_res = CForumNew::GetListEx(
 		array("FORUM_GROUP_SORT"=>"ASC", "FORUM_GROUP_ID"=>"ASC", "SORT"=>"ASC", "NAME"=>"ASC"),
 		$arFilter,
@@ -130,12 +131,11 @@ else:
 		CHTTP::SetStatus("404 Not Found");
 		return false;
 	elseif ($arParams["MODE_DATA"] == "topic"):
-		$db_res = CForumTopic::GetList(array(), array("ID" => $arParams["TID"]));
-		if (!($db_res && ($res = $db_res->Fetch()))):
+		if (!($res = CForumTopic::GetList(array(), array("ID" => $arParams["TID"]))->fetch())):
 			ShowError(GetMessage("F_EMPTY_TOPIC"));
 			CHTTP::SetStatus("404 Not Found");
 			return false;
-		elseif (empty($arResult["FORUMS"][$res["FORUM_ID"]])):
+		elseif (!array_key_exists($res["FORUM_ID"], $arResult["FORUMS"])):
 			ShowError(GetMessage("F_EMPTY_TOPIC"));
 			CHTTP::SetStatus("404 Not Found");
 			return false;
@@ -308,9 +308,8 @@ if($this->StartResultCache($arParams["CACHE_TIME"], array($cache_id_array, $arPa
 			$res["POST_DATE"] = $date;
 			$res["POST_DATE_FORMATED"] = CForumFormat::DateFormat($arParams["DATE_TIME_FORMAT"], MakeTimeStamp($res["~POST_DATE"], CSite::GetDateFormat())+CTimeZone::GetOffset());
 			// text
-			$res["ALLOW"] = $arAllow = array_merge(
-				$arResult["FORUMS"][$res["FORUM_ID"]]["ALLOW"],
-				array("SMILES" => ($res["USE_SMILES"] == "Y" ? $arResult["FORUM"]["ALLOW_SMILES"] : "N")));
+			$arAllow = $arResult["FORUMS"][$res["FORUM_ID"]]["ALLOW"];
+			$res["ALLOW"] = array_merge($arAllow, array("SMILES" => ($res["USE_SMILES"] == "Y" ? $arAllow["SMILES"] : "N")));
 			$res["~POST_MESSAGE"] = (COption::GetOptionString("forum", "FILTER", "Y")=="Y" ? $res["~POST_MESSAGE_FILTER"] : $res["~POST_MESSAGE"]);
 			// attach
 			$res["ATTACH_IMG"] = ""; $res["FILES"] = $res["~ATTACH_FILE"] = $res["ATTACH_FILE"] = array();
@@ -320,8 +319,8 @@ if($this->StartResultCache($arParams["CACHE_TIME"], array($cache_id_array, $arPa
 			if (strLen($res["AVATAR"]) > 0):
 				$res["~AVATAR"] = array("ID" => $res["AVATAR"]);
 				$res["~AVATAR"]["FILE"] = CFile::GetFileArray($res["~AVATAR"]["ID"]);
-				$res["AVATAR"] = CFile::ShowImage($res["~AVATAR"]["FILE"], COption::GetOptionString("forum", "avatar_max_width", 90),
-					COption::GetOptionString("forum", "avatar_max_height", 90), "border=\"0\"", "", true);
+				$res["AVATAR"] = CFile::ShowImage($res["~AVATAR"]["FILE"], COption::GetOptionString("forum", "avatar_max_width", 100),
+					COption::GetOptionString("forum", "avatar_max_height", 100), "border=\"0\"", "", true);
 			endif;
 			// data
 			$res["DATE_REG"] = CForumFormat::DateFormat($arParams["DATE_FORMAT"], MakeTimeStamp($res["DATE_REG"], CSite::GetDateFormat()));
@@ -329,8 +328,7 @@ if($this->StartResultCache($arParams["CACHE_TIME"], array($cache_id_array, $arPa
 			$res["SIGNATURE"] = "";
 			if ($arResult["FORUMS"][$res["FORUM_ID"]]["ALLOW_SIGNATURE"] == "Y" && strlen($res["~SIGNATURE"]) > 0)
 			{
-				$arAllow["SMILES"] = "N";
-				$res["SIGNATURE"] = $parser->convert_to_rss($res["~SIGNATURE"], $arAllow);
+				$res["SIGNATURE"] = $parser->convert_to_rss($res["~SIGNATURE"], array_merge($arAllow, array("SMILES" => "N")));
 			}
 			/************** Author info/****************************************/
 			$res["~AUTHOR_LINK"] = CComponentEngine::MakePathFromTemplate($arParams["~URL_TEMPLATES_PROFILE_VIEW"],
@@ -490,10 +488,7 @@ else
 }
 }
 if ($arParams["DESIGN_MODE"] != "Y")
-{
 	die();
-	return 0;
-}
 /********************************************************************
 				/Data 2
 ********************************************************************/

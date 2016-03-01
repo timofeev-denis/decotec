@@ -2819,17 +2819,7 @@ abstract class CAllUser extends CDBResult
 
 	function SetLastActivityDate($ID)
 	{
-		global $DB;
-
-		$ID = intval($ID);
-		if ($ID > 0)
-		{
-			$DB->Query("UPDATE b_user SET ".
-				"TIMESTAMP_X = ".(strtoupper($DB->type) == "ORACLE"? "NULL":"TIMESTAMP_X").", ".
-				"LAST_ACTIVITY_DATE = ".$DB->CurrentTimeFunction()." WHERE ID = ".$ID."",
-				false, "", array("ignore_dml"=>true)
-			);
-		}
+		self::SetLastActivityDateByArray(array($ID));
 	}
 
 	function SetLastActivityDateByArray($arUsers)
@@ -2846,6 +2836,7 @@ abstract class CAllUser extends CDBResult
 		$maxValuesLen = 2048;
 		$strSqlValues = "";
 
+		$arUsers = array_map("intval", $arUsers);
 		foreach($arUsers as $userId)
 		{
 			$strSqlValues .= ",$userId";
@@ -2855,10 +2846,14 @@ abstract class CAllUser extends CDBResult
 				$strSqlValues = "";
 			}
 		}
+
 		if(strlen($strSqlValues) > 0)
 		{
 			$DB->Query($strSqlPrefix.substr($strSqlValues, 1).$strSqlPostfix, false, "", array("ignore_dml"=>true));
 		}
+
+		$event = new \Bitrix\Main\Event("main", "OnUserSetLastActivityDate", array($arUsers));
+		$event->send();
 
 		return true;
 	}

@@ -2623,6 +2623,7 @@ function __run()
 		this.id = 'hr';
 		this.title = BX.message('BXEdInsertHr');
 		this.className += ' bxhtmled-button-hr';
+		this.action = 'insertHr';
 		this.Create();
 		if (wrap)
 		{
@@ -2758,8 +2759,10 @@ function __run()
 		//this.action = 'smile';
 		this.checkableAction = false;
 		this.zIndex = 3007;
+		this.smileSizeDef = 20;
 		this.posOffset = {top: 6, left: 0};
 		this.smiles = editor.config.smiles || [];
+		this.smileSets = editor.config.smileSets || [];
 		this.disabledForTextarea = !editor.bbCode;
 
 		this.Create();
@@ -2783,7 +2786,37 @@ function __run()
 		this.pValuesCont.style.zIndex = this.zIndex;
 		this.valueIndex = {};
 
-		var _this = this, i, smileImg;
+		var
+			_this = this, i, smileImg, setInd,
+			setLength = this.smileSets.length,
+			blockWidth = Math.round(100 / setLength) + '%',
+			sliderWidth = (100 * setLength) + '%';
+
+		if (setLength > 0)
+		{
+			this.smileSetsIndex = {};
+			this.smileTabsWrap = this.pValuesCont.appendChild(BX.create('DIV', {props: {className: 'bxhtmled-smile-tabs-wrap'}}));
+
+			this.smileSliderWrap = this.pValuesCont.appendChild(BX.create('DIV', {props: {className: 'bxhtmled-smile-slider-wrap'}}));
+
+			this.smileSlider = this.smileSliderWrap.appendChild(BX.create('DIV', {props: {className: 'bxhtmled-smile-slider'}, style: {width: sliderWidth}}));
+
+			for(i = 0; i < this.smileSets.length; i++)
+			{
+				this.smileSetsIndex[this.smileSets[i].id] = i;
+				this.smileSets[i].butWrap = this.smileTabsWrap.appendChild(BX.create('SPAN', {props: {className: 'bxhtmled-smile-tab'}}));
+				this.smileSets[i].butWrap.setAttribute('data-bx-smile-set', this.smileSets[i].id);
+				this.smileSets[i].butWrapImage = false;
+				this.smileSets[i].smilesBlock = this.smileSlider.appendChild(BX.create('DIV', {props: {className: 'bxhtmled-smiles-wrap'}, style: {width: blockWidth}}));
+
+				if (i == 0)
+				{
+					BX.addClass(this.smileSets[i].butWrap, 'bxhtmled-smile-tab-active');
+					this.currentTab = this.smileSets[i].butWrap;
+				}
+			}
+		}
+
 		for(i = 0; i < this.smiles.length; i++)
 		{
 			smileImg = BX.create("IMG", {props:
@@ -2796,19 +2829,41 @@ function __run()
 
 			if (this.smiles[i].width)
 			{
-				smileImg.style.width = this.smiles[i].width;
+				smileImg.style.width = parseInt(this.smiles[i].width) + 'px';
 			}
 			if (this.smiles[i].height)
 			{
-				smileImg.style.height = this.smiles[i].height;
+				smileImg.style.height = parseInt(this.smiles[i].height) + 'px';
+			}
+
+			BX.bind(smileImg, 'error', function(){BX.remove(this)});
+
+			if (this.smiles[i].set_id && this.smileSetsIndex && this.smileSetsIndex[this.smiles[i].set_id] !== undefined)
+			{
+				setInd = this.smileSetsIndex[this.smiles[i].set_id];
+				this.smileSets[setInd].smilesBlock.appendChild(smileImg);
+				if (!this.smileSets[setInd].butWrapImage)
+				{
+					this.smileSets[setInd].butWrapImage = smileImg.cloneNode();
+					this.smileSets[setInd].butWrapImage.className = '';
+					this.smileSets[setInd].butWrapImage.title = '';
+					this.smileSets[setInd].butWrap.appendChild(this.smileSets[setInd].butWrapImage);
+
+					var h = this.smiles[i].height;
+					if (h < this.smileSizeDef)
+					{
+						this.smileSets[setInd].butWrapImage.style.marginTop = Math.round((this.smileSizeDef - h) / 2) + 'px';
+					}
+				}
+			}
+			else
+			{
+				this.pValuesCont.appendChild(smileImg);
 			}
 
 			smileImg.setAttribute('data-bx-type', 'action');
 			smileImg.setAttribute('data-bx-action', 'insertSmile');
 			smileImg.setAttribute('data-bx-value', this.smiles[i].code);
-
-			BX.bind(smileImg, 'error', function(){BX.remove(this)});
-			this.pValuesCont.appendChild(smileImg);
 		}
 
 		BX.bind(this.pCont, 'click', BX.proxy(this.OnClick, this));
@@ -2816,9 +2871,57 @@ function __run()
 
 		BX.bind(this.pValuesCont, 'mousedown', function(e)
 		{
+			var target = e.target || e.srcElement;
+			if (target && target.getAttribute('data-bx-smile-set') !== null)
+			{
+				return _this.ShowSetTab(target.getAttribute('data-bx-smile-set'));
+			}
+			else if(target && target.parentNode && target.parentNode.getAttribute('data-bx-smile-set') !== null)
+			{
+				return _this.ShowSetTab(target.parentNode.getAttribute('data-bx-smile-set'));
+			}
+
 			_this.editor.CheckCommand(e.target || e.srcElement);
 			_this.Close();
 		});
+	};
+
+	SmileButton.prototype.ShowSetTab = function(setId)
+	{
+		if (this.smileSetsIndex[setId] !== undefined)
+		{
+			var
+				_this = this,
+				smileSet = this.smileSets[this.smileSetsIndex[setId]],
+				start = parseInt(this.smileSlider.style.marginLeft) || 0,
+				end = - parseInt(this.smileSetsIndex[setId] * 100);
+
+			if (this.currentTab)
+				BX.removeClass(this.currentTab, 'bxhtmled-smile-tab-active');
+
+			BX.addClass(smileSet.butWrap, 'bxhtmled-smile-tab-active');
+			this.currentTab = smileSet.butWrap;
+
+			this.ani = new BX.easing({
+				duration : 300,
+				start : {marginLeft: start},
+				finish : {marginLeft: end},
+				transition : BX.easing.makeEaseOut(BX.easing.transitions.quart),
+				step : function(state)
+				{
+					if (_this.smileSlider)
+						_this.smileSlider.style.marginLeft = state.marginLeft + '%';
+				},
+				complete : function()
+				{
+					if (_this.smileSlider)
+						_this.smileSlider.style.marginLeft = '-' + end + '%';
+					_this.ani = null;
+				}
+			});
+			this.ani.animate();
+		}
+		return false;
 	};
 
 	InsertTableButton.prototype.OnPopupClose = function()
@@ -3946,6 +4049,7 @@ function __run()
 						},
 						complete : function()
 						{
+							_this.CheckSize();
 							this._row.animation = null;
 						}
 					});
@@ -3973,6 +4077,8 @@ function __run()
 					}
 				}
 			}
+
+			this.CheckSize();
 		}
 	};
 
@@ -4611,6 +4717,8 @@ function __run()
 			value.className = this.pClass.value;
 		}
 
+		value.node = this.lastLink || false;
+
 		return value;
 	};
 
@@ -4687,6 +4795,7 @@ function __run()
 					values.rel = lastLink.getAttribute('rel');
 					values.target = lastLink.target;
 					values.className = lastLink.className;
+					this.lastLink = lastLink;
 				}
 			}
 			else
@@ -5469,8 +5578,8 @@ function __run()
 			this.pHeight.value = values.height || '';
 			this.pId.value = values.id || '';
 			this.pCaption.value = values.caption || '';
-			this.pCellPadding.value = values.cellPadding || 0;
-			this.pCellSpacing.value = values.cellSpacing || 0;
+			this.pCellPadding.value = values.cellPadding || '';
+			this.pCellSpacing.value = values.cellSpacing || '';
 			this.pBorder.value = values.border || '';
 			this.pClass.value = values.className || '';
 			this.pHeaders.value = values.headers || '';
@@ -5520,9 +5629,9 @@ function __run()
 			res.height = BX.util.trim(this.pHeight.value);
 			res.id = BX.util.trim(this.pId.value);
 			res.caption = BX.util.trim(this.pCaption.value);
-			res.cellPadding = parseInt(this.pCellPadding.value) || '';
-			res.cellSpacing = parseInt(this.pCellSpacing.value) || '';
-			res.border = parseInt(this.pBorder.value) || '';
+			res.cellPadding = isNaN(parseInt(this.pCellPadding.value)) ? '' : parseInt(this.pCellPadding.value);
+			res.cellSpacing = isNaN(parseInt(this.pCellSpacing.value)) ? '' : parseInt(this.pCellSpacing.value);
+			res.border = isNaN(parseInt(this.pBorder.value)) ? '' : parseInt(this.pBorder.value);
 			res.headers = this.pHeaders.value;
 			res.className = this.pClass.value;
 			res.align = this.pAlign.value;
@@ -5644,7 +5753,7 @@ function __run()
 	{
 		params = {
 			id: 'bx_settings',
-			width: 400,
+			width: 600,
 			resizable: false
 		};
 
@@ -5663,7 +5772,6 @@ function __run()
 	{
 		this.pCont = BX.create('DIV', {props: {className: 'bxhtmled-settings-dialog-cnt'}});
 		var
-			_this = this,
 			r, c,
 			pTableWrap = BX.create('TABLE', {props: {className: 'bxhtmled-dialog-tbl'}});
 
@@ -5671,7 +5779,6 @@ function __run()
 		r = this.AddTableRow(pTableWrap);
 		this.pCleanSpans = r.leftCell.appendChild(BX.create('INPUT', {props: {id: this.id + '-clean-spans', type: 'checkbox'}}));
 		r.rightCell.appendChild(BX.create('LABEL', {html: BX.message('BXEdSettingsCleanSpans')})).setAttribute('for', this.id + '-clean-spans');
-
 
 		r = pTableWrap.insertRow(-1);
 		c = r.insertCell(-1);
@@ -5689,6 +5796,22 @@ function __run()
 		this.pPasteSetDecor = r.leftCell.appendChild(BX.create('INPUT', {props: {id: this.id + '-ps-decor', type: 'checkbox'}}));
 		r.rightCell.appendChild(BX.create('LABEL', {html: BX.message('BXEdPasteSetDecor')})).setAttribute('for', this.id + '-ps-decor');
 
+		r = this.AddTableRow(pTableWrap);
+		this.pPasteTblDimen = r.leftCell.appendChild(BX.create('INPUT', {props: {id: this.id + '-ps-tbl-dim', type: 'checkbox'}}));
+		r.rightCell.appendChild(BX.create('LABEL', {html: BX.message('BXEdPasteSetTableDimen')})).setAttribute('for', this.id + '-ps-tbl-dim');
+
+		r = pTableWrap.insertRow(-1);
+		c = r.insertCell(-1);
+		BX.adjust(c, {props: {className: 'bxhtmled-title-cell', colSpan: 2}, text: BX.message('BXEdViewSettings')});
+
+		r = this.AddTableRow(pTableWrap);
+		this.pShowSnippets = r.leftCell.appendChild(BX.create('INPUT', {props: {id: this.id + '-show-snippets', type: 'checkbox'}}));
+		r.rightCell.appendChild(BX.create('LABEL', {html: BX.message('BXEdShowSnippets') + '*'})).setAttribute('for', this.id + '-show-snippets');
+
+		r = pTableWrap.insertRow(-1);
+		c = r.insertCell(-1);
+		BX.adjust(c, {props: {className: 'bxhtmled-notice-cell', colSpan: 2}, text: '* ' + BX.message('BXEdRefreshNotice')});
+
 		this.pCont.appendChild(pTableWrap);
 		return this.pCont;
 	};
@@ -5702,7 +5825,8 @@ function __run()
 		this.pPasteSetColors.checked = this.editor.config.pasteSetColors;
 		this.pPasteSetBgBorders.checked = this.editor.config.pasteSetBorders;
 		this.pPasteSetDecor.checked = this.editor.config.pasteSetDecor;
-
+		this.pPasteTblDimen.checked = this.editor.config.pasteClearTableDimen;
+		this.pShowSnippets.checked = this.editor.config.showSnippets;
 
 		// Call parrent Dialog.Show()
 		SettingsDialog.superclass.Show.apply(this, arguments);
@@ -5714,11 +5838,15 @@ function __run()
 		this.editor.config.pasteSetColors = this.pPasteSetColors.checked;
 		this.editor.config.pasteSetBorders = this.pPasteSetBgBorders.checked;
 		this.editor.config.pasteSetDecor = this.pPasteSetDecor.checked;
+		this.editor.config.pasteClearTableDimen = this.pPasteTblDimen.checked;
+		this.editor.config.showSnippets = this.pShowSnippets.checked;
 
 		this.editor.SaveOption('clean_empty_spans', this.editor.config.cleanEmptySpans ? 'Y' : 'N');
 		this.editor.SaveOption('paste_clear_colors', this.editor.config.pasteSetColors ? 'Y' : 'N');
 		this.editor.SaveOption('paste_clear_borders', this.editor.config.pasteSetBorders ? 'Y' : 'N');
 		this.editor.SaveOption('paste_clear_decor', this.editor.config.pasteSetDecor ? 'Y' : 'N');
+		this.editor.SaveOption('paste_clear_table_dimen', this.editor.config.pasteClearTableDimen ? 'Y' : 'N');
+		this.editor.SaveOption('show_snippets', this.editor.config.showSnippets ? 'Y' : 'N');
 	};
 
 	// Default properties dialog

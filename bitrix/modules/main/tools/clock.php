@@ -31,7 +31,7 @@ class CClock
 			case 'label':
 				?>
 				<input type="hidden" id="<?=$arParams['inputId']?>" name="<?=$arParams['inputName']?>"  value="<?=$arParams['initTime']?>">
-				<div id=class="bx-clock-label" onmouseover="this.className='bx-clock-label-over';" onmouseout="this.className='bx-clock-label';" onclick=""><? echo $arParams['initTime'] ? $arParams['initTime'] : 'Time'; ?></div><?
+				<div class="bx-clock-label" onmouseover="this.className='bx-clock-label-over';" onmouseout="this.className='bx-clock-label';" onclick=""><? echo $arParams['initTime'] ? $arParams['initTime'] : 'Time'; ?></div><?
 				break;
 			case 'select':
 				?>

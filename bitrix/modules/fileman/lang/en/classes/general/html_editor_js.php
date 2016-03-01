@@ -293,4 +293,8 @@ $MESS["BXEdPasteSettings"] = "Purify content on paste";
 $MESS["BXEdPasteSetColors"] = "Remove text and background color styles";
 $MESS["BXEdPasteSetBgBorders"] = "Remove block color and border styles";
 $MESS["BXEdPasteSetDecor"] = "Remove text variants (bold, italic, underline)";
+$MESS["BXEdViewSettings"] = "View settings";
+$MESS["BXEdShowSnippets"] = "Show snippet bar";
+$MESS["BXEdRefreshNotice"] = "Changes will take effect after you refresh the page.";
+$MESS["BXEdPasteSetTableDimen"] = "Clear width and height attributes of tables and cells";
 ?>

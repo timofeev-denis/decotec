@@ -15,4 +15,5 @@ $MESS["FGN_TAB_GROUP_DESCR"] = "Group of forums";
 $MESS["ERROR_ADD_GROUP"] = "Error creating group";
 $MESS["ERROR_EDIT_GROUP"] = "Error updating group";
 $MESS["ERROR_ADD_GROUP_BAD_FIELDS"] = "Error updating the group parameters. Some of the options are invalid.";
+$MESS["FGN_COPY_GROUP"] = "Copy group";
 ?>

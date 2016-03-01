@@ -498,12 +498,7 @@ abstract class Field
 
 	public function serialize($value)
 	{
-		if (!is_string($value))
-		{
-			$value = serialize($value);
-		}
-
-		return $value;
+		return serialize($value);
 	}
 
 	public function unserialize($value)

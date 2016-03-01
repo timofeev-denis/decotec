@@ -39,8 +39,8 @@ endif;
 	$arParams["USER_FIELDS"] = (is_array($arParams["USER_FIELDS"]) ? $arParams["USER_FIELDS"] : array($arParams["USER_FIELDS"]));
 	if (!in_array("UF_FORUM_MESSAGE_DOC", $arParams["USER_FIELDS"]))
 		$arParams["USER_FIELDS"][] = "UF_FORUM_MESSAGE_DOC";
-	$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
-	$arParams["PATH_TO_ICON"] = trim($arParams["PATH_TO_ICON"]);
+	$arParams["PATH_TO_SMILE"] = "";
+	$arParams["PATH_TO_ICON"] = "";
 
 	$arParams["WORD_LENGTH"] = intVal($arParams["WORD_LENGTH"]);
 	$arParams["IMAGE_SIZE"] = (intVal($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 300);
@@ -128,9 +128,9 @@ $arResult["topic_search"] = CComponentEngine::MakePathFromTemplate($arParams["UR
 $arResult["ERROR_MESSAGE"] = "";
 $arResult["OK_MESSAGE"] = "";
 $arResult["sessid"] = bitrix_sessid_post();
-$arResult["ForumPrintIconsList"] = ForumPrintIconsList(7, "ICON_ID", intVal($_REQUEST["ICON_ID"]), GetMessage("FM_NO_ICON"), LANGUAGE_ID, $arParams["PATH_TO_ICON"]);
+$arResult["ForumPrintIconsList"] = ForumPrintIconsList(7, $_POST["ICON"]);
 
-$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+$parser = new forumTextParser(LANGUAGE_ID);
 $parser->MaxStringLen = $arParams["WORD_LENGTH"];
 $parser->imageWidth = $arParams["IMAGE_SIZE"];
 $parser->imageHeight = $arParams["IMAGE_SIZE"];
@@ -169,7 +169,7 @@ if (intVal($_REQUEST["step"]) == 1)
 			"TITLE"=>trim($_REQUEST["TITLE"]),
 			"TITLE_SEO"=>trim($_REQUEST["TITLE_SEO"]),
 			"DESCRIPTION"=>trim($_REQUEST["DESCRIPTION"]),
-			"ICON_ID"=>intVal($_REQUEST["ICON_ID"]),
+			"ICON"=>intVal($_REQUEST["ICON"]),
 			"TAGS" => $_REQUEST["TAGS"]);
 		if (ForumMoveMessage($arParams["FID"], $arParams["TID"], $message, 0, $arFields, $strErrorMessage, $strOKMessage)):
 			$res = CForumMessage::GetByIDEx($message[0], array("GET_TOPIC_INFO" => "Y"));
@@ -194,7 +194,7 @@ if (intVal($_REQUEST["step"]) == 1)
 		}
 		$arResult["VALUES"]["TITLE"] = htmlspecialcharsEx($_REQUEST["TITLE"]);
 		$arResult["VALUES"]["DESCRIPTION"] = htmlspecialcharsEx($_REQUEST["DESCRIPTION"]);
-		$arResult["VALUES"]["ICON_ID"] = intVal($_REQUEST["ICON_ID"]);
+		$arResult["VALUES"]["ICON"] = intVal($_REQUEST["ICON"]);
 	endif;
 	$arResult["OK_MESSAGE"] .= $strOKMessage;
 }
@@ -228,8 +228,8 @@ foreach ($arResult["MESSAGE_LIST"] as $key => $res)
 	if (strLen($res["AVATAR"]) > 0):
 		$res["AVATAR"] = array("ID" => $res["AVATAR"]);
 		$res["AVATAR"]["FILE"] = CFile::GetFileArray($res["AVATAR"]["ID"]);
-		$res["AVATAR"]["HTML"] = CFile::ShowImage($res["AVATAR"]["FILE"], COption::GetOptionString("forum", "avatar_max_width", 90),
-			COption::GetOptionString("forum", "avatar_max_height", 90), "border=\"0\"", "", true);
+		$res["AVATAR"]["HTML"] = CFile::ShowImage($res["AVATAR"]["FILE"], COption::GetOptionString("forum", "avatar_max_width", 100),
+			COption::GetOptionString("forum", "avatar_max_height", 100), "border=\"0\"", "", true);
 	endif;
 	// data
 	$res["DATE_REG"] = CForumFormat::DateFormat($arParams["DATE_FORMAT"], MakeTimeStamp($res["DATE_REG"], CSite::GetDateFormat()));

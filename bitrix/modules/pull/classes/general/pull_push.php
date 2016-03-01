@@ -363,7 +363,7 @@ class CPushManager
 		$arFields['PARAMS'] = '';
 		if (isset($arParams['PARAMS']))
 		{
-			if (strlen(trim($arParams['PARAMS'])) > 0 || is_array($arParams['PARAMS']))
+			if (is_array($arParams['PARAMS']) || strlen(trim($arParams['PARAMS'])) > 0)
 			{
 				$arFields['PARAMS'] = $arParams['PARAMS'];
 			}

@@ -820,6 +820,9 @@ if($lAdmin->EditAction())
 					}
 					unset($arCatalogGroup);
 				}
+
+				$ipropValues = new \Bitrix\Iblock\InheritedProperty\ElementValues($IBLOCK_ID, $elID);
+				$ipropValues->clearValues();
 			}
 		}
 	}
@@ -3373,7 +3376,7 @@ var arClearHiddenFields = new Array();
 function applyFilter(el)
 {
 	BX.adminPanel.showWait(el);
-	<?=$sTableID."_filter";?>.OnSet('<?=CUtil::JSEscape($sTableID)?>', '<?=CUtil::JSEscape($filterUrl)?>');
+	<?=$sTableID."_filter";?>.OnSet('<?=CUtil::JSEscape($sTableID)?>', '<?echo CUtil::JSEscape($APPLICATION->GetCurPage().'?type='.urlencode($type).'&IBLOCK_ID='.urlencode($IBLOCK_ID).'&lang='.LANGUAGE_ID.'&')?>');
 	return false;
 }
 

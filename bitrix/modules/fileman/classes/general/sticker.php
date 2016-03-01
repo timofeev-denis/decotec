@@ -41,7 +41,7 @@ class CSticker
 		return $arOp[$key];
 	}
 
-	function CanDoOperation($operation)
+	public static function CanDoOperation($operation)
 	{
 		if ($GLOBALS["USER"]->IsAdmin())
 			return true;
@@ -740,18 +740,13 @@ class CSticker
 		$str = GetMessage("FMST_CREATED").": <b>".htmlspecialcharsEx(CSticker::GetUserName($createdBy))."</b> ".CSticker::GetUsableDate($dateCreate).
 			"<br/>".
 			GetMessage("FMST_UPDATED").": <b>".htmlspecialcharsEx(CSticker::GetUserName($modBy))."</b> ".CSticker::GetUsableDate($dateMod);
-
 		return $str;
 	}
 
 	function GetUsableDate($d)
 	{
 		$ts = MakeTimeStamp(ConvertDateTime($d, "DD.MM.YYYY HH:MI"), "DD.MM.YYYY HH:MI");
-		if (date("Y") == date("Y", $ts)) // Same year
-			$date = FormatDate("j F G:i", $ts);
-		else
-			$date = FormatDate("j.m.Y", $ts);
-		return $date;
+		return FormatDate("FULL", $ts);
 	}
 
 	function SetFilterParams($Filter)

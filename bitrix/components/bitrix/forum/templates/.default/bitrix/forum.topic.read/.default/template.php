@@ -1,12 +1,16 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+/**
+ * @global CMain $APPLICATION
+ * @global CUser $USER
+ * @param array $arParams
+ * @param array $arResult
+ * @param string $componentName
+ * @param CBitrixComponent $this
+ */
+
 /*************** Default data **************************************/
 $arParams["iIndex"] = $iIndex = rand();
-$message = $_GET["message_id"];
-$action = strToUpper($_GET["ACTION"]);
-if ($_SERVER['REQUEST_METHOD'] == "POST"):
-	$message = $_POST["message_id"];
-	$action = strToUpper($_POST["ACTION"]);
-endif;
+$message = ($_SERVER['REQUEST_METHOD'] == "POST" ? $_POST["message_id"] : $_GET["message_id"]);
 $message = (is_array($message) ? $message : array($message));
 
 $arUserSettings = array("first_post" => "show");

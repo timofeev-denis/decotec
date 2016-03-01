@@ -98,12 +98,6 @@ $arComponentParameters = Array(
 			"DEFAULT" => "",
 			"PARENT" => "ADDITIONAL_SETTINGS",
 		),
-		"PATH_TO_SMILE" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_PATH_TO_SMILE"),
-			"TYPE" => "STRING",
-			"MULTIPLE" => "N",
-			"DEFAULT" => "/bitrix/images/forum/smile/"),
 		"EDITOR_CODE_DEFAULT" => Array(
 			"NAME" => GetMessage("F_EDITOR_CODE_DEFAULT"),
 			"TYPE" => "CHECKBOX",

@@ -282,7 +282,8 @@ if ($this->StartResultCache($arParams["CACHE_TIME"], array($arFilterForum, $arFo
 		$res["LAST_POSTER_NAME"] = $parser->wrap_long_words($res["LAST_POSTER_NAME"]);
 		$res["LAST_POST_DATE"] = (intval($res["LAST_MESSAGE_ID"]) > 0 ?
 			CForumFormat::DateFormat($arParams["DATE_TIME_FORMAT"], MakeTimeStamp($res["LAST_POST_DATE"], CSite::GetDateFormat())) : "");
-
+		$res["ABS_LAST_POST_DATE"] = (intval($res["ABS_LAST_MESSAGE_ID"]) > 0 ?
+			CForumFormat::DateFormat($arParams["DATE_TIME_FORMAT"], MakeTimeStamp($res["ABS_LAST_POST_DATE"], CSite::GetDateFormat())) : "");
 		$res["URL"] = array(
 			"MODERATE_MESSAGE" => CComponentEngine::MakePathFromTemplate($arParams["URL_TEMPLATES_MESSAGE_APPR"],
 				array("FID" => $res["ID"], "TID" => "s")),
@@ -303,7 +304,6 @@ if ($this->StartResultCache($arParams["CACHE_TIME"], array($arFilterForum, $arFo
 		$arResult["FORUMS_LIST"][$res["ID"]] = $res["ID"];
 		CForumCacheManager::SetTag($this->GetCachePath(), "forum_msg_count".$res["ID"]);
 	}
-
 	$arGroups = array();
 	if (!function_exists("__array_merge"))
 	{
@@ -380,7 +380,6 @@ if ($this->StartResultCache($arParams["CACHE_TIME"], array($arFilterForum, $arFo
 
 	$arResult["FORUM"] = $arGroupForum; // out of date
 	$arResult["FORUMS"] = $arGroups;
-
 	$this->EndResultCache();
 }
 

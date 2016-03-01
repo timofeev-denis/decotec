@@ -151,6 +151,8 @@ HTML
 			"thumbSize" => 640,
 			//"properties" => (is_array($inputs) ? $inputs : array()) //TODO It is needed to deal with additional properties
 		);
+		if (isset($params['id']))
+			$this->elementSetts['id'] = $params['id'];
 		$replace = array(
 			"/\\#MESS_LOADING\\#/" => Loc::getMessage("BXU_LoadingProcess"),
 			"/\\#description\\#/" => ($this->elementSetts["edit"] == true && $this->elementSetts["description"] == true ? self::$templatePatterns["description"] : ""),
@@ -185,7 +187,10 @@ HTML
 
 		if (empty($this->uploadSetts["allowUploadExt"]) && $this->uploadSetts["allowUpload"] == "F")
 			$this->uploadSetts["allowUpload"] = "A";
-		$this->id = 'bx_file_'.strtolower(preg_replace("/[^a-z0-9]/i", "_", $this->elementSetts["name"]));
+		if (isset($this->elementSetts["id"]))
+			$this->id = 'bx_file_'.strtolower(preg_replace("/[^a-z0-9]/i", "_", $this->elementSetts["id"]));
+		else
+			$this->id = 'bx_file_'.strtolower(preg_replace("/[^a-z0-9]/i", "_", $this->elementSetts["name"]));
 
 		if ($inputs['upload'] === true)
 		{

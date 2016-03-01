@@ -21,6 +21,7 @@ $APPLICATION->SetTitle("Корзина");
 	"HIDE_COUPON" => "N",
 	"QUANTITY_FLOAT" => "N",
 	"PRICE_VAT_SHOW_VALUE" => "Y",
+	"TEMPLATE_THEME" => "site",
 	"SET_TITLE" => "Y",
 	"AJAX_OPTION_ADDITIONAL" => "",
 	"OFFERS_PROPS" => array(

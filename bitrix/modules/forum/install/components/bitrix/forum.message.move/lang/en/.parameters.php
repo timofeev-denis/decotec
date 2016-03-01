@@ -2,8 +2,6 @@
 $MESS ['F_DEFAULT_TID'] = "Topic ID";
 $MESS ['F_DEFAULT_FID'] = "Forum ID";
 $MESS ['F_DEFAULT_MID'] = "Message ID";
-$MESS ['F_DEFAULT_PATH_TO_ICON'] = "Path to \"Themes and Icons\" folder (root-relative)";
-$MESS ['F_DEFAULT_PATH_TO_SMILE'] = "Path to \"Smiles\" folder (root relative)";
 $MESS ['F_URL_TEMPLATES'] = "URL processing";
 $MESS ['F_INDEX_TEMPLATE'] = "Forums page";
 $MESS ['F_READ_TEMPLATE'] = "Topic Read page";

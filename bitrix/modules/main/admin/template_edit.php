@@ -35,9 +35,10 @@ IncludeModuleLangFile(__FILE__);
 $lpa = ($USER->CanDoOperation('lpa_template_edit') && !$edit_php); // Limit PHP access: for non admin users
 $lpa_view = !$USER->CanDoOperation('edit_other_settings') && !$USER->CanDoOperation('lpa_template_edit'); //
 
-$strError="";
-$strOK="";
+$strError = "";
+$strOK = "";
 $bVarsFromForm = false;
+$codeEditorId = false;
 
 $ID = _normalizePath($_REQUEST["ID"]);
 
@@ -444,9 +445,15 @@ $dis = (!$edit_php && !$lpa);
 ?>
 <input <?echo ($dis ? "disabled":"")?> type="submit" name="save" value="<?=GetMessage("admin_lib_edit_save")?>" title="<?=GetMessage("admin_lib_edit_save_title")?>" class="adm-btn-save">
 <input <?echo ($dis ? "disabled":"")?> type="submit" name="apply" value="<?=GetMessage("admin_lib_edit_apply")?>" title="<?GetMessage("admin_lib_edit_apply_title")?>">
-<?if (($USER->CanDoOperation('edit_other_settings') || $USER->CanDoOperation('lpa_template_edit')) && !empty($ID) && !$isEditingMessageThemePage):?>
-<input type="button" value="<?=GetMessage('FILEMAN_PREVIEW_TEMPLATE')?>" name="template_preview" onclick="preview_template('<?=htmlspecialcharsbx(CUtil::JSEscape($ID))?>', '<?= bitrix_sessid()?>');" title="<?=GetMessage('FILEMAN_PREVIEW_TEMPLATE_TITLE')?>">
-<?endif;?>
+<?
+if (($USER->CanDoOperation('edit_other_settings') || $USER->CanDoOperation('lpa_template_edit')) && !empty($ID) && !$isEditingMessageThemePage):
+	$signer = new Bitrix\Main\Security\Sign\Signer();
+	$sign = $signer->sign($ID, "template_preview".bitrix_sessid());
+?>
+<input type="button" value="<?=GetMessage('FILEMAN_PREVIEW_TEMPLATE')?>" name="template_preview" onclick="preview_template('<?=htmlspecialcharsbx(CUtil::JSEscape($ID))?>', '<?= bitrix_sessid()?>', '<?=htmlspecialcharsbx(CUtil::JSEscape($sign))?>');" title="<?=GetMessage('FILEMAN_PREVIEW_TEMPLATE_TITLE')?>">
+<?
+endif;
+?>
 <input type="button" value="<?=GetMessage("admin_lib_edit_cancel")?>" name="cancel" onClick="window.location='<?=CUtil::JSEscape($aParams["back_url"])?>'" title="<?=GetMessage("admin_lib_edit_cancel_title")?>">
 <?$tabControl->End();?>
 </form>

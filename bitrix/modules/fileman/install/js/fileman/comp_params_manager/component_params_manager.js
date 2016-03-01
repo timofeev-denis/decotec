@@ -112,6 +112,7 @@
 			function callback(data)
 			{
 				var cnt = _this.BuildComponentParams(data, params);
+				BX.adminFormTools.modifyFormElements(cnt);
 				if (params.callback && typeof params.callback == 'function')
 				{
 					params.callback({}, cnt);
@@ -553,7 +554,10 @@
 				}
 				else if (param.TYPE == "LIST")
 				{
-					value = [value];
+					if (value !== _value)
+						value = [_value];
+					else
+						value = [value];
 				}
 				else if (this.IsNum(value)) // If it's number - remove PHP brackets
 				{
@@ -699,9 +703,17 @@
 				});
 			pSelect.onchange = BX.proxy(this.OnChageParams, this);
 
+			if (param.VALUES['-'])
+			{
+				key = '-';
+				val = param.VALUES[key].toString();
+				opt = new Option(val, key, false, false);
+				pSelect.options.add(opt);
+			}
+
 			for(key in param.VALUES)
 			{
-				if (param.VALUES.hasOwnProperty(key))
+				if (param.VALUES.hasOwnProperty(key) && key !== '-')
 				{
 					val = param.VALUES[key].toString();
 					opt = new Option(val, key, false, false);
@@ -954,6 +966,7 @@
 			var oColorPicker = new this.Colorpicker({
 				id: param.ID + '_colorpicker',
 				input: pInput,
+				zIndex: 3100,
 				OnSelect: function(color)
 				{
 					pInput.value = color;

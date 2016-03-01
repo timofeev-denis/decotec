@@ -180,12 +180,15 @@ else
 		$navyParams['SIZEN'] = (int)$navyParams['SIZEN'];
 	}
 }
+$selectFields = $lAdmin->GetVisibleHeaderColumns();
+if (!in_array('ID', $selectFields))
+	$selectFields[] = 'ID';
 $getListParams = array(
-	'select' => $lAdmin->GetVisibleHeaderColumns(),
+	'select' => $selectFields,
 	'filter' => $filterValues,
 	'order' => array($by => $order)
 );
-unset($filterValues);
+unset($filterValues, $selectFields);
 if ($usePageNavigation)
 {
 	$getListParams['limit'] = $navyParams['SIZEN'];

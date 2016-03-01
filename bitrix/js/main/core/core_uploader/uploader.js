@@ -30,6 +30,21 @@
 		}
 		else
 		{
+			if (parseInt(BX.message("phpMaxFileUploads")) <= 0)
+				ii = {phpMaxFileUploads : '20'};
+			if (parseInt(BX.message('phpPostMaxSize')) <= 0)
+			{
+				ii = (ii || {});
+				ii["phpPostMaxSize"] = settings.phpPostMaxSize + '';
+			}
+			if (parseInt(BX.message('phpUploadMaxFilesize')) <= 0)
+			{
+				ii = (ii || {});
+				ii["phpUploadMaxFilesize"] = settings.phpUploadMaxFilesize + '';
+			}
+			if (ii)
+				BX.message(ii);
+
 			this.fileInput = (params["input"] === null ? null : BX(params["input"]));
 			this.controlID = this.controlId = (params["controlId"] || "bitrixUploader");
 

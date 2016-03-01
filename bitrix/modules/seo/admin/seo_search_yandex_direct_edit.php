@@ -308,7 +308,7 @@ $aTabs = array(
 	),
 );
 
-if($ID > 0 && $bShowStats)
+if($ID > 0)
 {
 	$aTabs[] = array(
 		"DIV" => "edit_stats",

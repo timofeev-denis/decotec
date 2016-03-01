@@ -72,15 +72,7 @@ $arComponentParameters = Array(
 			"MULTIPLE" => "N",
 			"DEFAULT" => '={$_REQUEST["TID"]}',
 			"COLS" => 25
-		),
-		
-		"PATH_TO_SMILE" => Array(
-			"PARENT" => "BASE",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_SMILE"),
-			"TYPE" => "STRING",
-			"MULTIPLE" => "N",
-			"DEFAULT" => "/bitrix/images/forum/smile/",
-		),
+		)
 	)
 );
 ?>

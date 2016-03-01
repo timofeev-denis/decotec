@@ -1,5 +1,5 @@
 <?php
-if (ini_get('short_open_tag') == 0)
+if (ini_get('short_open_tag') == 0 && strtoupper(ini_get('short_open_tag')) != 'ON')
 	die('Error: short_open_tag parameter must be turned on in php.ini');
 ?><?
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);

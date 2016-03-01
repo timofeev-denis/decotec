@@ -1,3 +1,6 @@
+/**
+ * @module mobileapp
+ */
 ;
 (function ()
 {
@@ -503,7 +506,7 @@
 	 * @param name
 	 * @constructor
 	 */
-	var BXCordovaPlugin = function (name, sync)
+	window.BXCordovaPlugin = function (name, sync, convertBoolean)
 	{
 		this.pluginName = name;
 		this.useSyncPlugin = (sync == true);
@@ -512,6 +515,7 @@
 		this.callbackIndex = 0;
 		this.dataBrigePath = (typeof mobileSiteDir == "undefined"?"/": mobileSiteDir) + "mobile/";
 		this.available = false;
+		this.convertBoolean = (typeof convertBoolean == "undefined" ? true: convertBoolean);
 		this.platform = null;
 		this.db = null;
 		this.isDatabaseSupported = true;
@@ -555,7 +559,6 @@
 		var convertBooleanFlag = true;
 		if((typeof convertBoolean) == "boolean")
 		{
-			console.log("NotConvert");
 			convertBooleanFlag = convertBoolean;
 		}
 
@@ -642,6 +645,11 @@
 	{
 
 		var pluginParams = {};
+
+		if(typeof convertBoolean == "undefined")
+		{
+			convertBoolean = this.convertBoolean;
+		}
 
 		if (!this.available)
 		{
@@ -1346,6 +1354,12 @@
 				}
 			}
 		}
+
+		if(typeof params.TABLE_SETTINGS.modal != "undefined")
+		{
+			params.modal = params.TABLE_SETTINGS.modal;
+		}
+
 		return this.exec("openBXTable", params);
 	};
 
@@ -2824,6 +2838,8 @@
 		this.url = params.url;
 		this.data = params.data;
 		this.processData = params.processData;
+		this.start = params.start;
+		this.preparePost = params.preparePost;
 		this.callback = params.callback;
 
 		if (params.callback_failure != 'undefined')
@@ -2842,6 +2858,8 @@
 
 		this.xhr = BX.ajax({
 			'timeout': 30,
+			'start' : this.start,
+			'preparePost' : this.preparePost,
 			'method': this.method,
 			'dataType': this.type,
 			'url': this.url,
@@ -2905,6 +2923,7 @@
 
 		if (this.abort_callback != null)
 			BX.bind(this.xhr, "abort", this.abort_callback);
+		return this.xhr;
 	}
 
 	MobileAjaxWrapper.prototype.RepeatRequest = function ()

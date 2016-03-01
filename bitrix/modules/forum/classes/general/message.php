@@ -662,7 +662,7 @@ class CAllForumMessage
 			"SELECT FM.*, ".$DB->DateToCharFunction("FM.POST_DATE", "FULL")." as POST_DATE,
 				FU.SHOW_NAME, FU.DESCRIPTION, FU.NUM_POSTS, FU.POINTS as NUM_POINTS, FU.SIGNATURE, FU.AVATAR, FU.RANK_ID,
 				".$DB->DateToCharFunction("FU.DATE_REG", "SHORT")." as DATE_REG,
-				U.EMAIL, U.PERSONAL_ICQ, U.LOGIN, U.NAME, U.SECOND_NAME, U.LAST_NAME".
+				U.EMAIL, U.PERSONAL_ICQ, U.LOGIN, U.NAME, U.SECOND_NAME, U.LAST_NAME, U.PERSONAL_PHOTO".
 				(!empty($arSqlSelect) ? ", ".implode(", ", $arSqlSelect) : "")."
 			FROM b_forum_message FM
 				LEFT JOIN b_forum_user FU ON (FM.AUTHOR_ID = FU.USER_ID)

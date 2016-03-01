@@ -104,22 +104,32 @@ class CBitrixSeoOAuthInterface extends CSocServOAuthTransport
 			)
 		));
 
-		$this->authResult = Json::decode($result);
-
-		if(isset($this->authResult["access_token"]) && $this->authResult["access_token"] <> '')
+		if($result)
 		{
-			if(
-				isset($this->authResult["refresh_token"])
-				&& $this->authResult["refresh_token"] <> ''
-			)
+			try
 			{
-				$this->refresh_token = $this->authResult["refresh_token"];
+				$this->authResult = Json::decode($result);
 			}
+			catch(\Bitrix\Main\ArgumentException $e)
+			{
+				$result = "";
+			}
+		}
 
-			$this->access_token = $this->authResult["access_token"];
-			$this->accessTokenExpires = time() + $this->authResult["expires_in"];
+		if($result)
+		{
+			if(isset($this->authResult["access_token"]) && $this->authResult["access_token"] <> '')
+			{
+				if(isset($this->authResult["refresh_token"]) && $this->authResult["refresh_token"] <> '')
+				{
+					$this->refresh_token = $this->authResult["refresh_token"];
+				}
 
-			return true;
+				$this->access_token = $this->authResult["access_token"];
+				$this->accessTokenExpires = time() + $this->authResult["expires_in"];
+
+				return true;
+			}
 		}
 
 		return false;
@@ -153,15 +163,28 @@ class CBitrixSeoOAuthInterface extends CSocServOAuthTransport
 
 		$result = $http->get($url);
 
-		$this->authResult = Json::decode($result);
-
-		if(isset($this->authResult["access_token"]) && $this->authResult["access_token"] <> '')
+		if($result)
 		{
-			$this->access_token = $this->authResult["access_token"];
-			$this->accessTokenExpires = time() + $this->authResult["expires_in"];
-			$this->refresh_token = $this->authResult["refresh_token"];
+			try
+			{
+				$this->authResult = Json::decode($result);
+			}
+			catch(\Bitrix\Main\ArgumentException $e)
+			{
+				$result = "";
+			}
+		}
 
-			return true;
+		if($result)
+		{
+			if(isset($this->authResult["access_token"]) && $this->authResult["access_token"] <> '')
+			{
+				$this->access_token = $this->authResult["access_token"];
+				$this->accessTokenExpires = time() + $this->authResult["expires_in"];
+				$this->refresh_token = $this->authResult["refresh_token"];
+
+				return true;
+			}
 		}
 
 		Service::getEngine()->clearAuthSettings();

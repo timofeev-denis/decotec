@@ -1,7 +1,5 @@
 <?
 $MESS["F_SHOW_TAGS"] = "Показывать теги";
-$MESS["F_DEFAULT_PATH_TO_SMILE"] = "Путь относительно корня сайта к папке со смайлами";
-$MESS["F_DEFAULT_PATH_TO_ICON"] = "Путь относительно корня сайта к папке с иконками к темам";
 $MESS["F_PAGE_NAVIGATION_TEMPLATE"] = "Название шаблона для вывода постраничной навигации";
 $MESS["F_THEMES"] = "Темы";
 $MESS["F_PAGE_NAVIGATION_WINDOW"] = "Количество страниц в постраничной навигации";

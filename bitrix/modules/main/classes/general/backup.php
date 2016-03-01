@@ -1253,7 +1253,7 @@ class CTar
 		if ($ar['type'] == 0 && $ar['size'] > 0) // File
 		{
 			if (!($rs = fopen($f, 'rb')))
-				return $this->Error('Error reading file: '.$f);
+				return $this->Error('Error opening file: '.$f);
 
 			if ($this->ReadBlockCurrent)
 				fseek($rs, $this->ReadBlockCurrent * 512);
@@ -1266,6 +1266,8 @@ class CTar
 				$this->ReadBlockCurrent++;
 				if (feof($rs))
 					$str = pack("a512", $str);
+				elseif (self::strlen($str) != 512)
+					return $this->Error('Error reading from file: '.$f);
 
 				if (!$this->writeBlock($str))
 				{

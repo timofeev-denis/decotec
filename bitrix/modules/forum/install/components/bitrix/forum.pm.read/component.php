@@ -66,7 +66,6 @@ if(!function_exists("GetUserName"))
 	}
 /***************** ADDITIONAL **************************************/
 	$arParams["DATE_TIME_FORMAT"] = trim(empty($arParams["DATE_TIME_FORMAT"]) ? $DB->DateFormatToPHP(CSite::GetDateFormat("FULL")) : $arParams["DATE_TIME_FORMAT"]);
-	$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
 	$arParams["NAME_TEMPLATE"] = str_replace(array("#NOBR#","#/NOBR#"), "",
 		(!empty($arParams["NAME_TEMPLATE"]) ? $arParams["NAME_TEMPLATE"] : CSite::GetDefaultNameFormat()));
 /***************** STANDART ****************************************/
@@ -89,7 +88,7 @@ if(!function_exists("GetUserName"))
 	$arResult["MESSAGE"] = array();
 	$arResult["MESSAGE_PREV"] = array();
 	$arResult["MESSAGE_NEXT"] = array();
-	$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+	$parser = new forumTextParser(LANGUAGE_ID);
 	$parser->userPath = $arParams["URL_TEMPLATES_PROFILE_VIEW"];
 	$parser->userNameTemplate = $arParams["NAME_TEMPLATE"];
 

@@ -245,13 +245,32 @@ $aTabs = array(
 	),
 );
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
-
+$bVarsFromForm = false;
 $strError = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && check_bitrix_sessid() && $isAdmin)
 {
 	CTimeZone::Disable();
-	if ($bNewRow)
+	if (isset($_REQUEST["delete"]) && $_REQUEST["delete"] != "")
+	{
+		if (!$bNewRow)
+		{
+			$res = $DB->Query("
+				delete from ".CPerfomanceTable::escapeTable($table_name)."
+				".$strWhere."
+			", true);
+			if ($res)
+			{
+				LocalRedirect("perfmon_table.php?lang=".LANGUAGE_ID."&table_name=".urlencode($table_name));
+			}
+			else
+			{
+				$strError = $DB->GetErrorMessage();
+			}
+		}
+		$bVarsFromForm = true;
+	}
+	elseif ($bNewRow)
 	{
 		$arToInsert = array();
 		foreach ($arFields as $Field => $arField)
@@ -261,12 +280,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && check_bitrix_sessid() && $isAdmin)
 				if (isset($_POST["mark_".$Field."_"]) && $_POST["mark_".$Field."_"] === "Y")
 					$arToInsert[$Field] = var_import($_POST[$Field]);
 				elseif (isset($_POST[$Field]) && strlen($_POST[$Field]) > 0)
-					$arToUpdate[$Field] = $_POST[$Field];
+					$arToInsert[$Field] = $_POST[$Field];
 				else
-					$arToUpdate[$Field] = false;
+					$arToInsert[$Field] = false;
 			}
 		}
-		$res = $DB->Add($table_name, $arToInsert);
+		$res = $DB->Add($table_name, $arToInsert, array(), "", true);
+		if (!$res)
+		{
+			$bVarsFromForm = true;
+			$strError = $DB->GetErrorMessage();
+		}
 	}
 	else
 	{
@@ -288,10 +312,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && check_bitrix_sessid() && $isAdmin)
 		if (strlen($strUpdate))
 		{
 			$res = $DB->Query("
-				update ".$table_name."
+				update ".CPerfomanceTable::escapeTable($table_name)."
 				set ".$strUpdate."
 				".$strWhere."
-			");
+			", true);
+			if (!$res)
+			{
+				$bVarsFromForm = true;
+				$strError = $DB->GetErrorMessage();
+			}
 		}
 		else
 		{
@@ -323,14 +352,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && check_bitrix_sessid() && $isAdmin)
 			LocalRedirect("perfmon_table.php?lang=".LANGUAGE_ID."&table_name=".urlencode($table_name));
 		}
 	}
-	else
-	{
-		require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
-		$message = new CAdminMessage(GetMessage("PERFMON_ROW_EDIT_SAVE_ERROR"));
-		echo $message->Show();
-		require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
-		die();
-	}
 }
 
 $APPLICATION->SetTitle(GetMessage("PERFMON_ROW_EDIT_TITLE", array("#TABLE_NAME#" => $table_name)));
@@ -345,6 +366,15 @@ $aMenu = array(
 		"ICON" => "btn_list",
 	)
 );
+if(!$bNewRow)
+{
+	$aMenu[] = array(
+		"TEXT" => GetMessage("PERFMON_ROW_EDIT_MENU_DELETE"),
+		"TITLE" => GetMessage("PERFMON_ROW_EDIT_MENU_DELETE_TITLE"),
+		"LINK" => "javascript:jsDelete('editform', '".GetMessage("PERFMON_ROW_EDIT_MENU_DELETE_CONF")."')",
+		"ICON" => "btn_delete",
+	);
+}
 $context = new CAdminContextMenu($aMenu);
 $context->Show();
 
@@ -360,6 +390,19 @@ if ($strError)
 
 ?>
 	<script>
+		function jsDelete(form_id, message)
+		{
+			var _form = document.getElementById(form_id);
+			var _flag = document.getElementById('delete');
+			if(_form && _flag)
+			{
+				if(confirm(message))
+				{
+					_flag.value = 'y';
+					_form.submit();
+				}
+			}
+		}
 		function AdjustHeight()
 		{
 			var TEXTS = BX.findChildren(BX('editform'), {tag: /^(textarea)$/i}, true);
@@ -459,42 +502,41 @@ if ($strError)
 
 	foreach ($arFields as $Field => $arField)
 	{
+		$trClass = $arField["nullable"]? "": "adm-detail-required-field";
+		?><tr class="<?echo $trClass?>"><?
+	
 		if (in_array($Field, $arIndexColumns))
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<tr>
-				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-				<td width="60%"><? echo htmlspecialcharsex($arRecord[$Field]); ?></td>
-			</tr>
+			<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
+			<td width="60%"><? echo htmlspecialcharsex($value); ?></td>
 		<?
 		}
 		elseif ($arField["type"] === "datetime")
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord["FULL_".$Field];
 			?>
-			<tr>
 			<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-			<td width="60%"><? echo CAdminCalendar::CalendarDate($Field, $arRecord["FULL_".$Field], 20, true) ?>
+			<td width="60%"><? echo CAdminCalendar::CalendarDate($Field, $value, 20, true) ?>
 		<?
 		}
 		elseif ($arField["type"] === "date")
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord["SHORT_".$Field];
 			?>
-			<tr>
 			<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-			<td width="60%"><? echo CAdminCalendar::CalendarDate($Field, $arRecord["SHORT_".$Field], 10, false) ?>
+			<td width="60%"><? echo CAdminCalendar::CalendarDate($Field, $value, 10, false) ?>
 		<?
 		}
-		elseif (
-		isset($arField["SELECT"])
-		)
+		elseif (isset($arField["SELECT"]))
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<tr>
 				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
 				<td width="60%"><?
-					echo SelectBoxFromArray($Field, $arField["SELECT"], $arRecord[$Field], $arField["nullable"]? "(null)": "");
+					echo SelectBoxFromArray($Field, $arField["SELECT"], $value, $arField["nullable"]? "(null)": "");
 					?></td>
-			</tr>
 		<?
 		}
 		elseif (
@@ -505,8 +547,8 @@ if ($strError)
 			&& !$arField["nullable"]
 		)
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<tr>
 				<td width="40%"><label
 						for="<? echo htmlspecialcharsbx($Field) ?>"
 						><? echo htmlspecialcharsbx($Field) ?></label>:
@@ -520,10 +562,9 @@ if ($strError)
 						name="<? echo htmlspecialcharsbx($Field) ?>"
 						id="<? echo htmlspecialcharsbx($Field) ?>"
 						value="Y"
-						<? if ($arRecord[$Field] === "Y")
+						<? if ($value === "Y")
 							echo 'checked="checked"' ?>
 						></td>
-			</tr>
 		<?
 		}
 		elseif (
@@ -532,25 +573,24 @@ if ($strError)
 			&& $arField["length"] <= 100
 		)
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<tr>
 				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
 				<td width="60%"><input
 						type="text"
 						maxsize="<? echo $arField["length"] ?>"
 						size="<? echo min($arField["length"], 35) ?>"
 						name="<? echo htmlspecialcharsbx($Field) ?>"
-						value="<? echo htmlspecialcharsbx($arRecord[$Field]) ?>"
+						value="<? echo htmlspecialcharsbx($value) ?>"
 						></td>
-			</tr>
 		<?
 		}
 		elseif (
 			$arField["type"] === "string"
 		)
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<tr>
 				<td width="40%" class="adm-detail-valign-top"
 					style="padding-top:14px"><? echo htmlspecialcharsbx($Field) ?>:
 				</td>
@@ -559,7 +599,7 @@ if ($strError)
 						rows="1"
 						name="<? echo htmlspecialcharsbx($Field) ?>"
 						id="<? echo htmlspecialcharsbx($Field) ?>"
-						><? echo htmlspecialcharsex($arRecord[$Field]) ?></textarea>
+						><? echo htmlspecialcharsex($value) ?></textarea>
 					<input
 						type="hidden"
 						value=""
@@ -573,7 +613,6 @@ if ($strError)
 						onclick="<? echo htmlspecialcharsbx("editAsSerialize(this, '".CUtil::JSEscape($Field)."', 'mark_".CUtil::JSEscape($Field)."_');") ?>"/>
 					<?endif;?>
 				</td>
-			</tr>
 		<?
 		}
 		elseif (
@@ -581,23 +620,26 @@ if ($strError)
 			|| $arField["type"] === "double"
 		)
 		{
+			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<tr>
 				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
 				<td width="60%"><input
 						type="text"
 						maxsize="20"
 						size="15"
 						name="<? echo htmlspecialcharsbx($Field) ?>"
-						value="<? echo htmlspecialcharsbx($arRecord[$Field]) ?>"
+						value="<? echo htmlspecialcharsbx($value) ?>"
 						></td>
-			</tr>
 		<?
 		}
-		///TODO Oracle CLOB edit
-		/*else
+		else
 		{
-		}*/
+			?>
+				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
+				<td width="60%">UNSUPPORTED DATA TYPE</td>
+			<?
+		}
+		?></tr><?
 	}
 	$tabControl->BeginNextTab();
 	?>
@@ -617,6 +659,7 @@ if ($strError)
 	?>
 	<? echo bitrix_sessid_post(); ?>
 	<input type="hidden" name="lang" value="<? echo LANGUAGE_ID ?>">
+	<input type="hidden" name="delete" id="delete" value="">
 	<?
 	$tabControl->Buttons(
 		array(

@@ -95,8 +95,7 @@ endif;
 		"CACHE_TIME" => $arParams["CACHE_TIME"],
 		
 		"TMPLT_SHOW_ADDITIONAL_MARKER"	=>	$arParams["~TMPLT_SHOW_ADDITIONAL_MARKER"],
-		"PATH_TO_ICON"	=> $arParams["PATH_TO_ICON"],
-		"SHOW_RSS" => $arParams["USE_RSS"], 
+		"SHOW_RSS" => $arParams["USE_RSS"],
 		"SHOW_AUTHOR_COLUMN" => $arParams["SHOW_AUTHOR_COLUMN"], 
 		"SEO_USER" => $arParams["SEO_USER"]
 	), $component

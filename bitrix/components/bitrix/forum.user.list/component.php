@@ -201,8 +201,8 @@ if($db_res)
 			{
 				$res["~AVATAR"] = array("ID" => $res["AVATAR"], "FILE" => CFile::GetFileArray($res["AVATAR"]));
 				$res["~AVATAR"]["HTML"] = CFile::ShowImage($res["~AVATAR"]["FILE"],
-					COption::GetOptionString("forum", "avatar_max_width", 90),
-					COption::GetOptionString("forum", "avatar_max_height", 90),
+					COption::GetOptionString("forum", "avatar_max_width", 100),
+					COption::GetOptionString("forum", "avatar_max_height", 100),
 					"border=\"0\"", "", true);
 				$res["~AVATAR"]["HTML_SMALL"] = CFile::ShowImage($res["~AVATAR"]["FILE"], 20, 20, "border=0 alt=\"\"", "", true);
 				$res["AVATAR_ARRAY"] = $res["~AVATAR"];

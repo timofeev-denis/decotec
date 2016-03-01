@@ -23,8 +23,6 @@ if (!CModule::IncludeModule("forum"))
 		$arParams["FORUM"] = $arParams["arFormParams"]["arForum"];
 		$arParams["bVarsFromForm"] = $arParams["arFormParams"]["bVarsFromForm"];
 
-		$arParams["PATH_TO_SMILE"] = $arParams["arFormParams"]["PATH_TO_SMILE"];
-		$arParams["PATH_TO_ICON"] = $arParams["arFormParams"]["PATH_TO_ICON"];
 		$arParams["CACHE_TIME"] = $arParams["arFormParams"]["CACHE_TIME"];
 	}
 /***************** BASE ********************************************/
@@ -67,6 +65,8 @@ if (!CModule::IncludeModule("forum"))
 		}
 	}
 
+	$arParams["PATH_TO_SMILE"] = "";
+	$arParams["PATH_TO_ICON"] = "";
 	$arParams["DATE_TIME_FORMAT"] = trim(empty($arParams["DATE_TIME_FORMAT"]) ? $DB->DateFormatToPHP(CSite::GetDateFormat("FULL")) : $arParams["DATE_TIME_FORMAT"]);
 	$arParams["EDITOR_CODE_DEFAULT"] = ($arParams["EDITOR_CODE_DEFAULT"] == "Y" ? "Y" : "N");
 	$arParams["AJAX_TYPE"] = ($arParams["AJAX_TYPE"] == "Y" ? "Y" : "N");
@@ -140,7 +140,7 @@ $arResult["TOPIC"] = array(
 	"TITLE_SEO" => "",
 	"TAGS" => "",
 	"DESCRIPTION" => "",
-	"ICON_ID" => "");
+	"ICON" => "");
 $arResult["QUESTIONS"] = array();
 $arResult["~QUESTIONS"] = array();
 $arResult['DATE_END'] = GetTime((time() + 30*86400));
@@ -259,7 +259,7 @@ if ($arParams["bVarsFromForm"] == "Y")
 	$arResult["TOPIC"]["TITLE_SEO"] = $_REQUEST["TITLE_SEO"];
 	$arResult["TOPIC"]["TAGS"] = $_REQUEST["TAGS"];
 	$arResult["TOPIC"]["DESCRIPTION"] = $_REQUEST["DESCRIPTION"];
-	$arResult["TOPIC"]["ICON_ID"] = $_REQUEST["ICON_ID"];
+	$arResult["TOPIC"]["ICON"] = $_REQUEST["ICON"];
 	foreach ($_REQUEST["FILES"] as $key => $val):
 		if (intVal($val) <= 0)
 			return false;
@@ -322,8 +322,7 @@ if ($arParams["MESSAGE_TYPE"]=="NEW" || $arParams["MESSAGE_TYPE"]=="EDIT" &&
 	CForumTopic::CanUserUpdateTopic($arParams["TID"], $USER->GetUserGroupArray(), $USER->GetID()))
 {
 	$arResult["SHOW_PANEL_NEW_TOPIC"] = "Y";
-	$arResult["ForumPrintIconsList"] = ForumPrintIconsList(7, "ICON_ID", $arResult["TOPIC"]["ICON_ID"], GetMessage("FPF_NO_ICON"),
-		LANGUAGE_ID, $arParams["PATH_TO_ICON"], $arParams["CACHE_TIME"]);
+	$arResult["ForumPrintIconsList"] = ForumPrintIconsList(7, $arResult["TOPIC"]["ICON"]);
 	if ($arParams["SHOW_VOTE"] == "Y")
 	{
 		$arResult["SHOW_PANEL_VOTE"] = "Y";
@@ -332,9 +331,8 @@ if ($arParams["MESSAGE_TYPE"]=="NEW" || $arParams["MESSAGE_TYPE"]=="EDIT" &&
 
 if ($arParams["FORUM"]["ALLOW_SMILES"]=="Y")
 {
-	$arResult["ForumPrintSmilesList"] = ForumPrintSmilesList($arParams["SMILE_TABLE_COLS"], LANGUAGE_ID,
-		$arParams["PATH_TO_SMILE"], $arParams["CACHE_TIME"]);
-	$arResult["SMILES"] = CForumSmile::GetByType("S", LANGUAGE_ID);
+	$arResult["ForumPrintSmilesList"] = ForumPrintSmilesList($arParams["SMILE_TABLE_COLS"], LANGUAGE_ID);
+	$arResult["SMILES"] = CForumSmile::getSmiles("S", LANGUAGE_ID);
 }
 
 if ($arResult["SHOW_SUBSCRIBE"] == "Y")

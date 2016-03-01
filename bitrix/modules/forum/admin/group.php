@@ -1,7 +1,9 @@
 <?
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/include.php");
-
+/**
+ * @var $APPLICATION CMain
+ */
 $forumModulePermissions = $APPLICATION->GetGroupRight("forum");
 if ($forumModulePermissions == "D")
 	$APPLICATION->AuthForm(GetMessage("ACCESS_DENIED"));
@@ -11,118 +13,101 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/prolog.php");
 
 $sTableID = "tbl_forum_group";
 
-$oSort = new CAdminSorting($sTableID, "ID", "asc");
+$oSort = new CAdminSorting($sTableID, "LEFT_MARGIN", "asc");
 $lAdmin = new CAdminList($sTableID, $oSort);
-
-$arFilterFields = array();
-
-$lAdmin->InitFilter($arFilterFields);
 
 $arFilter = array();
 
-if ($lAdmin->EditAction() && $forumModulePermissions >= "W")
+if ($forumModulePermissions >= "W")
 {
-	foreach ($FIELDS as $ID => $arFields)
+	if ($lAdmin->EditAction())
 	{
-		if ($ID <= 0)
-			continue;
-		if (!$lAdmin->IsUpdated($ID))
-			continue;
-		if (CForumGroup::CanUserUpdateGroup($ID, $USER->GetUserGroupArray()))
+		foreach ($_POST["FIELDS"] as $ID => $arFields)
 		{
-			if (CForumGroup::Update($ID, $arFields))
+			if ($ID > 0 && $lAdmin->IsUpdated($ID) &&
+				CForumGroup::CanUserUpdateGroup($ID, $USER->GetUserGroupArray()) &&
+				CForumGroup::Update($ID, $arFields))
 				BXClearCache(true, "bitrix/forum/group/");
 		}
 	}
-}
-
-if (($arID = $lAdmin->GroupAction()) && $forumModulePermissions >= "W")
-{
-	if ($_REQUEST['action_target']=='selected')
+	else if (($arID = $lAdmin->GroupAction()))
 	{
-		$arID = array();
-		$dbResultList = CForumGroup::GetList(
-			array($by => $order),
-			$arFilter
-		);
-		while ($arResult = $dbResultList->Fetch())
-			$arID[] = $arResult['ID'];
-	}
-
-	foreach ($arID as $ID)
-	{
-		if (strlen($ID) <= 0)
-			continue;
-
-		switch ($_REQUEST['action'])
+		if ($_REQUEST['action_target']=='selected')
 		{
-			case "delete":
-
-				@set_time_limit(0);
-
-				$DB->StartTransaction();
-
-				if (!CForumGroup::Delete($ID))
-				{
-					$DB->Rollback();
-
-					if ($ex = $APPLICATION->GetException())
-						$lAdmin->AddGroupError($ex->GetString(), $ID);
-					else
-						$lAdmin->AddGroupError(GetMessage("ERROR_DEL_GROUP"), $ID);
-				}
-
-				$DB->Commit();
-
-				break;
+			$arID = array();
+			$dbResultList = CForumGroup::GetList( array($by => $order), $arFilter );
+			while ($arResult = $dbResultList->Fetch())
+				$arID[] = $arResult['ID'];
 		}
-		
+
+		foreach ($arID as $ID)
+		{
+			if ($ID > 0)
+			{
+				switch ($_REQUEST['action'])
+				{
+					case "delete":
+
+						@set_time_limit(0);
+
+						$DB->StartTransaction();
+
+						if (!CForumGroup::Delete($ID))
+						{
+							$DB->Rollback();
+
+							if ($ex = $APPLICATION->GetException())
+								$lAdmin->AddGroupError($ex->GetString(), $ID);
+							else
+								$lAdmin->AddGroupError(GetMessage("ERROR_DEL_GROUP"), $ID);
+						}
+
+						$DB->Commit();
+
+						break;
+				}
+			}
+		}
+		BXClearCache(true, "/".LANG."/forum/group/");
 	}
-	BXClearCache(true, "/".LANG."/forum/group/");
 }
 
-$dbResultList = CForumGroup::GetList(
-	array($by => $order),
-	$arFilter
-);
-
-$dbResultList = new CAdminResult($dbResultList, $sTableID);
+$dbResultList = new CAdminResult(CForumGroup::GetList(array($by => $order), $arFilter), $sTableID);
 $dbResultList->NavStart();
 
 $lAdmin->NavText($dbResultList->GetNavPrint(GetMessage("GROUP_NAV")));
-
 $lAdmin->AddHeaders(array(
 	array("id"=>"ID", "content"=>GetMessage("GROUP_ID"), "sort"=>"ID", "default"=>true),
-	array("id"=>"NAME", "content"=>GetMessage('FORUM_NAME'),	"sort"=>"", "default"=>true),
+	array("id"=>"NAME", "content"=>GetMessage('FORUM_NAME'), "sort"=>"LEFT_MARGIN", "default"=>true),
 	array("id"=>"SORT","content"=>GetMessage("GROUP_SORT"), "sort"=>"SORT", "default"=>true, "align"=>"right"),
 ));
 
 $arVisibleColumns = $lAdmin->GetVisibleHeaderColumns();
 
 /*******************************************************************/
-while ($arGroup = $dbResultList->NavNext(true, "f_"))
+while ($group = $dbResultList->NavNext())
 {
-	$row =& $lAdmin->AddRow($f_ID, $arGroup);
+	$row =& $lAdmin->AddRow($group["ID"], $group);
 
-	$row->AddField("ID", $f_ID);
+	$row->AddField("ID", $group["ID"]);
 	$row->AddInputField("SORT", array("size" => 5));
 
 	if (in_array("NAME", $arVisibleColumns))
 	{
-		$arGroupLang = CForumGroup::GetLangByID($f_ID, LANG);
-		$fieldShow = htmlspecialcharsbx($arGroupLang["NAME"]);
-		$row->AddViewField("NAME", '<a title="'.GetMessage("FORUM_EDIT_DESCR").'" href="'."forum_group_edit.php?ID=".$f_ID."&lang=".LANG."&".GetFilterParams("filter_").'">'.$fieldShow.'</a>');
+		$arGroupLang = CForumGroup::GetLangByID($group["ID"], LANG);
+		$fieldShow = ($by == "LEFT_MARGIN" ? str_pad("", ($group["DEPTH_LEVEL"] - 1), ".") : "").htmlspecialcharsbx($arGroupLang["NAME"]);
+		$row->AddViewField("NAME", '<a title="'.GetMessage("FORUM_EDIT_DESCR").'" href="forum_group_edit.php?ID='.$group["ID"]."&lang=".LANG."&".GetFilterParams("filter_").'">'.$fieldShow.'</a>');
 	}
 
 	$arActions = Array();
 	if (($forumModulePermissions>="R") && CForumGroup::CanUserUpdateGroup(0, $USER->GetUserGroupArray()))
 	{
-		$arActions[] = array("ICON"=>"edit", "TEXT"=>GetMessage("FORUM_EDIT_DESCR"), "ACTION"=>$lAdmin->ActionRedirect("forum_group_edit.php?ID=".$f_ID."&lang=".LANG."&".GetFilterParams("filter_", false)), "DEFAULT"=>true);
+		$arActions[] = array("ICON"=>"edit", "TEXT"=>GetMessage("FORUM_EDIT_DESCR"), "ACTION"=>$lAdmin->ActionRedirect("forum_group_edit.php?ID=".$group["ID"]."&lang=".LANG."&".GetFilterParams("filter_", false)), "DEFAULT"=>true);
 	}
 	if (($forumModulePermissions >= "W") && CForumGroup::CanUserDeleteGroup(0, $USER->GetUserGroupArray()))
 	{
 		$arActions[] = array("SEPARATOR" => true);
-		$arActions[] = array("ICON"=>"delete", "TEXT"=>GetMessage("FORUM_DELETE_DESCR"), "ACTION"=>"if(confirm('".GetMessage('GROUP_DEL_CONF')."')) ".$lAdmin->ActionDoGroup($f_ID, "delete"));
+		$arActions[] = array("ICON"=>"delete", "TEXT"=>GetMessage("FORUM_DELETE_DESCR"), "ACTION"=>"if(confirm('".GetMessage('GROUP_DEL_CONF')."')) ".$lAdmin->ActionDoGroup($group["ID"], "delete"));
 	}
 
 	$row->AddActions($arActions);

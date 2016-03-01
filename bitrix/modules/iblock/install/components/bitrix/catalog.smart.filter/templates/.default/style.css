@@ -407,7 +407,7 @@ COLOR
 	display: block;
 }
 .bx-filter .bx-filter-param-label {
-	font-size: 13px;
+	/*font-size: 13px;*/
 }
 .bx-filter .bx-filter-param-label.dib {
 	display: inline-block;
@@ -431,8 +431,6 @@ COLOR
 .bx-filter .bx-filter-input-checkbox input[type=checkbox] {}
 .bx-filter .bx-filter-input-checkbox .bx-filter-param-text {
 	display: block;
-	line-height: 15px;
-	margin-left: 25px;
 	text-align: left;
 }
 /*

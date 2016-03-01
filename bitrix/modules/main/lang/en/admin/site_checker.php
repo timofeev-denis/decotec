@@ -274,8 +274,7 @@ Set the PHP time zone in <i>/bitrix/php_interface/dbconn.php</i>:
 
 Set the database time zone by adding the following code to <i>/bitrix/php_interface/after_connect_d7.php</i>:
 <code>\$connection = Bitrix\\Main\\Application::getConnection(); 
-\$connection->queryExecute(&quot;SET LOCAL time_zone='Europe/Moscow'&quot;);</code>
-(use your region and city).
+\$connection->queryExecute(&quot;SET LOCAL time_zone='&quot;.date('P').&quot;'&quot;);</code>
 
 Please refer to http://en.wikipedia.org/wiki/List_of_tz_database_time_zones to find a correct standard value for your region and city.";
 $MESS["SC_HELP_CHECK_MYSQL_MODE"] = "The parameter <i>sql_mode</i> specifies the MySQL operation mode. Note that it may accept values incompatible with Bitrix solutions. Add the following code to <i>/bitrix/php_interface/after_connect_d7.php</I> to set the default mode:

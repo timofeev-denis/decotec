@@ -1,20 +1,11 @@
 <?
 IncludeModuleLangFile(__FILE__); 
-// Get Info about Smiles
 $SHOW = array(
-	"SMILES" => "Y",
 	"FILTER" => "Y",
 	"SEARCH" => ((IsModuleInstalled("search") && 
 		($DB->TableExists("b_forum_message") || $DB->TableExists("B_FORUM_MESSAGE"))) ? "Y" : "N"));
 
-if ($DB->TableExists("b_forum_smile") || $DB->TableExists("B_FORUM_SMILE"))
-{
-	$db_res = $DB->Query("SELECT * FROM b_forum_smile", true);
-	if ($db_res && $db_res->Fetch())
-		$SHOW["SMILES"] = "N";
-}
-
-if (($GLOBALS["DB"]->TableExists("b_forum_dictionary") || $GLOBALS["DB"]->TableExists("B_FORUM_DICTIONARY")) && 
+if (($GLOBALS["DB"]->TableExists("b_forum_dictionary") || $GLOBALS["DB"]->TableExists("B_FORUM_DICTIONARY")) &&
 	($GLOBALS["DB"]->TableExists("b_forum_filter") || $GLOBALS["DB"]->TableExists("B_FORUM_FILTER")))
 {
 		$tmp_res_q = $GLOBALS["DB"]->Query(
@@ -47,10 +38,6 @@ if ($db_res && ($res = $db_res->Fetch()))
 	
 	<table class="filter-form" cellpadding="3" cellspacing="0" border="0" width="0%">
 	<?
-	if ($SHOW["SMILES"] == "Y"):?>
-		<tr><td><input type="checkbox" name="INSTALL_SMILES" value="Y" id="INSTALL_SMILES" checked="checked" /></td>
-			<td><label for="INSTALL_SMILES"><?=GetMessage("FORUM_INSTALL_SMILE")?></label></td></tr><?
-	endif;
 	if ($SHOW["FILTER"] == "Y"):?>
 		<tr><td><input type="checkbox" name="INSTALL_FILTER" id="INSTALL_FILTER" value="Y"  checked="checked" /></td>
 		<td><label for="INSTALL_FILTER"><?=GetMessage("FORUM_INSTALL_FILTER")?></label></td></tr><?

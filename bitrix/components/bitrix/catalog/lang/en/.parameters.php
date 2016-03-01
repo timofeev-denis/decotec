@@ -151,7 +151,6 @@ $MESS["USE_REVIEW_TIP"] = "Displays a feedback form on a catalog item details pa
 $MESS["USE_COMPARE_TIP"] = "Checking this option gives visitors an opportunity to compare catalog elements (by clicking <b>Compare</b>).";
 $MESS["SHOW_TOP_ELEMENTS_TIP"] = "If checked, the top-rated elements of an information block will be displayed.";
 $MESS["PAGE_ELEMENT_COUNT_TIP"] = "Defines the number of elements per page. Other elements will be available via the breadcrumb navigation.";
-$MESS["LINE_ELEMENT_COUNT_TIP"] = "Defines the number of elements per row when displaying elements of a section.";
 $MESS["ELEMENT_SORT_FIELD_TIP"] = "The fields by which items are to be sorted within a section.";
 $MESS["ELEMENT_SORT_ORDER_TIP"] = "Defines the sorting order.";
 $MESS["LIST_PROPERTY_CODE_TIP"] = "Select information block properties that you want to display in an element list. Selecting <i>none</i> and not specifying property codes below will cause properties to be not displayed.";
@@ -227,4 +226,5 @@ $MESS["CP_BC_SEF_MODE_SMART_FILTER"] = "Smart filter URL";
 $MESS["CP_BC_VARIABLE_ALIASES_SMART_FILTER_PATH"] = "Smart filter parameters";
 $MESS["CP_BC_DETAIL_BACKGROUND_IMAGE"] = "Use property provided background image as background";
 $MESS["CP_BC_SECTION_BACKGROUND_IMAGE"] = "Use property provided background image as background";
+$MESS["LINE_ELEMENT_COUNT_TIP"] = "This value specifies the number of items per row when displaying the section elements.  The default template can use values from 2 to 5.";
 ?>

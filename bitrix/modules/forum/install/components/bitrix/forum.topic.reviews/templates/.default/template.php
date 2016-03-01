@@ -276,7 +276,7 @@ if (!empty($arResult["MESSAGE_VIEW"])):
 <?
 endif;
 ?>
-<script type="application/javascript">
+<script type="text/javascript">
 	BX.ready(function(){
 		BX.message({
 			no_topic_name : '<?=GetMessageJS("JERROR_NO_TOPIC_NAME")?>',

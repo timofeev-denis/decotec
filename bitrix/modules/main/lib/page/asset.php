@@ -1057,8 +1057,7 @@ class Asset
 		static $firstExec = true;
 		if($firstExec && !$this->ajax && (!defined("ADMIN_SECTION") || ADMIN_SECTION !== true))
 		{
-			$bxPreviewMode = \Bitrix\Main\Application::getInstance()->getContext()->getRequest()->get('bx_template_preview_mode');
-			if(isset($bxPreviewMode) && $bxPreviewMode == 'Y' && $USER->CanDoOperation('edit_other_settings'))
+			if(defined("SITE_TEMPLATE_PREVIEW_MODE"))
 			{
 				$this->templatePath = BX_PERSONAL_ROOT.'/tmp/templates/__bx_preview';
 			}

@@ -259,15 +259,15 @@ CREATE TABLE b_module_to_module
 	TIMESTAMP_X TIMESTAMP not null,
 	SORT INT(18) not null default '100',
 	FROM_MODULE_ID VARCHAR(50) not null,
-	MESSAGE_ID VARCHAR(50) not null,
+	MESSAGE_ID VARCHAR(255) not null,
 	TO_MODULE_ID VARCHAR(50) not null,
 	TO_PATH VARCHAR(255),
-	TO_CLASS VARCHAR(50),
-	TO_METHOD VARCHAR(50),
+	TO_CLASS VARCHAR(255),
+	TO_METHOD VARCHAR(255),
 	TO_METHOD_ARG varchar(255),
 	VERSION int(18) null,
 	PRIMARY KEY (ID),
-	INDEX ix_module_to_module(FROM_MODULE_ID, MESSAGE_ID, TO_MODULE_ID, TO_CLASS, TO_METHOD)
+	INDEX ix_module_to_module(FROM_MODULE_ID(20), MESSAGE_ID(20), TO_MODULE_ID(20), TO_CLASS(20), TO_METHOD(20))
 );
 
 CREATE TABLE b_agent
@@ -817,7 +817,8 @@ CREATE TABLE b_user_counter
 	SENT char(1) null,
 	PRIMARY KEY (USER_ID, SITE_ID, CODE),
 	INDEX ix_buc_tag (TAG),
-	INDEX ix_buc_sent (SENT)
+	INDEX ix_buc_sent (SENT),
+	INDEX ix_buc_code (CODE)
 );
 
 CREATE TABLE b_hot_keys_code

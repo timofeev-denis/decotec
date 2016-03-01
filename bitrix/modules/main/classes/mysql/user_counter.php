@@ -116,6 +116,9 @@ class CUserCounter extends CAllUserCounter
 		return true;
 	}
 
+	/**
+	* @deprecated
+	*/
 	public static function Decrement($user_id, $code, $site_id = SITE_ID, $sendPull = true, $decrement = 1)
 	{
 		global $DB, $CACHE_MANAGER;
@@ -236,40 +239,26 @@ class CUserCounter extends CAllUserCounter
 					$arSites = Array();
 					$res = CSite::GetList(($b = ""), ($o = ""), Array("ACTIVE" => "Y"));
 					while($row = $res->Fetch())
+					{
 						$arSites[] = $row['ID'];
+					}
 
 					$strSQL = "
-						SELECT distinct pc.CHANNEL_ID, uc1.USER_ID, uc1.SITE_ID, uc1.CODE, uc1.CNT
+						SELECT distinct pc.CHANNEL_ID, uc.USER_ID, uc.SITE_ID, uc.CODE, uc.CNT
 						FROM b_user_counter uc
-						INNER JOIN b_user_counter uc1 ON uc1.USER_ID = uc.USER_ID AND uc1.CODE = uc.CODE
 						INNER JOIN b_pull_channel pc ON pc.USER_ID = uc.USER_ID
 						WHERE uc.SENT = '0'
 					";
+
 					$res = $DB->Query($strSQL, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
 
 					$pullMessage = Array();
 					while($row = $res->Fetch())
 					{
-						if ($row['SITE_ID'] == self::ALL_SITES)
-						{
-							foreach($arSites as $siteId)
-							{
-								if (isset($pullMessage[$row['CHANNEL_ID']][$siteId][$row['CODE']]))
-									$pullMessage[$row['CHANNEL_ID']][$siteId][$row['CODE']] += intval($row['CNT']);
-								else
-									$pullMessage[$row['CHANNEL_ID']][$siteId][$row['CODE']] = intval($row['CNT']);
-							}
-						}
-						else
-						{
-							if (isset($pullMessage[$row['CHANNEL_ID']][$row['SITE_ID']][$row['CODE']]))
-								$pullMessage[$row['CHANNEL_ID']][$row['SITE_ID']][$row['CODE']] += intval($row['CNT']);
-							else
-								$pullMessage[$row['CHANNEL_ID']][$row['SITE_ID']][$row['CODE']] = intval($row['CNT']);
-						}
+						CUserCounter::addValueToPullMessage($row, $arSites, $pullMessage);
 					}
 
-					$DB->Query("UPDATE b_user_counter SET SENT = '1' WHERE SENT = '0'");
+					$DB->Query("UPDATE b_user_counter SET SENT = '1' WHERE SENT = '0' AND CODE NOT LIKE '**L%'");
 					$DB->Query("SELECT RELEASE_LOCK('".$APPLICATION->GetServerUniqID()."_pull')");
 
 					foreach ($pullMessage as $channelId => $arMessage)
@@ -285,31 +274,74 @@ class CUserCounter extends CAllUserCounter
 		}
 	}
 
-
-	public static function Clear($user_id, $code, $site_id = SITE_ID, $sendPull = true)
+	public static function Clear($user_id, $code, $site_id = SITE_ID, $sendPull = true, $bMultiple = false)
 	{
 		global $DB, $CACHE_MANAGER;
 
 		$user_id = intval($user_id);
-		if ($user_id < 0 || strlen($code) <= 0)
-			return false;
-
-		if (!is_array($site_id))
-			$site_id = array($site_id);
-
-		$strSQL = "
-			INSERT INTO b_user_counter (USER_ID, SITE_ID, CODE, CNT, LAST_DATE) VALUES ";
-
-		foreach ($site_id as $i => $site_id_tmp)
+		if (
+			$user_id < 0
+			|| strlen($code) <= 0
+		)
 		{
-			if ($i > 0)
-				$strSQL .= ",";
-			$strSQL .= " (".$user_id.", '".$DB->ForSQL($site_id_tmp)."', '".$DB->ForSQL($code)."', 0, ".$DB->CurrentTimeFunction().") ";
+			return false;
 		}
 
-		$strSQL .= " ON DUPLICATE KEY UPDATE CNT = 0, LAST_DATE = ".$DB->CurrentTimeFunction();
+		if (!is_array($site_id))
+		{
+			$site_id = array($site_id);
+		}
 
-		$res = $DB->Query($strSQL, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+		if ($bMultiple)
+		{
+			$siteToDelete = "";
+			$strUpsertSQL = "
+				INSERT INTO b_user_counter (USER_ID, SITE_ID, CODE, CNT, LAST_DATE) VALUES ";
+
+			foreach ($site_id as $i => $site_id_tmp)
+			{
+				if ($i > 0)
+				{
+					$strUpsertSQL .= ",";
+					$siteToDelete .= ",";
+				}
+
+				$siteToDelete .= "'".$DB->ForSQL($site_id_tmp)."'";
+				$strUpsertSQL .= " (".$user_id.", '".$DB->ForSQL($site_id_tmp)."', '".$DB->ForSQL($code)."', 0, ".$DB->CurrentTimeFunction().") ";
+			}
+			$strUpsertSQL .= " ON DUPLICATE KEY UPDATE CNT = 0, LAST_DATE = ".$DB->CurrentTimeFunction();
+
+			$strDeleteSQL = "
+				DELETE FROM b_user_counter
+				WHERE
+					USER_ID = ".$user_id."
+					".(
+						count($site_id) == 1
+							? " AND SITE_ID = '".$site_id[0]."' "
+							: " AND SITE_ID IN (".$siteToDelete.") "
+					)."
+					AND CODE LIKE '".$DB->ForSQL($code)."L%'
+				";
+
+			$DB->Query($strDeleteSQL, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+			$DB->Query($strUpsertSQL, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+		}
+		else
+		{
+			$strSQL = "
+				INSERT INTO b_user_counter (USER_ID, SITE_ID, CODE, CNT, LAST_DATE) VALUES ";
+
+			foreach ($site_id as $i => $site_id_tmp)
+			{
+				if ($i > 0)
+					$strSQL .= ",";
+				$strSQL .= " (".$user_id.", '".$DB->ForSQL($site_id_tmp)."', '".$DB->ForSQL($code)."', 0, ".$DB->CurrentTimeFunction().") ";
+			}
+
+			$strSQL .= " ON DUPLICATE KEY UPDATE CNT = 0, LAST_DATE = ".$DB->CurrentTimeFunction();
+
+			$res = $DB->Query($strSQL, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+		}
 
 		if (self::$counters && self::$counters[$user_id])
 		{
@@ -338,15 +370,84 @@ class CUserCounter extends CAllUserCounter
 		return true;
 	}
 
+
+	public static function DeleteByCode($code)
+	{
+		global $DB, $APPLICATION, $CACHE_MANAGER;
+
+		if (strlen($code) <= 0)
+		{
+			return false;
+		}
+
+		$pullMessage = Array();
+		$bPullEnabled = false;
+
+		if (self::CheckLiveMode())
+		{
+			$db_lock = $DB->Query("SELECT GET_LOCK('".$APPLICATION->GetServerUniqID()."_pull', 0) as L");
+			$ar_lock = $db_lock->Fetch();
+			if ($ar_lock["L"] > 0)
+			{
+				$bPullEnabled = true;
+
+				$arSites = Array();
+				$res = CSite::GetList(($b = ""), ($o = ""), Array("ACTIVE" => "Y"));
+				while($row = $res->Fetch())
+				{
+					$arSites[] = $row['ID'];
+				}
+
+				$strSQL = "
+					SELECT distinct pc.CHANNEL_ID, uc.USER_ID, uc.SITE_ID, uc.CODE, uc.CNT
+					FROM b_user_counter uc
+					INNER JOIN b_pull_channel pc ON pc.USER_ID = uc.USER_ID
+					WHERE uc.CODE LIKE '**%'
+				";
+
+				$res = $DB->Query($strSQL, false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+
+				while($row = $res->Fetch())
+				{
+					if ($row["CODE"] == $code)
+					{
+						continue;
+					}
+
+					CUserCounter::addValueToPullMessage($row, $arSites, $pullMessage);
+				}
+			}
+		}
+
+		$DB->Query("DELETE FROM b_user_counter WHERE CODE = '".$code."'", false, "FILE: ".__FILE__."<br> LINE: ".__LINE__);
+
+		self::$counters = false;
+		$CACHE_MANAGER->CleanDir("user_counter");
+
+		if ($bPullEnabled)
+		{
+			$DB->Query("SELECT RELEASE_LOCK('".$APPLICATION->GetServerUniqID()."_pull')");
+		}
+
+		foreach ($pullMessage as $channelId => $arMessage)
+		{
+			CPullStack::AddByChannel($channelId, Array(
+				'module_id' => 'main',
+				'command' => 'user_counter',
+				'params' => $arMessage,
+			));
+		}
+	}
+
 	protected static function dbIF($condition, $yes, $no)
 	{
 		return "if(".$condition.", ".$yes.", ".$no.")";
 	}
 
 	// legacy function
-	public static function ClearByUser($user_id, $site_id = SITE_ID, $code = self::ALL_SITES)
+	public static function ClearByUser($user_id, $site_id = SITE_ID, $code = self::ALL_SITES, $bMultiple = false)
 	{
-		return self::Clear($user_id, $code, $site_id);
+		return self::Clear($user_id, $code, $site_id, true, $bMultiple);
 	}
 }
 ?>

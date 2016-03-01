@@ -79,7 +79,12 @@ if ($lAdmin->GroupAction() && $RIGHT >= "W")
 				{
 					$strSql = "delete from ".$table_name." WHERE 1=1 ";
 					foreach ($arRowPK as $column => $value)
-						$strSql .= " AND ".$column."='".$DB->ForSQL($value)."'";
+					{
+						if (strlen($value))
+							$strSql .= " AND ".$column."='".$DB->ForSQL($value)."'";
+						else
+							$strSql .= " AND (".$column."='".$DB->ForSQL($value)."' or ".$column." is null)";
+					}
 					$DB->Query($strSql);
 					break;
 				}
@@ -168,6 +173,17 @@ CTimeZone::Disable();
 $rsData = $obTable->GetList($arSelectedFields, $arFilter, array($by => $order), array("nPageSize" => CAdminResult::GetNavSize($sTableID)));
 CTimeZone::Enable();
 
+function TableExists($tableName)
+{
+	global $DB;
+	static $cache = array();
+	if (!isset($cache[$tableName]))
+	{
+		$cache[$tableName] = $DB->TableExists($tableName);
+	}
+	return $tableName;
+}
+
 $rsData = new CAdminResult($rsData, $sTableID);
 $rsData->NavStart();
 $lAdmin->NavText($rsData->GetNavPrint(GetMessage("PERFMON_TABLE_PAGE")));
@@ -203,7 +219,7 @@ while ($arRes = $rsData->Fetch()):
 				$val = htmlspecialcharsbx($arRes[$FIELD_NAME]);
 			}
 
-			if (array_key_exists($FIELD_NAME, $arParents) && $DB->TableExists($arParents[$FIELD_NAME]["PARENT_TABLE"]))
+			if (array_key_exists($FIELD_NAME, $arParents) && TableExists($arParents[$FIELD_NAME]["PARENT_TABLE"]))
 				$val = '<a onmouseover="addTimer(this)" onmouseout="removeTimer(this)" href="perfmon_table.php?set_filter=Y&table_name='.$arParents[$FIELD_NAME]["PARENT_TABLE"].'&find='.urlencode($arRes[$FIELD_NAME]).'&find_type='.$arParents[$FIELD_NAME]["PARENT_COLUMN"].'">'.$val.'</a>';
 
 			$row->AddViewField($FIELD_NAME, $val);
@@ -237,7 +253,7 @@ while ($arRes = $rsData->Fetch()):
 		$arActions[] = array("SEPARATOR" => true);
 		foreach ($arChildren as $arChild)
 		{
-			if (CPerfomanceTable::IsExists($arChild["CHILD_TABLE"]))
+			if (TableExists($arChild["CHILD_TABLE"]))
 			{
 				$arActions[] = array(
 					"ICON" => "",
@@ -285,7 +301,7 @@ if (count($arLastTables) > 0)
 	ksort($arLastTables);
 	foreach ($arLastTables as $table => $flag)
 	{
-		if ($DB->TableExists($table))
+		if (TableExists($table))
 			$ar["MENU"][] = array(
 				"TEXT" => $table,
 				"ACTION" => $lAdmin->ActionRedirect("perfmon_table.php?table_name=".$table),

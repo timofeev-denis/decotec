@@ -85,7 +85,7 @@ if(!function_exists("GetUserName"))
 /***************** ADDITIONAL **************************************/
 	$arParams["NAME_TEMPLATE"] = str_replace(array("#NOBR#","#/NOBR#"), "",
 		(!empty($arParams["NAME_TEMPLATE"]) ? $arParams["NAME_TEMPLATE"] : CSite::GetDefaultNameFormat()));
-	$arParams["PATH_TO_SMILE"] = trim($arParams["PATH_TO_SMILE"]);
+	$arParams["PATH_TO_SMILE"] = "";
 	$arParams["EDITOR_CODE_DEFAULT"] = ($arParams["EDITOR_CODE_DEFAULT"] == "Y" ? "Y" : "N");
 	$arParams["AUTOSAVE"] = CForumAutosave::GetInstance();
 /***************** STANDART ****************************************/
@@ -305,8 +305,8 @@ if (($resFolder) && ($resF = $resFolder->GetNext()))
 // Info about current user
 $arResult["CurrUser"]["SHOW_NAME"] = trim($USER->GetFormattedName(false));
 $arResult["CurrUser"]["SHOW_NAME"] = (empty($arResult["CurrUser"]["SHOW_NAME"]) ? $USER->GetLogin() : $USER->GetFormattedName(false));
-$arResult["ForumPrintSmilesList"] = ForumPrintSmilesList(3, LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
-$arResult["SMILES"] = CForumSmile::GetByType("S", LANGUAGE_ID);
+$arResult["ForumPrintSmilesList"] = ForumPrintSmilesList(3, LANGUAGE_ID);
+$arResult["SMILES"] =  CForumSmile::getSmiles("S", LANGUAGE_ID);
 $arResult["FolderName"] = ($arParams["FID"] <= $arResult["SystemFolder"]) ?
 	GetMessage("PM_FOLDER_ID_".$arParams["FID"]) : $arResult["UserFolder"][$arParams["FID"]]["TITLE"];
 // *****************************************************************************************
@@ -332,7 +332,7 @@ elseif ($bVarsFromForm)
 	$arResult["POST_VALUES"]["~POST_MESSAGE"] = $_REQUEST["POST_MESSAGE"];
 	$arResult["POST_VALUES"]["POST_MESSAGE"] = htmlspecialcharsEx($_REQUEST["POST_MESSAGE"]);
 	$arResult["POST_VALUES"]["USER_ID"] = htmlspecialcharsEx($_REQUEST["USER_ID"]);
-	$arResult["POST_VALUES"]["USE_SMILES"] = ($_POST["USE_SMILES"] != "Y" ? "Y" : "N");
+	$arResult["POST_VALUES"]["USE_SMILES"] = ($_POST["USE_SMILES"] != "Y" ? "N" : "Y");
 }
 elseif ($arParams["UID"] > 0) 
 {

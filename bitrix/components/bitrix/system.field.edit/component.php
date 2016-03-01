@@ -128,6 +128,8 @@ if($arUserField["USER_TYPE"])
 
 	$arParams["form_name"] = !empty($arParams["form_name"]) ? $arParams["form_name"] : "form1";
 
+	$arResult["RANDOM"] = $this->randString();
+
 	$APPLICATION->AddHeadScript($this->getPath()."/script.js");
 
 	$this->IncludeComponentTemplate();

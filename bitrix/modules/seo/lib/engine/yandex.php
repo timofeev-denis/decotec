@@ -451,7 +451,7 @@ EOT;
 				$queryResult = $this->queryOld(
 					$this->engineSettings['SITES'][$domain]['SERVICES'][self::HOST_VERIFY],
 					"PUT",
-					"<host><type>TXT_FILE</type></host>"
+					"<host><type>HTML_FILE</type></host>"
 				);
 
 				if($queryResult->status == self::HTTP_STATUS_OK || $queryResult->status == self::HTTP_STATUS_NO_CONTENT)

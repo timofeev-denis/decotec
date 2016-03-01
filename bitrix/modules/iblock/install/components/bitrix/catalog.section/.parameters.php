@@ -67,11 +67,12 @@ $arSProperty_LNS = array();
 $arSProperty_F = array();
 if ($iblockExists)
 {
-	$arUserFields = $USER_FIELD_MANAGER->GetUserFields('IBLOCK_'.$arCurrentValues['IBLOCK_ID'].'_SECTION');
+	$arUserFields = $USER_FIELD_MANAGER->GetUserFields('IBLOCK_'.$arCurrentValues['IBLOCK_ID'].'_SECTION', 0, LANGUAGE_ID);
 
 	foreach( $arUserFields as $FIELD_NAME => $arUserField)
 	{
-		$arProperty_UF[$FIELD_NAME] = $arUserField["LIST_COLUMN_LABEL"] ? $arUserField["LIST_COLUMN_LABEL"]: $FIELD_NAME;
+		$arUserField['LIST_COLUMN_LABEL'] = (string)$arUserField['LIST_COLUMN_LABEL'];
+		$arProperty_UF[$FIELD_NAME] = $arUserField['LIST_COLUMN_LABEL'] ? '['.$FIELD_NAME.']'.$arUserField['LIST_COLUMN_LABEL'] : $FIELD_NAME;
 		if ($arUserField["USER_TYPE"]["BASE_TYPE"] == "string")
 			$arSProperty_LNS[$FIELD_NAME] = $arProperty_UF[$FIELD_NAME];
 		if ($arUserField["USER_TYPE"]["BASE_TYPE"] == "file" && $arUserField['MULTIPLE'] == 'N')
@@ -337,12 +338,6 @@ $arComponentParameters = array(
 		"USE_MAIN_ELEMENT_SECTION" => array(
 			"PARENT" => "ADDITIONAL_SETTINGS",
 			"NAME" => GetMessage("CP_BCS_USE_MAIN_ELEMENT_SECTION"),
-			"TYPE" => "CHECKBOX",
-			"DEFAULT" => "N",
-		),
-		"ADD_SECTIONS_CHAIN" => array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("CP_BCS_ADD_SECTIONS_CHAIN"),
 			"TYPE" => "CHECKBOX",
 			"DEFAULT" => "N",
 		),

@@ -1,4 +1,5 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+/** @global CMain $APPLICATION */
 CJSCore::Init(array("image"));?>
 <script>
 BX.ready( function(){
@@ -305,7 +306,7 @@ else
 						<?if ($arParams["SHOW_RATING"] == "Y"):?>
 						<div class="blog-post-rating rating_vote_graphic">
 						<?
-						$GLOBALS["APPLICATION"]->IncludeComponent(
+						$GLOBALS['APPLICATION']->IncludeComponent(
 							"bitrix:rating.vote", $arParams["RATING_TYPE"],
 							Array(
 								"ENTITY_TYPE_ID" => "BLOG_COMMENT",
@@ -318,6 +319,7 @@ else
 								"TOTAL_NEGATIVE_VOTES" => $arParams["RATING"][$comment["ID"]]["TOTAL_NEGATIVE_VOTES"],
 								"TOTAL_VALUE" => $arParams["RATING"][$comment["ID"]]["TOTAL_VALUE"],
 								"PATH_TO_USER_PROFILE" => $arParams["~PATH_TO_USER"],
+								"AJAX_MODE" => "Y"
 							),
 							$arParams["component"],
 							array("HIDE_ICONS" => "Y")

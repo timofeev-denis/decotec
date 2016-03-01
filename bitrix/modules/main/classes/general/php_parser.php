@@ -83,13 +83,19 @@ class PHPParser
 				$p = strpos($el, "=>");
 				if ($p === false)
 				{
-					PHPParser::GetParamsRec($el, $arAllStr, $arResult[$i]);
+					if(is_array($arResult))
+					{
+						PHPParser::GetParamsRec($el, $arAllStr, $arResult[$i]);
+					}
+					else
+					{
+						$arResult = PHPParser::ReplString($el, $arAllStr);
+					}
 				}
 				else
 				{
 					$el_ind = PHPParser::ReplString(substr($el, 0, $p), $arAllStr);
 					$el_val = substr($el, $p + 2);
-
 					PHPParser::GetParamsRec($el_val, $arAllStr, $arResult[$el_ind]);
 				}
 			}

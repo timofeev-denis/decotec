@@ -1,36 +1,20 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-if (!CModule::IncludeModule("forum")):
-	ShowError(GetMessage("F_NO_MODULE"));
-	return 0;
-elseif (intVal($arParams["FORUM_ID"]) <= 0):
-	ShowError(GetMessage("F_ERR_FID_EMPTY"));
-	return 0;
-elseif (empty($arParams["ENTITY_TYPE"])):
-	ShowError(GetMessage("F_ERR_ENT_EMPTY"));
-	return 0;
-elseif (strlen(trim($arParams["ENTITY_TYPE"])) !== 2 ):
-	ShowError(GetMessage("F_ERR_ENT_INVALID"));
-	return 0;
-elseif (empty($arParams["ENTITY_XML_ID"]) || (intval($arParams['ENTITY_ID']) <= 0 && $arParams['ENTITY_ID'] !== 0)):
-	ShowError(GetMessage("F_ERR_EID_EMPTY"));
-	return 0;
-endif;
-$arResult["FORUM"] = CForumNew::GetByIDEx($arParams["FORUM_ID"], SITE_ID);
-if (empty($arResult["FORUM"]))
-{
-	ShowError(str_replace("#FORUM_ID#", $arParams["FORUM_ID"], GetMessage("F_ERR_FID_IS_NOT_EXIST")));
-	return false;
-}
+/**
+ * @var $this CBitrixComponent
+ * @var $USER CUser
+ * @var $DB CDataBase
+ * @var $arParams array
+ * @var $arResult array
+ * @var $this->capcha CCaptcha
+ */
 /********************************************************************
 				Input params
 ********************************************************************/
-
 /***************** BASE ********************************************/
 
-$arParams["FORUM_ID"] = intVal($arParams["FORUM_ID"]);
+$arParams["FORUM_ID"] = intval($arParams["FORUM_ID"]);
 
 /***************** URL *********************************************/
-
 $URL_NAME_DEFAULT = array(
 		"profile_view" => "PAGE_NAME=profile_view&UID=#UID#",
 	);
@@ -43,49 +27,50 @@ foreach ($URL_NAME_DEFAULT as $URL => $URL_VALUE)
 }
 
 /***************** ADDITIONAL **************************************/
-
 $arParams["EDITOR_CODE_DEFAULT"] = ($arParams["EDITOR_CODE_DEFAULT"] == "Y" ? "Y" : "N");
 $arParams["SHOW_MINIMIZED"] = ($arParams["SHOW_MINIMIZED"] == "Y" ? "Y" : "N");
-$arParams["SUBSCRIBE_AUTHOR_ELEMENT"] = ($arParams["SUBSCRIBE_AUTHOR_ELEMENT"] == "Y" ? "Y" : "N");
 $arParams["IMAGE_SIZE"] = (intVal($arParams["IMAGE_SIZE"]) > 0 ? $arParams["IMAGE_SIZE"] : 600);
 $arParams["IMAGE_HTML_SIZE"] = intval($arParams["IMAGE_HTML_SIZE"]);
 $arParams["IMAGE_HTML_SIZE"] = ($arParams["IMAGE_SIZE"] > $arParams["IMAGE_HTML_SIZE"] && $arParams["IMAGE_HTML_SIZE"] > 0 ? $arParams["IMAGE_HTML_SIZE"] : 0);
 $arParams["MESSAGES_PER_PAGE"] = intVal($arParams["MESSAGES_PER_PAGE"] > 0 ? $arParams["MESSAGES_PER_PAGE"] : COption::GetOptionString("forum", "MESSAGES_PER_PAGE", "10"));
 $arParams["DATE_TIME_FORMAT"] = trim(empty($arParams["DATE_TIME_FORMAT"]) ? $DB->DateFormatToPHP(CSite::GetDateFormat("FULL")) : $arParams["DATE_TIME_FORMAT"]);
 $arParams["NAME_TEMPLATE"] = empty($arParams["NAME_TEMPLATE"]) ? "" : str_replace(array("#NOBR#","#/NOBR#"), array("",""), $arParams["NAME_TEMPLATE"]);
-$arParams["USE_CAPTCHA"] = ($arParams["USE_CAPTCHA"] == "Y" ? "Y" : "N");
 $arParams["PREORDER"] = ($arParams["PREORDER"] == "Y" ? "Y" : "N");
-$arParams["PERMISSION"] = (isset($arParams['PERMISSION']) ? $arParams['PERMISSION'] : null);
+
 $arParams["SHOW_RATING"] = ($arParams["SHOW_RATING"] == "Y" ? "Y" : "N");
 $arParams["PAGE_NAVIGATION_TEMPLATE"] = trim($arParams["PAGE_NAVIGATION_TEMPLATE"]);
 $arParams["PAGE_NAVIGATION_TEMPLATE"] = (!empty($arParams["PAGE_NAVIGATION_TEMPLATE"]) ? $arParams["PAGE_NAVIGATION_TEMPLATE"] : "modern");
-if ($arParams['AUTOSAVE'] !== false)
+if ($arParams["AUTOSAVE"])
 	$arParams["AUTOSAVE"] = CForumAutosave::GetInstance();
 
-$arEditParams = array("ALLOW_HTML", "ALLOW_ANCHOR", "ALLOW_BIU", "ALLOW_IMG",
-	"ALLOW_VIDEO", "ALLOW_LIST", "ALLOW_QUOTE", "ALLOW_CODE", "ALLOW_FONT",
-	"ALLOW_SMILES", "ALLOW_NL2BR", "ALLOW_TABLE", "ALLOW_MENTION", "ALLOW_ALIGN");
-$arParams["ALLOW"] = array_intersect_key($arParams, array_flip($arEditParams));
-foreach ($arEditParams as $sName)
+$arParams["ALLOW"] = array_flip(array(
+		"ALLOW_HTML",
+		"ALLOW_ANCHOR",
+		"ALLOW_BIU",
+		"ALLOW_IMG",
+		"ALLOW_VIDEO",
+		"ALLOW_LIST",
+		"ALLOW_QUOTE",
+		"ALLOW_CODE",
+		"ALLOW_FONT",
+		"ALLOW_SMILES",
+		"ALLOW_NL2BR",
+		"ALLOW_TABLE",
+		"ALLOW_MENTION",
+		"ALLOW_ALIGN"));
+foreach ($arParams["ALLOW"] as $sName => $default)
 {
-	$sVal = ($arParams[$sName] === "Y" || $arParams[$sName] === "N" ? $arParams[$sName] : $arResult['FORUM'][$sName]);
-	$arParams[$sName] = $arParams["ALLOW"][$sName] = ($sName == "ALLOW_HTML" ? ($paramVal === "Y" ? "Y" : "N") : ($paramVal === "N" ? "N" : "Y"));
+	$sVal = array_key_exists($sName, $arParams) ? $arParams[$sName] : $arResult['FORUM'][$sName];
+	$arParams["ALLOW"][$sName] = ($sName == "ALLOW_HTML" ? ($sVal === "Y" ? "Y" : "N") : ($sVal === "N" ? "N" : "Y"));
 }
-if (!!$arParams["ALLOW_UPLOAD"] && in_array($arParams["ALLOW_UPLOAD"], array("A", "Y", "F", "N", "I")))
+$arParams["ALLOW"]["ALLOW_UPLOAD"] = $arResult["FORUM"]["ALLOW_UPLOAD"];
+$arParams["ALLOW"]["ALLOW_UPLOAD_EXT"] = trim($arResult["FORUM"]["ALLOW_UPLOAD_EXT"]);
+if (in_array($arParams["ALLOW_UPLOAD"], array("A", "Y", "F", "N", "I")))
 {
-	$arParams["ALLOW_UPLOAD"] = ($arParams["ALLOW_UPLOAD"] == "I" ? "Y" : $arParams["ALLOW_UPLOAD"]);
-	$arParams["ALLOW"]["ALLOW_UPLOAD"] = $arParams["ALLOW_UPLOAD"];
-	$arParams["ALLOW_UPLOAD_EXT"] = $arParams["ALLOW"]["ALLOW_UPLOAD_EXT"] = trim($arParams["ALLOW_UPLOAD_EXT"]);
+	$arParams["ALLOW"]["ALLOW_UPLOAD"] = ($arParams["ALLOW_UPLOAD"] == "I" ? "Y" : $arParams["ALLOW_UPLOAD"]);
+	$arParams["ALLOW"]["ALLOW_UPLOAD_EXT"] = trim($arParams["ALLOW_UPLOAD_EXT"]);
 }
-else
-{
-	$arParams["ALLOW"]["ALLOW_UPLOAD"] = $arParams["ALLOW_UPLOAD"] = $arResult["FORUM"]["ALLOW_UPLOAD"];
-	$arParams["ALLOW_UPLOAD_EXT"] = $arParams["ALLOW"]["ALLOW_UPLOAD_EXT"] = trim($arResult["FORUM"]["ALLOW_UPLOAD_EXT"]);
-}
-$arParams["ALLOW_EDIT_OWN_MESSAGE"] = ($arParams["ALLOW_EDIT_OWN_MESSAGE"] === "ALL" ||
-	$arParams["ALLOW_EDIT_OWN_MESSAGE"] === "LAST"? $arParams["ALLOW_EDIT_OWN_MESSAGE"] : "N");
-
-$arParams["ALLOW_EDIT_OWN_MESSAGE"] = "LAST";
+$arParams = array_merge($arParams, $arParams["ALLOW"]);
 
 $arMessages = array(
 	"MINIMIZED_EXPAND_TEXT" => GetMessage('F_EXPAND_TEXT'),
@@ -95,89 +80,54 @@ $arMessages = array(
 foreach($arMessages as $paramName => $paramValue)
 	$arParams[$paramName] = (($arParams[$paramName]) ? $arParams[$paramName] : $paramValue);
 $arParams["URL_TEMPLATES_PROFILE_VIEW"] = (str_replace(array("#USER_ID#", "#author_id#", "#AUTHOR_ID#", "#UID#", "#ID#"), "#user_id#", $arParams["URL_TEMPLATES_PROFILE_VIEW"]));
-$arParams["PATH_TO_SMILE"] = (empty($arParams["PATH_TO_SMILE"]) ? "/bitrix/images/forum/smile/" : $arParams["PATH_TO_SMILE"]);
+$arParams["PATH_TO_SMILE"] = "/bitrix/images/forum/smile/";
 /***************** STANDART ****************************************/
 if ($arParams["CACHE_TYPE"] == "Y" || ($arParams["CACHE_TYPE"] == "A" && COption::GetOptionString("main", "component_cache_on", "Y") == "Y"))
 	$arParams["CACHE_TIME"] = intval($arParams["CACHE_TIME"]);
 else
 	$arParams["CACHE_TIME"] = 0;
-global $CACHE_MANAGER;
 /********************************************************************
 				/Input params
 ********************************************************************/
-
 /********************************************************************
 				Default values
 ********************************************************************/
-$arError = array();
-$arNote = array();
-$arResult["ERROR_MESSAGE"] = "";
-$arResult["OK_MESSAGE"] = ($_REQUEST["result"] == "reply" ? GetMessage("COMM_COMMENT_OK") : (
-	$_REQUEST["result"] == "not_approved" ? GetMessage("COMM_COMMENT_OK_AND_NOT_APPROVED") : ""));
-unset($_GET["result"]); unset($GLOBALS["HTTP_GET_VARS"]["result"]);
-DeleteParam(array("result"));
-
+$arResult["FORUM"] = $this->feed->getForum();
+$arResult["TOPIC"] = $this->feed->getTopic();
 $arResult["MESSAGES"] = array();
-$arResult["MESSAGE_VIEW"] = array();
+$arResult["FORUM_TOPIC_ID"] = $arResult["TOPIC"]["ID"];
 
-// FORUM
 CPageOption::SetOptionString("main", "nav_page_in_session", "N");
 
-$arResult['FORUM_TOPIC_ID']=null;
-$arResult["TOPIC"] = array();
-$arFilter = array("FORUM_ID"=>$arParams['FORUM_ID'], "XML_ID"=>$arParams['ENTITY_XML_ID']);
-$dbRes = CForumTopic::GetList(null, $arFilter);
-if ($dbRes && $arResult["TOPIC"] = $dbRes->Fetch())
-	$arResult['FORUM_TOPIC_ID'] = $arResult["TOPIC"]['ID'];
-
-$arResult["ELEMENT"] = array();
 $arResult["USER"] = array(
-	"PERMISSION" => ($arParams['PERMISSION'] !== null ? $arParams['PERMISSION'] : ForumCurrUserPermissions($arParams["FORUM_ID"])),
+	"PERMISSION" => $this->feed->getPermission(),
 	"SHOWED_NAME" => $GLOBALS["FORUM_STATUS_NAME"]["guest"],
 	"SUBSCRIBE" => array(),
-	"FORUM_SUBSCRIBE" => "N", "TOPIC_SUBSCRIBE" => "N");
-
-// A - NO ACCESS		E - READ			I - ANSWER
-// M - NEW TOPIC		Q - MODERATE	U - EDIT			Y - FULL_ACCESS
-
-$userId = $USER->GetID();
-$arUserGroups = $USER->GetUserGroupArray();
-if ($arResult["USER"]["PERMISSION"] !== null && !CForumUser::IsAdmin())
-{
-	$arResult["USER"]["RIGHTS"] = array(
-		"ADD_TOPIC" => ($arParams['PERMISSION'] >= 'M' ? "Y" : "N"),
-		"MODERATE" => ($arParams['PERMISSION'] >= 'Q' ? "Y" : "N"),
-		"EDIT" => ($arParams['PERMISSION'] >= 'U' ? "Y" : "N"),
-		"ADD_MESSAGE" => ($arParams['PERMISSION'] >= 'I' ? "Y" : "N")
-	);
-}
-else
-{
-	$arResult["USER"]["RIGHTS"] = array(
-		"ADD_TOPIC" => CForumTopic::CanUserAddTopic($arParams["FORUM_ID"], $arUserGroups, $userId, $arResult["FORUM"]) ? "Y" : "N",
-		"MODERATE" => (CForumNew::CanUserModerateForum($arParams["FORUM_ID"], $arUserGroups, $userId) == true ? "Y" : "N"),
-		"EDIT" => CForumNew::CanUserEditForum($arParams["FORUM_ID"], $arUserGroups, $userId) ? "Y" : "N",
-		"ADD_MESSAGE" => CForumMessage::CanUserAddMessage($arResult['FORUM_TOPIC_ID'], $arUserGroups, $userId) ? "Y" : "N"
-	);
-}
-
+	"FORUM_SUBSCRIBE" => "N",
+	"TOPIC_SUBSCRIBE" => "N",
+	"RIGHTS" => array(
+		"ADD_TOPIC" => $this->feed->canAdd() ? "Y" : "N",
+		"MODERATE" => $this->feed->canModerate() ? "Y" : "N",
+		"EDIT" => $this->feed->canEdit() ? "Y" : "N",
+		"ADD_MESSAGE" => ($this->feed->canAdd() ? "Y" : "N")
+));
 if ($USER->IsAuthorized())
 {
-	$arResult["USER"]["ID"] = $GLOBALS["USER"]->GetID();
-	$tmpName = empty($arParams["NAME_TEMPLATE"]) ? $GLOBALS["USER"]->GetFormattedName(false) : CUser::FormatName($arParams["NAME_TEMPLATE"], array(
-			"NAME"			=>	$USER->GetFirstName(),
-			"LAST_NAME"		=>	$USER->GetLastName(),
-			"SECOND_NAME"	=>	$USER->GetSecondName(),
-			"LOGIN"			=>	$USER->GetLogin()
-			));
-	$arResult["USER"]["SHOWED_NAME"] = trim($_SESSION["FORUM"]["SHOW_NAME"] == "Y" ? $tmpName :	$GLOBALS["USER"]->GetLogin());
-	$arResult["USER"]["SHOWED_NAME"] = trim(!empty($arResult["USER"]["SHOWED_NAME"]) ? $arResult["USER"]["SHOWED_NAME"] : $GLOBALS["USER"]->GetLogin());
+	$arResult["USER"]["ID"] = $USER->getID();
+	$tmpName = empty($arParams["NAME_TEMPLATE"]) ? $USER->getFormattedName(false) : CUser::FormatName($arParams["NAME_TEMPLATE"], array(
+		"NAME"			=>	$USER->GetFirstName(),
+		"LAST_NAME"		=>	$USER->GetLastName(),
+		"SECOND_NAME"	=>	$USER->GetSecondName(),
+		"LOGIN"			=>	$USER->GetLogin()
+	));
+	$arResult["USER"]["SHOWED_NAME"] = trim($_SESSION["FORUM"]["SHOW_NAME"] == "Y" ? $tmpName : $USER->getLogin());
+	$arResult["USER"]["SHOWED_NAME"] = trim(!empty($arResult["USER"]["SHOWED_NAME"]) ? $arResult["USER"]["SHOWED_NAME"] : $USER->getLogin());
 }
 
 $arResult['DO_NOT_CACHE'] = true;
 
 // PARSER
-$parser = new forumTextParser(LANGUAGE_ID, $arParams["PATH_TO_SMILE"]);
+$parser = new forumTextParser(LANGUAGE_ID);
 $parser->imageWidth = $arParams["IMAGE_SIZE"];
 $parser->imageHtmlWidth = $arParams["IMAGE_HTML_SIZE"];
 $parser->userPath = $arParams["URL_TEMPLATES_PROFILE_VIEW"];
@@ -204,46 +154,6 @@ $arAllow = array(
 /********************************************************************
 				/Default values
 ********************************************************************/
-if ($arResult["USER"]["PERMISSION"] <= "A")
-{
-	return false;
-}
-
-$path = dirname(__FILE__);
-
-if (isset($arParams['UPLOAD_SIMPLE']) && $arParams['UPLOAD_SIMPLE'] === 'Y')
-	include_once($path."/files.php");
-else
-	include_once($path."/files_input.php");
-$arResult["objFiles"] = new CCommentFiles($this);
-include_once($path."/ufs.php");
-$arResult["objUFs"] = new CCommentUFs($this);
-$arResult["objRating"] = false;
-if ($arParams["SHOW_RATING"] == "Y")
-{
-	include_once($path."/ratings.php");
-	$arResult["objRating"] = new CCommentRatings($this);
-}
-
-foreach (GetModuleEvents('forum', 'OnCommentsInit', true) as $arEvent)
-	ExecuteModuleEventEx($arEvent, array(&$this));
-
-/********************************************************************
-				Actions
-********************************************************************/
-include($path."/action.php");
-$strErrorMessage = "";
-foreach ($arError as $res)
-	$strErrorMessage .= (empty($res["title"]) ? $res["code"] : $res["title"]);
-
-$arResult["ERROR_MESSAGE"] = $strErrorMessage;
-$arResult["OK_MESSAGE"] .= $strOKMessage;
-
-if (strlen($arResult["ERROR_MESSAGE"]) > 0)
-	$arParams["SHOW_MINIMIZED"] = "N";
-/********************************************************************
-				/Actions
-********************************************************************/
 
 $arResult["PANELS"] = array(
 	"MODERATE" => $arResult["USER"]["RIGHTS"]["MODERATE"],
@@ -252,7 +162,7 @@ $arResult["PANELS"] = array(
 );
 
 /************** Show post form **********************************/
-$arResult["SHOW_POST_FORM"] = ($arResult["USER"]["PERMISSION"] >= "I" ? "Y" : "N");
+$arResult["SHOW_POST_FORM"] = $arResult["USER"]["RIGHTS"]["ADD_MESSAGE"];
 
 if ($arResult["SHOW_POST_FORM"] == "Y")
 {
@@ -260,14 +170,28 @@ if ($arResult["SHOW_POST_FORM"] == "Y")
 	$arResult["~REVIEW_AUTHOR"] = $arResult["USER"]["SHOWED_NAME"];
 	$arResult["~REVIEW_USE_SMILES"] = ($arParams["ALLOW_SMILES"] == "Y" ? "Y" : "N");
 
-	if (!empty($arError) || !empty($arResult["MESSAGE_VIEW"]))
+	if ($this->request->getPost("comment_review") == "Y" && $arParams["AUTOSAVE"])
+		$arParams["AUTOSAVE"]->Reset();
+
+	if (array_key_exists("MESSAGE_VIEW", $arResult))
 	{
-		if (!empty($_POST["REVIEW_AUTHOR"]))
-			$arResult["~REVIEW_AUTHOR"] = $_POST["REVIEW_AUTHOR"];
-		$arResult["~REVIEW_EMAIL"] = $_POST["REVIEW_EMAIL"];
-		$arResult["~REVIEW_TEXT"] = $_POST["REVIEW_TEXT"];
-		$arResult["~REVIEW_USE_SMILES"] = ($_POST["REVIEW_USE_SMILES"] == "Y" ? "Y" : "N");
+		$arParams["SHOW_MINIMIZED"] = "N";
+		$arResult["MESSAGE_VIEW"] = array(
+			"POST_MESSAGE_TEXT" => $parser->convert($arResult["MESSAGE_VIEW"]["POST_MESSAGE"], array_merge(
+					$arAllow, array("SMILES" => $arAllow["ALLOW_SMILES"] == "Y" && $arResult["MESSAGE_VIEW"]["USE_SMILES"] == "Y" ? "Y" : "N"))),
+			"AUTHOR_NAME" => htmlspecialcharsEx($arResult["USER"]["SHOWED_NAME"]),
+			"AUTHOR_ID" => intval($arResult["USER"]["ID"]),
+			"AUTHOR_URL" => CComponentEngine::MakePathFromTemplate($arParams["URL_TEMPLATES_PROFILE_VIEW"], array("UID" => $arResult["MESSAGE_VIEW"]["AUTHOR_ID"])),
+			"POST_DATE" => CForumFormat::DateFormat($arParams["DATE_TIME_FORMAT"], time()+CTimeZone::GetOffset()),
+			"FILES" => array());
 	}
+
+	if (!empty($_POST["REVIEW_AUTHOR"]))
+		$arResult["~REVIEW_AUTHOR"] = $_POST["REVIEW_AUTHOR"];
+	$arResult["~REVIEW_EMAIL"] = $_POST["REVIEW_EMAIL"];
+	$arResult["~REVIEW_TEXT"] = $_POST["REVIEW_TEXT"];
+	$arResult["~REVIEW_USE_SMILES"] = ($_POST["REVIEW_USE_SMILES"] == "Y" ? "Y" : "N");
+
 	$arResult["REVIEW_AUTHOR"] = htmlspecialcharsEx($arResult["~REVIEW_AUTHOR"]);
 	$arResult["REVIEW_EMAIL"] = htmlspecialcharsEx($arResult["~REVIEW_EMAIL"]);
 	$arResult["REVIEW_TEXT"] = htmlspecialcharsEx($arResult["~REVIEW_TEXT"]);
@@ -277,24 +201,16 @@ if ($arResult["SHOW_POST_FORM"] == "Y")
 	$arResult["SHOW_PANEL_ATTACH_IMG"] = (in_array($arParams["ALLOW_UPLOAD"], array("A", "F", "Y")) ? "Y" : "N");
 	$arResult["TRANSLIT"] = (LANGUAGE_ID=="ru" ? "Y" : " N");
 	if ($arParams["ALLOW_SMILES"] == "Y"):
-		$arResult["ForumPrintSmilesList"] = ($arParams["ALLOW_SMILES"] == "Y" ?
-			ForumPrintSmilesList(3, LANGUAGE_ID, $arParams["PATH_TO_SMILE"], $arParams["CACHE_TIME"]) : "");
-		$arResult["SMILES"] = CForumSmile::GetByType("S", LANGUAGE_ID);
+		/* @deprecated */
+		$arResult["ForumPrintSmilesList"] = ForumPrintSmilesList(3, LANGUAGE_ID);
+		/* @deprecated */
+		$arResult["SMILES"] = CForumSmile::getSmiles("S", LANGUAGE_ID);
 	endif;
-
 	$arResult["CAPTCHA_CODE"] = "";
-	if ($arParams["USE_CAPTCHA"] == "Y" && !$GLOBALS["USER"]->IsAuthorized())
+	if (is_object($this->captcha))
 	{
-		include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/captcha.php");
-		$cpt = new CCaptcha();
-		$captchaPass = COption::GetOptionString("main", "captcha_password", "");
-		if (strLen($captchaPass) <= 0)
-		{
-			$captchaPass = randString(10);
-			COption::SetOptionString("main", "captcha_password", $captchaPass);
-		}
-		$cpt->SetCodeCrypt($captchaPass);
-		$arResult["CAPTCHA_CODE"] = htmlspecialcharsbx($cpt->GetCodeCrypt());
+		$this->captcha->SetCodeCrypt(COption::GetOptionString("main", "captcha_password", ""));
+		$arResult["CAPTCHA_CODE"] = htmlspecialcharsbx($this->captcha->getCodeCrypt());
 	}
 }
 
@@ -381,8 +297,6 @@ $ar_cache_id = array(
 
 $cache_id = "forum_comment_".serialize($ar_cache_id);
 
-ob_start();
-
 if ($arResult['DO_NOT_CACHE'] || $this->StartResultCache($arParams["CACHE_TIME"], $cache_id))
 {
 	ForumSetLastVisit($arParams["FORUM_ID"], $arResult["FORUM_TOPIC_ID"], array("nameTemplate" => $arParams["NAME_TEMPLATE"]));
@@ -406,7 +320,6 @@ if ($arResult['DO_NOT_CACHE'] || $this->StartResultCache($arParams["CACHE_TIME"]
 				$arFilter = array_merge($_REQUEST["FILTER"], $arFilter);
 			if ($bShowAll)
 				$GLOBALS["SHOWALL_".($GLOBALS["NavNum"]+1)] = true;
-
 			$db_res = CForumMessage::GetListEx($arOrder, $arFilter, false, 0, $arFields);
 			$db_res->NavStart($arParams["MESSAGES_PER_PAGE"], $bShowAll, ($arFields["iNumPage"] > 0 ? $arFields["iNumPage"] : false));
 			$arResult["NAV_RESULT"] = $db_res;
@@ -497,8 +410,10 @@ if ($arResult['DO_NOT_CACHE'] || $this->StartResultCache($arParams["CACHE_TIME"]
 							$res["AVATAR"]["HTML"] = CFile::ShowImage($res["AVATAR"]["FILE"]['src'], 30, 30, "border=0 align='right'");
 					}
 					// For quote JS
-					$res["FOR_JS"]["AUTHOR_NAME"] = CUtil::JSEscape($res["AUTHOR_NAME"]);
-					$res["FOR_JS"]["POST_MESSAGE_TEXT"] = CUtil::JSEscape(htmlspecialcharsbx($res["POST_MESSAGE_TEXT"]));
+					$res["FOR_JS"] = array(
+						"AUTHOR_NAME" => CUtil::JSEscape($res["AUTHOR_NAME"]),
+						"POST_MESSAGE_TEXT" => CUtil::JSEscape(htmlspecialcharsbx($res["POST_MESSAGE_TEXT"]))
+					);
 
 					$res["NEW"] = ($arResult["UNREAD_MID"] > 0 && $res["ID"] >= $arResult["UNREAD_MID"] ? "Y" : "N");
 					$arMessages[$res["ID"]] = $res;
@@ -508,7 +423,7 @@ if ($arResult['DO_NOT_CACHE'] || $this->StartResultCache($arParams["CACHE_TIME"]
 			unset($arMessages);
 
 			foreach (GetModuleEvents('forum', 'OnPrepareComments', true) as $arEvent)
-				$result = ExecuteModuleEventEx($arEvent);
+				ExecuteModuleEventEx($arEvent);
 
 			$parser->arFiles = $arResult["FILES"];
 			foreach ($arResult["MESSAGES"] as $iID => $res):
@@ -530,11 +445,3 @@ if ($arResult['DO_NOT_CACHE'] || $this->StartResultCache($arParams["CACHE_TIME"]
 	}
 	$this->IncludeComponentTemplate();
 }
-
-$output = ob_get_clean();
-
-foreach (GetModuleEvents('forum', 'OnCommentsDisplayTemplate', true) as $arEvent)
-	$result = ExecuteModuleEventEx($arEvent, array(&$output, $arParams, $arResult));
-
-echo $output;
-?>

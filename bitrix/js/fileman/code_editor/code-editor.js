@@ -208,6 +208,16 @@
 						}catch(e){}
 					}
 				});
+
+				BX.bind(pForm, "reset", function()
+				{
+					if (_this.highlightMode)
+					{
+						_this.Action(_this.SetValue, _this)("");
+						_this.FocusInput();
+						_this.OnFocus();
+					}
+				});
 			}
 		},
 
@@ -3418,7 +3428,7 @@
 				this.bDisableTab = true;
 
 			var
-				endText, startText, tmp,
+				i, endText, startText, tmp,
 				tab = "\t",
 				taSel = this.GetTASelection(),
 				from = taSel.start,
@@ -3538,7 +3548,7 @@
 			if(!isNaN(taH) && taH >= 0)
 			{
 				this.pContTA.style.height = (taH + 2) + "px";
-				this.pTA.style.height = taH + "px";
+				this.pTA.style.height = (taH + 2) + "px";
 			}
 
 			taW = this.pTA.scrollWidth;
@@ -3568,7 +3578,7 @@
 					if (!isNaN(h) && h >= 0)
 					{
 						this.pContTA.style.height = (h + 2) + "px";
-						this.pTA.style.height = h + "px";
+						this.pTA.style.height = (h + 2) + "px";
 					}
 				}
 			}
@@ -3708,9 +3718,10 @@
 
 		Undo: function()
 		{
-			this.OnBeforeAction();
+			// Mantis: 61354
+			//this.OnBeforeAction();
 			this.UndoRedo(this.oHistory.done, this.oHistory.undone);
-			this.OnAfterAction();
+			//this.OnAfterAction();
 		},
 
 //		Redo: function()

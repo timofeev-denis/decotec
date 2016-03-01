@@ -1,6 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_adapt_horizontal", SITE_ID) == "eshop_adapt_vertical" ? "HORIZONTAL" : "VERTICAL");
 ?>
 <?$APPLICATION->IncludeComponent("bitrix:catalog", "", array(
 	"IBLOCK_TYPE" => "catalog",
@@ -31,7 +30,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 	"USE_ELEMENT_COUNTER" => "Y",
 	"USE_FILTER" => "Y",
 	"FILTER_NAME" => "",
-	"FILTER_VIEW_MODE" => $filterView,
+	"FILTER_VIEW_MODE" => "VERTICAL",
 	"FILTER_FIELD_CODE" => array(
 		0 => "",
 		1 => "",
@@ -115,6 +114,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		5 => "",
 	),
 	"LIST_OFFERS_LIMIT" => "0",
+	"SECTION_BACKGROUND_IMAGE" => "UF_BACKGROUND_IMAGE",
 	"DETAIL_PROPERTY_CODE" => array(
 		0 => "NEWPRODUCT",
 		1 => "MANUFACTURER",
@@ -135,6 +135,7 @@ $filterView = (COption::GetOptionString("main", "wizard_template_id", "eshop_ada
 		4 => "MORE_PHOTO",
 		5 => "",
 	),
+	"DETAIL_BACKGROUND_IMAGE" => "BACKGROUND_IMAGE",
 	"LINK_IBLOCK_TYPE" => "",
 	"LINK_IBLOCK_ID" => "",
 	"LINK_PROPERTY_SID" => "",

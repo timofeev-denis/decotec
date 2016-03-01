@@ -336,8 +336,8 @@ if (!empty($arResult["FORUM_USER"]["~AVATAR"])):
 	$arResult["FORUM_USER"]["AVATAR_FILE"] = CFile::GetFileArray($arResult["FORUM_USER"]["~AVATAR"]);
 	if ($arResult["FORUM_USER"]["AVATAR_FILE"] !== false)
 		$arResult["FORUM_USER"]["AVATAR"] = CFile::ShowImage($arResult["FORUM_USER"]["AVATAR_FILE"],
-			COption::GetOptionString("forum", "avatar_max_width", 90),
-			COption::GetOptionString("forum", "avatar_max_height", 90), "border=0", "", true);
+			COption::GetOptionString("forum", "avatar_max_width", 100),
+			COption::GetOptionString("forum", "avatar_max_height", 100), "border=0", "", true);
 endif;
 $arResult["USER"]["PERSONAL_PHOTO"] = "";
 if (!empty($arResult["USER"]["~PERSONAL_PHOTO"])):

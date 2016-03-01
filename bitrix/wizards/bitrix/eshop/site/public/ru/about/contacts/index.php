@@ -10,7 +10,7 @@ $APPLICATION->SetTitle("Задайте вопрос");
 
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:main.feedback",
-		"eshop_adapt",
+		"eshop",
 		Array(
 			"USE_CAPTCHA" => "Y",
 			"OK_TEXT" => "Спасибо, ваше сообщение принято.",

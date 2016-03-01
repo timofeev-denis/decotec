@@ -15,7 +15,6 @@ $MESS["URL_TEMPLATES_PM_EDIT_TIP"] = "Страница личных сообще
 $MESS["URL_TEMPLATES_MESSAGE_SEND_TIP"] = "Страница отправки сообщения";
 $MESS["URL_TEMPLATES_RSS_TIP"] = "Страница RSS";
 $MESS["URL_TEMPLATES_USER_POST_TIP"] = "Страница сообщений пользователя";
-$MESS["PATH_TO_SMILE_TIP"] = "Путь относительно корня сайта к папке со смайлами";
 $MESS["MESSAGES_PER_PAGE_TIP"] = "Количество сообщений на одной странице";
 $MESS["DATE_FORMAT_TIP"] = "Формат показа даты";
 $MESS["DATE_TIME_FORMAT_TIP"] = "Формат показа даты и времени";

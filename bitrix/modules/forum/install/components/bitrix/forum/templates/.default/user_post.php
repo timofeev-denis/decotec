@@ -22,8 +22,6 @@
 		"NAME_TEMPLATE"	=> $arParams["NAME_TEMPLATE"],
 		"DATE_TIME_FORMAT" =>  $arParams["DATE_TIME_FORMAT"],
 		"PAGE_NAVIGATION_TEMPLATE" =>  $arParams["PAGE_NAVIGATION_TEMPLATE"],
-		"PATH_TO_SMILE" => $arParams["PATH_TO_SMILE"],
-		"PATH_TO_ICON" => $arParams["PATH_TO_ICON"],
 		"WORD_LENGTH" => $arParams["WORD_LENGTH"],
 		"IMAGE_SIZE" => $arParams["IMAGE_SIZE"],
 		"ATTACH_MODE" => $arParams["ATTACH_MODE"],

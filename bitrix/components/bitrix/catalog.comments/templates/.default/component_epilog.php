@@ -51,7 +51,14 @@ if (isset($templateData['BLOG_USE']) && $templateData['BLOG_USE'] == 'Y')
 		$APPLICATION->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 		$APPLICATION->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/green/style.css');
 		if ($templateData['BLOG']['AJAX_PARAMS']['SHOW_RATING'] == 'Y')
-			\Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/main/rating.js');
+		{
+			ob_start();
+			$APPLICATION->IncludeComponent(
+				"bitrix:rating.vote", $arParams['RATING_TYPE'],
+				array()
+			);
+			ob_end_clean();
+		}
 	}
 }
 

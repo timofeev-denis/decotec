@@ -44,10 +44,15 @@ class CSocServFacebook extends CSocServAuth
 		}
 		else
 		{
-			$redirect_uri = CSocServUtil::GetCurUrl('auth_service_id='.self::ID.'&check_key='.$_SESSION["UNIQUE_KEY"]).(isset($arParams['BACKURL']) ? '&backurl='.urlencode($arParams['BACKURL']) : '');
+			$redirect_uri = CSocServUtil::GetCurUrl('auth_service_id='.self::ID.'&check_key='.$_SESSION["UNIQUE_KEY"]);
+
+			if(isset($arParams['BACKURL']) && !preg_match("/&backurl=/", $redirect_uri))
+			{
+				$redirect_uri .= '&backurl='.urlencode($arParams['BACKURL']);
+			}
 		}
 
-	return $this->getEntityOAuth()->GetAuthUrl($redirect_uri);
+		return $this->getEntityOAuth()->GetAuthUrl($redirect_uri);
 	}
 
 	public function getEntityOAuth($code = false)
@@ -148,7 +153,15 @@ class CSocServFacebook extends CSocServAuth
 			}
 			else
 			{
-				$redirect_uri = CSocServUtil::GetCurUrl('auth_service_id='.self::ID, array("code"));
+				if(isset($_SESSION["FACEBOOK_OAUTH_LAST_REDIRECT_URI"]))
+				{
+					$redirect_uri = $_SESSION["FACEBOOK_OAUTH_LAST_REDIRECT_URI"];
+					unset($_SESSION["FACEBOOK_OAUTH_LAST_REDIRECT_URI"]);
+				}
+				else
+				{
+					$redirect_uri = CSocServUtil::GetCurUrl('auth_service_id=' . self::ID, array("code"));
+				}
 			}
 
 			$this->entityOAuth = $this->getEntityOAuth($_REQUEST['code']);
@@ -346,6 +359,8 @@ class CFacebookInterface extends CSocServOAuthTransport
 
 	public function GetAuthUrl($redirect_uri)
 	{
+		$_SESSION["FACEBOOK_OAUTH_LAST_REDIRECT_URI"] = $redirect_uri;
+
 		return self::AUTH_URL."?client_id=".$this->appID."&redirect_uri=".urlencode($redirect_uri)."&scope=".$this->getScope()."&display=popup";
 	}
 
@@ -369,6 +384,7 @@ class CFacebookInterface extends CSocServOAuthTransport
 		}
 
 		$result = CHTTP::sGetHeader(self::GRAPH_URL.'/oauth/access_token?client_id='.$this->appID.'&client_secret='.$this->appSecret.'&redirect_uri='.urlencode($redirect_uri).'&code='.urlencode($this->code), array(), $this->httpTimeout);
+
 		$arResult = array();
 		$arResultLongLive = array();
 		parse_str($result, $arResult);

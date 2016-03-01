@@ -101,7 +101,7 @@
 
 			if (!bSilent)
 			{
-				this.editor.On("OnBeforeCommandExec", [isContentAction, action, oAction]);
+				this.editor.On("OnBeforeCommandExec", [isContentAction, action, oAction, value]);
 			}
 
 			if (isContentAction)
@@ -216,6 +216,7 @@
 				insertLineBreak: this.GetInsertLineBreak(),
 				insertTable: this.GetInsertTable(),
 				removeLink: this.GetRemoveLink(),
+				insertHr: this.GetInsertHr(),
 				// Lists
 				insertOrderedList: this.GetInsertList({bOrdered: true}),
 				insertUnorderedList: this.GetInsertList({bOrdered: false}),
@@ -607,6 +608,8 @@
 
 					if (blockElement) // Same block element
 					{
+						var wholeBlockSelected = range.startContainer == blockElement.firstChild && range.endContainer == blockElement.lastChild;
+
 						// Divs and blockquotes can be inside each other
 						if (BX.util.in_array(nodeName, nestedBlockTags) && params.nestedBlocks !== false)
 						{
@@ -620,6 +623,56 @@
 							// Select line with wrap
 							_this.editor.selection.Surround(blockElement);
 							_this.editor.selection.SelectNode(blockElement);
+							_this.editor.util.SetCss(blockElement, arStyle);
+
+							var nextBr = _this.editor.util.GetNextNotEmptySibling(blockElement);
+							if (nextBr && nextBr.nodeName == 'BR')
+								BX.remove(nextBr);
+
+							setTimeout(function()
+							{
+								if (blockElement)
+								{
+									_this.editor.selection.SelectNode(blockElement);
+								}
+							}, 50);
+						}
+						else if (params && params.splitBlock && !wholeBlockSelected)
+						{
+							var childBlock = _this.document.createElement(nodeName || DEFAULT_NODE_NAME);
+
+							_this.editor.selection.Surround(childBlock);
+							_this.editor.selection.SelectNode(childBlock);
+
+							if (className)
+								childBlock.className = className;
+
+							_this.editor.util.SetCss(childBlock, arStyle);
+
+							if (blockElement && blockElement.lastChild)
+							{
+								var _range = range.cloneRange();
+								_range.setStartAfter(childBlock);
+								_range.setEndAfter(blockElement.lastChild);
+
+								var afterBlock = blockElement.cloneNode(false);
+								_this.editor.selection.SetSelection(_range);
+								_this.editor.selection.Surround(afterBlock);
+
+								var firstBr = _this.editor.selection._GetNonTextFirstChild(afterBlock);
+								if (firstBr && firstBr.nodeName == 'BR')
+									BX.remove(firstBr);
+							}
+
+							_this.editor.selection.SetSelection(range);
+
+							setTimeout(function()
+							{
+								if (childBlock)
+								{
+									_this.editor.selection.SelectNode(childBlock);
+								}
+							}, 50);
 						}
 						else
 						{
@@ -646,7 +699,7 @@
 								{
 									_this.editor.selection.SelectNode(blockElement);
 								}
-							}, 10);
+							}, 50);
 						}
 					}
 					else
@@ -1631,7 +1684,7 @@
 							}
 						}
 
-						links = _this.actions.formatInline.state(action, value, "a");
+						links = value.node ? [value.node] : _this.actions.formatInline.state(action, value, "a");
 						if (links)
 						{
 							// Selection contains links
@@ -2019,6 +2072,27 @@
 			};
 		},
 
+		GetInsertHr: function()
+		{
+			var
+				_this = this,
+				html = "<hr>" + (BX.browser.IsOpera() ? " " : "");
+
+			return {
+				exec: function(action)
+				{
+					_this.actions.insertHTML.exec("insertHTML", html);
+					if (BX.browser.IsChrome() || BX.browser.IsSafari() || BX.browser.IsIE10())
+					{
+						_this.editor.selection.ScrollIntoView();
+					}
+				},
+
+				state: BX.DoNothing,
+				value: BX.DoNothing
+			};
+		},
+
 		GetInsertTable: function()
 		{
 			var
@@ -2062,7 +2136,7 @@
 				{
 					if (params.hasOwnProperty(attr) && BX.util.in_array(attr, ATTRIBUTES))
 					{
-						if (params[attr] == '' || params[attr] == undefined)
+						if (params[attr] === '' || params[attr] == undefined)
 						{
 							table.removeAttribute(attr);
 						}
@@ -2645,6 +2719,16 @@
 								isEmpty = tempElement.innerHTML === "" || tempElement.innerHTML === _this.editor.INVISIBLE_SPACE;
 								_this.editor.selection.ExecuteAndRestoreSimple(function()
 								{
+									// mantis #54087
+									var i, spans = tempElement.getElementsByTagName('SPAN');
+									for (i = spans.length - 1; i >= 0; i--)
+									{
+										// Clean spans without classes styles and id's
+										if (!spans[i].className && !spans[i].id && !spans[i].style.cssText)
+										{
+											_this.editor.util.ReplaceWithOwnChildren(spans[i]);
+										}
+									}
 									list = convertToList(tempElement, listTag);
 								});
 
@@ -2945,7 +3029,6 @@
 							bookmark = _this.editor.selection.GetBookmark(),
 							selectedNode = _this.editor.selection.GetSelectedNode();
 
-
 						if (selectedNode)
 						{
 							if (_this.editor.util.IsBlockNode(selectedNode))
@@ -3131,7 +3214,6 @@
 							}
 							else if (range.collapsed)
 							{
-
 								res = _this.actions.formatBlock.exec('formatBlock', 'P', CLASS_NAME_TMP, {textAlign: value});
 
 								// Selection workaround mantis:53937
@@ -3186,8 +3268,7 @@
 								{
 									tagName = _this.editor.bbCode ? 'DIV' : 'P';
 
-									res = _this.actions.formatBlock.exec('formatBlock', tagName, null, {textAlign: value}, {leaveChilds: true});
-
+									res = _this.actions.formatBlock.exec('formatBlock', tagName, null, {textAlign: value}, {leaveChilds: true, splitBlock: true});
 									if (res && typeof res == 'object' && res.nodeName == tagName)
 									{
 										var
@@ -3394,24 +3475,39 @@
 					var range = _this.editor.selection.GetRange();
 					if (range)
 					{
-						var i, nodes = range.getNodes([1]);
-						if (range.collapsed && range.startContainer && nodes.length == 0)
-						{
-							var bq = BX.findParent(range.startContainer, {tag: 'BLOCKQUOTE'});
-							if (bq)
-							{
-								bq.removeAttribute('style');
-								var invis_text = _this.editor.util.GetInvisibleTextNode();
-								bq.appendChild(invis_text);
-								_this.editor.selection.SetAfter(invis_text);
-							}
-						}
+						var bqCnt = 0, i, nodes = range.getNodes([1]);
 
 						for (i = 0; i < nodes.length; i++)
 						{
 							if (nodes[i].nodeName == 'BLOCKQUOTE')
 							{
+								bqCnt++;
 								nodes[i].removeAttribute('style');
+							}
+						}
+
+						if (range.startContainer)
+						{
+							var
+								invis_text,
+								bq = false,
+								node = range.startContainer;
+							while (node)
+							{
+								node = BX.findParent(node, {tag: 'BLOCKQUOTE'}, _this.document.body);
+								if (node)
+								{
+									if (!bq)
+										bq = node;
+									node.removeAttribute('style');
+								}
+							}
+
+							if (bq)
+							{
+								invis_text = _this.editor.util.GetInvisibleTextNode();
+								bq.appendChild(invis_text);
+								_this.editor.selection.SetAfter(invis_text);
 							}
 						}
 					}
@@ -3980,15 +4076,35 @@
 							{
 								range = _this.editor.selection.lastCheckedRange.range;
 							}
-
 							_this.editor.iframeView.Focus();
 							if (range)
 							{
 								_this.editor.selection.SetSelection(range);
 							}
+
 							var quoteId = 'bxq_' + Math.round(Math.random() * 1000000);
 
-							_this.editor.InsertHtml('<blockquote id="' + quoteId + '" class="bxhtmled-quote">' + sel + '</blockquote>' + _this.editor.INVISIBLE_SPACE, range);
+							// Bug in Chrome - when you press enter but it put carret on the prev string
+							// Chrome 43.0.2357 in Mac puts visible space instead of invisible
+							if (BX.browser.IsMac() && BX.browser.IsChrome())
+							{
+								var tmpId = "bx-editor-temp-" + Math.round(Math.random() * 1000000);
+								_this.editor.InsertHtml('<blockquote id="' + quoteId + '" class="bxhtmled-quote">' + sel + '</blockquote>' + '<span><span id="' + tmpId + '">' + _this.editor.INVISIBLE_SPACE + '</span></span>', range);
+
+								setTimeout(function()
+								{
+									var tmpElement = _this.editor.GetIframeElement(tmpId);
+									if (tmpElement)
+									{
+										_this.editor.selection.SetAfter(tmpElement.parentNode);
+										BX.remove(tmpElement);
+									}
+								}, 0);
+							}
+							else
+							{
+								_this.editor.InsertHtml('<blockquote id="' + quoteId + '" class="bxhtmled-quote">' + sel + '</blockquote>' + _this.editor.INVISIBLE_SPACE, range);
+							}
 
 							setTimeout(function()
 							{
@@ -4094,6 +4210,10 @@
 								title: smile.name || smile.code
 							}});
 							_this.editor.SetBxTag(smileImg, {tag: "smile", params: smile});
+							if (smile.width)
+								smileImg.style.width = parseInt(smile.width) + 'px';
+							if (smile.height)
+								smileImg.style.height = parseInt(smile.height) + 'px';
 							_this.editor.selection.InsertNode(smileImg);
 
 							var textBefore = _this.editor.iframeView.document.createTextNode(' ');

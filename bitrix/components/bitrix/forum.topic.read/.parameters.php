@@ -89,11 +89,6 @@ $arComponentParameters = array(
 			"NAME" => GetMessage("F_USER_POST_TEMPLATE"),
 			"TYPE" => "STRING",
 			"DEFAULT" => "user_post.php?UID=#UID#&mode=#mode#"),
-		"PATH_TO_SMILE" => Array(
-			"PARENT" => "ADDITIONAL_SETTINGS",
-			"NAME" => GetMessage("F_DEFAULT_PATH_TO_SMILE"),
-			"TYPE" => "STRING",
-			"DEFAULT" => "/bitrix/images/forum/smile/"),
 		"MESSAGES_PER_PAGE" => Array(
 			"PARENT" => "ADDITIONAL_SETTINGS",
 			"NAME" => GetMessage("F_MESSAGES_PER_PAGE"),

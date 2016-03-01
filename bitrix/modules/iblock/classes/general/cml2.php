@@ -84,6 +84,8 @@ class CIBlockCMLImport
 			$this->translit_on_add = $params["translit_params"];
 		if($params["translit_on_update"])
 			$this->translit_on_update = $params["translit_params"];
+		if ($params["disable_change_price_name"])
+			$this->disable_change_price_name = $params["disable_change_price_name"];
 
 		$this->skip_root_section = ($params["skip_root_section"] === true);
 		$this->force_offers = ($params["force_offers"] === true);
@@ -2477,6 +2479,9 @@ class CIBlockCMLImport
 
 				if($ID)
 				{
+					$ipropValues = new \Bitrix\Iblock\InheritedProperty\ElementValues($this->next_step["IBLOCK_ID"], $ID);
+					$ipropValues->clearValues();
+
 					$DB->Query("UPDATE b_iblock_element SET TIMESTAMP_X = ".$DB->CurrentTimeFunction()." WHERE ID=".$ID);
 					$this->_xml_file->Add(array("PARENT_ID" => 0, "LEFT_MARGIN" => $ID));
 				}

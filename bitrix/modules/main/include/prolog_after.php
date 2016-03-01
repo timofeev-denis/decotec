@@ -86,7 +86,7 @@ if(COption::GetOptionString("main", "site_stopped", "N")=="Y" && !$USER->CanDoOp
 }
 
 $sPreviewFile = $_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/tmp/templates/__bx_preview/header.php";
-if($_GET['bx_template_preview_mode'] == 'Y' && $USER->CanDoOperation('edit_other_settings') && file_exists($sPreviewFile))
+if(defined("SITE_TEMPLATE_PREVIEW_MODE") && file_exists($sPreviewFile))
 {
 	include_once($sPreviewFile);
 }

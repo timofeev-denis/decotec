@@ -30,7 +30,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/bac
 $strBXError = '';
 $bGzip = function_exists('gzcompress');
 $bMcrypt = function_exists('mcrypt_encrypt');
-$bBitrixCloud = $bMcrypt;
+$bHash = function_exists('hash');
+$bBitrixCloud = $bMcrypt && $bHash;
 if (!CModule::IncludeModule('bitrixcloud'))
 {
 	$bBitrixCloud = false;
@@ -826,10 +827,10 @@ $editTab = new CAdminTabControl("editTab", $aTabs, true, true);
 
 if ($DB->type != 'MYSQL')
 	echo BeginNote().GetMessage('MAIN_DUMP_MYSQL_ONLY').EndNote();
-if (!$bMcrypt)
+if (!$bMcrypt || !$bHash)
 {
 	CAdminMessage::ShowMessage(array(
-		"MESSAGE" => GetMessage("MAIN_DUMP_NOT_INSTALLED"),
+		"MESSAGE" => ($bMcrypt ? '' : GetMessage("MAIN_DUMP_NOT_INSTALLED")).($bHash ? '' : ' '.GetMessage('MAIN_DUMP_NOT_INSTALLED_HASH')),
 		"DETAILS" => GetMessage("MAIN_DUMP_NO_ENC_FUNCTIONS"),
 		"TYPE" => "ERROR",
 		"HTML" => true));

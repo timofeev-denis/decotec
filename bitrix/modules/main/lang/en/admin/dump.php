@@ -100,6 +100,7 @@ $MESS["MAIN_DUMP_EVENT_LOG"] = "event log";
 $MESS["MAIN_DUMP_ENC_PASS_DESC"] = "Archive password must include at least 6 characters.";
 $MESS["MAIN_DUMP_EMPTY_PASS"] = "Archive password is not specified.";
 $MESS["MAIN_DUMP_NOT_INSTALLED"] = "Mcrypt for PHP is not installed.";
+$MESS["MAIN_DUMP_NOT_INSTALLED_HASH"] = "Hash for PHP is not installed.";
 $MESS["MAIN_DUMP_NO_ENC_FUNCTIONS"] = "Encryption is unavailable. Please contact your system administrator.";
 $MESS["MAIN_DUMP_ENABLE_ENC"] = "Encrypt archive data";
 $MESS["MAIN_DUMP_ENC_PASS"] = "Archive password (at least 6 characters):";

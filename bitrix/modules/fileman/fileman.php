@@ -1363,13 +1363,14 @@ class CFileMan
 		else if (!$arTaskbars)
 			$arTaskbars = Array("BXPropertiesTaskbar", "BXSnippetsTaskbar", "BXComponents2Taskbar");
 
+		$minHeight = $arAdditionalParams['minHeight'] ? intval($arAdditionalParams['minHeight']) : 450;
 		$arParams = Array(
 			"bUseOnlyDefinedStyles"=>COption::GetOptionString("fileman", "show_untitled_styles", "N")!="Y",
 			"bFromTextarea" => true,
 			"bDisplay" => $curHTMLEd,
 			"bWithoutPHP" => $bWithoutPHP,
 			"arTaskbars" => $arTaskbars,
-			"height" => $iHeight < 450 ? 450 : $iHeight
+			"height" => max($iHeight, $minHeight)
 		);
 
 		if (isset($arAdditionalParams['use_editor_3']))
