@@ -52,14 +52,24 @@ function FunctionName($orderID, &$eventName, &$arFields, &$arOrder) {
 
 }
 
-AddEventHandler("subscribe", "BeforePostingSendMail", Array("MyClass", "BeforePostingSendMailHandler"));
-class MyClass {
+AddEventHandler("subscribe", "BeforePostingSendMail", Array("SubscribeHandlers", "BeforePostingSendMailHandler"));
+class SubscribeHandlers {
     // создаем обработчик события "BeforePostingSendMail"
     function BeforePostingSendMailHandler($arFields) {
 		$arFields[ "BODY" ] .= "\r\n";
 		$arFields[ "BODY" ] .= file_get_contents( $_SERVER["DOCUMENT_ROOT"] . "/personal/subscribe/unsubscribe.html" );
+
+        $rsSub = CSubscription::GetByEmail($arFields["EMAIL"]);
+        $arSub = $rsSub->Fetch();
+
+        $arFields["BODY"] = str_replace("#MAIL_ID#", $arSub["ID"], $arFields["BODY"]);
+        $arFields["BODY"] = str_replace("#MAIL_MD5#", SubscribeHandlers::GetMailHash($arFields["EMAIL"]), $arFields["BODY"]);
+
         return $arFields;
     }
-}
 
+    function GetMailHash( $email ) {
+        return md5( md5( $email ) . "d41d8cd98f00b204e9800998ecf8427e" );
+    }
+}
 ?>
