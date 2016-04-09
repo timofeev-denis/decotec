@@ -230,6 +230,18 @@
 						),
 						false
 					);?>
+					<?$APPLICATION->IncludeComponent(
+						"bitrix:main.include",
+						"",
+						Array(
+							"AREA_FILE_SHOW" => "file",
+							"PATH" => SITE_DIR."include/catalog_download.php",
+							"AREA_FILE_RECURSIVE" => "N",
+							"EDIT_MODE" => "html",
+						),
+						false,
+						Array('HIDE_ICONS' => 'N')
+					);?>
 				</div>
 				<div class="col-sm-5 col-md-3 col-md-push-3">
 					<div style="padding: 20px;background:#eaeaeb">
