@@ -104,9 +104,6 @@ $menuBlockId = "catalog_menu_".$this->randString();
 			<?endif?>
 			</li>
 		<?endforeach;?>
-			<li class="bx-nav-1-lvl bx-nav-list-0-col" id="separator" >
-				&nbsp;
-			</li>
 			<li class="bx-nav-1-lvl bx-nav-list-0-col" >
 				<a href="/about/howto/">
 					<span>Как купить</span>
@@ -115,6 +112,11 @@ $menuBlockId = "catalog_menu_".$this->randString();
 			<li class="bx-nav-1-lvl bx-nav-list-0-col" >
 				<a href="/3d-proektirovanie.php">
 					<span>3D-проектирование</span>
+				</a>
+			</li>
+			<li class="bx-nav-1-lvl bx-nav-list-0-col" >
+				<a href="/about/contacts/">
+					<span>Контакты</span>
 				</a>
 			</li>
 		</ul>
